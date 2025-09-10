@@ -1,0 +1,361 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Notion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Notion5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notion6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notion3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion1": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-07-10T00:02:01.339Z",
+  "id": "KaUCuTSRw2NXl9oD",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Notion",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "40d515d4-34f7-4d0a-af7b-73e34721d987",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -280,
+        -60
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "boardItem",
+        "operation": "getAll"
+      },
+      "id": "c9b035a8-8186-4eab-9beb-49b379a392e0",
+      "name": "Monday.com",
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "databaseId": {
+          "__rl": true,
+          "value": "cb7cc383-2b82-4962-b5c3-7f0c14dae239",
+          "mode": "list",
+          "cachedResultName": "Projets",
+          "cachedResultUrl": "https://www.notion.so/cb7cc3832b824962b5c37f0c14dae239"
+        }
+      },
+      "id": "9d59e42e-c63a-4268-823c-4df7366d55d4",
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1220,
+        -40
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "QSEGg1VCNG6VM9ib",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "da4c2f2e-dfcc-4c52-8ce0-c532fd42e0ad",
+          "mode": "list",
+          "cachedResultName": "Podcasts",
+          "cachedResultUrl": "https://www.notion.so/da4c2f2edfcc4c528ce0c532fd42e0ad"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Status|status",
+              "condition": "equals",
+              "statusValue": "Not started"
+            }
+          ]
+        },
+        "options": {
+          "sort": {
+            "sortValue": [
+              {
+                "timestamp": true,
+                "key": "created_time",
+                "direction": "ascending"
+              }
+            ]
+          }
+        }
+      },
+      "id": "38771748-b6f3-45e7-9d72-be83ae2b1d4a",
+      "name": "Notion1",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        -60
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "QSEGg1VCNG6VM9ib",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Co-Interviewer|rich_text",
+              "textContent": "Karen"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dd1bdf99-0de6-44c7-9e50-9ee122de303f",
+      "name": "Notion2",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1060,
+        180
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "QSEGg1VCNG6VM9ib",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "allo"
+            }
+          ]
+        }
+      },
+      "id": "6d8ee137-ab54-47e4-be88-dcfbccb90403",
+      "name": "Notion3",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        840,
+        -80
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "QSEGg1VCNG6VM9ib",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "text": "blog",
+        "options": {}
+      },
+      "id": "b8714634-1031-4ef7-9ec3-b9f5701428e5",
+      "name": "Notion4",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        420,
+        340
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "QSEGg1VCNG6VM9ib",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cc096c7e-bcfd-420d-b3c1-089ea4e42197",
+              "name": "property_video_url",
+              "value": "={{ $json.property_video_url }}",
+              "type": "string"
+            },
+            {
+              "id": "fe21b2b5-4c34-4c65-a206-5fe8de7dc3f0",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "afefee56-b1a0-457a-ba12-00306dea2787",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        580,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        }
+      },
+      "id": "fc1993ad-1288-43c4-baa9-22f09ab971d8",
+      "name": "Notion5",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        840,
+        -300
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "QSEGg1VCNG6VM9ib",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        }
+      },
+      "id": "30550e96-9d96-4737-8202-db4033dd1f38",
+      "name": "Notion6",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        840,
+        100
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "QSEGg1VCNG6VM9ib",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Name|title",
+              "title": "test2"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7031ff8c-c13e-40a6-b446-e760c385cf9b",
+      "name": "Notion7",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        460,
+        -300
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "QSEGg1VCNG6VM9ib",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-11T13:14:13.000Z",
+  "versionId": "0cd63dd7-2d63-4d2a-b119-9d63278e4479"
+}
