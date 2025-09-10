@@ -1,0 +1,67 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "n8n",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-16T11:30:28.153Z",
+  "id": "hQpa7hgKCuP5wbI0",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost - BACKUP",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "f5b3cab8-c3d6-4b61-aad5-6ff99b2c1de2",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        480,
+        400
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filters": {},
+        "requestOptions": {}
+      },
+      "id": "857b96a2-3b79-4be6-acec-1fcc3dbc6d06",
+      "name": "n8n",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        760,
+        400
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "HAW0AYPLT8fzaLEv",
+          "name": "n8n account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-16T13:54:50.000Z",
+  "versionId": "1ab2db45-8c1d-4903-88f1-1159f5282fe4"
+}
