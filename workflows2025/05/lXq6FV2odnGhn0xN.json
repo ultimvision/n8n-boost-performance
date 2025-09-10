@@ -1,0 +1,406 @@
+{
+  "active": false,
+  "connections": {
+    "Exemple Scripts Musicaux": {
+      "main": [
+        [
+          {
+            "node": "Création des paroles de la chanson",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Profile de la personne": {
+      "main": [
+        [
+          {
+            "node": "Exemple Scripts Musicaux",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Démarrage": {
+      "main": [
+        [
+          {
+            "node": "Récupérer Information Entrevue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer Information Entrevue": {
+      "main": [
+        [
+          {
+            "node": "Analyse du profil de Invité",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyse du profil de Invité": {
+      "main": [
+        [
+          {
+            "node": "Profile de la personne",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sabrina IA": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Analyse du profil de Invité",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Max IA - Parolier": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Création des paroles de la chanson",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sabrina IA - Réviseuse": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Correction automatique de la structure",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structure de la chanson": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Correction automatique de la structure",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Correction automatique de la structure": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Création des paroles de la chanson",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Création des paroles de la chanson": {
+      "main": [
+        [
+          {
+            "node": "Paroles de la chanson",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-15T21:34:14.791Z",
+  "id": "lXq6FV2odnGhn0xN",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Création des paroles d'une chanson - Jungle",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "453d82fe-48be-488f-a46a-7aba046e5a56",
+              "name": "=exemples",
+              "value": "=Ho-Ohhhh\nBaby\n[Verse]\nYou can be my golden sunshine \nBaby\nYou can be the one I call mine\nHo-oh\n\n[Chorus]\nWhen it's cold at night you can warm me up\nAll right\nWhen it's cold at night you can warm me up\nAll right\n\n[Verse]\nWe can play undercovers\nOh-oh\nWe can play like lovers\nOh-oh\n\n[Chorus]\nWhen it's cold at night you can warm me up\nAll right\nWhen it's cold at night you can warm me up\nAll right\n\n\n\nHere and now with you, put me down for two\nall right\n\n[Chorus]\nYou can be my golden sunshine \nhey-ey\nYou can be the one I call mine\nHo-oh\nWhen it's cold at night you can warm me up\nAll right\nWhen I'm empty you can fill me up\nAll right, all right\n\n\n\nYou can bring me your problems\nHo-oh\nAs long as you give me your hand\nAh-oh\n\nBaby I'm here with you, and we'll get through\nEverything\nOh-oh\n\n[Chorus]\nYou can be my golden sunshine \nBaby\nYou can be the one I call mine\nHo-oh\nWhen it's cold at night you can warm me up\nAll right\nWhen it's cold at night you can warm me up\nAll right\n\n[Scat]\n[End]\n\n[Chorus, Strong Emotional, Outro\nYou can be my golden sunshine \nBaby\nYou can be the one I call mine\nHo-oh\nWhen it's cold at night you can warm me up\nHa-oh\nWhen it's cold at night you can warm me up\nAll right\n[Fade]\n[End]\n\n[End]\n\n2e exemple\n\n[Instrumental intro]\n\n[instrumental]\n\n[Pre-Intro]\nIn the neon glow, he was standing alone\n\n[Intro]\nUnder disco lights, he caught her eyes\n\n[Verse 1]\nHe was watching the night, in the rhythm's hold\nA story of love, about to unfold\nShe was dancing away, in a trance so bold\nWith a guy who was just too hard to scold\n\n[Chorus]\nHe meets a girl, she kisses a boy, oh the disco joy\n(Repeat this line)\n\n[Verse 2]\nThe beats were high, and the night was young\nHe felt the twist of fate, on his tongue\nShe was like a melody, in an Italo song\nBut the kiss she gave, was to someone wrong\n\n[Chorus]\nHe meets a girl, she kisses a boy, lost in the disco noise\n(Repeat this line)\n\n[Bridge]\nIn the heart of the night, where the feelings are strong\nHe's got to find a way, to where he belongs\n\n[Pre-Outro]\nAs the music fades, he's ready to go\nBut the image of her kiss, still a vibrant show\n\n[Outro]\nIn the silence of the night, after the disco lights\nHe'll remember the girl, and the boy she likes\n\n\n[Instrumental build]\n\n[Verse 1]\nHe was watching the night, in the rhythm's hold\nA story of love, about to unfold\nShe was dancing away, in a trance so bold\nWith a guy who was just too hard to scold\n\n[Instrumental]\n\n[Chorus]\nHe meets a girl, she kisses a boy, oh the disco joy\n(Repeat this line)\n\n[Instrumental calms down]\n\n[Instrumental build]\n\n[Verse 2]\nThe beats were high, and the night was young\nHe felt the twist of fate, on his tongue\nShe was like a melody, in an Italo song\nBut the kiss she gave, was to someone wrong\n\n[Chorus]\nHe meets a girl, she kisses a boy, lost in the disco noise\n(Repeat this line)\n\n[Instrumental]\n\n[Bridge]\nIn the heart of the night, where the feelings are strong\nHe's got to find a way, to where he belongs\n\n\n[Instrumental]\n\n[Chorus]\nHe meets a girl, she kisses a boy, oh the disco joy\n\n[Chorus]\nHe meets a girl, she kisses a boy, oh the disco joy\n\n[Instrumental]\n\n[Verse 2]\nThe beats were high, and the night was young\nHe felt the twist of fate, on his tongue\nShe was like a melody, in an Italo song\nBut the kiss she gave, was to someone wrong\n\n[Instrumental]\n\n[Chorus]\nHe meets a girl, she kisses a boy, lost in the disco noise\n\n[Chorus]\nHe meets a girl, she kisses a boy, lost in the disco noise\n\n[Instrumental build]\n\n[Verse 2]\nThe beats were high, and the night was young\nHe felt the twist of fate, on his tongue\nShe was like a melody, in an Italo song\nBut the kiss she gave, was to someone wrong\n\n[Instrumental]\n\n[Chorus]\nHe meets a girl, she kisses a boy, lost in the disco noise\n\n[Chorus]\nHe meets a girl, she kisses a boy, lost in the disco noise\n\n[Instrumental]\n\n[Bridge]\nIn the heart of the night, where the feelings are strong\nHe's got to find a way, to where he belongs\n\n[Instrumental build]\n\n[Pre-Outro]\nAs the music fades, he's ready to go\nBut the image of her kiss, still a vibrant show\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        460,
+        -180
+      ],
+      "id": "ca8bc36f-2d39-4ed6-b09f-ff8cfb1b57f5",
+      "name": "Exemple Scripts Musicaux"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "271d7f9a-9a5c-4c4d-b826-e48489cfba8f",
+              "name": "profil",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        -180
+      ],
+      "id": "b3626b48-fe29-467f-8c47-9ff7f4cc99c3",
+      "name": "Profile de la personne"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -560,
+        -180
+      ],
+      "id": "bf9e2f56-8cbf-45b4-94e1-ae8d4efb225a",
+      "name": "Démarrage"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "id": "={{ $json.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -340,
+        -180
+      ],
+      "id": "bec3ef65-ab87-4bf0-8b00-ad31d95a3bc4",
+      "name": "Récupérer Information Entrevue",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.Contenu }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=RÔLE :\nTu es un biographe expert en narration vivante, claire et captivante.\n\nACTION :\nLis l'article d'entrevue fourni et rédige un résumé détaillé et immersif du profil de la personne interviewée, comme si tu racontais l’histoire complète de sa vie à un lecteur curieux.\n\nCONTEXTE :\nL’article est issu d’une entrevue, mais ne fais aucune mention de l’intervieweur, de l’émission, du format de l’entretien, ni des questions posées. Concentre-toi uniquement sur la personne interviewée. Ton objectif est de reconstruire le parcours de vie de cette personne à partir des informations extraites de l’article.\n\nEXIGENCES :\n\nRaconte son parcours de vie, de ses débuts à aujourd’hui.\n\nInclue ses bons coups, réussites, exploits, idées marquantes, réalisations.\n\nMentionne également ses échecs, erreurs, leçons tirées, moments difficiles.\n\nMets en lumière ses défis surmontés, aventures, prises de risque, décisions clés.\n\nFais ressortir ses valeurs, motivations, croyances, traits de caractère.\n\nAdopte un ton narratif et immersif, comme si tu écrivais un portrait journalistique ou une biographie condensée.\n\nLe texte doit être structuré, fluide, et captivant du début à la fin.\n\nVoici le nom de la personne interviewée : {{ $json['Invité'] }}\n"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        -120,
+        -180
+      ],
+      "id": "d309927a-6418-4f36-b1e9-7a0be18dedfe",
+      "name": "Analyse du profil de Invité"
+    },
+    {
+      "parameters": {
+        "model": "anthropic/claude-3.5-sonnet",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        20
+      ],
+      "id": "59d4a477-f77b-4fe9-9866-e776b3e307f0",
+      "name": "Sabrina IA",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=📎 Voici le texte du profil de la personne :\n{{ $('Profile de la personne').item.json.profil }}\n\nVoici des exemples de paroles :\n{{ $json.exemples }}\n",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=### Rôle : Tu es un parolier expert en storytelling musical.  \n\n### Action : Transforme ce texte d’entrevue en une chanson cohérente, inspirante et structurée. Fait resortir la personalité de la personne interviewée.   \n\n### Contexte : \nLe texte provient d’une entrevue où  {{ $('Récupérer Information Entrevue').item.json['Invité'] }} partage ses réflexions, expériences ou conseils autour de l'entrepreneuriat, dépassement de soi, créativité, technologie, obstacles personnels.  \n\n### Exigences :  \nTu dois raisonner et faire resortir en positif l'expérience de la personne interviewée pour créer les paroles d'une chanson qui va devenir un succès musical. Tu dois utiliser tes connaissances en création de parole musicale, couplet, refrain, pour rédiger la meilleure chanson pour cette personne. Une fois la chanson rédigée, tu l'analyses pour évaluer s'il est correspond aux critères des succès musicaux internationaux.  \n\nLes paroles doivent être en français.  \n\nStructure complète avec :  \n-intro (optionnelle)  \n-3 couplets  \n-1 refrain accrocheur qui intègre le nom de la personne interviewée (répété)  \n-1 pont (bridge)  \n-1 outro (optionnelle)  \n\nGarde un vocabulaire accessible, avec quelques métaphores.  \n\nUtilise les expressions fortes ou punchlines tirées de l’entrevue dans les refrains ou moments clés.  \n\nChaque section doit être clairement identifiée.\n\nTa réponse finale doit contenir uniquement les paroles structurées de la chanson et le titre. Aucune explication ou message de fin."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        700,
+        -180
+      ],
+      "id": "01f7c9dd-cadf-4869-9f4b-56808a88b506",
+      "name": "Création des paroles de la chanson",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        580,
+        40
+      ],
+      "id": "2086c5df-84de-4507-9e4c-8f8456fc5166",
+      "name": "Max IA - Parolier",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        700,
+        180
+      ],
+      "id": "5464fda1-d399-4ff1-8371-a1186daf0aa6",
+      "name": "Sabrina IA - Réviseuse",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"paroles\": \"uniqement les paroles structurées\",\n    \"titre_chanson\" : \"10 mots\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        900,
+        180
+      ],
+      "id": "fc7fffc1-963b-488a-9b35-82f5f18b0884",
+      "name": "Structure de la chanson"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        780,
+        0
+      ],
+      "id": "76409724-bf36-4a3e-b2a6-503ecf952f99",
+      "name": "Correction automatique de la structure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e732420-e289-4109-a8f0-598aeceaa551",
+              "name": "paroles",
+              "value": "={{ $json.output.paroles }}",
+              "type": "string"
+            },
+            {
+              "id": "20dffd14-0caa-47c4-bdf2-0e473a59d3df",
+              "name": "titre_chanson",
+              "value": "={{ $json.output.titre_chanson }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1200,
+        -180
+      ],
+      "id": "63cbeb16-5931-4c21-ae80-9e15fcc7a578",
+      "name": "Paroles de la chanson"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-20T16:14:26.000Z",
+  "versionId": "a23f10cb-79bf-4a9f-807c-7e8569243899"
+}
