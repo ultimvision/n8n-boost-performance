@@ -1,0 +1,178 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Verify Signature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify Signature": {
+      "main": [
+        [
+          {
+            "node": "Is from Stripe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is from Stripe": {
+      "main": [
+        [
+          {
+            "node": "Webhook Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-10T18:30:05.236Z",
+  "id": "pdWAQggQ4HVaIoB1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Webhook - Stripe",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "stripe",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "6c6a7c84-cc7b-408e-882d-66d316caa8fa",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        620,
+        520
+      ],
+      "webhookId": "3be36a49-54b5-46db-be12-a39b454f9220"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const crypto = require('crypto');\n\nconst verifySignature = (body, header) => {\n  // Parse the header values\n  const parsedHeader = header.split(',').reduce((accum, x) => { \n    const [k, v] = x.split('=');\n    return { ...accum, [k]: v };\n  }, {});\n\n  // Stripe signing secret\n  const signingSecret = $vars.stripe_webhook_secret;\n\n  // Create the payload string\n  const payload = Buffer.concat([\n    Buffer.from(parsedHeader.t + '.', 'utf8'),\n    Buffer.from(body, 'base64')\n  ]);\n\n  // Compute HMAC SHA-256 signature\n  const computedSignature = crypto\n    .createHmac('sha256', signingSecret)\n    .update(payload)\n    .digest('hex');\n\n  \n\n  // Compare the computed signature with the header's v1 signature\n  return computedSignature === parsedHeader.v1;\n}; \n\n// Call the function and return the result\nreturn {\n  verified: verifySignature($('Webhook').first().binary.data.data, $input.item.json.headers['stripe-signature'])\n};"
+      },
+      "id": "3f4a1ea8-7421-4f27-abf5-19fe8efd6b48",
+      "name": "Verify Signature",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "253c9eef-d611-4178-8197-3fc42b85a993",
+              "leftValue": "={{ $json.verified }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "aa69b9ff-aaa5-4e23-8ca4-76cee0df2740",
+      "name": "Is from Stripe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1220,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Security\n\nAdd payload signature verification to make sure this call comes from Stripe.",
+        "height": 409.33266549136084,
+        "width": 603.0906941217922,
+        "color": 5
+      },
+      "id": "6c091c0d-24e6-4296-854e-24c426cc0a51",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        860,
+        309.8665330982713
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f5edd433-e4b4-4fe3-8fc4-516b2a8b4b36",
+              "name": "payload",
+              "value": "={{ $('Webhook').item.json.body }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b0066f07-04d6-474b-8dc6-151db2a877e5",
+      "name": "Webhook Payload",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1560,
+        520
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Stripe Trigger": {}
+  },
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:39:21.071Z",
+      "updatedAt": "2024-10-16T13:39:21.071Z",
+      "id": "E8nPTYjZtWlaLr4T",
+      "name": "Webhook"
+    },
+    {
+      "createdAt": "2024-11-12T19:50:40.502Z",
+      "updatedAt": "2024-11-12T19:50:40.502Z",
+      "id": "LA4RAcOfqWJQKMdI",
+      "name": "Stripe"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-11-12T21:52:20.000Z",
+  "versionId": "d79ffa83-d5c9-4730-8765-fd8a8ade8404"
+}
