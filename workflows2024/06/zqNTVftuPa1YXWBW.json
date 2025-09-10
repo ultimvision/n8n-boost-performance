@@ -1,0 +1,556 @@
+{
+  "active": false,
+  "connections": {
+    "Json Parser Image": {
+      "main": [
+        [
+          {
+            "node": "System Prompt Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop through the Image's Sequences": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Image's Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract the Sequence's Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Image's Data": {
+      "main": [
+        [
+          {
+            "node": "Loop through the Image's Sequences",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Status is Succeeded": {
+      "main": [
+        [
+          {
+            "node": "Json Parser Image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Status is Not Failed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Status is Not Failed": {
+      "main": [
+        [
+          {
+            "node": "Wait 0.5 sec",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop through the Image's Sequences",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluation": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Loop through the Image's Sequences",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Image's Data": {
+      "main": [
+        [
+          {
+            "node": "Return Images Evaluation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "System Prompt Image": {
+      "main": [
+        [
+          {
+            "node": "Open AI Vision API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Split Image's Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 0.5 sec": {
+      "main": [
+        [
+          {
+            "node": "Extract the Sequence's Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract the Sequence's Image": {
+      "main": [
+        [
+          {
+            "node": "If Status is Succeeded",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Open AI Vision API": {
+      "main": [
+        [
+          {
+            "node": "Evaluation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-29T11:14:52.732Z",
+  "id": "zqNTVftuPa1YXWBW",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Extract Images | Part-3 | Analyse Image Content",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "6602dc11-6af1-4dd4-a82b-6c0cb32669f0",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28cc1467-4503-401f-a285-208dea8131c2",
+              "name": "json_schema",
+              "value": "={\n  \"type\": \"object\",\n  \"properties\": {\n    \"evaluation\": {\n      \"type\": \"integer\"\n    },\n    \"evaluation_explanation\": {\n      \"type\": \"string\"\n    },\n    \"same_persons\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"required\": [\n    \"evaluation\", \"evaluation_explanation\", \"same_persons\"\n  ],\n  \"additionalProperties\": false\n}",
+              "type": "string"
+            },
+            {
+              "id": "656241ae-f49a-48de-b1dd-5d34ff9a5d01",
+              "name": "json_instructions",
+              "value": "=You must format your output as a JSON value that adheres to a given JSON schema. JSON schema is a declarative language that allows you to annotate and validate JSON documents. Your output will be parsed and verified against the provided schema instance, so make sure all fields in your output exactly match the schema and that there are no extra commas! Here is the JSON schema instance that your output must conform to:",
+              "type": "string"
+            },
+            {
+              "id": "b602ffa2-e26e-4c41-9604-712688afc279",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9e4d0223-473d-447f-8dae-956b37b459a9",
+      "name": "Json Parser Image",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1400,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "42b15410-e14a-42f9-9232-e6c08e9b4aa6",
+              "name": "content",
+              "value": "={{ $json.body.choices[0].message.content }}",
+              "type": "object"
+            },
+            {
+              "id": "84f27306-89b6-4a6f-b373-f58e25222f9f",
+              "name": "url",
+              "value": "={{ $('Json Parser Image').item.json[\"url\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a3e1312b-d1f4-4344-84e1-048e827065f9",
+      "name": "Evaluation",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2040,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f6d799db-4f39-40cf-9a76-34b164acafb5",
+              "name": "interviewer_image",
+              "value": "={{ $json.images_data[0].url }}",
+              "type": "string"
+            },
+            {
+              "id": "a56184c7-8ab8-45bb-93be-5582f8d7acb9",
+              "name": "images_data",
+              "value": "={{ $json.images_data }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "142f9136-320c-4acf-96cc-74054e31de8e",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        100,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d51524cb-b8d1-4058-8179-aa66f93ee204",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "56b2a93d-b38d-4640-a611-7b43878828a6",
+      "name": "Return Images Evaluation",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1300,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "images_data",
+        "options": {}
+      },
+      "id": "ec721dec-1eb0-4313-8c6a-518fc6d710ca",
+      "name": "Split Image's Data",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        400,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "eedac842-a7c2-4ff7-8366-ca8d12bb1d2e",
+      "name": "Loop through the Image's Sequences",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        660,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "images_data",
+        "options": {}
+      },
+      "id": "e472bdf1-4916-4203-ab1c-fd99b3a8113e",
+      "name": "Aggregate Image's Data",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "63c07695-b1df-4312-bd10-32e95edafc2e",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "succeeded",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a4559d1d-e74f-4458-a73f-860e48b0cee8",
+      "name": "If Status is Succeeded",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "5afabdb3-7174-4b0c-ba7e-839489283b2f",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "failed",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "69b962cb-95a8-48ab-a8bd-ec3f2736189d",
+      "name": "If Status is Not Failed",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        380
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0ba90bd8-9d04-40bf-b79a-1a308f61699e",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef4b4092-1f64-4156-97ac-2b7ce1c3e4db",
+              "name": "system_prompt",
+              "value": "=Instructions for Analyzing and Comparing Images\n\nObjective:\nYou will analyze a provided image from a podcast interview to assess specific facial features and compare two images to determine if they depict the same person.\n\nTask 1: Analyze the First Image\nA. Face Visibility:\nDetermine if you can see the full face or entire faces of the people in the image with a forward-looking gaze.\nScore from 1 to 5:\n- 5: All faces are fully visible and looking forward.\n- 3-4: Faces are partially visible or partially looking forward.\n- 0-2: Faces are barely visible.\n\nB. Smile Detection:\nCheck if the faces in the image are smiling.\nScore from 1 to 5:\n- 5: All faces are smiling.\n- 3-4: Some faces have partial smiles.\n- 0-2: Smiles are barely visible or not visible.\n\nC. Eye Openness:\nAssess if the eyes of the faces are open and if you can see or imagine the inside of the eyes.\nScore from 1 to 5:\n- 5: All faces have open eyes.\n- 3-4: Not all faces have open eyes.\n- 0-2: Eyes are barely visible or closed.\n\nD. Calculate the Total Score:\nAdd the scores from the three criteria above to get a total score between 0 and 15.\n- Visibility Score: X/5\n- Smile Score: X/5\n- Eye Openness Score: X/5\n- Total Score: X/15\nA perfect score of 15 means all criteria are perfectly met.\n\nTask 2: Compare Both Images\nAfter analyzing the first image, you will compare it with a second image to determine if the same person or people appear in both images.\n\nFocus on the following features for comparison:\n- Facial structure\n- Eyes\n- Nose\n- Mouth\n- Any distinguishing features (e.g., scars, moles, facial hair)\nState true or false if the same person/people appear in both images with supporting observations.\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1157e921-607b-4f0f-9ccb-208c6e7cb590",
+      "name": "System Prompt Image",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1620,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 0.5
+      },
+      "id": "7e97b604-d513-4c18-8863-37d5462fed40",
+      "name": "Wait 0.5 sec",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1660,
+        520
+      ],
+      "webhookId": "3982d7e6-45c6-4375-bcaf-60c0bd158950"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.creatomate.com/v1/renders/{{ $json[\"id\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.CREATOMATE_API_KEY }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "26a5f159-f5f7-4b6c-b421-9b8e6e6071a2",
+      "name": "Extract the Sequence's Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        920,
+        300
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.OPENAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"response_format\": { \"type\": \"json_object\" },\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": {{ JSON.stringify($json[\"system_prompt\"]) }}\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": {\n            \"url\": \"{{ $('Json Parser Image').item.json[\"url\"] }}\"\n          }\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": {\n            \"url\": \"{{ $('Workflow Data').item.json[\"interviewer_image\"] }}\"\n          }\n        }\n      ]\n    }\n  ],\n  \"max_tokens\": 500\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "86f7f696-8999-4ebd-b05a-a0c8dd872239",
+      "name": "Open AI Vision API",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1840,
+        160
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:14:01.125Z",
+      "updatedAt": "2024-06-29T11:14:01.125Z",
+      "id": "X4m1RhBLnumYOEJu",
+      "name": "ExtractImage"
+    },
+    {
+      "createdAt": "2024-06-30T20:22:04.666Z",
+      "updatedAt": "2024-06-30T20:22:04.666Z",
+      "id": "dhpPyoNYWlkDZUAq",
+      "name": "OpenAI API"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-16T11:56:20.000Z",
+  "versionId": "5cbb8b84-d0c5-4482-af23-9d2ed724aef3"
+}
