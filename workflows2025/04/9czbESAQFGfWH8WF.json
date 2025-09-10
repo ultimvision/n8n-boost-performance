@@ -1,0 +1,1713 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Data Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compose message": {
+      "main": [
+        [
+          {
+            "node": "Send message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send message": {
+      "main": [
+        [
+          {
+            "node": "Get Next Message Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message settings": {
+      "main": [
+        [
+          {
+            "node": "Logo Boost Performance IMG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Content": {
+      "main": [
+        [
+          {
+            "node": "Create Final HTML Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Logo Boost Performance IMG": {
+      "main": [
+        [
+          {
+            "node": "Compose message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Next Message Params": {
+      "main": [
+        [
+          {
+            "node": "If Next Message Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Final HTML Message": {
+      "main": [
+        [
+          {
+            "node": "Switch Message Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Next Date Sending": {
+      "main": [
+        [
+          {
+            "node": "Update Next Email to Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Next Message Exists": {
+      "main": [
+        [
+          {
+            "node": "If Event Automatisation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Next Email to Send1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Workflow": {
+      "main": [
+        [
+          {
+            "node": "If Event ID Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Event ID Exists": {
+      "main": [
+        [
+          {
+            "node": "Get Event Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Data Workflow Updated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Event Details": {
+      "main": [
+        [
+          {
+            "node": "Data Workflow Updated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Workflow Updated": {
+      "main": [
+        [
+          {
+            "node": "Replace Variable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Event Automatisation": {
+      "main": [
+        [
+          {
+            "node": "Set Next Date Event Sending",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Next Date Sending",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Next Date Event Sending": {
+      "main": [
+        [
+          {
+            "node": "Update Next Email to Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Message Type": {
+      "main": [
+        [
+          {
+            "node": "Add Emails to Send in History",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Message settings",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SMS Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS Message": {
+      "main": [
+        [
+          {
+            "node": "Twilio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Twilio": {
+      "main": [
+        [
+          {
+            "node": "Get Next SMS Message Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Next SMS Message Params": {
+      "main": [
+        [
+          {
+            "node": "If Next Message Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Variable": {
+      "main": [
+        [
+          {
+            "node": "Replace Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-11T01:29:23.607Z",
+  "id": "9czbESAQFGfWH8WF",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Send Email Automation for Leads in Boost 2025 CRM - Sub-Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -752,
+        608
+      ],
+      "id": "0ac41f48-4bde-4a27-b778-6480b5d2bf2e",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -528,
+        608
+      ],
+      "id": "15e653de-8ae4-4061-9612-65b53f87e3bb",
+      "name": "Data Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2addc1b4-68a0-4c72-87d6-d47286eef70c",
+              "name": "raw",
+              "type": "string",
+              "value": "={{ \"From: \"+ $('Data Workflow').item.json.De + \"\\nTo: \"+$('Data Workflow').item.json['Contact Email'] + \"\\nSubject: \"+ $('Replace Variable').item.json.Sujet+ \"\\nMIME-Version: 1.0\\nContent-Type: multipart/related; boundary=boundary1\\n\\n--boundary1\\nContent-Type: text/html; charset=UTF-8\\n\\n<html>\\n<body>\\n\"\n+ $('Message settings').item.json.body_html+\"\\n</body>\\n</html>\\n\\n--boundary1\\nContent-Type: \"+$json.mime_type+\"\\nContent-Transfer-Encoding: base64\\nContent-Disposition: inline\\nContent-ID: <image1>\\n\\n\"\n+$json.img_base_64\n+\"\\n\\n--boundary1--\\n\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "88947c4f-a69c-4f94-a23e-29f80d590d4e",
+      "name": "Compose message",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1712,
+        608
+      ],
+      "typeVersion": 3.3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.googleapis.com/gmail/v1/users/me/messages/send",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "gmailOAuth2",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={ \"raw\": \"{{ $json.raw.base64Encode() }}\"}",
+        "options": {}
+      },
+      "id": "53edef44-9a62-4743-a031-0967021de08e",
+      "name": "Send message",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1936,
+        608
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0QV9hRaMqUh5Tw0f",
+          "name": "Gmail coach@boostperformance.ai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c6c3f28e-6689-4c8d-8d78-de4837acb439",
+              "name": "body_html",
+              "value": "={{ $json.html }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b8bb9acc-38ad-4f42-b0f7-7f650f540bff",
+      "name": "Message settings",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1264,
+        608
+      ],
+      "typeVersion": 3.3
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validation et récupération des données d'entrée\nconst inputData = $input.first();\nif (!inputData || !inputData.json) {\n  throw new Error(\"Données d'entrée manquantes\");\n}\nconst contenu = inputData.json.Contenu || '';\n\n// Validation et récupération du template HTML depuis le nœud \"Data Workflow\"\nconst dataWorkflowNode = $('Data Workflow').first();\nif (!dataWorkflowNode || !dataWorkflowNode.json) {\n  throw new Error(\"Données manquantes dans le nœud 'Data Workflow'\");\n}\nconst template = dataWorkflowNode.json[\"Template Content\"] || '';\n\n// Fonction utilitaire pour remplacer des placeholders dans une chaîne\nfunction replacePlaceholders(text, placeholders) {\n  for (const key in placeholders) {\n    const regex = new RegExp(`{{\\\\s*${key}\\\\s*}}`, 'gi');\n    text = text.replace(regex, placeholders[key]);\n  }\n  return text;\n}\n\n// Remplacement du placeholder \"content\" dans le template\nconst finalHtml = replacePlaceholders(template, { content: contenu });\n\n// Retourne l'objet final\nreturn {\n  json: {\n    final_content: finalHtml\n  }\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        592,
+        608
+      ],
+      "id": "f8c6cfbe-f43e-46b3-9b34-0686dbf3bffb",
+      "name": "Replace Content"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "20a18d1b-2274-4909-923d-d88dad9f0437",
+              "name": "mime_type",
+              "value": "image/png",
+              "type": "string"
+            },
+            {
+              "id": "b2e9a7dc-b16c-42a0-873e-487f886edc80",
+              "name": "img_base_64",
+              "value": "iVBORw0KGgoAAAANSUhEUgAAASwAAACECAYAAAAqRRZCAAAmnUlEQVR42u2dd5gc1ZX2fz1RcSSBAAkQEiIIBAiEyCDiLcABs7Bre+3lMw67tpfFOKzXOOHA2l4bbGNscCLYxhitE9HELnKQjEkChECyhIQkFFAapckz+8d565tS090z3dNx5r7P08/0zHR1Vd26970nH/Dw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PAYzEj4IfAoBALnEkAt0AiMBMYBY4EmvW8ExmjOdQKbgVZgE7BVv2/U39qSYdjtR9XDE5ZHIQkqIVKaDBwCHAYcCOwjkmoCRgA1+myNDu8BIkLqBLYBW4C3gKXAK8DLwKvAKqAFIBmGPX7kPWF5eORCVHXAHsBM4HTgeGCqpKfGAp2mB9ghAlsIPAo8pvfNnrg8YXl49CVNjQIOB84FzgL2B4aX6BJ6pDq+ANwF3CdJrMOTlycsD49UojoZ+BBwKjA+ptqVAx3AMuB24BZgAdDpicsTlsfQJqphIqp/F1GNqbDL7AZWArcC1wGLkmHY6Z+eJyyPoUVWtcDBwMXA+zDjeSWjB1gC/AL4LbDOS1uesDyGjlT1XuC/RFq1VXQLrUAIfAt4JhmGXf6pDj7U+SHwEFntDXwe+DAWjlBtGAa8E7NxfRxY75+sJyyPwUdWNViIwneB06pMqoqjDbgb+CqwwT9ZrxJ6DE6yOgH4MXBEFc+HZuDnwFV4G5YnLI9BSVa1WDzVD4CDqvQ2eoBFwDeB25Nh2OKfrCcsj8EpWZ2Kedb2r2IV8H7gcuB5n3voCctjcJJVApgB/FpqYDViE/BT4BpgrVcBhw680X3oYW/ge1iaTbWhG5gPfBv4SzIM2/zj9ITlMXilq9HAF4EzqlC63gb8UWS7OB8VMFYCp8tLZdWJGj8EQ4asaoDzgAuqcKN6HfgS8DksBSdfspoMfAGYpt89vITlUYFklQAO0GKtpqDQVuAeLEbs+XxzBQPnGiRVXgYcpbH4lKQ2D09YHhWGRuA/gOllvIZueov2RcX8Mkk5PcAK4GrgV8DmfFQ4EfXuWOT7xXoP8A/APYFzf/beRU9YHpUnXR2L5QiWUg3qxArwLcFqV63CItA7sJI144FJknYmY5VLAdqBJHAFMC8Zhu153netpKmvAAGWuhNhLFaF4lFgXR7jOQIYrVeTXnUxst2OFSDcovfbgBZvNxs4EgNYCAfKJlJO0mvHXNwbgLVYuZENwA4/Of7/cxoF/Az4lxIR1gbgKaxe1dMiqq2kGLq18KM67wcADjhRKuBNwMYBSFW7Yra6T4sMExnUzUuA67OdR7a/McC+WBhIpFJOAHbRPdSnnKNTr1aNx1tYDa8XsfLPS0SUrbneY+BclKC+TxVNwxeTYXhXuSWsg4FvULiyuPkiqg++TaT1CvBQ4FyIr0qJFtjZJSCrFqwS6E+BeZIsMtZh199bgdbAuXUiuZHabLryJKpa4GjMVnd2ilSVimEitdtISZTWd9VjQbXvAN6F1azfldxzLSelqMU7tLE+DzwYOPekyKytn/O0EfgYVqusWnATVim27CphgvK7xyN7yFi9pmmCLQP+DPw6cO7vQ9FWEThXj9W02rXIp1qFpfjkJRnp8z2SxPJVeyOp6hJgSj/n5SzghMC5u6Jrlio5DfgIZuuaLPIqBGqkDh+k1/kir0eAPwfOPZUMw+YqWXcl0eSGig2rAevecilwDvCtwLk7h2Cu2RTgzCJP7hc1zg8mw7CjxISc0LM+EavhdVqOEv9IEXoycK4VK1b4L5iB/oASkEIjsJ9e7wXmBs7dgNnwfLONDIw/2O/vUCyF4xLZc4aKdJUAZktCKBZeBS4CHigDWdXo3r4G/E4qYD7miZNipHEtFph6YBkkmCYsGf0G4Ebg1MC5Bh8vNjQkrFSMB74MdATOXZOv5ymPRdVIrzdpV6mso1M2ih7M/taMGWi36NU2wB12mKSrYj3jdZgHbl4p1W0t4JFS+z8jtW4gKttE4KPa2M6ogE18tFTRY7GSOb8MnPMlc4YYYUU72BeBxYFzdxd6kcUW0l6YgXamFsHeWPzPSKkvDWkO78A8ni2YR2klsDBw7lmsK8wbwLYcr3kvzOBeDLRhNbTuLmUpYgWAzsSCPt+jxV0I88HFWguVIs0kgD2xQNcTtNk+7+lq6MVh7YZ5kJ7DDMWFIKlG2TtO0Q59hHbthhwWQGMK0RwhCaJTkszLwKOBc0msmWh/wjYOxVzvxcBfgRtLmXwcODccM6hfhHneCkku9RU6X+ulss7whNVr4xlqOAp4j2wgA1lAkc3hWsxl+0OJ8lNEQANdUJFrfS+d57+BO2XfOD9wbnwm+4Y8XbOwAMdCo1XXsLbEz60b86wVmqwqGV3AHCymzYOhGek+DPhnLPM/p0YFscaip2DpHidTun59tZLc3ge8G3hW9o17gE0pEtcwSVjFWNgvAveVOkwkGYZtgXNztCmMHSJz9THg2/0MdfCENYhxqHbrJ3IgqtqY/eScMi+aEZgHcCbwMPAjBSC2i7hGA1OLJOXcg9nZyoFnsXpYpwyBOboM84C+4WlqaKuESCrKpYBdE/AJ4H+x4MRK2eFHiTxvxmKhdosFUe5ShPNtAR4pYxDuZkkdgz0IeAvwP5gH1nsHvYRFDWYo749ktR/WOuq9FMcmVAhMxEIMjgG+jnkki1FG5g1gcbluMhmGXYFzT2FpP6MrZOzb9eqRFF7H23MLc0EHZiO8Jd9yOp6wioOVmEGxv9HnCS3C46UKDcSzk+hLSor16/sB5qmp9H59DVgj0UlYB+ThRTjHEixerJx4HdhYZsLqEXn/BfPercY8uiMwT/Q+WK7twXoeo3IgsIeA74uUs6nm+UiZNQW473wkvoJJxOUkrBXA/yTDcFN/PhyzI02UFPHhAZJIog+yOhb4CXAk1eOVihpMTKPwrvo2LLyi3HXUN2MBtpPLeA2LMKfLPNIk12v+DJdafhBwOlaNYnofUvpizG71ZhZVsBX4JXBvHmT1Xs3nfHEvVpInV7w85FRCPcBOYEXg3Pck9UwbwFduzUJWJ2DpPNXYqAEKW0GjVVLEDVhYRVeZ722bSKucuA94KpPKJhvfdr1WBM49CPwIc5S8XwSWamPchPVXfCab3Uqxb3NyvWAlwk8fIGE9Cny/nIUEqtWG9SaWx5YvYXVhXph0Utx0Ta4ZQ9xc0IYF2P4GizNbUyEVLzpl5yknRmjt9MvGpHFbGzj3Z6yX4klYdP1pksTasR6Rt/kKqIOTsBqxzPqBLMYFaf4+AWshVU1qYKHRghXeuxkLYVjjF9HbcA4wL3DuVnKoqqDPbQ2cuw/4G/BPWJHBhcDVyTDc4Yd2kBGWorjdANW111MJK3BuBNaV5R1DlKyagblYg9UHgQ0V6lKvJ3thvlJgAlZv/gPAA4Fzf9Wc2iQVuqsPta4HWB84dx0WptFC6TMHPGHlISVNCZzLJV6oFqt99CXyjzDvBh4A1qSoggFWtK1+CD3/Hszj9iBwC/A4b4+arzSMojI6/4zSxnkaZg99U6T1GpZgvxRYjuWCbk1HYkocf8XTUHUQ1iFYedpc1I1azG08EJf9G1iMS3vKjvl5il+Zs1LQjYWV3C+iegbYXiVBirtoDlQKaumtdjud3qT1Fsw5sALz/j0XOPciqufuu1ZXp4RVatd0K5asPD8mXdVhVSaPLeJ52yTyv67XGsyDNExkOQVrcjCR4sRPxe9/EZZM+yfgtVLVBisgDqQ4UfyFXldRHbRJmNf5Qklaq4DnA+cekgr+Or6jTlUQVqnRgaXW3MjO3p3JmkzFUAW3YfmKd+jnSqwJQbfUsagefaPI6mgsufe0Akt7WyVF/V5S1apcKoRKZY5SfnqSYbi+HA9Qm8sxRSb1YmI0vfXc/1Fq5OPAHwPnniDP/ouesAYfdkj1+XoyDDfGFkAtVghuWoHP14l52q7C7EN9TcR2zHu0WOR2PPCfwKnkH1PVrQXxIFaZYh45NogQUQ3D0pjeqbF6NHDuq6Us3JeiDp7C4HCKNEiyngKcq/lyXeDcvVixRk9cQ5CwOmQ/+DEwJxmGW1L+Px6L/i2kdLUD61Z8BbAil4mnz27DmiLMx7o1f4rcQji2Y5HFd2KpI6/lYi8RSdVhVVJnS+KbLQkwgTk7fkGaOLYiS1cJzOEyGOPjmjAD/nF6blcGzr1Upk3BE1YZ0A28JBXwduDvGaKSjwIOK7CN6Bos036gXU/eEumtB75Fds9YD2YXexy4FXOVv0Uf7vUUMohUlhlYaMdZWC5cairJAcC7Aud+XuIFNRL4IOadG6wYhdVqmwF8Te3HfAL0ECCsHk3wyVgi6qrAuW0pnYdrtTBHFuicXcBvge8AWwYq0uv47YFz1wN7YF7MVPVwKxZPdrdei8ih67WIajhWkeJ0rDDgTEl0mRJl67E8ugcoUeUGpUudqddgR9Tp6SdAQ+DcraXuSOQJq/Soxbr27o8F990LXBU491xsxxqPeW8KZQ+ZSxGqQybDsCVw7mosDORczOO4HGu+eQcWMb0hR5IaJjI/EbNNHYd5K/ubzX8I8NnAuUuTYbi1mA8yVuLnCxQv/upJjclMKqdG3F5Y1YZtgXP3+myDwU1YcYzBEk6PAL4aOHeHSGtfChdW0YxFPq8o0j2s1+TdiiWgPobFk7XnoPLVaREcK3XvZKyjTz5G/VqpZy8Ezt1YZLVlHNbtqFgdgFqB6zCj95eA8ypI7dwbq3O2gBLbDD1hlRcJzJV8NdATOHcnFuQ3tkDf/ziQLNYumAzDnsC5eViJ4LYcSKpRk34W1mj0BCwuqBBhAWOAbwCbpbYUlLR0/U1Y8cQPUrx6ZMuBJ5JhuCRw7mIs0fvfME9tJRDX0cCFgXPf8kb4oVdxdC/MIL4aM2wWQvxvx8IGthTzwjVZu/ph6xkhyfF4zC51nEirGHFmE7HQjbGBc79LhuH2ApLVnpJ4/pXClstJRRhJxskw3BI49yf97RTMg3yS7rO+jGv0n7GqGUNeyhqKJZIPkIpRKOnqTWBuOeJmYt69Jt3XCVposzCbVGMJLmNPrL37NNnaVuQ7FrEijUdJFTqT9I1nC4VmzIvcEZdmgU2Bc3cASayZxylSoWdq0yt14Oq+wNGBc8uHenxWOQmrFUtT6MrxeseIbPJVERJSjwr14F+hAE1Zc1zUjVic1KFYjNSJUnl3oTylnMdiTU5PxlqP3QuszkWFCZyLAlQ/iKVK7U3xA0SfBP6WjgQiLy3wUuDcy1gBw92x1KAjtCnsJwJrkmRbrOtt1DO+jX7W4PKEVXgswFJicvGq1WDpIe8BPkn+nY0LtWv3YKEELSUct1nAZyWF7EP5S63E59JRUrVfA+5Xpc3FWExYe8omEamvE7FSQWdhkf2lICowB8b1ca9u4FyDCL81TmJ634LZu5Zjgb1R0vPukoD216YxHYte313PplD3crDmrSesMqEdq129Kcfj3gicW4iVRfku5e1k0w2UWkzfm8JH5xcSDVgw7iFYvNYaqc0r6W2sUIN5//aWhLIbhemWnQse0SuO2VjE+dXEyg+lg6THDXotlORbr/m4p+7/ZKxs0f4FkHzH6ruHdJG/qrRhJcOwNXDu9xS/ykJ/JKxNJT5ns8i+0ut21UhVapIaVUlYK1LanKKSfhjrrH1Y4NzXgPn9VWu1aUUtvzYDrwTO3SZp6xN6DaTTzwhKY5Os+ElVrdgs8bycZNVK6bvIdAx1tWCA6MRyPZ+IJGNJRzMlDTVgNa1+D3w8cG58zLmR68baidW/+oa+byDoYvA3kB3UhDUcS1kp9WRfg5WK+YlUnodLfA0jqRy7VTXib8DPJQlFaAT+H2Z3irA/cCVmbD8zcC6vFC6R4g6svM9AsF0b5JBGVaqEqot0NsXN3I+8ROuApVirq6exbj2rsHzBcgTy7UHlN3WtVKyStPNGinR1InA+b7ehjcQcPLOBxwLn5mizWptjoOwYLJ5rINhEaZ07nrBSkE9NdyRdOMxTNq5A1xLZH5o1qV8BXsQqPrwqm0dLbMckcK5Wdo96rLxw0cV1La4DPWHlhWasI9LDKU6S8cBn+pDWx2F5nGdrPjwWOPck5ulerY0tVWWLmqkehAW/nj/A61/sTQHlJazpwB/y0MuHaXINxADZpQm8Bvi7JuF8LERhFWYfa4tISEQxAovo3hMzpB6IuZp7RJ6lqMI5HIsBSnj+yQntwM+A38YrHyg04f3AGTlssodLsv9XLFxjNZbX+abmTVRJdhxWGPIwcksszzRfX6T8TWyHNGENk52gmOiSZNSsCbVcu2KUTLpS/4tE7QZd13hgD5HT/iKmfTE3/HgsxywizC3ArwLnHi5BeMPkAqrBC7FYpKMHOQFGrd2voDesItqEjsYqu+YauR6V5dlHr2J7qtcBz/kqpIMjNadbxNSOxWZt0I63CPPQvC6iegur5hlVLhiDBaEeJDKaIkKYjMXR7IK55Ov6WNBNWImWxyliR2LlCQa6tkIgifUg/JFsNIORtFqw6qiXEytTLbKapL9PqYL7eFZzecijmggr8rZsk+i9OiY1xbvRbJSuXydpaVdJSSdJQpqsn+OwgMWxkpYaBrBoz8Vc5QuKeP8TsNpehbBfdUsFjsow/xBLlB5MtrHtWIekK3h7Tf0xwJexyPpqkBD/HJcOPWGVHx2SkDr0YJpj0tIqEdNqzFMSddet1fWPFPHMkvQxUdLReP0cIfF9WMyO0I3Vzt6NwhSFmwp8InDui8VoNx44V48Fyc4s0FduAl5KhmF34NwCrJzKZSLEEYNgXr8poro+tYKEOnz/J/AhqqNp7pPAPV4dLD5h9UhVaxPBtMRIaaOkpU2yozRLctoRk45qNKGaRAhHShraVTakiIhGirwSOUhIb0qq+JxsEANFDXABMC9w7veFDHeIud3/g8JFOkfqclRr6w2sBPMrGpO9qnQ+d2FxVt8EHkrtuRg41whcBHya6mgVtk7z9C1PVcUnrBaRUYMmUie9btmxWJDeFJFSlINVI/Kpjb0vdHBrB3CzJnaI1TEvxDiMA74GLAucm1eIMAeR1aFYDa9CVUftwaqWbo7+oN17c+DcNVgox6VYHlx9Fc3lZszrfCWwJMP411C4Gv7FRhsW4PqQl652foDFwggs/GBcjJwOxFy9B2OlOfaThDNRdoXR9OZM1Rfh+nqwyPRrk2HYqveFLGs8DXOfB1LjBkJWUV2on1FYL9QmIG2NcEkkoaTFL2MhH91VsLAfBT4CfDYZhoszbRbJMGwRoX0aqyhRqUTQDtwEXKV56lECwqo09GDR6pfSW79qKeYtK+TEnYHVCP9UPnlogXOJwLnRWF2oX1PYRhlgzTLmZ/qndvO1mPfwfCxJeHkFElebpOTPYxU5b+9PxVPZGG/C7HVzZIqoJGzHwjAuI7fSS14lHETowho3XAq8GBOx27Ck1PMwA3yhMAnrJRhgMVqPAeuyqYkitl2wVuwfwkIlmoqwGObQRzlnjU+nCtd9SSr0B4BzJBXXlXlBv4D1nLwDK1GUk80wGYZdgXMvYPas+/VzJsWtbtofvKmN4joG3tdyUCLvnTtw7lwt9koueRE1GL0Jc3GvTJ0ESmr9qUiiGNiBRdLP1esNzLYXXccoEdwszLh+CMVrZ5UEPpgMw/V5PO86qe+nY2EcR4rkS2HnapHq/qhI6mlgfSEWtDaKiZgt8wIsk2B0iefpFuAhzMA+txhdiGSiuAFL8s4XlwLfL2fLscEoYfVghvUVWqC/xQLvMrXE2oEFFzoKF5QZxwgt7plYTaQdekUpHMNEWrUUN3izWcS8IS+mC8POwLnXNen/F4ttOw4zzh+GxbYV4j66MefMJqmif8WCcp/FMhM6Cil5yEu6GrgeK0F8oiTJeBu0YjyXbiyd6ynN0Ye8VFVcwmqRtFAJElY3vbmBS4B52oWX00dbLE3YZ6T2fK6IJB5F2DcVUYLKNj53AOFAFkTs2G1YT8L5WDeX8ZgX81AsR3QyFug6HgsfaCR9UGoU5rIFc92/qef3MmYUX6Hn2lHMhazv7gHeUvOJ+2NS72xtNpMxB9JASvu0iaRek4kiqXvdWiKiirJABiIJVq1KOByLiaqUlI62SHrJR2QNnNtHO93Jg3Bjelmq4EvFPlGss3QUJzdar2FpJOFtsVeL7FOdlSRlyFs7RgS8L2bDmyxC21X3ma4BRTe9WRkrRcSvYVUXVpWQpOLPJQqkHoiUvrWcz8dn/e/8QE8DbqRwMU+VgA3Ap4A/+EacBZknNVo3NZiRvpH0zSa6RcIt9Jae6fEqnyesQk7Geiye58oyqG3FQCvwHcxQ2uKfsEe1wxeCi2Hp0qXd+02d+op+PYbyu7kHqiLfCHwnGYbb/NP18IQ1OEmrc7+pU+dLzD+iSkmrDQs6/TqwaenSpf7BenjCGsSk1bbf1Kl/wzxYR1Fd7ZVasMDDb1CgWCUPj0qBt2FlgWq2XwB8heoo9Bal1FybDMOt/gl6eAlr6KmHL2GpIFOwQMJKzL/spjdP8uZi1OTy8PCEVR2k1b3f1KnLgAexCOz9KH3qRjZsxIJePw88FW+y4OHhVcKhrSI2YI0LLsJaPu1SxsvZBjyC5Ug+mmvYguKJZvH2NvIdWDT2KiwqujXe2gwLrO1PCtPcZBguDZzbQ8fEnRdR0Og6rLT1+niMmMJLZmM5ftnQDjySDMO3YseOxCLTT8AKP9bpXM9j0eVvpJwr0zh0aTNYhTUs2RG3B6a5rxashdimlHGuA46nt1BkN/BCMgwXpnwugQWmHhdbl92S7l9NkwM7DUv5qtEzeywZhmtSPjNR41iPBVU/nAzDzSnnHIPZaWfruSawrIO/YtVO16fc9wwsFSsbeoCFyTB8vtCTvs7TUP+RDMP2wLmnsJZLJwEXYsGmu5WI/HuwyOkngVuAB4CNeRrWa7GyyxelOUeHyOQB4KrAuUU6Ry1WXvjMfnz/x7DyPQdiOYxj0qix27HE8F8Ezv0xRo7Dgf+i7/Zbm4B/wFJqElg0+leB92ozqY3dUzvWKeiKwLk/xSTRbOPQpcX7kMbh5VgWRep9bQc+Gjh3e5q+h1eIFCMi/IquJY4aXcdlKdfwI30+NSH6DCxesF7/uzxw7oqULI/pWD210SLeczR/IrI6CCs6eTYWd1gTO+8OLIfzssC5Z2P3dG7KNWYyUVylTcITVplJqwfYGjh3nx7ooVh34DOxhOAxRZKmlkqiuk0TYUsBPIB1pK+20KDd/t+wYosfw4r5JbIcQ5oFGP1syHBMoyShqELFL+jtPNSf88Qbh4zBgmQvSDOvEzrXESKA1sC5O2KLO9u59tHGNB34KL2NRlLvayxW8eFedm4pP0PH1seOq8lwL0eluY5ZWJXU5jTj2xC79vcDv2PngpRRmfHolYiR1V5YrbMz0lxPQuc8W2R3Ib1de2r78Vx6imVu8oQ1MOLahtVxf1oL4RAs2/84kdcELJ6rvx15IummVRLOUiyJ+0ms6N66IqbX7MBy3pDEOE4T+STgk4FzX0xzTDPWHIQM/0u3867UuYZLBakX2XxOG8D8DJLU2jR/3wK0SK07H3hfbE6vwyohbBRhzBRp7Y5VU32W9InA0Tj0xMYh6mH4mcC5i5Nh2Jbhnk8RwS2KqdBn99PmuXuKWhpV89hP86ivYn6HAO8MnLuuH7m0tVgj2NP1jHtESE/r9+Ow9LSE3l8YOHd5mrI3bRrDrjTPeZ0nrMolr+gBrVOxvmGagHvTmyw7AUuWHYmVYUnEFsg2Lco12iGXYJUm1so20lWCeKrngU/qeqZLWjlME/gsrFZTammaEDP2p8P6DGTwBdlHRmnRfFJEMgk4LXDuxTTH3QX8dxq1KBr3MZIwosTeVcAlWNWFDo37V7DyPnWSis8InPt1H+Owv857jJ7XGXqmmXoETgJmB84t1vPaDWsl1p/Nat+YzW6lSGWi5tFULHE6G+olXd7WD7KYIFU6koJeBj4ue1kk1f1Mz78WKyb5U83POJZIjd2cYTPxhFUF5NUle0bUK/FxieCRKF2bMu5denVQ3koFLZhBekvg3DJJP9fqWvfUQk0lrO3JMFyWwzm6gTXRMYFzV2AG6WN0nsNJH6S7FVieyQMaOHeIjo3OMQf4S6xrzurAuUj9OUgbyulYXa/OLOPwumxQN+q6dhN5LMmior4LuCVwrlVS3YF9DYrmx+H0NsiYKxVzoq71SKmafWEm4ALn5vQxjw7XfSDb3rXA05FkFjg3F6sPdoWkqBap7KmE1a6x2liqSeoJq3TqY2eaxVGxEqPKI2+VSjRcC7fQ2CjJ4ZiYWpRPBdNp9HpstwL3pbb4kurylAgrUqFGS7LN+NwC5xZKWoiqq6Yrz9KhhT1KKtSBWMu0s0RC27UpZUqobxTZ1NHbqmwsVmK7BjgycK4xiyoaYSRWUfQ+jW0mcpwRI8e1wBNxNVLP/06pigswx8i6SpibnrA8stnT4u97MiyA2jTH9beMSoKdwx3aJCHlarDdN3bMxgy2qXaRY7dIYFe9NvXx3TUxlS7TOGyU3Wo21inqVEmjUW21xSKgTITVJAKNJLwF+nzUo/MgXeubGY5v1eeiEIoTA+f+kmXNT6LX0L4ug31wOZYx0Zc9rCZlDuTy/D1heQwc2oWnSWKIFkS6Hft02UzieAH4rmxAfWEf7fYRlolYUpuc7gEcGzjXmWIjWxKzFUWkEjXlTSctrZE01CgJo6mPcaiV9DcmZoNbl4EMH8TasUVqYTNwgEjnEbKHgkyiN05rg1TOUbINjZdqOCULYb2iZ3SCrvVDWChGpjU/LoVs2zNoBX2RzlSs6GVcVV+HJd2v8oTlUWxpe7SCY6djRtj6mDq1PM0xe+sVx/As86oWOEJevQmYuzyy8WwGHkyGYYeq2cZxDlZzP76Afo8Z1jskjSRiEkqmXn4dse+ozSDJjQNOEjkeiRngo3GYT2bj91NapPtiHsVdRDprRFguy9gfEiOR5TpmuH6OFwkdGjg3N4Pk0oU1Wpmp407XNWR6BnGv5eYBmCqaMC9oqmR2hVcJPYqNmcCtUhX2llSDJvMdWADlQOfLSOB7WmC19IZ7dElSeyKLjacxzXfFVctCjsOf9L4+ds9rMeP05gzHrcDCAvYVgR6pv78klTCTFBdF2kfneU2SXBsW+3ZoZMfSmKUjl3qR4rNYGMouWK/Gv2RQw+N2wu5qmqSesDwijKHX+E2MrO4Grlcvv7o06l+qSrhUi40s5BNHC9Y49HtkdoXvYOfWaJHqF7fhxOd0XRabWdzWkslmlSrhvYaFRdyVxTbTgoV5nBcj4m4stCJbAcVRUosTuqb59DpoFmBByTX6TFMG1TxSkX8tyapRauniNPfZlTJ2TeQf5LlG52xJkdg2eMLyKDa6YhOvDYsFukNkksl28mIyDC/P4RztmHu+HvOA1eu8YTIMV2c57lbg2ynSxdbY7+vpDbRskvT1VprvGRtbnK2Y9y4VK7FuNidjMXTo/h9K43kkhQDnYoG0k2PX9UgfUsyE2Hk6JN3+Y4xMIsKZIlvXxiznvw+LIzsOC0V5N2+PYu/S2MU3qroBENaVPqzBoxx4XlLEDhHLak3IQsaGtQI/wQyzB0t9GgmcGzh3f5ZKE82YgT3T/1fS613cRXafZSmqVy1m2I7UoS2k9xAuwoJbPwF8U995OBZa8FAfY7FM4zg5RR1syqAOJrDg1ChkpAGL+O9OY2cbC0wLnJufDMNM51+NVe6IovpP4O1hIh3snJ2wu747NWl7nKS112Wba6mEYpA1fp16xET5eckwfCIZhk8nw3BFMgyL0Q+wU4v40Zia5rRw88Wr9HolxwBHyzaUTeVdnsEe1S3CvofeQMlxMVUvG1p0XGT4fyBFmkmnoh6RooI2YMGiw1LIZpiIKKP6phCEuzCvIaRJCdNnXo2p0RMwJ0sqkc4W+YVYgO00b8PyqHYk0ti14gs/E9m1AbdjuX8jpOq8I3DutTzboC+WJDBDi/QC4IHAuaUKZ6iTTWdW7NqekEqYadNepM+8X4v+HZjRfWE2wlDAZbO+93GdP9MhUbmiuIq1JoXQ9qQ3bOMIjVc2ElyFeQwPy7K+n8OcCJMl4V6oKiSbY1LXR3TeiIjbMxBubYY50F2MlvaesDwGgsOxmJt0uB9L2k63sHuUML5Ii7AWK1vyG/Iz2EalcCKP2jHANcDNgXPNkiD+PaaarQHulyMhE2HtwBwO75EENAkIAude7aOT+FrgD/287vExybILq57wm5TPXIJVkk1gcV2790FY3cCdWDhGJqnodSzRPEpwfjfwfd1vAvgnEXRkG3uY9HbMCbq2lgwmhls9YXlUEmawc+BnHFux2KRsJHOvjq8R+R0fOHd3rhehOmW/woIzZ2hen43VKuuSPac2ppL+lvRVIVJJ9TEsiPNQqWfn6dhNBRq/fbEyL5EU83Sq8yFw7hn9b4QIYn8y5zJG170cy6e8LIMK2YolN5+M2fWGS6L6gAgr3qV7CXAD6T2/e2D10dLhpmIQlrdheZQFShK/KyZRjcEK7w0bgB3rC7LfRKpIoxZ6tGi3i3B+mEHFSade3Rf7fRZwjGw8A0Is4XlUjMDfyKCaRqracMz4n+jH2M7B4rjSkhpWMeMyzJYXeViHx8a/B3MifAV4vlK6L3kJa+iiG3gGM6iCebT6qgffhbnp+yNhLNSkX4cFYo7g7aktC4CfS9WJFm2ULPwwvSVqnqGPAEfZj0Lgg1jJk5OxlJaoRPIiLGbsDnau0pptHLqAP0oNa9D9NGlxx+9rPdlTkXZImnxZ53tVwkKzviOBxa+ly+lbKZKdrPNv1OcXY9H+tfSmNMWxDPgxZjxHxzXHSS1wbo4kqA9hoRBRAvl6LAj2ZswRE6939XJsrLJhnicsj0IT1s3aiaPfO/tBWD/op2Qefddrsh9FgZGpsVSXs3Mp4079vDJ2ni76EZGthTU/cG6BiGWsVLltWqzb00gKGcdB6tUzWOXVROxaetLcVzay34SVbk7ExiYqg/OHPsZ/syShmtjnejDv3SOZjpWa/Eupc6QZe5QG9RS91SHG6HPNQHOGuLPbJRnTj7ni4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHhUQ78HxCDAaZvb+wgAAAAAElFTkSuQmCC",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1488,
+        608
+      ],
+      "id": "ecbf111a-f423-4498-8337-a8b78c610650",
+      "name": "Logo Boost Performance IMG"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbjJYeI54LhHzoS",
+          "mode": "list",
+          "cachedResultName": "Message Automatisation",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblbjJYeI54LhHzoS"
+        },
+        "filterByFormula": "=AND({Groupe Automatisation} = \"{{ $('Data Workflow').item.json['Groupe Automatisation'] }}\", {Séquence} = {{ $('Data Workflow').item.json['Prochaine Séquence'] + 1 }}, {Type} = \"{{ $('When Executed by Another Workflow').item.json.Type }}\")",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2160,
+        608
+      ],
+      "id": "30446f0c-8d75-4286-83c0-560e165a9e3b",
+      "name": "Get Next Message Params",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbNb6O4nv6Ye2F8",
+          "mode": "list",
+          "cachedResultName": "Tâches Automatisations",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblbNb6O4nv6Ye2F8"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Data Workflow').item.json['Task ID'] }}",
+            "Prochaine Séquence": "={{ $('If Next Message Exists').item.json['Séquence'] }}",
+            "Date Prochaine Action": "={{ $json.nouvelleDate }}",
+            "Date Dernière Action": "={{ DateTime.now().setZone('America/Toronto').toISO() }}",
+            "Status": "Active"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Email",
+                  "value": "Email"
+                },
+                {
+                  "name": "SMS",
+                  "value": "SMS"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Active",
+                  "value": "Active"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                },
+                {
+                  "name": "Annulé",
+                  "value": "Annulé"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Groupe Automatisation",
+              "displayName": "Groupe Automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Prochaine Action",
+              "displayName": "Date Prochaine Action",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Dernière Action",
+              "displayName": "Date Dernière Action",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Prochaine Séquence",
+              "displayName": "Prochaine Séquence",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Leads ID",
+              "displayName": "Leads ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Description Lead",
+              "displayName": "Description Lead",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Newsletter Contact Opt-in",
+              "displayName": "Newsletter Contact Opt-in",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Contact Email",
+              "displayName": "Contact Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Historique Emails",
+              "displayName": "Historique Emails",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3056,
+        608
+      ],
+      "id": "c279965a-c9a9-4c57-aa96-5aec7e90c6f5",
+      "name": "Update Next Email to Send",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNYEZPN7gkH1Xwl",
+          "mode": "list",
+          "cachedResultName": "Historique Emails",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblNYEZPN7gkH1Xwl"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Sujet": "={{ $('Replace Variable').item.json.Sujet_not_encoded }}",
+            "id": "={{ $('Replace Variable').item.json.link_id }}",
+            "Email": "={{ $('Data Workflow').item.json['Contact Email'] }}",
+            "Message": "={{ $json.html }}",
+            "Automatisation Emails ID": "=['{{ $('Data Workflow').item.json['Message Automatisation ID'] }}']",
+            "Tâche ID": "=['{{ $('Data Workflow').item.json[\"Task ID\"] }}']"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Sujet",
+              "displayName": "Sujet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date envoyée",
+              "displayName": "Date envoyée",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Ouverture",
+              "displayName": "Date Ouverture",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse IP",
+              "displayName": "Adresse IP",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Dernier Clic",
+              "displayName": "Date Dernier Clic",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nombre clic",
+              "displayName": "Nombre clic",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Tâche ID",
+              "displayName": "Tâche ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Automatisation Emails ID",
+              "displayName": "Automatisation Emails ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1264,
+        416
+      ],
+      "id": "e9111650-2084-4755-b1a1-42b140f527e4",
+      "name": "Add Emails to Send in History",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extraction et validation des données du node \"Data Workflow\"\nconst dataWorkflowNode = $('Data Workflow').first();\nif (!dataWorkflowNode || !dataWorkflowNode.json) {\n  throw new Error(\"Données manquantes dans le node 'Data Workflow'\");\n}\nconst dataWorkflow = dataWorkflowNode.json;\n\nconst enveloppe = dataWorkflow.html_enveloppe;\nif (typeof enveloppe !== 'string') {\n  throw new Error(\"L'enveloppe HTML (html_enveloppe) est manquante ou invalide dans 'Data Workflow'\");\n}\n\nconst header = dataWorkflow[\"Template Header\"];\nif (typeof header !== 'string') {\n  throw new Error(\"Le header (Template Header) est manquant ou invalide dans 'Data Workflow'\");\n}\n\nlet footer = dataWorkflow[\"Template Footer\"];\nif (typeof footer !== 'string') {\n  throw new Error(\"Le footer (Template Footer) est manquant ou invalide dans 'Data Workflow'\");\n}\n\nconst email = dataWorkflow[\"Contact Email\"] || '';\n\n// Extraction et validation des données d'entrée et d'autres nodes\nconst inputData = $input.first();\nif (!inputData || !inputData.json) {\n  throw new Error(\"Données d'entrée manquantes\");\n}\nconst content = inputData.json.final_content || '';\n\nconst replaceVariableNode = $('Replace Variable').first();\nif (!replaceVariableNode || !replaceVariableNode.json) {\n  throw new Error(\"Données manquantes dans le node 'Replace Variable'\");\n}\nconst link_id = replaceVariableNode.json.link_id;\nif (!link_id) {\n  throw new Error(\"link_id manquant dans le node 'Replace Variable'\");\n}\n\n// Fonction utilitaire pour remplacer des placeholders de la forme {{ key }}\nfunction replacePlaceholders(text, placeholders) {\n  for (const key in placeholders) {\n    const regex = new RegExp(`{{\\\\s*${key}\\\\s*}}`, 'gi');\n    text = text.replace(regex, placeholders[key]);\n  }\n  return text;\n}\n\n// Remplacement des placeholders dans le footer\nfooter = replacePlaceholders(footer, {\n  tracking_link: `<img src=\"https://suivi.boostperformance.ai/pixel.php?id=${link_id}\" width=\"1\" height=\"1\" style=\"display:none;\" />`,\n  unsubscribe_link: `https://suivi.boostperformance.ai/communication/?email=${email}`\n});\n\n// Intégration des sections (header, content, footer) dans l'enveloppe HTML\nconst htmlFinal = enveloppe\n  .replace('[[header]]', header)\n  .replace('[[content]]', content)\n  .replace('[[footer]]', footer);\n\n// Retourner le résultat final\nreturn [\n  {\n    json: {\n      html: htmlFinal\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        816,
+        608
+      ],
+      "id": "9824b05c-9191-4412-861c-ab6100416784",
+      "name": "Create Final HTML Message"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Récupération de la valeur des minutes à attendre\nconst minutesAttendre = $input.first().json[\"Minutes Attendre\"];\n//const minutesAvant = $input.first().json[\"Minutes Avant\"];\n\n// Récupération de la date de création au format ISO\nconst dateCreationStr = $('Data Workflow').first().json[\"Date Création\"];\n\n// Conversion de la chaîne en objet Date\nconst dateCreation = new Date(dateCreationStr);\n\n// Calcul de la nouvelle date en ajoutant les minutes (60000 ms = 1 minute)\nconst nouvelleDate = new Date(dateCreation.getTime() + minutesAttendre * 60000);\n\n// Retourner le résultat sous forme d'objet JSON (par exemple, sous la clé 'nouvelleDate')\nreturn { nouvelleDate: nouvelleDate.toISOString() };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2832,
+        704
+      ],
+      "id": "fc035302-230c-4f70-83be-730b4214301f",
+      "name": "Set Next Date Sending"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b4d64bb3-df62-41a2-83d1-0c4fb194c504",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2384,
+        704
+      ],
+      "id": "1a4ed30b-2298-4c0b-aa1c-bdb36c75a318",
+      "name": "If Next Message Exists"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbNb6O4nv6Ye2F8",
+          "mode": "list",
+          "cachedResultName": "Tâches Automatisations",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblbNb6O4nv6Ye2F8"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Data Workflow').item.json['Task ID'] }}",
+            "Prochaine Séquence": "=0",
+            "Date Prochaine Action": "={{ $json.nouvelleDate }}",
+            "Date Dernière Action": "={{ DateTime.now().setZone('America/Toronto').toISO() }}",
+            "Status": "Complété"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Email",
+                  "value": "Email"
+                },
+                {
+                  "name": "SMS",
+                  "value": "SMS"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Active",
+                  "value": "Active"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                },
+                {
+                  "name": "Annulé",
+                  "value": "Annulé"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Groupe Automatisation",
+              "displayName": "Groupe Automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Prochaine Action",
+              "displayName": "Date Prochaine Action",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Dernière Action",
+              "displayName": "Date Dernière Action",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Prochaine Séquence",
+              "displayName": "Prochaine Séquence",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Leads ID",
+              "displayName": "Leads ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Description Lead",
+              "displayName": "Description Lead",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Newsletter Contact Opt-in",
+              "displayName": "Newsletter Contact Opt-in",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Contact Email",
+              "displayName": "Contact Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Historique Emails",
+              "displayName": "Historique Emails",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2608,
+        800
+      ],
+      "id": "2ca528b7-c557-4db3-8009-0f29cb2ad1da",
+      "name": "Update Next Email to Send1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c4d57466-f60a-4ec5-8ef8-f0e1095318d7",
+              "leftValue": "={{ $json[\"Événement ID\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -304,
+        608
+      ],
+      "id": "e8fcf419-0104-483f-a8ff-fe525b4dc899",
+      "name": "If Event ID Exists"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblhm238pps3Dnm18",
+          "mode": "list",
+          "cachedResultName": "Événements",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblhm238pps3Dnm18"
+        },
+        "id": "={{ $json[\"Événement ID\"] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -80,
+        536
+      ],
+      "id": "4db4dfc3-d567-4f29-9f23-192864f8bed6",
+      "name": "Get Event Details",
+      "retryOnFail": true,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5f7f32ac-f3c5-44f2-91f8-fd7f7600ed4b",
+              "name": "Nom",
+              "value": "={{ $json.Nom }}",
+              "type": "string"
+            },
+            {
+              "id": "d9d53091-83f6-42e5-9897-f70498b53e7e",
+              "name": "Résumé",
+              "value": "={{ $json[\"Résumé\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a8a82459-3c74-4229-a29b-a2949e8f5907",
+              "name": "Date Event",
+              "value": "={{ $json.Date }}",
+              "type": "string"
+            },
+            {
+              "id": "cbb13640-ae8d-4266-ab6a-340e328be05f",
+              "name": "Résumé SMS",
+              "value": "={{ $json[\"Résumé SMS\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "18c14183-645d-43a1-a2cc-8b188df4e573",
+              "name": "Lien event",
+              "value": "={{ $json['Lien Événement'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        144,
+        608
+      ],
+      "id": "6b53ceec-694d-412c-abd4-1a44258bd94d",
+      "name": "Data Workflow Updated"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d40ed5d3-cbe6-4703-80bb-e1f09fae2e2a",
+              "leftValue": "={{ $('Data Workflow').item.json[\"Groupe Automatisation\"] }}",
+              "rightValue": "Événement",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2608,
+        608
+      ],
+      "id": "ef0fac5d-cd77-42c4-833e-b270960798dd",
+      "name": "If Event Automatisation"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Récupération de la valeur des minutes avant l'événement\nconst minutesAvant = $input.first().json[\"Minutes Avant\"];\n\n// Récupération de la date de création au format ISO\nconst dateEventStr = $('Get Event Details').first().json.Date;\n\n// Conversion de la chaîne en objet Date\nconst dateEvent = new Date(dateEventStr);\n\n// Calcul de la nouvelle date en soustrayant les minutes (60000 ms = 1 minute)\nconst nouvelleDate = new Date(dateEvent.getTime() - minutesAvant * 60000);\n\n// Retourner le résultat sous forme d'objet JSON (par exemple, sous la clé 'nouvelleDate')\nreturn { nouvelleDate: nouvelleDate.toISOString() };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2832,
+        512
+      ],
+      "id": "d40ce3ed-3a8f-423b-87e2-886bb7f5341c",
+      "name": "Set Next Date Event Sending"
+    },
+    {
+      "parameters": {
+        "from": "15817013500",
+        "to": "={{ $('Data Workflow').item.json.Mobile }}",
+        "message": "={{ $json['SMS Message'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        1936,
+        800
+      ],
+      "id": "1e8157e2-dd47-4dda-958a-cf39189296c0",
+      "name": "Twilio",
+      "credentials": {
+        "twilioApi": {
+          "id": "3EDfa5y0FlM59HDQ",
+          "name": "Twilio +15817013500"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Data Workflow').item.json.Type }}",
+                    "rightValue": "Email",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "380566df-9df6-462e-a2b8-235ebfbcd617"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Email"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "41c96a89-0903-46e3-9be3-e9febfc49091",
+                    "leftValue": "={{ $('Data Workflow').item.json.Type }}",
+                    "rightValue": "SMS",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "SMS"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1040,
+        608
+      ],
+      "id": "22aab7c9-5d47-4d4f-a191-2e7603b414f6",
+      "name": "Switch Message Type"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d0cf7b2-1593-4922-97d8-ca4f9440092b",
+              "name": "SMS Message",
+              "value": "={{ $('Replace Variable').item.json.Sujet_not_encoded }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1712,
+        800
+      ],
+      "id": "03df5368-987a-4eed-8d9b-b93d37361e93",
+      "name": "SMS Message"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbjJYeI54LhHzoS",
+          "mode": "list",
+          "cachedResultName": "Message Automatisation",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblbjJYeI54LhHzoS"
+        },
+        "filterByFormula": "=AND({Groupe Automatisation} = \"{{ $('Data Workflow').item.json['Groupe Automatisation'] }}\", {Séquence} = {{ $('Data Workflow').item.json['Prochaine Séquence'] + 1 }}, {Type} = \"SMS\")",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2160,
+        800
+      ],
+      "id": "dcdae46f-8826-4bf8-8398-3775a9231cc0",
+      "name": "Get Next SMS Message Params",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Extraction et validation des données des nœuds\nconst dataWorkflowItem = $('Data Workflow').item;\nif (!dataWorkflowItem || !dataWorkflowItem.json) {\n  throw new Error(\"Données manquantes dans le nœud 'Data Workflow'\");\n}\nconst dataWorkflow = dataWorkflowItem.json;\n\nconst updatedNode = $('Data Workflow Updated').first();\nif (!updatedNode || !updatedNode.json) {\n  throw new Error(\"Données manquantes dans le nœud 'Data Workflow Updated'\");\n}\nconst dataWorkflowUpdated = updatedNode.json;\n\n// Récupération des données nécessaires\nconst prenom = dataWorkflow[\"Prénom\"] || '';\nlet sujet = dataWorkflow.Sujet || '';\nlet contenu = dataWorkflow.Contenu || '';\nlet redirect_link = dataWorkflow[\"Lien redirection\"] || '';\n\nconst sms_summary      = dataWorkflowUpdated['Résumé SMS'] || '';\nconst link_event       = dataWorkflowUpdated[\"Lien event\"] || '';\nconst event_title      = dataWorkflowUpdated.Nom || '';\nconst event_description = dataWorkflowUpdated[\"Résumé\"] || '';\n\n// Fonction utilitaire pour remplacer des placeholders dans une chaîne\nfunction replacePlaceholders(text, placeholders) {\n  for (const key in placeholders) {\n    const regex = new RegExp(`{{\\\\s*${key}\\\\s*}}`, 'gi');\n    text = text.replace(regex, placeholders[key]);\n  }\n  return text;\n}\n\n// Génération d'un identifiant alphanumérique de la longueur spécifiée\nfunction generateRandomId(length) {\n  const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';\n  let result = '';\n  if (typeof crypto !== 'undefined' && crypto.getRandomValues) {\n    const values = new Uint8Array(length);\n    crypto.getRandomValues(values);\n    for (let i = 0; i < length; i++) {\n      result += chars.charAt(values[i] % chars.length);\n    }\n  } else {\n    for (let i = 0; i < length; i++) {\n      result += chars.charAt(Math.floor(Math.random() * chars.length));\n    }\n  }\n  return result;\n}\n\n// Générer un identifiant aléatoire de 10 caractères\nconst link_id = generateRandomId(10);\n\n// Remplacement des placeholders dans le sujet\nconst sujetPlaceholders = {\n  prenom: prenom,\n  event_title: event_title,\n  sms_summary: sms_summary,\n  link_event: link_event\n};\nsujet = replacePlaceholders(sujet, sujetPlaceholders);\n\n// Remplacement des placeholders dans le contenu (hors liens spéciaux)\nconst contenuPlaceholders = {\n  prenom: prenom,\n  event_title: event_title,\n  event_description: event_description\n};\ncontenu = replacePlaceholders(contenu, contenuPlaceholders);\n\n// Remplacement du placeholder pour le lien de redirection (on encode l'URL pour éviter des problèmes)\nconst encodedRedirectLink = encodeURIComponent(redirect_link);\nconst redirectReplacement = `https://suivi.boostperformance.ai/clk/?id=${link_id}&link=${encodedRedirectLink}`;\ncontenu = contenu.replace(/{{\\s*redirect_link\\s*}}/gi, redirectReplacement);\n\n// Remplacement du placeholder pour le tracking (injection de l'image)\nconst trackingReplacement = `<img src=\"https://suivi.boostperformance.ai/pixel.php?id=${link_id}\" width=\"1\" height=\"1\" style=\"display:none;\" />`;\ncontenu = contenu.replace(/{{\\s*tracking_link\\s*}}/gi, trackingReplacement);\n\n// Encodage du sujet en Base64 UTF-8 (sans capture interne d'éventuelles erreurs)\nconst encodedSubject = `=?UTF-8?B?${Buffer.from(sujet, 'utf-8').toString('base64')}?=`;\n\n// Retourner l'objet final incluant le sujet encodé, le sujet non encodé, le contenu et le link_id généré\nreturn {\n  json: {\n    Sujet: encodedSubject,\n    Sujet_not_encoded: sujet,\n    Contenu: contenu,\n    link_id: link_id\n  }\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        368,
+        608
+      ],
+      "id": "84943113-556e-4608-9f0a-06aaeccb0beb",
+      "name": "Replace Variable"
+    },
+    {
+      "parameters": {
+        "fromEmail": "info@boostperformance.ai",
+        "toEmail": "p@justmove.app",
+        "subject": "={{ $('Replace Variable').item.json.Sujet_not_encoded }}",
+        "html": "={{ $('Message settings').item.json.body_html }}"
+      },
+      "type": "n8n-nodes-base.mailgun",
+      "typeVersion": 1,
+      "position": [
+        -752,
+        192
+      ],
+      "id": "660ceda9-249a-4a87-aeba-ec55b4eb1432",
+      "name": "Mailgun",
+      "credentials": {
+        "mailgunApi": {
+          "id": "satLliGeCIPMLwqS",
+          "name": "Mailgun account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mailgun.net/v3/mg.boostperformance.ai/messages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mailgunApi",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "from",
+              "value": "={{ $('Data Workflow').item.json.De }}"
+            },
+            {
+              "name": "to",
+              "value": "={{ $('Data Workflow').item.json[\"Contact Email\"] }}"
+            },
+            {
+              "name": "subject",
+              "value": "={{ $('Replace Variable').item.json.Sujet_not_encoded }}"
+            },
+            {
+              "name": "html",
+              "value": "={{ $('Message settings').item.json.body_html }}"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "inline",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -304,
+        -32
+      ],
+      "id": "24e2b091-39b4-471a-9c43-93903487bedb",
+      "name": "HTTP Request",
+      "credentials": {
+        "mailgunApi": {
+          "id": "satLliGeCIPMLwqS",
+          "name": "Mailgun account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "=data",
+        "options": {
+          "fileName": "myimage"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -752,
+        -480
+      ],
+      "id": "6a4f151b-3443-4c86-ae8d-ff8935aefa98",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e38d66d-a221-4321-a570-2641603517c8",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -752,
+        -704
+      ],
+      "id": "d42d2a33-7827-451c-be0b-eb8e86106200",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "url": "https://suivi.boostperformance.ai/logo_boost_gris.png",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -752,
+        -32
+      ],
+      "id": "4f32b823-1853-4911-a2de-8b977b10c988",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const newFileName = 'image1.png';\n\nconst binaryData = {\n  ...items[0].binary.data,\n  fileName: newFileName,\n  mimeType: 'image/png'\n};\n\nreturn [{\n  json: items[0].json,\n  binary: {\n    data: binaryData\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -528,
+        -32
+      ],
+      "id": "d738aa41-e602-43b1-8519-f4790673b832",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b9cbdcdf-03f6-46bd-9ede-be315eb55ae8",
+              "name": "Minutes Avant",
+              "value": "={{ $json['Minutes Avant'] }}",
+              "type": "number"
+            },
+            {
+              "id": "490d346b-674d-432e-8c57-7c5db988fd30",
+              "name": "",
+              "value": "=",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -752,
+        -256
+      ],
+      "id": "12457bce-ee8b-4dbc-b906-e260d5981082",
+      "name": "Edit Fields1"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-01T19:50:16.000Z",
+  "versionId": "eab50b57-2936-46f7-8e56-50b3bc08f818"
+}
