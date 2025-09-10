@@ -1,0 +1,94 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Send POST to slack webhook url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send POST to slack webhook url": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-04-25T16:04:07.191Z",
+  "id": "5Y1MWwO1SegKIwJI",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Send Slack Notification",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "data",
+              "type": "any"
+            },
+            {
+              "name": "workflowId"
+            },
+            {
+              "name": "executionId",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "id": "c055762a-8fe7-4141-a639-df2372f30060",
+      "typeVersion": 1.1,
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        260,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.slack.com/services/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",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"blocks\": [\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"🚨 *A new error occurred in boostperformance.app.n8n.cloud (ID: `ZOgwRiYPl6mhWlny`).*\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"fields\": [\n        {\n          \"type\": \"mrkdwn\",\n          \"text\": \"*Workflow link:*\\n<https://boostperformance.app.n8n.cloud/workflow/{{ $json.workflowId }}|Open workflow>\"\n        },\n        {\n          \"type\": \"mrkdwn\",\n          \"text\": \"*Execution link:*\\n<https://boostperformance.app.n8n.cloud/workflow/{{ $json.workflowId }}/executions/{{ $json.executionId }}|View execution>\"\n        }\n      ]\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": {{ JSON.stringify('```' + JSON.stringify($json.data, null, 6) + '```') }}\n      }\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        620,
+        340
+      ],
+      "id": "fc0d3c1c-f8e8-4f05-aff4-5fff0d6ed403",
+      "name": "Send POST to slack webhook url"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "any"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-25T16:21:08.000Z",
+  "versionId": "ea280e93-4eed-49e7-b694-6c10f05406ce"
+}
