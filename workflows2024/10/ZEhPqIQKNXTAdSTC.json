@@ -1,0 +1,759 @@
+{
+  "active": false,
+  "connections": {
+    "JWT": {
+      "main": [
+        [
+          {
+            "node": "Get Routine Configs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Routine Name": {
+      "main": [
+        [
+          {
+            "node": "Update task status: running",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Start Routine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Has access token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Routine Configs": {
+      "main": [
+        [
+          {
+            "node": "Validate Routine Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has access token": {
+      "main": [
+        [
+          {
+            "node": "JWT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update task status: running": {
+      "main": [
+        [
+          {
+            "node": "Prepare Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start Routine": {
+      "main": [
+        [
+          {
+            "node": "Update task status: completed",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update task status: error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-22T14:02:35.278Z",
+  "id": "ZEhPqIQKNXTAdSTC",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Passive Routine Entrypoint: security and log",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "decode",
+        "token": "={{ $json.access_token }}",
+        "options": {
+          "complete": true
+        }
+      },
+      "id": "3c66c203-3b62-4ed1-b80e-6f4b69f9666a",
+      "name": "JWT",
+      "type": "n8n-nodes-base.jwt",
+      "position": [
+        1240,
+        800
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "jwtAuth": {
+          "id": "pzlG0azbnAhqdblo",
+          "name": "Service Access JWT"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "caadc0e5-5f41-4fac-911e-9a679d0882a7",
+              "leftValue": "={{ $('Execute Workflow Trigger').item.json.routine in $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c30fcf24-7dc0-443c-815b-ec481700ab7e",
+      "name": "Validate Routine Name",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1900,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5e183c49-13ef-4952-a07b-f94961a0e3ae",
+              "name": "routine_config",
+              "value": "={{ $('Validate Routine Name').item.json[$('Execute Workflow Trigger').item.json.routine] }}",
+              "type": "object"
+            },
+            {
+              "id": "98bb2193-de51-457b-aa56-9a632ea1dc12",
+              "name": "data",
+              "value": "={{ JSON.stringify($('Execute Workflow Trigger').item.json) }}",
+              "type": "object"
+            },
+            {
+              "id": "d2d1ad89-8f59-44f0-81a7-1fa4ed3d1fd3",
+              "name": "user_id",
+              "value": "={{ $('JWT').item.json.payload.sub }}",
+              "type": "string"
+            },
+            {
+              "id": "05f67f89-a583-4982-a517-558b58e36466",
+              "name": "circle_user_id",
+              "value": "={{ $('JWT').item.json.payload.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "b56c1f97-c0cf-4217-b33c-f673c9a9e5ef",
+              "name": "circle_email",
+              "value": "={{ $('JWT').item.json.payload.circle_email }}",
+              "type": "string"
+            },
+            {
+              "id": "acce8c8d-1934-4d7c-b71e-17d93a650a49",
+              "name": "job_id",
+              "value": "={{ $('JWT').item.json.payload.job_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9c1ac01b-73fc-4e61-8fdb-8b2e2d99cee3",
+      "name": "Prepare Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2460,
+        800
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "218d1114-8e48-4f2d-98cc-3f810c9037f2",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        640,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "G6g6ZHfMsOCudIO9",
+          "mode": "list",
+          "cachedResultName": "Get Routine Configs"
+        },
+        "options": {}
+      },
+      "id": "350353cc-bd78-4a7e-91c6-1954d1eecbcd",
+      "name": "Get Routine Configs",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1600,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "425b27fd-a6db-4922-b3ad-b645f83c8a71",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.access_token }}",
+              "rightValue": ""
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "647cb6a5-6ee6-4761-8909-3eda30d9cfc8",
+      "name": "Has access token",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        940,
+        800
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "={{ $('Get Routine Configs').first().json[$('Execute Workflow Trigger').item.json.routine].workflowId }}",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "528618c1-23a4-4612-8dac-7095d739e74a",
+      "name": "Start Routine",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        2740,
+        800
+      ],
+      "retryOnFail": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "running",
+            "id": "={{ $('JWT').item.json.payload.job_id }}",
+            "progress": 5
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "92bf4387-7149-434b-9c95-23fa44c3a7f1",
+      "name": "Update task status: running",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2200,
+        800
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "error",
+            "id": "={{ $('JWT').first().json.payload.job_id }}",
+            "progress": "={{ null }}",
+            "progress_status": "={{ null }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d7308ba6-b2e2-4162-9548-1a2807d4d140",
+      "name": "Update task status: error",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        3000,
+        920
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "completed",
+            "id": "={{ $('JWT').first().json.payload.job_id }}",
+            "progress": 100
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ada77b41-f1e5-4e51-834b-40a6086cf2bf",
+      "name": "Update task status: completed",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        3000,
+        720
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": {
+    "node:Typeform Trigger": {}
+  },
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2024-12-13T02:13:36.000Z",
+  "versionId": "5800a8d5-5b1f-4693-8bca-83d3f41a3b00"
+}
