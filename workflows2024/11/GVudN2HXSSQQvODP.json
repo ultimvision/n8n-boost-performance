@@ -1,0 +1,759 @@
+{
+  "active": false,
+  "connections": {
+    "Loop Over Prompts": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Get live doc content",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Préparation des informations": {
+      "main": [
+        [
+          {
+            "node": "Insert Section in AirTable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompts Automatisation Masterclass": {
+      "main": [
+        [
+          {
+            "node": "Liste des sections",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Data Workflow": {
+      "main": [
+        [
+          {
+            "node": "Prompts Automatisation Masterclass",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Section in AirTable": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get live doc content": {
+      "main": [
+        [
+          {
+            "node": "Documentation live",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Liste des sections": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Documentation live": {
+      "main": [
+        [
+          {
+            "node": "Merge Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Data": {
+      "main": [
+        [
+          {
+            "node": "Instructions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instructions": {
+      "main": [
+        [
+          {
+            "node": "Switch LLM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch LLM": {
+      "main": [
+        [
+          {
+            "node": "Call API OpenAi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call API OpenAi1": {
+      "main": [
+        [
+          {
+            "node": "Préparation des informations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-30T14:02:57.755Z",
+  "id": "GVudN2HXSSQQvODP",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Loop Prompts Auto - Documentation",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXDHExWitNZ6UVz",
+          "mode": "list",
+          "cachedResultName": "Automatisations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblKpK3NK2GqlpSe4",
+          "mode": "list",
+          "cachedResultName": "Masterclass",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz/tblKpK3NK2GqlpSe4"
+        },
+        "filterByFormula": "=FIND(\"{{ $json['Type Formation'] }}\", ARRAYJOIN({Nom du Type}, \",\"))",
+        "options": {},
+        "sort": {
+          "property": [
+            {
+              "field": "Ordre"
+            }
+          ]
+        }
+      },
+      "id": "89f1e142-472a-4315-837a-e4110affa996",
+      "name": "Prompts Automatisation Masterclass",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -20,
+        520
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={\n  \"model\": \"gpt-4o\",\n  \"response_format\": {\n    \"type\": \"json_schema\",\n    \"json_schema\": \n    {\n      \"name\": \"title_and_tagline_schema\",\n      \"schema\": \n{{ $('Loop Over Prompts').item.json['Schema JSON'] }}\n    }\n  },\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": {{ JSON.stringify($json.Instructions) }}\n\n    },\n    {\n      \"role\": \"user\",\n      \"content\": {{  JSON.stringify($json.Overview) }}\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "id": "f67613ce-9f52-4590-9ca2-495e4d589ddc",
+      "name": "Call API OpenAi1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2280,
+        640
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.1,
+      "credentials": {
+        "openAiApi": {
+          "id": "P0G2YpkVZIDDw99j",
+          "name": "OpenAi Boost TAI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a9080e48-44c7-4d00-8859-1afdf36e6ce5",
+              "name": "Instructions",
+              "value": "={{ $('Data Workflow').first().json.Instructions }}",
+              "type": "string"
+            },
+            {
+              "id": "06d82bfa-f030-4703-b479-ea6c346fe44c",
+              "name": "Overview",
+              "value": "=DÉBUT - INFORMATION À PROPOS DE LA FORMATION :\n{{ $('Data Workflow').first().json.Overview }}\nFIN - INFORMATION À PROPOS DE LA FORMATION.\n\nDÉBUT - STRUCTURE FINALE DES SECTIONS DE FORMATION DU DOCUMENT :\n{{ $('Liste des sections').first().json.section_index }}\nFIN - STRUCTURE FINALE DES SECTIONS DE FORMATION DU DOCUMENT.\n\nDÉBUT - DOCUMENTATION ACTUELLE :\n{{ $json.live_documentation }}\nFIN - DOCUMENTATION ACTUELLE.\n\nDÉBUT - LES INSTRUCTIONS POUR TA TÂCHE :\n{{ $json.Prompt }}\nFIN - LES INSTRUCTIONS POUR TA TÂCHE.",
+              "type": "string"
+            },
+            {
+              "id": "89d78064-5878-4838-8235-3e0282c707a2",
+              "name": "Formation ID",
+              "value": "={{ $('Data Workflow').first().json['Formation ID'] }}",
+              "type": "string"
+            },
+            {
+              "id": "71c452b3-fa01-4a08-8a8f-024179b1cb04",
+              "name": "Titre",
+              "value": "={{ $('Prompts Automatisation Masterclass').itemMatching(0).json.Name }}\n\n{{ $('Prompts Automatisation Masterclass').all()[1].json.Name }}\n",
+              "type": "string"
+            },
+            {
+              "id": "2330c3cd-f577-4cf1-9d3d-762f5b76937f",
+              "name": "section_index",
+              "value": "={{ $('Liste des sections').first().json.section_index }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2ed32371-92e0-43ea-b8ab-46044b61594d",
+      "name": "Instructions",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1740,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "95710d88-12bb-48d3-adcc-882cd2ddf5d5",
+      "name": "Loop Over Prompts",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        660,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "158d7dca-4bab-48c7-b9ce-b1126e4d0dad",
+              "name": "content",
+              "value": "={{ $json.choices[0].message.content }}",
+              "type": "object"
+            },
+            {
+              "id": "7d19a111-004c-4153-aee8-866dc657ae25",
+              "name": "Nom de la section",
+              "value": "={{ $('Loop Over Prompts').item.json.Name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7b6a7388-858c-42c8-8fb5-cd74844867d6",
+      "name": "Préparation des informations",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2540,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenir les données d'entrée\nconst input = items;\n\n// Initialiser une chaîne pour stocker le contenu formaté\nlet output = '';\n\n// Boucler sur chaque élément d'entrée\ninput.forEach(item => {\n    if (item.json && item.json.content) {\n        const content = item.json.content;\n\n        // Boucler sur chaque clé et valeur dans l'objet \"content\"\n        for (const [key, value] of Object.entries(content)) {\n            if (typeof value === 'object' && value !== null) {\n                // Si la valeur est un objet, la convertir en JSON formaté\n                output += `${key}:\\n${JSON.stringify(value, null, 2)}\\n\\n`;\n            } else {\n                // Sinon, ajouter la valeur directement\n                output += `${key}:\\n${value}\\n\\n`;\n            }\n        }\n        // Ajouter un séparateur de section avec deux sauts de ligne\n        output += '\\n';\n    } else {\n        output += 'Aucun contenu trouvé pour cet élément.\\n\\n';\n    }\n});\n\n// Supprimer les lignes vides supplémentaires à la fin\noutput = output.trim();\n\n// Retourner le contenu formaté\nreturn [{ json: { formattedOutput: output } }];\n"
+      },
+      "id": "e584aa2f-856b-440a-904e-0c9142f61357",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "bff41bf3-96c1-40e5-b6d9-ce3f4be70f8e",
+      "name": "Data Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -260,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXDHExWitNZ6UVz",
+          "mode": "list",
+          "cachedResultName": "Automatisations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblclOxekywjQtLHF",
+          "mode": "list",
+          "cachedResultName": "Documentation",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz/tblclOxekywjQtLHF"
+        },
+        "filterByFormula": "=FIND(\"{{ $('Data Workflow').item.json.Nom }}\", ARRAYJOIN({Nom de la formation}, \",\"))",
+        "returnAll": false,
+        "limit": 1,
+        "options": {},
+        "sort": {
+          "property": [
+            {
+              "field": "Version",
+              "direction": "desc"
+            }
+          ]
+        }
+      },
+      "id": "fb310d9b-5441-4e3c-901d-6d7df0478c66",
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1360,
+        160
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appXDHExWitNZ6UVz",
+          "mode": "list",
+          "cachedResultName": "Automatisations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblclOxekywjQtLHF",
+          "mode": "list",
+          "cachedResultName": "Documentation",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz/tblclOxekywjQtLHF"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $('Préparation des informations').item.json['Nom de la section'] }}",
+            "Prompts": "=['{{ $('Loop Over Prompts').item.json.id }}']",
+            "Contenu Texte": "={{ \n  $json.content.summary \n    ? JSON.parse('\"' + $json.content.summary.replace(/\"/g, '\\\\\"').replace(/\\n/g, '\\\\n') + '\"') \n    : '' \n}}\n",
+            "Contenu JSON": "={{ JSON.stringify($('Préparation des informations').item.json.content) }}\n\n",
+            "Version": "={{ $('Data Workflow').item.json.Version }}",
+            "Formations": "=['{{ $('Instructions').item.json['Formation ID'] }}']"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Contenu Texte",
+              "displayName": "Contenu Texte",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Contenu JSON",
+              "displayName": "Contenu JSON",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Version",
+              "displayName": "Version",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Prompts",
+              "displayName": "Prompts",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom de la section",
+              "displayName": "Nom de la section",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Formations",
+              "displayName": "Formations",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom de la formation",
+              "displayName": "Nom de la formation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "843348c1-b4d0-43ab-94bc-ccd3940ceb3b",
+      "name": "Insert Section in AirTable",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2840,
+        800
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXDHExWitNZ6UVz",
+          "mode": "list",
+          "cachedResultName": "Automatisations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblclOxekywjQtLHF",
+          "mode": "list",
+          "cachedResultName": "Documentation",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz/tblclOxekywjQtLHF"
+        },
+        "filterByFormula": "=AND(\n    FIND(\"{{ $('Data Workflow').item.json.Nom }}\", ARRAYJOIN({Nom de la formation}, \",\")) > 0,\n    {Version} = {{ $('Data Workflow').item.json.Version }}\n)",
+        "options": {
+          "fields": [
+            "Name",
+            "Nom de la formation",
+            "Contenu Texte"
+          ]
+        },
+        "sort": {
+          "property": [
+            {
+              "field": "Ordre Section"
+            }
+          ]
+        }
+      },
+      "id": "7bf1f1d1-061f-4818-8f32-31530e5bc633",
+      "name": "Get live doc content",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1060,
+        460
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Itère sur tous les items et crée une chaîne de texte agrégée\nconst aggregatedText = items.map(item => {\n  const name = item.json[\"Name\"] || \"Documentation prêt à commencer\";\n  const content = item.json[\"Contenu Texte\"] || \"\";\n  return `### ${name}\\n\\n${content}`;\n}).join(\"\\n\\n---\\n\\n\");\n\n// Ajoute le texte agrégé comme une propriété sur un nouvel item\nreturn [\n  {\n    json: {\n      live_documentation: aggregatedText\n    }\n  }\n];\n"
+      },
+      "id": "d2df4d22-90aa-4fbb-8982-6ce99582afb1",
+      "name": "Documentation live",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Itère sur tous les items et crée une chaîne de texte agrégée\nconst aggregatedText = items.map(item => {\n  const name = item.json.Name || \"Documentation prêt à commencer\";\n  const content = item.json[\"Contenu Texte\"] || \"\";\n  const ordre = item.json[\"Ordre\"] || \"\";\n  return `Section ${ordre}\\n${name}\\n\\n${content}`;\n}).join(\"\\n\\n---\\n\\n\");\n\n// Ajoute le texte agrégé comme une propriété sur un nouvel item\nreturn [\n  {\n    json: {\n      section_index: aggregatedText\n    }\n  }\n];\n\n\n"
+      },
+      "id": "f79d6702-1b59-4915-ae2b-9e95ce69fcb0",
+      "name": "Liste des sections",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3b45cf23-a4aa-4fef-9877-b7880988b54d",
+              "name": "Name",
+              "value": "={{ $json.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "fc891fab-bd80-4990-91ee-ca209fc2c39d",
+              "name": "LLM",
+              "value": "={{ $json.LLM }}",
+              "type": "string"
+            },
+            {
+              "id": "a334119d-9a4c-46f7-9e00-1d92cb4c487b",
+              "name": "Prompt",
+              "value": "={{ $json.Prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "1f226aaf-5256-4d19-b397-1ff22d3bfe9e",
+              "name": "Ordre",
+              "value": "={{ $json.Ordre }}",
+              "type": "number"
+            },
+            {
+              "id": "72d5157c-a896-4922-afa9-e816a6d88573",
+              "name": "Schema JSON",
+              "value": "={{ $json['Schema JSON'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "cd24bdda-77f5-4ba4-ba82-97f47cb0dd73",
+      "name": "Liste des prompts",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        200,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "id": "facf618a-ba4c-41ff-83c3-85c1034ae81d",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        420,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "a4cbe906-57c3-4261-a19b-a0281e0b64a3",
+      "name": "Merge Data",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1460,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Loop Over Prompts').item.json.LLM }}",
+                    "rightValue": "ChatGPT",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ChatGPT"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "598a9681-d2a1-45a2-95c3-c8a6acae9c49",
+      "name": "Switch LLM",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2000,
+        640
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    },
+    {
+      "createdAt": "2024-11-29T21:33:30.953Z",
+      "updatedAt": "2024-11-29T21:33:30.953Z",
+      "id": "oVF1xEjAGV832rDB",
+      "name": "Documentation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-30T18:28:30.000Z",
+  "versionId": "c25169c5-8b92-4d00-a81b-694aa2047b3e"
+}
