@@ -1,0 +1,35 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-08-20T18:23:42.221Z",
+  "id": "mjoyrd1eEM8dCrOi",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "DEv pat",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1c2a674f-7b89-41aa-ac28-4ab6f184136d",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        660,
+        540
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-20T18:23:42.221Z",
+  "versionId": "28808448-e063-4ad1-9d86-00da8c21a23a"
+}
