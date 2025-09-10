@@ -1,0 +1,1342 @@
+{
+  "active": false,
+  "connections": {
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Download Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Download Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert in DB": {
+      "main": [
+        [
+          {
+            "node": "Get item from DB",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Unable to save in DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create record": {
+      "main": [
+        [
+          {
+            "node": "Get Download URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get record from DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Audio": {
+      "main": [
+        [
+          {
+            "node": "Set filename with extension - audio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Unable to upload audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Video": {
+      "main": [
+        [
+          {
+            "node": "Set filename with extension - video",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Unable to download video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Download URL": {
+      "main": [
+        [
+          {
+            "node": "Split Out Formats",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Unable to get download url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get item from DB": {
+      "main": [
+        [
+          {
+            "node": "Prepare successful output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Already processed": {
+      "main": [
+        [
+          {
+            "node": "Prepare successful existing output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare data for DB - initial",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Formats": {
+      "main": [
+        [
+          {
+            "node": "Switch Audio/Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get record from DB": {
+      "main": [
+        [
+          {
+            "node": "Already processed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Audio/Video": {
+      "main": [
+        [
+          {
+            "node": "Sort by audio quality desc",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sort by video quality asc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for DB": {
+      "main": [
+        [
+          {
+            "node": "Upsert in DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload audio to AWS": {
+      "main": [
+        [
+          {
+            "node": "API AssemblyAI | Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload video to AWS S3": {
+      "main": [
+        [
+          {
+            "node": "Wait for audio and video",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Unable to upload video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate parent workflow input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for audio and video": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by video quality asc": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by audio quality desc": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update transcript_id in DB": {
+      "main": [
+        [
+          {
+            "node": "Wait for audio and video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Transcript": {
+      "main": [
+        [
+          {
+            "node": "Update transcript_id in DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for DB - initial": {
+      "main": [
+        [
+          {
+            "node": "Create record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate parent workflow input": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invalid input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Validate parent workflow input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-19T17:02:17.550Z",
+  "id": "7VSuI42Fcw4GQRhj",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Import Youtube Video and Audio MAT",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1d81467f-12cf-4cf0-8e03-ebbb01861e50",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        440,
+        1160
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "ed274a50-135e-40f3-aa50-60f40c96b686",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        440,
+        1400
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "ee277e0d-625f-4f94-b332-506dae01c986",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.id }}",
+              "rightValue": ""
+            },
+            {
+              "id": "5c09787b-c276-4cc6-b9c0-44bcafc5df61",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.id }}",
+              "rightValue": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "110b2e90-8f69-4a2b-8745-a16ae9a1cee9",
+      "name": "Validate parent workflow input",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        720,
+        1344.8915877957124
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "url": "https://ytstream-download-youtube-videos.p.rapidapi.com/dl",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $('Workflow Data').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "61669943-c825-41e0-8ecc-e131ed8b2cb0",
+      "name": "Get Download URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1840,
+        2104.8915877957124
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"success\": false,\n  \"message\": \"Invalid input\"\n}\n",
+        "options": {}
+      },
+      "id": "04a96353-e81f-476f-9807-b1a30c284935",
+      "name": "Invalid input",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1040,
+        1764.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"success\": false,\n  \"message\": \"Unable to get download url\"\n}\n",
+        "options": {}
+      },
+      "id": "41f3b2d1-f7cb-4ef3-982e-6461f03dabf1",
+      "name": "Unable to get download url",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2480,
+        3004.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "content": "# Error Handling",
+        "height": 317.94298986376623,
+        "width": 3420.165916113135,
+        "color": 3
+      },
+      "id": "83c51505-3fe7-4622-9f9f-183aa359767a",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2080,
+        2864.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "35d18925-c707-4484-bdfc-8ba9bda8b35d",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.video_url }}",
+              "rightValue": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e0dfa291-ae07-4432-9789-6448262cb97e",
+      "name": "Already processed",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1600,
+        1344.8915877957124
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "22f79d84-f455-4762-983b-2c968c508949",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1080,
+        1344.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"success\": false,\n  \"message\": \"Unable to download video\"\n}\n",
+        "options": {}
+      },
+      "id": "2a2958ed-8f08-4bdc-9f84-b28341cfcc14",
+      "name": "Unable to download video",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        3340,
+        2984.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"success\": false,\n  \"message\": \"Unable to upload video to AWS\"\n}\n",
+        "options": {}
+      },
+      "id": "78e5c2e4-efd9-4bdd-ab75-d03f6f6b22ff",
+      "name": "Unable to upload video",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        4200,
+        2984.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"success\": false,\n  \"message\": \"Unable to save in DB\"\n}\n",
+        "options": {}
+      },
+      "id": "91266f50-054a-43c7-ac73-ec39736db27b",
+      "name": "Unable to save in DB",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        5600,
+        2984.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "mode": "list",
+          "value": "rag_videos",
+          "cachedResultName": "rag_videos"
+        },
+        "columnToMatchOn": "provider_id",
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "42b5ef8a-a6c7-45fd-b277-d1ca17be3358",
+      "name": "Upsert in DB",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        4880,
+        2104.8915877957124
+      ],
+      "typeVersion": 2.4,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"success\": true,\n  \"message\": \"Video already downloaded\",\n  \"data\": {{ JSON.stringify($json) }}\n}\n",
+        "options": {}
+      },
+      "id": "ca524d92-e447-40c7-b566-0e6056f44c0f",
+      "name": "Prepare successful output",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        5460,
+        2104.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "content": "## Output\n\n```json\n{\n  \"success\": boolean,\n  \"message\": string,\n  \"data\": JSON // DB record rag_videos\n}\n```\n",
+        "height": 432.749119552779,
+        "width": 276.0868065869825,
+        "color": 5
+      },
+      "id": "0e33e8a7-e661-4ca7-9567-dd92adbcdc4c",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        5360,
+        1884.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "bitrate",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "68cfc0e0-ed30-4afa-b113-354fa1bd1b77",
+      "name": "Sort by audio quality desc",
+      "type": "n8n-nodes-base.sort",
+      "position": [
+        2660,
+        1784.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "eb0e60a6-e07a-4065-84f5-d19ffd08d2b0",
+      "name": "Limit",
+      "type": "n8n-nodes-base.limit",
+      "position": [
+        2880,
+        1784.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"success\": false,\n  \"message\": \"Unable to upload audio to AWS\"\n}\n",
+        "options": {}
+      },
+      "id": "8899a63d-5da1-4c0c-99ba-2dd99a74abc3",
+      "name": "Unable to upload audio",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        3400,
+        2064.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {}
+      },
+      "id": "13f1b0bf-5b33-4380-a6d0-e50b80ed8269",
+      "name": "Download Audio",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        3080,
+        1784.8915877957124
+      ],
+      "typeVersion": 4.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "bitrate"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3c904b1c-a406-4d60-9f07-a19f7d83bfaa",
+      "name": "Sort by video quality asc",
+      "type": "n8n-nodes-base.sort",
+      "position": [
+        2640,
+        2464.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "05acd37d-42e6-4ddc-a647-b67c26a6ffc4",
+      "name": "Limit1",
+      "type": "n8n-nodes-base.limit",
+      "position": [
+        2880,
+        2464.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {}
+      },
+      "id": "953659b7-c78c-4b4d-b023-434deb565f51",
+      "name": "Download Video",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        3120,
+        2464.8915877957124
+      ],
+      "typeVersion": 4.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "tai-rag-videos",
+        "fileName": "={{ $('Workflow Data').first().json.id }}/{{ $json.filename }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "id": "2295f1c9-680a-460d-a56c-2cc1b01d7f23",
+      "name": "Upload audio to AWS",
+      "type": "n8n-nodes-base.awsS3",
+      "position": [
+        3560,
+        1784.8915877957124
+      ],
+      "typeVersion": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "tai-rag-videos",
+        "fileName": "={{ $('Workflow Data').first().json.id }}/{{ $json.filename }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "id": "7ead3afa-1732-47c4-a728-4553a5c4c93b",
+      "name": "Upload video to AWS S3",
+      "type": "n8n-nodes-base.awsS3",
+      "position": [
+        3780,
+        2464.8915877957124
+      ],
+      "typeVersion": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.assemblyai.com/v2/transcript",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "audio_url",
+              "value": "=https://tai-rag-videos.s3.amazonaws.com/{{ $('Workflow Data').first().json.id }}/{{ $('Set filename with extension - audio').first().json.filename }}"
+            },
+            {
+              "name": "speaker_labels",
+              "value": "true"
+            },
+            {
+              "name": "language_detection",
+              "value": "=true"
+            },
+            {
+              "name": "webhook_url",
+              "value": "https://n8n.thetai.dev/webhook/assemblyai"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e20f4e61-61fd-4513-bfd8-0f992109c859",
+      "name": "API AssemblyAI | Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        3840,
+        1784.8915877957124
+      ],
+      "typeVersion": 4.2,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f4fb409-0e7f-4a64-9421-c277a692b812",
+              "name": "provider_id",
+              "type": "string",
+              "value": "={{ $('Workflow Data').first().json.id }}"
+            },
+            {
+              "id": "65c70e14-8840-445e-b290-1164cb8aa987",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $('Get Download URL').first().json.title }}"
+            },
+            {
+              "id": "b1a339bb-a2aa-46f8-94f8-de56b9657599",
+              "name": "duration",
+              "type": "number",
+              "value": "={{ $('Get Download URL').first().json.lengthSeconds }}"
+            },
+            {
+              "id": "d99e7747-1605-4b1b-997b-d23662e0b147",
+              "name": "size",
+              "type": "number",
+              "value": "={{ $('Download Video').first().json.contentLength }}"
+            },
+            {
+              "id": "d717058d-61f4-4aa5-9db0-f5e45a0f01ab",
+              "name": "provider",
+              "type": "string",
+              "value": "youtube"
+            },
+            {
+              "id": "62d3e247-09c9-41d4-b9e1-ac413ee222c7",
+              "name": "video_url",
+              "type": "string",
+              "value": "=https://tai-rag-videos.s3.amazonaws.com/{{ $('Workflow Data').first().json.id }}/{{ $('Set filename with extension - video').first().json.filename }}"
+            },
+            {
+              "id": "6a3ee7b4-11d9-4020-af12-3610a40ab334",
+              "name": "audio_url",
+              "type": "string",
+              "value": "=https://tai-rag-videos.s3.amazonaws.com/{{ $('Workflow Data').first().json.id }}/{{ $('Set filename with extension - audio').first().json.filename }}"
+            },
+            {
+              "id": "49853355-9bf7-4fb7-9d07-4bde312129f7",
+              "name": "transcript_provider",
+              "type": "string",
+              "value": "assemblyai"
+            },
+            {
+              "id": "18c23b72-1f39-4892-af1c-2d2d2e22eb23",
+              "name": "transcript_provider_id",
+              "type": "string",
+              "value": "={{ $('API AssemblyAI | Transcript').first().json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "91c896f1-4d75-4214-bdc3-a38f234314f8",
+      "name": "Prepare data for DB",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        4680,
+        2104.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9bce0263-d054-465b-896f-6d4c069b8000",
+              "name": "filename",
+              "type": "string",
+              "value": "={{ $('Get Download URL').first().json.title }}.{{ $binary.data.fileExtension }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "9fefd6c8-c4b5-42dc-95e4-c51d3b4b3f99",
+      "name": "Set filename with extension - audio",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        3340,
+        1780
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9bce0263-d054-465b-896f-6d4c069b8000",
+              "name": "filename",
+              "type": "string",
+              "value": "={{ $('Get Download URL').first().json.title }}.{{ $binary.data.fileExtension }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "5dc0dff1-52d8-4105-ac8c-ec38f06020bc",
+      "name": "Set filename with extension - video",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        3440,
+        2464.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "content": "## Error Handling",
+        "height": 230.76492242997267,
+        "width": 580.8510430377025,
+        "color": 3
+      },
+      "id": "f012d583-469a-45ee-93c6-56bac86f59b6",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3100,
+        2024.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Error Handling",
+        "height": 230.76492242997267,
+        "width": 393.39749428020855,
+        "color": 3
+      },
+      "id": "6ebaff4b-b70e-4f69-8ddc-3678bbb9c333",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        840,
+        1704.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Video",
+        "height": 357.62153566089626,
+        "width": 1674.3029345459522,
+        "color": 5
+      },
+      "id": "cb9d73ef-7b34-45b6-afc0-deaf5670efbd",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2531.9604568960763,
+        2304.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Audio",
+        "height": 357.62153566089626,
+        "width": 1705.2123750411236,
+        "color": 5
+      },
+      "id": "f48a2e6a-be62-4f37-b60d-fd52375e3cd6",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2540,
+        1644.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "output": "empty"
+      },
+      "id": "e032bc41-1a11-4a30-8a03-dfe0fdfef0d6",
+      "name": "Wait for audio and video",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        4480,
+        2104.8915877957124
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "mode": "list",
+          "value": "rag_videos",
+          "cachedResultName": "rag_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "provider",
+              "value": "youtube"
+            },
+            {
+              "column": "provider_id",
+              "value": "={{ $('Workflow Data').item.json.id}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bdf92cf0-6543-4b15-bd9a-f0137be2fc6d",
+      "name": "Get record from DB",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        1340,
+        1344.8915877957124
+      ],
+      "typeVersion": 2.4,
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "adaptiveFormats",
+        "options": {}
+      },
+      "id": "d6a661ca-3eae-49d1-aa1d-14d3addc519f",
+      "name": "Split Out Formats",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        2100,
+        2104.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "audio/"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "audio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "63f3aede-6eeb-4ad8-adf8-e131cac0b3d2",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "video/"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "video"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4c834d61-d0b3-4500-8ad0-98ce6c7303a9",
+      "name": "Switch Audio/Video",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        2300,
+        2104.8915877957124
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "mode": "list",
+          "value": "rag_videos",
+          "cachedResultName": "rag_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "provider_id",
+              "value": "={{ $('Workflow Data').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "67b0ced2-d0b7-464b-a9e4-d9943b7b7482",
+      "name": "Get item from DB",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        5140,
+        2104.8915877957124
+      ],
+      "typeVersion": 2.4
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f4fb409-0e7f-4a64-9421-c277a692b812",
+              "name": "provider_id",
+              "type": "string",
+              "value": "={{ $('Workflow Data').first().json.id }}"
+            },
+            {
+              "id": "d717058d-61f4-4aa5-9db0-f5e45a0f01ab",
+              "name": "provider",
+              "type": "string",
+              "value": "youtube"
+            },
+            {
+              "id": "02fc9eaa-de8b-4fc0-8e85-9fe204aefe61",
+              "name": "title",
+              "type": "string",
+              "value": "={{ $('Workflow Data').first().json.id }}"
+            },
+            {
+              "id": "ceb950ed-1755-4314-b678-15cca21e6e01",
+              "name": "size",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "id": "713e60db-4c0a-4f01-aa11-18267d3a17f0",
+              "name": "duration",
+              "type": "number",
+              "value": 0
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a98d353e-2ba3-4b8d-93f5-a0cc7df24666",
+      "name": "Prepare data for DB - initial",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1320,
+        2104.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "mode": "list",
+          "value": "rag_videos",
+          "cachedResultName": "rag_videos"
+        },
+        "columnToMatchOn": "provider_id",
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "902a0ec0-9c4e-4649-b3bf-c936da430292",
+      "name": "Create record",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        1540,
+        2104.8915877957124
+      ],
+      "typeVersion": 2.4,
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "mode": "list",
+          "value": "rag_videos",
+          "cachedResultName": "rag_videos"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "provider_id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json.id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "transcript_provider",
+              "value": "assemblyai"
+            },
+            {
+              "column": "transcript_provider_id",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "213a3c0e-16eb-4d31-8707-9fe7d3eb1ea9",
+      "name": "Update transcript_id in DB",
+      "type": "n8n-nodes-base.mySql",
+      "position": [
+        4040,
+        1784.8915877957124
+      ],
+      "typeVersion": 2.4,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "content": "## Output\n\n```json\n{\n  \"success\": boolean,\n  \"message\": string,\n  \"data\": JSON // DB record rag_videos\n}\n```\n",
+        "height": 432.749119552779,
+        "width": 276.0868065869825,
+        "color": 5
+      },
+      "id": "5ca4053d-bb48-47b7-85aa-91e03483cbf2",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1880,
+        1104.8915877957124
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"success\": true,\n  \"message\": \"Video already downloaded\",\n  \"data\": {{ JSON.stringify($json) }}\n}\n",
+        "options": {}
+      },
+      "id": "c13228b8-2dd7-4bba-8e93-00b4d773a3ec",
+      "name": "Prepare successful existing output",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1980,
+        1324.8915877957124
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "content": "# Documentation\n\n**Summary:** This workflow \"YouTube Downloader\" automates the process of downloading YouTube videos and audio, processing them, storing them in AWS S3, and updating a database with relevant information.\n\n**Nodes:**\n1. **Triggers:** Two triggers exist (`Execute Workflow Trigger` and `When clicking ‘Test workflow’`) but are currently disabled or inactive.\n2. **Validation:** Validates YouTube video ID input.\n3. **Database operations:** Interacts with a MySQL database to check and update records for already processed videos.\n4. **Downloading:** Downloads video and audio from YouTube using RapidAPI.\n5. **File operations:** Sets filenames, uploads files to AWS S3, and logs errors for issues.\n6. **Audio Processing:** Sends audio files to AssemblyAI for transcription.\n7. **Error Handling:** Various nodes handle errors during different stages, such as invalid input or failed uploads.\n\n**Improvements:**\n1. **Active Workflow:** If not actively used, consider activating and testing it.\n2. **Error nodes:** Consolidate error handling for cleaner management.\n3. **Documentation:** Add descriptive comments for better readability of workflow purpose and steps.\n4. **Modularization:** Split the workflow into smaller sub-workflows for clarity and maintainability.\n5. **Retries or timeout:** Add retry mechanisms or timeout settings for HTTP requests and uploads to handle intermittent failures.\n6. **Logging:** Implement detailed logging for better troubleshooting and analysis.",
+        "height": 544.8915877957124,
+        "width": 1000
+      },
+      "id": "f208d32e-e239-48c6-9ffb-d0fc2fb94a1c",
+      "name": "Sticky Note Documentation: 82b11a5b-70d8-421c-9373-b68f9ded7cef",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        460,
+        460
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-16T13:16:49.454Z",
+      "updatedAt": "2024-08-16T13:16:49.454Z",
+      "id": "D8lPZrpKUZBXtipn",
+      "name": "RAG"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-08T12:27:22.000Z",
+  "versionId": "bb2577c4-4bfa-4b30-8b15-1129fd091d9b"
+}
