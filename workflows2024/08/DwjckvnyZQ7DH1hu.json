@@ -1,0 +1,215 @@
+{
+  "active": false,
+  "connections": {
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat OpenAI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On new manual Chat Message": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-18T23:42:12.320Z",
+  "id": "DwjckvnyZQ7DH1hu",
+  "isArchived": false,
+  "meta": {
+    "templateId": "1959",
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AI chatbot that can search the web",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "### The conversation history(last 20 messages) is stored in a buffer memory",
+        "height": 185,
+        "width": 300
+      },
+      "id": "3a3bcb2d-cb94-40d8-8b9e-322ea9d27f6e",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        640,
+        540
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "e279af43-b003-4499-b221-58716e735379",
+      "name": "On new manual Chat Message",
+      "type": "@n8n/n8n-nodes-langchain.manualChatTrigger",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "id": "f4f8bf03-a43e-4a1f-a592-cd0f8408f552",
+      "name": "Chat OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        480,
+        553
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "66b60f68-bae8-4958-ac81-03883f563ab3",
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "position": [
+        1120,
+        593
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Tools which agent can use to accomplish the task",
+        "height": 185,
+        "width": 300
+      },
+      "id": "70f6b43b-9290-4fbc-992f-0895d4578c9f",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        980,
+        533
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Conversational agent will utilise available tools to answer the prompt. ",
+        "height": 211,
+        "width": 422
+      },
+      "id": "8696269f-6556-41f1-bbe4-5597e4e46e02",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        600,
+        160
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 20
+      },
+      "id": "6814967b-4567-4cdd-bf09-6b1b5ed0c68e",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        740,
+        600
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ce4358ac-c2cc-45ba-b950-247f8360b36c",
+      "name": "SerpAPI",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "position": [
+        1020,
+        593
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "serpApi": {
+          "id": "CgoZdk6kQv86lW2B",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.input }}",
+        "options": {}
+      },
+      "id": "de80add8-c37d-4d46-80ec-b43234e21150",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        680,
+        240
+      ],
+      "typeVersion": 1.6
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-18T23:44:11.000Z",
+  "versionId": "c8f8c6df-067b-41b1-825a-2d99e6978de2"
+}
