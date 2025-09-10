@@ -1,0 +1,71 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set default values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-15T20:51:23.653Z",
+  "id": "MPr7HCoD19szm86N",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Circle Plans Config",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "4981a4e0-c175-4d53-9741-d70cb4b853e6",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        800,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"solopreneur\": {\n    \"seats\": 1,\n    \"formations\": 1,\n    \"bootcamps\": 1,\n    \"masterclasses\": 1,\n    \"automations\": 1000\n  },\n  \"accelerateur\": {\n    \"seats\": 2,\n    \"formations\": 4,\n    \"bootcamps\": 4,\n    \"masterclasses\": 2,\n    \"automations\": 10000\n  },\n    \"propulseur\": {\n    \"seats\": 5,\n    \"formations\": -1,\n    \"bootcamps\": 10,\n    \"masterclasses\": 6,\n    \"automations\": 100000\n    }\n}\n",
+        "options": {}
+      },
+      "id": "d594f50b-a8af-493f-afcf-bb6dba9380ff",
+      "name": "Set default values",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1020,
+        900
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "any"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-20T15:29:37.000Z",
+  "versionId": "20807c25-c655-4ead-a5a9-e646030ffb75"
+}
