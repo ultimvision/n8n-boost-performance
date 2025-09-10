@@ -1,0 +1,299 @@
+{
+  "active": false,
+  "connections": {
+    "Test Data - Nannette De Gaspe": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Test Data - Nannette De Gaspe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-27T12:21:46.134Z",
+  "id": "FMRnjjpPASXhluYg",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Music - AI Agents Army Dashboard",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "eeac2faf-56ad-4fa6-829e-5ca95df965b7",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        3840,
+        700
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Generate Lyrics and Personalized Music Song with AI\n### Create Personalized Lyrics and Music Using AI\n\nThis tool specializes in songwriting, creating lyrics that highlight a person's best qualities. By analyzing the content of an interview, it identifies key moments and characteristics of the person being interviewed. The tool then generates inspiring, positive, and highly personal lyrics that reflect the essence of the individual. Perfect for crafting unique, meaningful songs that celebrate and represent people in the most authentic way.",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "72317a87-b86d-4fff-bb3f-f15f576404d8",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Source example](https://boostperformance.ai/aiagent/musiciens_1600px.jpg)",
+        "height": 1149.2289415810385,
+        "width": 1634.4352346958026,
+        "color": 7
+      },
+      "id": "8d1103a8-8395-42ee-9d2e-2cbdf7b25f56",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        220,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3f825b9e-9af6-4128-a766-64d4248ebb6f",
+              "name": "customer_id",
+              "value": "nannette-de-gaspe",
+              "type": "string"
+            },
+            {
+              "id": "643c5ad2-90e3-4c86-aed1-f81f0812de12",
+              "name": "sitemap_url",
+              "value": "https://nannettedegaspe.com/sitemap.xml",
+              "type": "string"
+            },
+            {
+              "id": "2a367b06-e264-47ad-9e41-4e04702fac2b",
+              "name": "customer_name",
+              "value": "Nannette de Gaspe",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fe1d0cc8-769b-4708-bef3-4b100c9548b8",
+      "name": "Test Data - Nannette De Gaspe",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4080,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "21752a19-53f0-4ff8-8495-47e10d23a1b5",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4300,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "4sUfI1O8kLP3gDqw",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "71cc56b5-1dba-4d94-8b30-6e629e0b3719",
+      "name": "Generate Lyrics with Song",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "XuRdbte18ES7FjFy",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "0abe2aa9-64d0-4638-851b-893e368f9fc8",
+      "name": "Music Studio Validator",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        4120,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Music Studio Validator\n### Analyze Music Tracks and Retrieve Comprehensive Information for Branding and Media\n\nThis tool analyzes music tracks and provides detailed information, making it ideal for creating jingles for brands, ads, video stories, and more. It evaluates the music’s suitability for various media applications, ensuring that the selected tracks align perfectly with your brand’s identity and marketing goals. Use this tool to validate music choices and enhance your creative projects with the right sound.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "dcc38cdd-af44-4c74-86b8-32c56995045e",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3740,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Generate Lyrics and Product Music Song with AI\n### Create Custom Jingles for Ads, Videos, and Podcasts Using AI\n\nThis tool uses AI to create jingles tailored for ads, video stories, products, YouTube and Instagram videos, and radio podcasts. It generates catchy, memorable jingles that align with your brand's message and enhance your content's appeal. Whether you need a short, impactful tune for social media or a longer jingle for a podcast, this tool provides the perfect audio accompaniment for your projects.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "2f9d93ad-2ef6-40e4-89af-4b2fe5a21049",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2840,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Radio Station\n### Analyze Music Tracks and Retrieve Comprehensive Information for Branding and Media\n\nThis tool analyzes music tracks and provides detailed information, making it ideal for creating jingles for brands, ads, video stories, and more. It evaluates the music’s suitability for various media applications, ensuring that the selected tracks align perfectly with your brand’s identity and marketing goals. Use this tool to validate music choices and enhance your creative projects with the right sound.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "6bf902cb-4e5f-412e-81d5-3807259dd569",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "4sUfI1O8kLP3gDqw",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "dd3b7ce6-1b3a-4adb-941e-48419c344e01",
+      "name": "Create An AI Radio Station",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "xGXNemJ2aG23U8pf",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "298ff97a-d997-4467-a90e-20f2e6bd0ccf",
+      "name": "Generate Lyrics and Product Music Song with AI",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3180,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Create Audio Podcast From Product\n### Analyze \n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "ebbfd666-14c1-4bb6-9e61-5aa6fa9110a3",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "rm5Bbf43nQfpIgKA",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "591ade77-de91-43d8-8b97-c1d88ca600e8",
+      "name": "Create Audio Podcast From Product",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3200,
+        860
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T23:46:00.687Z",
+      "updatedAt": "2024-08-26T23:46:00.687Z",
+      "id": "0KXvsYRAyI7MffNz",
+      "name": "Music"
+    },
+    {
+      "createdAt": "2024-08-27T11:57:26.314Z",
+      "updatedAt": "2024-08-27T11:57:26.314Z",
+      "id": "rRAYPMNxSAm8ZgBM",
+      "name": "Dashboard"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T22:05:14.000Z",
+  "versionId": "38b76a32-bb2b-4565-b538-4c1bdacf8532"
+}
