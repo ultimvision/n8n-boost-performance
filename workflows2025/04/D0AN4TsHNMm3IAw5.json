@@ -1,0 +1,571 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get recipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get recipe": {
+      "main": [
+        [
+          {
+            "node": "Set input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set input": {
+      "main": [
+        [
+          {
+            "node": "Get prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get prompt": {
+      "main": [
+        [
+          {
+            "node": "Run llm",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Run llm",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run llm": {
+      "main": [
+        [
+          {
+            "node": "Has output schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has output schema": {
+      "main": [
+        [
+          {
+            "node": "Structure output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structure output": {
+      "main": [
+        [
+          {
+            "node": "Set output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set output": {
+      "main": [
+        [
+          {
+            "node": "Has more",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has more": {
+      "main": [
+        [
+          {
+            "node": "Set input",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Recipe has output schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recipe has output schema": {
+      "main": [
+        [
+          {
+            "node": "Structure recipe output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Structure recipe output": {
+      "main": [
+        [
+          {
+            "node": "Set final output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-09T20:31:11.207Z",
+  "id": "D0AN4TsHNMm3IAw5",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Run Prompt Recipe",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "recipe_id"
+            },
+            {
+              "name": "input"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "136b4187-91cc-44fb-bbaa-b1f9e04b0dbb",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appY3aedb8dbqsB6a",
+          "mode": "list",
+          "cachedResultName": "Publishing",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl2P8e0Zuxn5PEAj",
+          "mode": "list",
+          "cachedResultName": "Prompt Recipes",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a/tbl2P8e0Zuxn5PEAj"
+        },
+        "id": "={{ $json.recipe_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "9f8f839d-48db-42a5-847e-cb64171578ee",
+      "name": "Get recipe",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c129df3-8ed3-45ce-a829-f1ffa0cf75b8",
+              "name": "Prompt",
+              "value": "={{ $('Get recipe').first().json.Prompts[$runIndex] }}",
+              "type": "string"
+            },
+            {
+              "id": "f9b8373f-bc66-4f4e-bae2-a67ca1304851",
+              "name": "input",
+              "value": "={{ $json.output || $('When Executed by Another Workflow').first().json.input }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        768,
+        0
+      ],
+      "id": "ac682d5c-8025-4228-9d8f-081d161669e4",
+      "name": "Set input"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appY3aedb8dbqsB6a",
+          "mode": "list",
+          "cachedResultName": "Publishing",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblaQf2mThD7Qzx1T",
+          "mode": "list",
+          "cachedResultName": "Prompts",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a/tblaQf2mThD7Qzx1T"
+        },
+        "id": "={{ $json.Prompt }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1088,
+        0
+      ],
+      "id": "a210ca2f-b69e-409e-88e2-f44e8bcea43c",
+      "name": "Get prompt",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Set input').item.json.input }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.Prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1328,
+        0
+      ],
+      "id": "3c7076df-c55e-45b3-9342-2f1266689de5",
+      "name": "Run llm"
+    },
+    {
+      "parameters": {
+        "model": "={{ $('Get prompt').item.json.Model }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1312,
+        240
+      ],
+      "id": "2b2a4e24-0908-4b70-bef6-2df0e644c200",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4f0f32b9-71da-427e-92f7-0be3af6ab368",
+              "leftValue": "={{ $('Get prompt').item.json[\"Output Schema\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        0
+      ],
+      "id": "84c1a557-7fdf-449c-830d-5a5d33c9d718",
+      "name": "Has output schema"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $('Run llm').item.json.text }}"
+            },
+            {
+              "content": "=Structure the user message in JSON respecting the following JSON schema:\n\n{{ $('Get prompt').item.json[\"Output Schema\"] }}",
+              "role": "system"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1904,
+        -96
+      ],
+      "id": "fd94b09d-b58b-463f-ab95-89e94db0d9a9",
+      "name": "Structure output",
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "970a9437-8f26-4b1a-bebd-fdf151eed0d4",
+              "name": "output",
+              "value": "={{ $json.text || JSON.stringify($json.message.content) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2448,
+        32
+      ],
+      "id": "f5afff6f-db99-421c-a8a7-022ea4542afd",
+      "name": "Set output"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d751fed4-f57a-4442-8892-f3d43453d804",
+              "leftValue": "={{ $runIndex + 1 < $('Get recipe').first().json.Prompts.length }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2672,
+        32
+      ],
+      "id": "19137a0d-7b79-448e-bf91-1a73ecbea5f9",
+      "name": "Has more"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c8f5f087-2e66-450f-8031-4132392f2c17",
+              "leftValue": "={{ $('Get recipe').first().json['Output Schema'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3040,
+        48
+      ],
+      "id": "20a31573-9d65-4d66-a6aa-e0724c0c93b5",
+      "name": "Recipe has output schema"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.output }}"
+            },
+            {
+              "content": "=Structure the user message in JSON respecting the following JSON schema:\n\n{{ $('Get recipe').first().json[\"Output Schema\"] }}",
+              "role": "system"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        3344,
+        48
+      ],
+      "id": "2fe3de04-f261-426c-a2dc-66ec0ccd3d51",
+      "name": "Structure recipe output",
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c0406ec-0e9c-47b3-b8d7-975168cc6356",
+              "name": "output",
+              "value": "={{ $json.message.content }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3712,
+        48
+      ],
+      "id": "d48870f1-3994-420b-a90e-96b510f18113",
+      "name": "Set final output"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-09T18:54:30.662Z",
+      "updatedAt": "2025-04-09T18:54:30.662Z",
+      "id": "bwORh3v4jHXqexLE",
+      "name": "Publishing"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-08T14:51:43.000Z",
+  "versionId": "c3b27e1a-5731-41fa-b06c-2e3776f734ad"
+}
