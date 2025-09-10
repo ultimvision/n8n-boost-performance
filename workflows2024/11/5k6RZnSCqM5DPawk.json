@@ -1,0 +1,2891 @@
+{
+  "active": true,
+  "connections": {
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get recent charges",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get recent charges": {
+      "main": [
+        [
+          {
+            "node": "Filter charge for paywall and user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get recent subscriptions": {
+      "main": [
+        [
+          {
+            "node": "Filter subscriptions for user and paywall",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add default plan configs": {
+      "main": [
+        [
+          {
+            "node": "Merge Subscription Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Find user subscriptions": {
+      "main": [
+        [
+          {
+            "node": "API Get Member Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find user": {
+      "main": [
+        [
+          {
+            "node": "Found user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get plans defaults": {
+      "main": [
+        [
+          {
+            "node": "Add default plan configs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Plan Routing": {
+      "main": [
+        [
+          {
+            "node": "Get recent subscriptions",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get recent subscriptions",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get recent subscriptions",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Non-plan routing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Non-plan routing": {
+      "main": [
+        [],
+        [],
+        [],
+        [],
+        [
+          {
+            "node": "Error: unrecognized product",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Found user": {
+      "main": [
+        [
+          {
+            "node": "Find user subscriptions",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "API Search for new member",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API Get Member Details": {
+      "main": [
+        [
+          {
+            "node": "Switch on Paywall event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter subscriptions for user and paywall": {
+      "main": [
+        [
+          {
+            "node": "Found subscription",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set team and space name": {
+      "main": [
+        [
+          {
+            "node": "Generate slug from team_name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create private space": {
+      "main": [
+        [
+          {
+            "node": "Create team",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate slug from team_name": {
+      "main": [
+        [
+          {
+            "node": "Check for private space creation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Found subscription": {
+      "main": [
+        [
+          {
+            "node": "Circle Subscription",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error: subscription not found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Circle Subscription": {
+      "main": [
+        [
+          {
+            "node": "Get plans defaults",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Subscription Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Circle Charge": {
+      "main": [
+        [
+          {
+            "node": "Plan Routing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter charge for paywall and user": {
+      "main": [
+        [
+          {
+            "node": "Circle Charge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch: backend action": {
+      "main": [
+        [
+          {
+            "node": "Set team and space name",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update subscription",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Subscription Data": {
+      "main": [
+        [
+          {
+            "node": "Find user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User has sub to deactivate": {
+      "main": [
+        [
+          {
+            "node": "Deactivate subscription",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error: unknown user subscription",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has team?": {
+      "main": [
+        [
+          {
+            "node": "Get team members",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get team members": {
+      "main": [
+        [
+          {
+            "node": "Check for private space",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has team?1": {
+      "main": [
+        [
+          {
+            "node": "Get team members1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get team members1": {
+      "main": [
+        [
+          {
+            "node": "Check for private space1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch on Paywall event": {
+      "main": [
+        [
+          {
+            "node": "Switch: backend action",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "User has sub to deactivate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error: unknown paywall webhook event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deactivate subscription": {
+      "main": [
+        [
+          {
+            "node": "Has team?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update subscription": {
+      "main": [
+        [
+          {
+            "node": "Has team?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create team member": {
+      "main": [
+        [
+          {
+            "node": "Create subscription",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Check for private space creation1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create team": {
+      "main": [
+        [
+          {
+            "node": "Create team member",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check for private space creation": {
+      "main": [
+        [
+          {
+            "node": "Create private space",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create team",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check for private space creation1": {
+      "main": [
+        [
+          {
+            "node": "Add to private space",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check for private space": {
+      "main": [
+        [
+          {
+            "node": "Add team members to private space",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check for private space1": {
+      "main": [
+        [
+          {
+            "node": "Remove team members to private space",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API Search for new member": {
+      "main": [
+        [
+          {
+            "node": "Circle user found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Circle user found": {
+      "main": [
+        [
+          {
+            "node": "Create JWT for cloud function",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create supabase user": {
+      "main": [
+        [
+          {
+            "node": "Find user",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error: Supabase user not found for paywall webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create JWT for cloud function": {
+      "main": [
+        [
+          {
+            "node": "Create supabase user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Error: Supabase user not found for paywall webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-15T14:13:47.312Z",
+  "id": "5k6RZnSCqM5DPawk",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Circle Paywall Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "23ba2eb2-a22e-4d56-a039-395f4e9c0b81",
+              "name": "community_id",
+              "value": "={{ $json.body.data.community_id }}",
+              "type": "number"
+            },
+            {
+              "id": "e9b38c46-1125-43f8-9c2c-d50a2f7531b1",
+              "name": "community_member_id",
+              "value": "={{ $json.body.data.community_member_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0aec7661-ea06-4278-a788-6d23fd44f5d0",
+              "name": "paywall_id",
+              "value": "={{ $json.body.data.paywall_id }}",
+              "type": "number"
+            },
+            {
+              "id": "5ab9d488-33e0-4309-8549-a3e07f57373e",
+              "name": "paywall_price_id",
+              "value": "={{ $json.body.data.paywall_price_id }}",
+              "type": "number"
+            },
+            {
+              "id": "1db1b98e-6f25-422d-9316-da885b9c789a",
+              "name": "currency_id",
+              "value": "={{ $json.body.data.currency_id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "04cd3174-c42a-44fc-8f66-123683a51244",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1420,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/v1/community_member_charges",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $json.community_id }}"
+            },
+            {
+              "name": "sort",
+              "value": "latest"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "baa02647-f166-47cf-89e1-9522170bf740",
+      "name": "Get recent charges",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        -120
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "kaQCZ6fAyzxSJNIi",
+          "name": "Circle Admin API V1 (hub.boostperformance.ai)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/v1/community_member_subscriptions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $('Workflow Data').item.json.community_id }}"
+            },
+            {
+              "name": "sort",
+              "value": "latest_updated"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3df26048-ba16-4b27-824c-63ddb4ecc8ec",
+      "name": "Get recent subscriptions",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3880,
+        -120
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "kaQCZ6fAyzxSJNIi",
+          "name": "Circle Admin API V1 (hub.boostperformance.ai)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "46c200ea-758a-4e31-bf3f-4871fdebef53",
+              "name": "defaults",
+              "value": "={{ $('Get plans defaults').first().json[$('Circle Subscription').first().json.paywalls[0].internal_name.split('_')[0]] }}",
+              "type": "object"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "fa8f93ec-951a-4d3c-baaf-1e0d675b90e3",
+      "name": "Add default plan configs",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5060,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "select * from public.subscriptions where product_id = $1 and user_id = $2",
+        "options": {
+          "queryReplacement": "={{ $('Merge Subscription Data').first().json.paywalls[0].internal_name }},{{ $json.uuid }}"
+        }
+      },
+      "id": "7f3d1ee8-4a93-4f7f-86ff-2d0bf5e82ac8",
+      "name": "Find user subscriptions",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        6920,
+        -100
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $('Merge Subscription Data').first().json.community_member.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1bf3462d-d970-415e-9636-73a3872cfff0",
+      "name": "Find user",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        5520,
+        -100
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "MPr7HCoD19szm86N",
+          "mode": "list",
+          "cachedResultName": "Circle Plans Config"
+        },
+        "options": {}
+      },
+      "id": "b7fee05d-d1c8-4c63-9350-f0a230f77d35",
+      "name": "Get plans defaults",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        4860,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.paywalls[0].internal_name }}",
+                    "rightValue": "accelerateur",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "accelerateur"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "db428b2f-6b2c-4735-b324-2ded8349cc42",
+                    "leftValue": "={{ $json.paywalls[0].internal_name }}",
+                    "rightValue": "solopreneur",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "solopreneur"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "240aa1b4-7c8e-4c14-b1b4-527e94d3587b",
+                    "leftValue": "={{ $json.paywalls[0].internal_name }}",
+                    "rightValue": "propulseur",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "propulseur"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "5ad58f4c-ee51-464c-b8f2-d88c394f55cd",
+      "name": "Plan Routing",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2800,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.paywalls[0].internal_name }}",
+                    "rightValue": "formation",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "formation"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "966979d7-8050-4750-9c28-33209faf8fd1",
+                    "leftValue": "={{ $json.paywalls[0].internal_name }}",
+                    "rightValue": "bootcamp_1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "bootcamp_1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "17e8cf27-c7b5-4170-b05c-57a50eda2b7f",
+                    "leftValue": "={{ $json.paywalls[0].internal_name }}",
+                    "rightValue": "bootcamp_2",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "bootcamp_2"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9b7269da-c4b6-4452-99e7-3f1734ba106a",
+                    "leftValue": "={{ $json.paywalls[0].internal_name }}",
+                    "rightValue": "masterclass",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "masterclass"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "18b0e9cf-39a7-4592-afd7-58b6a101e31a",
+      "name": "Non-plan routing",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2860,
+        2180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "94bac975-c3db-4675-b4d9-a279c32e44a9",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f38584fd-2198-4a55-b3ec-67e4dd38cb2c",
+      "name": "Found user",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        5740,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://app.circle.so/api/admin/v2/community_members/{{ $('Webhook').first().json.body.data.community_member_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "6ad458ae-aae4-4d15-a8f2-bbaabf4fe7f4",
+      "name": "API Get Member Details",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        7160,
+        -100
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7ebc0608-eb37-4530-ab24-668640c754c6",
+              "leftValue": "={{ $json.paywalls[0].id }}",
+              "rightValue": "={{ $('Workflow Data').item.json.paywall_id }}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "1c0488df-b8e4-43b7-bf35-ffc854a730e5",
+              "leftValue": "={{ $json.community_member.id }}",
+              "rightValue": "={{ $('Webhook').item.json.body.data.community_member_id }}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "97833a37-4c88-4263-bc41-58b54f51f17f",
+      "name": "Filter subscriptions for user and paywall",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        4140,
+        -120
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "54236e18-0103-4251-8bed-110b3708f13e",
+              "name": "team_name",
+              "value": "={{ $json.flattened_profile_fields.company || `${$json.first_name} ${$json.last_name}` }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "24ad6f8c-72b9-4273-9383-7847194a322a",
+      "name": "Set team and space name",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        8060,
+        -1040
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/admin/v2/spaces",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"name\": \"{{ $json.team_name }}\",\n  \"slug\": \"{{ $json.slug }}\",\n  \"is_private\": true,\n  \"is_hidden_from_non_members\": true,\n  \"is_hidden\": true,\n  \"is_post_disabled\": true,\n  \"space_group_id\": {{ $vars.circle_private_space_group_id }},\n  \"topics\": []\n}",
+        "options": {}
+      },
+      "id": "9cf67ff4-15b0-4606-8170-428ccaf039a7",
+      "name": "Create private space",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        8740,
+        -1160
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "function slugify(string) {\n  return string\n    .toLowerCase()                         // Convert to lowercase\n    .normalize(\"NFD\")                      // Decompose accented characters\n    .replace(/[\\u0300-\\u036f]/g, \"\")       // Remove diacritical marks\n    .trim()                                // Remove leading/trailing whitespace\n    .replace(/[\\s\\W-]+/g, '-')             // Replace spaces, non-alphanumeric, and extra hyphens with single hyphen\n    .replace(/^-+|-+$/g, '');              // Remove leading/trailing hyphens\n}\n\nreturn $input.all().map(i => {\n  return {...i.json, slug: slugify(i.json.team_name)}\n});"
+      },
+      "id": "30fa4519-985f-4dc0-a74d-68b67b02a13f",
+      "name": "Generate slug from team_name",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8300,
+        -1040
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "194018c3-738a-44fe-9671-da193ec354d3",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c910d212-0c8b-4cf7-95ad-a49319018fd9",
+      "name": "Found subscription",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4360,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Subscription not found after paywall webhook"
+      },
+      "id": "ba95e517-fbf5-4b48-a686-24ea8ec69700",
+      "name": "Error: subscription not found",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        4460,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "=Timed out trying to find user that was charged for paywall: {{ JSON.stringify($('Webhook').first().json.body) }}"
+      },
+      "id": "31a0cbcb-0e67-45c0-a014-79c4b6edbdbf",
+      "name": "Error: Supabase user not found for paywall webhook",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        6780,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "=Unknown paywall event type: {{ $('Webhook').first().json.body.type }}"
+      },
+      "id": "c84d0a22-8171-4c1f-a3b2-1a827284a550",
+      "name": "Error: unknown paywall webhook event",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        7500,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "=Unrecognized product: {{ JSON.stringify($('Circle Charge').first().json) }}"
+      },
+      "id": "73c4b4c6-2781-4c96-9d95-f3e5980ba5c5",
+      "name": "Error: unrecognized product",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        2600
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Creating subscription, team, private space, etc",
+        "height": 504,
+        "width": 2040,
+        "color": 5
+      },
+      "id": "70efee79-ff6a-4e58-a797-7a96bbaa3781",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        7880,
+        -1260
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f6820294-5c0c-40bc-828e-063ddf42a4b0",
+      "name": "Circle Subscription",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        4620,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b44a25d2-031d-4e74-b6ae-18d014204501",
+      "name": "Circle Charge",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        2220,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7ebc0608-eb37-4530-ab24-668640c754c6",
+              "leftValue": "={{ $json.paywalls[0].id }}",
+              "rightValue": "={{ $('Workflow Data').first().json.paywall_id }}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "ce5603a1-fa69-4b7d-9850-a4666bac8fec",
+              "leftValue": "={{ $json.community_member.id }}",
+              "rightValue": "={{ $('Webhook').first().json.body.data.community_member_id }}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c4a6aaa8-5a5c-44b3-8aac-00a32819e6d1",
+      "name": "Filter charge for paywall and user",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1980,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Find user subscriptions').first().json }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "create"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ae68bf4b-ea05-45c0-80d1-efd751cc3d90",
+                    "leftValue": "={{ $('Find user subscriptions').first().json.id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "update"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fe021ad5-02fd-490a-9b9f-110dec12e119",
+      "name": "Switch: backend action",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        7680,
+        -760
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "bb915e57-cb13-495d-98bd-e02536c4ce00",
+      "name": "Merge Subscription Data",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        5300,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9c0b28a9-b228-48fa-a3db-38532937cc3a",
+              "leftValue": "={{ $('Find user subscriptions').first().json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a55a7e57-eb91-42a9-bd37-8725644301da",
+      "name": "User has sub to deactivate",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        8120,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "User unsubscribed from paywall, but we didn't have that subscription in our backend"
+      },
+      "id": "83596bb4-2955-49e8-8550-c59014d24205",
+      "name": "Error: unknown user subscription",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        8200,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Deactivate subscription",
+        "height": 481.2004967343536,
+        "width": 1843.9435061285994,
+        "color": 5
+      },
+      "id": "3c5861dd-2175-4ab1-8647-880decd28b20",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        7880,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n    team_members.team_id,\n    users.email,\n    teams.private_space_id\nFROM \n    team_members \nJOIN \n    users ON team_members.user_id = users.uuid\nJOIN \n    teams ON team_members.team_id = teams.id and teams.id = $1",
+        "options": {
+          "queryReplacement": "={{ $('Find user subscriptions').first().json.team_id }}"
+        }
+      },
+      "id": "a036e3c7-bba4-4ca9-8634-156581246619",
+      "name": "Get team members",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        8660,
+        -520
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "adb554a1-cc3e-4837-81e3-69c1136d23ef",
+              "leftValue": "={{ $('Find user subscriptions').first().json.team_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b8d336d8-3822-4be5-b9a6-4a8d4ae1c7ef",
+      "name": "Has team?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        8380,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "adb554a1-cc3e-4837-81e3-69c1136d23ef",
+              "leftValue": "={{ $('Find user subscriptions').first().json.team_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5df7880e-987f-46c0-9757-1efe9d9eee8b",
+      "name": "Has team?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        8620,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n    team_members.team_id,\n    users.email,\n    teams.private_space_id\nFROM \n    team_members \nJOIN \n    users ON team_members.user_id = users.uuid\nJOIN \n    teams ON team_members.team_id = teams.id and teams.id = $1",
+        "options": {
+          "queryReplacement": "={{ $('Find user subscriptions').first().json.team_id }}"
+        }
+      },
+      "id": "9d64c224-2141-4b41-9d52-6de7ed7edd1d",
+      "name": "Get team members1",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        8900,
+        -100
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "circle/paywall",
+        "options": {}
+      },
+      "id": "7d97c049-3543-4c5d-95ea-afb2c63f9d55",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        -120
+      ],
+      "webhookId": "aee01c68-bf18-434f-aab3-4766290d85fa"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Webhook').first().json.body.type }}",
+                    "rightValue": "community_member_charged_for_paywall",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "add"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9143e721-2f47-4806-bed4-693462e486eb",
+                    "leftValue": "={{ $('Webhook').first().json.body.type }}",
+                    "rightValue": "community_member_unsubscribed_from_paywall",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "remove"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "d1fb2cec-4bc9-437e-a809-51f60fb66ea8",
+      "name": "Switch on Paywall event",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        7420,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "subscriptions",
+          "mode": "list",
+          "cachedResultName": "subscriptions"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "active": false,
+            "id": "={{ $('Find user subscriptions').first().json.id }}",
+            "updated_at": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "product_id",
+              "displayName": "product_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "product_label",
+              "displayName": "product_label",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "active",
+              "displayName": "active",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "expires_at",
+              "displayName": "expires_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "tokens_renew_at",
+              "displayName": "tokens_renew_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "team_id",
+              "displayName": "team_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "70dfe40d-e502-43ce-a9ae-31aea66a35dd",
+      "name": "Deactivate subscription",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        8380,
+        -100
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "subscriptions",
+          "mode": "list",
+          "cachedResultName": "subscriptions"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "active": true,
+            "id": "={{ $('Find user subscriptions').first().json.id }}",
+            "updated_at": "={{ $now.toISO() }}",
+            "expires_at": "={{ $('Circle Subscription').first().json.ends_at || $('Circle Subscription').first().json.renews_at }}",
+            "product_id": "={{ $('Circle Subscription').first().json.paywalls[0].internal_name }}",
+            "product_label": "={{ $('Circle Subscription').first().json.paywalls[0].display_name }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "product_id",
+              "displayName": "product_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "product_label",
+              "displayName": "product_label",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "active",
+              "displayName": "active",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "expires_at",
+              "displayName": "expires_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "tokens_renew_at",
+              "displayName": "tokens_renew_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "team_id",
+              "displayName": "team_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e626f315-c414-4ce6-be0c-958a8a51ccdc",
+      "name": "Update subscription",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        8140,
+        -520
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Updating subscription, team members, etc",
+        "height": 417.9997944455316,
+        "width": 1841.6473816188343,
+        "color": 5
+      },
+      "id": "f489a167-3afe-4a3f-9e2e-113901341b04",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        7880,
+        -700
+      ]
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "https://app.circle.so/api/admin/v2/space_members",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "name": "space_id",
+              "value": "={{ $json.private_space_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7303ef87-920e-4fc0-8752-0114d1f053e0",
+      "name": "Remove team members to private space",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        9380,
+        -100
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/admin/v2/space_members",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "name": "space_id",
+              "value": "={{ $json.private_space_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6b290d65-5f68-405a-aa2e-0289c343f058",
+      "name": "Add team members to private space",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        9160,
+        -520
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "subscriptions",
+          "mode": "list",
+          "cachedResultName": "subscriptions"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "active": "={{ $('Circle Subscription').first().json.status === 'active' }}",
+            "user_id": "={{ $('Find user').first().json.uuid }}",
+            "product_id": "={{ $('Circle Subscription').first().json.paywalls[0].internal_name }}",
+            "product_label": "={{ $('Circle Subscription').first().json.paywalls[0].display_name }}",
+            "expires_at": "={{ $('Circle Subscription').first().json.ends_at || $('Circle Subscription').first().json.renews_at }}",
+            "tokens_renew_at": "={{ $('Circle Subscription').first().json.paywalls[0].price.interval === 'monthly' ? DateTime.fromISO($('Circle Subscription').first().json.renews_at).plus(11, 'months').toISO() :  $('Circle Subscription').first().json.renews_at}}",
+            "team_id": "={{ $json.team_id }}",
+            "circle_subscription_id": "={{ $('Circle Subscription').first().json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "product_id",
+              "displayName": "product_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "product_label",
+              "displayName": "product_label",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "active",
+              "displayName": "active",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "expires_at",
+              "displayName": "expires_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "tokens_renew_at",
+              "displayName": "tokens_renew_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "team_id",
+              "displayName": "team_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "circle_subscription_id",
+              "displayName": "circle_subscription_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ed60f918-c009-4779-8565-9ebf871bbfb9",
+      "name": "Create subscription",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        9640,
+        -1180
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "team_members",
+          "mode": "list",
+          "cachedResultName": "team_members"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "active": true,
+            "team_id": "={{ $json.id }}",
+            "role": "admin",
+            "user_id": "={{ $('Find user').first().json.uuid }}",
+            "name": "={{ $('Find user').first().json.name }}",
+            "email": "={{ $('Find user').first().json.email }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "team_id",
+              "displayName": "team_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "active",
+              "displayName": "active",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff262a6a-adeb-4d10-95a9-98b954674ada",
+      "name": "Create team member",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        9220,
+        -1040
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "teams",
+          "mode": "list",
+          "cachedResultName": "teams"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $('Generate slug from team_name').first().json.team_name }}",
+            "seats": "={{ $('Add default plan configs').first().json.defaults.seats }}",
+            "formations": "={{ $('Add default plan configs').first().json.defaults.formations }}",
+            "bootcamps": "={{ $('Add default plan configs').first().json.defaults.bootcamps }}",
+            "masterclasses": "={{ $('Add default plan configs').first().json.defaults.masterclasses }}",
+            "automations": "={{ $('Add default plan configs').first().json.defaults.automations }}",
+            "private_space_id": "={{ $json.space.id || null }}",
+            "private_space_slug": "={{ $json.space.slug || null }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "seats",
+              "displayName": "seats",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "formations",
+              "displayName": "formations",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "bootcamps",
+              "displayName": "bootcamps",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "masterclasses",
+              "displayName": "masterclasses",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "automations",
+              "displayName": "automations",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "private_space_id",
+              "displayName": "private_space_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "private_space_slug",
+              "displayName": "private_space_slug",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "18a449ad-b096-41d9-87b1-66ec4ceb861e",
+      "name": "Create team",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        8940,
+        -1040
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# SUBSCRIPTIONS",
+        "height": 2815,
+        "width": 6400,
+        "color": 7
+      },
+      "id": "3dcd3ca3-37a3-4996-9f46-5eeb04cfd2f8",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3740,
+        -1700
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# ONE-TIME PRODUCTS",
+        "height": 2815,
+        "width": 5420,
+        "color": 7
+      },
+      "id": "5b026edd-cefa-4329-8f96-4e90c0e0302c",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3740,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## This loop allows us to safely catch subscription with new users\n\n## If we can't find a user in our backend, let's create it.",
+        "height": 809,
+        "width": 1305,
+        "color": 5
+      },
+      "id": "930f5337-35c7-4129-989d-6012fb254595",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        5460,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/admin/v2/space_members",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "name": "space_id",
+              "value": "={{ $('Create private space').first().json.space.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3794bac7-1738-4426-a41f-544e99c4092c",
+      "name": "Add to private space",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        9700,
+        -960
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "06792aee-75b9-4a3e-b248-f8f975f543ca",
+              "leftValue": "={{ $('Circle Subscription').first().json.paywalls[0].internal_name }}",
+              "rightValue": "accelerateur",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "0e0b300a-3fd6-431a-be68-910fd4cf244d",
+              "leftValue": "={{ $('Circle Subscription').first().json.paywalls[0].internal_name }}",
+              "rightValue": "propulseur",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        8520,
+        -1040
+      ],
+      "id": "e8f428c3-d412-4b18-80ef-ae898d25482e",
+      "name": "Check for private space creation"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "06792aee-75b9-4a3e-b248-f8f975f543ca",
+              "leftValue": "={{ $('Circle Subscription').first().json.paywalls[0].internal_name }}",
+              "rightValue": "accelerateur",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "0e0b300a-3fd6-431a-be68-910fd4cf244d",
+              "leftValue": "={{ $('Circle Subscription').first().json.paywalls[0].internal_name }}",
+              "rightValue": "propulseur",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        9440,
+        -960
+      ],
+      "id": "fd497d20-2523-461f-8ec6-7c2dc97c330a",
+      "name": "Check for private space creation1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "06792aee-75b9-4a3e-b248-f8f975f543ca",
+              "leftValue": "={{ $json.private_space_id }}",
+              "rightValue": "accelerateur",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        8880,
+        -520
+      ],
+      "id": "a44b9f43-90c7-4b7a-afb4-1961b35b1ff2",
+      "name": "Check for private space"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "06792aee-75b9-4a3e-b248-f8f975f543ca",
+              "leftValue": "={{ $json.private_space_id }}",
+              "rightValue": "accelerateur",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        9100,
+        -100
+      ],
+      "id": "94a09f35-7dbc-4dd9-b76d-a5f91a078d6a",
+      "name": "Check for private space1"
+    },
+    {
+      "parameters": {
+        "url": "=https://app.circle.so/api/admin/v2/community_members/search",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $('Merge Subscription Data').first().json.community_member.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "12527bc3-34a8-4429-9d4c-75fe6a6e97a9",
+      "name": "API Search for new member",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5820,
+        180
+      ],
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "049ad828-ea17-430f-8071-bccd8d89f0f8",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        6040,
+        180
+      ],
+      "id": "ccd76477-485a-4b00-ae69-218a0ae66a48",
+      "name": "Circle user found"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://cmzypijrhwwhgqzaiulz.supabase.co/functions/v1/circle/new",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.token }}"
+            },
+            {
+              "name": "apikey",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNtenlwaWpyaHd3aGdxemFpdWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkxNzgxNDIsImV4cCI6MjA0NDc1NDE0Mn0.nUrJWzmwm93fyxWpHjiRyRLPopuTxeh4tO99jLKThEk"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $('Merge Subscription Data').first().json.community_member.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8e467b3b-f37b-4e39-a3bb-201413a05ee4",
+      "name": "Create supabase user",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        6540,
+        180
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "useJson": true,
+        "claimsJson": "={\n  \"sub\": \"{{ $vars.mat_admin_supabase_uuid }}\",\n  \"role\": \"authenticated\"\n}\n",
+        "options": {}
+      },
+      "id": "de323efb-9e7b-4eb5-85da-4f54021e2729",
+      "name": "Create JWT for cloud function",
+      "type": "n8n-nodes-base.jwt",
+      "typeVersion": 1,
+      "position": [
+        6300,
+        180
+      ],
+      "credentials": {
+        "jwtAuth": {
+          "id": "pzlG0azbnAhqdblo",
+          "name": "Service Access JWT"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        6120,
+        760
+      ],
+      "id": "938d174f-879f-47d6-bd78-ba770beea9be",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:39:21.071Z",
+      "updatedAt": "2024-10-16T13:39:21.071Z",
+      "id": "E8nPTYjZtWlaLr4T",
+      "name": "Webhook"
+    },
+    {
+      "createdAt": "2024-11-28T16:25:31.505Z",
+      "updatedAt": "2024-11-28T16:25:31.505Z",
+      "id": "tkX23nMkhmTkIXlt",
+      "name": "WIP"
+    },
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-12-10T21:53:53.000Z",
+  "versionId": "a7a1d0be-df5f-4851-8dc0-e6a92cb67532"
+}
