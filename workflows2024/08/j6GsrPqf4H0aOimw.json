@@ -1,0 +1,258 @@
+{
+  "active": false,
+  "connections": {
+    "Get Videos to Analyse": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Videos": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set Data to Analyse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze a Youtube Video": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Videos to Analyse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Data to Analyse": {
+      "main": [
+        [
+          {
+            "node": "Analyze a Youtube Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-23T22:13:30.377Z",
+  "id": "j6GsrPqf4H0aOimw",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Analyse Youtube Videos",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "0de4047e-cebd-435f-bd32-9ddc5d7cb720",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        980,
+        780
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "limit": 20,
+        "where": {
+          "values": [
+            {
+              "column": "provider",
+              "value": "youtube"
+            },
+            {
+              "column": "caption",
+              "condition": "IS NOT NULL"
+            },
+            {
+              "column": "first_analyse",
+              "value": "0"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id",
+              "direction": "DESC"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "id",
+            "title",
+            "provider_id",
+            "customer_id",
+            "customer_name"
+          ]
+        }
+      },
+      "id": "59b5a16e-69fb-4812-b9cd-f18a03bc2b57",
+      "name": "Get Videos to Analyse",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1300,
+        540
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "15db71dc-5931-49f1-9b9f-eb860e950f74",
+      "name": "Loop Over Videos",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1580,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "dyhIWPRLuWCJezqn",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "d038e4a8-cbed-4c95-b78e-3d1478f52626",
+      "name": "Analyze a Youtube Video",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2060,
+        640
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "31a93127-8807-4d40-b21f-dac6e7773bf6",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        820,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "337bbf06-9138-4c17-bbd4-6a0d6094e5ae",
+              "name": "action_type",
+              "value": "analyse_video",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f56c1b6b-35fa-4c19-911d-ec806695ef23",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1080,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ad4554dc-2c76-40a5-b5ca-d1a329550ee6",
+              "name": "action_type",
+              "value": "={{ $('Workflow Data').item.json[\"action_type\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "1042b37c-8766-49b5-88d7-6962c0b85c8b",
+      "name": "Set Data to Analyse",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1840,
+        640
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-24T16:38:49.491Z",
+      "updatedAt": "2024-08-24T16:38:49.491Z",
+      "id": "OwqwkxPGrxiRpjaG",
+      "name": "Youtube"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T19:38:03.000Z",
+  "versionId": "d6a6e557-8c9c-4ff8-86fe-7d71e7826f21"
+}
