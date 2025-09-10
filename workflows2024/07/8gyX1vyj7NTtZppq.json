@@ -1,0 +1,111 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "Create the Files Structure for a Podcast | Jungle": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-07-02T10:51:29.679Z",
+  "id": "8gyX1vyj7NTtZppq",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "DEV | Test Nodes",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "5a17c300-5346-4b59-8267-5cf68a719e3f",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        120,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "path": "/httpdocs/podcasts/4",
+        "options": {
+          "folder": true,
+          "recursive": true
+        }
+      },
+      "id": "fcc0e8a3-9a10-48bb-aead-f9b4a9700872",
+      "name": "Delete a Podcast ID Dir and Files Jungle Des Affaires",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        560,
+        0
+      ],
+      "credentials": {
+        "ftp": {
+          "id": "8JvgTckmWsJEuxvN",
+          "name": "FTP Dans La Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://danslajungledesaffaires.blog/podcasts/podcast_creator.php",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $vars.JUNGLE_PODCAST_CREATOR_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "podcast_id",
+              "value": "4"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bd0f37b4-af59-49e2-b54d-1165819c469f",
+      "name": "Create the Files Structure for a Podcast | Jungle",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        240
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-30T22:54:03.750Z",
+      "updatedAt": "2024-06-30T22:54:03.750Z",
+      "id": "c5NEvO9qFRDDjJfy",
+      "name": "DEV"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-02T11:50:14.000Z",
+  "versionId": "f497a3f3-ee62-476d-b62c-13b4a01447c4"
+}
