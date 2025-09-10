@@ -1,0 +1,195 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Hashtags": {
+      "main": [
+        [
+          {
+            "node": "Set HashTags Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Instagram Post Lists3": {
+      "main": [
+        [
+          {
+            "node": "Instagram - Get Posts Details and Activities - Sub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set HashTags Data": {
+      "main": [
+        [
+          {
+            "node": "Get Instagram Post Lists3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-26T13:06:08.239Z",
+  "id": "ao44YnQ2XSr8mMf3",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Instagram Get Posts from Hashtags",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "73df4882-2501-4b59-b6df-1f1716ccc23b",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -1240,
+        20
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://instagram-scraper-api2.p.rapidapi.com/v1/hashtag",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "hashtag",
+              "value": "={{ $json.hashtags }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9c685b12-b18f-418f-b9fe-e10acae10183",
+      "name": "Get Instagram Post Lists3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -500,
+        20
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "instagram_hashtags",
+          "mode": "list",
+          "cachedResultName": "instagram_hashtags"
+        },
+        "limit": 1,
+        "sort": {
+          "values": [
+            {
+              "column": "id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e58078c1-90be-4ee2-9017-748678cbc719",
+      "name": "Get Hashtags",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -960,
+        20
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": "rUZMP4QInV1SYitx",
+        "options": {}
+      },
+      "id": "b4b16332-38ef-4ded-a66a-c7be1aed613f",
+      "name": "Instagram - Get Posts Details and Activities - Sub",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "659365c1-ed99-42ad-8892-5f8d9073bdc9",
+              "name": "hashtags",
+              "value": "={{ $json.hashtags }}",
+              "type": "string"
+            },
+            {
+              "id": "d81004cf-a685-4b00-bfd0-e286e9c57203",
+              "name": "suggested_hashtags",
+              "value": "={{ $json.suggested_hashtags }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bcca56f3-ec3f-44f0-be4a-f6a9f3ac2323",
+      "name": "Set HashTags Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -740,
+        20
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T13:07:53.389Z",
+      "updatedAt": "2024-08-26T13:07:53.389Z",
+      "id": "gQxWtkeNcVbI6Tr5",
+      "name": "Instagram"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T17:40:52.000Z",
+  "versionId": "5a9e7b5c-92cb-483d-9a8e-8354f9d791e5"
+}
