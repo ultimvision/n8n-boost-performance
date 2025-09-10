@@ -1,0 +1,71 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Start backend job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-09T17:36:17.391Z",
+  "id": "sseST8DTDsgJPsoc",
+  "isArchived": false,
+  "meta": null,
+  "name": "Email To News Trigger",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "19c8dcb0-e478-4a7e-a2a6-16d2c5c13933",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://dev-ai-backend.boostperformance.ai/api/workflow",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"data\": {\n    \"email\": \"abonnement@ultimvision.io\",\n    \"interest\": \"anything related to ai news\",\n    \"lang\": \"fr\",\n    \"airtable_base_name\": \"Gen AI News\"\n  },\n  \"job\": {\n    \"name_key\": \"emails_to_news\"\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        0
+      ],
+      "id": "bf816c41-1ac3-4e46-8af1-b59e68d1d50a",
+      "name": "Start backend job",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "DUnyDLvS5G7Hmjz5",
+          "name": "Dev AI Backend Mat"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-09T18:07:38.000Z",
+  "versionId": "ef205217-3f9e-4f41-be46-0f310c77e4ea"
+}
