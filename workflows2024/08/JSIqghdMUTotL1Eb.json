@@ -1,0 +1,474 @@
+{
+  "active": false,
+  "connections": {
+    "Get Instagram User profile Info": {
+      "main": [
+        [
+          {
+            "node": "Set Contacts Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Contacts Data": {
+      "main": [
+        [
+          {
+            "node": "From Likers?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Upsert Instagram Contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Return Nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Split Username",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "From Likers?": {
+      "main": [
+        [
+          {
+            "node": "Update Last Update Date in Likers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Last Update Date in Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Username": {
+      "main": [
+        [
+          {
+            "node": "Get Instagram User profile Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Last Update Date in Comments": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Upsert Instagram Contacts": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Last Update Date in Likers": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-26T14:56:27.687Z",
+  "id": "JSIqghdMUTotL1Eb",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "CRM - Instagram New Contacts - SUB",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "df4c9291-e9ee-4c4e-8808-220909074325",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        520,
+        760
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "https://instagram-scraper-api2.p.rapidapi.com/v1/info",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "username_or_id_or_url",
+              "value": "={{ $json.username }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9dedae37-5b4b-4b37-a5d1-fa79624d893b",
+      "name": "Get Instagram User profile Info",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        520
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "94c4c59d-3233-43c7-aab3-922ec8dd460c",
+      "name": "Set Contacts Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        520
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "cfdaa723-b80e-455c-86b1-7ccd5112b750",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        500,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "52c737a8-9aa8-4512-a0ad-ae07956d8017",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2060,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "a0e66038-cd62-4d19-b158-212f1ede86ba",
+      "name": "Return Nothing",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2260,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "1cae2cc8-6428-41ca-ba4f-20b438151c2e",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "67ebd28b-d859-4408-9d2e-c71ede95133e",
+              "leftValue": "={{ $('Workflow Data').item.json[\"user_type\"] }}",
+              "rightValue": "likers",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "617fb75b-1790-4aec-a735-424b61865732",
+      "name": "From Likers?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1580,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "username",
+        "options": {}
+      },
+      "id": "44696f7d-9e1b-47aa-aaae-7b657e9b1151",
+      "name": "Split Username",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        940,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "instagram_comments",
+          "mode": "list",
+          "cachedResultName": "instagram_comments"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "username",
+        "valueToMatchOn": "={{ $json.data.username }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "last_analyse_username",
+              "value": "={{ new Date().toISOString().slice(0, 19).replace('T', ' ') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "58236c30-abcd-405c-ac43-4881ebd8b0de",
+      "name": "Update Last Update Date in Comments",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1820,
+        920
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "instagram_contacts",
+          "mode": "list",
+          "cachedResultName": "instagram_contacts"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "username",
+        "valueToMatchOn": "={{ $json.data.username }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "bio_links_url",
+              "value": "={{ $json.data.bio_links[0].url }}"
+            },
+            {
+              "column": "external_url",
+              "value": "={{ $json.data.external_url }}"
+            },
+            {
+              "column": "city_name",
+              "value": "={{ $json.data.location_data.city_name }}"
+            },
+            {
+              "column": "follower_count",
+              "value": "={{ $json.data.follower_count }}"
+            },
+            {
+              "column": "following_count",
+              "value": "={{ $json.data.following_count }}"
+            },
+            {
+              "column": "media_count",
+              "value": "={{ $json.data.media_count }}"
+            },
+            {
+              "column": "external_lynx_url",
+              "value": "={{ $json.data.external_lynx_url }}"
+            },
+            {
+              "column": "public_email",
+              "value": "={{ $json.data.public_email }}"
+            },
+            {
+              "column": "public_phone_number",
+              "value": "={{ $json.data.public_phone_number }}"
+            },
+            {
+              "column": "biography",
+              "value": "={{ $json.data.biography }}"
+            },
+            {
+              "column": "contact_phone_number",
+              "value": "={{ $json.data.contact_phone_number }}"
+            },
+            {
+              "column": "hd_profile_pic_url_info",
+              "value": "={{ $json.data.hd_profile_pic_url_info.url }}"
+            },
+            {
+              "column": "postal_code",
+              "value": "={{ $json.data.location_data.zip }}"
+            },
+            {
+              "column": "full_name",
+              "value": "={{ $json.data.full_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e7dfef54-4189-452e-ba5c-b76f4600dbb6",
+      "name": "Upsert Instagram Contacts",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1680,
+        420
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "instagram_likers",
+          "mode": "list",
+          "cachedResultName": "instagram_likers"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "username",
+        "valueToMatchOn": "={{ $json.data.username }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "last_analyse_username",
+              "value": "={{ new Date().toISOString().slice(0, 19).replace('T', ' ') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "16b2f117-032c-4f0c-a13a-f0f5dcf6d7b7",
+      "name": "Update Last Update Date in Likers",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1820,
+        700
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T13:07:53.389Z",
+      "updatedAt": "2024-08-26T13:07:53.389Z",
+      "id": "gQxWtkeNcVbI6Tr5",
+      "name": "Instagram"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T15:35:47.000Z",
+  "versionId": "e909d14a-c5fa-49f1-96cf-ccb71a084f94"
+}
