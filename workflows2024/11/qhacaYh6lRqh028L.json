@@ -1,0 +1,1247 @@
+{
+  "active": false,
+  "connections": {
+    "DM Circle User2": {
+      "main": [
+        [
+          {
+            "node": "API AssemblyAI | Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM data (init)": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM: internal error": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User (error)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data (init)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing5": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing6": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing3": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Switch on status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch on status": {
+      "main": [
+        [
+          {
+            "node": "API AssemblyAI | Get Transcript",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "API AssemblyAI | Get SRT",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to txt": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for txt upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for txt upload": {
+      "main": [
+        [
+          {
+            "node": "Upload txt to circle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to SRT": {
+      "main": [
+        [
+          {
+            "node": "Extract from File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File1": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for srt upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for srt upload": {
+      "main": [
+        [
+          {
+            "node": "Upload srt to circle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM completed": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM completed",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Is scope public?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is scope public?": {
+      "main": [
+        [
+          {
+            "node": "Prepare content for new post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare content for new post": {
+      "main": [
+        [
+          {
+            "node": "Create post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Transcript": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Get Transcript": {
+      "main": [
+        [
+          {
+            "node": "Convert to txt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Get SRT": {
+      "main": [
+        [
+          {
+            "node": "Convert to SRT",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload srt to circle": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload txt to circle": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "DM: internal error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-21T20:51:59.890Z",
+  "id": "qhacaYh6lRqh028L",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Upload audio and transcribe",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1608713c-16f1-4a1a-bb20-cea98acdcb47",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        880,
+        440
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "934c79de-e852-44a9-9899-31cc9b1ac04f",
+      "name": "DM Circle User2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1860,
+        -120
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Le traitement de transcription audio a commencé 🎶",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b45877b4-669e-498b-b7bd-ae9c33589038",
+      "name": "Prepare DM data (init)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1500,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "615a3f17-b1eb-4bce-a165-6dcfb27aa450",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3640,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "ff32a2fa-affa-4353-b67a-0114b9c64d95",
+      "name": "DM Circle User (error)",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        5920,
+        440
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f1ee53d-9fc1-4d92-a060-f6e61e05cf33",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "70326461-e6e7-4012-bcd4-3019b16bf0ed",
+              "name": "message",
+              "value": "=Une erreur est survenue lors de l'exécution de votre tâche. Notre équipe est actuellement en train d'enquêter. Numéro de tâche : {{ $execution.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aadcaff7-f699-49fd-8cd2-e5bd49c16b6a",
+      "name": "DM: internal error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5580,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Input validation",
+        "height": 1257.4350305090409,
+        "width": 690.1769509983911,
+        "color": 5
+      },
+      "id": "712118e8-742d-4ced-bd18-1f8f795ae6b1",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        415.17291962876254,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: job started",
+        "height": 1257.4350305090409,
+        "width": 1076.4862642800442,
+        "color": 4
+      },
+      "id": "3301c4dc-20dd-4168-ab2b-8e942894a4f7",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        -540
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Job completed",
+        "height": 699.1462275852631,
+        "width": 1179.5692923968097,
+        "color": 4
+      },
+      "id": "f7f586fa-0933-4db9-bbfd-3c81122b8598",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        5240,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Internal error",
+        "height": 515.472033748243,
+        "width": 1176.7332727007574,
+        "color": 3
+      },
+      "id": "122a17c9-5036-4bfa-9ac3-08e8185a9fbb",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        5240,
+        200
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "23465d91-bfda-42c7-b23e-811ca912ff78",
+      "name": "No Operation, do nothing3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1880,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b8815ab3-66cb-4ce9-81ee-f86eb0d717e4",
+              "leftValue": "={{ $json.user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "77a94564-828c-4d98-ad33-f9afd3f30bf1",
+              "leftValue": "={{ $json.circle_user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "abe32562-a73c-4ad9-9a41-cc30c1358dc3",
+              "leftValue": "={{ $json.data.file }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a67d5c42-4387-4c03-99f3-919c9f786f32",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "dbd7c6b6-a485-4548-b765-7885c7eddb32",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        520,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "44c24372-81e7-40b2-8711-43ab72a0bbcb",
+      "name": "No Operation, do nothing5",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2440,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "fe9b96fa-a2bb-4e56-b9c7-a33dc29239a4",
+      "name": "No Operation, do nothing6",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3240,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Transfer audio to AssemblyAI",
+        "height": 1257.4350305090409,
+        "width": 1226.8772026066922,
+        "color": 5
+      },
+      "id": "87dd9c02-7fc6-4a9c-8956-c34f89408bba",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Download and prepare caption files",
+        "height": 1257.4350305090409,
+        "width": 1040.7528514138046,
+        "color": 5
+      },
+      "id": "9d6cb9f3-1ad9-447d-90a2-166c9e093a61",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3520,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "POST",
+        "options": {}
+      },
+      "id": "1f67bfc6-8888-4d4e-93c2-8f37912c4ea1",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2800,
+        -120
+      ],
+      "webhookId": "6c80dd65-a636-4cb3-b004-47bdc4bb1732"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.status }}",
+                    "rightValue": "completed",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "completed"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "61ca1e70-6402-4ffc-98b6-b6fa0fcf4788",
+                    "leftValue": "={{ $json.body.status }}",
+                    "rightValue": "error",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "error"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "84e4f98b-a461-427b-970e-2e22740f32e4",
+      "name": "Switch on status",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        3160,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "data",
+        "options": {
+          "fileName": "={{ $('Execute Workflow Trigger').item.json.data.file.split('/').last().split('.')[0] }}.srt"
+        }
+      },
+      "id": "182ca068-5b3f-4b24-9baf-a4ec8879900c",
+      "name": "Convert to SRT",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3880,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "text",
+        "options": {
+          "fileName": "={{ $('Execute Workflow Trigger').item.json.data.file.split('/').last().split('.')[0] }}.txt"
+        }
+      },
+      "id": "9a9b8591-50a0-4381-b4ab-9d7d5ad67d8c",
+      "name": "Convert to txt",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3880,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "destinationKey": "file_data",
+        "options": {}
+      },
+      "id": "afe68190-908d-4d19-9b16-b1a31bba2387",
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        4100,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cdf30fc1-14be-4efd-a620-a49ca4c9f790",
+              "name": "sender_email",
+              "value": "agent@boostperformance.ai",
+              "type": "string"
+            },
+            {
+              "id": "6c1f5a37-eb91-43f8-add6-7750af282c3b",
+              "name": "file_name",
+              "value": "={{ $('Convert to txt').first().binary.data.fileName }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "dd147dff-1b85-485a-ad18-e97f31af67cd",
+      "name": "Prepare data for txt upload",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4320,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "destinationKey": "file_data",
+        "options": {}
+      },
+      "id": "a49feb55-cfa4-47fa-97e9-8d91c55dcd40",
+      "name": "Extract from File1",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        4100,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cdf30fc1-14be-4efd-a620-a49ca4c9f790",
+              "name": "sender_email",
+              "value": "agent@boostperformance.ai",
+              "type": "string"
+            },
+            {
+              "id": "6c1f5a37-eb91-43f8-add6-7750af282c3b",
+              "name": "file_name",
+              "value": "={{ $('Convert to SRT').first().binary.data.fileName }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "e6e03fe7-999f-449f-a6ab-f8fcee1ccaa0",
+      "name": "Prepare data for srt upload",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4320,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "output": "empty"
+      },
+      "id": "ab525d1c-74cd-4c5a-a5e3-c9dbaaaa0a36",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        5020,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Voici les transcriptions générées à partir de votre fichier audio \"{{ $('Execute Workflow Trigger').first().json.data.file.split('/').last() }}\".",
+              "type": "string"
+            },
+            {
+              "id": "c74a2b66-a50b-4c32-bf0e-f7f7a6b3447b",
+              "name": "attachments",
+              "value": "={{ [$('Upload txt to circle').first().json.block_data.attrs.signed_id, $('Upload srt to circle').first().json.block_data.attrs.signed_id] }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cfa49495-fdb0-4228-be5d-8aca1bff5384",
+      "name": "Prepare DM completed",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5500,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "e5137d1c-5922-4399-a9f6-3cc56eb94bd4",
+      "name": "DM Circle User",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        5840,
+        -360
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cd6de0aa-ac4e-4104-a107-de17c7c8aa35",
+              "leftValue": "={{ $('Execute Workflow Trigger').first().json.data.scope }}",
+              "rightValue": "Public",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ce0b833c-ac38-4cd8-9afe-a73a504e22e6",
+      "name": "Is scope public?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        5500,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const file = $('Execute Workflow Trigger').first().json.data.file.replace(/^.*[\\\\/]/, '')\n\n  const output = {\n    title: `Transcription: ${file}`,\n    content: [],\n    space_id: 1501983,\n  };\n\n  output.content.push({\n    type: \"paragraph\",\n    content: [\n      {\n        type: \"text\",\n        marks: [{type: 'italic'}],\n        text: `Les transcriptions suivantes ont été créées à l'aide de l'intelligence artificielle générative.`,\n      },\n    ],\n  });\n\n  output.content.push({\n    type: \"horizontalRule\",\n  });\n\n  output.content.push({\n    type: \"paragraph\",\n    content: [\n      {\n        type: \"text\",\n        text: `Voici les transcriptions générées à partir du fichier audio \"${file}\".`,\n      },\n    ],\n  });\n\n\noutput.content.push({\n  type: 'file',\n  attrs: {\n    signed_id: `${$('Upload txt to circle').first().json.block_data.attrs.signed_id}`\n  }\n})\n\noutput.content.push({\n  type: 'file',\n  attrs: {\n    signed_id: `${$('Upload srt to circle').first().json.block_data.attrs.signed_id}`\n  }\n})\n\n  \n\n\nreturn [output];\n"
+      },
+      "id": "20eb5512-8860-4454-b5e9-7b7137262aa5",
+      "name": "Prepare content for new post",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5840,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "0XUVESvHdVXrB9mx",
+          "mode": "list",
+          "cachedResultName": "Circle - Create post"
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "id": "cf2d633a-8ce4-4aef-bc0f-dc8d5d6ace22",
+      "name": "Create post",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        6080,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Prepare Circle responses",
+        "height": 1257.4350305090409,
+        "width": 606.3085898051601,
+        "color": 5
+      },
+      "id": "117e02d4-b2d1-4856-ba0a-2d001635513e",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        4600,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.assemblyai.com/v2/transcript",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "audio_url",
+              "value": "={{ $('Execute Workflow Trigger').item.json.data.file }}"
+            },
+            {
+              "name": "speaker_labels",
+              "value": "true"
+            },
+            {
+              "name": "webhook_url",
+              "value": "={{ $execution.resumeUrl }}"
+            },
+            {
+              "name": "language_detection",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9e454bcf-c631-419d-8563-9cad9f712c87",
+      "name": "API AssemblyAI | Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2440,
+        -120
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qBJLUDTcerWssYGe",
+          "name": "Assembly AI Header Auth"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/{{ $json.body.transcript_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "3549736f-0f8c-4824-bb61-212cedf6278e",
+      "name": "API AssemblyAI | Get Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3640,
+        -280
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qBJLUDTcerWssYGe",
+          "name": "Assembly AI Header Auth"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/{{ $json.body.transcript_id }}/srt",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "1ff6da04-47f0-4aeb-8fb6-98c685c20a20",
+      "name": "API AssemblyAI | Get SRT",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3640,
+        -20
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qBJLUDTcerWssYGe",
+          "name": "Assembly AI Header Auth"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "vYauQyRwKt228x0L",
+          "mode": "list",
+          "cachedResultName": "Circle - Upload File"
+        },
+        "options": {}
+      },
+      "id": "f35b5159-77f3-4a32-b9a3-576ba620b9dc",
+      "name": "Upload srt to circle",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        4740,
+        -20
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "vYauQyRwKt228x0L",
+          "mode": "list",
+          "cachedResultName": "Circle - Upload File"
+        },
+        "options": {}
+      },
+      "id": "d9393072-2464-45ae-90c3-00cc0954855f",
+      "name": "Upload txt to circle",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        4740,
+        -300
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "0774d893-b074-4024-a63d-f3f1c0c6101c",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4720,
+        440
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T13:57:05.753Z",
+      "updatedAt": "2024-10-22T13:57:05.753Z",
+      "id": "Q3qpTHNcg1K6uHlR",
+      "name": "Routine"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-22T15:12:13.000Z",
+  "versionId": "bac26e50-9328-4aa8-b228-0f5c78c119ec"
+}
