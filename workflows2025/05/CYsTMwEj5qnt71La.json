@@ -1,0 +1,171 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Generate song",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate song": {
+      "main": [
+        [
+          {
+            "node": "Publish to radio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-19T19:34:02.725Z",
+  "id": "CYsTMwEj5qnt71La",
+  "isArchived": true,
+  "meta": null,
+  "name": "Demo Song to radio",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "660720f9-df55-449c-8194-a245e47da948",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "A8VJjYMWUkbVPPOX",
+          "mode": "list",
+          "cachedResultName": "Boost — Créer la chanson (SUB)"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "lyrics": "={{ $json.lyrics }}",
+            "title": "={{ $json.title }}",
+            "musical_style": "={{ $json.musical_style }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "lyrics",
+              "displayName": "lyrics",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "musical_style",
+              "displayName": "musical_style",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        280,
+        0
+      ],
+      "id": "f3774e20-2458-4731-b5df-e58080e35bc6",
+      "name": "Generate song"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "iKbrpDsvwCDq9FNa",
+          "mode": "list",
+          "cachedResultName": "Boost — Song Upload And Publish to Radio"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{ $json.url }}",
+            "title": "={{ $('When clicking ‘Test workflow’').first().json.title }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        0
+      ],
+      "id": "dd8341a6-e2cf-424b-acce-99f3ddef97e1",
+      "name": "Publish to radio"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T18:23:03.769Z",
+      "updatedAt": "2024-12-18T18:23:03.769Z",
+      "id": "bKQygV5sop8ZxT9Z",
+      "name": "Demo"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-20T17:09:08.000Z",
+  "versionId": "f86f664a-a1dd-4e86-8699-c837aa4bb07f"
+}
