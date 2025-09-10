@@ -1,0 +1,474 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Format data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Authenticate": {
+      "main": [
+        [
+          {
+            "node": "Create Prospect",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Format data",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Format data",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format data": {
+      "main": [
+        [
+          {
+            "node": "Authenticate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Prospect": {
+      "main": [
+        [
+          {
+            "node": "Create Contact",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prospect already created",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prospect already created": {
+      "main": [
+        [
+          {
+            "node": "Set error data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pass on error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-26T20:22:50.309Z",
+  "id": "dzK1212QocQWf7P1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ServiCentre: create prospect",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "postal_code"
+            },
+            {
+              "name": "address"
+            },
+            {
+              "name": "first_name"
+            },
+            {
+              "name": "last_name"
+            },
+            {
+              "name": "telephone"
+            },
+            {
+              "name": "city"
+            },
+            {
+              "name": "email"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -600,
+        0
+      ],
+      "id": "91c9cc23-fe5f-4d17-961d-b6955f7d615e",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.servicentre.net/v1/api/User/FullLoginSession",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "clientId",
+              "value": "A30C6F66-8140-4828-82BF-3FDA3DA288B9"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"Credentials\": {\"companyName\": \"technopompes\", \"userName\": \"WEBAPI\", \"password\": \"tDF79vn56C6ykX\", \"clientId\": \"A30C6F66-8140-4828-82BF-3FDA3DA288B9\"}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        0
+      ],
+      "id": "6f94370b-4d87-4588-9fd1-c5da27ba9a66",
+      "name": "Authenticate"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        220
+      ],
+      "id": "de0de105-d630-43ab-9b8b-7488f7847396",
+      "name": "Auto-fixing Output Parser"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"postal_code\": \"J1E 3W6\",\n  \"address\": \"233 20E AVE NORD\",\n  \"first_name\": \"MATHIEU-PHILIPPE\",\n  \"last_name\": \"BOURGEOIS\",\n  \"telephone\": \"123-456-7890\",\n  \"city\": \"SHERBROOKE, QC\",\n  \"email\": \"mat@boostperformance.ai\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        440
+      ],
+      "id": "0cb49159-c561-49d2-a608-b25106ed4cbb",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        400
+      ],
+      "id": "42da9284-2f07-40c0-9bc3-272448cbb761",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ JSON.stringify($json, null, 2) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "You are a JSON formatter. Your job is to take a customer information JSON object as input and return a new JSON object with all fields cleaned, normalized, and formatted according to these rules:\n\n### 📥 Input Fields:\n\n* `postal_code`\n* `address`\n* `first_name`\n* `last_name`\n* `telephone`\n* `city`\n* `email`\n\n### 🎯 Output Requirements:\n\nReturn a JSON object with the exact same keys, but apply the following **formatting rules**:\n\n---\n\n#### 📫 **Address Formatting** (ServiCentre standard):\n\n* ALL UPPERCASE\n* Structure:\n\n  * Street number\n  * Road type abbreviation (e.g., `RUE`, `AVE`, `BOUL`, `RANG`, `CHEMIN`)\n  * Street name\n  * Apartment number (e.g., `#420`) if present\n* No comma between street number and street name\n* Abbreviations:\n\n  * `Rue` → `RUE`\n  * `Avenue` / `Av` / `Av.` → `AVE`\n  * `Boulevard` → `BOUL`\n  * `Rang` → `RANG`\n  * `Chemin` → `CHEMIN`\n  * Ordinals:\n\n    * `1ère` / `Première` → `1ERE`\n    * `2e`, `3e`, ..., `12e` → normalize as `2E`, `3E`, ..., `12E` (no space)\n\n#### ✏️ **Other Fields**:\n\n* `postal_code`: uppercase, 7 characters, 4th character is a space\n* `first_name`, `last_name`: All uppercase (preserve hyphens)\n* `telephone`: digits only, format as `123-456-7890`\n* `city`: All uppercase city + comma + space + all uppercase canadian province\n* `email`: lowercase\n\n---\n\n### Example Input:\n\n```json\n{\n  \"postal_code\": \"J1E 3W6\",\n  \"address\": \"233 20e Av Nord\",\n  \"first_name\": \"Mathieu-Philippe\",\n  \"last_name\": \"Bourgeois\",\n  \"telephone\": \"123-456-7890\",\n  \"city\": \"Sherbrooke\",\n  \"email\": \"mat@boostperformance.ai\"\n}\n```\n\n### Example Output:\n\n```json\n{\n  \"postal_code\": \"J1E 3W6\",\n  \"address\": \"233 20E AVE NORD\",\n  \"first_name\": \"MATHIEU-PHILIPPE\",\n  \"last_name\": \"BOURGEOIS\",\n  \"telephone\": \"123-456-7890\",\n  \"city\": \"SHERBROOKE, QC\",\n  \"email\": \"mat@boostperformance.ai\"\n}\n```\n\nReturn only the output JSON. Do not include explanations.\n"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -280,
+        0
+      ],
+      "id": "6c959e2d-b925-4647-9fb6-e285a5d69ce1",
+      "name": "Format data"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.servicentre.net/v1/api/Prospect/Post",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Cookie",
+              "value": "=ASP.NET_SessionId={{ $json.SessionId }}"
+            },
+            {
+              "name": "clientId",
+              "value": "A30C6F66-8140-4828-82BF-3FDA3DA288B9"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "CustomerName",
+              "value": "={{ $('Format data').item.json.output.first_name }} {{ $('Format data').item.json.output.last_name }}"
+            },
+            {
+              "name": "CustomerNumber",
+              "value": "={{ $('Format data').item.json.output.telephone }}"
+            },
+            {
+              "name": "Address.Address",
+              "value": "={{ $('Format data').item.json.output.address }}"
+            },
+            {
+              "name": "Address.City",
+              "value": "={{ $('Format data').item.json.output.city }}"
+            },
+            {
+              "name": "Address.PostalCode",
+              "value": "={{ $('Format data').item.json.output.postal_code }}"
+            },
+            {
+              "name": "Notes",
+              "value": "Test par Boost Performance"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        0
+      ],
+      "id": "2bab7ec7-4eb2-47d4-833d-b990012d0eea",
+      "name": "Create Prospect",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.servicentre.net/v1/api/Contact/Post",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Cookie",
+              "value": "=ASP.NET_SessionId={{ $('Authenticate').item.json.SessionId }}"
+            },
+            {
+              "name": "clientId",
+              "value": "A30C6F66-8140-4828-82BF-3FDA3DA288B9"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "CustomerName",
+              "value": "={{ $('Format data').item.json.output.first_name }} {{ $('Format data').item.json.output.last_name }}"
+            },
+            {
+              "name": "CustomerId",
+              "value": "={{ $json.Data[0].CustomerId }}"
+            },
+            {
+              "name": "EmailAddress",
+              "value": "={{ $('Format data').item.json.output.email }}"
+            },
+            {
+              "name": "PhoneNumber",
+              "value": "={{ $('Format data').item.json.output.telephone }}"
+            },
+            {
+              "name": "CustomerTypeId",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1220,
+        0
+      ],
+      "id": "3b3da6b7-b213-434a-9e92-841cc71c1396",
+      "name": "Create Contact"
+    },
+    {
+      "parameters": {
+        "content": "## Waiting for ServiCentre reply on how to link Contact to Prospect.\n\nThey have replied, we are not setting the CustomerTypeId to 1, and it still doesn't work.",
+        "height": 560,
+        "width": 280,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        -280
+      ],
+      "id": "be1a8b0f-5f7b-4601-bfd0-1761cbe7b389",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e4d51e90-dab3-4fc1-8f1a-eb0aaffbed33",
+              "leftValue": "={{ $json.error.message }}",
+              "rightValue": "existe déjà",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        500
+      ],
+      "id": "f95712f7-3985-48b8-90d8-bb047c9e25dc",
+      "name": "Prospect already created"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2321391d-154a-453a-9125-02dd4e7deb26",
+              "name": "error",
+              "value": "Prospect with this phone number already exists",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1200,
+        420
+      ],
+      "id": "84a68001-d7c6-4c4d-9ed9-bfd2ac40d4ee",
+      "name": "Set error data"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8546231e-81e5-445d-9d2c-aef590270d1b",
+              "name": "error",
+              "value": "={{ JSON.stringify($json.error) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1200,
+        620
+      ],
+      "id": "b625fa3b-d169-47db-9519-b6912688083e",
+      "name": "Pass on error"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-08T19:14:51.000Z",
+  "versionId": "ddb1f365-0bad-47b8-9a2f-10aef16e2250"
+}
