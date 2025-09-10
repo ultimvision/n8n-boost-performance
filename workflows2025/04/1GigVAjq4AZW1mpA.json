@@ -1,0 +1,830 @@
+{
+  "active": false,
+  "connections": {
+    "Get facebook group": {
+      "main": [
+        [
+          {
+            "node": "Run Facebook Scrape",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get run info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run completed": {
+      "main": [
+        [
+          {
+            "node": "Get prompt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Timeout",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get run output": {
+      "main": [
+        [
+          {
+            "node": "Add prompt to every items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get run info": {
+      "main": [
+        [
+          {
+            "node": "Run completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Timeout": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run llm": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get prompt": {
+      "main": [
+        [
+          {
+            "node": "Get run output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add prompt to every items": {
+      "main": [
+        [
+          {
+            "node": "Run llm",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Create leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get facebook group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Facebook Scrape": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-29T18:20:38.428Z",
+  "id": "1GigVAjq4AZW1mpA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Test avec supers brillants",
+  "nodes": [
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appQ5UhHEZN9tXrgg",
+          "mode": "list",
+          "cachedResultName": "Lead Generator",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNOytrQi4CM2kO2",
+          "mode": "list",
+          "cachedResultName": "Facebook Groups",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg/tblNOytrQi4CM2kO2"
+        },
+        "id": "={{ $json.record_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -2640,
+        340
+      ],
+      "id": "b2796620-2f19-45ea-af06-e7b8829fd5fa",
+      "name": "Get facebook group",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -2100,
+        340
+      ],
+      "id": "e8c64fd8-fb7b-4ef1-abb3-0aa5fdf98e03",
+      "name": "Wait",
+      "webhookId": "47c7a401-eec9-4f82-a14a-877a33f90cb6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "565c7e50-f49c-4e96-bed0-6a3693af0651",
+              "leftValue": "={{ $json.data.status }}",
+              "rightValue": "SUCCEEDED",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1560,
+        340
+      ],
+      "id": "2130dc4c-c86b-4e2a-b5b0-1a33079d9ab6",
+      "name": "Run completed"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/actor-runs/{{ $('Run completed').item.json.data.id }}/dataset/items?format=json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -980,
+        340
+      ],
+      "id": "a095fa3f-9b2a-48ce-87e0-c5b0fb4b88ed",
+      "name": "Get run output",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/actor-runs/{{ $('Run Facebook Scrape').first().json.data.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1840,
+        340
+      ],
+      "id": "6493c174-5e78-4020-8c67-5da35fe9884e",
+      "name": "Get run info",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "341ec76f-b833-420e-bf76-41e284400b87",
+              "leftValue": "={{ $runIndex }}",
+              "rightValue": 30,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1560,
+        580
+      ],
+      "id": "e97544db-5607-4d35-9a9f-6565471d27f2",
+      "name": "Timeout"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Facebook group Apify scraping timed out"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        -1300,
+        580
+      ],
+      "id": "15d6b35b-4548-485d-8e5f-103cd34b5831",
+      "name": "Stop and Error"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "Eq7FMPEle9Cd1oim",
+          "mode": "list",
+          "cachedResultName": "Boost — Run Prompt"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "input": "={{ $json.input }}",
+            "prompt": "={{ $json.prompt }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "prompt_id",
+              "displayName": "prompt_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "input",
+              "displayName": "input",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "prompt",
+              "displayName": "prompt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "object",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": true,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -440,
+        340
+      ],
+      "id": "18098160-c741-4062-bff9-cb26c40beb2a",
+      "name": "Run llm"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appQ5UhHEZN9tXrgg",
+          "mode": "list",
+          "cachedResultName": "Lead Generator",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbla4TIFqV81EmY6u",
+          "mode": "list",
+          "cachedResultName": "Prompts",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg/tbla4TIFqV81EmY6u"
+        },
+        "filterByFormula": "Name = \"Facebook Analysis\"",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -1240,
+        340
+      ],
+      "id": "2de0c7d0-0e01-4f1b-92b0-aa96d1998daf",
+      "name": "Get prompt",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "\n\nconst prompt = $('Get prompt').first().json\n\nreturn $input.all().map(i => {\n  return {\n    json: {\n      input: JSON.stringify(i.json),\n      prompt\n    }\n  }\n})"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -720,
+        340
+      ],
+      "id": "cee42a4b-a9fa-40af-ab2a-6d59e1e913f3",
+      "name": "Add prompt to every items"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "output.leads"
+            }
+          ]
+        },
+        "options": {
+          "mergeLists": true
+        }
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        340
+      ],
+      "id": "da97527f-68e7-4359-b1db-b00092dc4030",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "leads",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        0,
+        340
+      ],
+      "id": "74e4fff0-8e92-445c-a407-4d7307b8e622",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appQ5UhHEZN9tXrgg",
+          "mode": "list",
+          "cachedResultName": "Lead Generator",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTX7TdP3jvW7Xih",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg/tblTX7TdP3jvW7Xih"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.user.name }}",
+            "Source Type": "={{ $json.type }}",
+            "Source": "Facebook",
+            "User ID": "={{ $json.user.id }}",
+            "URL": "={{ $json.url }}",
+            "Reasoning": "={{ $json.reasoning }}",
+            "Date": "={{ $json.date }}",
+            "Content": "={{ $json.text }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Source Type",
+              "displayName": "Source Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "post",
+                  "value": "post"
+                },
+                {
+                  "name": "comment",
+                  "value": "comment"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Facebook",
+                  "value": "Facebook"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "User ID",
+              "displayName": "User ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Reasoning",
+              "displayName": "Reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Content",
+              "displayName": "Content",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        220,
+        340
+      ],
+      "id": "6c06d3f7-5a10-4a6e-9be8-0b96fc379bac",
+      "name": "Create leads",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appQ5UhHEZN9tXrgg",
+          "mode": "list",
+          "cachedResultName": "Lead Generator",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNOytrQi4CM2kO2",
+          "mode": "list",
+          "cachedResultName": "Facebook Groups",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg/tblNOytrQi4CM2kO2"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get facebook group').first().json.id }}",
+            "Last Scraped": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Last Scraped",
+              "displayName": "Last Scraped",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Scrape",
+              "displayName": "Scrape",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9d2828c6-63ea-4042-a266-0b1c799066e2",
+      "name": "Update last scraped at",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "record_id"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2940,
+        340
+      ],
+      "id": "11c08659-27ff-429c-b170-4bd4f2c45071",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/2chN8UQcH1CfxLRNE/runs",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "startUrls",
+              "value": "={{ [{\"url\": $json.URL }] }}"
+            },
+            {
+              "name": "resultsLimit",
+              "value": "={{ 200 }}"
+            },
+            {
+              "name": "onlyPostsNewerThan",
+              "value": "={{ $json['Last Scraped'] || '1 days' }}"
+            },
+            {
+              "name": "viewOption",
+              "value": "CHRONOLOGICAL"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2360,
+        340
+      ],
+      "id": "332bb38b-e798-4f28-94c1-b508b1f26966",
+      "name": "Run Facebook Scrape",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-29T18:52:22.000Z",
+  "versionId": "ed6448bc-33de-48ce-a353-42cde937699f"
+}
