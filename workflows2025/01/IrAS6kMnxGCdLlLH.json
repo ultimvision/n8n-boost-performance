@@ -1,0 +1,159 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-01-22T22:53:00.086Z",
+  "id": "IrAS6kMnxGCdLlLH",
+  "isArchived": false,
+  "meta": null,
+  "name": "Groupe Performance - Circle",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        -1240
+      ],
+      "id": "a4cb628d-d13e-48eb-8f90-6729e3411b08",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://connect.squareup.com/v2/customers",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Square-Version",
+              "value": "2024-12-18"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAAllvrrVZvkcKEDLaRMby8gCOQqmA_n5a_O4acAxC3uOisYHpe5T6f_YttQqbl"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        100,
+        -160
+      ],
+      "id": "71bafdd2-4c7d-4da2-8b83-c9930638ba55",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "url": "https://connect.squareup.com/v2/customers/FN98H8DATYV2GRG45EJ6M8BCVG",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Square-Version",
+              "value": "2024-12-18"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAAllvrrVZvkcKEDLaRMby8gCOQqmA_n5a_O4acAxC3uOisYHpe5T6f_YttQqbl"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        -160
+      ],
+      "id": "dca336b7-2b56-4d12-8bcf-ef389cc7f41e",
+      "name": "Retrieve one user"
+    },
+    {
+      "parameters": {
+        "url": "https://connect.squareup.com/v2/customers/custom-attribute-definitions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Square-Version",
+              "value": "2024-12-18"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAAllvrrVZvkcKEDLaRMby8gCOQqmA_n5a_O4acAxC3uOisYHpe5T6f_YttQqbl"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        -160
+      ],
+      "id": "afb9908c-886b-48a7-9a54-5afed5936376",
+      "name": "Retrieve Custom Fields Profile"
+    },
+    {
+      "parameters": {
+        "url": "=https://connect.squareup.com/v2/customers/{{ $json.customer.id }}/custom-attributes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Square-Version",
+              "value": "2024-12-18"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAAllvrrVZvkcKEDLaRMby8gCOQqmA_n5a_O4acAxC3uOisYHpe5T6f_YttQqbl"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        980,
+        -180
+      ],
+      "id": "3a99d5c4-3996-4c2a-bd24-4e6961b828d7",
+      "name": "List customer custom attributes"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-02T13:36:37.412Z",
+      "updatedAt": "2025-02-02T13:36:37.412Z",
+      "id": "V4OMeuwcX3eNQhlA",
+      "name": "Groupe Performance"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-02T13:38:20.000Z",
+  "versionId": "6572a489-666e-47c6-a2b0-6bf69394e4ae"
+}
