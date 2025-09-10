@@ -1,0 +1,1607 @@
+{
+  "active": false,
+  "connections": {
+    "Validate input": {
+      "main": [
+        [
+          {
+            "node": "Generate Song",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return invalid input error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate song generation response": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return song generation error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Song": {
+      "main": [
+        [
+          {
+            "node": "Get Data Music",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return song generation error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Data Music": {
+      "main": [
+        [
+          {
+            "node": "Validate song generation response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Song Writing Instructions": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Music Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4o": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Music Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4o1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Music1": {
+      "main": [
+        [
+          {
+            "node": "Generate Song1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Music2": {
+      "main": [
+        [
+          {
+            "node": "Generate Song2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enterprise Details": {
+      "main": [
+        [
+          {
+            "node": "Song Writing Instructions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Music": {
+      "main": [
+        [
+          {
+            "node": "Validate input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Song": {
+      "main": [
+        [
+          {
+            "node": "Is generation complete?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return fetching song error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is generation complete?": {
+      "main": [
+        [
+          {
+            "node": "Prepare successful output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "We have not timed out yet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop data": {
+      "main": [
+        [
+          {
+            "node": "Get Song",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "We have not timed out yet": {
+      "main": [
+        [
+          {
+            "node": "Get Song",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return song generation timed out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Max Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Song1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is generation complete?1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 3 seconds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 3 seconds": {
+      "main": [
+        [
+          {
+            "node": "We have not timed out yet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "We have not timed out yet1": {
+      "main": [
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Data": {
+      "main": [
+        [
+          {
+            "node": "Get Song1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Max Loop": {
+      "main": [
+        [
+          {
+            "node": "Get Song1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Enterprise Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Prepare Music",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Get Song2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Music Agent": {
+      "main": [
+        [
+          {
+            "node": "Prepare Music",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Is generation complete?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-12T11:03:47.506Z",
+  "id": "1eGoip75CfAtSLdF",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost Circle - SUNO",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Invalid input",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ad143b44-586e-42d1-ad73-d429247bb673",
+      "name": "Return invalid input error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1640,
+        1520
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ff2521ee-7fc0-4ef3-bc41-2f86c3f5cba8",
+              "leftValue": "={{ $json.lyrics }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "a3b72449-4e91-4862-a6e9-b38a62628a41",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "4f473462-3a9c-4ed2-851a-b682a9a59ab9",
+      "name": "Validate input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1460,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "2ea77259-7d23-4978-8ed8-772cf126b5cd",
+              "leftValue": "={{ $json.clips }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "2ec4d282-369f-4c32-9c79-341e8336705e",
+              "leftValue": "={{ $json.clips }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5ef0e4b9-fa89-4e3d-89af-3e56cc514d18",
+      "name": "Validate song generation response",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Unable to generate song",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "66273b6d-7a6f-42d1-b271-b29a730fb863",
+      "name": "Return song generation error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2240,
+        1540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Error Handling",
+        "height": 302.92744373028626,
+        "width": 3008.604783969799,
+        "color": 3
+      },
+      "id": "2c80f280-b756-4283-b409-55d3c50c85ab",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        1403.2085647439071
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $vars.SUNO_API_URL }}/generate",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "prompt",
+              "value": "={{ $json.lyrics }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "name": "tags",
+              "value": "={{ $('Enterprise Details').item.json.music_style || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6b71df97-f7f3-4c3b-bd38-0a39953fbdad",
+      "name": "Generate Song",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        780
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "89a8369e-921e-4b91-8578-e24d71ac3136",
+      "name": "Get Data Music",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1960,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "clips",
+        "options": {}
+      },
+      "id": "3dd97ecc-21ad-4917-81dc-ee41ef021722",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2620,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6d6ae528-97e5-4c98-8a8a-1f2195997fea",
+              "name": "instructions",
+              "value": "=Vous êtes un auteur-compositeur talentueux, spécialisé dans la création de jingle ou une chanson utilisée à des fins publicitaires, souvent pour renforcer l'identité de marque et marquer les esprits des consommateurs. Elle met en avant les valeurs, les produits ou les services de l'entreprise de manière attrayante et mémorable.\n\nTa tâche est d’écrire les paroles d’une chanson en {{ $json.language }} à des fins publicitaires pour une entreprise. On va te partager des informations à propos de l’entreprise et tu devras suivre les étapes suivantes pour la rédiger : \n\n1. Comprendre l’entreprise\n- Analyse des informations : Réunir et analyser les informations sur l’entreprise, telles que sa mission, ses produits, ses services, ses valeurs et ses clients cibles.\n- Définir l’objectif : Clarifier l’objectif du jingle (promotion d’un produit, renforcement de l'image de marque, sensibilisation à un service).\n\n2. Identifier le message clé\n- Message principal : Décider du message central à transmettre (ex. : qualité des produits, innovation, service exceptionnel).\n- Ton et style : Déterminer le ton (ex. : fun, sérieux, inspirant) et le style (rapide, entraînant, doux) en fonction du public cible.\n\n3. Rechercher des mots-clés et des phrases accrocheuses\n- Identifier les termes essentiels : Relever les mots-clés liés aux valeurs de l’entreprise (ex. : « excellence », « innovation », « confiance ») et les intégrer dans le texte.\n- Formuler des accroches : Créer des slogans ou des phrases impactantes qui peuvent être répétés dans la chanson pour un effet mémorable.\n\n4. Établir la structure de la chanson\n- Structurer les paroles : Choisir une structure de chanson classique (couplet, refrain, pont). Par exemple :\n[Intro] : Présentation ou slogan de l’entreprise.\n[Couplet 1] : Décrire le produit ou le service principal.\n[Refrain] : Message clé, mémorable, facile à retenir.\n[Couplet 2] : Mettre en avant les avantages pour le client.\n[Pont] : Variation qui donne de la dynamique à la chanson.\n[Outro] : Résumer ou répéter le message clé.\n\n5. Composer les paroles en {{ $json.language }}\n- Couplet : Commencer par des paroles descriptives qui capturent l’essence de l’entreprise et ce qu’elle offre.\n- Refrain : Créer un refrain simple, répétitif et accrocheur qui rappelle le message principal et se grave dans la mémoire.\n- Utiliser un langage positif : Utiliser un langage qui évoque des émotions positives et fait ressentir aux auditeurs que l’entreprise répond à leurs besoins.\n\n6. Adapter le contenu aux valeurs de l’entreprise\n- Alignement avec la marque : S'assurer que les paroles reflètent fidèlement l'image de la marque et ses valeurs fondamentales.\n- Éviter le jargon : Éviter les termes trop techniques et privilégier des mots que le public cible peut comprendre facilement.\n\n7. Réviser et tester\n- Révision : Relire et affiner les paroles pour qu’elles soient fluides et naturelles en musique.\n- Tester : Tester les paroles en chantant pour vérifier leur fluidité et l’impact de chaque section.\n\n8. Finaliser la chanson\n- Derniers ajustements : Faire les ajustements finaux pour que la chanson soit cohérente et prête à être mise en musique.\n\n9. Nom de la chanson \n- Donnez un titre à la chanson en {{ $json.language }}, comportant au maximum 10 mots, qui inclut le nom du produit ou service.\n\n[Instrumental intro]\n[Pre-Intro]\nIn the neon glow, he was standing alone\n[Intro]\nUnder disco lights, he caught her eyes\n\nVoici la structure que tu dois respecter pour placer les paroles de ta chanson en {{ $json.language }}: \n\n[Instrumental intro]\n[Pre-Intro]\n[Intro]\n[Verse] : Utilisé pour les couplets de la chanson. Chaque couplet raconte généralement une partie de l'histoire ou développe le thème de la chanson.\n[Chorus] : Utilisé pour le refrain, la partie répétée de la chanson, souvent la plus mémorable et accrocheuse. Il contient généralement le message principal ou l'accroche de la chanson.\n[Verse 2], [Verse 3], etc. : Similaire au [Verse], mais numéroté pour indiquer la progression dans la chanson. Chaque couplet numéroté représente une section différente.\n[Bridge] : Utilisé pour la transition entre différentes parties de la chanson, souvent pour introduire un contraste ou une montée en émotion avant de revenir au refrain.\n[Outro] : Utilisé pour la conclusion ou la fin de la chanson. L'outro peut reprendre des éléments du refrain ou du couplet, ou introduire une nouvelle section musicale ou lyrique. Il sert à conclure la chanson en douceur, souvent en réduisant l'intensité ou en répétant des phrases clés. L'outro peut également offrir une réflexion finale ou un message qui laisse une impression durable à l'auditeur.\n\nVoici un exemple pour écrire les paroles de la chanson avec les balises:\n\n[Instrumental intro]\n[Pre-Intro]\nDans le souffle du vent, nous avançons ensemble,\nVers un monde plus vert, vers un avenir qui rassemble.\n[Intro]\nNous bâtissons un avenir plus vert,\nDes solutions qui inspirent et éclairent.\nAvec EcoTech, chaque jour est un pas,\nVers un monde plus pur, c’est notre combat.\n[Verse 1]\nNous bâtissons un avenir plus vert,\nDes solutions qui inspirent et éclairent.\nAvec EcoTech, chaque jour est un pas,\nVers un monde plus pur, c’est notre combat.\n[Chorus]\nEcoTech, pour la planète et demain,\nInnover pour un monde serein.\nÉnergie propre, solutions durables,\nUn futur radieux, c'est inévitable.\n[Verse 2]\nNos technologies changent l’horizon,\nRéduire l’empreinte, c’est notre mission.\nDes panneaux solaires aux éoliennes,\nPour chaque maison, une énergie saine.\n[Chorus]\nEcoTech, pour la planète et demain,\nInnover pour un monde serein.\nÉnergie propre, solutions durables,\nUn futur radieux, c'est inévitable.\n[Bridge]\nÉco-responsable, c’est notre fierté,\nPour les générations à protéger.\nAvec passion, on avance sans crainte,\nUn avenir vert, une promesse sans feinte.\n[Chorus]\nEcoTech, pour la planète et demain,\nInnover pour un monde serein.\nÉnergie propre, solutions durables,\nUn futur radieux, c'est inévitable.\n[Outro]\nPour chaque pas, une victoire à venir,\nAvec EcoTech, le monde va sourire.\nNous sommes la clé, nous sommes le chemin,\nVers un futur où tout ira bien.\n\nMaintenant, voici les informations de l'entreprise pour laquelle tu dois écrire une chanson :\n\n",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "19d9403a-8ba5-4cf9-9c77-3025ff0cb45d",
+      "name": "Song Writing Instructions",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        560,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"The title of the song.\"\n    },\n    \"lyrics\": {\n      \"type\": \"string\",\n      \"description\": \"The complete lyrics of the song, including all verses, choruses, intro, and outro.\"\n    }\n  },\n  \"required\": [\"title\", \"lyrics\"]\n}"
+      },
+      "id": "d2d49342-56da-4ecb-9d63-22d5648e43b2",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1000,
+        1200
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f74289e0-4c67-43ab-9e4b-9029d361411c",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        900,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4",
+        "options": {}
+      },
+      "id": "2cd6c6ff-66f5-4f19-a9f6-2cacb08016fa",
+      "name": "4o",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        640,
+        1060
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "fd7b4ffd-428f-472e-a629-7a47d0d7f09a",
+      "name": "4o1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        840,
+        1200
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a0b083e7-d2f2-40a9-b8eb-85d1fdf7b0f7",
+              "name": "tags",
+              "value": "jazz,blues,rock",
+              "type": "string"
+            },
+            {
+              "id": "f013fc6e-93b2-4099-a6f5-6b73fc65cc27",
+              "name": "lyrics",
+              "value": "={{ $json.output.lyrics }}",
+              "type": "string"
+            },
+            {
+              "id": "00ecd33e-3d69-4d12-96b9-2bdf45e1a574",
+              "name": "title",
+              "value": "={{ $json.output.title }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "694135e9-1d6c-455b-b39e-a01617d14576",
+      "name": "Prepare Music",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1180,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "0QMD2L27NZHMOjoK",
+        "options": {}
+      },
+      "id": "5d9c16c5-651c-4ec4-9abe-74c5811b54ab",
+      "name": "Generate Song1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        300,
+        -380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a0b083e7-d2f2-40a9-b8eb-85d1fdf7b0f7",
+              "name": "tags",
+              "value": "soulful, mowtown, blues, female voice",
+              "type": "string"
+            },
+            {
+              "id": "f013fc6e-93b2-4099-a6f5-6b73fc65cc27",
+              "name": "lyrics",
+              "value": "={{ $json.output.lyrics }}",
+              "type": "string"
+            },
+            {
+              "id": "00ecd33e-3d69-4d12-96b9-2bdf45e1a574",
+              "name": "title",
+              "value": "={{ $json.output.title }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "24ca2c2f-008a-4468-bf00-9216ad1196ae",
+      "name": "Prepare Music1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        100,
+        -380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a0b083e7-d2f2-40a9-b8eb-85d1fdf7b0f7",
+              "name": "tags",
+              "value": "soulful, gospel, female voice",
+              "type": "string"
+            },
+            {
+              "id": "f013fc6e-93b2-4099-a6f5-6b73fc65cc27",
+              "name": "lyrics",
+              "value": "={{ $json.output.lyrics }}",
+              "type": "string"
+            },
+            {
+              "id": "00ecd33e-3d69-4d12-96b9-2bdf45e1a574",
+              "name": "title",
+              "value": "={{ $json.output.title }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d68f95b4-457c-41ed-bd4a-219d9d3c84a6",
+      "name": "Prepare Music2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        100,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "0QMD2L27NZHMOjoK",
+        "options": {}
+      },
+      "id": "4eaa8457-ffed-48e5-9da5-a880737a9fbb",
+      "name": "Generate Song2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        300,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "0QMD2L27NZHMOjoK",
+        "options": {}
+      },
+      "id": "bb8a39c4-3936-4490-a372-41a3325bc923",
+      "name": "Generate Jingle",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "url_content",
+          "mode": "list",
+          "cachedResultName": "url_content"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "20"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "content"
+          ]
+        }
+      },
+      "id": "59fb30a7-878c-4d21-aa33-dd4577af6b52",
+      "name": "Get Baume Noir Face Details from Brain",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -1160,
+        360
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6d6ae528-97e5-4c98-8a8a-1f2195997fea",
+              "name": "instructions",
+              "value": "=You are a skilled song writer, specializing in crafting catchy and memorable tunes that effectively promote products by highlighting their best features.\n\nYour task is to write a lyric based on the definition and key features of a beauty product. The lyric should explain the product, focusing on its positive attributes. There should be no user comments or personal opinions included.\n\nInstructions:\n1. Product Description: Analyze the product definition and identify its key features, benefits, and unique selling points.\n\n2. Positive Messaging: Focus on the product's strengths, such as its effectiveness, ingredients, or how it makes the user feel. Ensure the lyrics are uplifting and resonate with the target audience.\n\n4. Catchy Hook: The chorus should have a catchy hook that makes the product memorable and easy to recall.\n\n5. The song should have verses and choruses.\n\n6. The song should have an intro and an outro.\n\n7. The chorus must mention the product name from Nannette de Gaspé.\n\n8. Identify a song name with maximum 10 words including the product name.\n\n9. The lyric can't mention any price.\n\n10. The lyric can't invite people to join community.\n\nStructure of the song :\n\n[Verse]: Used for the verses of the song. Each verse typically tells a part of the story or develops the theme of the song.\n\n[Chorus]: Used for the chorus, the repeated part of the song, often the most memorable and catchy. It usually contains the main message or hook of the song.\n\n[Verse 2], [Verse 3], etc.: Similar to [Verse], but numbered to indicate progression in the song. Each numbered verse represents a different section.\n\n[Bridge]: Used for the transition between different parts of the song, often to introduce a contrast or emotional build-up before returning to the chorus.\n\n[Outro]: Used for the conclusion or end of the song. The outro can reprise elements from the chorus or verse, or introduce a new musical or lyrical section. It serves to smoothly wrap up the song, often by gradually reducing intensity or repeating key phrases. The outro might also offer a final reflection or message that leaves a lasting impression on the listener.\n\nOutput example :\n[Instrumental intro]\n[Pre-Intro]\nIn the neon glow, he was standing alone\n[Intro]\nUnder disco lights, he caught her eyes\n[Verse 1]\nHe was watching the night, in the rhythm's hold\nA story of love, about to unfold\nShe was dancing away, in a trance so bold\nWith a guy who was just too hard to scold\n[Chorus]\nHe meets a girl, she kisses a boy, oh the disco joy\n[Verse 2]\nThe beats were high, and the night was young\nHe felt the twist of fate, on his tongue\nShe was like a melody, in an Italo song\nBut the kiss she gave, was to someone wrong\n[Chorus]\nHe meets a girl, she kisses a boy, lost in the disco noise\n[Bridge]\nIn the heart of the night, where the feelings are strong\nHe's got to find a way, to where he belongs\n[Pre-Outro]\nAs the music fades, he's ready to go\nBut the image of her kiss, still a vibrant show\n[Outro]\nIn the silence of the night, after the disco lights\nHe'll remember the girl, and the boy she likes",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "5e393f83-8670-42cc-a094-d3b29747965a",
+      "name": "Song Writing Instructions1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -920,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9bd735c8-bad7-41a3-b2cb-e680fe5ea7e6",
+              "name": "content",
+              "value": "={{ $json['A Propos de la compagnie'] }}",
+              "type": "string"
+            },
+            {
+              "id": "bf69151b-ab5b-4e54-8130-fda355673399",
+              "name": "language",
+              "value": "={{ $json['Langue des paroles'] }}",
+              "type": "string"
+            },
+            {
+              "id": "92b7bcba-a300-42c2-ab52-2bc4027c1751",
+              "name": "music_style",
+              "value": "={{ $json['Style de musique'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "190cfbc0-b874-4730-ad40-d7f15c733d3a",
+      "name": "Enterprise Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Unable to fetch generated song",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d8d92cba-0e18-4105-a35a-2fbe2539d83b",
+      "name": "Return fetching song error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6780,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Song generation timed out",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c91d2022-045e-410c-8d2a-45bb9fdd1d1e",
+      "name": "Return song generation timed out",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7360,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://suno-api-ei6xs.ondigitalocean.app/feed/{{ $('Validate song generation response').item.json.clips[0].id }}",
+        "options": {}
+      },
+      "id": "1d61fb62-c43c-4efe-b611-fa26ecb3225b",
+      "name": "Get Song",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        6980,
+        280
+      ],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ec8e4d72-4a6e-4a22-96b8-9ea7596bf1e9",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "complete",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b796e16d-a8b3-41f9-9f5e-725f1eb0e7cb",
+      "name": "Is generation complete?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        7300,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Loop\n\nBecause the song generation is async and the Suno API does not provide any callbacks, we loop and check to see if the song generation is completed.\n\nEdit the **Loop data** node to customize the loop params.",
+        "height": 527.1766783877288,
+        "width": 1349.4817804616275,
+        "color": 5
+      },
+      "id": "37c772fe-7d82-4b54-bc74-851b912c8087",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        6680,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "amount": "={{ $('Loop data').item.json.wait_seconds }}"
+      },
+      "id": "96440b77-ebbf-4631-a9e4-bdeb8217c4f9",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        7560,
+        383
+      ],
+      "webhookId": "f2115e69-1d9b-40de-9556-0ccc5cee6fd2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aecbf263-ebf9-4fe7-be36-59c2feff570d",
+              "name": "max",
+              "value": 60,
+              "type": "number"
+            },
+            {
+              "id": "cb5d8751-d57d-4399-a15a-a41729bd11cc",
+              "name": "wait_seconds",
+              "value": 5,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "265ec1f7-c6b6-49b3-9930-fec6dcb02ebd",
+      "name": "Loop data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6720,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b8e445aa-7ceb-43a0-ba44-5221051f3138",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "ca6e3ed5-7a01-48bd-9e91-023665db81a6",
+              "name": "message",
+              "value": "Song successfully created",
+              "type": "string"
+            },
+            {
+              "id": "ab2c45a0-8329-42a4-b578-05d084ed7bec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8db53e5b-9149-4579-9489-13b8e9a8bc0d",
+      "name": "Prepare successful output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7840,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cd5015cf-2177-4d8c-8602-29c20c58fade",
+              "leftValue": "={{ $runIndex < $('Loop data').first().json.max }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fcb3ecb2-cadb-48a3-8078-912f8db03e35",
+      "name": "We have not timed out yet",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        7780,
+        383
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://suno-api-ei6xs.ondigitalocean.app/feed/{{ $json.id }}",
+        "options": {}
+      },
+      "id": "997d38b6-88a9-43db-b988-480636af8fa7",
+      "name": "Get Song1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3500,
+        460
+      ],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "abbd20f2-744d-48a6-9241-e24b38add69a",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        3040,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "ec8e4d72-4a6e-4a22-96b8-9ea7596bf1e9",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "complete",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "06220067-1aa0-4018-a4fa-ea0a4778e76b",
+      "name": "Is generation complete?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        360
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "41a49444-062c-47c5-9485-b877bb68bf3f",
+      "name": "Wait 3 seconds",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4000,
+        600
+      ],
+      "webhookId": "2711dfab-3613-4d8d-b167-a084f8d88f09"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "dde6a7a4-b5c1-4916-9f87-e6437c03069f",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4820,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "53054d08-c100-4d27-9d53-21013e0ba5c8",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3280,
+        120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "6690160b-a1d9-41b7-a825-2d5ff8b84ae1",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "5b41d130-ef08-45d6-95a4-54a7d8e227cd",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        160,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "cd5015cf-2177-4d8c-8602-29c20c58fade",
+              "leftValue": "={{ $runIndex }}",
+              "rightValue": "={{ ($('Set Max Loop').item.json.loop_id * 20) + 30 }}",
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8e4c7364-a85c-4d82-89a0-39cbbeb80300",
+      "name": "We have not timed out yet1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "e9d2edbe-e4f4-43e8-9406-a63953b11904",
+      "name": "Clean Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4400,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "26c17f0f-5552-4def-bf9f-06fd93cfb4c6",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2320,
+        -200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f41eccd3-4ec1-429c-a7a5-7f6c09871810",
+              "name": "loop_id",
+              "value": "={{ $runIndex }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f657d4f7-2ed3-41a6-860e-da8bbe1c62a4",
+      "name": "Set Max Loop",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3300,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://app.circle.so/api/v1/comments",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $('Workflow Data').item.json.community_id }}"
+            },
+            {
+              "name": "space_id",
+              "value": "={{ $('Workflow Data').item.json.space_id }}"
+            },
+            {
+              "name": "body",
+              "value": "={{ $json.new_message }}"
+            },
+            {
+              "name": "post_id",
+              "value": "={{ $('Workflow Data').item.json.post.id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3c7336bc-5eed-44a0-a1f9-178cb3a14783",
+      "name": "Posts a new comment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4200,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "84669fef-4cd3-4131-a1cd-abcf983f8869",
+              "name": "new_message",
+              "value": "=<figure>\n  <figcaption>{{ $json.title }}</figcaption>\n  Style : {{ $json.metadata.tags }}\n  <audio controls src=\"{{ $json.audio_url }}\"></audio>\n</figure>\n\n",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f5c57729-c919-4e36-86fc-0b537d3d81ee",
+      "name": "Insert HTML5 Audio",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3900,
+        120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "352320d7-12df-4dcb-aae3-cc26b30e5135",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        840,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ JSON.stringify($json[\"content\"]) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ JSON.stringify($json.instructions) }}"
+            }
+          ]
+        }
+      },
+      "id": "ab48c07c-dac5-403f-8f45-e42b3f5f7c3a",
+      "name": "AI Music Agent",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        760,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://suno-api-ei6xs.ondigitalocean.app/feed/{{ $json.id }}",
+        "options": {}
+      },
+      "id": "d1011f15-d205-44bc-9a67-68c867c3d296",
+      "name": "Get Song2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3560,
+        120
+      ],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "6758bc97-f382-47d6-a84e-070bd3ab9890",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3740,
+        360
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-28T19:39:31.444Z",
+      "updatedAt": "2024-10-28T19:39:31.444Z",
+      "id": "9zQPlsZadSQimtqF",
+      "name": "Deprecated"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-28T19:39:32.000Z",
+  "versionId": "721a965c-d9e2-4ab5-978e-9a7b64754a5e"
+}
