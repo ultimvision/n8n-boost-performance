@@ -1,0 +1,2022 @@
+{
+  "active": false,
+  "connections": {
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "ChatGPT - Vérifier la réponse2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ajouter le email et réponse dans la base de données": {
+      "main": [
+        [
+          {
+            "node": "Mise à jour du Status du prospect à Envoyé",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ChatGPT - Vérifier la réponse2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If email template": {
+      "main": [
+        [
+          {
+            "node": "Récupérer le template",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Information du Prospect",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Signature Coach",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Numéro de Assistant Open AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer le template": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Information du Prospect": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Replace Variable": {
+      "main": [
+        [
+          {
+            "node": "Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message": {
+      "main": [
+        [
+          {
+            "node": "Ajouter le email et réponse dans la base de données1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Signature Coach": {
+      "main": [
+        [
+          {
+            "node": "Set signature_coach",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Replace Variable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set signature_coach": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Emails Message to Create": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Emails Message to Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ajouter le email et réponse dans la base de données1": {
+      "main": [
+        [
+          {
+            "node": "Mise à jour du Status du prospect à Envoyé1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Numéro de Assistant Open AI": {
+      "main": [
+        [
+          {
+            "node": "Assistant aux Ventes1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "If email template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Assistant aux Ventes1": {
+      "main": [
+        [
+          {
+            "node": "ChatGPT - Vérifier la réponse2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatGPT - Vérifier la réponse2": {
+      "main": [
+        [
+          {
+            "node": "Ajouter le email et réponse dans la base de données",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mise à jour du Status du prospect à Envoyé1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mise à jour du Status du prospect à Envoyé": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Data": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-24T11:41:06.639Z",
+  "id": "IPWhKvEkmG2mODSr",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Assistant Email - Create New Email",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "5c39c7e7-d3d7-4939-b9ec-5f6a2c639de4",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "039d6e50-fcaf-45e0-b24f-0990a316351a",
+              "name": "assistant_id",
+              "value": "asst_pqXdJfjZolDOh9KraOA2TCjM",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "2383e6ea-9a52-476c-9a0f-929c7f8782dc",
+      "name": "Numéro de Assistant Open AI",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        560,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"subject\": \"Votre commande a été expédiée\",\n  \"message\": \"Bonjour, votre commande a été expédiée avec succès. Merci pour votre achat !\"\n}"
+      },
+      "id": "55948103-5d3e-49d4-8a41-6e55ded7c1d6",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1760,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTU9cN3BNs0KNrc",
+          "mode": "list",
+          "cachedResultName": "Prospect",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblTU9cN3BNs0KNrc"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get Emails Message to Create').item.json.id }}",
+            "Status": "Envoyé"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Assignee",
+              "displayName": "Assignee",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Créer un email IA",
+                  "value": "Créer un email IA"
+                },
+                {
+                  "name": "À Réviser",
+                  "value": "À Réviser"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Provenance",
+              "displayName": "Provenance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Événement",
+                  "value": "Événement"
+                },
+                {
+                  "name": "Lead Internet",
+                  "value": "Lead Internet"
+                },
+                {
+                  "name": "Référence contact",
+                  "value": "Référence contact"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Produits",
+              "displayName": "Produits",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "SoloPreneur IA",
+                  "value": "SoloPreneur IA"
+                },
+                {
+                  "name": "Accélérateur IA",
+                  "value": "Accélérateur IA"
+                },
+                {
+                  "name": "Propulseur IA",
+                  "value": "Propulseur IA"
+                },
+                {
+                  "name": "Membre additionnel au Hub",
+                  "value": "Membre additionnel au Hub"
+                },
+                {
+                  "name": "Bootcamp IA",
+                  "value": "Bootcamp IA"
+                },
+                {
+                  "name": "Masterclass IA",
+                  "value": "Masterclass IA"
+                },
+                {
+                  "name": "Formation en ligne",
+                  "value": "Formation en ligne"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom produit",
+              "displayName": "Nom produit",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Courriel",
+              "displayName": "Courriel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom compagnie",
+              "displayName": "Nom compagnie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes Provenance",
+              "displayName": "Notes Provenance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Coach",
+              "displayName": "Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Name (from Coach)",
+              "displayName": "Name (from Coach)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Courriel (from Coach)",
+              "displayName": "Courriel (from Coach)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Téléphone (from Coach)",
+              "displayName": "Téléphone (from Coach)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Poste (from Coach)",
+              "displayName": "Poste (from Coach)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "365c9c11-a9a0-45e7-999d-873668d18f91",
+      "name": "Mise à jour du Status du prospect à Envoyé",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2260,
+        960
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "=Nouveau email pour {{ $('Get Emails Message to Create').item.json.Name }}",
+            "De": "={{ $('Numéro de Assistant Open AI').item.json['Nom Coach'][0] }}",
+            "De Email": "={{ $('Numéro de Assistant Open AI').item.json['Courriel Coach'][0] }}",
+            "To": "={{ $('Get Emails Message to Create').item.json.Name }}",
+            "To Email": "={{ $('Get Emails Message to Create').item.json.Courriel }}",
+            "Message": "={{ $('Assistant aux Ventes1').item.json.content }}",
+            "Sujet": "={{ $json.output.subject }}",
+            "Status": "={{ $('If email template').item.json['Send email'] === \"Immédiatement\" ? 'Prêt à Envoyer' : 'Brouillon' }}",
+            "Réponses": "={{ $json.output.message }}\n\n{{ $('Numéro de Assistant Open AI').item.json['Signature Coach'][0] }}",
+            "Catégories": "NOUVEAU PROSPECT",
+            "Type": "new"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "Brouillon",
+                  "value": "Brouillon"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                },
+                {
+                  "name": "À réviser avec IA",
+                  "value": "À réviser avec IA"
+                },
+                {
+                  "name": "Ne pas envoyer",
+                  "value": "Ne pas envoyer"
+                },
+                {
+                  "name": "Prêt à Envoyer",
+                  "value": "Prêt à Envoyer"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "reply",
+                  "value": "reply"
+                },
+                {
+                  "name": "new",
+                  "value": "new"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "De",
+              "displayName": "De",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "De Email",
+              "displayName": "De Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To Email",
+              "displayName": "To Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Sujet",
+              "displayName": "Sujet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Label",
+              "displayName": "Label",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Message ID",
+              "displayName": "Message ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Thread ID",
+              "displayName": "Thread ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Catégories",
+              "displayName": "Catégories",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Réponses",
+              "displayName": "Réponses",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Historique ",
+              "displayName": "Historique ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes pour réviser",
+              "displayName": "Notes pour réviser",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Apprentissage",
+              "displayName": "Apprentissage",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Apprentissage complété",
+              "displayName": "Apprentissage complété",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0a2b6dd3-bf67-47ac-b0ef-2a23330569c0",
+      "name": "Ajouter le email et réponse dans la base de données",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2060,
+        960
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "id": "b1694687-46df-4450-9138-14b0be80bf89",
+      "name": "OpenAI Chat Model2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        1360
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "### Gen AI pour créer le premier email aux prospects",
+        "height": 708.0291588569523,
+        "width": 1028.6374558032885,
+        "color": 5
+      },
+      "id": "a5ba5133-b7c6-456b-8c67-f9d86a2db49f",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        940,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "id": "b86d78b5-feb9-419e-ad0a-9a01463ab707",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        1180
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ab090bcd-a3a9-42fd-9d90-b7a11cd19ebc",
+              "leftValue": "={{ $json['Message Template'][0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9753d741-7562-4ffe-a638-5a5e70419cfa",
+      "name": "If email template",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblsTV4hkCkezYlSQ",
+          "mode": "list",
+          "cachedResultName": "Template",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblsTV4hkCkezYlSQ"
+        },
+        "id": "={{ $json['Message Template'][0] }}",
+        "options": {}
+      },
+      "id": "eb2b6f42-414b-4cc3-9240-59479bd75169",
+      "name": "Récupérer le template",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        560,
+        340
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTU9cN3BNs0KNrc",
+          "mode": "list",
+          "cachedResultName": "Prospect",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblTU9cN3BNs0KNrc"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get Emails Message to Create').item.json.id }}",
+            "Status": "Envoyé"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Courriel",
+              "displayName": "Courriel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Créer un email IA",
+                  "value": "Créer un email IA"
+                },
+                {
+                  "name": "À Réviser",
+                  "value": "À Réviser"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Provenance",
+              "displayName": "Provenance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Événement",
+                  "value": "Événement"
+                },
+                {
+                  "name": "Lead Internet",
+                  "value": "Lead Internet"
+                },
+                {
+                  "name": "Référence contact",
+                  "value": "Référence contact"
+                },
+                {
+                  "name": "Gen AI",
+                  "value": "Gen AI"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Produits",
+              "displayName": "Produits",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "SoloPreneur IA",
+                  "value": "SoloPreneur IA"
+                },
+                {
+                  "name": "Accélérateur IA",
+                  "value": "Accélérateur IA"
+                },
+                {
+                  "name": "Propulseur IA",
+                  "value": "Propulseur IA"
+                },
+                {
+                  "name": "Membre additionnel au Hub",
+                  "value": "Membre additionnel au Hub"
+                },
+                {
+                  "name": "Bootcamp IA",
+                  "value": "Bootcamp IA"
+                },
+                {
+                  "name": "Masterclass IA",
+                  "value": "Masterclass IA"
+                },
+                {
+                  "name": "Formation en ligne",
+                  "value": "Formation en ligne"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom produit",
+              "displayName": "Nom produit",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom compagnie",
+              "displayName": "Nom compagnie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes Provenance",
+              "displayName": "Notes Provenance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse",
+              "displayName": "Adresse",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Coach",
+              "displayName": "Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom Coach",
+              "displayName": "Nom Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Courriel Coach",
+              "displayName": "Courriel Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Signature Coach",
+              "displayName": "Signature Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Site Web",
+              "displayName": "Site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date création",
+              "displayName": "Date création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "email initial",
+              "displayName": "email initial",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email Template",
+              "displayName": "Email Template",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "582fc67a-7c56-4c48-946f-acd92f112301",
+      "name": "Mise à jour du Status du prospect à Envoyé1",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2020,
+        460
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "=Nouveau email pour {{ $('Get Emails Message to Create').item.json.Name }}",
+            "De": "={{ $('Get Emails Message to Create').item.json['Nom Coach'][0] }}",
+            "De Email": "={{ $('Get Emails Message to Create').item.json['Courriel Coach'][0] }}",
+            "To": "={{ $('Get Emails Message to Create').item.json.Name }}",
+            "To Email": "={{ $('Get Emails Message to Create').item.json.Courriel }}",
+            "Message": "={{ $('Information du Prospect').first().json.information_prospect }}",
+            "Sujet": "={{ $('Récupérer le template').first().json.Sujet }}",
+            "Status": "={{ $('If email template').item.json['Send email'] === \"Immédiatement\" ? 'Prêt à Envoyer' : 'Brouillon' }}",
+            "Réponses": "={{ $json.Message }}",
+            "Catégories": "NOUVEAU PROSPECT",
+            "Type": "new"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "Brouillon",
+                  "value": "Brouillon"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                },
+                {
+                  "name": "À réviser avec IA",
+                  "value": "À réviser avec IA"
+                },
+                {
+                  "name": "Ne pas envoyer",
+                  "value": "Ne pas envoyer"
+                },
+                {
+                  "name": "Prêt à Envoyer",
+                  "value": "Prêt à Envoyer"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "reply",
+                  "value": "reply"
+                },
+                {
+                  "name": "new",
+                  "value": "new"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "De",
+              "displayName": "De",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "De Email",
+              "displayName": "De Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To Email",
+              "displayName": "To Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Sujet",
+              "displayName": "Sujet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Label",
+              "displayName": "Label",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Message ID",
+              "displayName": "Message ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Thread ID",
+              "displayName": "Thread ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Catégories",
+              "displayName": "Catégories",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Réponses",
+              "displayName": "Réponses",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Historique ",
+              "displayName": "Historique ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes pour réviser",
+              "displayName": "Notes pour réviser",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Apprentissage",
+              "displayName": "Apprentissage",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Apprentissage complété",
+              "displayName": "Apprentissage complété",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8c93d4b8-e844-4f14-8cea-c34eee494394",
+      "name": "Ajouter le email et réponse dans la base de données1",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1760,
+        460
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ee508be7-6cbd-4a39-9f3c-be2bf6374ed5",
+              "name": "information_prospect",
+              "value": "=Voici les informations pour rédiger le email d'introduction à un nouveau prospect:\n\nProvenance de la demande d'information : {{ $json.Provenance }}\nDétails de la provenance : {{ $json['Notes Provenance'] ? $json['Notes Provenance'] : 'Non mentionné' }}\n\nPrénom de la personne destinataire : {{ $json.Prénom }}\nNom de la personne destinataire : {{ $json.Nom }}\n\nNom de la compagnie destinataire : {{ $json['Nom compagnie'] ? $json['Nom compagnie'] : 'Non mentionné' }}\n\nProduits Intéressés par le prospect : {{ JSON.stringify($json.Produits) }}\n\nPlus d'information à propos du produit : {{ $json['Nom produit'] ? $json['Nom produit'] : 'Non mentionné' }}\n\nSignature du message avec les informations ci-dessous :\nCoach émétteur du email d'introduction : {{ $json['Nom Coach'][0] }}\nInformation de contact du Coach qui envoie le email : \n{{ $json['Courriel Coach'][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "ad3d641b-ebf4-4fe0-9e13-6fe85c79f16d",
+              "name": "Prénom",
+              "value": "={{ $('Get Emails Message to Create').item.json['Prénom'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "52348bc2-01f6-4c1c-a597-3570d1252747",
+      "name": "Information du Prospect",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        560,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nconst updatedItems = items.map((item) => {\n  const firstName = item.json[\"Prénom\"];\n  item.json.Message = item.json.Message.replace(\"{{firstname}}\", firstName);\n  return item;\n});\n\nreturn updatedItems;\n"
+      },
+      "id": "d3ef20cb-88dd-461c-a317-2282da4d61b0",
+      "name": "Replace Variable",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1240,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5ae50232-fbdd-424a-9d59-eb1409708632",
+              "name": "Message",
+              "value": "={{ $json.Message }}\n{{ $json['Signature Coach'] === true ? $json.signature_coach : '' }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "55569d17-0ae9-426b-a720-ae3227e233b9",
+      "name": "Message",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblSptyPTLUlFnwDF",
+          "mode": "list",
+          "cachedResultName": "Team",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblSptyPTLUlFnwDF"
+        },
+        "id": "={{ $json.Coach[0] }}",
+        "options": {}
+      },
+      "id": "41345824-35fd-4d13-9cdf-b15e7cb05587",
+      "name": "Get Signature Coach",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        560,
+        120
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {}
+      },
+      "id": "4c16265c-08ce-4f70-9a27-a5635981c1bb",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1040,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "894c6fb5-03e7-4087-89ff-249f5b375594",
+              "name": "signature_coach",
+              "value": "={{ $json.Signature }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a7ec9d6e-bce6-46f2-8759-f418676ca5b2",
+      "name": "Set signature_coach",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5b70fb4d-c2fc-4fc4-aa3a-beedafccdeb3",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -840,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTU9cN3BNs0KNrc",
+          "mode": "list",
+          "cachedResultName": "Prospect",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblTU9cN3BNs0KNrc"
+        },
+        "filterByFormula": "{Status} = \"Créer un email IA\"",
+        "options": {},
+        "sort": {
+          "property": [
+            {
+              "field": "Date création"
+            }
+          ]
+        }
+      },
+      "id": "db713cf5-f37e-4f8f-8139-62cd2063b169",
+      "name": "Get Emails Message to Create",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -580,
+        560
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "42f9976d-fc47-4fe8-8765-208e4e2e067d",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -120,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Ajuste ce message pour le format json ci-dessous :"
+            }
+          ]
+        }
+      },
+      "id": "6aab8ce8-44a1-4983-a35d-c336f295764c",
+      "name": "ChatGPT - Vérifier la réponse2",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        1520,
+        960
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $('Numéro de Assistant Open AI').first().json.assistant_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=Voici les informations pour rédiger le email d'introduction à un nouveau prospect:\n\nProvenance de la demande d'information : {{ $json.Provenance }}\nDétails de la provenance : {{ $json['Notes Provenance'] ? $json['Notes Provenance'] : 'Non mentionné' }}\n\nPrénom de la personne destinataire : {{ $json.Prénom }}\nNom de la personne destinataire : {{ $json.Nom }}\n\nNom de la compagnie destinataire : {{ $json['Nom compagnie'] ? $json['Nom compagnie'] : 'Non mentionné' }}\n\nProduits Intéressés par le prospect : {{ JSON.stringify($json.Produits) }}\n\nPlus d'information à propos du produit : {{ $json['Nom produit'] ? $json['Nom produit'] : 'Non mentionné' }}\n\nNotes supplémentaires à tenir compte lors de la rédaction du message : {{ $json['Notes manuelle'] }}\n\nNe pas ajouter de signature à la fin du message, elle sera ajoutée manuellement.\n",
+        "options": {}
+      },
+      "id": "addc110b-9f78-45a7-921d-a5c89e4aae6a",
+      "name": "Assistant aux Ventes1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        1100,
+        960
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "dcaf3428-f548-4cbf-9c89-50e07c35f88c",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        960
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f419af6e-8a55-49a0-b827-fe9f5e4f9d49",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -180,
+        1680
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "51d72c3d-3430-4454-9efb-eacfe41ed352",
+      "name": "Clean Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2780,
+        1740
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    },
+    {
+      "createdAt": "2024-11-24T11:52:16.029Z",
+      "updatedAt": "2024-11-24T11:52:16.029Z",
+      "id": "z83lDGhHiboDx9vk",
+      "name": "Assistant Email"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-25T22:21:53.000Z",
+  "versionId": "29b96843-975e-4d2b-8d87-33a8821f3304"
+}
