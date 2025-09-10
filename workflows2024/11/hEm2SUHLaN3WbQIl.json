@@ -1,0 +1,381 @@
+{
+  "active": false,
+  "connections": {
+    "Set Assistant Id1": {
+      "main": [
+        [
+          {
+            "node": "Instructions Assistant Open AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Instructions Assistant Open AI": {
+      "main": [
+        [
+          {
+            "node": "Update Instructions Assistant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Update Message with AI",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Assistant Id1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Email Messages",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create New Email Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-17T18:24:19.459Z",
+  "id": "hEm2SUHLaN3WbQIl",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Webhook Assistant Email",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "039d6e50-fcaf-45e0-b24f-0990a316351a",
+              "name": "assistant_id",
+              "value": "asst_8zqwyPq4BOjha00AxEnqN0Cf",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "49d84164-d4fa-45a3-b016-ef967e3f830a",
+      "name": "Set Assistant Id1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -120,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appELBRvf9Vv5GUWg",
+          "mode": "list",
+          "cachedResultName": "Assistant OpenAI",
+          "cachedResultUrl": "https://airtable.com/appELBRvf9Vv5GUWg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblFb8D9FnScuwpks",
+          "mode": "list",
+          "cachedResultName": "Configuration",
+          "cachedResultUrl": "https://airtable.com/appELBRvf9Vv5GUWg/tblFb8D9FnScuwpks"
+        },
+        "filterByFormula": "{Type} = 'Instructions Assistant AI'",
+        "options": {}
+      },
+      "id": "4bafb99d-3e00-47e6-84c7-d7d5b2a94996",
+      "name": "Instructions Assistant Open AI",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        140,
+        400
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "operation": "update",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $('Set Assistant Id1').item.json.assistant_id }}",
+          "mode": "id"
+        },
+        "options": {
+          "instructions": "={{ $json.Instructions }}"
+        }
+      },
+      "id": "ff5095e4-8935-4a08-9ee7-a9ed110391ba",
+      "name": "Update Instructions Assistant",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        360,
+        400
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "zkC02i4tN38zNRTS",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "8ef12ade-1d9f-4c61-bd2b-dab384bf3fc4",
+      "name": "Send Email Messages",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        -120,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "IPWhKvEkmG2mODSr",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "fc1ed6bb-eefa-40d6-b33c-090ea881e964",
+      "name": "Create New Email Message",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        -120,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "B5e4E8D0sLcP4O6P",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "1085cccf-64ab-487a-8900-c08abbc7bd8b",
+      "name": "Update Message with AI",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        -120,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "path": "c1112e67-bd64-4d63-af5d-7e4ce836be4e",
+        "options": {}
+      },
+      "id": "65168f25-2430-49c5-b46e-178205207932",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -640,
+        340
+      ],
+      "webhookId": "c1112e67-bd64-4d63-af5d-7e4ce836be4e"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.query.action }}",
+                    "rightValue": "review_response",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Update Response"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6bb16342-6b02-4b01-8680-2bbd79ac2ef8",
+                    "leftValue": "={{ $json.query.action }}",
+                    "rightValue": "update_instructions",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "update Instructions"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c677c74e-00e7-48b7-8628-517b75da64a8",
+                    "leftValue": "={{ $json.query.action }}",
+                    "rightValue": "send_reply",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Send Reply"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c97dbc2a-d7c9-43d3-81d4-74db6eebe5b0",
+                    "leftValue": "={{ $json.query.action }}",
+                    "rightValue": "create_new_email",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "new email"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "57b0f503-3acc-4475-8568-49cfa1a4f8c4",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -420,
+        320
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    },
+    {
+      "createdAt": "2024-11-24T11:52:16.029Z",
+      "updatedAt": "2024-11-24T11:52:16.029Z",
+      "id": "z83lDGhHiboDx9vk",
+      "name": "Assistant Email"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-06T21:50:30.000Z",
+  "versionId": "2ed7f82e-7238-45b9-80ca-b9d72a668e01"
+}
