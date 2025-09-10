@@ -1,0 +1,115 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get a customer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-21T20:48:39.268Z",
+  "id": "GOJuMNx1IZUxiuwZ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Webhook Stripe Callback",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "/stripe/payments",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -272,
+        -48
+      ],
+      "id": "42ed3b93-d6fc-4f89-9643-0d022bc7d9ea",
+      "name": "Webhook",
+      "webhookId": "982dbce9-7baa-4bdf-98a4-7995f16a27df"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e02d8f99-b5da-4189-a881-4ca7978de1ac",
+              "name": "stripe_payment_siganture",
+              "value": "whsec_eqihXnsD4U81CSPxXkqSMHRAOYMdJb58",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -32,
+        -256
+      ],
+      "id": "bab14fbf-8fd6-47a9-a16b-c7e63f7c47e6",
+      "name": "Stripe siganture"
+    },
+    {
+      "parameters": {
+        "resource": "customer",
+        "operation": "getAll",
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.stripe",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -224
+      ],
+      "id": "e7e460aa-be0b-421e-b144-88e032dea26b",
+      "name": "Get many customers",
+      "credentials": {
+        "stripeApi": {
+          "id": "z6z6SHP7hQbjsFYT",
+          "name": "Stripe account Boost"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "customer",
+        "customerId": "gcus_1RyG8aAuAs91fknLhSHKBTrI"
+      },
+      "type": "n8n-nodes-base.stripe",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        -32
+      ],
+      "id": "2f096b61-795a-44ec-aa2e-634b8efac0e2",
+      "name": "Get a customer",
+      "credentials": {
+        "stripeApi": {
+          "id": "z6z6SHP7hQbjsFYT",
+          "name": "Stripe account Boost"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-21T21:06:40.000Z",
+  "versionId": "98d0f6c0-030b-4f3d-a8c6-66fb6482c58a"
+}
