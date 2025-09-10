@@ -1,0 +1,264 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-21T14:48:07.797Z",
+  "id": "NjkptXxjLh1MKSIt",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Extract Jungle",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a10b1c77-78fe-4ef7-a8ec-5f8f1f2dad0c",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        1140,
+        500
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "=https://boostperformance.ai/boost/dans_la_jungle_des_affaires_byhr/test/kevin-laurendeau.html",
+        "options": {}
+      },
+      "id": "a1ec39a3-80c7-457a-a6d1-6b605f993ccd",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "12da281a-572b-4159-b6c4-337a0b19b42a",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2120,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "name",
+              "cssSelector": "#main > div > section.RGO05.titreSubtitle > div > div > div > div > div.h3.alCenter.title"
+            },
+            {
+              "key": "description",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.member__txt > div.member__span > p"
+            },
+            {
+              "key": "full_text",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.txt.wysiwyg.paragraph-font.card_text",
+              "returnValue": "html"
+            },
+            {
+              "key": "spotify",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.txt.wysiwyg.paragraph-font.card_text > iframe",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "image",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__left.relative > div.memberslist__left--img.fullBG",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "link",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.member__socialmedia.socialcommon > a",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "subtitle",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.member__number > div > ul > li:nth-child(1) > a",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "subtitle2",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.member__number > div > ul > li:nth-child(2) > a",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "full_text_person",
+              "cssSelector": "#main > div > section.RGO02-A.textmedia.fade.visible.once.alive > div > div > div > div.p-0.equal--height.flex--3-fifth.flex--900-full > div > div.mainhead",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "video",
+              "cssSelector": "#main > div > section.RGO13.section > div > div > div > iframe",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "animateurs",
+              "cssSelector": ".RMO06 .mainhead .title.h3"
+            },
+            {
+              "key": "titre_22",
+              "cssSelector": ".RGO02-A .mainhead .title h2"
+            },
+            {
+              "key": "pat",
+              "cssSelector": ".RGO05 .mainhead .title h1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "50b5fde2-e6d5-4d56-b26c-f1679795cfd9",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1620,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "person_name",
+              "cssSelector": ".RMF12 .card_title h5"
+            },
+            {
+              "key": "Interview_name",
+              "cssSelector": ".RGO05 .mainhead .title h1"
+            },
+            {
+              "key": "job",
+              "cssSelector": ".RMF12 .member__span .card_subtitle"
+            },
+            {
+              "key": "social_media",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.member__socialmedia.socialcommon > a",
+              "returnValue": "attribute",
+              "returnArray": true
+            },
+            {
+              "key": "phone_number",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.member__number > div > ul > li:nth-child(1) > a"
+            },
+            {
+              "key": "email",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.member__number > div > ul > li:nth-child(2) > a"
+            },
+            {
+              "key": "spotify",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.txt.wysiwyg.paragraph-font.card_text > p:nth-child(1) > a > iframe",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "person_summary",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.txt.wysiwyg.paragraph-font.card_text",
+              "returnValue": "html"
+            },
+            {
+              "key": "video",
+              "cssSelector": "#main > div > section.RGO13.section > div > div > div > iframe",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "animator",
+              "cssSelector": ".RMO06 .teammembers__wrap  a",
+              "returnValue": "attribute",
+              "returnArray": true
+            },
+            {
+              "key": "spotify2",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.txt.wysiwyg.paragraph-font.card_text > iframe",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "image",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__left.relative > div.memberslist__left--img.fullBG",
+              "returnValue": "attribute"
+            },
+            {
+              "key": "contacts_info",
+              "cssSelector": "#main > div > section.RMF12.fiche-membres > div > div > div > div > div > div.memberslist__right > div.member__number > div > ul > li",
+              "returnValue": "html",
+              "returnArray": true
+            },
+            {
+              "key": "spotify3",
+              "cssSelector": "#main > div > section.RGO02-B.media-texte.visible.once.fade.alive > div > div > div > div.p-0.equal--height.flex--3-fifth.flex--900-full > div > div.wysiwyg.txt.paragraph-font > p:nth-child(1) > iframe",
+              "returnValue": "attribute"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c0a374ea-46d8-4576-929b-c6f2e0d504ef",
+      "name": "HTML1",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        1620,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://boostperformance.ai/boost/dans_la_jungle_des_affaires_byhr/test/lisabel-filliatrault.html",
+        "options": {}
+      },
+      "id": "36f0e399-3861-4dac-91e2-248bc18f1718",
+      "name": "Profile Right Content",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        800
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-23T13:01:52.000Z",
+  "versionId": "7860f0e8-4f80-4067-a44a-0c89b9db9659"
+}
