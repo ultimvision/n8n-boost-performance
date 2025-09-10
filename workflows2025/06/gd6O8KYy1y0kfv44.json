@@ -1,0 +1,28 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-06-09T17:31:14.365Z",
+  "id": "gd6O8KYy1y0kfv44",
+  "isArchived": true,
+  "meta": null,
+  "name": "Test Outlook",
+  "nodes": [],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-09T17:58:27.000Z",
+  "versionId": "b1c0c7cd-e7e7-4950-8a37-5a8d44379b1f"
+}
