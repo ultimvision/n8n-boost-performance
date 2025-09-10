@@ -1,0 +1,1809 @@
+{
+  "active": false,
+  "connections": {
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "ChatGPT - Vérifier la réponse",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Démarrer manuellement": {
+      "main": [
+        [
+          {
+            "node": "Numéro de Assistant Open AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Numéro de Assistant Open AI": {
+      "main": [
+        [
+          {
+            "node": "Gmail - Lire les messages non-lus",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Check for message in DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save email and error1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save email and error": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ajouter le email et réponse dans la base de données": {
+      "main": [
+        [
+          {
+            "node": "Marqué comme Lu",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Ajouté le Label Complété",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marqué comme Lu": {
+      "main": [
+        [
+          {
+            "node": "Wait for actions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ajouté le Label Complété": {
+      "main": [
+        [
+          {
+            "node": "Wait for actions",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ChatGPT - Vérifier la réponse",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail - Lire les messages non-lus": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check for message in DB": {
+      "main": [
+        [
+          {
+            "node": "Is new message?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is new message?": {
+      "main": [
+        [
+          {
+            "node": "Demandez à l'Assistant de répondre",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatGPT - Vérifier la réponse": {
+      "main": [
+        [
+          {
+            "node": "Ajouter le email et réponse dans la base de données",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save email and error1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Data": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Demandez à l'Assistant de répondre": {
+      "main": [
+        [
+          {
+            "node": "ChatGPT - Vérifier la réponse",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save email and error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Numéro de Assistant Open AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for actions": {
+      "main": [
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-18T19:37:59.817Z",
+  "id": "vmU70NwlzoRoE85v",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Assistant email - Boost Performance",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1W2g6R5Ymdi4SwPxp8kK_SWfndf1eT5ycBEHKya1T6eQ",
+          "mode": "list",
+          "cachedResultName": "Assistant email - Supervision",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1W2g6R5Ymdi4SwPxp8kK_SWfndf1eT5ycBEHKya1T6eQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Superviseur",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1W2g6R5Ymdi4SwPxp8kK_SWfndf1eT5ycBEHKya1T6eQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Id": "={{ $json.id }}",
+            "De": "={{ $json.From }}",
+            "Sujet": "={{ $json.Subject }}",
+            "To": "={{ $json.To }}",
+            "Label": "={{ $json.labels[0].name }}",
+            "Message": "={{ $json.snippet }}",
+            "threadId": "={{ $json.threadId }}",
+            "Date": "={{ $json.internalDate ? DateTime.fromMillis(parseInt($json.internalDate)).setZone('America/New_York').toFormat('dd/MM/yyyy HH:mm:ss') : 'Aucune date disponible' }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Id",
+              "displayName": "Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "De",
+              "displayName": "De",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sujet",
+              "displayName": "Sujet",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Label",
+              "displayName": "Label",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "threadId",
+              "displayName": "threadId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3fb71a53-2ff9-42f8-a6ff-b799d90bb326",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        900,
+        -620
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7AYrI7RRLG4lEYjz",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"category\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"description\": \"La catégorie identifiée parmi les 16 options disponibles.\"\n\t\t},\n\t\t\"response\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"description\": \"La réponse personnalisée générée pour l'email.\"\n\t\t}\n\t},\n\t\"required\": [\"category\", \"response\"]\n}"
+      },
+      "id": "586b7867-af01-445d-9501-ee2625741478",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        2280,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ff211424-51c7-40dc-8772-309e3b25ba87",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "b7cd9cef-d265-4ce5-ae91-5a1e743564ea",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        260
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "976a1461-f201-4ea4-afcd-1ffb22c6d855",
+      "name": "Démarrer manuellement",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        80,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "039d6e50-fcaf-45e0-b24f-0990a316351a",
+              "name": "assistant_id",
+              "value": "asst_8zqwyPq4BOjha00AxEnqN0Cf",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "8ec7cfc1-b0fc-44f5-a6b2-352413466df3",
+      "name": "Numéro de Assistant Open AI",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        300,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "b4ddb08c-1c83-4cc9-bc92-fdc84253d9d7",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        760,
+        -160
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "66417198-50d9-4b1e-aefe-d5f27dea9ae8",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2660,
+        880
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "3d61dfe1-3098-4b3c-ba5a-0faccb22d10c",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Error Handling",
+        "height": 646.4500392216835,
+        "width": 1753.9516526797302,
+        "color": 3
+      },
+      "id": "9a1875a5-0561-4320-9bee-f43b7b929e07",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $('Loop Over Items').item.json.date }}",
+            "Name": "={{ $('Loop Over Items').item.json.subject }}",
+            "Status": "Ne pas envoyer",
+            "De": "={{ $('Loop Over Items').item.json.from.value[0].name }}",
+            "De Email": "={{ $('Loop Over Items').item.json.from.value[0].address }}",
+            "To": "={{ $('Loop Over Items').item.json.to.value[0].name }}",
+            "To Email": "={{ $('Loop Over Items').item.json.to.value[0].address }}",
+            "Message": "={{ $('Loop Over Items').item.json.text }}",
+            "Label": "={{ $('Loop Over Items').item.json.labelIds[0] }}",
+            "Sujet": "={{ $('Loop Over Items').item.json.subject }}",
+            "Apprentissage": false,
+            "Message ID": "={{ $('Loop Over Items').item.json.id }}",
+            "Thread ID": "={{ $('Loop Over Items').item.json.threadId }}",
+            "Notes pour réviser": "=Error: unable to format AI response: {{ JSON.stringify($json) }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "Brouillon",
+                  "value": "Brouillon"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                },
+                {
+                  "name": "À réviser avec IA",
+                  "value": "À réviser avec IA"
+                },
+                {
+                  "name": "Ne pas envoyer",
+                  "value": "Ne pas envoyer"
+                },
+                {
+                  "name": "Prêt à Envoyer",
+                  "value": "Prêt à Envoyer"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "De",
+              "displayName": "De",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "De Email",
+              "displayName": "De Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To Email",
+              "displayName": "To Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Sujet",
+              "displayName": "Sujet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Label",
+              "displayName": "Label",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message ID",
+              "displayName": "Message ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Thread ID",
+              "displayName": "Thread ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Catégories",
+              "displayName": "Catégories",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Réponses",
+              "displayName": "Réponses",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique ",
+              "displayName": "Historique ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes pour réviser",
+              "displayName": "Notes pour réviser",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Apprentissage",
+              "displayName": "Apprentissage",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b361a592-45d9-44a2-a91b-a032e77781ac",
+      "name": "Save email and error1",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2660,
+        620
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $('Loop Over Items').item.json.date }}",
+            "Name": "={{ $('Loop Over Items').item.json.subject }}",
+            "Status": "Ne pas envoyer",
+            "De": "={{ $('Loop Over Items').item.json.from.value[0].name }}",
+            "De Email": "={{ $('Loop Over Items').item.json.from.value[0].address }}",
+            "To": "={{ $('Loop Over Items').item.json.to.value[0].name }}",
+            "To Email": "={{ $('Loop Over Items').item.json.to.value[0].address }}",
+            "Message": "={{ $('Loop Over Items').item.json.text }}",
+            "Label": "={{ $('Loop Over Items').item.json.labelIds[0] }}",
+            "Sujet": "={{ $('Loop Over Items').item.json.subject }}",
+            "Apprentissage": false,
+            "Message ID": "={{ $('Loop Over Items').item.json.id }}",
+            "Thread ID": "={{ $('Loop Over Items').item.json.threadId }}",
+            "Notes pour réviser": "=Error: unable to parse email content with AI: {{ JSON.stringify($json) }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "Brouillon",
+                  "value": "Brouillon"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                },
+                {
+                  "name": "À réviser avec IA",
+                  "value": "À réviser avec IA"
+                },
+                {
+                  "name": "Ne pas envoyer",
+                  "value": "Ne pas envoyer"
+                },
+                {
+                  "name": "Prêt à Envoyer",
+                  "value": "Prêt à Envoyer"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "De",
+              "displayName": "De",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "De Email",
+              "displayName": "De Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To Email",
+              "displayName": "To Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Sujet",
+              "displayName": "Sujet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Label",
+              "displayName": "Label",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message ID",
+              "displayName": "Message ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Thread ID",
+              "displayName": "Thread ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Catégories",
+              "displayName": "Catégories",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Réponses",
+              "displayName": "Réponses",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique ",
+              "displayName": "Historique ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes pour réviser",
+              "displayName": "Notes pour réviser",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Apprentissage",
+              "displayName": "Apprentissage",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f605a5b9-e44f-4520-85eb-56a1a3a06674",
+      "name": "Save email and error",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1640,
+        620
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $('Gmail - Lire les messages non-lus').item.json.date }}",
+            "Name": "={{ $('Gmail - Lire les messages non-lus').item.json.subject }}",
+            "De": "={{ $('Gmail - Lire les messages non-lus').item.json.from.value[0].name }}",
+            "De Email": "={{ $('Gmail - Lire les messages non-lus').item.json.from.value[0].address }}",
+            "To": "={{ $('Gmail - Lire les messages non-lus').item.json.to.value[0].name }}",
+            "To Email": "={{ $('Gmail - Lire les messages non-lus').item.json.to.value[0].address }}",
+            "Message": "={{ $('Gmail - Lire les messages non-lus').item.json.text }}",
+            "Label": "={{ $('Gmail - Lire les messages non-lus').item.json.labelIds[0] }}",
+            "Sujet": "={{ $('Gmail - Lire les messages non-lus').item.json.subject }}",
+            "Catégories": "={{ $json.output.category }}",
+            "Réponses": "={{ $json.output.response }}",
+            "Apprentissage": false,
+            "Message ID": "={{ $('Gmail - Lire les messages non-lus').item.json.id }}",
+            "Thread ID": "={{ $('Gmail - Lire les messages non-lus').item.json.threadId }}",
+            "Status": "={{ $json.output.category === \"SPAM\" ? \"Ne pas envoyer\" : \"Brouillon\" }}",
+            "Type": "reply",
+            "Apprentissage complété": false
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "Brouillon",
+                  "value": "Brouillon"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                },
+                {
+                  "name": "À réviser avec IA",
+                  "value": "À réviser avec IA"
+                },
+                {
+                  "name": "Ne pas envoyer",
+                  "value": "Ne pas envoyer"
+                },
+                {
+                  "name": "Prêt à Envoyer",
+                  "value": "Prêt à Envoyer"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "reply",
+                  "value": "reply"
+                },
+                {
+                  "name": "new",
+                  "value": "new"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "De",
+              "displayName": "De",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "De Email",
+              "displayName": "De Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "To Email",
+              "displayName": "To Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Sujet",
+              "displayName": "Sujet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Label",
+              "displayName": "Label",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message ID",
+              "displayName": "Message ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Thread ID",
+              "displayName": "Thread ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Catégories",
+              "displayName": "Catégories",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Réponses",
+              "displayName": "Réponses",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Historique ",
+              "displayName": "Historique ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes pour réviser",
+              "displayName": "Notes pour réviser",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Apprentissage",
+              "displayName": "Apprentissage",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Apprentissage complété",
+              "displayName": "Apprentissage complété",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e74d9b35-fcdd-4cc3-b911-fd1730199609",
+      "name": "Ajouter le email et réponse dans la base de données",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2560,
+        -140
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {},
+      "id": "feef2046-464c-4391-8e79-a806b7c57663",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3360,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $('Gmail - Lire les messages non-lus').item.json.id }}"
+      },
+      "id": "2c0af074-dbd3-4f37-8b80-0032fa437862",
+      "name": "Marqué comme Lu",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2960,
+        -360
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8pdFj4Dm18tLICfo",
+          "name": "Gmail COACH@ultimvision.io"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('Gmail - Lire les messages non-lus').item.json.id }}",
+        "labelIds": [
+          "Label_7071408816010567021"
+        ]
+      },
+      "id": "6b194430-f9e7-4b2b-90de-43783afa1202",
+      "name": "Ajouté le Label Complété",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2960,
+        -140
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8pdFj4Dm18tLICfo",
+          "name": "Gmail COACH@ultimvision.io"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "042c0201-a436-4081-9dbc-8a398b5120d3",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        80
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "simple": false,
+        "filters": {
+          "includeSpamTrash": true,
+          "labelIds": [
+            "INBOX"
+          ],
+          "readStatus": "unread"
+        },
+        "options": {}
+      },
+      "id": "0140b6c4-059f-41ff-9d1f-470c5ef556fe",
+      "name": "Gmail - Lire les messages non-lus",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        -160
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8pdFj4Dm18tLICfo",
+          "name": "Gmail COACH@ultimvision.io"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "filterByFormula": "=({Message ID} = '{{ $json.id }}')",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "id": "b2fdcc6c-30d0-4d4c-9116-de1bf9c7c082",
+      "name": "Check for message in DB",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        -140
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8dc5a40c-8023-4cc9-98f8-534d44908dd2",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e55c4a7c-fdf0-4caf-9451-94ed232d3e30",
+      "name": "Is new message?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1260,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Ajuste ce message pour le format json ci-dessous :\n"
+            }
+          ]
+        }
+      },
+      "id": "733ec287-eb7c-40ee-9373-2601c107b88b",
+      "name": "ChatGPT - Vérifier la réponse",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        2040,
+        -140
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "removeLabels",
+        "messageId": "={{ $('Gmail - Lire les messages non-lus').item.json.id }}",
+        "labelIds": [
+          "INBOX"
+        ]
+      },
+      "id": "f1266b1c-7a31-4fdc-81ef-73d410f1cb3d",
+      "name": "Enlever le label INBOX",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2960,
+        100
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8pdFj4Dm18tLICfo",
+          "name": "Gmail COACH@ultimvision.io"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "content": "# Documentation\n\nThis workflow processes unread Gmail messages and performs the following actions:\n\n- Fetch Unread Emails: Retrieves unread emails from Gmail using specific labels or filters.\n- Check for Duplicates: Verifies if the email already exists in an Airtable database to avoid duplicate processing.\n- Analyze Emails with AI: Uses OpenAI GPT-4 to analyze email content and generate categorized responses.\n- Update Airtable: Saves email details and AI-generated responses to Airtable.\n- Manage Email Labels: Marks emails as read, adds a \"Completed\" label, and removes the \"Inbox\" label in Gmail.",
+        "height": 419.37149966045547,
+        "width": 714.247091845489
+      },
+      "id": "379a3078-f9fd-49a0-80e8-b9126c486316",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        -800
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Temp\n\nIn case we want to demo the use of Google Sheets instead",
+        "height": 421.1845615911284,
+        "width": 278.68441121343176,
+        "color": 7
+      },
+      "id": "5d11c0ba-46f3-4e88-a4c7-f938dd8c3c85",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        820,
+        -800
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Update Gmail",
+        "height": 844.3456555138075,
+        "width": 261.18432042640325,
+        "color": 5
+      },
+      "id": "120ea7f4-cd2d-47c4-abb9-cfee35297c74",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2880,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Gen AI",
+        "height": 708.0291588569523,
+        "width": 1021.9777409572314,
+        "color": 5
+      },
+      "id": "2ee7a0fb-d9a5-41dd-89e4-1608d9eb3685",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Duplicate Checks",
+        "height": 338.6851375096619,
+        "width": 427.8957116080978,
+        "color": 5
+      },
+      "id": "8331bfca-b475-4944-bcb1-5f8c2e4aff3d",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "17dc2010-a782-4596-8647-6e9ee391646f",
+      "name": "Clean Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3320,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $('Numéro de Assistant Open AI').first().json.assistant_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=Voici un message email reçu.\n\nL'émetteur est {{ $('Loop Over Items').item.json.from.value[0].name }}\nL'adresse email de l'émetteur est : {{ $('Loop Over Items').item.json.from.value[0].address }}\n\nLe destinataire est : {{ $('Loop Over Items').item.json.to.value[0].name }}\nL'adresse email du destinataire est : {{ $('Loop Over Items').item.json.to.value[0].address }}\n\nVoici le message email à analyser :\n\n{{ $('Loop Over Items').item.json.text }}",
+        "options": {}
+      },
+      "id": "ab5965ed-03cd-47df-8ac5-c8e04ad0e53a",
+      "name": "Demandez à l'Assistant de répondre",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        1480,
+        -140
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "id": "28e7c3d3-a4f0-4ef6-96a7-876927bad6cd",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        60,
+        120
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "output": "empty"
+      },
+      "id": "b3e64762-f46f-4955-8fe3-35e15557d7af",
+      "name": "Wait for actions",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3300,
+        -240
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "9neGgZgtXb3Bg8Dv"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-09-07T14:08:41.696Z",
+      "updatedAt": "2024-09-07T14:08:41.696Z",
+      "id": "3lVVSb0uiXyh7IHC",
+      "name": "Main"
+    },
+    {
+      "createdAt": "2024-11-24T11:52:16.029Z",
+      "updatedAt": "2024-11-24T11:52:16.029Z",
+      "id": "z83lDGhHiboDx9vk",
+      "name": "Assistant Email"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-11-29T15:19:23.000Z",
+  "versionId": "82511236-fc9a-451b-92a7-7b1233b799b7"
+}
