@@ -1,0 +1,1249 @@
+{
+  "active": true,
+  "connections": {
+    "Extract video id": {
+      "main": [
+        [
+          {
+            "node": "Get Youtube Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Erreur in Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has subtitle download link": {
+      "main": [
+        [
+          {
+            "node": "Download subtitles XML",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "List Videos Youtube to Process1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Videos Youtube to Process1": {
+      "main": [
+        []
+      ]
+    },
+    "Download subtitles XML": {
+      "main": [
+        [
+          {
+            "node": "XML",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Download Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "XML": {
+      "main": [
+        [
+          {
+            "node": "Return the full transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return the full transcript": {
+      "main": [
+        [
+          {
+            "node": "Set FullText",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Set Erreur in Airtable": {
+      "main": [
+        []
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Update Data with Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Erreur in Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get record to Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get record to Update": {
+      "main": [
+        [
+          {
+            "node": "Extract video id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Youtube Details": {
+      "main": [
+        [
+          {
+            "node": "Has subtitle download link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Transcript": {
+      "main": [
+        [
+          {
+            "node": "Return the full transcript1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return the full transcript1": {
+      "main": [
+        [
+          {
+            "node": "Set FullText",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set FullText": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-27T16:29:13.880Z",
+  "id": "9PFk95FB3bJ9yrLS",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Analyse Youtube Video For Formation",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "function extractYouTubeID(url) {\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\n\nreturn {\n  json: {\n    video_url: $input.item.json.Url,\n    video_id: extractYouTubeID($input.item.json.Url)\n  }\n};"
+      },
+      "id": "7e2a2ee5-9a59-41d9-bb91-ea5f64c4f340",
+      "name": "Extract video id",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        512,
+        304
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "de96b9e8-765b-47ce-87d1-64bd235b0008",
+              "leftValue": "={{ $json.captions.captionTracks[0].baseUrl }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e6139dc2-da93-4b82-aa58-35e05c4c0af1",
+      "name": "Has subtitle download link",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1184,
+        144
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "2bb01ac2-0119-45a3-8794-b8d20b20d707",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -128,
+        608
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appi00fXyfqODABQ6",
+          "mode": "list",
+          "cachedResultName": "Recherche IA",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl2AI9BhImA5gm8v",
+          "mode": "list",
+          "cachedResultName": "Sources Youtube",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6/tbl2AI9BhImA5gm8v"
+        },
+        "filterByFormula": "({Status} = 'À faire')",
+        "options": {}
+      },
+      "id": "42c32ccf-2313-4b7e-bdc1-cf20b47dc09e",
+      "name": "List Videos Youtube to Process1",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        160,
+        608
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.captions.captionTracks[0].baseUrl }}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 5000
+            }
+          }
+        }
+      },
+      "id": "b2db40c0-448d-4c45-8dc0-c9e2c12fa09e",
+      "name": "Download subtitles XML",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1488,
+        64
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        1824,
+        -240
+      ],
+      "id": "1b0e1b4b-8907-4cdb-8a88-9798f291c1ca",
+      "name": "XML"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Récupère le transcript depuis le premier item d’entrée\nconst transcript = $input.first().json.transcript;\n\n// 2. Initialise fullText à une chaîne vide\nlet fullText = '';\n\n// 3. Si transcript.text existe et contient au moins un segment, on construit la chaîne\nif (transcript && Array.isArray(transcript.text) && transcript.text.length > 0) {\n  const segments = transcript.text.map(segment => segment._);\n  fullText = segments.join(' ');\n}\n\n// 4. Retourne un nouvel item n8n avec le texte complet (ou vide)\nreturn [\n  {\n    json: {\n      fullText\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2064,
+        -240
+      ],
+      "id": "d17f7e1f-8da7-4ae0-8121-29387ddd1da8",
+      "name": "Return the full transcript"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Voici le texte complet :\n\n{{ $json.fullText }}\n",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Tu vas recevoir un texte complet issu d’une transcription.\n\nObjectif : Résumer tous les points importants et le formater pour faciliter la lecture.\n\n– Structuration :\n\nTitres de niveau 2 (##) pour les sections principales\n\nTitres de niveau 3 (###) pour les sous-sections\n\nListes à puces autorisées si elles ajoutent de la clarté\n– Style : ton professionnel, clarté et concision\n– Langue : français soigné, sans anglicismes inutiles\n– Gestion des inaudibles : remplace par [inaudible] ou reformule si le contexte le permet\n– Relis-toi pour t’assurer que 100 % de la transcription est corrigée et formatée.\nNe jamais ajouter d’autres mises en forme (gras, italique, tableaux, etc.).\n\nNote importante :\n\nMaximum de 90 000 caractères."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        2544,
+        -80
+      ],
+      "id": "ddc6eb89-4c9f-45d3-aef5-7468868b48b7",
+      "name": "Basic LLM Chain",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2688,
+        112
+      ],
+      "id": "7d6261cd-fdbc-49f5-be44-07d66a9cf167",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appi00fXyfqODABQ6",
+          "mode": "list",
+          "cachedResultName": "Recherche IA",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl2AI9BhImA5gm8v",
+          "mode": "list",
+          "cachedResultName": "Sources Youtube",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6/tbl2AI9BhImA5gm8v"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get record to Update').item.json.id }}",
+            "Status": "Erreur",
+            "Vidéo ID": "={{ $('Has subtitle download link').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Url",
+              "displayName": "Url",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En préparation",
+                  "value": "En préparation"
+                },
+                {
+                  "name": "À faire",
+                  "value": "À faire"
+                },
+                {
+                  "name": "En cours d'analyse",
+                  "value": "En cours d'analyse"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                },
+                {
+                  "name": "Erreur",
+                  "value": "Erreur"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Vidéo ID",
+              "displayName": "Vidéo ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "1c57a90c-0f83-41ab-ac34-b38d470df99a",
+      "name": "Set Erreur in Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3200,
+        592
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appi00fXyfqODABQ6",
+          "mode": "list",
+          "cachedResultName": "Recherche IA",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl2AI9BhImA5gm8v",
+          "mode": "list",
+          "cachedResultName": "Sources Youtube",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6/tbl2AI9BhImA5gm8v"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get record to Update').item.json.id }}",
+            "Status": "Transcription Incomplète",
+            "Titre": "={{ $('Get Youtube Details').item.json.title }}",
+            "Description": "={{ $('Get Youtube Details').item.json.description }}",
+            "Channel": "={{ $('Get Youtube Details').item.json.channelTitle }}",
+            "Channel ID": "={{ $('Get Youtube Details').item.json.channelId }}",
+            "Vidéo ID": "={{ $('Has subtitle download link').item.json.id }}",
+            "Url Transcript": "={{ $('Get Youtube Details').item.json.captions.captionTracks[0].baseUrl }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Url",
+              "displayName": "Url",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Catégorie",
+              "displayName": "Catégorie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Automatisation",
+                  "value": "Automatisation"
+                },
+                {
+                  "name": "Trucs",
+                  "value": "Trucs"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Qualité",
+              "displayName": "Qualité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recID",
+              "displayName": "recID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En préparation",
+                  "value": "En préparation"
+                },
+                {
+                  "name": "À faire",
+                  "value": "À faire"
+                },
+                {
+                  "name": "En cours d'analyse",
+                  "value": "En cours d'analyse"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                },
+                {
+                  "name": "Erreur",
+                  "value": "Erreur"
+                },
+                {
+                  "name": "Transcription Incomplète",
+                  "value": "Transcription Incomplète"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Url Transcript",
+              "displayName": "Url Transcript",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Original",
+              "displayName": "Original",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Channel",
+              "displayName": "Channel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channel ID",
+              "displayName": "Channel ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Vidéo ID",
+              "displayName": "Vidéo ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "f2c9078d-00c1-4d1e-9b09-1320d545188c",
+      "name": "Update Data",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2048,
+        240
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appi00fXyfqODABQ6",
+          "mode": "list",
+          "cachedResultName": "Recherche IA",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl2AI9BhImA5gm8v",
+          "mode": "list",
+          "cachedResultName": "Sources Youtube",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6/tbl2AI9BhImA5gm8v"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get record to Update').item.json.id }}",
+            "Status": "Complété",
+            "Titre": "={{ $('Get Youtube Details').item.json.title }}",
+            "Description": "={{ $('Get Youtube Details').item.json.description }}",
+            "Channel": "={{ $('Get Youtube Details').item.json.channelTitle }}",
+            "Channel ID": "={{ $('Get Youtube Details').item.json.channelId }}",
+            "Contenu": "={{ $json.text }}",
+            "Vidéo ID": "={{ $('Has subtitle download link').item.json.id }}",
+            "Url Transcript": "={{ $('Get Youtube Details').item.json.captions.captionTracks[0].baseUrl }}",
+            "Original": "={{ $('Set FullText').item.json.fullText }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Url",
+              "displayName": "Url",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Catégorie",
+              "displayName": "Catégorie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Automatisation",
+                  "value": "Automatisation"
+                },
+                {
+                  "name": "Trucs",
+                  "value": "Trucs"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Qualité",
+              "displayName": "Qualité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recID",
+              "displayName": "recID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En préparation",
+                  "value": "En préparation"
+                },
+                {
+                  "name": "À faire",
+                  "value": "À faire"
+                },
+                {
+                  "name": "En cours d'analyse",
+                  "value": "En cours d'analyse"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                },
+                {
+                  "name": "Erreur",
+                  "value": "Erreur"
+                },
+                {
+                  "name": "Transcription Incomplète",
+                  "value": "Transcription Incomplète"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Url Transcript",
+              "displayName": "Url Transcript",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Original",
+              "displayName": "Original",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channel",
+              "displayName": "Channel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Channel ID",
+              "displayName": "Channel ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Vidéo ID",
+              "displayName": "Vidéo ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "263f9568-d95f-41ec-8cf3-aa5ad17a2138",
+      "name": "Update Data with Transcript",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3072,
+        -176
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/recherche-ia/yt",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -144,
+        240
+      ],
+      "id": "e7ad7ad6-1d61-4abe-a087-fe018e386a48",
+      "name": "Webhook",
+      "webhookId": "b0d2afc8-0ded-4e77-a4a3-e294d1540cab"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appi00fXyfqODABQ6",
+          "mode": "list",
+          "cachedResultName": "Recherche IA",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl2AI9BhImA5gm8v",
+          "mode": "list",
+          "cachedResultName": "Sources Youtube",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6/tbl2AI9BhImA5gm8v"
+        },
+        "id": "={{ $json.body.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        160,
+        240
+      ],
+      "id": "f22b05ac-078f-4639-bd05-fc458e9b68de",
+      "name": "Get record to Update",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://ytstream-download-youtube-videos.p.rapidapi.com/dl",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $json.video_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "ytstream-download-youtube-videos.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        912,
+        144
+      ],
+      "id": "f723e8f9-602b-4046-8fc5-cdb9bcd07084",
+      "name": "Get Youtube Details",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-transcript3.p.rapidapi.com/api/transcript",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "videoId",
+              "value": "={{ $('Get Youtube Details').item.json.id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "youtube-transcript3.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1824,
+        112
+      ],
+      "id": "725885bb-0c0a-4414-9825-62eaa604942e",
+      "name": "Download Transcript",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Récupère l’objet JSON depuis le premier item d’entrée\nconst data = $input.first().json;\n\n// 2. Initialise fullText à une chaîne vide\nlet fullText = '';\n\n// 3. Si le transcript existe, qu’il s’agit d’un tableau non vide, on construit la chaîne\nif (data.success && Array.isArray(data.transcript) && data.transcript.length > 0) {\n  // On extrait le champ `text` de chaque segment\n  const segments = data.transcript.map(segment => segment.text);\n  // On concatène tous les textes avec un espace\n  fullText = segments.join(' ');\n}\n\n// 4. Retourne un nouvel item n8n avec le texte complet (ou vide)\nreturn [\n  {\n    json: {\n      fullText\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2064,
+        0
+      ],
+      "id": "9603c75f-cbbc-4a77-9f7e-371aa087564e",
+      "name": "Return the full transcript1"
+    },
+    {
+      "parameters": {
+        "model": "google/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        2528,
+        112
+      ],
+      "id": "1503ad05-9b50-4c48-b88e-636b6de129cd",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c1da739-563b-4186-89fc-eb73321aa4f0",
+              "name": "fullText",
+              "value": "={{ $json.fullText }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2304,
+        -80
+      ],
+      "id": "1434d595-cda5-4b6b-932a-aca58b60f641",
+      "name": "Set FullText"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-21T19:31:45.000Z",
+  "versionId": "295dd9d5-e2dc-4d59-b7a9-23d4b5f5699f"
+}
