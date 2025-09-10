@@ -1,0 +1,900 @@
+{
+  "active": false,
+  "connections": {
+    "n8n Form Trigger": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Prepare prospect Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Prepare prospect Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Info Data",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Check for message in DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check for message in DB": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If email already exist": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Info Data": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Create a new Prospect": {
+      "main": [
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare prospect Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "If email already exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If OUI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If OUI": {
+      "main": [
+        [
+          {
+            "node": "Create a new Prospect",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-25T14:33:59.166Z",
+  "id": "ZA8F9sXrgfO9yo3z",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Import Typeform",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "2f016c1c-02d5-4dcd-a2a3-3e84064b6c40",
+        "formTitle": "Import Typeform Survey",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Document",
+              "fieldType": "file",
+              "multipleFiles": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "adc8b14a-2095-41a9-803c-aee903b48324",
+      "name": "n8n Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.1,
+      "position": [
+        680,
+        680
+      ],
+      "webhookId": "2f016c1c-02d5-4dcd-a2a3-3e84064b6c40",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "xlsx",
+        "binaryPropertyName": "Document",
+        "options": {}
+      },
+      "id": "bfb6239c-5b3d-4d38-a7ff-04368979d799",
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        860,
+        680
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "e3a76e09-d128-4908-9ac7-a722dedcb274",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        680,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTU9cN3BNs0KNrc",
+          "mode": "list",
+          "cachedResultName": "Prospect",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblTU9cN3BNs0KNrc"
+        },
+        "id": "recsLlHRijtW4700H",
+        "options": {}
+      },
+      "id": "8b87d429-ed8b-4b04-ae71-e2a29365f890",
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        900,
+        280
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "3563a3c5-ce3a-4c11-9ac7-bbc05f4c4993",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1300,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTU9cN3BNs0KNrc",
+          "mode": "list",
+          "cachedResultName": "Prospect",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblTU9cN3BNs0KNrc"
+        },
+        "filterByFormula": "=({Courriel} = '{{ $json.Email }}')",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "id": "85dcac96-860e-430f-b70d-224705f9a3e5",
+      "name": "Check for message in DB",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1600,
+        560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c26f32e0-f444-4072-a04f-3523bafdb5b7",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "78cc6ce8-af6f-4217-8d61-da3ba0f8812c",
+      "name": "If email already exist",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2040,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "1027c1f1-84d4-4888-96d6-2e63ca6e5193",
+      "name": "Info Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1600,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTU9cN3BNs0KNrc",
+          "mode": "list",
+          "cachedResultName": "Prospect",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblTU9cN3BNs0KNrc"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json['First name'] }} {{ $json['Last name'] }} ",
+            "Prénom": "={{ $json['First name'] }}",
+            "Nom": "={{ $json['Last name'] }}",
+            "Courriel": "={{ $json.Email }}",
+            "Téléphone": "={{ $json['Phone number'] }}",
+            "Status": "Créer un email IA",
+            "Provenance": "Événement",
+            "Nom produit": "={{ $json.Notes }}",
+            "Nom compagnie": "={{ $json.Company }}",
+            "Notes": "={{ $json.Notes }}",
+            "Notes Provenance": "Conférence de Patrick Aubé le 4 novembre dernier à LaScène de Quéebc",
+            "Coach": "=['recZqdspowWw8nthk']",
+            "Date création": "2024-11-04T00:00:00",
+            "Message Template": "=['recVfHgfewvX55xOP']",
+            "Send email": "Immédiatement"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Courriel",
+              "displayName": "Courriel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Créer un email IA",
+                  "value": "Créer un email IA"
+                },
+                {
+                  "name": "À Réviser",
+                  "value": "À Réviser"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                },
+                {
+                  "name": "Aucune action",
+                  "value": "Aucune action"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Provenance",
+              "displayName": "Provenance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Événement",
+                  "value": "Événement"
+                },
+                {
+                  "name": "Lead Internet",
+                  "value": "Lead Internet"
+                },
+                {
+                  "name": "Référence contact",
+                  "value": "Référence contact"
+                },
+                {
+                  "name": "Gen AI",
+                  "value": "Gen AI"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Produits",
+              "displayName": "Produits",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "SoloPreneur IA",
+                  "value": "SoloPreneur IA"
+                },
+                {
+                  "name": "Accélérateur IA",
+                  "value": "Accélérateur IA"
+                },
+                {
+                  "name": "Propulseur IA",
+                  "value": "Propulseur IA"
+                },
+                {
+                  "name": "Membre additionnel au Hub",
+                  "value": "Membre additionnel au Hub"
+                },
+                {
+                  "name": "Bootcamp IA",
+                  "value": "Bootcamp IA"
+                },
+                {
+                  "name": "Masterclass IA",
+                  "value": "Masterclass IA"
+                },
+                {
+                  "name": "Formation en ligne",
+                  "value": "Formation en ligne"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom produit",
+              "displayName": "Nom produit",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom compagnie",
+              "displayName": "Nom compagnie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes Provenance",
+              "displayName": "Notes Provenance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Adresse",
+              "displayName": "Adresse",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Coach",
+              "displayName": "Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom Coach",
+              "displayName": "Nom Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Courriel Coach",
+              "displayName": "Courriel Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Signature Coach",
+              "displayName": "Signature Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Site Web",
+              "displayName": "Site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date création",
+              "displayName": "Date création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message Template",
+              "displayName": "Message Template",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes manuelle",
+              "displayName": "Notes manuelle",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Offre Template",
+              "displayName": "Offre Template",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Send email",
+              "displayName": "Send email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Immédiatement",
+                  "value": "Immédiatement"
+                },
+                {
+                  "name": "À réviser",
+                  "value": "À réviser"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bce19003-c223-4c72-91c4-745a36921df5",
+      "name": "Create a new Prospect",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2700,
+        840
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "bb2908e7-ade6-4270-acad-b03c79a560e9",
+      "name": "Clean Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2980,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a33fc36d-4acf-427e-a725-b26fccbcf9b7",
+              "name": "First name",
+              "value": "={{ $json['First name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "8c300bbe-b5cc-4b44-bdfe-ea0d6fceb5bb",
+              "name": "Last name",
+              "value": "={{ $json['Last name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "9351462b-1597-4cf6-a204-cbd50c856738",
+              "name": "Phone number",
+              "value": "={{ $json['Phone number'] }}",
+              "type": "string"
+            },
+            {
+              "id": "2094b3e9-c007-4bff-ae52-37744ffd85c2",
+              "name": "Email",
+              "value": "={{ $json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "7642d8e8-d35c-4bf4-adc5-435659c20b55",
+              "name": "Company",
+              "value": "={{ $json.Company }}",
+              "type": "string"
+            },
+            {
+              "id": "c82be8ec-2211-427f-8d45-2c7b8706c4db",
+              "name": "Notes",
+              "value": "=Je suis intéressé par les offres de lancement : {{ $json['Je suis intéressé par les offres de lancement'] && $json['Je suis intéressé par les offres de lancement'] !== '' ? $json['Je suis intéressé par les offres de lancement'] : 'Non' }}\n\nMes intérêts sont : \n{{ $json.SoloPreneur && $json.SoloPreneur !== '' ? $json.SoloPreneur : '' }}\n{{ $json['Accélérateur'] && $json['Accélérateur'] !== '' ? $json['Accélérateur'] : '' }}\n{{ $json.Propulseur && $json.Propulseur !== '' ? $json.Propulseur : '' }}\n\n",
+              "type": "string"
+            },
+            {
+              "id": "f66cb414-c352-4f46-9958-5b78653e6cdc",
+              "name": "Submit Date (UTC)",
+              "value": "={{ $json['Submit Date (UTC)'] }}",
+              "type": "string"
+            },
+            {
+              "id": "a21d03d0-b630-45bb-8014-d808838c28c4",
+              "name": "Je suis intéressé par les offres de lancement",
+              "value": "={{ $json['Je suis intéressé par les offres de lancement'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "86af0e59-d5b4-4015-936b-1f34ab29dbe7",
+      "name": "Prepare prospect Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1080,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "48d25b3d-52fa-4866-8560-32583de5958e",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1820,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "986acc63-9c69-45e4-bf1c-f47ac941906e",
+              "leftValue": "={{ $json['Je suis intéressé par les offres de lancement'] }}",
+              "rightValue": "OUI",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "36694fcf-fbf0-4617-9381-b9a3901a59ed",
+      "name": "If OUI",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2460,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "7304ea0c-78a6-4931-965b-ded1d210e970",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2260,
+        860
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-26T20:43:04.000Z",
+  "versionId": "5c98facd-2a79-406e-be4b-a2792e4e2195"
+}
