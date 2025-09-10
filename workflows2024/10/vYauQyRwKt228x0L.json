@@ -1,0 +1,691 @@
+{
+  "active": false,
+  "connections": {
+    "Download test file": {
+      "main": [
+        [
+          {
+            "node": "Set binary data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate MD5 Hash": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get file size": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Generate UUID": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Get User Access Token",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get User Access Token": {
+      "main": [
+        [
+          {
+            "node": "Generate Upload URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Upload URL": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "node": "Prepare post creation data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate input": {
+      "main": [
+        [
+          {
+            "node": "Has url",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has url": {
+      "main": [
+        [
+          {
+            "node": "Download test file",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Set binary data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set binary data": {
+      "main": [
+        [
+          {
+            "node": "Generate UUID",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Generate MD5 Hash",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get file size",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Validate input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-28T16:46:17.974Z",
+  "id": "vYauQyRwKt228x0L",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Circle - Upload File",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "={{ $json.file_url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Range",
+              "value": "bytes=0-"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0d9f6afa-1960-420b-82a1-6a43586a49ef",
+      "name": "Download test file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        740,
+        1700
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "binaryData": true,
+        "dataPropertyName": "hash",
+        "encoding": "base64"
+      },
+      "id": "59eabd6a-2d39-488f-8970-4018e225a465",
+      "name": "Generate MD5 Hash",
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "let binaryDataBufferItem = await this.helpers.getBinaryDataBuffer(0, 'data');\nconst bytes = Buffer.byteLength(binaryDataBufferItem)\n\nreturn {\n  json: {\n    bytes,\n  }\n}"
+      },
+      "id": "fe5d958c-e5e2-4187-b997-cb6de0e6330c",
+      "name": "Get file size",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1380,
+        2060
+      ]
+    },
+    {
+      "parameters": {
+        "action": "generate",
+        "dataPropertyName": "uuid"
+      },
+      "id": "7e095808-1e13-435b-a40e-51e3618db01e",
+      "name": "Generate UUID",
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {}
+      },
+      "id": "aba40ec3-bf2f-42a3-ba13-7661c6545325",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1640,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/headless/auth_token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"{{ $('When Executed by Another Workflow').first().json.sender_email }}\"\n}",
+        "options": {}
+      },
+      "id": "c243680a-e2ef-402f-9ed0-3a613593f0ad",
+      "name": "Get User Access Token",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1960,
+        1580
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CjvJCVIlAjHjU9qy",
+          "name": "Circle (hub.boostperformance.ai) Headless API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/headless/v1/direct_uploads",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"blob\": {\n    \"key\": \"{{ $('Merge').first().json.uuid }}\",\n    \"filename\": \"{{ $('When Executed by Another Workflow').first().json.file_name || $('Download test file').first().binary.data.fileName }}\",\n    \"content_type\": \"{{ $('Set binary data').first().binary.data.mimeType }}\",\n    \"byte_size\": {{ $('Merge').first().json.bytes }},\n    \"checksum\": \"{{ $('Merge').first().json.hash }}\"\n  }\n}",
+        "options": {}
+      },
+      "id": "754dc4ab-6066-478e-af39-6aed824d5717",
+      "name": "Generate Upload URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2260,
+        1580
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $json.direct_upload.url }}",
+        "sendHeaders": true,
+        "specifyHeaders": "json",
+        "jsonHeaders": "={{ JSON.stringify($json.direct_upload.headers) }}",
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "id": "5265ee89-259d-45d8-87c3-235ad21d12ad",
+      "name": "Upload file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2780,
+        1800
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"block_data\": {\n      \"type\": \"file\",\n      \"attrs\": {\n        \"signed_id\": \"{{ $('Merge1').first().json.signed_id }}\"\n      }\n  },\n  \"inline_attachment\": {\n    \"filename\": \"{{ $('When Executed by Another Workflow').first().json.file_name || $('Download test file').first().binary.data.fileName }}\",\n    \"content_type\": \"{{ $('Set binary data').first().binary.data.mimeType }}\",\n    \"byte_size\": {{ $('Get file size').first().json.bytes }},\n    \"type\": \"file\",\n    \"url\": \"{{ $('Merge1').first().json.url }}\",\n    \"signed_id\": \"{{ $('Merge1').first().json.signed_id }}\"\n  }\n}\n",
+        "options": {}
+      },
+      "id": "1319981f-f1d4-499c-b2f5-ff80d7d482e1",
+      "name": "Prepare post creation data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3080,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Uploading a file to Circle\n\nDocs: https://api.circle.so/get-started/concepts/file-uploads\n\nProcess:\n1. From a binary file, extract the filename, file size (in bytes [int]), mime type a an binary 64 string of the MD5 hash of the file\n2. Get an access token for a user (can't upload with simply an API key... has to go through an existing member) using the Headless Auth API (https://api.circle.so/apis/headless/quick-start)\n3. Send a POST request to the Headless Member API to generate a pre-signed URL to upload the file to (we are not uploading the file yet)\n4. Upload the binary file to the pre-signed URL\n5. prepare some data if we want to insert this uploaded file into a post (as an inline-attachment)",
+        "height": 1336.5219428735263,
+        "width": 2951.685776687066,
+        "color": 5
+      },
+      "id": "6b3d1964-8650-4775-8e50-f09f0d33854e",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 1. Extract data from file",
+        "height": 869.0397674910549,
+        "width": 693.4737853624097,
+        "color": 7
+      },
+      "id": "dfe7a7ea-e947-49b0-a066-4c54e255ee05",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 2. Generate user access token",
+        "height": 869.0397674910561,
+        "width": 249.34997495592603,
+        "color": 7
+      },
+      "id": "ea190194-cd5b-4b29-944c-ba017f2d1384",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 3. Generate Pre-signed upload URL",
+        "height": 869.0397674910561,
+        "width": 249.34997495592603,
+        "color": 7
+      },
+      "id": "78fb0473-1557-4388-8c99-42ae227019f4",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 4. Upload file",
+        "height": 869.0397674910561,
+        "width": 249.34997495592603,
+        "color": 7
+      },
+      "id": "e4054d5e-f10e-4f0b-ad80-e2dec657c3c3",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2720,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 5. Prepare data for post",
+        "height": 869.0397674910561,
+        "width": 249.34997495592603,
+        "color": 7
+      },
+      "id": "47dcca2e-aec6-4827-8a4c-5d0c6ad68022",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3020,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5f308b06-b914-46e2-837c-0409a0356eda",
+              "leftValue": "={{ $json.sender_email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "34e73a9a-c745-46a4-903e-b398f1993631",
+              "leftValue": "={{ $json.file_url || $json.file_data }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a45b3883-4ef8-42a1-9792-c1c608a4a2b4",
+      "name": "Validate input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        260,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Invalid payload to upload file"
+      },
+      "id": "600490c9-4021-4dff-8314-9dc3bcb6a42a",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        400,
+        2440
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "510d99b4-c2b3-4537-ab63-f19ba09ba3e8",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2540,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "60abbdeb-ecfb-40a2-bdec-2854cb698b3c",
+              "leftValue": "={{ $json.file_url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "db51ae7d-59bc-4f40-a2a4-037eb82c0cbf",
+      "name": "Has url",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        540,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "file_data",
+        "options": {}
+      },
+      "id": "b2d18d25-5f5b-4667-adb7-ac8bdb538587",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        740,
+        1900
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "ad6310b5-8661-48b9-a844-0a655c694836",
+      "name": "Set binary data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        980,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "file_data"
+            },
+            {
+              "name": "file_url"
+            },
+            {
+              "name": "sender_email"
+            },
+            {
+              "name": "file_name"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        20,
+        1820
+      ],
+      "id": "1f9d3144-9568-422a-9d37-a2cb02ead6f1",
+      "name": "When Executed by Another Workflow"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "any"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T19:06:31.377Z",
+      "updatedAt": "2024-10-22T19:06:31.377Z",
+      "id": "bKPfZp0igWIPyAvq",
+      "name": "Task"
+    },
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-10T18:00:30.000Z",
+  "versionId": "8cbd1efd-6329-48f4-bbd8-719a0632c212"
+}
