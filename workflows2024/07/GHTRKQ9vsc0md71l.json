@@ -1,0 +1,905 @@
+{
+  "active": false,
+  "connections": {
+    "Prompts List": {
+      "main": [
+        [
+          {
+            "node": "Split Images Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Images Prompts": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Articles to Generate Images",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Prompts": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Article Data": {
+      "main": [
+        [
+          {
+            "node": "Json Parser Prompt Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Dall-E Prompts": {
+      "main": [
+        [
+          {
+            "node": "Prompts List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Articles to Generate Images": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Article Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Image": {
+      "main": [
+        [
+          {
+            "node": "Insert Image in Images Table",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Json Parser Prompt Image": {
+      "main": [
+        [
+          {
+            "node": "System Prompt Image Dall-E - V4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "System Prompt Image Dall-E - V4": {
+      "main": [
+        [
+          {
+            "node": "Create Dall-E Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "System Prompt Image Dall-E - V",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Upload Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Image in Images Table": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-03T11:06:03.354Z",
+  "id": "GHTRKQ9vsc0md71l",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Jungle | Part-1 | Generate Image Content",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "c6474b6e-5db6-4ccd-ae4c-dea669954109",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -660,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28cc1467-4503-401f-a285-208dea8131c2",
+              "name": "json_schema",
+              "value": "={\n   \"type\": \"object\",\n   \"properties\": {\n      \"image_prompts\": {\n         \"type\": \"array\",\n         \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n               \"element\": { \"type\": \"string\" },\n               \"prompt\": { \"type\": \"string\" },\n               \"contentQuote_15_words_french_language\": { \"type\": \"string\" }\n            },\n            \"required\": [\"element\", \"prompt\", \"contentQuote_15_words_french_language\"]\n         },\n         \"minItems\": {{ $json[\"qty_images\"] }},\n         \"maxItems\": {{ $json[\"qty_images\"] }}\n      }\n   },\n   \"required\": [\"image_prompts\"],\n   \"additionalProperties\": false\n}",
+              "type": "string"
+            },
+            {
+              "id": "656241ae-f49a-48de-b1dd-5d34ff9a5d01",
+              "name": "json_instructions",
+              "value": "=You must format your output as a JSON value that adheres to a given JSON schema. JSON schema is a declarative language that allows you to annotate and validate JSON documents. Your output will be parsed and verified against the provided schema instance, so make sure all fields in your output exactly match the schema and that there are no extra commas! Here is the JSON schema instance that your output must conform to:",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "4dc276af-7e3e-456c-87db-0705fdd81955",
+      "name": "Json Parser Prompt Image",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        540,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef4b4092-1f64-4156-97ac-2b7ce1c3e4db",
+              "name": "system_prompt",
+              "value": "=Ta tâche est de générer des prompts LLM uniques et complètement différents pour générer des images avec Dall-E 3 afin de créer une petite vidéo d'animation.\n\nAnalyse entièrement le contenu de l'entrevue et identifie des situations complètement différentes dans des endroits différents, avec un contexte différent et des sujets différents provenant de l'entrevue.\n\nPar exemple, dans un restaurant servir du vin, voyager en bateau de croisière, rencontrer des amis, faire une activité de sport, scène unique.\n\nTu dois identifier 4 mises en scène différentes qui représentent des sections de l'entrevue.\n\nVoici les instructions :\n\n1. Être complet et précis\nPour rédiger un prompt de qualité, il est important de donner un maximum de détails qui permettront à l’IA d’avoir des références afin de générer des images les moins aléatoires possibles. La règle est simple : au-delà du type d’image que vous souhaitez obtenir, plus la consigne est riche en objets, en action, en personnages, et plus le rendu final a de chance d’être juste.\n\n2. Structurer son prompt\nVoici un exemple de structure de prompt type à utiliser pour Dall-E :\n\n« [Type d’image] représentant [sujet principal] avec [éléments spécifiques, couleurs, perspective, émotions, etc.] pour un article sur [titre ou sujet de l’article]. »\n\n3. Jouer sur les nombreux paramètres créatifs\nPour créer le prompt sur-mesure qui correspond à votre idée, vous pouvez utiliser les nombreux paramètres de composition proposés par Dall-E 3 comme par exemple :\n\n- Les couleurs attendues et l’éclairage de la scène (dominante, spectre de couleurs et nuances éventuelles) : “lumière de coucher de soleil” ou “couleurs contrastées et éclairage tamisé”\n- La taille, la perspective et les points de vue sur certains éléments composant l’image : “outpainting” pour agrandir une image au-delà de son cadre d’origine, “plan large” ou “vue aérienne”, avec la possibilité de préciser les modèles d’appareil photo, les objectifs et même l’ouverture focale que vous souhaitez.\n- Les émotions des personnages ou de la composition\nDall-E est un fin connaisseur d’art qui puise son savoir dans l’immense bibliothèque de GPT-3.\n\nAussi vous pouvez intégrer à vos prompts des indications sur le travail d’un artiste ou d’une école en particulier : Surréalisme, Street-Art, Impressionnisme, minimalisme…\n\nVoici des exemples finaux de prompts :\n\n1. Prompt pour générer une image design réaliste :\n- A vibrant yellow banana-shaped couch sits in a cozy living room, its curve cradling a pile of colorful cushions. On the wooden floor, a patterned rug adds a touch of eclectic charm, and a potted plant sits in the corner, reaching towards the sunlight filtering through the window.\nStyle : Realist photo, Ratio d'aspect : 1.75, Taille : 1792 x 1024\n\n2. Prompt pour générer une maquette d’architecture :\n- A minimap diorama of a cafe adorned with indoor plants. Wooden beams crisscross above, and a cold brew station stands out with tiny bottles and glasses.\nStyle : Architecture, Ratio d'aspect : 1.75, Taille : 1792 x 1024\nVoici le contenu à analyser attentivement pour créer les prompts d'images pour Dall-E :\n\n{{ $json[\"content\"] }}\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "af419fc2-eac1-4a50-8759-fa7cc2e4ae05",
+      "name": "System Prompt Image Dall-E",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1040,
+        -640
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cab108d1-6ebe-4c0a-86dc-7745d1ebbb49",
+              "name": "body.choices[0].message.content",
+              "value": "={{ $json.body.choices[0].message.content }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b0a249ad-a8be-4f4c-b176-399db46b4466",
+      "name": "Prompts List",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1320,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "path": "=/httpdocs/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/{{ $('Workflow Data').item.json[\"article_id\"] }}_ai_image_{{ $runIndex + 1 }}.png"
+      },
+      "id": "4dd88f2b-fe30-4b4b-83ba-8d9214fe096f",
+      "name": "Upload Image",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        280
+      ],
+      "credentials": {
+        "ftp": {
+          "id": "8JvgTckmWsJEuxvN",
+          "name": "FTP Dans La Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "body.choices[0].message.content.image_prompts",
+        "options": {}
+      },
+      "id": "2be3922b-e6c1-4596-952f-aed5dfef7c4c",
+      "name": "Split Images Prompts",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2e295ff6-33c6-40bf-9ea7-60ae84970c89",
+              "name": "article_id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "4903fad4-4bfa-445f-8374-ee9072d30c73",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -460,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $('Workflow Data').item.json[\"article_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "content",
+            "qty_images",
+            "image_idea_1",
+            "image_idea_2",
+            "type",
+            "title"
+          ]
+        }
+      },
+      "id": "b2205a61-d9bc-4c3e-b644-4caae1bc603f",
+      "name": "Get Articles to Generate Images",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -200,
+        260
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ab0a4cdd-e17d-44c9-8928-2da0ec8730ba",
+      "name": "Loop Over Prompts",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "b5021fa3-0e0d-47bc-9b78-9419bf6a9ab8",
+      "name": "Article Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        300,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef4b4092-1f64-4156-97ac-2b7ce1c3e4db",
+              "name": "system_prompt",
+              "value": "=Task: Generate unique LLM prompts to create images with DALL-E 3 for a short animation video.\n\n1. Content Analysis:\n\n- Identify different situations from the interview, each occurring in a different place with a distinct context and varied subjects.\n- Describe 4 different scenes representing sections of the interview.\n\n2. Detailed Instructions:\n\n- Each image should have the \"jungle of business\" concept as the backdrop.\n- Be complete and precise, providing maximum details to help the AI generate accurate images.\n- Use a clear prompt structure and leverage the many creative parameters of DALL-E 3.\n- The first prompt should focus on the guest and his skill: \"{{ $json[\"guest_nickname\"] }}\"\n\nExamples of Final Prompts:\n\n1. Guest as Wine Detective:\n\n- Prompt: A sophisticated jungle-themed restaurant where a lion in a tailored suit, known as the \"Wine Detective,\" is expertly inspecting a glass of wine. The background features lush greenery and vines, with soft candlelight creating a warm ambiance. Other animal businesspeople are attentively watching the lion's demonstration.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n2. Cruise ship voyage:\n\n- Prompt: A luxurious cruise ship deck with a tiger in a captain’s uniform steering the ship, surrounded by other animal executives enjoying the view of a jungle coastline. The setting sun casts a golden glow over the scene.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n3. Meeting friends in a café:\n\n- Prompt: A cozy jungle-themed café where a group of animal entrepreneurs, including a giraffe, an elephant, and a monkey, are having a lively discussion over coffee. The café is decorated with tropical plants and has a relaxed yet professional vibe.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n4. Sports activity:\n\n- Prompt: A vibrant jungle gym where a cheetah in sportswear leads a group of animal business leaders in a team-building exercise. The background is filled with dense foliage and colorful flowers, creating an energetic and motivating atmosphere.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\nGeneral Guidelines for Writing a Prompt:\n\n1. Be complete and precise: The more detailed the instruction (objects, actions, characters), the more accurate the final image will be.\n- Provide specific details about the setting, including the environment, objects, characters, and actions.\n- Mention colors, lighting, and any specific emotions or expressions desired in the scene.\n- Include background details and any relevant props that add context to the image.\n\n2. Structure your prompt: Use a clear structure, for example:\n- Format: “[Type of image] representing [main subject] with [specific elements, colors, perspective, emotions, etc.] for [context or subject].”\n\n3. Use creative parameters:\n\n- Colors and lighting: Specify dominant hues and type of lighting (e.g., \"sunset light,\" \"dim lighting\").\n- Perspective and viewpoints: Indicate perspective (e.g., \"aerial view,\" \"wide shot\").\n- Emotions and artistic styles: Add details about characters’ emotions and desired artistic styles.\n\n{{ $json[\"content\"] }}\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "db760046-39f0-4dc4-8653-b7ca6e284e20",
+      "name": "System Prompt Image Dall-E - V2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1040,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.OPENAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"temperature\": 1,\n  \"response_format\": { \"type\": \"json_object\" },\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": {{ JSON.stringify($json[\"system_prompt\"]) }}\n    }\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "2f2cca04-b881-47c6-955a-699562b255bf",
+      "name": "Create Dall-E Prompts",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1100,
+        180
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "122da1e7-4768-429f-99f1-b42119394724",
+      "name": "Prompt",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2020,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "jungles_images",
+          "mode": "list",
+          "cachedResultName": "jungles_images"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            },
+            {
+              "column": "article_id",
+              "value": "={{ $('Workflow Data').item.json[\"article_id\"] }}"
+            },
+            {
+              "column": "prompt",
+              "value": "={{ $('Prompt').item.json[\"prompt\"] }}"
+            },
+            {
+              "column": "image_link",
+              "value": "=https://danslajungledesaffaires.blog/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/{{ $('Workflow Data').item.json[\"article_id\"] }}_ai_image_{{ $runIndex + 1 }}.png"
+            },
+            {
+              "column": "text",
+              "value": "={{ $('Prompt').item.json[\"contentQuote_15_words_french_language\"] }}"
+            },
+            {
+              "column": "image_name",
+              "value": "={{ $('Workflow Data').item.json[\"article_id\"] }}_ai_image_{{ $runIndex + 1 }}.png"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aefae3ae-db38-4a10-af7f-8dc23ec5788b",
+      "name": "Insert Image in Images Table",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2720,
+        280
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "guest_nickname",
+            "images_instructions",
+            "name",
+            "guest"
+          ]
+        }
+      },
+      "id": "6705b72e-f4fd-4e1a-af50-28160fdb31cf",
+      "name": "Get Podcast Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -200,
+        60
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "c43f1475-6b63-4800-aafb-afd5f10e5b1a",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        80,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef4b4092-1f64-4156-97ac-2b7ce1c3e4db",
+              "name": "system_prompt",
+              "value": "=Task: Generate unique LLM prompts to create images with DALL-E 3 for a short animation video.\n\n1. Content Analysis:\n\n- Identify different situations from the interview, each occurring in a different place with a distinct context and varied subjects.\n- Describe different scenes representing sections of the interview. Every scene need to be different area or space.\n\n2. Detailed Instructions:\n\n- Each image should have the \"jungle of business\" concept as the backdrop.\n- Be complete and precise, providing maximum details to help the AI generate accurate images.\n- Use a clear prompt structure and leverage the many creative parameters of DALL-E 3.\n- The first prompt should focus on the guest and his skill: \"{{ $json[\"guest_nickname\"] }}\"\n\nDetailed Guidelines for Writing a Prompt:\n\n1. Be Complete and Precise:\n\n- Provide specific details about the setting, including the environment, objects, characters, and actions.\n- Mention colors, lighting, and any specific emotions or expressions desired in the scene.\n- Include background details and any relevant props that add context to the image.\n\n2. Structure Your Prompt:\n\n- Use a clear and detailed structure for each prompt, for example:\n- Format: “[Type of image] representing [main subject] with [specific elements, colors, perspective, emotions, etc.] for [context or subject].”\n- Example: “A sophisticated jungle-themed restaurant where a lion in a tailored suit, known as the 'Wine Detective,' is expertly inspecting a glass of wine. The background features lush greenery and vines, with soft candlelight creating a warm ambiance. Other animal businesspeople are attentively watching the lion's demonstration.”\n\n3. Utilize Creative Parameters:\n\n- Colors and Lighting: Specify dominant hues and the type of lighting (e.g., “warm candlelight,” “natural sunlight filtering through leaves”).\n- Perspective and Viewpoints: Indicate the perspective (e.g., “close-up of the lion,” “wide shot of the restaurant”).\n- Emotions and Artistic Styles: Add details about characters’ emotions (e.g., “the lion has a focused and thoughtful expression”) and desired artistic styles (e.g., “realist photo style”).\n\n4. Examples of Final Prompts:\n\n4.1 - Guest as \"Détective du vin\":\n\n- Prompt: A sophisticated jungle-themed restaurant where a lion in a tailored suit, known as the \"Wine Detective,\" is expertly inspecting a glass of wine. The lion has a focused and thoughtful expression. The background features lush greenery and vines, with soft candlelight creating a warm ambiance. Other animal businesspeople, including a giraffe in a blazer and an elephant in a dress, are attentively watching the lion's demonstration. The table is set with elegant wine glasses and a charcuterie board.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n4.2 - Cruise ship voyage:\n\n- Prompt: A luxurious cruise ship deck with a tiger in a captain’s uniform steering the ship. The tiger has a confident and proud expression. Surrounding the tiger are other animal executives, including a monkey with a briefcase and a parrot with a notebook, enjoying the view of a jungle coastline. The setting sun casts a golden glow over the scene, highlighting the lush green foliage and sparkling water.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n4.3 - Meeting friends in a café:\n\n- Prompt: A cozy jungle-themed café where a group of animal entrepreneurs, including a giraffe, an elephant, and a monkey, are having a lively discussion over coffee. The giraffe has a friendly smile, the elephant looks thoughtful, and the monkey is animatedly gesturing. The café is decorated with tropical plants, wooden furniture, and warm lighting, creating a relaxed yet professional vibe.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n4.4 - Sports activity:\n\n- Prompt: A vibrant jungle gym where a cheetah in sportswear leads a group of animal business leaders in a team-building exercise. The cheetah has an energetic and motivating expression. The background is filled with dense foliage and colorful flowers, creating an energetic and motivating atmosphere. The other animals, including a bear, a zebra, and a kangaroo, are actively participating in the exercises, displaying teamwork and enthusiasm.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\nThese detailed guidelines and examples will help ensure that the generated images are precise and vividly illustrate the themes discussed in the interviews, with a special focus on the guest's expertise in the first scene.\n\n{{ $json[\"content\"] }}\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a08b7479-dd9e-4d0c-b898-90cdbd226353",
+      "name": "System Prompt Image Dall-E - V3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1040,
+        -200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef4b4092-1f64-4156-97ac-2b7ce1c3e4db",
+              "name": "system_prompt",
+              "value": "=Task: Generate unique LLM prompts to create images with DALL-E 3 for a short animation video.\n\n1. Images idea creation concept:\n- Idea 1: {{ $json[\"image_idea_1\"] }}\n- Idea 2: {{ $json[\"image_idea_2\"] }}\n\n2. Detailed Instructions:\n\n- You must absolutely adhere to the ideas proposed in the previous section.\n- Each image prompt should have the \"jungle of business\" concept as the backdrop.\n- Each image prompt need ti integrate this specific elements : {{ $('Get Podcast Details').item.json[\"images_instructions\"] }}\n- Be complete and precise, providing maximum details to help the AI generate accurate images.\n- Use a clear prompt structure and leverage the many creative parameters of DALL-E 3.\n- Diversify the number of animals used in different pictures, drawing from a variety of jungle animals including mammals, birds, reptiles, amphibians, insects, arachnids, and aquatic life (list provided below).\n- Always include a very small happy geico hidden in images with the concept \"Where's Charlie\". \n\nDetailed Guidelines for Writing a Prompt:\n\n1. Be Complete and Precise:\n\n- Provide specific details about the setting, including the environment, objects, characters, and actions.\n- Mention colors, lighting, and any specific emotions or expressions desired in the scene.\n- Include background details and any relevant props that add context to the image.\n\n2. Structure Your Prompt:\n\n- Use a clear and detailed structure for each prompt, for example:\n- Format: “[Type of image] representing [main subject] with [specific elements, colors, perspective, emotions, etc.] for [context or subject].”\n- Example: “A sophisticated jungle-themed restaurant where a lion in a tailored suit, known as the 'Wine Detective,' is expertly inspecting a glass of wine. The background features lush greenery and vines, with soft candlelight creating a warm ambiance. Other animal businesspeople are attentively watching the lion's demonstration.”\n\n3. Utilize Creative Parameters:\n\n- Colors and Lighting: Specify dominant hues and the type of lighting (e.g., “warm candlelight,” “natural sunlight filtering through leaves”).\n- Perspective and Viewpoints: Indicate the perspective (e.g., “close-up of the lion,” “wide shot of the restaurant”).\n- Emotions and Artistic Styles: Add details about characters’ emotions (e.g., “the lion has a focused and thoughtful expression”) and desired artistic styles (e.g., “realist photo style”).\n\n4. Animal Diversity:\n\n- Use a variety of jungle animals from different habitats within the jungle ecosystem, including:\nMammals:\n- Big Cats: Jaguar, Leopard, Tiger\n- Primates: Chimpanzee, Gorilla, Orangutan, Capuchin Monkey, Howler Monkey\n- Small Mammals: Sloth, Coati, Ocelot, Tapir, Anteater, Agouti\n- Rodents: Capybara, Paca\n- Bats: Fruit Bat, Vampire Bat\nBirds:\n- Parrots: Macaw, Cockatoo\n- Birds of Prey: Harpy Eagle\n- Other Birds: Toucan, Hummingbird, Quetzal\nReptiles:\n- Snakes: Anaconda, Boa Constrictor, Viper\n- Lizards: Iguana, Basilisk Lizard\n- Crocodilians: Caiman, Crocodile\nAmphibians:\n- Frogs: Poison Dart Frog, Tree Frog\n- Insects and Arachnids:\n- Insects: Leafcutter Ant, Bullet Ant, Mosquito, Butterfly, Beetle\nArachnids: Tarantula, Scorpion\n- Fish and Aquatic Life:\n- Fish: Piranha, Electric Eel\nOther Aquatic Life: River Dolphin\nOthers:\n- Crustaceans: Freshwater Crab\n- Mollusks: Giant River Snail\n\n5. Add instruction to add a hidden somewhere in the scene is a small happy cartoon gecko, adding an element of surprise and fun, reminiscent of the \"Where's Waldo?\" concept. \n- \"Where's Charlie?\" is a concept that has been used in various contexts, but it's most famously associated with the children's puzzle book series \"Where's Waldo?\" (known as \"Where's Charlie?\" in some countries). The series was created by the British illustrator Martin Handford and involves finding the character Waldo (or Charlie) hidden in complex, crowded scenes filled with numerous characters and objects.\n\nExamples of Final Prompts:\n\n1. Guest as \"Détective du vin\":\n\n- Prompt: A sophisticated jungle-themed restaurant where a lion in a tailored suit, known as the \"Wine Detective,\" is expertly inspecting a glass of wine. The main character, a man in a stylish suit, is closely observing the lion. The background features lush greenery and vines, with soft candlelight creating a warm ambiance. Other animal businesspeople, including a giraffe in a blazer and an elephant in a dress, are attentively watching the lion's demonstration. The table is set with elegant wine glasses and a charcuterie board. Hidden somewhere in the scene is a small happy cartoon gecko, adding an element of surprise and fun, reminiscent of the \"Where's Waldo?\" concept.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n2. Cruise ship voyage:\n\n- Prompt: A luxurious cruise ship deck with a tiger in a captain’s uniform steering the ship. The main character, a man in a captain’s hat and uniform, stands next to the tiger with a confident and proud expression. Surrounding the tiger are other animal executives, including a monkey with a briefcase and a parrot with a notebook, enjoying the view of a jungle coastline. The setting sun casts a golden glow over the scene, highlighting the lush green foliage and sparkling water.Hidden somewhere in the scene is a small happy cartoon gecko, adding an element of surprise and fun, reminiscent of the \"Where's Waldo?\" concept.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n3. Meeting friends in a café:\n\n- Prompt: A cozy jungle-themed café where a group of animal entrepreneurs, including a giraffe, an elephant, and a monkey, are having a lively discussion over coffee. The main character, a man in business casual attire, is actively participating in the conversation. The giraffe has a friendly smile, the elephant looks thoughtful, and the monkey is animatedly gesturing. The café is decorated with tropical plants, wooden furniture, and warm lighting, creating a relaxed yet professional vibe.Hidden somewhere in the scene is a small happy cartoon gecko, adding an element of surprise and fun, reminiscent of the \"Where's Waldo?\" concept.\nStyle: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n4. Sports activity:\n\n- Prompt: A vibrant jungle gym where a cheetah in sportswear leads a group of animal business leaders in a team-building exercise. The main character, a man in sportswear, is leading the group alongside the cheetah, displaying an energetic and motivating expression. The background is filled with dense foliage and colorful flowers, creating an energetic and motivating atmosphere. The other animals, including a bear, a zebra, and a kangaroo, are actively participating in the exercises, displaying teamwork and enthusiasm.Hidden somewhere in the scene is a small happy cartoon gecko, adding an element of surprise and fun, reminiscent of the \"Where's Waldo?\" concept.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\nThese detailed guidelines and examples will help ensure that the generated images are precise, capture the essence of the \"jungle of business,\" and clearly identify the main character in each scene.\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3819688f-39e8-405e-aa96-7e06dcb3591d",
+      "name": "System Prompt Image Dall-E - V4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        800,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef4b4092-1f64-4156-97ac-2b7ce1c3e4db",
+              "name": "system_prompt",
+              "value": "=Task: Generate unique LLM prompts to create images with DALL-E 3 for a short animation video.\n\n1. Content Analysis:\n\n- Identify different situations from the interview, each occurring in a different place with a distinct context and varied subjects.\n- Describe different scenes representing sections of the interview.\n\n2. Detailed Instructions:\n\n- Each image should have the \"jungle of business\" concept as the backdrop.\n- Be complete and precise, providing maximum details to help the AI generate accurate images.\n- Use a clear prompt structure and leverage the many creative parameters of DALL-E 3.\n- The first prompt should focus on the guest and his skill: \"{{ $json[\"guest_nickname\"] }}\"\n- Diversify the number of animals used in different pictures, drawing from a variety of jungle animals including mammals, birds, reptiles, amphibians, insects, arachnids, and aquatic life (list provided below).\n- Always include a very happy geico in images. \n- {{ $json[\"image_instruction\"] }}\n\nDetailed Guidelines for Writing a Prompt:\n\n1. Be Complete and Precise:\n\n- Provide specific details about the setting, including the environment, objects, characters, and actions.\n- Mention colors, lighting, and any specific emotions or expressions desired in the scene.\n- Include background details and any relevant props that add context to the image.\n\n2. Structure Your Prompt:\n\n- Use a clear and detailed structure for each prompt, for example:\n- Format: “[Type of image] representing [main subject] with [specific elements, colors, perspective, emotions, etc.] for [context or subject].”\n- Example: “A sophisticated jungle-themed restaurant where a lion in a tailored suit, known as the 'Wine Detective,' is expertly inspecting a glass of wine. The background features lush greenery and vines, with soft candlelight creating a warm ambiance. Other animal businesspeople are attentively watching the lion's demonstration.”\n\n3. Utilize Creative Parameters:\n\n- Colors and Lighting: Specify dominant hues and the type of lighting (e.g., “warm candlelight,” “natural sunlight filtering through leaves”).\n- Perspective and Viewpoints: Indicate the perspective (e.g., “close-up of the lion,” “wide shot of the restaurant”).\n- Emotions and Artistic Styles: Add details about characters’ emotions (e.g., “the lion has a focused and thoughtful expression”) and desired artistic styles (e.g., “realist photo style”).\n\n4. Animal Diversity:\n\n- Use a variety of jungle animals from different habitats within the jungle ecosystem, including:\nMammals:\n- Big Cats: Jaguar, Leopard, Tiger\n- Primates: Chimpanzee, Gorilla, Orangutan, Capuchin Monkey, Howler Monkey\n- Small Mammals: Sloth, Coati, Ocelot, Tapir, Anteater, Agouti\n- Rodents: Capybara, Paca\n- Bats: Fruit Bat, Vampire Bat\nBirds:\n- Parrots: Macaw, Cockatoo\n- Birds of Prey: Harpy Eagle\n- Other Birds: Toucan, Hummingbird, Quetzal\nReptiles:\n- Snakes: Anaconda, Boa Constrictor, Viper\n- Lizards: Iguana, Basilisk Lizard\n- Crocodilians: Caiman, Crocodile\nAmphibians:\n- Frogs: Poison Dart Frog, Tree Frog\n- Insects and Arachnids:\n- Insects: Leafcutter Ant, Bullet Ant, Mosquito, Butterfly, Beetle\nArachnids: Tarantula, Scorpion\n- Fish and Aquatic Life:\n- Fish: Piranha, Electric Eel\nOther Aquatic Life: River Dolphin\nOthers:\n- Crustaceans: Freshwater Crab\n- Mollusks: Giant River Snail\n\n5. Main Character Identification:\n\n{{ $json[\"image_instruction\"] }}\n\nExamples of Final Prompts:\n\n1. Guest as \"Détective du vin\":\n\n- Prompt: A sophisticated jungle-themed restaurant where a lion in a tailored suit, known as the \"Wine Detective,\" is expertly inspecting a glass of wine. The main character, a man in a stylish suit, is closely observing the lion. The background features lush greenery and vines, with soft candlelight creating a warm ambiance. Other animal businesspeople, including a giraffe in a blazer and an elephant in a dress, are attentively watching the lion's demonstration. The table is set with elegant wine glasses and a charcuterie board.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n2. Cruise ship voyage:\n\n- Prompt: A luxurious cruise ship deck with a tiger in a captain’s uniform steering the ship. The main character, a man in a captain’s hat and uniform, stands next to the tiger with a confident and proud expression. Surrounding the tiger are other animal executives, including a monkey with a briefcase and a parrot with a notebook, enjoying the view of a jungle coastline. The setting sun casts a golden glow over the scene, highlighting the lush green foliage and sparkling water.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n3. Meeting friends in a café:\n\n- Prompt: A cozy jungle-themed café where a group of animal entrepreneurs, including a giraffe, an elephant, and a monkey, are having a lively discussion over coffee. The main character, a man in business casual attire, is actively participating in the conversation. The giraffe has a friendly smile, the elephant looks thoughtful, and the monkey is animatedly gesturing. The café is decorated with tropical plants, wooden furniture, and warm lighting, creating a relaxed yet professional vibe.\nStyle: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\n4. Sports activity:\n\n- Prompt: A vibrant jungle gym where a cheetah in sportswear leads a group of animal business leaders in a team-building exercise. The main character, a man in sportswear, is leading the group alongside the cheetah, displaying an energetic and motivating expression. The background is filled with dense foliage and colorful flowers, creating an energetic and motivating atmosphere. The other animals, including a bear, a zebra, and a kangaroo, are actively participating in the exercises, displaying teamwork and enthusiasm.\n- Style: Realist photo, Aspect Ratio: 1.75, Size: 1792 x 1024\n\nThese detailed guidelines and examples will help ensure that the generated images are precise, capture the essence of the \"jungle of business,\" and clearly identify the main character in each scene.\n\n{{ $json[\"content\"] }}\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3d2c9470-6cf7-4343-9377-04d650e1b94e",
+      "name": "System Prompt Image Dall-E - V",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1040,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "4e691fa6-b63d-4604-bb1f-2eebe936a69d",
+              "leftValue": "={{ $json.type }}",
+              "rightValue": "questions-reponses",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "55d36ea4-d078-41a2-a31c-806410acc98c",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        760,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "5c2a07cc-2ac7-4873-887c-41672dc6e026",
+          "mode": "list",
+          "cachedResultName": "Images",
+          "cachedResultUrl": "https://www.notion.so/5c2a07cc2ac74873887c41672dc6e026"
+        },
+        "title": "={{ $('Article Data').item.json[\"title\"] }}",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Prompt|rich_text",
+              "textContent": "={{ $('Prompt').item.json[\"prompt\"] }}"
+            },
+            {
+              "key": "Quote|rich_text",
+              "textContent": "={{ $('Prompt').item.json[\"contentQuote_15_words_french_language\"] }}"
+            },
+            {
+              "key": "Image URL|url",
+              "urlValue": "=https://danslajungledesaffaires.blog/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/{{ $('Workflow Data').item.json[\"article_id\"] }}_ai_image_{{ $runIndex + 1 }}.png"
+            },
+            {
+              "key": "File Size|rich_text",
+              "textContent": "={{ $json[\"fileSize\"] }}"
+            },
+            {
+              "key": "Resolution|rich_text",
+              "textContent": "=1792x1024"
+            },
+            {
+              "key": "Quality|rich_text",
+              "textContent": "HD"
+            },
+            {
+              "key": "Guest Name|rich_text",
+              "textContent": "={{ $('Article Data').item.json[\"guest\"] }}"
+            },
+            {
+              "key": "Podcast|rich_text",
+              "textContent": "={{ $('Article Data').item.json[\"name\"] }}"
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "type": "image",
+              "url": "=https://danslajungledesaffaires.blog/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/{{ $('Workflow Data').item.json[\"article_id\"] }}_ai_image_{{ $runIndex + 1 }}.png"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ece1d4ee-1a05-4e91-a26d-c17a1edba6b1",
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2720,
+        80
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "QSEGg1VCNG6VM9ib",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "={{ $json.prompt }}",
+        "options": {
+          "quality": "hd",
+          "size": "1792x1024",
+          "style": "vivid"
+        }
+      },
+      "id": "660da322-28e5-468f-8afa-c0b46054c55b",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        2240,
+        280
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "10e142a6-b376-47e2-99c0-3e770a92f70d",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        3000,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "d10b528f-bdf2-4ddc-a4f4-aeaa0832d022",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3200,
+        400
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-07-03T12:43:40.577Z",
+      "updatedAt": "2024-07-03T12:43:40.577Z",
+      "id": "AyD8qxUzHoYCWjwM",
+      "name": "Image Creation"
+    },
+    {
+      "createdAt": "2024-06-24T21:09:18.887Z",
+      "updatedAt": "2024-06-24T21:09:18.887Z",
+      "id": "IzovHyYMj2l2t3WZ",
+      "name": "Jungle"
+    },
+    {
+      "createdAt": "2024-07-03T10:27:21.057Z",
+      "updatedAt": "2024-07-03T10:27:21.057Z",
+      "id": "kjd4NuS0MxgHxPmw",
+      "name": "Content Creation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-13T16:16:07.000Z",
+  "versionId": "2dbe0464-d9f1-45ae-bca8-f95fe002938d"
+}
