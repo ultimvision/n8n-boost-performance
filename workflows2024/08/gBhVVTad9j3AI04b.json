@@ -1,0 +1,147 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-20T13:30:40.614Z",
+  "id": "gBhVVTad9j3AI04b",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Instagram Comments Agents",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "9e3340cd-9027-4f98-aa01-e8441bdf4837",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        420,
+        420
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6db235f1-0229-4a3a-98b7-c8c2ba0925ed",
+              "name": "link",
+              "value": "https://www.instagram.com/reel/C9pPeXmOUYQ/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "429b5884-70c1-4eaa-9f5c-8d13ef500487",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://instagram-scraper-api2.p.rapidapi.com/v1/comments",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "code_or_id_or_url",
+              "value": "C9pPeXmOUYQ"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "988c1fa2-7657-4750-8287-de5c830c4660",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        900,
+        560
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://instagram-scraper-api2.p.rapidapi.com/v1/post_info",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "code_or_id_or_url",
+              "value": "C9pPeXmOUYQ"
+            },
+            {
+              "name": "include_insights",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ae143378-5c0d-4c77-a3dd-112b12574269",
+      "name": "Get post details for feed posts,",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        900,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-20T16:53:13.000Z",
+  "versionId": "46a40ad8-192b-4b60-b55a-730a31165810"
+}
