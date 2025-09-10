@@ -1,0 +1,154 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Mailchimp - Add member",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Eventbrite Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-02T20:13:34.306Z",
+  "id": "NKKVGl7nNnnXwVLy",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Eventbrite SYNC",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "f90a3c37-b71e-42d6-8025-3a5b727e071f",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        1160,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "organization": "2348241596183",
+        "event": "all",
+        "actions": [
+          "order.placed"
+        ]
+      },
+      "id": "abf4fad0-1c10-4159-8442-e74f859463e5",
+      "name": "Eventbrite Trigger",
+      "type": "n8n-nodes-base.eventbriteTrigger",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        360
+      ],
+      "webhookId": "6c0116ee-3d2b-46fc-9efc-6aadf8c4c89e",
+      "credentials": {
+        "eventbriteOAuth2Api": {
+          "id": "eNlRbGHZWYUQWXzN",
+          "name": "Eventbrite account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "bba8a23f-e065-4129-ae1b-fd09a7a98bf5",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1520,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "list": "ba44ab9f0e",
+        "email": "={{ $json.email }}",
+        "status": "subscribed",
+        "options": {
+          "tags": "=eventbrite-{{ $json.event_id }}"
+        },
+        "mergeFieldsUi": {
+          "mergeFieldsValues": [
+            {
+              "name": "FNAME",
+              "value": "={{ $json.first_name }}"
+            },
+            {
+              "name": "LNAME",
+              "value": "={{ $json.last_name }}"
+            }
+          ]
+        }
+      },
+      "id": "e7f4f84e-530e-44d0-886a-f819145fad4c",
+      "name": "Mailchimp - Add member",
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        500
+      ],
+      "credentials": {
+        "mailchimpOAuth2Api": {
+          "id": "4YGkoQeyJ9ImhVyq",
+          "name": "Mailchimp account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Eventbrite Trigger": {}
+  },
+  "tags": [
+    {
+      "createdAt": "2024-10-02T20:13:41.017Z",
+      "updatedAt": "2024-10-02T20:13:41.017Z",
+      "id": "6RAlx2Gw2nOyNBrD",
+      "name": "Eventbrite"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-10-02T21:35:21.000Z",
+  "versionId": "567c5c46-c54d-443f-ba0d-3227f23467d0"
+}
