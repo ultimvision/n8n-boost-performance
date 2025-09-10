@@ -1,0 +1,4958 @@
+{
+  "active": true,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "Get Prompts": {
+      "main": [
+        [
+          {
+            "node": "Get Main Entreprise Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Update Entreprise",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add a new Job": {
+      "main": [
+        [
+          {
+            "node": "Get Task AI Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data": {
+      "main": [
+        [
+          {
+            "node": "Switch Task IA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Content": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Main Entreprise Record": {
+      "main": [
+        [
+          {
+            "node": "Get Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Task AI Details": {
+      "main": [
+        [
+          {
+            "node": "Get Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Task IA": {
+      "main": [
+        [
+          {
+            "node": "Add a new Job",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Task AI Details1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Task AI Details2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Entreprise": {
+      "main": [
+        [
+          {
+            "node": "Update Jobs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Prompts1": {
+      "main": [
+        [
+          {
+            "node": "Get Main Entreprise Record1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add a new Job1": {
+      "main": [
+        [
+          {
+            "node": "Get Prompts1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Main Entreprise Record1": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Task AI Details1": {
+      "main": [
+        [
+          {
+            "node": "Add a new Job1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain1": {
+      "main": [
+        [
+          {
+            "node": "Update Entreprise1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Entreprise1": {
+      "main": [
+        [
+          {
+            "node": "Update Jobs1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Prompts2": {
+      "main": [
+        [
+          {
+            "node": "Get Main Entreprise Record2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add a new Job2": {
+      "main": [
+        [
+          {
+            "node": "Get Prompts2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Task AI Details2": {
+      "main": [
+        [
+          {
+            "node": "Add a new Job2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain2": {
+      "main": [
+        [
+          {
+            "node": "Update Entreprise2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Entreprise2": {
+      "main": [
+        [
+          {
+            "node": "Update Jobs2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Main Entreprise Record2": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-08T23:02:21.057Z",
+  "id": "RNwMcQInJcT1cgj1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AI Agents - Execute Prompts LLM",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1200,
+        -40
+      ],
+      "id": "a1a081e7-5c2f-4764-ad4d-073b806eec34",
+      "name": "When clicking ‘Test workflow’",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl1Hv3ciev3pDQkI",
+          "mode": "list",
+          "cachedResultName": "Prompts Automation",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tbl1Hv3ciev3pDQkI"
+        },
+        "filterByFormula": "=FIND(\"{{ $json.id }}\", {Record_Taches_IA_ID_str}) > 0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -20,
+        -660
+      ],
+      "id": "f5a3af90-3ba1-407a-b2e5-9a3b9628698c",
+      "name": "Get Prompts",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Contenu"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        620,
+        -660
+      ],
+      "id": "f467a1ee-3ee6-4b72-b3e2-71de6cc9042c",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ JSON.stringify($json.Contenu) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $('Get Prompts').item.json.Prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1040,
+        -920
+      ],
+      "id": "642af032-e821-408b-b12f-8c0e9fa309f3",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        980,
+        -660
+      ],
+      "id": "42a6b819-a934-4c48-b1a5-c4a1aa01c0c8",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"title\": \"Analyse de l'entreprise\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"nom_entreprise\": {\n      \"type\": \"string\",\n      \"description\": \"Nom officiel de l'entreprise tel qu'il apparaît dans les documents.\"\n    },\n    \"mission_entreprise\": {\n      \"type\": \"string\",\n      \"description\": \"Raison d'être, objectifs fondamentaux et vision de l'entreprise.\"\n    },\n    \"valeurs_principales\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      },\n      \"description\": \"Liste des valeurs qui guident l'entreprise (ex : innovation, excellence, responsabilité, etc.).\"\n    },\n    \"historique_contexte\": {\n      \"type\": \"string\",\n      \"description\": \"Résumé de l'évolution de l'entreprise, incluant ses débuts, ses étapes clés et son positionnement historique.\"\n    },\n    \"produits_services\": {\n      \"type\": \"string\",\n      \"description\": \"Description des principaux produits ou services offerts par l'entreprise.\"\n    },\n    \"site_web\": {\n      \"type\": \"string\",\n      \"format\": \"uri\",\n      \"description\": \"URL du site web officiel de l'entreprise, le cas échéant.\"\n    }\n  },\n  \"required\": [\n    \"nom_entreprise\",\n    \"mission_entreprise\",\n    \"valeurs_principales\",\n    \"historique_contexte\",\n    \"produits_services\",\n    \"site_web\"\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1160,
+        -660
+      ],
+      "id": "c93e456a-ec55-43c1-824e-f10c5b7e9897",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "path": "ai-agent-automation",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1180,
+        -460
+      ],
+      "id": "19727dab-dac3-4e7b-acfb-73ada8127385",
+      "name": "Webhook",
+      "webhookId": "e3885acf-20f5-403f-b20a-1c02664ad35a"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqRCxeiPZCmQ99p",
+          "mode": "list",
+          "cachedResultName": "Jobs IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblqRCxeiPZCmQ99p"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tâche IA": "=[\"reca0h3vtGzHkqxsW\"]",
+            "Name": "Test",
+            "Status": "En cours"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "À faire",
+                  "value": "À faire"
+                },
+                {
+                  "name": "En cours",
+                  "value": "En cours"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tâche IA",
+              "displayName": "Tâche IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -440,
+        -660
+      ],
+      "id": "c940bf01-df4f-440a-9b39-b5952785958b",
+      "name": "Add a new Job",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqRCxeiPZCmQ99p",
+          "mode": "list",
+          "cachedResultName": "Jobs IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblqRCxeiPZCmQ99p"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -920,
+        -1020
+      ],
+      "id": "c80ace56-6e4c-4f26-9e5d-70a5761e6dc6",
+      "name": "Get Entreprise Record1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -960,
+        -460
+      ],
+      "id": "87c15a03-f017-4673-9bbe-70308cbf2191",
+      "name": "Data"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblRKC6ytQDRznAuw",
+          "mode": "list",
+          "cachedResultName": "Documents",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblRKC6ytQDRznAuw"
+        },
+        "filterByFormula": "=AND(\n  FIND(\"{{ $json.id }}\", {Record_Entreprise_ID_str}) > 0,\n  {Étape_Analyse_Entreprise_Numero} = {{ $('Data').item.json.query.step }}\n)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        360,
+        -660
+      ],
+      "id": "8519a7e4-3574-4a6e-a563-971f1a74850b",
+      "name": "Get Content",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl89wOgX1SxreDea",
+          "mode": "list",
+          "cachedResultName": "Entreprise",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tbl89wOgX1SxreDea"
+        },
+        "filterByFormula": "{Numéro} = 1",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        160,
+        -660
+      ],
+      "id": "5280c115-a95b-4068-8c7f-1b349895a2d9",
+      "name": "Get Main Entreprise Record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblcKAzWvaqtKCViz",
+          "mode": "list",
+          "cachedResultName": "Tâches IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblcKAzWvaqtKCViz"
+        },
+        "filterByFormula": "={Numéro} = {{ $('Data').item.json.query.tia }}",
+        "returnAll": false,
+        "limit": 1,
+        "options": {
+          "fields": [
+            "Record_Prompts_Automation_ID_str",
+            "Nom"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        -660
+      ],
+      "id": "60e01df3-633b-4b9a-af15-6d683b2f61e0",
+      "name": "Get Task AI Details",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.query.tia }}",
+                    "rightValue": "1000",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "65a11835-7c66-4906-9b2f-4bbfdce09e22"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Profil Entreprise"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "34d0c3d7-1588-43e7-9686-71ce9403bce0",
+                    "leftValue": "={{ $json.query.tia }}",
+                    "rightValue": "1010",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Recherche Démo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "453514b7-8eb6-4d6d-a20f-fe566bb2a08c",
+                    "leftValue": "={{ $json.query.tia }}",
+                    "rightValue": "1020",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Recherche Psycho"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -720,
+        -460
+      ],
+      "id": "c01131d8-122c-46c5-9317-2a5022a1aad2",
+      "name": "Switch Task IA"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqRCxeiPZCmQ99p",
+          "mode": "list",
+          "cachedResultName": "Jobs IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblqRCxeiPZCmQ99p"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Add a new Job').item.json.id }}",
+            "Status": "Complété",
+            "Notes": "Analyse AI des documents et mise à jour du profil d'entreprise.",
+            "Name": "={{ $('Get Task AI Details').item.json.Nom }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Dernière Modification",
+              "displayName": "Date Dernière Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "À faire",
+                  "value": "À faire"
+                },
+                {
+                  "name": "En cours",
+                  "value": "En cours"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tâche IA",
+              "displayName": "Tâche IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1640,
+        -920
+      ],
+      "id": "1d87a314-c788-438e-8228-518d4d88556c",
+      "name": "Update Jobs",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl89wOgX1SxreDea",
+          "mode": "list",
+          "cachedResultName": "Entreprise",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tbl89wOgX1SxreDea"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get Main Entreprise Record').item.json.id }}",
+            "Nom de l'entreprise": "={{ $json.output.nom_entreprise }}",
+            "Mission de l'entreprise": "={{ $json.output.mission_entreprise }}",
+            "Valeurs principales": "={{ JSON.stringify($json.output.valeurs_principales) }}",
+            "Historique et contexte": "={{ $json.output.historique_contexte }}",
+            "Produits/Services proposés": "={{ $json.output.produits_services }}",
+            "Site Web de l'entreprise": "={{ $json.output.site_web }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Nom de l'entreprise",
+              "displayName": "Nom de l'entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Logo",
+              "displayName": "Logo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Sommaire Section 1",
+              "displayName": "Sommaire Section 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Mission de l'entreprise",
+              "displayName": "Mission de l'entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Valeurs principales",
+              "displayName": "Valeurs principales",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Produits/Services proposés",
+              "displayName": "Produits/Services proposés",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Public cible",
+              "displayName": "Public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "B2B",
+                  "value": "B2B"
+                },
+                {
+                  "name": "B2C",
+                  "value": "B2C"
+                },
+                {
+                  "name": "Dirigeants",
+                  "value": "Dirigeants"
+                },
+                {
+                  "name": "Entrepreneurs",
+                  "value": "Entrepreneurs"
+                },
+                {
+                  "name": "Équipes",
+                  "value": "Équipes"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Région/Pays d'opération",
+              "displayName": "Région/Pays d'opération",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Canada",
+                  "value": "Canada"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Marché",
+              "displayName": "Marché",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique et contexte",
+              "displayName": "Historique et contexte",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Objectifs marketing généraux",
+              "displayName": "Objectifs marketing généraux",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Site Web de l'entreprise",
+              "displayName": "Site Web de l'entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Connaissance des concurrents",
+              "displayName": "Connaissance des concurrents",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Oui",
+                  "value": "Oui"
+                },
+                {
+                  "name": "Non",
+                  "value": "Non"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Principaux concurrents",
+              "displayName": "Principaux concurrents",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Shopify",
+                  "value": "Shopify"
+                },
+                {
+                  "name": "Lightspeed",
+                  "value": "Lightspeed"
+                },
+                {
+                  "name": "Starbucks",
+                  "value": "Starbucks"
+                },
+                {
+                  "name": "Tim Hortons",
+                  "value": "Tim Hortons"
+                },
+                {
+                  "name": "Hydro Québec",
+                  "value": "Hydro Québec"
+                },
+                {
+                  "name": "Sunrun",
+                  "value": "Sunrun"
+                },
+                {
+                  "name": "Patagonia",
+                  "value": "Patagonia"
+                },
+                {
+                  "name": "Everlane",
+                  "value": "Everlane"
+                },
+                {
+                  "name": "Cousera",
+                  "value": "Cousera"
+                },
+                {
+                  "name": "Udemy",
+                  "value": "Udemy"
+                },
+                {
+                  "name": "LinkedIn Learning",
+                  "value": "LinkedIn Learning"
+                },
+                {
+                  "name": "Consultants indépendants et cabinets spécialisés",
+                  "value": "Consultants indépendants et cabinets spécialisés"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Canaux de communication actuels",
+              "displayName": "Canaux de communication actuels",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Performance des canaux",
+              "displayName": "Performance des canaux",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectifs commerciaux spécifiques",
+              "displayName": "Objectifs commerciaux spécifiques",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "KPI",
+              "displayName": "KPI",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Budget marketing digital",
+              "displayName": "Budget marketing digital",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ressources disponibles",
+              "displayName": "Ressources disponibles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique des campagnes",
+              "displayName": "Historique des campagnes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Résultats des campagnes précédentes",
+              "displayName": "Résultats des campagnes précédentes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Données démographiques du public cible",
+              "displayName": "Données démographiques du public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Données psychographiques du public cible",
+              "displayName": "Données psychographiques du public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Comportement d'achat du public cible",
+              "displayName": "Comportement d'achat du public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse",
+              "displayName": "Analyse",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nombre Documents (from Analyse)",
+              "displayName": "Nombre Documents (from Analyse)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Prompts Automation",
+              "displayName": "Prompts Automation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1420,
+        -920
+      ],
+      "id": "cacdf099-2583-4ed1-a42c-5a6c9b39f47a",
+      "name": "Update Entreprise",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl1Hv3ciev3pDQkI",
+          "mode": "list",
+          "cachedResultName": "Prompts Automation",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tbl1Hv3ciev3pDQkI"
+        },
+        "filterByFormula": "=FIND(\"{{ $('Get Task AI Details1').item.json.id }}\", {Record_Taches_IA_ID_str}) > 0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -20,
+        -400
+      ],
+      "id": "c348a0f5-c4f6-4da2-bfa0-8813dc0c54e1",
+      "name": "Get Prompts1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqRCxeiPZCmQ99p",
+          "mode": "list",
+          "cachedResultName": "Jobs IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblqRCxeiPZCmQ99p"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tâche IA": "=[\"{{ $json.id }}\"]",
+            "Status": "En cours",
+            "Name": "={{ $json.Nom }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "À faire",
+                  "value": "À faire"
+                },
+                {
+                  "name": "En cours",
+                  "value": "En cours"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tâche IA",
+              "displayName": "Tâche IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        -400
+      ],
+      "id": "531d922a-f8d4-409e-8fd9-74bbbac4155c",
+      "name": "Add a new Job1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl89wOgX1SxreDea",
+          "mode": "list",
+          "cachedResultName": "Entreprise",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tbl89wOgX1SxreDea"
+        },
+        "filterByFormula": "{Numéro} = 1",
+        "returnAll": false,
+        "limit": 1,
+        "options": {
+          "fields": [
+            "Sommaire du Profil",
+            "Job IA Public Cible"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        240,
+        -400
+      ],
+      "id": "cfd98ddb-f934-44eb-af3e-6c4e9015584f",
+      "name": "Get Main Entreprise Record1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblcKAzWvaqtKCViz",
+          "mode": "list",
+          "cachedResultName": "Tâches IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblcKAzWvaqtKCViz"
+        },
+        "filterByFormula": "={Numéro} = {{ $('Data').item.json.query.tia }}",
+        "returnAll": false,
+        "limit": 1,
+        "options": {
+          "fields": [
+            "Record_Prompts_Automation_ID_str",
+            "Nom"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -440,
+        -400
+      ],
+      "id": "5993ad48-bccd-4073-a643-8da5cbbfecc2",
+      "name": "Get Task AI Details1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json['Sommaire du Profil'] }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $('Get Prompts1').item.json.Prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        860,
+        -360
+      ],
+      "id": "b1f7513a-ecf9-4a36-95a0-74a9a6e2143b",
+      "name": "Basic LLM Chain1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "o3-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        780,
+        -100
+      ],
+      "id": "3880e1e3-601b-4d70-8ac4-cda5e8b48866",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"title\": \"Analyse démographique de l'entreprise\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"demographics\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"age\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Enfants : 0-2 ans\",\n                  \"Enfants : 3-5 ans\",\n                  \"Enfants : 6-12 ans\",\n                  \"Adolescents : 13-17 ans\",\n                  \"Jeunes adultes : 18-24 ans\",\n                  \"Jeunes adultes : 25-34 ans\",\n                  \"Adultes : 35-44 ans\",\n                  \"Adultes : 45-54 ans\",\n                  \"Adultes : 55-64 ans\",\n                  \"Seniors : 65 ans et plus\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection de la tranche d'âge.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"sexe\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Masculin\",\n                  \"Féminin\",\n                  \"Autre\",\n                  \"Tous\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection du sexe.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"situation_familiale\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Célibataire\",\n                  \"En couple / Concubinage\",\n                  \"Marié(e)\",\n                  \"Pacsé(e)\",\n                  \"Divorcé(e) / Séparé(e)\",\n                  \"Veuf/Veuve\",\n                  \"Famille recomposée\",\n                  \"Tous\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection de la situation familiale.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"niveau_education\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Aucun diplôme\",\n                  \"Niveau primaire\",\n                  \"Niveau secondaire\",\n                  \"Formation professionnelle / Technique\",\n                  \"Bac\",\n                  \"Bac+2 / DUT / BTS\",\n                  \"Licence / Bachelor\",\n                  \"Master\",\n                  \"Doctorat\",\n                  \"Tous\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection du niveau d’éducation.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"revenu\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"< 20 000\",\n                  \"20 000 - 40 000\",\n                  \"40 000 - 60 000\",\n                  \"60 000 - 80 000\",\n                  \"> 80 000\",\n                  \"Faible revenu\",\n                  \"Moyen revenu\",\n                  \"Haut revenu\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection du revenu.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"profession\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Étudiant(e)\",\n                  \"Employé(e)\",\n                  \"Cadre / Manager\",\n                  \"Profession libérale\",\n                  \"Entrepreneur / Indépendant\",\n                  \"Ouvrier / Technicien\",\n                  \"Dirigeants\",\n                  \"Retraité(e)\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection de la profession.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"localisation_geographique\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Pays\",\n                  \"Régions ou départements\",\n                  \"Villes principales\",\n                  \"Zones urbaines\",\n                  \"Zones rurales\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection de la localisation géographique.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"origine_culturelle_ethnique\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Caucasien(ne)\",\n                  \"Africain(e)\",\n                  \"Asiatique\",\n                  \"Hispanique / Latino\",\n                  \"Moyen-oriental(e)\",\n                  \"Autochtone\",\n                  \"Métis / Multiethnique\",\n                  \"Autre\",\n                  \"Tous\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection de l'origine culturelle/ethnique.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"langue_parlee\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Français\",\n                  \"Anglais\",\n                  \"Espagnol\",\n                  \"Allemand\",\n                  \"Mandarin / Chinois\",\n                  \"Arabe\",\n                  \"Portugais\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection de la langue parlée.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"religion\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Christianisme\",\n                  \"Islam\",\n                  \"Judaïsme\",\n                  \"Bouddhisme\",\n                  \"Hindouisme\",\n                  \"Athéisme / Agnosticisme\",\n                  \"Autres religions / Spiritualité\",\n                  \"Tous\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Explication du raisonnement pour la sélection de la religion.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        }\n      },\n      \"required\": [\n        \"age\",\n        \"sexe\",\n        \"situation_familiale\",\n        \"niveau_education\",\n        \"revenu\",\n        \"profession\",\n        \"localisation_geographique\",\n        \"origine_culturelle_ethnique\",\n        \"langue_parlee\",\n        \"religion\"\n      ]\n    },\n    \"overall_analysis\": {\n      \"type\": \"string\",\n      \"description\": \"Synthèse globale de l'analyse démographique de l'entreprise.\"\n    }\n  },\n  \"required\": [\"demographics\", \"overall_analysis\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1020,
+        -120
+      ],
+      "id": "f616e738-1408-4a40-95b5-f407bc48911d",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqRCxeiPZCmQ99p",
+          "mode": "list",
+          "cachedResultName": "Jobs IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblqRCxeiPZCmQ99p"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Add a new Job1').item.json.id }}",
+            "Status": "Complété",
+            "Notes": "=Analyse avec l'IA du public cible. Recommandation :\n\nÂge :\n{{ $('Basic LLM Chain1').item.json.output.demographics.age.chain_of_thought }}\n\nGenre :\n{{ $('Basic LLM Chain1').item.json.output.demographics.sexe.chain_of_thought }}\n\nSituation familiale :\n{{ $('Basic LLM Chain1').item.json.output.demographics.situation_familiale.chain_of_thought }}\n\nNiveau d'éducation :\n{{ $('Basic LLM Chain1').item.json.output.demographics.niveau_education.chain_of_thought }}\n\nRevenu :\n{{ $('Basic LLM Chain1').item.json.output.demographics.revenu.chain_of_thought }}\n\nProfession :\n{{ $('Basic LLM Chain1').item.json.output.demographics.profession.chain_of_thought }}\n\nLocalisation géographique :\n{{ $('Basic LLM Chain1').item.json.output.demographics.localisation_geographique.chain_of_thought }}\n\nOrigine culturelle / Ethnique :\n{{ $('Basic LLM Chain1').item.json.output.demographics.origine_culturelle_ethnique.chain_of_thought }}\n\nLangue parlée :\n{{ $('Basic LLM Chain1').item.json.output.demographics.langue_parlee.chain_of_thought }}\n\nReligion :\n{{ $('Basic LLM Chain1').item.json.output.demographics.religion.chain_of_thought }}\n\nEn résumé :\n{{ $('Basic LLM Chain1').item.json.output.overall_analysis }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Dernière Modification",
+              "displayName": "Date Dernière Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "À faire",
+                  "value": "À faire"
+                },
+                {
+                  "name": "En cours",
+                  "value": "En cours"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tâche IA",
+              "displayName": "Tâche IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1560,
+        -360
+      ],
+      "id": "0fd7f2a2-d976-4a1b-90ed-4b6d4e0ce61c",
+      "name": "Update Jobs1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl89wOgX1SxreDea",
+          "mode": "list",
+          "cachedResultName": "Entreprise",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tbl89wOgX1SxreDea"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get Main Entreprise Record1').item.json.id }}",
+            "Démographie Âge": "={{ $json.output.demographics.age.selected_values }}",
+            "Démo Sexe": "={{ $json.output.demographics.sexe.selected_values }}",
+            "Démo Situation Familiale": "={{ $json.output.demographics.situation_familiale.selected_values }}",
+            "Démo Éducation": "={{ $json.output.demographics.niveau_education.selected_values }}",
+            "Démo Revenu": "={{ $json.output.demographics.revenu.selected_values }}",
+            "Démo Profession": "={{ $json.output.demographics.profession.selected_values }}",
+            "Démo Localisation": "={{ $json.output.demographics.localisation_geographique.selected_values }}",
+            "Démo Ethnie": "={{ $json.output.demographics.origine_culturelle_ethnique.selected_values }}",
+            "Démo Langue Parlée": "={{ $json.output.demographics.langue_parlee.selected_values }}",
+            "Démo Religion": "={{ $json.output.demographics.religion.selected_values }}",
+            "Job IA Public Cible": "=[\"{{ $('Add a new Job1').item.json.id }}\"]"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Nom de l'entreprise",
+              "displayName": "Nom de l'entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Record_ID",
+              "displayName": "Record_ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Numéro",
+              "displayName": "Numéro",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Logo",
+              "displayName": "Logo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Mission de l'entreprise",
+              "displayName": "Mission de l'entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Valeurs principales",
+              "displayName": "Valeurs principales",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Produits/Services proposés",
+              "displayName": "Produits/Services proposés",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Public cible",
+              "displayName": "Public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "B2B",
+                  "value": "B2B"
+                },
+                {
+                  "name": "B2C",
+                  "value": "B2C"
+                },
+                {
+                  "name": "Dirigeants",
+                  "value": "Dirigeants"
+                },
+                {
+                  "name": "Entrepreneurs",
+                  "value": "Entrepreneurs"
+                },
+                {
+                  "name": "Équipes",
+                  "value": "Équipes"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Région/Pays d'opération",
+              "displayName": "Région/Pays d'opération",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Canada",
+                  "value": "Canada"
+                },
+                {
+                  "name": "France",
+                  "value": "France"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Marché",
+              "displayName": "Marché",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique et contexte",
+              "displayName": "Historique et contexte",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectifs marketing généraux",
+              "displayName": "Objectifs marketing généraux",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Site Web de l'entreprise",
+              "displayName": "Site Web de l'entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Principaux concurrents",
+              "displayName": "Principaux concurrents",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Canaux de communication actuels",
+              "displayName": "Canaux de communication actuels",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Performance des canaux",
+              "displayName": "Performance des canaux",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectifs commerciaux spécifiques",
+              "displayName": "Objectifs commerciaux spécifiques",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "KPI",
+              "displayName": "KPI",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Budget marketing digital",
+              "displayName": "Budget marketing digital",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ressources disponibles",
+              "displayName": "Ressources disponibles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique des campagnes",
+              "displayName": "Historique des campagnes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Résultats des campagnes précédentes",
+              "displayName": "Résultats des campagnes précédentes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Données démographiques du public cible",
+              "displayName": "Données démographiques du public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démographie Âge",
+              "displayName": "Démographie Âge",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Enfants : 0-2 ans",
+                  "value": "Enfants : 0-2 ans"
+                },
+                {
+                  "name": "Enfants : 3-5 ans",
+                  "value": "Enfants : 3-5 ans"
+                },
+                {
+                  "name": "Enfants : 6-12 ans",
+                  "value": "Enfants : 6-12 ans"
+                },
+                {
+                  "name": "Adolescents : 13-17 ans",
+                  "value": "Adolescents : 13-17 ans"
+                },
+                {
+                  "name": "Jeunes adultes : 18-24 ans",
+                  "value": "Jeunes adultes : 18-24 ans"
+                },
+                {
+                  "name": "Jeunes adultes : 25-34 ans",
+                  "value": "Jeunes adultes : 25-34 ans"
+                },
+                {
+                  "name": "Adultes : 35-44 ans",
+                  "value": "Adultes : 35-44 ans"
+                },
+                {
+                  "name": "Adultes : 45-54 ans",
+                  "value": "Adultes : 45-54 ans"
+                },
+                {
+                  "name": "Adultes : 55-64 ans",
+                  "value": "Adultes : 55-64 ans"
+                },
+                {
+                  "name": "Seniors : 65 ans et plus",
+                  "value": "Seniors : 65 ans et plus"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Démo Sexe",
+              "displayName": "Démo Sexe",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Masculin",
+                  "value": "Masculin"
+                },
+                {
+                  "name": "Féminin",
+                  "value": "Féminin"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Démo Situation Familiale",
+              "displayName": "Démo Situation Familiale",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Célibataire",
+                  "value": "Célibataire"
+                },
+                {
+                  "name": "En couple / Concubinage",
+                  "value": "En couple / Concubinage"
+                },
+                {
+                  "name": "Marié(e)",
+                  "value": "Marié(e)"
+                },
+                {
+                  "name": "Pacsé(e)",
+                  "value": "Pacsé(e)"
+                },
+                {
+                  "name": "Divorcé(e) / Séparé(e)",
+                  "value": "Divorcé(e) / Séparé(e)"
+                },
+                {
+                  "name": "Veuf/Veuve",
+                  "value": "Veuf/Veuve"
+                },
+                {
+                  "name": "Famille recomposée",
+                  "value": "Famille recomposée"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Démo Éducation",
+              "displayName": "Démo Éducation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Aucun diplôme",
+                  "value": "Aucun diplôme"
+                },
+                {
+                  "name": "Niveau primaire",
+                  "value": "Niveau primaire"
+                },
+                {
+                  "name": "Niveau secondaire",
+                  "value": "Niveau secondaire"
+                },
+                {
+                  "name": "Formation professionnelle / Technique",
+                  "value": "Formation professionnelle / Technique"
+                },
+                {
+                  "name": "Bac",
+                  "value": "Bac"
+                },
+                {
+                  "name": "Bac+2 / DUT / BTS",
+                  "value": "Bac+2 / DUT / BTS"
+                },
+                {
+                  "name": "Licence / Bachelor",
+                  "value": "Licence / Bachelor"
+                },
+                {
+                  "name": "Master",
+                  "value": "Master"
+                },
+                {
+                  "name": "Doctorat",
+                  "value": "Doctorat"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Démo Revenu",
+              "displayName": "Démo Revenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "< 20 000",
+                  "value": "< 20 000"
+                },
+                {
+                  "name": "20 000 - 40 000",
+                  "value": "20 000 - 40 000"
+                },
+                {
+                  "name": "40 000 - 60 000",
+                  "value": "40 000 - 60 000"
+                },
+                {
+                  "name": "60 000 - 80 000",
+                  "value": "60 000 - 80 000"
+                },
+                {
+                  "name": "> 80 000",
+                  "value": "> 80 000"
+                },
+                {
+                  "name": "Faible revenu",
+                  "value": "Faible revenu"
+                },
+                {
+                  "name": "Moyen revenu",
+                  "value": "Moyen revenu"
+                },
+                {
+                  "name": "Haut revenu",
+                  "value": "Haut revenu"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Démo Profession",
+              "displayName": "Démo Profession",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Étudiant(e)",
+                  "value": "Étudiant(e)"
+                },
+                {
+                  "name": "Employé(e)",
+                  "value": "Employé(e)"
+                },
+                {
+                  "name": "Cadre / Manager",
+                  "value": "Cadre / Manager"
+                },
+                {
+                  "name": "Profession libérale",
+                  "value": "Profession libérale"
+                },
+                {
+                  "name": "Entrepreneur / Indépendant",
+                  "value": "Entrepreneur / Indépendant"
+                },
+                {
+                  "name": "Ouvrier / Technicien",
+                  "value": "Ouvrier / Technicien"
+                },
+                {
+                  "name": "Retraité(e)",
+                  "value": "Retraité(e)"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Dirigeants",
+                  "value": "Dirigeants"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Démo Localisation",
+              "displayName": "Démo Localisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Pays",
+                  "value": "Pays"
+                },
+                {
+                  "name": "Régions ou départements",
+                  "value": "Régions ou départements"
+                },
+                {
+                  "name": "Villes principales",
+                  "value": "Villes principales"
+                },
+                {
+                  "name": "Zones urbaines",
+                  "value": "Zones urbaines"
+                },
+                {
+                  "name": "Zones rurales",
+                  "value": "Zones rurales"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Canada",
+                  "value": "Canada"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Démo Ethnie",
+              "displayName": "Démo Ethnie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Caucasien(ne)",
+                  "value": "Caucasien(ne)"
+                },
+                {
+                  "name": "Africain(e)",
+                  "value": "Africain(e)"
+                },
+                {
+                  "name": "Asiatique",
+                  "value": "Asiatique"
+                },
+                {
+                  "name": "Hispanique / Latino",
+                  "value": "Hispanique / Latino"
+                },
+                {
+                  "name": "Moyen-oriental(e)",
+                  "value": "Moyen-oriental(e)"
+                },
+                {
+                  "name": "Autochtone",
+                  "value": "Autochtone"
+                },
+                {
+                  "name": "Métis / Multiethnique",
+                  "value": "Métis / Multiethnique"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Démo Langue Parlée",
+              "displayName": "Démo Langue Parlée",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Français",
+                  "value": "Français"
+                },
+                {
+                  "name": "Anglais",
+                  "value": "Anglais"
+                },
+                {
+                  "name": "Espagnol",
+                  "value": "Espagnol"
+                },
+                {
+                  "name": "Allemand",
+                  "value": "Allemand"
+                },
+                {
+                  "name": "Mandarin / Chinois",
+                  "value": "Mandarin / Chinois"
+                },
+                {
+                  "name": "Arabe",
+                  "value": "Arabe"
+                },
+                {
+                  "name": "Portugais",
+                  "value": "Portugais"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Démo Religion",
+              "displayName": "Démo Religion",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Christianisme",
+                  "value": "Christianisme"
+                },
+                {
+                  "name": "Islam",
+                  "value": "Islam"
+                },
+                {
+                  "name": "Judaïsme",
+                  "value": "Judaïsme"
+                },
+                {
+                  "name": "Bouddhisme",
+                  "value": "Bouddhisme"
+                },
+                {
+                  "name": "Hindouisme",
+                  "value": "Hindouisme"
+                },
+                {
+                  "name": "Athéisme / Agnosticisme",
+                  "value": "Athéisme / Agnosticisme"
+                },
+                {
+                  "name": "Autres religions / Spiritualité",
+                  "value": "Autres religions / Spiritualité"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Psycho Type Achat",
+              "displayName": "Psycho Type Achat",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Achat complexe",
+                  "value": "Achat complexe"
+                },
+                {
+                  "name": "Achat réfléchi",
+                  "value": "Achat réfléchi"
+                },
+                {
+                  "name": "Achat impulsif",
+                  "value": "Achat impulsif"
+                },
+                {
+                  "name": "Achat routinier",
+                  "value": "Achat routinier"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Psycho Facteurs Personnels",
+              "displayName": "Psycho Facteurs Personnels",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Préférences individuelles",
+                  "value": "Préférences individuelles"
+                },
+                {
+                  "name": "Style de vie",
+                  "value": "Style de vie"
+                },
+                {
+                  "name": "Situation financière",
+                  "value": "Situation financière"
+                },
+                {
+                  "name": "Expériences passées",
+                  "value": "Expériences passées"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Psycho Facteurs Sociaux",
+              "displayName": "Psycho Facteurs Sociaux",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Influence familiale",
+                  "value": "Influence familiale"
+                },
+                {
+                  "name": "Influence des pairs",
+                  "value": "Influence des pairs"
+                },
+                {
+                  "name": "Influence des réseaux sociaux",
+                  "value": "Influence des réseaux sociaux"
+                },
+                {
+                  "name": "Avis et recommandations",
+                  "value": "Avis et recommandations"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Psycho Psychologiques",
+              "displayName": "Psycho Psychologiques",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Motivations",
+                  "value": "Motivations"
+                },
+                {
+                  "name": "Attitudes et croyances",
+                  "value": "Attitudes et croyances"
+                },
+                {
+                  "name": "Perceptions",
+                  "value": "Perceptions"
+                },
+                {
+                  "name": "Émotions",
+                  "value": "Émotions"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Psycho Culturels",
+              "displayName": "Psycho Culturels",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Valeurs culturelles",
+                  "value": "Valeurs culturelles"
+                },
+                {
+                  "name": "Normes sociales",
+                  "value": "Normes sociales"
+                },
+                {
+                  "name": "Influence des croyances et rituels",
+                  "value": "Influence des croyances et rituels"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Psycho Situationels",
+              "displayName": "Psycho Situationels",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Contextes promotionnels",
+                  "value": "Contextes promotionnels"
+                },
+                {
+                  "name": "Contexte temporel",
+                  "value": "Contexte temporel"
+                },
+                {
+                  "name": "Contexte géographique",
+                  "value": "Contexte géographique"
+                },
+                {
+                  "name": "Urgence ou opportunité",
+                  "value": "Urgence ou opportunité"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Psycho Parcours Achat",
+              "displayName": "Psycho Parcours Achat",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Prise de conscience",
+                  "value": "Prise de conscience"
+                },
+                {
+                  "name": "Recherche d'informations",
+                  "value": "Recherche d'informations"
+                },
+                {
+                  "name": "Évaluation des alternatives",
+                  "value": "Évaluation des alternatives"
+                },
+                {
+                  "name": "Décision d'achat",
+                  "value": "Décision d'achat"
+                },
+                {
+                  "name": "Expérience post-achat",
+                  "value": "Expérience post-achat"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Données psychographiques du public cible",
+              "displayName": "Données psychographiques du public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Comportement d'achat du public cible",
+              "displayName": "Comportement d'achat du public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse",
+              "displayName": "Analyse",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prompts Automation",
+              "displayName": "Prompts Automation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL AI Recherche Démographie",
+              "displayName": "URL AI Recherche Démographie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Url AI Profil Update",
+              "displayName": "Url AI Profil Update",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tâches IA",
+              "displayName": "Tâches IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Note Tâche",
+              "displayName": "Note Tâche",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Poste Employé",
+              "displayName": "Poste Employé",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Photo Employé",
+              "displayName": "Photo Employé",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Active",
+                  "value": "Active"
+                },
+                {
+                  "name": "Archiver",
+                  "value": "Archiver"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "IA",
+              "displayName": "IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Analyse Entreprise",
+              "displayName": "Analyse Entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status Somme",
+              "displayName": "Status Somme",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status Documents %",
+              "displayName": "Status Documents %",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Sommaire du Profil",
+              "displayName": "Sommaire du Profil",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Copie de Sommaire du Profil",
+              "displayName": "Copie de Sommaire du Profil",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Job IA Public Cible",
+              "displayName": "Job IA Public Cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1340,
+        -360
+      ],
+      "id": "d12546e7-d143-4dfb-afd0-d0f88d2438bc",
+      "name": "Update Entreprise1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblcKAzWvaqtKCViz",
+          "mode": "list",
+          "cachedResultName": "Tâches IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblcKAzWvaqtKCViz"
+        },
+        "filterByFormula": "={Numéro} = {{ $('Data').item.json.query.tia }}",
+        "returnAll": false,
+        "limit": 1,
+        "options": {
+          "fields": [
+            "Record_Prompts_Automation_ID_str",
+            "Nom"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -440,
+        220
+      ],
+      "id": "17e116f3-c826-40c2-b62a-9e064594587a",
+      "name": "Get Task AI Details2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl1Hv3ciev3pDQkI",
+          "mode": "list",
+          "cachedResultName": "Prompts Automation",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tbl1Hv3ciev3pDQkI"
+        },
+        "filterByFormula": "=FIND(\"{{ $('Get Task AI Details2').item.json.id }}\", {Record_Taches_IA_ID_str}) > 0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -20,
+        220
+      ],
+      "id": "1c50adc9-74db-4da8-9fce-3c14eb1442c8",
+      "name": "Get Prompts2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqRCxeiPZCmQ99p",
+          "mode": "list",
+          "cachedResultName": "Jobs IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblqRCxeiPZCmQ99p"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tâche IA": "=[\"{{ $json.id }}\"]",
+            "Status": "En cours",
+            "Name": "={{ $json.Nom }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "À faire",
+                  "value": "À faire"
+                },
+                {
+                  "name": "En cours",
+                  "value": "En cours"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tâche IA",
+              "displayName": "Tâche IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        220
+      ],
+      "id": "2786b412-8a22-448e-a714-6d4b1ded3177",
+      "name": "Add a new Job2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl89wOgX1SxreDea",
+          "mode": "list",
+          "cachedResultName": "Entreprise",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tbl89wOgX1SxreDea"
+        },
+        "filterByFormula": "{Numéro} = 1",
+        "returnAll": false,
+        "limit": 1,
+        "options": {
+          "fields": [
+            "Sommaire du Profil",
+            "Job IA Public Cible",
+            "Sommaire Démographique"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        240,
+        220
+      ],
+      "id": "751e6c86-2ed5-41a6-ad8d-9a0a5bdf4ad6",
+      "name": "Get Main Entreprise Record2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json['Sommaire du Profil'] }}\n\n{{ $json['Sommaire Démographique'] }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $('Get Prompts2').item.json.Prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        700,
+        240
+      ],
+      "id": "3f63047c-8a3a-478b-a274-fa128b88ee7a",
+      "name": "Basic LLM Chain2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "o3-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        620,
+        500
+      ],
+      "id": "161d504a-8957-4b11-bb4a-2d7e22864206",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"title\": \"Analyse Psychographique du Public Cible\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"psychographics\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"personnalite\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Extraverti\",\n                  \"Introverti\",\n                  \"Ambitieux\",\n                  \"Créatif\",\n                  \"Pragmatique\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Raisonnement justifiant le choix de la ou des valeurs de personnalité.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"valeurs\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Engagement écologique\",\n                  \"Bien-être\",\n                  \"Ambition professionnelle\",\n                  \"Solidarité\",\n                  \"Spiritualité\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Raisonnement justifiant le choix des valeurs.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"interets_passion\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Sport\",\n                  \"Lecture\",\n                  \"Entrepreneuriat\",\n                  \"Voyages\",\n                  \"Développement personnel\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Raisonnement justifiant le choix des intérêts et passions.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"mode_de_vie\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Actif\",\n                  \"Sédentaire\",\n                  \"Minimaliste\",\n                  \"Luxe\",\n                  \"Famille avant tout\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Raisonnement justifiant le choix du mode de vie.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"attitudes_et_croyances\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Méfiance envers la publicité\",\n                  \"Préférence pour les marques locales\",\n                  \"Attachement à certaines traditions\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Raisonnement justifiant le choix des attitudes et croyances.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"motivations\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Recherche de succès\",\n                  \"Besoin de reconnaissance\",\n                  \"Sécurité financière\",\n                  \"Bien-être personnel\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Raisonnement justifiant le choix des motivations.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"peurs_et_freins\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Peur de l’échec\",\n                  \"Manque de confiance en soi\",\n                  \"Rejet du changement\",\n                  \"Crainte des engagements à long terme\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Raisonnement justifiant le choix des peurs et freins.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        },\n        \"comportements_achat\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"selected_values\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"items\": {\n                \"type\": \"string\",\n                \"enum\": [\n                  \"Achat impulsif\",\n                  \"Achat réfléchi\",\n                  \"Adepte des promotions\",\n                  \"Fidélité à certaines marques\",\n                  \"Autre\"\n                ]\n              }\n            },\n            \"chain_of_thought\": {\n              \"type\": \"string\",\n              \"description\": \"Raisonnement justifiant le choix des comportements d'achat.\"\n            }\n          },\n          \"required\": [\"selected_values\", \"chain_of_thought\"]\n        }\n      },\n      \"required\": [\n        \"personnalite\",\n        \"valeurs\",\n        \"interets_passion\",\n        \"mode_de_vie\",\n        \"attitudes_et_croyances\",\n        \"motivations\",\n        \"peurs_et_freins\",\n        \"comportements_achat\"\n      ]\n    },\n    \"overall_analysis\": {\n      \"type\": \"string\",\n      \"description\": \"Synthèse globale de l'analyse psychographique.\"\n    }\n  },\n  \"required\": [\"psychographics\", \"overall_analysis\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        860,
+        480
+      ],
+      "id": "8237edf2-7ffd-4fd3-ad19-8a0db268c16d",
+      "name": "Structured Output Parser2"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqRCxeiPZCmQ99p",
+          "mode": "list",
+          "cachedResultName": "Jobs IA",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblqRCxeiPZCmQ99p"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Add a new Job2').item.json.id }}",
+            "Status": "Complété",
+            "Notes": "=Analyse avec l'IA des données psychographiques du public cible. Recommandation :\n\nPersonnalité :\n{{ $('Basic LLM Chain2').item.json.output.psychographics.personnalite.chain_of_thought }}\n\nValeurs :\n{{ $('Basic LLM Chain2').item.json.output.psychographics.valeurs.chain_of_thought }}\n\nMotivations :\n{{ $('Basic LLM Chain2').item.json.output.psychographics.motivations.chain_of_thought }}\n\nComportements d'achat :\n{{ $('Basic LLM Chain2').item.json.output.psychographics.comportements_achat.chain_of_thought }}\n\nIntérêts et passions :\n{{ $('Basic LLM Chain2').item.json.output.psychographics.interets_passion.chain_of_thought }}\n\nMode de vie :\n{{ $('Basic LLM Chain2').item.json.output.psychographics.mode_de_vie.chain_of_thought }}\n\nAttitudes et croyances :\n{{ $('Basic LLM Chain2').item.json.output.psychographics.attitudes_et_croyances.chain_of_thought }}\n\nPeurs et freins :\n{{ $('Basic LLM Chain2').item.json.output.psychographics.peurs_et_freins.chain_of_thought }}\n\nVie d'ensemble :\n{{ $('Basic LLM Chain2').item.json.output.overall_analysis }}\n\n"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Dernière Modification",
+              "displayName": "Date Dernière Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "À faire",
+                  "value": "À faire"
+                },
+                {
+                  "name": "En cours",
+                  "value": "En cours"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tâche IA",
+              "displayName": "Tâche IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1400,
+        240
+      ],
+      "id": "681d07d0-be31-401d-9ce4-ceade22cdf7b",
+      "name": "Update Jobs2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl89wOgX1SxreDea",
+          "mode": "list",
+          "cachedResultName": "Entreprise",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tbl89wOgX1SxreDea"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Get Main Entreprise Record2').item.json.id }}",
+            "Psycho Personnalité": "={{ $json.output.psychographics.personnalite.selected_values }}",
+            "Psycho Valeurs": "={{ $json.output.psychographics.valeurs.selected_values }}",
+            "Psycho Intérêts et passions": "={{ $json.output.psychographics.interets_passion.selected_values }}",
+            "Psycho Mode de vie": "={{ $json.output.psychographics.mode_de_vie.selected_values }}",
+            "Psycho Attitudes et croyances": "={{ $json.output.psychographics.attitudes_et_croyances.selected_values }}",
+            "Psycho Motivations": "={{ $json.output.psychographics.motivations.selected_values }}",
+            "Psycho Peurs et freins": "={{ $json.output.psychographics.peurs_et_freins.selected_values }}",
+            "Psycho Comportements d'achat": "={{ $json.output.psychographics.comportements_achat.selected_values }}",
+            "Job IA Psycho Cible": "=[\"{{ $('Add a new Job2').item.json.id }}\"]"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Nom de l'entreprise",
+              "displayName": "Nom de l'entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Record_ID",
+              "displayName": "Record_ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Numéro",
+              "displayName": "Numéro",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Logo",
+              "displayName": "Logo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Mission de l'entreprise",
+              "displayName": "Mission de l'entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Valeurs principales",
+              "displayName": "Valeurs principales",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Produits/Services proposés",
+              "displayName": "Produits/Services proposés",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Public cible",
+              "displayName": "Public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "B2B",
+                  "value": "B2B"
+                },
+                {
+                  "name": "B2C",
+                  "value": "B2C"
+                },
+                {
+                  "name": "Dirigeants",
+                  "value": "Dirigeants"
+                },
+                {
+                  "name": "Entrepreneurs",
+                  "value": "Entrepreneurs"
+                },
+                {
+                  "name": "Équipes",
+                  "value": "Équipes"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Région/Pays d'opération",
+              "displayName": "Région/Pays d'opération",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Canada",
+                  "value": "Canada"
+                },
+                {
+                  "name": "France",
+                  "value": "France"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Marché",
+              "displayName": "Marché",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique et contexte",
+              "displayName": "Historique et contexte",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectifs marketing généraux",
+              "displayName": "Objectifs marketing généraux",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Site Web de l'entreprise",
+              "displayName": "Site Web de l'entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Principaux concurrents",
+              "displayName": "Principaux concurrents",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Canaux de communication actuels",
+              "displayName": "Canaux de communication actuels",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Performance des canaux",
+              "displayName": "Performance des canaux",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectifs commerciaux spécifiques",
+              "displayName": "Objectifs commerciaux spécifiques",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "KPI",
+              "displayName": "KPI",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Budget marketing digital",
+              "displayName": "Budget marketing digital",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ressources disponibles",
+              "displayName": "Ressources disponibles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique des campagnes",
+              "displayName": "Historique des campagnes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Résultats des campagnes précédentes",
+              "displayName": "Résultats des campagnes précédentes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Données démographiques du public cible",
+              "displayName": "Données démographiques du public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démographie Âge",
+              "displayName": "Démographie Âge",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Enfants : 0-2 ans",
+                  "value": "Enfants : 0-2 ans"
+                },
+                {
+                  "name": "Enfants : 3-5 ans",
+                  "value": "Enfants : 3-5 ans"
+                },
+                {
+                  "name": "Enfants : 6-12 ans",
+                  "value": "Enfants : 6-12 ans"
+                },
+                {
+                  "name": "Adolescents : 13-17 ans",
+                  "value": "Adolescents : 13-17 ans"
+                },
+                {
+                  "name": "Jeunes adultes : 18-24 ans",
+                  "value": "Jeunes adultes : 18-24 ans"
+                },
+                {
+                  "name": "Jeunes adultes : 25-34 ans",
+                  "value": "Jeunes adultes : 25-34 ans"
+                },
+                {
+                  "name": "Adultes : 35-44 ans",
+                  "value": "Adultes : 35-44 ans"
+                },
+                {
+                  "name": "Adultes : 45-54 ans",
+                  "value": "Adultes : 45-54 ans"
+                },
+                {
+                  "name": "Adultes : 55-64 ans",
+                  "value": "Adultes : 55-64 ans"
+                },
+                {
+                  "name": "Seniors : 65 ans et plus",
+                  "value": "Seniors : 65 ans et plus"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démo Sexe",
+              "displayName": "Démo Sexe",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Masculin",
+                  "value": "Masculin"
+                },
+                {
+                  "name": "Féminin",
+                  "value": "Féminin"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démo Situation Familiale",
+              "displayName": "Démo Situation Familiale",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Célibataire",
+                  "value": "Célibataire"
+                },
+                {
+                  "name": "En couple / Concubinage",
+                  "value": "En couple / Concubinage"
+                },
+                {
+                  "name": "Marié(e)",
+                  "value": "Marié(e)"
+                },
+                {
+                  "name": "Pacsé(e)",
+                  "value": "Pacsé(e)"
+                },
+                {
+                  "name": "Divorcé(e) / Séparé(e)",
+                  "value": "Divorcé(e) / Séparé(e)"
+                },
+                {
+                  "name": "Veuf/Veuve",
+                  "value": "Veuf/Veuve"
+                },
+                {
+                  "name": "Famille recomposée",
+                  "value": "Famille recomposée"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démo Éducation",
+              "displayName": "Démo Éducation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Aucun diplôme",
+                  "value": "Aucun diplôme"
+                },
+                {
+                  "name": "Niveau primaire",
+                  "value": "Niveau primaire"
+                },
+                {
+                  "name": "Niveau secondaire",
+                  "value": "Niveau secondaire"
+                },
+                {
+                  "name": "Formation professionnelle / Technique",
+                  "value": "Formation professionnelle / Technique"
+                },
+                {
+                  "name": "Bac",
+                  "value": "Bac"
+                },
+                {
+                  "name": "Bac+2 / DUT / BTS",
+                  "value": "Bac+2 / DUT / BTS"
+                },
+                {
+                  "name": "Licence / Bachelor",
+                  "value": "Licence / Bachelor"
+                },
+                {
+                  "name": "Master",
+                  "value": "Master"
+                },
+                {
+                  "name": "Doctorat",
+                  "value": "Doctorat"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démo Revenu",
+              "displayName": "Démo Revenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "< 20 000",
+                  "value": "< 20 000"
+                },
+                {
+                  "name": "20 000 - 40 000",
+                  "value": "20 000 - 40 000"
+                },
+                {
+                  "name": "40 000 - 60 000",
+                  "value": "40 000 - 60 000"
+                },
+                {
+                  "name": "60 000 - 80 000",
+                  "value": "60 000 - 80 000"
+                },
+                {
+                  "name": "> 80 000",
+                  "value": "> 80 000"
+                },
+                {
+                  "name": "Faible revenu",
+                  "value": "Faible revenu"
+                },
+                {
+                  "name": "Moyen revenu",
+                  "value": "Moyen revenu"
+                },
+                {
+                  "name": "Haut revenu",
+                  "value": "Haut revenu"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démo Profession",
+              "displayName": "Démo Profession",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Étudiant(e)",
+                  "value": "Étudiant(e)"
+                },
+                {
+                  "name": "Employé(e)",
+                  "value": "Employé(e)"
+                },
+                {
+                  "name": "Cadre / Manager",
+                  "value": "Cadre / Manager"
+                },
+                {
+                  "name": "Profession libérale",
+                  "value": "Profession libérale"
+                },
+                {
+                  "name": "Entrepreneur / Indépendant",
+                  "value": "Entrepreneur / Indépendant"
+                },
+                {
+                  "name": "Ouvrier / Technicien",
+                  "value": "Ouvrier / Technicien"
+                },
+                {
+                  "name": "Retraité(e)",
+                  "value": "Retraité(e)"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Dirigeants",
+                  "value": "Dirigeants"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démo Localisation",
+              "displayName": "Démo Localisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Pays",
+                  "value": "Pays"
+                },
+                {
+                  "name": "Régions ou départements",
+                  "value": "Régions ou départements"
+                },
+                {
+                  "name": "Villes principales",
+                  "value": "Villes principales"
+                },
+                {
+                  "name": "Zones urbaines",
+                  "value": "Zones urbaines"
+                },
+                {
+                  "name": "Zones rurales",
+                  "value": "Zones rurales"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Canada",
+                  "value": "Canada"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démo Ethnie",
+              "displayName": "Démo Ethnie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Caucasien(ne)",
+                  "value": "Caucasien(ne)"
+                },
+                {
+                  "name": "Africain(e)",
+                  "value": "Africain(e)"
+                },
+                {
+                  "name": "Asiatique",
+                  "value": "Asiatique"
+                },
+                {
+                  "name": "Hispanique / Latino",
+                  "value": "Hispanique / Latino"
+                },
+                {
+                  "name": "Moyen-oriental(e)",
+                  "value": "Moyen-oriental(e)"
+                },
+                {
+                  "name": "Autochtone",
+                  "value": "Autochtone"
+                },
+                {
+                  "name": "Métis / Multiethnique",
+                  "value": "Métis / Multiethnique"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démo Langue Parlée",
+              "displayName": "Démo Langue Parlée",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Français",
+                  "value": "Français"
+                },
+                {
+                  "name": "Anglais",
+                  "value": "Anglais"
+                },
+                {
+                  "name": "Espagnol",
+                  "value": "Espagnol"
+                },
+                {
+                  "name": "Allemand",
+                  "value": "Allemand"
+                },
+                {
+                  "name": "Mandarin / Chinois",
+                  "value": "Mandarin / Chinois"
+                },
+                {
+                  "name": "Arabe",
+                  "value": "Arabe"
+                },
+                {
+                  "name": "Portugais",
+                  "value": "Portugais"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Démo Religion",
+              "displayName": "Démo Religion",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Christianisme",
+                  "value": "Christianisme"
+                },
+                {
+                  "name": "Islam",
+                  "value": "Islam"
+                },
+                {
+                  "name": "Judaïsme",
+                  "value": "Judaïsme"
+                },
+                {
+                  "name": "Bouddhisme",
+                  "value": "Bouddhisme"
+                },
+                {
+                  "name": "Hindouisme",
+                  "value": "Hindouisme"
+                },
+                {
+                  "name": "Athéisme / Agnosticisme",
+                  "value": "Athéisme / Agnosticisme"
+                },
+                {
+                  "name": "Autres religions / Spiritualité",
+                  "value": "Autres religions / Spiritualité"
+                },
+                {
+                  "name": "Tous",
+                  "value": "Tous"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Données psychographiques du public cible",
+              "displayName": "Données psychographiques du public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Psycho Personnalité",
+              "displayName": "Psycho Personnalité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Extraverti",
+                  "value": "Extraverti"
+                },
+                {
+                  "name": "Introverti",
+                  "value": "Introverti"
+                },
+                {
+                  "name": "Ambitieux",
+                  "value": "Ambitieux"
+                },
+                {
+                  "name": "Créatif",
+                  "value": "Créatif"
+                },
+                {
+                  "name": "Pragmatique",
+                  "value": "Pragmatique"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Psycho Valeurs",
+              "displayName": "Psycho Valeurs",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Engagement écologique",
+                  "value": "Engagement écologique"
+                },
+                {
+                  "name": "Bien-être",
+                  "value": "Bien-être"
+                },
+                {
+                  "name": "Ambition professionnelle",
+                  "value": "Ambition professionnelle"
+                },
+                {
+                  "name": "Solidarité",
+                  "value": "Solidarité"
+                },
+                {
+                  "name": "Spiritualité",
+                  "value": "Spiritualité"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Psycho Intérêts et passions",
+              "displayName": "Psycho Intérêts et passions",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Sport",
+                  "value": "Sport"
+                },
+                {
+                  "name": "Lecture",
+                  "value": "Lecture"
+                },
+                {
+                  "name": "Entrepreneuriat",
+                  "value": "Entrepreneuriat"
+                },
+                {
+                  "name": "Voyages",
+                  "value": "Voyages"
+                },
+                {
+                  "name": "Développement personnel",
+                  "value": "Développement personnel"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Psycho Mode de vie",
+              "displayName": "Psycho Mode de vie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Actif",
+                  "value": "Actif"
+                },
+                {
+                  "name": "Sédentaire",
+                  "value": "Sédentaire"
+                },
+                {
+                  "name": "Minimaliste",
+                  "value": "Minimaliste"
+                },
+                {
+                  "name": "Luxe",
+                  "value": "Luxe"
+                },
+                {
+                  "name": "Famille avant tout",
+                  "value": "Famille avant tout"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Psycho Attitudes et croyances",
+              "displayName": "Psycho Attitudes et croyances",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Méfiance envers la publicité",
+                  "value": "Méfiance envers la publicité"
+                },
+                {
+                  "name": "Préférence pour les marques locales",
+                  "value": "Préférence pour les marques locales"
+                },
+                {
+                  "name": "Attachement à certaines traditions",
+                  "value": "Attachement à certaines traditions"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Psycho Motivations",
+              "displayName": "Psycho Motivations",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Recherche de succès",
+                  "value": "Recherche de succès"
+                },
+                {
+                  "name": "Besoin de reconnaissance",
+                  "value": "Besoin de reconnaissance"
+                },
+                {
+                  "name": "Sécurité financière",
+                  "value": "Sécurité financière"
+                },
+                {
+                  "name": "Bien-être personnel",
+                  "value": "Bien-être personnel"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Psycho Peurs et freins",
+              "displayName": "Psycho Peurs et freins",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Peur de l’échec",
+                  "value": "Peur de l’échec"
+                },
+                {
+                  "name": "Manque de confiance en soi",
+                  "value": "Manque de confiance en soi"
+                },
+                {
+                  "name": "Rejet du changement",
+                  "value": "Rejet du changement"
+                },
+                {
+                  "name": "Crainte des engagements à long terme",
+                  "value": "Crainte des engagements à long terme"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Psycho Comportements d'achat",
+              "displayName": "Psycho Comportements d'achat",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Achat impulsif",
+                  "value": "Achat impulsif"
+                },
+                {
+                  "name": "Achat réfléchi",
+                  "value": "Achat réfléchi"
+                },
+                {
+                  "name": "Adepte des promotions",
+                  "value": "Adepte des promotions"
+                },
+                {
+                  "name": "Fidélité à certaines marques",
+                  "value": "Fidélité à certaines marques"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Comportement d'achat du public cible",
+              "displayName": "Comportement d'achat du public cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse",
+              "displayName": "Analyse",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prompts Automation",
+              "displayName": "Prompts Automation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL AI Recherche Psychographiques",
+              "displayName": "URL AI Recherche Psychographiques",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "URL AI Recherche Démographie",
+              "displayName": "URL AI Recherche Démographie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Url AI Profil Update",
+              "displayName": "Url AI Profil Update",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tâches IA",
+              "displayName": "Tâches IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Note Tâche",
+              "displayName": "Note Tâche",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Poste Employé",
+              "displayName": "Poste Employé",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Photo Employé",
+              "displayName": "Photo Employé",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Active",
+                  "value": "Active"
+                },
+                {
+                  "name": "Archiver",
+                  "value": "Archiver"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "IA",
+              "displayName": "IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Analyse Entreprise",
+              "displayName": "Analyse Entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status Somme",
+              "displayName": "Status Somme",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status Documents %",
+              "displayName": "Status Documents %",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Sommaire du Profil",
+              "displayName": "Sommaire du Profil",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Sommaire Démographique",
+              "displayName": "Sommaire Démographique",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Copie de Sommaire du Profil",
+              "displayName": "Copie de Sommaire du Profil",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Job IA Public Cible",
+              "displayName": "Job IA Public Cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Job IA Psycho Cible",
+              "displayName": "Job IA Psycho Cible",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1180,
+        240
+      ],
+      "id": "7b67a683-e58f-49c6-968f-223ede627d2a",
+      "name": "Update Entreprise2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-10T20:30:01.598Z",
+      "updatedAt": "2024-12-10T20:30:01.598Z",
+      "id": "F771zq5Qm7kvL27R",
+      "name": "Airtable"
+    },
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-03-11T11:08:28.000Z",
+  "versionId": "5c1efb78-fdee-4c4e-99b5-290f7ef5b855"
+}
