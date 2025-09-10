@@ -1,0 +1,443 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "set execution url",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update job",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update job",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "set execution url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set execution url": {
+      "main": [
+        [
+          {
+            "node": "Save to n8n_error_logs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update job": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-01-09T18:38:28.674Z",
+  "id": "mcwdWCVbgAM3Fr0W",
+  "isArchived": false,
+  "meta": null,
+  "name": "Services - LoRA Training errors",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        40
+      ],
+      "id": "b097e5fa-ec02-45e9-96cd-483ef13f40ca",
+      "name": "Execute Workflow Trigger"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "slack",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Slack"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "abaf1237-44d6-4abe-b98a-bd59f8e8623b",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "client",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Client"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6b2dcad8-24cf-4fba-81a9-96103dd370a8",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "both",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Both"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -580,
+        40
+      ],
+      "id": "70bc23d0-7f9d-46c8-b214-fe8ad61cc283",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"workflow_name\": \"{{ $json.workflow.name }}\",\n  \"workflow_id\": \"{{ $json.workflow.id }}\",\n  \"execution\": {\n    \"error\": {\n      \"message\": \"{{ $json.error_message }}\"\n    },\n    \"url\": \"https://boostperformance.app.n8n.cloud/workflow/{{ $json.workflow.id }}/executions/{{ $json.execution.id }}\"\n  }\n}\n",
+        "options": {}
+      },
+      "id": "916033c5-d6d1-47f0-85a6-3d32750f5dca",
+      "name": "set execution url",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.jobId }}",
+            "progress": 100,
+            "status": "error",
+            "progress_status": "Une erreur c'est produite"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5e94df86-f3c4-4238-ab3b-8f88efd71fb1",
+      "name": "Update job",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -240,
+        60
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "n8n_error_logs",
+          "mode": "list",
+          "cachedResultName": "n8n_error_logs"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "workflow_name",
+              "displayName": "workflow_name",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "workflow_id",
+              "displayName": "workflow_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "execution",
+              "displayName": "execution",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "58a0c9cf-ea14-4e2b-afcd-76e1edae3b4a",
+      "name": "Save to n8n_error_logs",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -40,
+        -140
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T16:32:57.263Z",
+      "updatedAt": "2024-12-18T16:32:57.263Z",
+      "id": "amjVeuraiVY1rsI9",
+      "name": "Dev:Bill"
+    },
+    {
+      "createdAt": "2025-01-09T18:43:24.496Z",
+      "updatedAt": "2025-01-09T18:43:24.496Z",
+      "id": "ibTp4QS6HcCdS2fo",
+      "name": "LoRA training"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-13T15:43:45.000Z",
+  "versionId": "12dc9228-f94b-4373-99c4-1c228b070772"
+}
