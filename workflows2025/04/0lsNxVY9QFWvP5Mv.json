@@ -1,0 +1,289 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Convert with rapidapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert with rapidapi": {
+      "main": [
+        [
+          {
+            "node": "Get new file path",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to DO": {
+      "main": [
+        [
+          {
+            "node": "Delete original",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get new file path": {
+      "main": [
+        [
+          {
+            "node": "Upload to DO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete original": {
+      "main": [
+        [
+          {
+            "node": "Delete original1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set download url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete original1": {
+      "main": [
+        [
+          {
+            "node": "Set download url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-10T14:07:50.475Z",
+  "id": "0lsNxVY9QFWvP5Mv",
+  "isArchived": false,
+  "meta": null,
+  "name": "Compress image to webp",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "image_url"
+            },
+            {
+              "name": "delete_original",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d93a2c19-9d73-4dc5-976c-a3af50a43e7d",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "url": "https://bulk-image-converter.p.rapidapi.com/convert-single-pro",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "imageUrls",
+              "value": "={{ $json.image_url }}"
+            },
+            {
+              "name": "format",
+              "value": "webp"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-key",
+              "value": "c34f7b4b1fmsh76a639f2f604343p1251ecjsnf64feb37711f"
+            },
+            {
+              "name": "x-rapidapi-host",
+              "value": "bulk-image-converter.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        0
+      ],
+      "id": "48fc884f-fc94-41ab-93dc-23181f562c33",
+      "name": "Convert with rapidapi"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "function extractPathSegment(url) {\n  const match = url.match(/digitaloceanspaces\\.com\\/([^?#]+?)(?=\\.[a-zA-Z0-9]+(?:[\\?#]|$))/);\n  return match ? match[1] : null;\n}\n\nfunction extractFullPathWithExtension(url) {\n  const match = url.match(/digitaloceanspaces\\.com\\/([^?#]+)/);\n  return match ? match[1] : null;\n}\n\nconst imageUrl = $('When Executed by Another Workflow').item.json.image_url\n\nconst filename = extractPathSegment(imageUrl)\nconst original_filename = extractFullPathWithExtension(imageUrl)\n\n$input.item.json.filename = filename + '.webp'\n$input.item.json.digitalocean_url = 'https://boost-data.nyc3.cdn.digitaloceanspaces.com/' + $input.item.json.filename\n$input.item.json.original_path = original_filename\n\nreturn $input.item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        0
+      ],
+      "id": "30083226-fd1e-443b-85aa-13d12cbd1d45",
+      "name": "Get new file path"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ $json.filename }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        860,
+        0
+      ],
+      "id": "236dbe3a-cd66-4a1a-8399-bbcbd9a31224",
+      "name": "Upload to DO",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ecb6f3bc-59ad-48c4-9c4a-50d2eaede73e",
+              "name": "url",
+              "value": "={{ $('Get new file path').item.json.digitalocean_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1840,
+        0
+      ],
+      "id": "3c590591-3d95-41d4-98e8-b03087530eec",
+      "name": "Set download url"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c7fb8619-b596-4a0b-82f7-2dd58d13c264",
+              "leftValue": "={{ $('When Executed by Another Workflow').item.json.delete_original }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1140,
+        0
+      ],
+      "id": "8408e079-cc8b-46f9-9788-122e0e234621",
+      "name": "Delete original"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "bucketName": "boost-data",
+        "fileKey": "={{ $('Get new file path').item.json.original_path }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        -180
+      ],
+      "id": "7d48bf87-be85-4d7a-a4b5-0a038e415d4c",
+      "name": "Delete original1",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-09T18:54:30.662Z",
+      "updatedAt": "2025-04-09T18:54:30.662Z",
+      "id": "bwORh3v4jHXqexLE",
+      "name": "Publishing"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-11T14:44:59.000Z",
+  "versionId": "6cd911b9-4670-4ab7-86b7-8f6ad6aab0c9"
+}
