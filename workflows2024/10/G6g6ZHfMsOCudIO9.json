@@ -1,0 +1,91 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Routine Configs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Routine Configs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-22T17:40:22.221Z",
+  "id": "G6g6ZHfMsOCudIO9",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Get Routine Configs",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "0f9c4b3d-6e33-4fbb-810a-ff16f17e0103",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        620,
+        700
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ad800ef9-29a0-4083-84a8-625394b0255e",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        620,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"ytprocessing\": {\n    \"workflowId\": \"v1ABYZGLwhz7ZUzD\",\n    \"label\": \"YouTube Processing\",\n    \"key\": \"ytprocessing\"\n  },\n  \"audio_transcribe\": {\n    \"workflowId\": \"TQwLRAvAsiPlRh2e\",\n    \"label\": \"Audio Transcription\",\n    \"key\": \"audio_transcribe\"\n  },\n  \"jingle\": {\n    \"workflowId\": \"TXzKcgk3jdVPUSuG\",\n    \"label\": \"Jingle Creation\",\n    \"key\": \"jingle\"\n  },\n  \"news_generation\": {\n    \"workflowId\": \"AmssePmvqt0m3mto\",\n    \"label\": \"News Generation\",\n    \"key\": \"news_generation\"\n  },\n  \"youtube_news\": {\n    \"workflowId\": \"rtrT2zXsiJ7247tp\",\n    \"label\": \"YouTube News Generation\",\n    \"key\": \"youtube_news\"\n  },\n\n  \"jingle_create_publish_radio\": {\n    \"workflowId\": \"0eusKan1ZZK6suzz\",\n    \"label\": \"Create and Publish Jingle\",\n    \"key\": \"jingle_create_publish_radio\"\n  },\n  \"jingle_upload_publish_radio\": {\n    \"workflowId\": \"WxW8Y02FAfHHedjI\",\n    \"label\": \"Upload and Publish Jingle\",\n    \"key\": \"jingle_upload_publish_radio\"\n  },\n  \"upload_audio_transcribe\": {\n    \"workflowId\": \"qhacaYh6lRqh028L\",\n    \"label\": \"Upload and Transcribe\",\n    \"key\": \"upload_audio_transcribe\"\n  },\n  \"test\": {\n    \"workflowId\": \"DCbqxL8LMo3Cftfd\",\n    \"label\": \"Generation Demo\",\n    \"key\": \"test\"\n  },\n  \"demo_bill\": {\n    \"workflowId\": \"c5YunxHWwFEy8PMs\",\n    \"label\": \"Demo Bill\",\n    \"key\": \"demo_bill\"\n  }\n  \n}\n",
+        "options": {}
+      },
+      "id": "4ce068f9-9c17-4b07-9d4a-3a895fb4d08a",
+      "name": "Routine Configs",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1020,
+        600
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-13T02:10:21.000Z",
+  "versionId": "bd62cf76-66ea-4c49-8756-bdcd242aba0e"
+}
