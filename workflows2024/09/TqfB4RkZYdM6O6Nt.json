@@ -1,0 +1,665 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Video Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the Podcast Transcript": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Select Timestamp Sequence": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Sequence Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Sequence Data": {
+      "main": [
+        [
+          {
+            "node": "Set Log Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the Podcast Intro Transcript": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Select Timestamp Sequence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Podcast Exists?": {
+      "main": [
+        [
+          {
+            "node": "Is Status is transcript_completed?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Error Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Status is transcript_completed?": {
+      "main": [
+        [
+          {
+            "node": "Get the Podcast Intro Transcript",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get the Podcast Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Error Log1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Error Log": {
+      "main": [
+        [
+          {
+            "node": "Save Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Error Log1": {
+      "main": [
+        [
+          {
+            "node": "Save Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Log Success": {
+      "main": [
+        [
+          {
+            "node": "Save Log1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Log1": {
+      "main": [
+        [
+          {
+            "node": "Return Sequence Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Video Details": {
+      "main": [
+        [
+          {
+            "node": "Podcast Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-09T20:32:35.938Z",
+  "id": "TqfB4RkZYdM6O6Nt",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Extract Images From YT Video",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "93bdeaa6-8a52-46ba-bce8-58b6f5e4c235",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -880,
+        760
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "8b9b2bac-fd21-4970-bb9c-ffe30455f77b",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -860,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "4acf5a53-93fd-4403-b6ad-0cfaaa872e3e",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -660,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT `start`,`text`,`speaker` FROM `jungle_transcripts` WHERE `podcast_id` = {{ $('Workflow Data').item.json[\"podcast_id\"] }} ORDER BY `id` LIMIT 100,30; ",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "889043e8-0e55-4350-9cc5-51fdc1073239",
+      "name": "Get the Podcast Transcript",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        520,
+        420
+      ],
+      "retryOnFail": true,
+      "alwaysOutputData": false,
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a37929ca-aa3a-438d-b136-c1ef6989d649",
+              "name": "timestamp",
+              "value": "={{ ($json.start + 2000 ) / 1000 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d94f0231-6914-4c15-b98b-c314e2f329f4",
+      "name": "Select Timestamp Sequence",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        980,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "sequence",
+        "options": {}
+      },
+      "id": "3133aef8-9ef7-405a-939b-13ff9c4a57fe",
+      "name": "Aggregate Sequence Data",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "764421d5-6231-4c29-9cf6-47b3b2f30bc7",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            },
+            {
+              "id": "79df8f78-2091-487c-b499-660fcc616804",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "id": "73e7e612-97e2-467f-8f6a-d31ad10843ea",
+              "name": "sequence",
+              "value": "={{ $('Aggregate Sequence Data').item.json[\"sequence\"] }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dc7f1495-9e8a-4fa9-97e0-a100ef4f91a5",
+      "name": "Return Sequence Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1760,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT `start`,`text`,`speaker` FROM `jungle_transcripts` WHERE `podcast_id` = {{ $('Workflow Data').item.json[\"podcast_id\"] }} ORDER BY `id` LIMIT 1; ",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "de30d9ec-4c6b-4716-89a4-1ad29c4101d6",
+      "name": "Get the Podcast Intro Transcript",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        520,
+        180
+      ],
+      "retryOnFail": true,
+      "alwaysOutputData": false,
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "d1da3488-8f04-4725-b9cf-6f2c172d4e5f",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        800,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "n6aTf9L7yrxjW418",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "4eb3d381-0373-4f15-9ce2-848ed8b9bffb",
+      "name": "Save Log",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "16d62bbb-cf9c-485a-a104-42a9c653f825",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f948f2f5-60ec-49bb-90b4-0f19dfb3c71c",
+      "name": "Podcast Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "8a71d5cb-06a9-4934-a1f6-fecceeaeafdd",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "transcript_completed",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "25a68122-4143-4069-9826-dcdf4f9180fd",
+      "name": "Is Status is transcript_completed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        100,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d8f32c58-460d-41e5-bcd1-b75d7c2dc1c0",
+              "name": "status",
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "id": "4e9bce30-61e4-4f31-8d03-93c2ab1f4c4f",
+              "name": "status_message",
+              "value": "=Podcast not exists.",
+              "type": "string"
+            },
+            {
+              "id": "c2b675fb-4192-4e22-b288-0dd9f63589be",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "936e39c2-49e7-4724-9bfe-7af3d21e7ac6",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "5c9cc70c-70e3-4332-9e30-910ef8a2a996",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "88556dc1-3187-4679-9d67-4b63797e1f54",
+      "name": "Set Error Log",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -80,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d8f32c58-460d-41e5-bcd1-b75d7c2dc1c0",
+              "name": "status",
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "id": "4e9bce30-61e4-4f31-8d03-93c2ab1f4c4f",
+              "name": "status_message",
+              "value": "=Audio Status is not set to transcript_completed",
+              "type": "string"
+            },
+            {
+              "id": "c2b675fb-4192-4e22-b288-0dd9f63589be",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "936e39c2-49e7-4724-9bfe-7af3d21e7ac6",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "5c9cc70c-70e3-4332-9e30-910ef8a2a996",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e9cfc17a-dbc2-4491-af08-435d34f14006",
+      "name": "Set Error Log1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        160,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d8f32c58-460d-41e5-bcd1-b75d7c2dc1c0",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "id": "4e9bce30-61e4-4f31-8d03-93c2ab1f4c4f",
+              "name": "status_message",
+              "value": "=Video sequences selected with success",
+              "type": "string"
+            },
+            {
+              "id": "c2b675fb-4192-4e22-b288-0dd9f63589be",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "936e39c2-49e7-4724-9bfe-7af3d21e7ac6",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "5c9cc70c-70e3-4332-9e30-910ef8a2a996",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c11b5270-3c65-4d56-8f88-864841e7006e",
+      "name": "Set Log Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1340,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "n6aTf9L7yrxjW418",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "5122e6d1-f926-449d-9661-569aca648622",
+      "name": "Save Log1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "boost_yt_videos",
+          "mode": "list",
+          "cachedResultName": "boost_yt_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "video_id",
+              "value": "={{ $('Workflow Data').item.json[\"video_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "id",
+            "status",
+            "video_status",
+            "video_downloaded"
+          ]
+        }
+      },
+      "id": "255f878c-7dac-410f-8076-f6b528067732",
+      "name": "Get Video Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -480,
+        340
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-09-07T13:08:32.695Z",
+      "updatedAt": "2024-09-07T13:08:32.695Z",
+      "id": "zvxPXyJqeprP9Nex",
+      "name": "Core"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-09T20:38:17.000Z",
+  "versionId": "f626dcd1-572b-44d8-8fff-d2d95f8f29f3"
+}
