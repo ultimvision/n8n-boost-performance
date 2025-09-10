@@ -1,0 +1,882 @@
+{
+  "active": false,
+  "connections": {
+    "DM Circle User2": {
+      "main": [
+        [
+          {
+            "node": "Download audio file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM data (init)": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "DM: internal error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM: internal error": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User (error)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data (init)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Files": {
+      "main": [
+        [
+          {
+            "node": "Find uploaded file1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for update": {
+      "main": [
+        [
+          {
+            "node": "Add song to playlist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add song to playlist": {
+      "main": [
+        [
+          {
+            "node": "Is successful",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is successful": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM completed1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download audio file": {
+      "main": [
+        [
+          {
+            "node": "Upload to YesStreaming",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing5": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing6": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find uploaded file1": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to YesStreaming": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Get Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM completed1": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing3": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-20T15:28:49.104Z",
+  "id": "WxW8Y02FAfHHedjI",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Jingle Upload And Publish to Radio",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "7db8735c-1754-4deb-89fc-75a2afd17220",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        880,
+        440
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "41d9c249-e952-4f8c-b487-e9b58dadad4c",
+      "name": "DM Circle User2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1860,
+        -120
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Le traitement de publication de musique a commencé 🎶",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "696f7466-f99b-49ab-85ec-41d9bd60dfea",
+      "name": "Prepare DM data (init)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1500,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0045e3e9-db71-43c6-9470-8d8de2132574",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4100,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "a2303936-a032-404e-8138-01802697effd",
+      "name": "DM Circle User (error)",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        5380,
+        480
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f1ee53d-9fc1-4d92-a060-f6e61e05cf33",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "70326461-e6e7-4012-bcd4-3019b16bf0ed",
+              "name": "message",
+              "value": "=Une erreur est survenue lors de l'exécution de votre tâche. Notre équipe est actuellement en train d'enquêter. Numéro de tâche : {{ $execution.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6b10d55f-bc8b-4e05-a044-c8204d5531d4",
+      "name": "DM: internal error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5060,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Input validation",
+        "height": 1257.4350305090409,
+        "width": 690.1769509983911,
+        "color": 5
+      },
+      "id": "73181c3e-3bc2-458e-9af5-157d451782bf",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        415.17291962876254,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: job started",
+        "height": 1257.4350305090409,
+        "width": 1076.4862642800442,
+        "color": 4
+      },
+      "id": "4acb90af-d8b7-4eb2-97f2-88e9f9e1ac18",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        -540
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Job completed",
+        "height": 699.1462275852631,
+        "width": 1179.5692923968097,
+        "color": 4
+      },
+      "id": "5c85d44d-68ec-4cc9-844c-6492397b0675",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        4620,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Internal error",
+        "height": 515.472033748243,
+        "width": 1176.7332727007574,
+        "color": 3
+      },
+      "id": "185da00d-7372-4d24-ab60-28976d3fff64",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        4620,
+        200
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "9c40c23f-8dad-4395-a60b-0e56a2b8d611",
+      "name": "No Operation, do nothing3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1880,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b8815ab3-66cb-4ce9-81ee-f86eb0d717e4",
+              "leftValue": "={{ $json.user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "77a94564-828c-4d98-ad33-f9afd3f30bf1",
+              "leftValue": "={{ $json.circle_user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "abe32562-a73c-4ad9-9a41-cc30c1358dc3",
+              "leftValue": "={{ $json.data.file }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e15ef021-b0e2-419c-96b8-02fd15f0f864",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a67d4663-86ed-4ddc-958e-687842658bbd",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        520,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $vars.YES_STREAMING_API_URL }}/station/{{ $vars.YES_STREAMING_STATION_ID }}/files",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "9051fefc-8f14-46c0-966d-42ddd8e69314",
+      "name": "Get Files",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3160,
+        -120
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "7C9M1GsG6SJrjiRX",
+          "name": "YesStreaming API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "71fa1280-641c-413c-9092-c0c205823acf",
+              "name": "playlists",
+              "value": "={{ JSON.stringify([{\"id\": parseInt($vars.YES_STREAMING_DEFAULT_PLAYLIST_ID), \"name\": \"default\", \"weight\": 3 }]) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "except",
+        "excludeFields": "playlists,song_id",
+        "options": {}
+      },
+      "id": "d51c31e4-5843-470f-b761-d2cccc0a41a0",
+      "name": "Prepare data for update",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3820,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $vars.YES_STREAMING_API_URL }}/station/{{ $vars.YES_STREAMING_STATION_ID }}/file/{{ $json.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "9ea65598-0ea6-4c60-8a6e-209b78b059cc",
+      "name": "Add song to playlist",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4000,
+        -120
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "7C9M1GsG6SJrjiRX",
+          "name": "YesStreaming API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "e4e98570-6ca0-467d-8d0d-7f03cb223a82",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b477c9c6-5382-4dd5-84c0-f52d8e5ef5ed",
+      "name": "Is successful",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4260,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5907d9d2-4d30-410c-a117-17e466cc5467",
+      "name": "No Operation, do nothing5",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2440,
+        480
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b3e79519-ce4d-4831-a2c1-331df72fc9e0",
+      "name": "No Operation, do nothing6",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3240,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Execute Workflow Trigger').first().json.data.file }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Range",
+              "value": "bytes=0-"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "32beac8e-5d7e-47f7-94e1-9be8fee1afc9",
+      "name": "Download audio file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2380,
+        -120
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "b00c8045-b6af-49ea-ac17-1a00bb0cecfd",
+              "leftValue": "={{ $json.path }}",
+              "rightValue": "={{ $('Download audio file').first().binary.data.fileName.split('-')[1] }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f53be7df-bd05-493a-8dc3-f7f53e5ebbf6",
+      "name": "Find uploaded file1",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        3560,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "protocol": "sftp",
+        "operation": "upload",
+        "path": "={{ $binary.data.fileName.split('-')[1] }}"
+      },
+      "id": "bf00dcf2-79f4-4822-8eed-6c481560dc3c",
+      "name": "Upload to YesStreaming",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        2600,
+        -120
+      ],
+      "credentials": {
+        "sftp": {
+          "id": "jeuU5gHXV9wM8tbi",
+          "name": "YesStreaming - n8n"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "3dba666f-3fdd-4ade-93df-f7baf393798e",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2900,
+        -120
+      ],
+      "webhookId": "3bad416b-ee14-406c-a65f-36383fd20945"
+    },
+    {
+      "parameters": {
+        "content": "## Transfer songs to YesStreaming",
+        "height": 1257.4350305090409,
+        "width": 1226.8772026066922,
+        "color": 5
+      },
+      "id": "2a5989b1-6058-4d3b-9ef7-1d78e26d3671",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Add songs to default playlist",
+        "height": 1257.4350305090409,
+        "width": 1067.5195594750014,
+        "color": 5
+      },
+      "id": "5d6611e0-2093-499c-8fa4-2abc80a0bdba",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3520,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Votre piste a été publiée sur https://az11.yesstreaming.net/public/radio_dans_la_jungle_des_affaires",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4c70e9cc-c49b-41b4-a299-7faea26bceae",
+      "name": "Prepare DM completed1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5040,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "c6f0058c-c861-4e52-a390-03c4c2b6ffda",
+      "name": "DM Circle User1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        5380,
+        -120
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T13:57:05.753Z",
+      "updatedAt": "2024-10-22T13:57:05.753Z",
+      "id": "Q3qpTHNcg1K6uHlR",
+      "name": "Routine"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-22T15:12:46.000Z",
+  "versionId": "b7899e2a-f597-49f7-a177-0cab57bea765"
+}
