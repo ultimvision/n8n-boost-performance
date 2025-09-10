@@ -1,0 +1,309 @@
+{
+  "active": false,
+  "connections": {
+    "Get record to Update": {
+      "main": [
+        [
+          {
+            "node": "Extract video id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get record to Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract video id": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "YouTube Media Downloader",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Download Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Media Downloader": {
+      "main": [
+        []
+      ]
+    },
+    "Download Transcript": {
+      "main": [
+        [
+          {
+            "node": "Return the full transcript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-20T17:53:31.424Z",
+  "id": "wIGzU0VLa4PMi9JM",
+  "isArchived": false,
+  "meta": null,
+  "name": "Classifieds N8N templates",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -16
+      ],
+      "id": "266b8ad8-b861-4fe7-80c8-4b7dc096b807",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "function extractYouTubeID(url) {\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\n\nreturn {\n  json: {\n    video_url: $input.item.json.Youtube_URL,\n    video_id: extractYouTubeID($input.item.json.Youtube_URL)\n  }\n};"
+      },
+      "id": "898182d7-6378-4d4d-89af-c1818df5c22c",
+      "name": "Extract video id",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        544,
+        -16
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appi00fXyfqODABQ6",
+          "mode": "list",
+          "cachedResultName": "Recherche IA",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTSFUoOcSpCK7Bi",
+          "mode": "list",
+          "cachedResultName": "N8N Template 2",
+          "cachedResultUrl": "https://airtable.com/appi00fXyfqODABQ6/tblTSFUoOcSpCK7Bi"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        272,
+        -16
+      ],
+      "id": "f6174cbd-dbbc-459b-99d2-31ca7cec9258",
+      "name": "Get record to Update",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        784,
+        -240
+      ],
+      "id": "74870d52-07b3-4de4-bd8c-64d02697140f",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "url": "https://ytstream-download-youtube-videos.p.rapidapi.com/dl",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $json.video_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "ytstream-download-youtube-videos.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        992,
+        -624
+      ],
+      "id": "7ba5f807-fab1-44c1-be68-977214435014",
+      "name": "Get Youtube Details",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-media-downloader.p.rapidapi.com/v2/video/details",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "videoId",
+              "value": "={{ $json.video_id }}"
+            },
+            {
+              "name": "urlAccess",
+              "value": "normal"
+            },
+            {
+              "name": "videos",
+              "value": "auto"
+            },
+            {
+              "name": "audios",
+              "value": "auto"
+            },
+            {
+              "name": "subtitles",
+              "value": "true"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "youtube-media-downloader.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        992,
+        -368
+      ],
+      "id": "4ccf7975-b999-451e-af80-42a929faa2a8",
+      "name": "YouTube Media Downloader",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-transcript3.p.rapidapi.com/api/transcript",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "videoId",
+              "value": "={{ $json.video_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "youtube-transcript3.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        992,
+        -112
+      ],
+      "id": "cee69a21-e897-457c-8794-30c47af343a6",
+      "name": "Download Transcript",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Récupère l’objet JSON depuis le premier item d’entrée\nconst data = $input.first().json;\n\n// 2. Initialise fullText à une chaîne vide\nlet fullText = '';\n\n// 3. Si le transcript existe, qu’il s’agit d’un tableau non vide, on construit la chaîne\nif (data.success && Array.isArray(data.transcript) && data.transcript.length > 0) {\n  // On extrait le champ `text` de chaque segment\n  const segments = data.transcript.map(segment => segment.text);\n  // On concatène tous les textes avec un espace\n  fullText = segments.join(' ');\n}\n\n// 4. Retourne un nouvel item n8n avec le texte complet (ou vide)\nreturn [\n  {\n    json: {\n      fullText\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        -128
+      ],
+      "id": "61735142-63e1-40b2-89a0-d23310056d00",
+      "name": "Return the full transcript1"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-20T18:34:33.000Z",
+  "versionId": "ff919aff-b7ea-41c5-b6e4-fa9f7fe116c0"
+}
