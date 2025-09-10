@@ -1,0 +1,157 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-01T22:25:12.799Z",
+  "id": "N97J3pJOdrkkrxNi",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "DEV | Test Stability AI",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "32a6df96-e375-4673-9896-1191f60ff21e",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        760,
+        300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://danslajungledesaffaires.blog/podcasts/3/images/hd/ai/ai_image_1_test_video.png",
+        "options": {}
+      },
+      "id": "80609200-6b71-4ebc-958d-e48737ddd2d7",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.stability.ai/v2beta/image-to-video",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "authorization",
+              "value": "=Bearer {{  $vars.STABILITY_AI_API }}"
+            },
+            {
+              "name": "accept",
+              "value": "image/*"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "seed",
+              "value": "0"
+            },
+            {
+              "name": "cfg_scale",
+              "value": "1.8"
+            },
+            {
+              "name": "motion_bucket_id",
+              "value": "127"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "image",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "62864cbd-e214-412a-9fab-75f29cd7ea6a",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.stability.ai/v2beta/image-to-video/result/abe5a23f49562666d13a52b1f2b2c74d9dcad9523bdf840a8e5875c6197733ac",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "authorization",
+              "value": "=Bearer {{  $vars.STABILITY_AI_API }}"
+            },
+            {
+              "name": "accept",
+              "value": "video/* "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9f48ac8b-b1ef-4c1f-909e-0f7d17f57438",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        520
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-30T22:54:03.750Z",
+      "updatedAt": "2024-06-30T22:54:03.750Z",
+      "id": "c5NEvO9qFRDDjJfy",
+      "name": "DEV"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-01T22:37:40.000Z",
+  "versionId": "43de7dea-28bf-4d72-89d6-c0951d4e4ddc"
+}
