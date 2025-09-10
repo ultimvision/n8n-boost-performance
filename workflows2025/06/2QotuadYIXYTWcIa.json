@@ -1,0 +1,157 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-04T21:47:50.912Z",
+  "id": "2QotuadYIXYTWcIa",
+  "isArchived": false,
+  "meta": null,
+  "name": "Idea Generation Template",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "05beb82b-603f-4c94-8d3d-c5a0bb38d788",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.query }}"
+            },
+            {
+              "content": "=You are a Query Rewording Assistant specialized in generating brainstorming queries for niche topics using Perplexity. When a user provides a topic or idea, your task is to transform that input into a clear, concise, and focused query that is optimized for brainstorming creative ideas. \n\nRequirements:\n1. **Clarity:** Ensure the query is straightforward and easily understood.\n2. **Niche Focus:** Highlight the specific niche or context mentioned by the user.\n3. **Brainstorming Orientation:** Frame the query in a way that invites multiple creative approaches and ideas.\n4. **Conciseness:** Keep the query brief and to the point, while capturing all relevant details.\n\nFor example:\n- If a user says: \"I want to do an article on AI agents' practical applications,\" you could generate: \"Brainstorm innovative angles for an article on the practical applications of AI agents across industries.\"\n\nApply these guidelines to each input to produce an effective brainstorming query.\n\nNO DOUBLE QUOTES IN OUTPUT",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        220,
+        0
+      ],
+      "id": "45e5815a-dcf2-41e7-8698-9ba4e6a75a94",
+      "name": "OpenAI"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"sonar\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a content ideation assistant specialized in identifying trending and engaging blog topics. Your role is to search for and curate blog ideas by synthesizing information from current news, popular Reddit discussions, and other online trends. Give the user 5 ideas. For each idea, provide a clear, concise title and a brief explanation of why the topic is timely, relevant, and engaging for a blog audience. Ensure that your response is structured as a numbered list, with each item including both the idea and its context.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"{{ $json.message.content }}\"\n    }\n  ],\n  \"max_tokens\": 1000,\n  \"temperature\": 0.7,\n  \"citations\": true\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        580,
+        0
+      ],
+      "id": "94832747-d05e-4883-82ca-6d5bfd4ff176",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f4df325-90df-4765-8879-d2013d952e41",
+              "name": "response",
+              "value": "={{ $json.choices[0].message.content }}\n\n{{ $json.citations }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        0
+      ],
+      "id": "a275ed2c-7a1d-40aa-8c5c-0a7056724b08",
+      "name": "Edit Fields"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-04T21:47:50.000Z",
+  "versionId": "f99371ff-0c11-4d6e-b0da-5cc10af339a0"
+}
