@@ -1,0 +1,244 @@
+{
+  "active": false,
+  "connections": {
+    "Test Data - Nannette De Gaspe": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Test Data - Nannette De Gaspe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-27T19:55:40.310Z",
+  "id": "lKdqbTYchb03mf1J",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Video Studio - AI Agents Army Dashboard",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a3b94050-9145-49e0-aa44-9956143449bb",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        2980,
+        760
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Storytelling Video\n### Create Engaging Videos that Tell a Compelling Story\n\nThis tool helps you craft storytelling videos that captivate your audience and convey your brand’s message in a powerful and memorable way. By combining visuals, narration, and emotional elements, it creates videos that resonate with viewers, drive engagement, and effectively communicate your story. Use this tool to connect with your audience on a deeper level and leave a lasting impression.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "90400418-1ebe-4229-b228-5578b824204f",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2820,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Source example](https://boostperformance.ai/aiagent/film.jpg)",
+        "height": 1149.2289415810385,
+        "width": 1634.4352346958026,
+        "color": 7
+      },
+      "id": "bc4ab4d7-f372-457d-a056-6b8006a1add1",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        220,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3f825b9e-9af6-4128-a766-64d4248ebb6f",
+              "name": "customer_id",
+              "value": "nannette-de-gaspe",
+              "type": "string"
+            },
+            {
+              "id": "643c5ad2-90e3-4c86-aed1-f81f0812de12",
+              "name": "sitemap_url",
+              "value": "https://nannettedegaspe.com/sitemap.xml",
+              "type": "string"
+            },
+            {
+              "id": "2a367b06-e264-47ad-9e41-4e04702fac2b",
+              "name": "customer_name",
+              "value": "Nannette de Gaspe",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "80b7b3f7-6a92-4d5e-aa67-aee93269e887",
+      "name": "Test Data - Nannette De Gaspe",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3220,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d82c909f-9317-4b7f-bfe7-5779a5fb8f6f",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3440,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Resizing Instagram Video Post\n### Adjust Video Dimensions for Optimal Instagram Posting\n\nThis tool resizes your videos to fit Instagram's specific dimensions and format requirements. Whether it's for your feed, stories, or IGTV, it ensures your video content is perfectly tailored for optimal display on the platform. Use this tool to maintain the quality and impact of your videos while adhering to Instagram’s size guidelines.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "83e06058-40df-47a9-80a3-78eaa2ac3c53",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# 5 Facts Story Video\n### Create Engaging Videos Highlighting Key Facts About Your Brand or Topic\n\nThis tool enables you to create concise and engaging videos that highlight five key facts about your brand, product, or topic of interest. Each video is designed to be informative and captivating, presenting essential information in a way that resonates with your audience. Use this tool to quickly communicate important points, boost awareness, and reinforce your message through a structured and memorable format.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "f03cdc5e-fef1-4397-9014-6f5f40d41be4",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3740,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Question and Quizzes Video\n### Create Interactive Videos with Questions and Quizzes to Engage Your Audience\n\nThis tool allows you to create interactive videos featuring questions and quizzes that engage your audience and encourage participation. Ideal for educational content, marketing, or entertainment, these videos can help you assess knowledge, gather feedback, or simply entertain viewers. Use this tool to make your videos more interactive, fostering deeper connections with your audience through engaging content.\n\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "92aa1e05-c263-4ca0-9b61-be5f533149a8",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        600
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "e2b1eb38-bcad-4ac9-b01e-d27290377e89",
+      "name": "Storytelling Video",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3140,
+        240
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a6cd4d5e-2756-42b2-a753-59618d4a8b7d",
+      "name": "5 Facts Story Video",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4080,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "RcG2FRrsWq0zspz4",
+        "options": {}
+      },
+      "id": "cec89d01-f684-4aab-9e61-fbbeb0ea387c",
+      "name": "Resizing Instagram Video Post",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        240
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "7c7792f9-6b73-4fdf-b47c-5a460386fca6",
+      "name": "Question and Quizzes Video",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        880
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-27T11:57:26.314Z",
+      "updatedAt": "2024-08-27T11:57:26.314Z",
+      "id": "rRAYPMNxSAm8ZgBM",
+      "name": "Dashboard"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T22:07:25.000Z",
+  "versionId": "de6b23e5-6420-464b-ae4d-adb99bd89913"
+}
