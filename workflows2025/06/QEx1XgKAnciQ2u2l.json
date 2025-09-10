@@ -1,0 +1,324 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Wait for assembly webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch on status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Transcript": {
+      "main": [
+        [
+          {
+            "node": "Wait for assembly webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Get Transcript": {
+      "main": [
+        []
+      ]
+    },
+    "Switch on status": {
+      "main": [
+        [
+          {
+            "node": "API AssemblyAI | Get Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [],
+        [
+          {
+            "node": "Wait for assembly webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get download url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get download url": {
+      "main": [
+        [
+          {
+            "node": "API AssemblyAI | Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-20T14:56:53.864Z",
+  "id": "QEx1XgKAnciQ2u2l",
+  "isArchived": false,
+  "meta": null,
+  "name": "MeetGeek Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "meeting",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f9885858-3a55-4614-b424-58a652b2e608",
+      "name": "Webhook",
+      "webhookId": "f741af4c-2c1f-4ada-b5fe-c84033bc4514"
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "POST",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "2b363601-06e6-437f-a092-0d5aa826fefb",
+      "name": "Wait for assembly webhook",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1360,
+        20
+      ],
+      "webhookId": "00b1287f-7b05-4081-901e-a9b945e6d3cd"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.assemblyai.com/v2/transcript",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "audio_url",
+              "value": "={{ $json.download_link }}"
+            },
+            {
+              "name": "speaker_labels",
+              "value": "true"
+            },
+            {
+              "name": "webhook_url",
+              "value": "={{ $execution.resumeUrl }}"
+            },
+            {
+              "name": "language_detection",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8e83521c-f890-4cac-9302-ec61e4f88d30",
+      "name": "API AssemblyAI | Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        20
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qBJLUDTcerWssYGe",
+          "name": "Assembly AI Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/{{ $json.body.transcript_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "0d242b60-82fc-4111-80e7-7ce6d18d2da6",
+      "name": "API AssemblyAI | Get Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1980,
+        20
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qBJLUDTcerWssYGe",
+          "name": "Assembly AI Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.status }}",
+                    "rightValue": "completed",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "completed"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "61ca1e70-6402-4ffc-98b6-b6fa0fcf4788",
+                    "leftValue": "={{ $json.body.status }}",
+                    "rightValue": "error",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "error"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "f8d93ef8-e248-4f9d-932d-a2b933638bad",
+      "name": "Switch on status",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1580,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "noData",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.3,
+      "position": [
+        340,
+        20
+      ],
+      "id": "0e718575-7848-482c-aeea-67f8e9246b54",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.meetgeek.ai/v1/meetings/{{ $json.body.meeting_id }}/download",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        700,
+        20
+      ],
+      "id": "dbe483dc-fa79-48ec-9da4-ea90f501ca8b",
+      "name": "Get download url",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "foJpYtWc9tdBox6S",
+          "name": "MeetGeek mat@ultimvision.io"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:39:21.071Z",
+      "updatedAt": "2024-10-16T13:39:21.071Z",
+      "id": "E8nPTYjZtWlaLr4T",
+      "name": "Webhook"
+    },
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-06-26T19:08:11.000Z",
+  "versionId": "357bd951-a7a3-4d4b-a836-58dfe7b95f85"
+}
