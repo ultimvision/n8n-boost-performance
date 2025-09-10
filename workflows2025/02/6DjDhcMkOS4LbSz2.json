@@ -1,0 +1,682 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get All Prompts Generators",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Prompts Generators": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Translate in french",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Translate in french": {
+      "main": [
+        [
+          {
+            "node": "Update Airtable in French",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Translate in french",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-23T14:43:00.644Z",
+  "id": "6DjDhcMkOS4LbSz2",
+  "isArchived": false,
+  "meta": null,
+  "name": "Translate Mega Prompts AirTable - Prompts Generators",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -320
+      ],
+      "id": "58322ac7-5250-4002-8661-1d0396fac4ab",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appD0mNR7Ji06CFJt",
+          "mode": "list",
+          "cachedResultName": "🎯Mega Prompts Database",
+          "cachedResultUrl": "https://airtable.com/appD0mNR7Ji06CFJt"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbjsNGev0mpX9E6",
+          "mode": "list",
+          "cachedResultName": "🤖Prompt Generators",
+          "cachedResultUrl": "https://airtable.com/appD0mNR7Ji06CFJt/tblbjsNGev0mpX9E6"
+        },
+        "filterByFormula": "{Prompt Fr} = \"\"",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        200,
+        -320
+      ],
+      "id": "ae842c56-b632-419d-8265-2afdd090b559",
+      "name": "Get All Prompts Generators",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.Prompt.trim() }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You'll receive a text prompt to be use with a LLM. ONLY Translate the prompt in french. Very important to not execute the prompt. I need a french version."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        480,
+        160
+      ],
+      "id": "871087db-66cb-4308-a515-070a41bf6d2f",
+      "name": "Translate in french",
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        460,
+        380
+      ],
+      "id": "ed54e1ba-0acd-4481-9819-57ec1b861493",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "P0G2YpkVZIDDw99j",
+          "name": "OpenAi Boost TAI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appD0mNR7Ji06CFJt",
+          "mode": "list",
+          "cachedResultName": "🎯Mega Prompts Database",
+          "cachedResultUrl": "https://airtable.com/appD0mNR7Ji06CFJt"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbjsNGev0mpX9E6",
+          "mode": "list",
+          "cachedResultName": "🤖Prompt Generators",
+          "cachedResultUrl": "https://airtable.com/appD0mNR7Ji06CFJt/tblbjsNGev0mpX9E6"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Execute Workflow Trigger').item.json.id }}",
+            "Prompt Fr": "={{ $json.text }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Category",
+              "displayName": "Category",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "ChatGPT",
+                  "value": "ChatGPT"
+                },
+                {
+                  "name": "AI Art",
+                  "value": "AI Art"
+                },
+                {
+                  "name": "Leonardo AI",
+                  "value": "Leonardo AI"
+                },
+                {
+                  "name": "Any Platform",
+                  "value": "Any Platform"
+                },
+                {
+                  "name": "DALLE",
+                  "value": "DALLE"
+                },
+                {
+                  "name": "Firefly",
+                  "value": "Firefly"
+                },
+                {
+                  "name": "Claude",
+                  "value": "Claude"
+                },
+                {
+                  "name": "Prompt Generator",
+                  "value": "Prompt Generator"
+                },
+                {
+                  "name": "AI Influencer",
+                  "value": "AI Influencer"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prompt",
+              "displayName": "Prompt",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Tags",
+              "displayName": "Tags",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Leonardo AI",
+                  "value": "Leonardo AI"
+                },
+                {
+                  "name": "SEO",
+                  "value": "SEO"
+                },
+                {
+                  "name": "ChatGPT",
+                  "value": "ChatGPT"
+                },
+                {
+                  "name": "Midjourney",
+                  "value": "Midjourney"
+                },
+                {
+                  "name": "PRO",
+                  "value": "PRO"
+                },
+                {
+                  "name": "Superhero",
+                  "value": "Superhero"
+                },
+                {
+                  "name": "Comedian",
+                  "value": "Comedian"
+                },
+                {
+                  "name": "Debater",
+                  "value": "Debater"
+                },
+                {
+                  "name": "Rapper",
+                  "value": "Rapper"
+                },
+                {
+                  "name": "Developer",
+                  "value": "Developer"
+                },
+                {
+                  "name": "Expert",
+                  "value": "Expert"
+                },
+                {
+                  "name": "Self-help",
+                  "value": "Self-help"
+                },
+                {
+                  "name": "Prompt generator",
+                  "value": "Prompt generator"
+                },
+                {
+                  "name": "AI Art",
+                  "value": "AI Art"
+                },
+                {
+                  "name": "Social media",
+                  "value": "Social media"
+                },
+                {
+                  "name": "Algorithms",
+                  "value": "Algorithms"
+                },
+                {
+                  "name": "Public speaking",
+                  "value": "Public speaking"
+                },
+                {
+                  "name": "Copywriting",
+                  "value": "Copywriting"
+                },
+                {
+                  "name": "Critic",
+                  "value": "Critic"
+                },
+                {
+                  "name": "Advisor",
+                  "value": "Advisor"
+                },
+                {
+                  "name": "Emojis",
+                  "value": "Emojis"
+                },
+                {
+                  "name": "Website",
+                  "value": "Website"
+                },
+                {
+                  "name": "Sales",
+                  "value": "Sales"
+                },
+                {
+                  "name": "CEO",
+                  "value": "CEO"
+                },
+                {
+                  "name": "Title",
+                  "value": "Title"
+                },
+                {
+                  "name": "Recommendation",
+                  "value": "Recommendation"
+                },
+                {
+                  "name": "Dating Advice",
+                  "value": "Dating Advice"
+                },
+                {
+                  "name": "Ideas",
+                  "value": "Ideas"
+                },
+                {
+                  "name": "Learn Anything",
+                  "value": "Learn Anything"
+                },
+                {
+                  "name": "Kanye West",
+                  "value": "Kanye West"
+                },
+                {
+                  "name": "SEO Mastery",
+                  "value": "SEO Mastery"
+                },
+                {
+                  "name": "Everything Expert",
+                  "value": "Everything Expert"
+                },
+                {
+                  "name": "SEO, Content Mastery",
+                  "value": "SEO, Content Mastery"
+                },
+                {
+                  "name": "Marketing Expert",
+                  "value": "Marketing Expert"
+                },
+                {
+                  "name": "Act as",
+                  "value": "Act as"
+                },
+                {
+                  "name": "Product Analysis",
+                  "value": "Product Analysis"
+                },
+                {
+                  "name": "Bypass AI Detector",
+                  "value": "Bypass AI Detector"
+                },
+                {
+                  "name": "Productivity King",
+                  "value": "Productivity King"
+                },
+                {
+                  "name": "Idea Machine",
+                  "value": "Idea Machine"
+                },
+                {
+                  "name": "Learn Python",
+                  "value": "Learn Python"
+                },
+                {
+                  "name": "Accountability Coach",
+                  "value": "Accountability Coach"
+                },
+                {
+                  "name": "Google Ads",
+                  "value": "Google Ads"
+                },
+                {
+                  "name": "Gaming",
+                  "value": "Gaming"
+                },
+                {
+                  "name": "Storytelling",
+                  "value": "Storytelling"
+                },
+                {
+                  "name": "YouTube",
+                  "value": "YouTube"
+                },
+                {
+                  "name": "Prompt Perfecter",
+                  "value": "Prompt Perfecter"
+                },
+                {
+                  "name": "Idea Producer",
+                  "value": "Idea Producer"
+                },
+                {
+                  "name": "Freepik",
+                  "value": "Freepik"
+                },
+                {
+                  "name": "Mystic",
+                  "value": "Mystic"
+                },
+                {
+                  "name": "Realism",
+                  "value": "Realism"
+                },
+                {
+                  "name": "AI Video",
+                  "value": "AI Video"
+                },
+                {
+                  "name": "AI Influencer",
+                  "value": "AI Influencer"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Favorite",
+              "displayName": "Favorite",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Added",
+              "displayName": "Date Added",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Note",
+              "displayName": "Note",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Next",
+              "displayName": "Next",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prompt Fr",
+              "displayName": "Prompt Fr",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        840,
+        160
+      ],
+      "id": "37e7e883-6593-4ea4-963a-7c8ae0937214",
+      "name": "Update Airtable in French",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "6DjDhcMkOS4LbSz2",
+          "mode": "id"
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        740,
+        -260
+      ],
+      "id": "6fcdf59f-ebab-4412-9e27-af416210d06f",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        200,
+        160
+      ],
+      "id": "77a05b07-8860-4a9e-90ed-74394bbe334b",
+      "name": "Execute Workflow Trigger"
+    },
+    {
+      "parameters": {
+        "batchSize": 20,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        420,
+        -320
+      ],
+      "id": "af463f0f-1847-489b-b98b-7a10d1c4f54d",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        960,
+        -260
+      ],
+      "id": "0bd5bca9-4ee0-4afa-9620-e3fff9b35f48",
+      "name": "Wait",
+      "webhookId": "08c9cdc6-c9ea-4bac-a67a-f0bca7e3e227"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-23T20:02:37.000Z",
+  "versionId": "3e24eb05-1d1a-4fae-9663-ebb9170bef6b"
+}
