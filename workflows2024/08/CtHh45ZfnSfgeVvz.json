@@ -1,0 +1,56 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-08-30T16:18:47.587Z",
+  "id": "CtHh45ZfnSfgeVvz",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Audio Dev",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "49e0209a-2778-44ff-b2f4-102e8b15b7d3",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        400,
+        500
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Vocal Remover\n\nhttps://vocalremover.com/",
+        "height": 217,
+        "width": 1048
+      },
+      "id": "817361bd-b40d-4201-be49-09b32a353838",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        660,
+        180
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-31T13:18:22.000Z",
+  "versionId": "60d65bbf-fce4-4c12-ba7f-dedd350d4f94"
+}
