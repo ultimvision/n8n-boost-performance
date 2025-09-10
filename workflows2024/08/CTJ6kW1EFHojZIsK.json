@@ -1,0 +1,433 @@
+{
+  "active": false,
+  "connections": {
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Create A doc with Content Website FineTuning Brain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All the Content Url for a Customer": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Doc ID": {
+      "main": [
+        [
+          {
+            "node": "Add Document to Library",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs": {
+      "main": [
+        [
+          {
+            "node": "Clean Memory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Memory": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create A doc with Content Website FineTuning Brain": {
+      "main": [
+        [
+          {
+            "node": "Set Doc ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Document to Library": {
+      "main": [
+        [
+          {
+            "node": "Step 2 - Fill the Document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Step 2 - Fill the Document": {
+      "main": [
+        [
+          {
+            "node": "Get All the Content Url for a Customer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Content": {
+      "main": [
+        [
+          {
+            "node": "Done",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Docs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-23T11:08:51.256Z",
+  "id": "CTJ6kW1EFHojZIsK",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Prepare Brain Document of Website",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "97db8d42-f9b0-4983-9ff5-e012230e75ed",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        880,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "e83ba295-9a1a-47a5-9872-811db6ed6d78",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1080,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "url_content",
+          "mode": "list",
+          "cachedResultName": "url_content"
+        },
+        "limit": 150,
+        "where": {
+          "values": [
+            {
+              "column": "customer",
+              "value": "={{ $('Workflow Data').item.json[\"customer_id\"] }}"
+            },
+            {
+              "column": "html_content",
+              "condition": "IS NOT NULL"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5348806f-f343-4459-b401-b37f610fe500",
+      "name": "Get All the Content Url for a Customer",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        880,
+        680
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "driveId": "=myDrive",
+        "folderId": "=",
+        "title": "={{ $json.customer_id }}-website-review-content"
+      },
+      "id": "ceb3954a-42fd-4e2f-b4e7-490ab409464c",
+      "name": "Create A doc with Content Website FineTuning Brain",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        420
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "ZRJtrBZlln4TcC6A",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $('Set Doc ID').item.json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=Title : {{ $json.title }}"
+            },
+            {
+              "action": "insert",
+              "text": "=\n\n"
+            },
+            {
+              "action": "insert",
+              "text": "=Description : {{ $json.description }}"
+            },
+            {
+              "action": "insert",
+              "text": "=\n\n\n"
+            },
+            {
+              "action": "insert",
+              "text": "={{ $json.content }}"
+            },
+            {
+              "object": "pageBreak",
+              "action": "insert"
+            }
+          ]
+        }
+      },
+      "id": "e8f0a3dd-2d30-435f-8aff-70f5bbcbf11b",
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        800
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "ZRJtrBZlln4TcC6A",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d228ceae-dff5-4d32-ab27-7358af5ad2b2",
+      "name": "Set Doc ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1500,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e2ba5745-1e27-4ffb-bb20-f60e087b91b7",
+      "name": "Clean Memory",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1740,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "id": "238fcfdf-371d-4b35-8aa8-d05ab087dfe4",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1940,
+        800
+      ],
+      "webhookId": "ba9c3e13-5f2c-4de8-a0b8-f7db02e2b82b"
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "rag_documents",
+          "mode": "list",
+          "cachedResultName": "rag_documents"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "name",
+              "value": "={{ $json.name }}"
+            },
+            {
+              "column": "mime_type",
+              "value": "={{ $json.mimeType }}"
+            },
+            {
+              "column": "doc_id",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "column": "customer_id",
+              "value": "={{ $('Workflow Data').item.json[\"customer_id\"] }}"
+            },
+            {
+              "column": "customer_name",
+              "value": "={{ $('Workflow Data').item.json[\"customer_name\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1a8ef1df-45c9-4e5a-a985-026fec46c739",
+      "name": "Add Document to Library",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1720,
+        420
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "de8d07e9-cae8-48e4-85fd-b39b888f9c8b",
+      "name": "Step 2 - Fill the Document",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        460
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "def2984d-d48f-47b6-a597-8f2d82a8ceea",
+      "name": "Done",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2140,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 50,
+        "options": {}
+      },
+      "id": "a63a9f71-1392-4a0e-84c1-3f8f3af0f029",
+      "name": "Loop Over Content",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1300,
+        680
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T22:01:28.989Z",
+      "updatedAt": "2024-08-26T22:01:28.989Z",
+      "id": "kxxK9uQIRkujnphG",
+      "name": "Assistant"
+    },
+    {
+      "createdAt": "2024-08-21T22:13:12.952Z",
+      "updatedAt": "2024-08-21T22:13:12.952Z",
+      "id": "mJoeScWZH1pi52Xo",
+      "name": "AI Agent"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-28T10:28:26.000Z",
+  "versionId": "d3b71ead-3bed-44d9-91b4-5fb630d9fa1d"
+}
