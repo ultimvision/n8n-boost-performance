@@ -1,0 +1,717 @@
+{
+  "active": false,
+  "connections": {
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Get Partial Transcriptions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Partial Transcriptions": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Transcriptions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Transcriptions": {
+      "main": [
+        [
+          {
+            "node": "JSON Schema for Assigning Speaker Names",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Prompt for Assign Speaker's Name": {
+      "main": [
+        [
+          {
+            "node": "GPT4o - Assign Speaker Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "JSON Schema for Assigning Speaker Names": {
+      "main": [
+        [
+          {
+            "node": "Prepare Prompt for Assign Speaker's Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GPT4o - Assign Speaker Name": {
+      "main": [
+        [
+          {
+            "node": "Speaker Names",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Speaker Names": {
+      "main": [
+        [
+          {
+            "node": "Split Speakers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Data": {
+      "main": [
+        [
+          {
+            "node": "Speaker Names",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Speakers": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Speakers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Speakers": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Speaker Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Speaker Info": {
+      "main": [
+        [
+          {
+            "node": "Update Speaker Name in Table Database",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Speaker Name in Table Database": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Speakers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Transcripts": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Transcription Segments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Transcription Segments": {
+      "main": [
+        [
+          {
+            "node": "Discussion Structured with Speaker's Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Data": {
+      "main": [
+        [
+          {
+            "node": "Get Transcripts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Discussion Structured with Speaker's Name": {
+      "main": [
+        [
+          {
+            "node": "Update Full Text with Speaker Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-06T13:07:08.916Z",
+  "id": "SpU2dOJt2JhcuITS",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Transcribe Audio | Assign Speaker Name",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "20e488d8-ae04-4317-a5a1-73ac0993a2c1",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -200,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "interviewer",
+            "co_interviewer",
+            "guest",
+            "guest_details",
+            "language_code",
+            "full_text",
+            "co_interviewer_details",
+            "interviewer_details",
+            "co_interviewer_pitch_sales",
+            "co_interviewer_website_link",
+            "co_interviewer_linkedin_link",
+            "guest_pitch_sales",
+            "guest_website_link",
+            "guest_linkedin_link",
+            "link_jungle_site_guest",
+            "speakers_expected",
+            "guest_nickname"
+          ]
+        }
+      },
+      "id": "3d02a232-2d6a-4b36-a20e-60b529c6f21b",
+      "name": "Get Podcast Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        0,
+        140
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "b4f93344-fff8-4e7f-8245-e980e09d9263",
+      "name": "Podcast Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        200,
+        140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c33d9cb3-734f-415a-9544-2e84f9b5b806",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT `id`, `start`, `text`, `end`, concat('Speaker : ', `speaker` ) as speaker_letter  FROM `jungle_transcripts` WHERE `podcast_id` = {{ $('Workflow Data').item.json[\"podcast_id\"] }} ORDER BY `id` ASC LIMIT 300;",
+        "options": {}
+      },
+      "id": "f3987c6a-b97d-4a8a-a314-c05fa1be83a6",
+      "name": "Get Partial Transcriptions",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        400,
+        140
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "discussion",
+        "options": {}
+      },
+      "id": "b497955c-5cd1-4985-9828-aaf0a12b73a6",
+      "name": "Aggregate Transcriptions",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        600,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01b05bce-aad7-442c-85d1-0ee9703e417b",
+              "name": "system_prompt",
+              "value": "=Je vais te partager le contenu détaillé d'une entrevue podcast réalisée pour l'émission Dans la Jungle des Affaires. Pour chaque segment de l'entrevue, on retrouve le timestamp, le texte et la personne qui parle dans l'émission, identifier avec le terme Speaker.\n\nVoici quelques détails essentiels :\n- L'animateur : {{ $('Podcast Details').item.json[\"interviewer\"] }}\n- Co-animateur invité pour cette émission : {{ $('Podcast Details').item.json[\"co_interviewer\"] }}\n- L'entrepreneur invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nTa tâche:\n1. Analyser le contenu en détails et détermine le nom qui doit être associé à chaque Speaker. Par exemple, si dans l'entrevue du détermine que l'animateur est le Speaker A, tu identifie Speaker A à L'animateur. Si l'invité est le speaker C, tu identifie Speaker C à l'invité. Il peut y avoir plusieurs animateurs et plusieurs invités. Tu dois bien analyser pour assigner les bons noms aux bonnes personnes.\n\nVoici le contenu de l'entrevue Podcast à analyser :\n\n{{ JSON.stringify($json[\"discussion\"]) }}\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d37f337f-fc12-4423-a430-87c029dac411",
+      "name": "Prepare Prompt for Assign Speaker's Name",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1040,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28cc1467-4503-401f-a285-208dea8131c2",
+              "name": "json_schema",
+              "value": "={\n  \"type\": \"object\",\n  \"properties\": {\n    \"speaker_mapping\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"letter\": { \"type\": \"string\" },\n          \"name\": { \"type\": \"string\" }\n        },\n        \"required\": [\"letter\", \"name\"]\n      },\n      \"minItems\": 1\n    }\n  },\n  \"required\": [\"speaker_mapping\"],\n  \"additionalProperties\": false\n}",
+              "type": "string"
+            },
+            {
+              "id": "656241ae-f49a-48de-b1dd-5d34ff9a5d01",
+              "name": "json_instructions",
+              "value": "=You must format your output as a JSON value that adheres to a given JSON schema. JSON schema is a declarative language that allows you to annotate and validate JSON documents. Your output will be parsed and verified against the provided schema instance, so make sure all fields in your output exactly match the schema and that there are no extra commas! Here is the JSON schema instance that your output must conform to:",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "e020b8d4-3c2a-4166-9d09-393b8662ad63",
+      "name": "JSON Schema for Assigning Speaker Names",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        820,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.OPENAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"temperature\": 1,\n  \"response_format\": { \"type\": \"json_object\" },\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": {{ JSON.stringify($json[\"system_prompt\"]) }}\n    }\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "cbe4e424-ecad-4a49-ba82-664b3e03249c",
+      "name": "GPT4o - Assign Speaker Name",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1280,
+        140
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5e513907-9fb1-4c29-9cbe-fed23c58011f",
+              "name": "content",
+              "value": "={{ $json.body.choices[0].message.content }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e231a97a-7346-4ded-aed9-8995672bf203",
+      "name": "Speaker Names",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1500,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "599b2f5d-aaa5-403b-bfaf-a1c47b666925",
+      "name": "Test Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1280,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "487033c6-a745-4e9d-a47b-820b63659baa",
+      "name": "Speaker Info",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2120,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "content.speaker_mapping",
+        "options": {}
+      },
+      "id": "074c7d44-554e-47d5-9b90-2c90c4dd0f2c",
+      "name": "Split Speakers",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "fe0a09e6-145f-49e6-bbf8-5d79bedacecd",
+      "name": "Loop Over Speakers",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1880,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE `jungle_transcripts` SET `speaker_name` = '{{ $json.name }}' WHERE `podcast_id` = {{ $('Workflow Data').item.json[\"podcast_id\"] }} AND `speaker` LIKE '{{ $json.letter }}';",
+        "options": {}
+      },
+      "id": "56f263a6-6876-4d51-a748-52ce98616331",
+      "name": "Update Speaker Name in Table Database",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2320,
+        200
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Récupération des données de discussion depuis l'entrée du workflow\nconst discussions = $input.all()[0].json.discussions;\n\n// Trier les discussions par ordre chronologique basé sur le champ \"start\"\ndiscussions.sort((a, b) => a.start - b.start);\n\n// Concaténer toutes les discussions dans une seule chaîne de caractères\nlet dialog = discussions.map(discussion => {\n    return `${discussion.speaker_name}: ${discussion.text}`;\n}).join('\\n');\n\n// Retourner la chaîne de caractères contenant toutes les discussions\nreturn {\n    json: {\n        dialog: dialog\n    }\n};\n"
+      },
+      "id": "482e40fd-218a-4008-8e54-534be4faea59",
+      "name": "Discussion Structured with Speaker's Name",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2920,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_transcripts",
+          "mode": "list",
+          "cachedResultName": "jungle_transcripts"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "speaker_name",
+            "start",
+            "text",
+            "end"
+          ]
+        }
+      },
+      "id": "b1d88aa6-3d5d-426c-a9c3-87daa1fa9e7f",
+      "name": "Get Transcripts",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2500,
+        -20
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "discussions",
+        "options": {}
+      },
+      "id": "7fc0de8d-b87c-4005-b91b-5a81888144ae",
+      "name": "Aggregate Transcription Segments",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2700,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ae8bc194-57af-4091-af9e-ee6acd57756d",
+      "name": "Clean Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2300,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "1a1cceba-eded-4824-9cea-ca267a78a5ff",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "full_text_speakername",
+              "value": "={{ $json.dialog }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "07d7385d-9c76-4712-a5ef-31b318e1c1c1",
+      "name": "Update Full Text with Speaker Name",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3160,
+        -20
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-30T20:05:18.275Z",
+      "updatedAt": "2024-06-30T20:05:18.275Z",
+      "id": "jJFrFpoe6jftwcE3",
+      "name": "Transcribe Audio"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-06T23:24:30.000Z",
+  "versionId": "b0bfe7be-6692-4caa-8d2d-753d5c752b32"
+}
