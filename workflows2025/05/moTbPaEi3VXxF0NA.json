@@ -1,0 +1,1886 @@
+{
+  "active": true,
+  "connections": {
+    "Analyse l'entrevue": {
+      "main": [
+        []
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "Valeurs Initiales",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valeurs Initiales": {
+      "main": [
+        [
+          {
+            "node": "Demande Status Entrevue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prépare Valeurs Analyse": {
+      "main": [
+        [
+          {
+            "node": "Analyse l'entrevue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer tous les articles en attente": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rédaction des articles2": {
+      "main": [
+        []
+      ]
+    },
+    "Création des images2": {
+      "main": [
+        []
+      ]
+    },
+    "Publication des articles2": {
+      "main": [
+        [
+          {
+            "node": "Nettoyage Valeurs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Terminé",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prépare Rédaction",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prépare Image",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prépare Publication",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nettoyage Valeurs": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prépare Rédaction": {
+      "main": [
+        [
+          {
+            "node": "Rédaction des articles2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prépare Image": {
+      "main": [
+        [
+          {
+            "node": "Création des images2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prépare Publication": {
+      "main": [
+        [
+          {
+            "node": "Publication des articles2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Demande Status Entrevue": {
+      "main": [
+        [
+          {
+            "node": "Prépare Valeurs Analyse",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prépare Valeurs Analyse",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Récupérer tous les articles en attente",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Récupérer tous les articles en attente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook rédaction": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Terminé": {
+      "main": [
+        [
+          {
+            "node": "Mettre à jour Status de Entrevue à Terminé",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data1": {
+      "main": [
+        [
+          {
+            "node": "Valeurs Initiales1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Radio": {
+      "main": [
+        [
+          {
+            "node": "Execution Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valeurs Initiales1": {
+      "main": [
+        [
+          {
+            "node": "Quelle tâche musicale ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Création des paroles Chanson": {
+      "main": [
+        [
+          {
+            "node": "Ajout d'une nouvelle Chanson",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mettre à jour Status Musical de Entrevue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Surveillance": {
+      "main": [
+        [
+          {
+            "node": "Lancer la surveillance Channel Youtube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quelle tâche musicale ?": {
+      "main": [
+        [
+          {
+            "node": "Création des paroles Chanson",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Créer la musique",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Publier à la radio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Créer la musique": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-05-03T12:58:56.676Z",
+  "id": "moTbPaEi3VXxF0NA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Jungle des Affaires - Centre de contrôle",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l2zV1QF7bs0jVd9B",
+          "mode": "list",
+          "cachedResultName": "Boost — Jungle des Affaires - Rédaction Blogue (SUB)"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -5340,
+        -3540
+      ],
+      "id": "2fd70994-dd7f-4c0e-bc2f-59f81f6bf90e",
+      "name": "Analyse l'entrevue",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "recId",
+              "value": "={{ $json.body.recId }}"
+            },
+            {
+              "key": "status",
+              "value": "={{ $json.body.status }}"
+            },
+            {
+              "key": "level",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1,
+      "position": [
+        -6460,
+        -3320
+      ],
+      "id": "916d1387-d894-4e9d-b3eb-99f29147c27f",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f10fdc06-4a3c-466d-9122-60a6f48b7e89",
+              "name": "recId",
+              "value": "={{ $json.body.recId }}",
+              "type": "string"
+            },
+            {
+              "id": "0b5c5a9e-3db9-4602-8c4e-66df5d1403f8",
+              "name": "status",
+              "value": "={{ $json.body.status }}",
+              "type": "string"
+            },
+            {
+              "id": "a1a38f29-7a8f-4e13-bdb9-823c080ca7fb",
+              "name": "typeDemande",
+              "value": "={{ $json.body.typeDemande }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -6240,
+        -3320
+      ],
+      "id": "6796e871-e9c2-4bef-82f9-25223e1e0cad",
+      "name": "Valeurs Initiales"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bada5c9d-4f87-4739-9dbe-72174706ff31",
+              "name": "body.recId",
+              "value": "={{ $('Valeurs Initiales').item.json.recId }}",
+              "type": "string"
+            },
+            {
+              "id": "9e8c68e6-5bc3-4ce3-8b32-781c58d678bb",
+              "name": "body.status",
+              "value": "Analyse",
+              "type": "string"
+            },
+            {
+              "id": "16f2e93c-03e5-4e94-8362-b5392525c141",
+              "name": "body.typeDemande",
+              "value": "article",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5600,
+        -3540
+      ],
+      "id": "db436d43-7339-4d51-84c5-4f6a90a62213",
+      "name": "Prépare Valeurs Analyse"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "filterByFormula": "=AND(\n  {recId Entrevue} = \"{{ $('Valeurs Initiales').item.json.recId }}\",\n  {Status}       = \"En attente\"\n)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -5340,
+        -3300
+      ],
+      "id": "3b5a495c-68ba-4f20-ac38-55d66380f0ef",
+      "name": "Récupérer tous les articles en attente",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l2zV1QF7bs0jVd9B",
+          "mode": "list",
+          "cachedResultName": "Boost — Jungle des Affaires - Rédaction (sub)"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -4560,
+        -3460
+      ],
+      "id": "32fef92d-ad4c-4b71-bcb2-6ee76d15c293",
+      "name": "Rédaction des articles2"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l2zV1QF7bs0jVd9B",
+          "mode": "list",
+          "cachedResultName": "Boost — Jungle des Affaires - Rédaction (sub)"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -4560,
+        -3260
+      ],
+      "id": "10709d0c-9ce2-46a5-865c-aad8d8709f0e",
+      "name": "Création des images2"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l2zV1QF7bs0jVd9B",
+          "mode": "list",
+          "cachedResultName": "Boost — Jungle des Affaires - Rédaction Blogue (SUB)"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -4560,
+        -3060
+      ],
+      "id": "652b77df-59c4-4a2d-87cd-314d4879535e",
+      "name": "Publication des articles2",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -5080,
+        -3080
+      ],
+      "id": "abb82e6c-7ab3-4724-935c-c3500feb8789",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4320,
+        -3060
+      ],
+      "id": "06d0d9ef-3d7b-4e94-8182-7c24ddea7f85",
+      "name": "Nettoyage Valeurs"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -4880,
+        -3720
+      ],
+      "id": "13afb02b-f649-4fa8-bdb0-b5e8c397aff1",
+      "name": "Terminé"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bada5c9d-4f87-4739-9dbe-72174706ff31",
+              "name": "body.recId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "9e8c68e6-5bc3-4ce3-8b32-781c58d678bb",
+              "name": "body.status",
+              "value": "Rédaction",
+              "type": "string"
+            },
+            {
+              "id": "16f2e93c-03e5-4e94-8362-b5392525c141",
+              "name": "body.typeDemande",
+              "value": "article",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4780,
+        -3460
+      ],
+      "id": "74153e46-6f06-4d7a-8cbe-109ce7b4882b",
+      "name": "Prépare Rédaction"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bada5c9d-4f87-4739-9dbe-72174706ff31",
+              "name": "body.recId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "9e8c68e6-5bc3-4ce3-8b32-781c58d678bb",
+              "name": "body.status",
+              "value": "Image",
+              "type": "string"
+            },
+            {
+              "id": "16f2e93c-03e5-4e94-8362-b5392525c141",
+              "name": "body.typeDemande",
+              "value": "article",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4780,
+        -3260
+      ],
+      "id": "c716931d-867b-4078-93df-c76550cab4a6",
+      "name": "Prépare Image"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bada5c9d-4f87-4739-9dbe-72174706ff31",
+              "name": "body.recId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "9e8c68e6-5bc3-4ce3-8b32-781c58d678bb",
+              "name": "body.status",
+              "value": "Publier",
+              "type": "string"
+            },
+            {
+              "id": "16f2e93c-03e5-4e94-8362-b5392525c141",
+              "name": "body.typeDemande",
+              "value": "article",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4780,
+        -3060
+      ],
+      "id": "98bcd2d6-359b-40f8-a60f-24ed4a766d68",
+      "name": "Prépare Publication"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Valeurs Initiales').item.json.status }}",
+                    "rightValue": "Analyse à préparer",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "1f2999b0-16e8-46fd-85e7-2f4076c42a73"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Analyse seule"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "854c9ae4-043b-4064-8185-f38ee0021a34",
+                    "leftValue": "={{ $('Valeurs Initiales').item.json.status }}",
+                    "rightValue": "Analyse et articles à préparer",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ana + articles"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6e742567-ec2e-4cd4-b587-f04989601d8c",
+                    "leftValue": "={{ $('Valeurs Initiales').item.json.status }}",
+                    "rightValue": "Articles à préparer",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Articles"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -5980,
+        -3320
+      ],
+      "id": "e0744b1c-d623-4246-86ff-2072c6be9ef1",
+      "name": "Demande Status Entrevue"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/jungle/automation",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -6700,
+        -3320
+      ],
+      "id": "ce7e0cc7-bd18-45b5-abc8-8b6db562faae",
+      "name": "Webhook rédaction",
+      "webhookId": "e67dff40-72d3-4b5b-b3c1-4e6a2b94b6de"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/jungle/radio",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -6640,
+        -2580
+      ],
+      "id": "4d819905-1a13-4df5-b796-58f500114754",
+      "name": "Webhook Radio",
+      "webhookId": "d135d179-d37d-44e0-8b47-245d58a01aec"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Valeurs Initiales').item.json.recId }}",
+            "Status": "Terminé",
+            "Détails du Status": "Automatisation terminée"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Image",
+              "displayName": "Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Analyse et articles à préparer",
+                  "value": "Analyse et articles à préparer"
+                },
+                {
+                  "name": "Analyse à préparer",
+                  "value": "Analyse à préparer"
+                },
+                {
+                  "name": "Articles à préparer",
+                  "value": "Articles à préparer"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Analyse en cours",
+                  "value": "Analyse en cours"
+                },
+                {
+                  "name": "Analyse complétée",
+                  "value": "Analyse complétée"
+                },
+                {
+                  "name": "Transcription complétée",
+                  "value": "Transcription complétée"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Incomplète",
+                  "value": "Incomplète"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email Invité",
+              "displayName": "Email Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire",
+              "displayName": "Vocabulaire",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Youtube URL",
+              "displayName": "Youtube URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vidéo Id",
+              "displayName": "Vidéo Id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Articles",
+              "displayName": "Articles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lien Interne",
+              "displayName": "Lien Interne",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Ajout",
+              "displayName": "Date Ajout",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -4620,
+        -3720
+      ],
+      "id": "d7d86d25-6dab-49a0-adc7-605139d23df3",
+      "name": "Mettre à jour Status de Entrevue à Terminé",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "recId",
+              "value": "={{ $json.body.recId }}"
+            },
+            {
+              "key": "status",
+              "value": "={{ $json.body.status }}"
+            },
+            {
+              "key": "level",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1,
+      "position": [
+        -6420,
+        -2580
+      ],
+      "id": "4ba0947f-a3e5-40d9-bf11-900c6a797a27",
+      "name": "Execution Data1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f10fdc06-4a3c-466d-9122-60a6f48b7e89",
+              "name": "recId",
+              "value": "={{ $json.body.recId }}",
+              "type": "string"
+            },
+            {
+              "id": "0b5c5a9e-3db9-4602-8c4e-66df5d1403f8",
+              "name": "status",
+              "value": "={{ $json.body.status }}",
+              "type": "string"
+            },
+            {
+              "id": "a1a38f29-7a8f-4e13-bdb9-823c080ca7fb",
+              "name": "typeDemande",
+              "value": "={{ $json.body.typeDemande }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -6200,
+        -2580
+      ],
+      "id": "cb24e4c3-35c6-4bf4-a997-c880af9ccae4",
+      "name": "Valeurs Initiales1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "lXq6FV2odnGhn0xN",
+          "mode": "list",
+          "cachedResultName": "Boost — Création des paroles d'une chanson - Jungle"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -5740,
+        -2620
+      ],
+      "id": "96fe61c3-0dc1-433c-ae4f-09bab6abb12e",
+      "name": "Création des paroles Chanson"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblZzGvPuwJrzbsjt",
+          "mode": "list",
+          "cachedResultName": "Chanson",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblZzGvPuwJrzbsjt"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Entrevue": "=['{{ $('Valeurs Initiales1').item.json.recId }}']",
+            "Paroles": "={{ $json.paroles }}",
+            "Nom": "={{ $json.titre_chanson }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Entrevue",
+              "displayName": "Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Name (from Entrevue)",
+              "displayName": "Name (from Entrevue)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Paroles",
+              "displayName": "Paroles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Style musical",
+              "displayName": "Style musical",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Blues",
+                  "value": "Blues"
+                },
+                {
+                  "name": "Pop",
+                  "value": "Pop"
+                },
+                {
+                  "name": "Dance",
+                  "value": "Dance"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Statut",
+              "displayName": "Statut",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "En création",
+                  "value": "En création"
+                },
+                {
+                  "name": "Chanson crée avec succès",
+                  "value": "Chanson crée avec succès"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -5460,
+        -2740
+      ],
+      "id": "0f8fb203-a09b-42d0-9e1a-faf503dbf695",
+      "name": "Ajout d'une nouvelle Chanson",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/jungle/surveillance",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -6620,
+        -1780
+      ],
+      "id": "8434a364-ab28-46ec-aa86-94b40c16fd17",
+      "name": "Webhook Surveillance",
+      "webhookId": "d135d179-d37d-44e0-8b47-245d58a01aec"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "Veeh2z4JyuEigz2h",
+          "mode": "list",
+          "cachedResultName": "Boost — Surveillance Channel Youtube Dans La Jungle"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -6360,
+        -1780
+      ],
+      "id": "dc6e5fe4-ec1c-4787-93a7-59ed11831870",
+      "name": "Lancer la surveillance Channel Youtube"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Valeurs Initiales1').item.json.recId }}",
+            "Status Radio": "Paroles crées avec succès"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Image",
+              "displayName": "Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status Radio",
+              "displayName": "Status Radio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Créer une chanson",
+                  "value": "Créer une chanson"
+                },
+                {
+                  "name": "Publier à la radio",
+                  "value": "Publier à la radio"
+                },
+                {
+                  "name": "Création en cours",
+                  "value": "Création en cours"
+                },
+                {
+                  "name": "Paroles crées avec succès",
+                  "value": "Paroles crées avec succès"
+                },
+                {
+                  "name": "Chanson crée avec succès",
+                  "value": "Chanson crée avec succès"
+                },
+                {
+                  "name": "Chanson publiée à la radio avec succès",
+                  "value": "Chanson publiée à la radio avec succès"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Analyse et articles à préparer",
+                  "value": "Analyse et articles à préparer"
+                },
+                {
+                  "name": "Analyse à préparer",
+                  "value": "Analyse à préparer"
+                },
+                {
+                  "name": "Articles à préparer",
+                  "value": "Articles à préparer"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Analyse en cours",
+                  "value": "Analyse en cours"
+                },
+                {
+                  "name": "Analyse complétée",
+                  "value": "Analyse complétée"
+                },
+                {
+                  "name": "Transcription complétée",
+                  "value": "Transcription complétée"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Incomplète",
+                  "value": "Incomplète"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email Invité",
+              "displayName": "Email Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire",
+              "displayName": "Vocabulaire",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Youtube URL",
+              "displayName": "Youtube URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vidéo Id",
+              "displayName": "Vidéo Id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Articles",
+              "displayName": "Articles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lien Interne",
+              "displayName": "Lien Interne",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Ajout",
+              "displayName": "Date Ajout",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Chansons",
+              "displayName": "Chansons",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -5460,
+        -2540
+      ],
+      "id": "6598e122-7694-4e27-ab3b-86291293c802",
+      "name": "Mettre à jour Status Musical de Entrevue",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.typeDemande }}",
+                    "rightValue": "création",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "b5cc9993-be5e-4434-a885-f47aba05ab0c"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Création"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "af8fff70-fe9d-4269-90ca-b21479795363",
+                    "leftValue": "={{ $json.typeDemande }}",
+                    "rightValue": "musique",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Musique"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e3f16412-17c5-41f5-bb5d-e549e202e462",
+                    "leftValue": "={{ $json.typeDemande }}",
+                    "rightValue": "radio",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Radio"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -6000,
+        -2580
+      ],
+      "id": "4845b7a0-f9bb-4d94-a6e4-c778a4da9c60",
+      "name": "Quelle tâche musicale ?"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "A8VJjYMWUkbVPPOX",
+          "mode": "list",
+          "cachedResultName": "Boost — Créer 2 versions musicales Chanson (SUB)"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -5740,
+        -2360
+      ],
+      "id": "c7ef7d34-3ee5-4066-9eab-9458a98992c7",
+      "name": "Créer la musique"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "iKbrpDsvwCDq9FNa",
+          "mode": "list",
+          "cachedResultName": "Boost — Song Upload And Publish to Radio"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -5740,
+        -2120
+      ],
+      "id": "6a9411c4-c618-4e7d-a8d8-9f5508555a96",
+      "name": "Publier à la radio"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-24T21:09:18.887Z",
+      "updatedAt": "2024-06-24T21:09:18.887Z",
+      "id": "IzovHyYMj2l2t3WZ",
+      "name": "Jungle"
+    },
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 3,
+  "updatedAt": "2025-05-20T18:44:01.000Z",
+  "versionId": "925bed69-ad04-4737-afd7-e2c04a027e66"
+}
