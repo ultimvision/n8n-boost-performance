@@ -1,0 +1,908 @@
+{
+  "active": false,
+  "connections": {
+    "Set Post Data": {
+      "main": [
+        [
+          {
+            "node": "Get Instagram Post Comments",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Upsert Instagram Posts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Hashtags Exists?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Instagram Post Likers1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hashtags Exists?": {
+      "main": [
+        [
+          {
+            "node": "Split Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Hashtags": {
+      "main": [
+        [
+          {
+            "node": "Upsert Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Comments": {
+      "main": [
+        [
+          {
+            "node": "Upsert Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Comments Data": {
+      "main": [
+        [
+          {
+            "node": "Split Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Likers Data": {
+      "main": [
+        [
+          {
+            "node": "Split Likers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Likers": {
+      "main": [
+        [
+          {
+            "node": "Add Likers To DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Instagram Post Comments": {
+      "main": [
+        [
+          {
+            "node": "Set Comments Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Error Message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Instagram Post Likers1": {
+      "main": [
+        [
+          {
+            "node": "Set Likers Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Error Message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert Hashtags": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert Instagram Posts": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Upsert Comments": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Add Likers To DB": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Return Nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Split Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Posts": {
+      "main": [
+        [
+          {
+            "node": "Set Post Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-26T15:45:14.402Z",
+  "id": "rUZMP4QInV1SYitx",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Instagram - Get Posts Details and Activities - Sub",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "106240d9-b9bd-42db-b1f6-bb74efaf567a",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        480,
+        1120
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data.items",
+        "options": {}
+      },
+      "id": "631f9df2-5254-44d9-95aa-730b426d76f0",
+      "name": "Split Posts",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        780,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "c9f45636-847e-463e-a48d-d6e8ea7fc957",
+      "name": "Set Post Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1260,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "15aaf198-b5d8-4d75-b1c5-0e7912dd756b",
+              "leftValue": "={{ $('Split Posts').item.json[\"caption\"][\"hashtags\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "a55c297d-7901-4638-bc4a-05c03f8fe812",
+              "leftValue": "={{ $json.caption.hashtags }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "86fd50e4-e21b-44b5-be40-94e96f86cc87",
+      "name": "Hashtags Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2040,
+        554
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "caption.hashtags",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": "code, owner.username",
+        "options": {
+          "destinationFieldName": "hashtags"
+        }
+      },
+      "id": "84f78d43-758f-4c35-acea-8f9be512fd00",
+      "name": "Split Hashtags",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        414
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data.items",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": "code",
+        "options": {
+          "destinationFieldName": "comment"
+        }
+      },
+      "id": "5b7a8f17-446e-4b36-b840-b2eb2322efa0",
+      "name": "Split Comments",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2520,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a20823e9-1f96-48a6-a5b1-7e0014074e65",
+              "name": "data.additional_data.caption.hashtags",
+              "value": "={{ $json.data.additional_data.caption.hashtags }}",
+              "type": "array"
+            },
+            {
+              "id": "f1010c88-0f3c-443a-a299-b2857c9f8117",
+              "name": "data.additional_data.caption.text",
+              "value": "={{ $json.data.additional_data.caption.text }}",
+              "type": "string"
+            },
+            {
+              "id": "3d18db62-fce7-4103-a04a-0b7d73c12f1d",
+              "name": "data.additional_data.caption.user.full_name",
+              "value": "={{ $json.data.additional_data.caption.user.full_name }}",
+              "type": "string"
+            },
+            {
+              "id": "8accfda0-3186-4515-ba25-1f0e6fcfc894",
+              "name": "data.additional_data.caption.user.username",
+              "value": "={{ $json.data.additional_data.caption.user.username }}",
+              "type": "string"
+            },
+            {
+              "id": "9d91ef39-0a0e-4300-a7f4-a06a5c198994",
+              "name": "data.items",
+              "value": "={{ $json.data.items }}",
+              "type": "array"
+            },
+            {
+              "id": "c4968389-5340-4ea1-bdff-1270937b62bf",
+              "name": "code",
+              "value": "={{ $('Set Post Data').item.json[\"code\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f97f47f7-625f-43b7-a0a3-85490eabafbc",
+      "name": "Set Comments Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2280,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8ba7b8d5-1790-4732-a6d1-f26fae7383f3",
+              "name": "data.items",
+              "value": "={{ $json.data.items }}",
+              "type": "array"
+            },
+            {
+              "id": "f44d2bc8-766e-4887-bda9-125d4af4547a",
+              "name": "code",
+              "value": "={{ $('Set Post Data').item.json[\"code\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "33dbba2f-70c8-4f6e-8e67-6662082bcfb5",
+      "name": "Set Likers Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2280,
+        1660
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data.items",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": "code",
+        "options": {}
+      },
+      "id": "ff6fab0a-40a8-4b53-976d-490da0c579e4",
+      "name": "Split Likers",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2500,
+        1660
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "instagram_hashtags",
+          "mode": "list",
+          "cachedResultName": "instagram_hashtags"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "hashtags",
+        "valueToMatchOn": "={{ $json.hashtags }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "username",
+              "value": "={{ $json['owner.username'] }}"
+            },
+            {
+              "column": "post_code",
+              "value": "={{ $json.code }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0439a833-eeab-4a73-bf35-be97699bd55d",
+      "name": "Upsert Hashtags",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2520,
+        414
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "instagram_posts",
+          "mode": "list",
+          "cachedResultName": "instagram_posts"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "code",
+        "valueToMatchOn": "={{ $json.code }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "created_at",
+              "value": "={{ new Date($json.caption.created_at*1000).toISOString().split('T')[0] }}"
+            },
+            {
+              "column": "content_type",
+              "value": "={{ $json.caption.content_type }}"
+            },
+            {
+              "column": "hashtags",
+              "value": "={{ $json[\"caption\"][\"hashtags\"] !== undefined && $json[\"caption\"][\"hashtags\"] !== null ? JSON.stringify($json[\"caption\"][\"hashtags\"]) : null }}"
+            },
+            {
+              "column": "text",
+              "value": "={{ $json.caption.text }}"
+            },
+            {
+              "column": "comment_count",
+              "value": "={{ $json[\"comment_count\"] !== undefined && $json[\"comment_count\"] !== null ? $json[\"comment_count\"] : 0 }}"
+            },
+            {
+              "column": "image_post",
+              "value": "={{ $json[\"image_versions\"][\"items\"][0][\"url\"] !== undefined && $json[\"image_versions\"][\"items\"][0][\"url\"] !== null ? $json[\"image_versions\"][\"items\"][0][\"url\"] : null }}"
+            },
+            {
+              "column": "like_count",
+              "value": "={{ $json[\"like_count\"] !== undefined && $json[\"like_count\"] !== null ? $json[\"like_count\"] : 0 }}"
+            },
+            {
+              "column": "username",
+              "value": "={{ $json.owner.username }}"
+            },
+            {
+              "column": "full_name",
+              "value": "={{ $json.owner.full_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8946a080-148c-4879-b2b3-4d382b11d13f",
+      "name": "Upsert Instagram Posts",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2040,
+        834.2485002841177
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "instagram_comments",
+          "mode": "list",
+          "cachedResultName": "instagram_comments"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "comment_id",
+        "valueToMatchOn": "={{ $json.comment.id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "content_type",
+              "value": "={{ $json.comment.content_type }}"
+            },
+            {
+              "column": "created_at",
+              "value": "={{ DateTime.fromMillis($json.comment.created_at * 1000).toFormat('yyyy-MM-dd HH:mm:ss') }}"
+            },
+            {
+              "column": "full_name",
+              "value": "={{ $json.comment.user.full_name }}"
+            },
+            {
+              "column": "username",
+              "value": "={{ $json.comment.user.username }}"
+            },
+            {
+              "column": "text",
+              "value": "={{ $json.comment.text }}"
+            },
+            {
+              "column": "comment_like_count",
+              "value": "={{ $json[\"comment\"][\"comment_like_count\"] !== undefined && $json[\"comment\"][\"comment_like_count\"] !== null ? $json[\"comment\"][\"comment_like_count\"] : 0 }}"
+            },
+            {
+              "column": "replied_to_comment_id",
+              "value": "={{ $json[\"comment\"][\"replied_to_comment_id\"] !== undefined && $json[\"comment\"][\"replied_to_comment_id\"] !== null ? $json[\"comment\"][\"replied_to_comment_id\"] : null }}"
+            },
+            {
+              "column": "is_created_by_media_owner",
+              "value": "={{ $json[\"comment\"][\"is_created_by_media_owner\"] !== undefined && $json[\"comment\"][\"is_created_by_media_owner\"] !== null ? $json[\"comment\"][\"is_created_by_media_owner\"] : 0 }}"
+            },
+            {
+              "column": "is_liked_by_media_owner",
+              "value": "={{ $json[\"comment\"][\"is_liked_by_media_owner\"] !== undefined && $json[\"comment\"][\"is_liked_by_media_owner\"] !== null ? $json[\"comment\"][\"is_liked_by_media_owner\"] : 0 }}"
+            },
+            {
+              "column": "like_count",
+              "value": "={{ $json[\"comment\"][\"like_count\"] !== undefined && $json[\"comment\"][\"like_count\"] !== null ? $json[\"comment\"][\"like_count\"] : 0 }}"
+            },
+            {
+              "column": "has_liked_comment",
+              "value": "={{ $json.comment.has_liked_comment }}"
+            },
+            {
+              "column": "did_report_as_spam",
+              "value": "={{ $json.comment.did_report_as_spam }}"
+            },
+            {
+              "column": "post_code",
+              "value": "={{ $json.code }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "cb0f4c31-c7bb-40d1-9f2a-735fa85ea487",
+      "name": "Upsert Comments",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2760,
+        1120
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "instagram_likers",
+          "mode": "list",
+          "cachedResultName": "instagram_likers"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "like_id",
+        "valueToMatchOn": "={{ $json.code }}-{{ $json['data.items'].username }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "like_type",
+              "value": "post"
+            },
+            {
+              "column": "post_comment_id",
+              "value": "={{ $json.code }}"
+            },
+            {
+              "column": "username",
+              "value": "={{ $json['data.items'].username }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0626665c-01c2-4707-beff-c1d6542e624f",
+      "name": "Add Likers To DB",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2720,
+        1660
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://instagram-scraper-api2.p.rapidapi.com/v1/comments",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "code_or_id_or_url",
+              "value": "={{ $json.code }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4cba0845-9567-43ba-b952-dd17739bb6e6",
+      "name": "Get Instagram Post Comments",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2040,
+        1200
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"status\": \"error\",\n  \"message\": {{ JSON.stringify($json.error.message) }} \n}",
+        "options": {}
+      },
+      "id": "546039b2-2ba8-4ebc-b43a-a7b0e79e1ea7",
+      "name": "Set Error Message1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2280,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://instagram-scraper-api2.p.rapidapi.com/v1/likes",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "code_or_id_or_url",
+              "value": "={{ $json.code }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "122d48c7-899b-42de-b21e-bdbf84d3e965",
+      "name": "Get Instagram Post Likers1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2060,
+        1760
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"status\": \"error\",\n  \"message\": {{ JSON.stringify($json.error.message) }} \n}",
+        "options": {}
+      },
+      "id": "c0af513f-2f1b-40cb-8d9d-54894cfdd6a0",
+      "name": "Set Error Message2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2280,
+        1880
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Get New Hashtags\n",
+        "height": 360.5803115731155,
+        "width": 1098.775084303622,
+        "color": 4
+      },
+      "id": "0ed0d287-6bac-4c6b-8371-b6865ecd5fe2",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Save Post Details\n",
+        "height": 245.20696446350033,
+        "width": 1098.775084303622,
+        "color": 4
+      },
+      "id": "f9d8adda-fd8d-423d-809a-6255a6b1fd38",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        771.719086635344
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Get All Post Comments",
+        "height": 394.3966374500717,
+        "width": 1098.775084303622,
+        "color": 4
+      },
+      "id": "c027fad2-d0f8-41e0-96e6-de6250928067",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Get All Post Likers Username",
+        "height": 495.84561508094026,
+        "width": 1098.775084303622,
+        "color": 4
+      },
+      "id": "c9f947fb-3309-4ec6-9c20-54c7a55b89df",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        1580
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "98898780-6904-4edd-a338-c0b4ce7807c6",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        500,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "id": "a1014d81-fa92-4fe9-b03e-dde98bc4c99a",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3540,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "87be55bd-785b-4084-a20e-ff327ea7b7a9",
+      "name": "Return Nothing",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3760,
+        900
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b639c4f7-2192-4727-89a3-f7d743dd0683",
+      "name": "Limit",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        720
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T13:07:53.389Z",
+      "updatedAt": "2024-08-26T13:07:53.389Z",
+      "id": "gQxWtkeNcVbI6Tr5",
+      "name": "Instagram"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T22:52:44.000Z",
+  "versionId": "0e5f06cc-e1ba-4718-acdc-075d8d4a1542"
+}
