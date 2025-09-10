@@ -1,0 +1,619 @@
+{
+  "active": false,
+  "connections": {
+    "Set Hashtags Data": {
+      "main": [
+        [
+          {
+            "node": "Set Id",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Instagram Search Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Suggested Hashtags": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Suggested Hashtags": {
+      "main": [
+        [
+          {
+            "node": "New Suggested Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New Suggested Hashtags": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Insert Suggested Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Hashtags": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Hashtag Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Id": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Instagram Search Hashtags": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hashtag Data": {
+      "main": [
+        [
+          {
+            "node": "Hashtags Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hashtags Exists": {
+      "main": [
+        [
+          {
+            "node": "Split Suggested Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Hashtags",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Hashtags": {
+      "main": [
+        [
+          {
+            "node": "Set Hashtags Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Return Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-26T17:06:17.671Z",
+  "id": "dUcvoYwofJqHp8KL",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Instagram - Get Similar Hashtags",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "446d54eb-be07-4a9e-8487-3f64babcc3a0",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -200,
+        560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "af02a387-a9f6-44e8-80d2-e33f93d63773",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "bcbf4d2d-7e80-4386-9ae1-e14a0559eaf1",
+              "name": "hashtags",
+              "value": "={{ $json.hashtags }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3867d6e3-6a2a-4f6f-8cc4-3fe6642dca78",
+      "name": "Set Hashtags Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        420,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "maxItems": 5
+      },
+      "id": "53c16b23-8d89-4b56-b888-5598df74854c",
+      "name": "Limit",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        680,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "instagram_hashtags",
+          "mode": "list",
+          "cachedResultName": "instagram_hashtags"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $('Hashtag Data').item.json.id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "suggested_hashtags",
+              "value": "={{ $json[\"hashtags\"] !== undefined && $json[\"hashtags\"] !== null ? JSON.stringify($json[\"hashtags\"]) : null }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fbab3c83-56be-481c-8fc8-7a8f7780a581",
+      "name": "Insert Suggested Hashtags",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2920,
+        720
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data.items",
+        "options": {}
+      },
+      "id": "971f654d-d9e4-4eda-bdc1-d94d3097cfe3",
+      "name": "Split Suggested Hashtags",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "25957cb0-cead-4904-a392-3bc172700167",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "cd54b3cb-0a10-44a3-b308-6562fa3c6c00",
+              "name": "media_count",
+              "value": "={{ $json.media_count }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c0b9b23a-b3ca-4fd3-aea8-eadcc22163ca",
+      "name": "New Suggested Hashtags",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2300,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "hashtags",
+        "options": {}
+      },
+      "id": "99abef3e-f9d2-4386-b9f6-55cce5a76c07",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2660,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "media_count",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1bce37f4-651d-4650-891d-c4d923cadf0f",
+      "name": "Sort",
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "69b463df-0315-4452-95b0-f03991516d39",
+      "name": "Loop Over Hashtags",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1360,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f579433e-3820-4a39-8cd5-342e31b12f52",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4fb3efa9-8dd6-43d9-a174-e3a6d8bb7325",
+      "name": "Set Id",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "4c7501d7-61c7-4054-b368-f9dbee33f320",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        900,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "6e12ae38-42b2-4008-936b-443d205d6f64",
+      "name": "Aggregate1",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        340
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b97a4d3e-656e-42fb-8df5-25e5fcbc4cbc",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -200,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://instagram-scraper-api2.p.rapidapi.com/v1/search_hashtags",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "search_query",
+              "value": "={{ $json.hashtags }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0f14b616-10b2-4aa6-85aa-7383a4f2c5cf",
+      "name": "Get Instagram Search Hashtags",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        340
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d3311e89-50d2-4066-8333-d22f563f15d9",
+      "name": "Hashtag Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1580,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "2963a2cc-ac45-4021-9095-5d400c5fd97f",
+              "leftValue": "={{ $json.data.items }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "7d480c71-9468-4a96-889d-c39e965d01d7",
+              "leftValue": "={{ $json.data.items }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a11eb5e1-5ff9-4b5e-ac13-3a3ac0624338",
+      "name": "Hashtags Exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1820,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "instagram_hashtags",
+          "mode": "list",
+          "cachedResultName": "instagram_hashtags"
+        },
+        "limit": 100,
+        "where": {
+          "values": [
+            {
+              "column": "suggested_hashtags",
+              "condition": "IS NULL"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "953a8f04-1342-4302-a74c-18fc2533241c",
+      "name": "Get Hashtags",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        200,
+        440
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"status\": \"success\"\n}\n",
+        "options": {}
+      },
+      "id": "fded8738-b495-42aa-a714-ddecc6665450",
+      "name": "Return Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1760,
+        340
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T13:07:53.389Z",
+      "updatedAt": "2024-08-26T13:07:53.389Z",
+      "id": "gQxWtkeNcVbI6Tr5",
+      "name": "Instagram"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T17:56:50.000Z",
+  "versionId": "97aafd21-7852-4d48-936d-ae8be7baa0ae"
+}
