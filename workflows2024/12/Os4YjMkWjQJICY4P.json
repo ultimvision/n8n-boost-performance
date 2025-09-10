@@ -1,0 +1,250 @@
+{
+  "active": true,
+  "connections": {
+    "/validateImageForTraining": {
+      "main": [
+        [
+          {
+            "node": "Validate images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "/createLoraTraining": {
+      "main": [
+        [
+          {
+            "node": "Create training",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "/progress": {
+      "main": [
+        [
+          {
+            "node": "Terminate and clean Training",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create training": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        [
+          {
+            "node": "Do the progress",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Terminate and clean Training": {
+      "main": [
+        [
+          {
+            "node": "Generate images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-18T16:40:09.783Z",
+  "id": "Os4YjMkWjQJICY4P",
+  "isArchived": false,
+  "meta": null,
+  "name": "Webhook - LoRA Training",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/loraTraining/validateImageForTraining",
+        "authentication": "jwtAuth",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        -320
+      ],
+      "id": "f5cf2acd-7660-435a-807e-750b0e916b9a",
+      "name": "/validateImageForTraining",
+      "webhookId": "f67e29d9-b63f-41c6-b394-80c08f90c668",
+      "credentials": {
+        "jwtAuth": {
+          "id": "6mqeC2DtjJZEwclE",
+          "name": "JWT Auth Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/loraTraining/createLoraTraining",
+        "authentication": "jwtAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        -80
+      ],
+      "id": "3930d7e3-cb15-4571-8bba-55d22b226415",
+      "name": "/createLoraTraining",
+      "webhookId": "011e51c4-f6b4-46eb-9354-5aa7e5a1db98",
+      "credentials": {
+        "jwtAuth": {
+          "id": "6mqeC2DtjJZEwclE",
+          "name": "JWT Auth Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": "gd4agMItP1yWAxCq",
+        "options": {}
+      },
+      "id": "79709e08-0883-4bce-a6c7-2abb0b493ce2",
+      "name": "Validate images",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "u2jZQV60Tcl88gEU",
+        "options": {}
+      },
+      "id": "ef869d70-18a8-45c8-91ad-dba6f3eb99b0",
+      "name": "Create training",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/loraTraining/progress",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        160
+      ],
+      "id": "635b88fc-4528-46c2-acee-934bd31481b1",
+      "name": "/progress",
+      "webhookId": "011e51c4-f6b4-46eb-9354-5aa7e5a1db98"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        -80
+      ],
+      "id": "84428f6e-54d0-4041-9436-9adee288a738",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "workflowId": "UQa4NLGk7oKoeqnz",
+        "options": {}
+      },
+      "id": "41cc7578-af9a-4093-b83a-0440271bf216",
+      "name": "Do the progress",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        720,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "owrlQ9npsvqlBIx9",
+        "options": {}
+      },
+      "id": "7e1c183b-d5da-4d73-bceb-286402105e4c",
+      "name": "Terminate and clean Training",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        240,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "nbsmGL1rfMCyl85w",
+        "options": {}
+      },
+      "id": "4c0f4eb4-72ab-4b8b-b3c9-1a627d5d3f69",
+      "name": "Generate images",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        480,
+        160
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T16:32:57.263Z",
+      "updatedAt": "2024-12-18T16:32:57.263Z",
+      "id": "amjVeuraiVY1rsI9",
+      "name": "Dev:Bill"
+    },
+    {
+      "createdAt": "2025-01-09T18:43:24.496Z",
+      "updatedAt": "2025-01-09T18:43:24.496Z",
+      "id": "ibTp4QS6HcCdS2fo",
+      "name": "LoRA training"
+    }
+  ],
+  "triggerCount": 3,
+  "updatedAt": "2025-01-09T18:44:12.000Z",
+  "versionId": "4ab7a114-8ffd-4e5c-827c-5e8b8e1c2dba"
+}
