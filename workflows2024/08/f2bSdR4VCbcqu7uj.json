@@ -1,0 +1,346 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-08-18T17:27:03.085Z",
+  "id": "f2bSdR4VCbcqu7uj",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AI Agent - Army Head Office",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e3fe110a-0112-4060-90bd-e50175fd8059",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        2580,
+        980
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Instagram\n![Source example](https://boostperformance.ai/aiagent/instagram.png)\n\n[Instagram - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/AKTGm6RRA47L8iBj)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "eda489a0-8795-44f6-85ff-42a012fa0db6",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Youtube\n![Source example](https://boostperformance.ai/aiagent/youtube.png)\n\n[Youtube - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/QLKhp6IBN1FcfQ9S)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "ae23dc33-9f60-436c-8440-b183eb557ff9",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        600,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Music Studio\n![Source example](https://boostperformance.ai/aiagent/micro.png)\n\n[Music - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/FMRnjjpPASXhluYg)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "cd11aaad-793e-4436-932b-311a434e91ca",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        680,
+        -700
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Twitter\n![Source example](https://boostperformance.ai/aiagent/twitter.png)\n\n[Twitter - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/AKTGm6RRA47L8iBj)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "11b2318e-5781-41ca-ae68-e109623382b8",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Tik Tok\n![Source example](https://boostperformance.ai/aiagent/tiktok.png)\n\n[TikTok - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/QLKhp6IBN1FcfQ9S)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "694af969-8f96-4ed2-b575-3164a5dc73e5",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Pinterest\n![Source example](https://boostperformance.ai/aiagent/pinterest.png)\n\n[Pinterest - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/AKTGm6RRA47L8iBj)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "a2fbab64-f094-4666-8af7-ead581d85e06",
+      "name": "Sticky Note11",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Medium\n![Source example](https://boostperformance.ai/aiagent/medium.png)\n\n[Medium - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/QLKhp6IBN1FcfQ9S)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "aca78b63-1882-4bf3-a1dd-aa2323c288c8",
+      "name": "Sticky Note12",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3080,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# LinkedIn\n![Source example](https://boostperformance.ai/aiagent/linkedin.png)\n\n[LinkedIn - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/AKTGm6RRA47L8iBj)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "a777ad9e-e15b-49c2-aa6c-a12363117a8e",
+      "name": "Sticky Note13",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Google\n![Source example](https://boostperformance.ai/aiagent/google.png)\n\n[Google - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/QLKhp6IBN1FcfQ9S)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "6f9186bd-62eb-439b-bad6-8f06333c7955",
+      "name": "Sticky Note14",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        600,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Facebook\n![Source example](https://boostperformance.ai/aiagent/facebook.png)\n\n[Facebook - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/AKTGm6RRA47L8iBj)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "5925c9f1-163d-4ede-97f5-b06cc7bb1cd7",
+      "name": "Sticky Note15",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Telegram\n![Source example](https://boostperformance.ai/aiagent/telegram.png)\n\n[Telegram - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/AKTGm6RRA47L8iBj)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "695b2d29-0857-47aa-8786-6d9e0f1c0c61",
+      "name": "Sticky Note16",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# RSS\n![Source example](https://boostperformance.ai/aiagent/rss.png)\n\n[RSS - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/AKTGm6RRA47L8iBj)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "f8d47055-ec39-4123-a3b6-fa8187c5a317",
+      "name": "Sticky Note17",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1960,
+        -680
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Email Automation\n![Source example](https://boostperformance.ai/aiagent/courriel.png)\n\n[Email Automation - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/QLKhp6IBN1FcfQ9S)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "c7b1a1c7-9094-4f76-bc0b-02066eb8989d",
+      "name": "Sticky Note18",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2580,
+        -680
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Social Media",
+        "height": 1737.8147510614672,
+        "width": 3797.888000713996,
+        "color": 7
+      },
+      "id": "e2b7768d-8662-4a2f-aca1-086d93559eca",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -73.89033048475085,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Music, Radio & Podcasts",
+        "height": 796.5103660142887,
+        "width": 1246.1348622462115,
+        "color": 7
+      },
+      "id": "0480b24c-64ce-4320-8e8b-03457743f004",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        620,
+        -800
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Video Studio\n![Source example](https://boostperformance.ai/aiagent/cinema.jpg)\n\n[Video - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/FMRnjjpPASXhluYg)",
+        "height": 679.7723960086362,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "2a6c28ac-ded5-4b07-ad77-9cc90115dea4",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        -697.5053830587512
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# AI Assistant",
+        "height": 796.5103660142902,
+        "width": 631.7064124765153,
+        "color": 7
+      },
+      "id": "a1d3bfd4-b07b-4646-9bec-17360a55afc3",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -68.97490288659355,
+        -795.8508381640729
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# AI Assistant - Brain Factory\n![Source example](https://boostperformance.ai/aiagent/learn_to_ai.jpg)\n\n[AI Assistant - Brain Factory - AI Agents Army Dashboard](https://boostperformance.app.n8n.cloud/workflow/QLKhp6IBN1FcfQ9S)",
+        "height": 662.2670129498849,
+        "width": 522.7120887721379,
+        "color": 7
+      },
+      "id": "ed207dff-c784-43b3-af56-f02cf2dad83f",
+      "name": "Sticky Note19",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        -700
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Blog, Website, Email Automation",
+        "height": 796.5103660142887,
+        "width": 1794.2050394407827,
+        "color": 7
+      },
+      "id": "436aa71f-f984-43f4-9121-c00960a4c846",
+      "name": "Sticky Note20",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        -800
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-23T17:06:43.766Z",
+      "updatedAt": "2024-08-23T17:06:43.766Z",
+      "id": "TPEDC5z0w6W3NxWY",
+      "name": "Ai Agent Army"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T21:54:06.000Z",
+  "versionId": "12cc7b34-569a-467f-9db2-bafc8a27390d"
+}
