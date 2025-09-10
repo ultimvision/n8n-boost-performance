@@ -1,0 +1,514 @@
+{
+  "active": false,
+  "connections": {
+    "Edit Image": {
+      "main": [
+        [
+          {
+            "node": "Convert to base64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Answer the client",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Try to fix the json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to base64": {
+      "main": [
+        [
+          {
+            "node": "Ask GPT4o",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ask GPT4o": {
+      "main": [
+        [
+          {
+            "node": "Parse answer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse answer": {
+      "main": [
+        [
+          {
+            "node": "Prepare answer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare answer": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse answer1": {
+      "main": [
+        [
+          {
+            "node": "Prepare answer1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare answer1": {
+      "main": [
+        [
+          {
+            "node": "Answer the client",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Try to fix the json": {
+      "main": [
+        [
+          {
+            "node": "Parse answer1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-18T16:32:36.418Z",
+  "id": "gd4agMItP1yWAxCq",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Services - Validate images for LoRA training",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "resize",
+        "dataPropertyName": "file",
+        "width": 768,
+        "height": 768,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        300
+      ],
+      "id": "c0b5c898-a835-4a46-abfa-6ad71373f2d1",
+      "name": "Edit Image"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ea0f5f35-d430-4a56-81e7-e3c8df6b2bce",
+              "leftValue": "={{ $json.isValidJson }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        460,
+        300
+      ],
+      "id": "13f35662-5e34-4e60-b3c9-e92b114eba87",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "binaryPropertyName": "file",
+        "destinationKey": "file",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -360,
+        300
+      ],
+      "id": "258f11e9-d21b-488b-9237-19a2c0ff337b",
+      "name": "Convert to base64"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"I need you to validate an image. Check the following criteria and return `true` if all conditions are met; otherwise, return `false` with a clear explanation of why the image does not meet the requirements:\\n\\n1. The image must contain only one person.\\n2. The person should be the primary focus of the image.\\nAnalyze the image carefully and provide your decision in a JSON string in the following format:\\n\\nExample:\\n\\nIf the image meets all criteria:\\n{\\n  \\\"result\\\": true,\\n  \\\"message\\\": \\\"The image meets all the criteria for training.\\\"\\n}\\n\\nIf the image fails any criteria:\\n{\\n  \\\"result\\\": false,\\n  \\\"message\\\": \\\"The image does not meet the criteria because both eyes are not open and there is text on the image.\\\"\\n}\\n\\nEnsure that the response is valid JSON without any additional formatting or markdown.\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": {\n            \"url\": \"data:image/png;base64,{{$json.file}}\"\n          }\n        }\n      ]\n    }\n  ],\n  \"max_tokens\": 500\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -160,
+        300
+      ],
+      "id": "2e8d71de-dae8-4ee0-8fa7-b87bca2fb63e",
+      "name": "Ask GPT4o",
+      "credentials": {
+        "openAiApi": {
+          "id": "P0G2YpkVZIDDw99j",
+          "name": "OpenAi Boost TAI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2516e8cd-48b7-4bdd-93de-856d8526487c",
+              "name": "parsed_answer",
+              "value": "={{ (() => {\n  try {\n    return JSON.parse($json.choices[0]?.message?.content) || null;\n  } catch (error) {\n    return null;\n  }\n})() }}",
+              "type": "object"
+            },
+            {
+              "id": "b59efdd2-4e11-4953-bb3b-169f948b3f2a",
+              "name": "original_answer",
+              "value": "={{ $json.choices[0].message.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        40,
+        300
+      ],
+      "id": "96ef0ee5-3696-417f-a79c-102dd5b53b70",
+      "name": "Parse answer"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "725cd838-0fd0-4911-9295-924e33c1a35f",
+              "name": "isValidJson",
+              "value": "={{ $json.parsed_answer !== null }}",
+              "type": "boolean"
+            },
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "result",
+              "value": "={{ $json.parsed_answer.result || false }}",
+              "type": "boolean"
+            },
+            {
+              "id": "4cd449d2-1096-4ce8-ba17-f93289629393",
+              "name": "message",
+              "value": "={{ $json.parsed_answer?.message ?? $json.original_answer ?? null }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        300
+      ],
+      "id": "481312e8-904e-41a2-ba67-ef2464cf07eb",
+      "name": "Prepare answer"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2516e8cd-48b7-4bdd-93de-856d8526487c",
+              "name": "parsed_answer",
+              "value": "={{ (() => {\n  try {\n    return JSON.parse($json?.message?.content) || null;\n  } catch (error) {\n    return null;\n  }\n})() }}",
+              "type": "object"
+            },
+            {
+              "id": "b59efdd2-4e11-4953-bb3b-169f948b3f2a",
+              "name": "original_answer",
+              "value": "={{ $json?.message?.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1000,
+        500
+      ],
+      "id": "f350c2a9-5cf1-4405-9917-233d9bce90ec",
+      "name": "Parse answer1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "725cd838-0fd0-4911-9295-924e33c1a35f",
+              "name": "isValidJson",
+              "value": "={{ $json.parsed_answer !== null }}",
+              "type": "boolean"
+            },
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "result",
+              "value": "={{ $json.parsed_answer.result || false }}",
+              "type": "boolean"
+            },
+            {
+              "id": "4cd449d2-1096-4ce8-ba17-f93289629393",
+              "name": "message",
+              "value": "={{ $json.parsed_answer.message || \"Error processing, please try again\" }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1160,
+        500
+      ],
+      "id": "551b113e-f4be-42fc-bda1-f72597e6b055",
+      "name": "Prepare answer1"
+    },
+    {
+      "parameters": {},
+      "id": "77db4d1b-ca84-4666-8681-60e7a0727416",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -740,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "result",
+              "value": "={{ $json.result }}",
+              "type": "boolean"
+            },
+            {
+              "id": "4cd449d2-1096-4ce8-ba17-f93289629393",
+              "name": "message",
+              "value": "={{ $json.message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        280
+      ],
+      "id": "d7752e14-6306-42e3-ab21-d276cd3c4459",
+      "name": "Answer the client"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true
+      },
+      "id": "fce26dce-584f-4899-94a8-51ef1da269b5",
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        740,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "b70ea119-624d-495c-a294-46e26ba574ee",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        840,
+        1120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "337af70a-0fd8-40cb-acc6-e848f9a2ef6a",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        940,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "GPT-3.5-TURBO"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Can you fix and return the corrected JSON.\n{{ $json.message }}\nJSON input: {{ $json.message }}",
+              "role": "assistant"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        680,
+        500
+      ],
+      "id": "e7d5e2aa-a5f8-44fe-bd19-8fee087ffa0c",
+      "name": "Try to fix the json",
+      "credentials": {
+        "openAiApi": {
+          "id": "P0G2YpkVZIDDw99j",
+          "name": "OpenAi Boost TAI"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T16:32:57.263Z",
+      "updatedAt": "2024-12-18T16:32:57.263Z",
+      "id": "amjVeuraiVY1rsI9",
+      "name": "Dev:Bill"
+    },
+    {
+      "createdAt": "2025-01-09T18:43:24.496Z",
+      "updatedAt": "2025-01-09T18:43:24.496Z",
+      "id": "ibTp4QS6HcCdS2fo",
+      "name": "LoRA training"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-10T16:24:56.000Z",
+  "versionId": "b4ff0793-aa01-4b4c-b861-57b7e56e9318"
+}
