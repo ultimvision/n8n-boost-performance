@@ -1,0 +1,323 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Voices": {
+      "main": [
+        [
+          {
+            "node": "Split Voices",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Generate audio Interviewer Intro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-27T20:09:47.624Z",
+  "id": "jdqCrUFm34dEsTeV",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "TEST PAT",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "b212f218-2e2a-4741-97ba-09a6938986a2",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        260,
+        -140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "organization": "2348241596183",
+        "event": "1031301208677",
+        "actions": [
+          "order.placed"
+        ]
+      },
+      "id": "7e1f71a1-71cf-4930-b313-ee5a672b138b",
+      "name": "Eventbrite Trigger",
+      "type": "n8n-nodes-base.eventbriteTrigger",
+      "typeVersion": 1,
+      "position": [
+        280,
+        220
+      ],
+      "webhookId": "57e9e599-d803-4135-a029-8c18021b22ef",
+      "credentials": {
+        "eventbriteOAuth2Api": {
+          "id": "eNlRbGHZWYUQWXzN",
+          "name": "Eventbrite account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "https://yt-api.p.rapidapi.com/dl",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "ZhWlGqkLC_M"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "yt-api.p.rapidapi.com"
+            },
+            {
+              "name": "x-rapidapi-key",
+              "value": "bfa8b78030msh05b3013ffa13c60p1c6729jsn9b769c810e9b"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6947086e-3706-47cf-86f2-a53b513212d1",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1240,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-media-downloader.p.rapidapi.com/v2/video/details",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "videoId",
+              "value": "ZhWlGqkLC_M"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "youtube-media-downloader.p.rapidapi.com"
+            },
+            {
+              "name": "x-rapidapi-key",
+              "value": "bfa8b78030msh05b3013ffa13c60p1c6729jsn9b769c810e9b"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d7ae3a16-163d-47df-a084-7476b24156b8",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://boostperformance.ai/pdf/presentationPatrick.m4a",
+        "options": {}
+      },
+      "id": "d302e9ed-1985-4ec6-94da-41dbb2e7b3e2",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "d1d1bf19-63d7-47f6-8a43-c3a8068952ff",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        1020,
+        80
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "voices",
+        "options": {}
+      },
+      "id": "ccdc756d-5f9c-414b-927d-9df78891e999",
+      "name": "Split Voices",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        900,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/voices",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "sk_0b98e65244e71377e52c6652fdead3cf0873e4e5990d79cb"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8a02a98c-0c0a-4854-97a6-e12e1b70fd75",
+      "name": "Get Voices",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        700,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/models",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "sk_0b98e65244e71377e52c6652fdead3cf0873e4e5990d79cb"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5ccfb4c7-d1b0-44fa-b072-7e3ba4ab22c0",
+      "name": "Get Voices1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        -380
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/R1JTqyM3pceFcUSmk6Ss",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "sk_0b98e65244e71377e52c6652fdead3cf0873e4e5990d79cb"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"text\": {{ JSON.stringify($json[\"text\"]) }},\n  \"voice_settings\": {\n    \"similarity_boost\": 0.5,\n    \"stability\": 0.75,\n    \"use_speaker_boost\": true,\n    \"style\": 0\n  },\n  \"model_id\": \"eleven_multilingual_v2\"\n}\n",
+        "options": {}
+      },
+      "id": "9e3a4481-c101-4ae2-95cb-f65edd7982b5",
+      "name": "Generate audio Interviewer Intro",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dafbc0cf-764f-45aa-993a-f347d9a37c00",
+              "name": "text",
+              "value": "=Notre plateforme est unique. C'est la seule plateforme au monde qui construit des indicateurs de trading AI basé sur l'analyse vidéo d'experts. Ici, nous pouvons voir une analyse de vidéos qui a permis de construire un indicateur AI nommé More-Crypto-Online.\n\nCet indicateur pourra être intégré dans les robots de trading. En terme simple, cela voudra dire que lorsque cet expert va prédire la hausse du bitcoin, votre robot déclanchera un achat.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "50e43cb1-0fcc-4823-9c8c-a2f7389e9751",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        500,
+        -140
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-14T19:32:20.000Z",
+  "versionId": "99ce5a03-9758-4f19-b802-8aa05eff8bcb"
+}
