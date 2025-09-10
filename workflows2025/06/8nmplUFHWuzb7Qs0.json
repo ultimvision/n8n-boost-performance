@@ -1,0 +1,208 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-04T21:46:40.334Z",
+  "id": "8nmplUFHWuzb7Qs0",
+  "isArchived": false,
+  "meta": null,
+  "name": "Flux template",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "189011ed-5054-4ea3-b166-82222851c5cf",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": " https://api.piapi.ai/api/v1/task",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-KEY",
+              "value": "fb7e3309f09ac85f38c7cc403249e9f5c08ddc34217d89ae14d3398a77aa6e6e"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"model\": \"Qubico/flux1-schnell\",\n    \"task_type\": \"txt2img\",\n    \"input\": {\n        \"prompt\": \"{{ $json.message.content }}\",\n        \"width\": 1024, \n        \"height\": 1024\n    } \n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        460,
+        0
+      ],
+      "id": "d6f412ee-9667-4a80-8d66-d632d40e4c83",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "You are a Text-to-Image Prompt Optimizer. Your role is to take the user's query for a picture and transform it into a detailed, optimized prompt suitable for text-to-image generators like Flux. Ensure that the resulting prompt is descriptive and includes relevant visual details such as style, mood, composition, lighting, color palette, and any other attributes that will enhance the image generation.\n\nGuidelines:\n1. **Detail Enhancement:** Expand on the user's query with additional descriptive details to maximize the quality of the generated image.\n2. **Visual Attributes:** Include aspects like style (e.g., photorealistic, watercolor, digital art), mood, composition, lighting, and color scheme.\n3. **Clarity:** Maintain a clear and concise description that accurately represents the intended image.\n4. **Creativity:** Infuse creative details that help convey a vivid mental picture.\n\nExamples:\n- Input: \"I want a picture of a futuristic city at night.\"\n  Output: \"A highly detailed futuristic cityscape at night, illuminated by vibrant neon lights, with towering skyscrapers, reflective wet streets, and a cyberpunk atmosphere under a dark, starry sky.\"\n\n- Input: \"A serene forest in the morning.\"\n  Output: \"A serene, misty forest bathed in soft morning light, with tall, lush trees, delicate rays of sunlight filtering through the canopy, and a tranquil, natural ambiance.\"\n\nTransform the user's image query into an optimized prompt that is ideal for generating high-quality visuals with text-to-image tools like Flux.\n\nDO NOT USE DOUBLE QUOTES IN THE OUTPUT",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.query }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        160,
+        0
+      ],
+      "id": "286dd6cc-f9f3-4b77-888c-e224da2d6313",
+      "name": "OpenAI"
+    },
+    {
+      "parameters": {
+        "amount": 45
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        680,
+        0
+      ],
+      "id": "b7aa5e0c-0db7-4ef3-87ab-d8c5cc490128",
+      "name": "Wait",
+      "webhookId": "0e3e22da-7b71-4d80-a402-7463a8d561b8"
+    },
+    {
+      "parameters": {
+        "url": "= https://api.piapi.ai/api/v1/task/{{ $('HTTP Request').item.json.data.task_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-KEY",
+              "value": "fb7e3309f09ac85f38c7cc403249e9f5c08ddc34217d89ae14d3398a77aa6e6e"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        0
+      ],
+      "id": "d244a401-f4d9-4fca-bb74-4b060b081557",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b34ae10a-5567-4470-b1e9-9775a81ce913",
+              "name": "response",
+              "value": "={{ $json.data.output.image_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "cf07f02c-911c-4283-be2d-986c78ae3199",
+      "name": "Edit Fields"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-04T21:46:48.000Z",
+  "versionId": "a710c7e0-4193-4338-845b-ac3d02ba66a0"
+}
