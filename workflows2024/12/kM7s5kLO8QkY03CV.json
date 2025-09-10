@@ -1,0 +1,816 @@
+{
+  "active": false,
+  "connections": {
+    "Call the Flux API": {
+      "main": [
+        [
+          {
+            "node": "Get the Image from API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the Image from API": {
+      "main": [
+        [
+          {
+            "node": "Check the status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 5 sec": {
+      "main": [
+        [
+          {
+            "node": "Get the Image from API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check the status": {
+      "main": [
+        [
+          {
+            "node": "Wait 5 sec",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Errors from Replicate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over prompt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 5 sec",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API payload": {
+      "main": [
+        [
+          {
+            "node": "Call the Flux API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Get job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get job": {
+      "main": [
+        [
+          {
+            "node": "Update status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update status": {
+      "main": [
+        [
+          {
+            "node": "Get prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get prompts": {
+      "main": [
+        [
+          {
+            "node": "Loop Over prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over prompt": {
+      "main": [
+        [
+          {
+            "node": "Images to save",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LoRA Inputs": {
+      "main": [
+        [
+          {
+            "node": "API payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Values": {
+      "main": [
+        [
+          {
+            "node": "LoRA Inputs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-19T21:04:30.093Z",
+  "id": "kM7s5kLO8QkY03CV",
+  "isArchived": false,
+  "meta": null,
+  "name": "Services - Generate Image with a LoRA | Local LoRA",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.replicate.com/v1/predictions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "7f6131e3-32f8-4902-8527-67f08dccab9b",
+      "name": "Call the Flux API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        140
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QI4vypKYZmD2NQGr",
+          "name": "Replicate Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.urls.get }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "4424d95f-37e9-45b0-a6b3-0ec141044f84",
+      "name": "Get the Image from API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        580,
+        140
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QI4vypKYZmD2NQGr",
+          "name": "Replicate Auth"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "c9224278-fb39-4e64-8253-fdf69a13e678",
+      "name": "Wait 5 sec",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1140,
+        240
+      ],
+      "webhookId": "aa32bb24-2dad-4157-8673-b5b0f7344175"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "processing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Processing"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "b9eb33fa-59a0-4917-b9be-c0e2ed750be6",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "failed",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Failed"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "7904aea3-7f50-4db0-8820-a60c965dc6fd",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "succeeded",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Succeeded"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "7886a7d7-be4f-4a6d-8e9c-3764e7b7efd7",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "starting",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Starting"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "db37128d-62ac-45a0-b9a0-133f86de8dbc",
+      "name": "Check the status",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        800,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "={{ $json.error }}"
+      },
+      "id": "9be993e7-2dad-45ab-aa4e-e902a84b5156",
+      "name": "Errors from Replicate",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        -100
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1680,
+        120
+      ],
+      "id": "79a9dde3-2d84-463f-bc93-b8e20119b8d1",
+      "name": "Execute Workflow Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3b7f705c-c793-4faf-99a7-370eec249654",
+              "name": "input",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "id": "41cad75d-dedf-4c19-8acd-789704acdbc2",
+              "name": "version",
+              "value": "=",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        160,
+        140
+      ],
+      "id": "ce78308b-d3d1-4fd4-b69e-229ce9aec983",
+      "name": "API payload"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "succeeded",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Succeeded"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1440,
+        120
+      ],
+      "id": "4a614e1b-23de-4a46-ac0b-0f123dc50bcf",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * \nFROM service_access_logs\nWHERE generated_content->>'id' = '{{ $json.id }}';\n",
+        "options": {}
+      },
+      "id": "7949c266-a8a9-4528-9c49-ffeac33720e4",
+      "name": "Get job",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -1240,
+        120
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "access_granted": true,
+            "id": "={{ $('Get job').item.json.id }}",
+            "progress_status": "Génération des images"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5cda30f7-524b-453c-b087-0bf3aec32be7",
+      "name": "Update status",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -1020,
+        120
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appPhTLBwPKVSDEBS",
+          "mode": "list",
+          "cachedResultName": "Services AI",
+          "cachedResultUrl": "https://airtable.com/appPhTLBwPKVSDEBS"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblb8Oyu3bpeSPUvB",
+          "mode": "list",
+          "cachedResultName": "Image Generation Prompts",
+          "cachedResultUrl": "https://airtable.com/appPhTLBwPKVSDEBS/tblb8Oyu3bpeSPUvB"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -760,
+        120
+      ],
+      "id": "a73501b1-c878-429f-a91c-1295b6682218",
+      "name": "Get prompts",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -480,
+        120
+      ],
+      "id": "b215ee70-b4a3-4cca-a1ee-9202250095a0",
+      "name": "Loop Over prompt"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2e315c87-ef4e-4872-ae3d-af5460b80134",
+              "name": "aspect_ratio",
+              "value": "16:9",
+              "type": "string"
+            },
+            {
+              "id": "aa16d9c3-5ed2-4bfa-9b41-50e3877ad629",
+              "name": "num_outputs",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "433d5814-4532-41f1-ba11-7974cb943444",
+              "name": "seed",
+              "value": "={{ Math.floor(Date.now() / 1000) }}",
+              "type": "number"
+            },
+            {
+              "id": "92778405-ba47-47c6-84a1-ab42bb38bb6a",
+              "name": "output_format",
+              "value": "png",
+              "type": "string"
+            },
+            {
+              "id": "82e53dab-7c4b-4300-9739-8b7b98319ff9",
+              "name": "model",
+              "value": "dev",
+              "type": "string"
+            },
+            {
+              "id": "38d71073-a4ec-4209-b233-079bfcb9654d",
+              "name": "prompt",
+              "value": "={{ $json.prompt.replace(new RegExp('\\\\{\\\\{ keyword \\\\}\\\\}', 'g'), $json.trigger_word) }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6f5aa4ec-56ca-42a8-b626-a79bf3459bff",
+      "name": "LoRA Inputs",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -20,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e01c6964-7060-4cc1-8648-d8ae44ebf35a",
+              "name": "trigger_word",
+              "value": "={{ $('Switch').item.json.generated_content.logs.input.trigger_word }}",
+              "type": "string"
+            },
+            {
+              "id": "1fc1d9a9-da4c-4956-a003-43718caf5364",
+              "name": "id",
+              "value": "={{ $('Switch').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "785970f0-18bb-4d1c-9b53-257ed4c63d98",
+              "name": "prompt",
+              "value": "={{ $json.Prompt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        140
+      ],
+      "id": "b4f50799-5534-45a3-89a2-008969ff1747",
+      "name": "Values"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9fee1b7c-96ad-4255-afef-179930db135e",
+              "name": "imageUrl",
+              "value": "={{ $json.output[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "8c54e41c-8a53-4086-9706-5c33317b4506",
+              "name": "prompt",
+              "value": "={{ $('Get the Image from API').item.json.input.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "e225ad70-0f17-45ab-9130-3c7cc8968fbd",
+              "name": "seed",
+              "value": "={{ $json.input.seed }}",
+              "type": "number"
+            },
+            {
+              "id": "ae68462f-8e59-4537-86c3-7238d3c2a853",
+              "name": "aspect_ratio",
+              "value": "={{ $json.input.aspect_ratio }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        -200
+      ],
+      "id": "e0757d2c-4c67-47ec-adc0-8326dc52a3a0",
+      "name": "Images to save"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T16:32:57.263Z",
+      "updatedAt": "2024-12-18T16:32:57.263Z",
+      "id": "amjVeuraiVY1rsI9",
+      "name": "Dev:Bill"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-08T19:56:56.000Z",
+  "versionId": "f5688ba6-0d14-4bcb-8ea4-66be8700769a"
+}
