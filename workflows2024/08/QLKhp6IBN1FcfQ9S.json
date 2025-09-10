@@ -1,0 +1,331 @@
+{
+  "active": false,
+  "connections": {
+    "Prepare Channel Data": {
+      "main": [
+        [
+          {
+            "node": "Update Video Channel Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Data - Nannette De Gaspe": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Test Data - Nannette De Gaspe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-27T11:59:16.485Z",
+  "id": "QLKhp6IBN1FcfQ9S",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Youtube - AI Agents Army Dashboard",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "# YouTube Brand Monitor\n### Search, Download, and Transcribe Videos Mentioning Your Brand\n\nAutomatically search for and retrieve new YouTube videos that mention your brand. This tool downloads the video and audio, performs transcription, and allows you to stay updated on brand mentions, track public sentiment, and engage with content creators discussing your products or services. Enhance your brand monitoring strategy by gaining comprehensive insights into how your brand is being talked about on YouTube.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "24c6cf5e-68ff-4ce4-83d8-b11050cc00ad",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Source example](https://boostperformance.ai/aiagent/bots_youtube_1600px.jpg)",
+        "height": 1149.2289415810385,
+        "width": 1634.4352346958026,
+        "color": 7
+      },
+      "id": "ae66f0be-3c51-494b-843a-089e1a2bcfbd",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        220,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "lvCrSNA7onY4LRCw",
+        "options": {}
+      },
+      "id": "ec32bbef-16d7-422b-99c5-393167542a59",
+      "name": "Search New Youtube Video",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "3tOnoMJsMcOScZVo",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "ba07bfde-9c46-4743-b205-bb76468c69b3",
+      "name": "Analyse Youtube Comments",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "tFKv5k3Jn8eEgBK6",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "7117f9da-1ae4-4a98-88fc-96cd618c6491",
+      "name": "Update Video Channel Details",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        4200,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "74a95758-aa1f-4d32-be3b-9b64a1b969e4",
+              "name": "action_type",
+              "value": "select",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "71cc67aa-a628-4845-a850-ae0b469e9122",
+      "name": "Prepare Channel Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3980,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "j6GsrPqf4H0aOimw",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "bff05173-538d-4194-bbd4-15d6c907e490",
+      "name": "Analyse Youtube Videos",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3200,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "6Ue8aqmqm7QULoDN",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "b97ca5c9-ac9e-47ac-af3c-33ece8d98336",
+      "name": "Youtube - Auto Commentator",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3220,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# YouTube AI Video Analysis\n### Analyze, Rewrite, and Evaluate YouTube Videos for Brand Relevance\n\nThis tool analyzes YouTube videos, rewrites the content in English, and determines if the content is related to your brand. It also conducts sentiment analysis to gauge the overall tone, evaluates the level of intervention or influence within the video, and assesses the credibility and authority of the author. Use this comprehensive analysis to understand how your brand is being represented and to inform your marketing strategies.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "bb459069-32ea-4c82-b832-bc406cdfa7ec",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# YouTube Channel Updater\n### Extract Public Information from a List of YouTube Channels\n\nThis tool extracts all publicly available information from a specified list of YouTube channels. It gathers details such as channel descriptions, subscriber counts, video statistics, upload schedules, and more. Use this data to keep track of changes, monitor competitor activity, and stay informed about the latest updates on channels relevant to your interests or brand.\n\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "32b196e1-6486-452f-a3dc-d428f09f0ef2",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3780,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# YouTube Comments Extractor\n### Download All Comments and Replies from a YouTube Video\n\nThis tool downloads all the comments and replies from a specified YouTube video. It allows you to gather and analyze audience feedback, sentiment, and engagement. Use this data to gain insights into viewer opinions, monitor discussions, and understand the impact of the content. This tool is essential for comprehensive audience analysis and for responding effectively to community interactions.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "73b5d01f-1cac-4e58-b0d9-52239f77476e",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# YouTube - Auto Commentator\n### Automatically Generate and Post AI-Driven Responses to YouTube Comments\n\nThis tool leverages AI to automatically analyze incoming YouTube comments and generate personalized, contextually relevant responses. By enhancing engagement with your audience, it helps improve interaction and build stronger connections. Use this tool to maintain active communication on your channel, respond to viewers promptly, and foster a more engaged community without the manual effort.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "1269fd06-3f78-42a3-ba3e-d9920cb27b94",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d17952b7-225e-4c43-8f81-2a6e03206865",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4260,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3f825b9e-9af6-4128-a766-64d4248ebb6f",
+              "name": "customer_id",
+              "value": "nannette-de-gaspe",
+              "type": "string"
+            },
+            {
+              "id": "643c5ad2-90e3-4c86-aed1-f81f0812de12",
+              "name": "sitemap_url",
+              "value": "https://nannettedegaspe.com/sitemap.xml",
+              "type": "string"
+            },
+            {
+              "id": "2a367b06-e264-47ad-9e41-4e04702fac2b",
+              "name": "customer_name",
+              "value": "Nannette de Gaspe",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0a9bdef5-b116-4503-b578-26fcf364f360",
+      "name": "Test Data - Nannette De Gaspe",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4040,
+        740
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "e9e90a00-02d7-4423-9548-c19196b36660",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        3800,
+        740
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-24T16:38:49.491Z",
+      "updatedAt": "2024-08-24T16:38:49.491Z",
+      "id": "OwqwkxPGrxiRpjaG",
+      "name": "Youtube"
+    },
+    {
+      "createdAt": "2024-08-27T11:57:26.314Z",
+      "updatedAt": "2024-08-27T11:57:26.314Z",
+      "id": "rRAYPMNxSAm8ZgBM",
+      "name": "Dashboard"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T22:10:59.000Z",
+  "versionId": "ea405f1f-e316-4cfb-9160-7b396c4148eb"
+}
