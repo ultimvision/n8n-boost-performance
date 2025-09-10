@@ -1,0 +1,604 @@
+{
+  "active": false,
+  "connections": {
+    "Début de l'analyse des Neurones": {
+      "main": [
+        [
+          {
+            "node": "Réception des pensées de notre invitée",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Est-ce que les pensées sont claires ?": {
+      "main": [
+        [
+          {
+            "node": "Réception des pensées de Denis Perreault",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Réception des pensées de notre invitée",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Réception des pensées de notre invitée": {
+      "main": [
+        [
+          {
+            "node": "Est-ce que les pensées sont claires ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Réception des pensées de Denis Perreault": {
+      "main": [
+        [
+          {
+            "node": "Est-ce que les pensées de Denis sont claires ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Est-ce que les pensées de Denis sont claires ?": {
+      "main": [
+        [
+          {
+            "node": "Les pensées sont claires.",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ISHHH ... On va ré-essayer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ISHHH ... On va ré-essayer": {
+      "main": [
+        [
+          {
+            "node": "Nettoyer le fouillis dans la tête de Denis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nettoyer le fouillis dans la tête de Denis": {
+      "main": [
+        [
+          {
+            "node": "Est-ce que les pensées de Denis sont claires ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Les pensées sont claires.": {
+      "main": [
+        [
+          {
+            "node": "Extraction des pensées de Denis Perreault",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Extraction des pensées de l'invité",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraction des pensées de Denis Perreault": {
+      "main": [
+        [
+          {
+            "node": "Tentative 1 - Trouver la carte",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tentative 1 - Trouver la carte": {
+      "main": [
+        [
+          {
+            "node": "Difficile. Nettoyage des pensées non-focus.",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Difficile. Nettoyage des pensées non-focus.": {
+      "main": [
+        [
+          {
+            "node": "Tentative 2 - Trouver la carte",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tentative 2 - Trouver la carte": {
+      "main": [
+        [
+          {
+            "node": "On fait ce que l'on peut ...",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On fait ce que l'on peut ...": {
+      "main": [
+        [
+          {
+            "node": "Notre IA est étourdit ...",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notre IA est étourdit ...": {
+      "main": [
+        [
+          {
+            "node": "On pense avoir trouvé ...",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraction des pensées de l'invité": {
+      "main": [
+        [
+          {
+            "node": "Carte trouvée en 1 seconde",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On pense avoir trouvé ...": {
+      "main": [
+        [
+          {
+            "node": "Combiner les pensées",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carte trouvée en 1 seconde": {
+      "main": [
+        [
+          {
+            "node": "Combiner les pensées",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Combiner les pensées": {
+      "main": [
+        [
+          {
+            "node": "Présentation des résultats",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-20T12:53:55.872Z",
+  "id": "sYW6xLUuRhhsEkXE",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Analyse des Neurones IA",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a0bcf294-9aee-4da8-8026-0272ad1673d6",
+      "name": "Début de l'analyse des Neurones",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        100,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4dd24521-0c7c-44e3-9e82-68be1f7eea17",
+              "leftValue": "true",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1ffec57-be79-4faf-9dbc-6fb757af2c94",
+      "name": "Est-ce que les pensées sont claires ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        680,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 6
+      },
+      "id": "16a8b39c-730d-40be-b592-89f4e9183608",
+      "name": "Réception des pensées de notre invitée",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        460,
+        380
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4dd24521-0c7c-44e3-9e82-68be1f7eea17",
+              "leftValue": "={{ $runIndex }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f2d4415e-6fd0-4a76-8b9c-877b2040aa10",
+      "name": "Est-ce que les pensées de Denis sont claires ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1380,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "871a276e-3172-44f0-8a21-131ce5442f40",
+      "name": "Réception des pensées de Denis Perreault",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1140,
+        280
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "id": "d235f9d1-b7c2-42a6-9626-c4abff861ec5",
+      "name": "ISHHH ... On va ré-essayer",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1680,
+        340
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "d9541f4d-8fac-4b49-83b1-0e098956f7c2",
+      "name": "Nettoyer le fouillis dans la tête de Denis",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1700,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 15
+      },
+      "id": "82bdbe97-a8fa-4e4c-8aac-e3656680015a",
+      "name": "Les pensées sont claires.",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1940,
+        80
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "014e94b8-d933-42af-9979-23b22958f965",
+      "name": "Tentative 1 - Trouver la carte",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2460,
+        -100
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "5ec81dc1-4b0a-4fff-b840-c62d6bd82d10",
+      "name": "Difficile. Nettoyage des pensées non-focus.",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2700,
+        -100
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "5810425e-acbe-494a-b354-34118adec051",
+      "name": "Tentative 2 - Trouver la carte",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2940,
+        -100
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "c72c6735-bbac-4dca-bfc3-a483a677af1e",
+      "name": "On fait ce que l'on peut ...",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3200,
+        -100
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 0.5
+      },
+      "id": "4a3ccc9e-f7a4-4eb3-b902-1a8bee8793d6",
+      "name": "Extraction des pensées de l'invité",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2220,
+        260
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 0.5
+      },
+      "id": "1b7af8f0-4f87-40ed-9d73-dc12a7696a3e",
+      "name": "Carte trouvée en 1 seconde",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2460,
+        260
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "397414d2-e7e9-4a44-a506-81be3066fefb",
+      "name": "Extraction des pensées de Denis Perreault",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2220,
+        -100
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "ebcc1240-88c1-4751-8c4e-ef3affbba991",
+      "name": "Notre IA est étourdit ...",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3480,
+        -100
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "3187c8dc-e748-4d8b-8eaa-b0c6227d3c9c",
+      "name": "On pense avoir trouvé ...",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3740,
+        -100
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {},
+      "id": "7bb12656-9623-4c6e-a5b7-fce20e13e87c",
+      "name": "Présentation des résultats",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4460,
+        120
+      ],
+      "webhookId": "0528c735-c56a-44f9-9c56-aa831fcfd012"
+    },
+    {
+      "parameters": {
+        "content": "# ANALYSE DES NEURONES DE DENIS PERREAULT \n",
+        "height": 298.6912951795686,
+        "width": 1915.2038462700727,
+        "color": 5
+      },
+      "id": "36d2f128-71a8-479a-a588-929978ea5b0b",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2160,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# ANALYSE DES NEURONES DE L'INVITÉE DE DENIS",
+        "height": 337.64952416259456,
+        "width": 1905.8538713141452,
+        "color": 3
+      },
+      "id": "87a41712-6f54-4c98-ae04-62fbb5f2af35",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2160,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# RÉCEPTION DES PENSÉES DE L'INVITÉE DE DENIS",
+        "height": 651.0600101655535,
+        "width": 585.7784845630197
+      },
+      "id": "e447529d-d8a8-4a01-9cd4-acea8e544fda",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        340,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# RÉCEPTION DES PENSÉES DE DENIS PERREAULT",
+        "height": 653.0336517378505,
+        "width": 828.6887293499642
+      },
+      "id": "fe55f7df-d889-4fdc-ba38-59bba22ee0ea",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "4b3c8da7-90e2-4e31-b366-19cf4a730851",
+      "name": "Combiner les pensées",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        4220,
+        120
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-20T18:52:22.000Z",
+  "versionId": "4a30dfe2-d738-4f43-8c79-30fbb7efc789"
+}
