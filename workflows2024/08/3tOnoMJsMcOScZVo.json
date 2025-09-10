@@ -1,0 +1,320 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Select Video With Comments to Analyse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Video With Comments to Analyse": {
+      "main": [
+        [
+          {
+            "node": "Set Video Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Videos": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set Data to Analyse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Data to Analyse": {
+      "main": [
+        [
+          {
+            "node": "Analyze a Youtube Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Video Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze a Youtube Video": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-24T15:42:59.562Z",
+  "id": "3tOnoMJsMcOScZVo",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Analyse Youtube Comments",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "3b6b0dd9-3778-496b-b26d-eb0ce15193a6",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        920,
+        760
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "id": "ae03c997-789e-4173-8ec1-b0d69961156e",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        920,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0020af35-60e8-4eb5-898b-25e974112c09",
+              "name": "action_type",
+              "value": "analyse_comments",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d57f8efc-8989-4ce1-86f1-f35dd48298d3",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1140,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "rag_video_analyse",
+          "mode": "list",
+          "cachedResultName": "rag_video_analyse"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "comments_analyzed",
+              "value": "0"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "video_id_ek",
+              "direction": "DESC"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "video_id",
+            "id",
+            "video_id_ek",
+            "content_relation_explanation",
+            "overall_sentiment",
+            "summarized_content"
+          ]
+        }
+      },
+      "id": "4814d84b-af8f-4a32-95be-24161cd98a2c",
+      "name": "Select Video With Comments to Analyse",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1360,
+        480
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e629f38e-fd37-450f-8c9d-9b09317ca955",
+      "name": "Loop Over Videos",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1880,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "dyhIWPRLuWCJezqn",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "005e5209-dd02-4c1d-bdfc-63a3709ad3fc",
+      "name": "Analyze a Youtube Video",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2400,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ad4554dc-2c76-40a5-b5ca-d1a329550ee6",
+              "name": "action_type",
+              "value": "={{ $('Workflow Data').item.json[\"action_type\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "2accd1b5-8393-4df9-ae7d-5593e4717ab1",
+      "name": "Set Data to Analyse",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2120,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2fc1f692-c4c4-4d6f-882f-9474977c8750",
+              "name": "comment_id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "6f3de7fc-4790-4ea9-a410-f66736104d1a",
+              "name": "id",
+              "value": "={{ $json.video_id_ek }}",
+              "type": "string"
+            },
+            {
+              "id": "6402a9d8-f343-40c6-bd40-f9308b117921",
+              "name": "provider_id",
+              "value": "={{ $json.video_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "188b81b1-b12d-4515-b2c7-7b2cb812d2c5",
+      "name": "Set Video Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1580,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "762bbd08-1b59-4081-af75-12ef768cd955",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        660
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-24T16:38:49.491Z",
+      "updatedAt": "2024-08-24T16:38:49.491Z",
+      "id": "OwqwkxPGrxiRpjaG",
+      "name": "Youtube"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T20:13:24.000Z",
+  "versionId": "605d9d51-c3fe-46da-b361-adc8e87e365f"
+}
