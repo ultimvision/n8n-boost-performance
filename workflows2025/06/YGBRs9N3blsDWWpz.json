@@ -1,0 +1,21 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-06-23T16:57:50.907Z",
+  "id": "YGBRs9N3blsDWWpz",
+  "isArchived": true,
+  "meta": null,
+  "name": "ElevenLabs Initial Data",
+  "nodes": [],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-23T16:58:05.000Z",
+  "versionId": "3d3f1f76-9f44-4366-9e71-052087512fdf"
+}
