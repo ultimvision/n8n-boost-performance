@@ -1,0 +1,440 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get article": {
+      "main": [
+        [
+          {
+            "node": "Convert html to tiptap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has image": {
+      "main": [
+        [
+          {
+            "node": "Upload featured image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set empty media id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set empty media id": {
+      "main": [
+        [
+          {
+            "node": "Create post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload featured image": {
+      "main": [
+        [
+          {
+            "node": "Set signed_id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert html to tiptap": {
+      "main": [
+        [
+          {
+            "node": "Has image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set signed_id": {
+      "main": [
+        [
+          {
+            "node": "Create post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-10T17:41:07.944Z",
+  "id": "HRBe3vVzBtcf8J5I",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Publish to Circle",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "record_id"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        160,
+        0
+      ],
+      "id": "e168ac84-7920-47ad-8170-1833054b1535",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appY3aedb8dbqsB6a",
+          "mode": "list",
+          "cachedResultName": "Publishing",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl470iWRiQEZxTUe",
+          "mode": "list",
+          "cachedResultName": "Generated Articles",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a/tbl470iWRiQEZxTUe"
+        },
+        "id": "={{ $json.record_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        460,
+        0
+      ],
+      "id": "b22686a2-c992-424c-8b63-e2dc1c2f221d",
+      "name": "Get article",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ddcc26d5-d08c-46cd-b5c3-f51b4404dcbc",
+              "leftValue": "={{ $('Get article').item.json.featured_image_url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1120,
+        0
+      ],
+      "id": "dde356d7-b6ba-4259-9687-230397c95202",
+      "name": "Has image"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "33737f52-0167-46cd-8647-73d9c662aafe",
+              "name": "cover_image_signed_id",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1520,
+        20
+      ],
+      "id": "7d974563-f6da-4ad5-bea2-3d8fa40dfc19",
+      "name": "Set empty media id"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "vYauQyRwKt228x0L",
+          "mode": "list",
+          "cachedResultName": "Circle - Upload File"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "file_url": "={{ $('Get article').first().json.featured_image_url }}",
+            "sender_email": "agent@boostperformance.ai"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "file_data",
+              "displayName": "file_data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "file_url",
+              "displayName": "file_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "sender_email",
+              "displayName": "sender_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "file_name",
+              "displayName": "file_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1520,
+        -240
+      ],
+      "id": "5ae95bbc-7df8-4db6-8b6f-5efa17c09754",
+      "name": "Upload featured image"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "0XUVESvHdVXrB9mx",
+          "mode": "list",
+          "cachedResultName": "Circle - Create post"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "space_id": 1485889,
+            "title": "={{ $('Get article').item.json.title }}",
+            "content": "={{ $('Convert html to tiptap').first().json.body.content }}",
+            "cover_image_signed_id": "={{ $json.cover_image_signed_id }}",
+            "publish_status": "={{ $('Get article').first().json.publish_as === 'draft' ? 'draft' : 'published' }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "space_id",
+              "displayName": "space_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "content",
+              "displayName": "content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array"
+            },
+            {
+              "id": "inline_attachments",
+              "displayName": "inline_attachments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": true
+            },
+            {
+              "id": "cover_image_signed_id",
+              "displayName": "cover_image_signed_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "publish_status",
+              "displayName": "publish_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2360,
+        20
+      ],
+      "id": "b64d9128-5d2b-42c5-8d50-925a3cd0a858",
+      "name": "Create post"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://cmzypijrhwwhgqzaiulz.supabase.co/functions/v1/html-to-tiptap",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "html",
+              "value": "={{ $('Get article').item.json.content_web }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        0
+      ],
+      "id": "4c081253-e744-465b-add9-f669c6c2c2cc",
+      "name": "Convert html to tiptap"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aaa026b9-1d38-4ee6-a10f-9c9c7067ad8b",
+              "name": "cover_image_signed_id",
+              "value": "={{ $json.block_data.attrs.signed_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1820,
+        -240
+      ],
+      "id": "9630d4f0-60c1-4e58-a048-d99460039606",
+      "name": "Set signed_id"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-09T18:54:30.662Z",
+      "updatedAt": "2025-04-09T18:54:30.662Z",
+      "id": "bwORh3v4jHXqexLE",
+      "name": "Publishing"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-25T15:15:40.000Z",
+  "versionId": "2ea4438c-0fc7-48a2-b39b-bfb74dd2ce2a"
+}
