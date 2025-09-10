@@ -1,0 +1,390 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Authenticate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Authenticate": {
+      "main": [
+        [
+          {
+            "node": "Search contacts by postal code",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Search contacts by civic number",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search contacts by postal code": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search contacts by civic number": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Customer found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Customer found": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set not found data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-25T15:47:12.225Z",
+  "id": "txYHrP3g4XhiFzjX",
+  "isArchived": false,
+  "meta": null,
+  "name": "ServiCentre: search customer",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "postal_code"
+            },
+            {
+              "name": "civic_number"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b689a1d4-9aa1-4012-af61-52d180b9a4f3",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.servicentre.net/v1/api/User/FullLoginSession",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "clientId",
+              "value": "A30C6F66-8140-4828-82BF-3FDA3DA288B9"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"Credentials\": {\"companyName\": \"technopompes\", \"userName\": \"WEBAPI\", \"password\": \"tDF79vn56C6ykX\", \"clientId\": \"A30C6F66-8140-4828-82BF-3FDA3DA288B9\"}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        0
+      ],
+      "id": "2179ffb3-21b4-4275-830b-28d88a4c2b88",
+      "name": "Authenticate"
+    },
+    {
+      "parameters": {
+        "url": "https://api.servicentre.net/v1/api/Customer/Search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "startIndex",
+              "value": "0"
+            },
+            {
+              "name": "endIndex",
+              "value": "100"
+            },
+            {
+              "name": "searchExpression",
+              "value": "={{ $('When Executed by Another Workflow').item.json.postal_code }}"
+            },
+            {
+              "name": "searchCriteria",
+              "value": "3"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Cookie",
+              "value": "=ASP.NET_SessionId={{ $json.SessionId }}"
+            },
+            {
+              "name": "clientId",
+              "value": "A30C6F66-8140-4828-82BF-3FDA3DA288B9"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        620,
+        -160
+      ],
+      "id": "4acdbb88-e614-491f-9c77-ab5620f9a740",
+      "name": "Search contacts by postal code"
+    },
+    {
+      "parameters": {
+        "url": "https://api.servicentre.net/v1/api/Customer/Search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "startIndex",
+              "value": "0"
+            },
+            {
+              "name": "endIndex",
+              "value": "100"
+            },
+            {
+              "name": "searchExpression",
+              "value": "={{ $('When Executed by Another Workflow').item.json.civic_number }}"
+            },
+            {
+              "name": "searchCriteria",
+              "value": "10"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Cookie",
+              "value": "=ASP.NET_SessionId={{ $json.SessionId }}"
+            },
+            {
+              "name": "clientId",
+              "value": "A30C6F66-8140-4828-82BF-3FDA3DA288B9"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        620,
+        80
+      ],
+      "id": "ea322f5c-9669-41b1-9c70-e8a3f7e769a3",
+      "name": "Search contacts by civic number"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "Data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        940,
+        -160
+      ],
+      "id": "38d3adb1-850e-41bd-aac7-f636600365dc",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "Data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        940,
+        80
+      ],
+      "id": "73882743-67d6-4e6b-8695-bf49e7216253",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "fieldsToMatchString": "Number",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1260,
+        -60
+      ],
+      "id": "73be2ebb-cbdf-4f42-8959-fac13ae4ded0",
+      "name": "Merge",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fb9bd3fa-59df-4a82-aa0a-f848fe34cc10",
+              "leftValue": "={{ $json.Number }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1480,
+        -60
+      ],
+      "id": "bc215be0-a282-413d-a265-590ab5d61d1a",
+      "name": "Customer found"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        -240
+      ],
+      "id": "c45cb9b8-e3ed-442f-ac69-e9af2a95e220",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ae8f4795-e033-4465-b6ce-0252a4e6aa6e",
+              "name": "error",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "a3ff4628-9874-4a50-8436-ce08a64aac1a",
+              "name": "message",
+              "value": "Customer not found",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1840,
+        40
+      ],
+      "id": "0593cebf-4c11-4f31-9287-d66980c12d15",
+      "name": "Set not found data"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-25T17:51:29.000Z",
+  "versionId": "5d18d0e7-3fb9-491d-bcce-31934e2c5399"
+}
