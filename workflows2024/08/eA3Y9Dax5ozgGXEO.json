@@ -1,0 +1,270 @@
+{
+  "active": false,
+  "connections": {
+    "Test Data - Nannette De Gaspe": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Test Data - Nannette De Gaspe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "AI Agent - Extract Website Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-27T12:42:25.659Z",
+  "id": "eA3Y9Dax5ozgGXEO",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AI Assistants - AI Agents Army Dashboard",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "7fc2c93e-c71e-4802-93c8-4df6d22900ac",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        260,
+        -200
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# AI-Powered Website Content Review\n### Generate a Comprehensive Document with AI-Reviewed Website Content\n\nThis tool creates a detailed document that contains all the content of a website, reviewed and analyzed by AI. It examines the website’s text, identifies key themes, assesses quality, and provides insights or suggestions for improvement. Use this tool to gain a thorough understanding of a website’s content, ensuring it aligns with your goals and resonates with your audience.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "6f504600-807f-42af-ab44-edc4507b8b6b",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2820,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Source example](https://boostperformance.ai/aiagent/pikaso_reimagine_digital-painting-A-group-of-colorful-robot-charact.jpg)",
+        "height": 1149.2289415810385,
+        "width": 1634.4352346958026,
+        "color": 7
+      },
+      "id": "92b1a274-ce8a-4f58-b5ba-d79c36fe2081",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        220,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3f825b9e-9af6-4128-a766-64d4248ebb6f",
+              "name": "customer_id",
+              "value": "marie-christine-lavoie",
+              "type": "string"
+            },
+            {
+              "id": "643c5ad2-90e3-4c86-aed1-f81f0812de12",
+              "name": "sitemap_url",
+              "value": "https://mariechristinelavoie.com/sitemap.xml",
+              "type": "string"
+            },
+            {
+              "id": "2a367b06-e264-47ad-9e41-4e04702fac2b",
+              "name": "customer_name",
+              "value": "Marie Christine Lavoie",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "43480933-044d-4c9e-ad57-531f3f796cb9",
+      "name": "Test Data - Nannette De Gaspe",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        500,
+        -200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "877a7ea5-d3b9-40c6-966c-c91fbfc2517f",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        -200
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "RcG2FRrsWq0zspz4",
+        "options": {}
+      },
+      "id": "4ae3d652-a8e9-4f66-9a50-46fee24273c3",
+      "name": "AI Agent - Extract Website Content",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "5nVPWFXGYKEiSVC2",
+        "options": {}
+      },
+      "id": "30f452e7-aedd-4384-b9d8-10794cf13faf",
+      "name": "Create A New Assistant",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3160,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "CTJ6kW1EFHojZIsK",
+        "options": {}
+      },
+      "id": "73d5df7f-63bf-4abe-8718-b79d8975576c",
+      "name": "Generate a review document of Website",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3160,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# AI Sitemap Analyzer\n### Analyze a Website’s Sitemap and Extract AI-Reviewed Content\n\nThis tool analyzes the sitemap of a website and extracts all the content, which is then reviewed by AI. It systematically examines each page, providing insights into the structure, relevance, and quality of the content. Use this tool to ensure that your website’s content is optimized, well-organized, and aligned with your strategic objectives.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "3a366600-92ec-4a14-ace6-f395fc15f633",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# AI Assistant Fine-Tuning\n### Customize and Build an AI Assistant for Customer Support and Sales\n\nThis tool fine-tunes an AI brain using your brand’s specific content to create a customized AI assistant. Designed for customer support and sales, the AI assistant will be trained to understand and respond to inquiries based on your brand’s unique products, services, and messaging. Use this tool to build an AI assistant that effectively engages with customers, enhances user experience, and drives sales.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "2d2c0509-8571-4ea3-b8b3-4ad747c2b187",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2820,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# AI-Powered Web Chat Interface\n### Generate a Sales and Support Chat Interface Connected to a Fine-Tuned AI Assistant\n\nThis tool generates a web chat interface designed for sales and support, seamlessly integrated with an AI assistant that has been fine-tuned with your brand’s specific data. The AI assistant is trained to provide accurate, personalized responses based on your brand’s products, services, and customer interactions. Use this tool to enhance customer engagement, streamline support, and drive sales through a responsive and intelligent chat interface.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "513cc660-a481-402f-97d2-75fe76c1232b",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "5nVPWFXGYKEiSVC2",
+        "options": {}
+      },
+      "id": "a6c5b4f9-7d30-4973-a394-9d8c3db505e9",
+      "name": "Generate a Chat Customer and Sales Support",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        900
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T22:01:28.989Z",
+      "updatedAt": "2024-08-26T22:01:28.989Z",
+      "id": "kxxK9uQIRkujnphG",
+      "name": "Assistant"
+    },
+    {
+      "createdAt": "2024-08-27T11:57:26.314Z",
+      "updatedAt": "2024-08-27T11:57:26.314Z",
+      "id": "rRAYPMNxSAm8ZgBM",
+      "name": "Dashboard"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-08T10:42:44.000Z",
+  "versionId": "79a9b38d-f883-4532-b0a5-16e294e04022"
+}
