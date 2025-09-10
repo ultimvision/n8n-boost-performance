@@ -1,0 +1,174 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Extract the Sequence's Image2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract the Sequence's Image1": {
+      "main": [
+        [
+          {
+            "node": "If Status is Succeeded",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-01T22:44:14.776Z",
+  "id": "ky9XWlE7KhsSmIZ7",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "DEV | Creatomate API",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "9273b30e-1348-445a-9cae-95eb876fe336",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        540,
+        80
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.creatomate.com/v1/renders",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.CREATOMATE_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"source\": {\n    \"output_format\": \"mp4\",\n    \"width\": 1920,\n    \"height\": 1080,\n    \"elements\": [\n      {\n        \"type\": \"image\",\n        \"source\": \"https://danslajungledesaffaires.blog/podcasts/3/images/hd/ai/ai_image_1.png\",\n        \"track\": 1,\n        \"duration\": 3,\n        \"clip\": true,\n        \"animations\": [\n          {\n            \"easing\": \"linear\",\n            \"type\": \"scale\",\n            \"scope\": \"element\",\n            \"start_scale\": \"100%\",\n            \"fade\": false\n          }\n        ]\n      },\n      {\n        \"type\": \"image\",\n        \"source\": \"https://danslajungledesaffaires.blog/podcasts/3/images/hd/ai/ai_image_2.png\",\n        \"track\": 1,\n        \"duration\": 3,\n        \"clip\": true,\n        \"animations\": [\n          {\n            \"easing\": \"linear\",\n            \"type\": \"scale\",\n            \"scope\": \"element\",\n            \"start_scale\": \"120%\",\n            \"fade\": false\n          }\n        ]\n      },\n      {\n        \"type\": \"image\",\n        \"source\": \"https://danslajungledesaffaires.blog/podcasts/3/images/hd/ai/ai_image_3.png\",\n        \"track\": 1,\n        \"duration\": 3,\n        \"clip\": true,\n        \"animations\": [\n          {\n            \"easing\": \"linear\",\n            \"type\": \"scale\",\n            \"scope\": \"element\",\n            \"start_scale\": \"120%\",\n            \"fade\": false\n          }\n        ]\n      },\n      {\n        \"type\": \"image\",\n        \"source\": \"https://danslajungledesaffaires.blog/podcasts/3/images/hd/ai/ai_image_4.png\",\n        \"track\": 1,\n        \"duration\": 3,\n        \"clip\": true,\n        \"animations\": [\n          {\n            \"easing\": \"linear\",\n            \"type\": \"scale\",\n            \"scope\": \"element\",\n            \"start_scale\": \"120%\",\n            \"fade\": false\n          }\n        ]\n      }\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "20219de4-3009-472f-9ec8-b6625078144d",
+      "name": "Extract the Sequence's Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "63c07695-b1df-4312-bd10-32e95edafc2e",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "succeeded",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fa8c0639-fc27-404a-aba4-8fcab20c376d",
+      "name": "If Status is Succeeded",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        960,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.creatomate.com/v1/renders/9bf89ec2-80f6-413c-9cad-b8c0d80f6ee8",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.CREATOMATE_API_KEY }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d939c0b8-d6b9-4061-ab00-93608f5c8641",
+      "name": "Extract the Sequence's Image1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        740,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.creatomate.com/v1/renders",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.CREATOMATE_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"template_id\": \"da462099-c2e4-4996-aef5-918f8de44a9a\",\n  \"modifications\": {\n    \"Main-Image\": \"https://danslajungledesaffaires.blog/podcasts/3/images/hd/ai/ai_image_1.png\",\n    \"Tagline\": \"Enter your tagline here\",\n    \"Title\": \"Lorem ipsum dolor sit amet\",\n    \"Start-Text\": \"A second and longer text here ✌️\",\n    \"Slide-1-Image\": \"https://danslajungledesaffaires.blog/podcasts/3/images/hd/ai/ai_image_2.png\",\n    \"Slide-1-Text\": \"Enter a text for the first slide. ⛱️\",\n    \"Slide-2-Image\": \"https://danslajungledesaffaires.blog/podcasts/3/images/hd/ai/ai_image_3.png\",\n    \"Slide-2-Text\": \"Enter a text for the second slide. 🌊\",\n    \"Slide-3-Image\": \"https://danslajungledesaffaires.blog/podcasts/3/images/hd/ai/ai_image_4.png\",\n    \"Final-Text\": \"Your Call To Action Here\"\n  }\n}",
+        "options": {}
+      },
+      "id": "8468819b-c08e-4e14-a6ee-190416ab788f",
+      "name": "Extract the Sequence's Image2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        80
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-30T22:54:03.750Z",
+      "updatedAt": "2024-06-30T22:54:03.750Z",
+      "id": "c5NEvO9qFRDDjJfy",
+      "name": "DEV"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-02T10:32:45.000Z",
+  "versionId": "da28ec0d-dc32-407d-a169-3f30e59a2ddf"
+}
