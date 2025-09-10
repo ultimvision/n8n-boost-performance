@@ -1,0 +1,415 @@
+{
+  "active": false,
+  "connections": {
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Insert Log in Table Database",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Log to Slack?": {
+      "main": [
+        [
+          {
+            "node": "Slack VAR is True?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack VAR is True?": {
+      "main": [
+        [
+          {
+            "node": "Prepare Slack Message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Slack Message": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Insert Log ID": {
+      "main": [
+        [
+          {
+            "node": "Send Log to Slack?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Log in Table Database": {
+      "main": [
+        [
+          {
+            "node": "Set Insert Log ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack": {
+      "main": [
+        [
+          {
+            "node": "Return Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-08T13:26:13.926Z",
+  "id": "jxGlO5w6gHJCOVFN",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost - Core - Log - Slack",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "8e47c4b9-40bb-4db1-85d8-8d604a32e344",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "95034e50-294f-4f62-b47a-240a73282f4b",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -20,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return Status",
+        "height": 234.60734154241658,
+        "color": 4
+      },
+      "id": "871fd69d-291f-4a92-89d0-05a428bb8e73",
+      "name": "Sticky Note17",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "3dea14b7-d410-4173-adc4-3fc9a582287b",
+              "leftValue": "={{ $('Workflow Data').item.json[\"slack\"] }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "e8962caa-97f9-428e-90a0-80dcfc51295f",
+              "leftValue": "={{ $('Workflow Data').item.json[\"slack\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "dc0b1654-499c-412f-8415-69c795152b3d",
+      "name": "Send Log to Slack?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        560,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "21553c8f-943c-4c2b-bdce-e35eedf55e37",
+              "leftValue": "={{ $vars.SLACK_DEBUG }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "bbd4c330-920b-45e1-ad3b-61dce55a8c29",
+      "name": "Slack VAR is True?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        800,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07LU0RQ3PB",
+          "mode": "id"
+        },
+        "text": "={{ $json.message }}",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "link_names": true,
+          "mrkdwn": false
+        }
+      },
+      "id": "65444d6b-45c4-4bd9-adf5-0e58b860dd1d",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        1260,
+        200
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "bp8H7pDQx0bUTp9l",
+          "name": "Slack Patrick Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c9e154de-c785-48b7-ae94-a1ba6317f015",
+              "name": "message",
+              "value": "=\n*NEW LOG ( {{ $('Set Insert Log ID').item.json[\"insertId\"] }} ) | {{ $('Workflow Data').item.json[\"type\"] }} * -> {{ $('Workflow Data').item.json[\"workflow_name\"] }}\n{{ new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto', hour12: false }).replace(',', '') }}\n\n{{ $('Workflow Data').item.json[\"message\"] }} \n\n{{ $('Workflow Data').item.json[\"workflow_id\"] && $('Workflow Data').item.json[\"workflow_id\"] !== null && $('Workflow Data').item.json[\"workflow_id\"] !== '' ? '<https://boostperformance.app.n8n.cloud/workflow/' + $('Workflow Data').item.json[\"workflow_id\"] + '/executions/' + $('Workflow Data').item.json[\"execution_id\"] + '|Open the n8n Workflow>' : '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "232212ac-823d-4687-8471-0afa6e5342d7",
+      "name": "Prepare Slack Message",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1040,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "options": {}
+      },
+      "id": "96e39521-d772-4184-9cc2-d790d22b162e",
+      "name": "Return Status",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1680,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "59d2ab4b-0bb5-43c8-b8a7-eee7c50afaf2",
+              "name": "insertId",
+              "value": "={{ $json.data.insertId }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5157a4c3-7846-4a29-98b7-aa6d8acb3176",
+      "name": "Set Insert Log ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "boost_logs",
+          "mode": "list",
+          "cachedResultName": "boost_logs"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "workflow_name",
+              "value": "={{ $json.workflow_name }}"
+            },
+            {
+              "column": "workflow_id",
+              "value": "={{ $json.workflow_id }}"
+            },
+            {
+              "column": "status",
+              "value": "={{ $json.success }}"
+            },
+            {
+              "column": "message",
+              "value": "={{ $json.message }}"
+            },
+            {
+              "column": "data",
+              "value": "={{ $json.data }}"
+            },
+            {
+              "column": "execution_id",
+              "value": "={{ $json.execution_id }}"
+            },
+            {
+              "column": "execution_mode",
+              "value": "={{ $json.execution_mode }}"
+            },
+            {
+              "column": "type",
+              "value": "={{ $json.type }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "12209fdf-4448-4180-845c-e421bb31040c",
+      "name": "Insert Log in Table Database",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        180,
+        440
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-09-07T13:08:32.695Z",
+      "updatedAt": "2024-09-07T13:08:32.695Z",
+      "id": "zvxPXyJqeprP9Nex",
+      "name": "Core"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-17T21:30:57.000Z",
+  "versionId": "f5169be7-4fd3-4a50-ba6d-e3c56d7eb5b4"
+}
