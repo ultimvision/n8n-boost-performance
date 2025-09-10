@@ -1,0 +1,270 @@
+{
+  "active": false,
+  "connections": {
+    "Prepare new post data": {
+      "main": [
+        [
+          {
+            "node": "Create Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate input": {
+      "main": [
+        [
+          {
+            "node": "Generate slug from title",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate slug from title": {
+      "main": [
+        [
+          {
+            "node": "Prepare new post data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Validate input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-29T17:30:28.566Z",
+  "id": "0XUVESvHdVXrB9mx",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Circle - Create post",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/admin/v2/posts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "06e67fb5-2384-4006-82ad-d951bc7b85ad",
+      "name": "Create Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1340,
+        700
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"space_id\": {{ $json.space_id }},\n  \"status\": \"{{ $('When Executed by Another Workflow').first().json.publish_status === 'draft' ? 'draft' : 'published' }}\",\n  \"name\": \"{{ $json.title }}\",\n  \"slug\": \"{{ $json.slug }}\",\n  \"tiptap_body\": {\n    \"body\": {\n      \"type\": \"doc\",\n      \"content\": {{ JSON.stringify($json.content) }}\n    },\n    \"inline_attachments\": {{ JSON.stringify($json.inline_attachments) || [] }}\n  },\n  \"cover_image\": {{ $('When Executed by Another Workflow').first().json.cover_image_signed_id ? `\"${$('When Executed by Another Workflow').first().json.cover_image_signed_id}\"` : null }},\n  \"internal_custom_html\": null,\n  \"is_truncation_disabled\": false,\n  \"is_comments_closed\": false,\n  \"is_comments_enabled\": true,\n  \"is_liking_enabled\": true,\n  \"hide_meta_info\": false,\n  \"hide_from_featured_areas\": true,\n  \"meta_title\": null,\n  \"meta_description\": null,\n  \"opengraph_title\": null,\n  \"opengraph_description\": null,\n  \"published_at\": \"{{ DateTime.utc().toISO() }}\",\n  \"created_at\": \"{{ DateTime.utc().toISO() }}\",\n  \"topics\": [],\n  \"skip_notifications\": false,\n  \"is_pinned\": false\n}",
+        "options": {}
+      },
+      "id": "f5e9506a-47a0-4871-a822-662df3a2dd30",
+      "name": "Prepare new post data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1060,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Create a new post\n\nPoor docs: https://api-headless.circle.so/?urls.primaryName=Admin%20API%20V2#/Posts/post_api_admin_v2_posts",
+        "height": 478.1284976588295,
+        "width": 1231.6484336475053,
+        "color": 5
+      },
+      "id": "867895e8-4305-4ddf-8624-571e7cdba3a6",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        360,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c41e0e06-8eef-489b-81a0-2d100c6498d6",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "3a82a700-05df-4c33-887d-d24cc2112164",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1b139ac5-fe57-40c6-bfb8-2f05bad7062c",
+      "name": "Validate input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        500,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Invalid input"
+      },
+      "id": "171cbebe-e5b0-4363-9634-911d99638a32",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        560,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "function slugify(string) {\n  return string\n    .toLowerCase()                         // Convert to lowercase\n    .normalize(\"NFD\")                      // Decompose accented characters\n    .replace(/[\\u0300-\\u036f]/g, \"\")       // Remove diacritical marks\n    .trim()                                // Remove leading/trailing whitespace\n    .replace(/[\\s\\W-]+/g, '-')             // Replace spaces, non-alphanumeric, and extra hyphens with single hyphen\n    .replace(/^-+|-+$/g, '');              // Remove leading/trailing hyphens\n}\n\nreturn $input.all().map(i => {\n  return {...i.json, slug: slugify(i.json.title)}\n});"
+      },
+      "id": "91a54dc4-9d2c-4e83-9b23-f7b01d315139",
+      "name": "Generate slug from title",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "space_id",
+              "type": "number"
+            },
+            {
+              "name": "title"
+            },
+            {
+              "name": "content",
+              "type": "array"
+            },
+            {
+              "name": "inline_attachments",
+              "type": "array"
+            },
+            {
+              "name": "cover_image_signed_id"
+            },
+            {
+              "name": "publish_status"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        80,
+        700
+      ],
+      "id": "cc763b78-10b1-4786-866a-be35ee27bd22",
+      "name": "When Executed by Another Workflow"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "any"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T19:06:31.377Z",
+      "updatedAt": "2024-10-22T19:06:31.377Z",
+      "id": "bKPfZp0igWIPyAvq",
+      "name": "Task"
+    },
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-28T14:17:27.000Z",
+  "versionId": "3de3ea7a-94b0-472b-a377-58399fa8410e"
+}
