@@ -1,0 +1,5479 @@
+{
+  "active": false,
+  "connections": {
+    "Prompt Rédacteur de contenu": {
+      "main": [
+        [
+          {
+            "node": "Création du contenu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Création du contenu": {
+      "main": [
+        [
+          {
+            "node": "Mise en page Contenu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt d'image": {
+      "main": [
+        [
+          {
+            "node": "Modèle IMAGE IA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer un article": {
+      "main": [
+        [
+          {
+            "node": "Contenu de l'entrevue existe ?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer un article1": {
+      "main": [
+        [
+          {
+            "node": "Mettre à jour le Status de l'entrevue - Image en cours",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mettre à jour le Status de l'article - Rédaction en cours",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Identifier le nom du fichier image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer un article2": {
+      "main": [
+        [
+          {
+            "node": "Mettre à jour le Status de l'entrevue - Publication en cours",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mettre à jour le Status de l'article - Publication en cours",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prompt Catégorie",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Catégorie": {
+      "main": [
+        [
+          {
+            "node": "Récupérer les catégories sur Wordpress",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mise en page Contenu": {
+      "main": [
+        [
+          {
+            "node": "Enregistrement de l'article et mise à jour du status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Action": {
+      "main": [
+        [
+          {
+            "node": "Récupérer Information entrevue",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Récupérer un article",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Récupérer un article1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Récupérer un article2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "Valeurs Initiales",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valeurs Initiales": {
+      "main": [
+        [
+          {
+            "node": "Action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exécuté à partir du Centre principal": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contenu de l'entrevue existe ?": {
+      "main": [
+        [
+          {
+            "node": "Mettre à jour le Status de l'entrevue - Analyse en cours",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Préparation du Prompt d'analyse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contenu de l'entrevue existe ?1": {
+      "main": [
+        [
+          {
+            "node": "Mettre à jour le Status de l'entrevue - Rédaction en cours",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mettre à jour le Status de l'article - Rédaction en cours1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prompt Rédacteur de contenu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Préparation du Prompt d'analyse": {
+      "main": [
+        [
+          {
+            "node": "Analyse de l'entrevue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MAX IA - Analyse": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Analyse de l'entrevue",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Max IA - Révision": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Correction automatique de la structure",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structure de l'analyse": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Correction automatique de la structure",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Correction automatique de la structure": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Analyse de l'entrevue",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyse de l'entrevue": {
+      "main": [
+        [
+          {
+            "node": "Séparation des suggestions d'articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Séparation des suggestions d'articles": {
+      "main": [
+        [
+          {
+            "node": "Ajouter les idées d'articles",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mettre à jour le Status de l'entrevue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Max IA - Création": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Création du contenu",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Max IA - Révision - 2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Correction automatique de l'article",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structure de l'article": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Correction automatique de l'article",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Correction automatique de l'article": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Création du contenu",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Modèle IMAGE IA": {
+      "main": [
+        [
+          {
+            "node": "Préparer enregistrement image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Préparer enregistrement image": {
+      "main": [
+        [
+          {
+            "node": "Enregistrer l'image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enregistrer l'image": {
+      "main": [
+        [
+          {
+            "node": "Définir l'url de l'image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Définir l'url de l'image": {
+      "main": [
+        [
+          {
+            "node": "Image est format webp?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image est format webp?": {
+      "main": [
+        [
+          {
+            "node": "Mettre à jour URL de l'image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convertir l'image en format webp pour réduire grosseur",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convertir l'image en format webp pour réduire grosseur": {
+      "main": [
+        [
+          {
+            "node": "Mettre à jour URL de l'image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer les catégories sur Wordpress": {
+      "main": [
+        [
+          {
+            "node": "Combiner toutes les catégories",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combiner toutes les catégories": {
+      "main": [
+        [
+          {
+            "node": "Identifier la catégorie de l'article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Identifier la catégorie de l'article": {
+      "main": [
+        [
+          {
+            "node": "Publier article sur Wordpress",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Max IA - Catégoriseur": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Identifier la catégorie de l'article",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer Information entrevue": {
+      "main": [
+        [
+          {
+            "node": "Contenu de l'entrevue existe ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Identifier le nom du fichier image": {
+      "main": [
+        [
+          {
+            "node": "Prompt d'image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Publier article sur Wordpress": {
+      "main": [
+        [
+          {
+            "node": "Récupérer les infos de article publié",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer les infos de article publié": {
+      "main": [
+        [
+          {
+            "node": "Télécharger image de couverture",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envoyer lmage sur Wordpress": {
+      "main": [
+        [
+          {
+            "node": "Récupération des infos de image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Télécharger image de couverture": {
+      "main": [
+        [
+          {
+            "node": "Envoyer lmage sur Wordpress",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupération des infos de image": {
+      "main": [
+        [
+          {
+            "node": "Ajouter image à l'article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ajouter image à l'article": {
+      "main": [
+        [
+          {
+            "node": "Mettre à jour URL de image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-20T12:23:11.229Z",
+  "id": "l2zV1QF7bs0jVd9B",
+  "isArchived": false,
+  "meta": null,
+  "name": "Jungle des Affaires - Rédaction Blogue (SUB)",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1440,
+        1900
+      ],
+      "id": "da368ec8-63c7-4432-9289-61140b417f82",
+      "name": "Exécuté à partir du Centre principal"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "02c5ab7c-b530-466c-9291-df576ab820ba",
+              "name": "prompt",
+              "value": "=RÔLE\nTu es journaliste‑rédacteur francophone pour le Blog‑Magazine « Dans la Jungle des Affaires ».  \nTon style est professionnel, dynamique et accessible, au niveau rédactionnel du New York Times, avec une ponctuation irréprochable.\n\nACTION\nÀ partir de la transcription complète fournie, écris un article intitulé « {{ $json.Titre }} » dont le sujet est : {{ $json.Objectif }}.  \nL’article, d'une longueur entre 1000 et 1250 mots, doit mettre en lumière l’invité et la mission du média **sans jamais évoquer le podcast ni l’entrevue**.\n\nCONTEXTE\n- Animateur :  {{ $json.Animateur[0] }}\n- Invité : {{ $json['Invité'][0] }}  {{ $json['CV Invité'][0] }}\n- Ligne éditoriale : « Dans la Jungle des Affaires » dévoile le côté humain et aventureux du monde des affaires, reliant les dirigeants d’ici et d’ailleurs par des histoires de persévérance, de créativité et de réussite.  \n- Matériel source : Transcription audio intégrale\n- La transcription peut avoir des erreurs de transcription des noms, de nom de compagnie ou produits. Toujours référé au vocabulaire de l'article pour bien interpréter la transcription et utiliser le bon vocabulaire. \n\nEXIGENCES\n1. **Langue** : français.  \n1.5 **Vocabulaire** : Utiliser le vocabulaire suggéré pour être certain que les mots sont bien transcris.\n2. **Introduction** (≈ 100 mots)  \n   - Présente la mission du média et son animateur.  \n   - Si un co‑animateur est présent, indique qu’il est invité pour cette entrevue.  \n   - Souhaite la bienvenue aux lecteurs et annonce l’invité vedette.  \n3. **Portrait de l’invité** (≈ 120 mots) : souligne passions, travail et accomplissements.  \n4. **Corps de l’article**  \n   - Organise par sous‑titres logiques.  \n   - Chaque sous‑titre est suivi d’un paragraphe d’environ 150 mots, en continuité fluide.  \n5. **Citations** : sélectionne deux phrases percutantes (≤ 15 mots chacune) du texte final et marque‑les comme **CITATION**.  \n6. **Conclusion** (≈ 80 mots)  \n   - Résume positivement l’invité et inspire les lecteurs à suivre son exemple.  \n   - Termine par un mot de l’animateur invitant à découvrir d’autres entrevues inspirantes sur le site.  \n7. **Contraintes**  \n   - Ne fais jamais référence au format podcast ni à l’entrevue.  \n   - Respecte les longueurs indicatives et la cohérence stylistique tout au long de l’article.\n8. **Images**\nAjoutez deux concepts très détaillée pour la création d'une image qui illustrerait un moment de l'article. On doit mentionner que l'image ne doit pas contenir de texte. Les deux concepts doivent être complètement différentes et être très précises dans les détails pour partager avec un graphiste. \n\nVOCABULAIRE SUGGÉRÉ\n{{ $json['Vocabulaire Entrevue'][0] }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1080,
+        1460
+      ],
+      "id": "524d02bf-1933-4494-bd99-a6372b926aec",
+      "name": "Prompt Rédacteur de contenu"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Voici le contenu de l’entrevue à utiliser pour rédiger l’Article : :\n\"\"\"{{ $('Récupérer un article').item.json.Contenu }}\"\"\"",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        1600,
+        1320
+      ],
+      "id": "9aa5e902-e290-413f-851e-2512d4bddd82",
+      "name": "Création du contenu",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "content": "# 3- Création de l'image de couverture",
+        "height": 740,
+        "width": 2420,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        140,
+        1940
+      ],
+      "id": "1aaffce1-e74f-446d-b6c5-b2e5ab50b5b8",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "# 1- Analyse un article et identifie 3 concepts d'articles à créer qui ne se recouvent pas.",
+        "height": 820,
+        "width": 1800,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        140,
+        160
+      ],
+      "id": "a09b1ca4-0eab-4b24-8a19-6da00543cc95",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# 2- Rédige un article à partir d'un concept et crée une version Texte et HTML pour Wordpress",
+        "height": 840,
+        "width": 2380,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        140,
+        1040
+      ],
+      "id": "9194a427-e1d4-4e6b-8326-611ac7110dfd",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c9408f2-d1a7-4b65-ad2f-1d4109e923e3",
+              "name": "prompt",
+              "value": "=Tu es un ingénieur expert en intelligence artificielle, spécialisé dans la création de prompts hautement efficaces pour les modèles de génération d’images. Tu excelles dans l’analyse de textes, l’extraction des concepts clés et leur synthèse en prompts concis et descriptifs. À partir d’un article (actualités, blog, etc.), ta mission est de créer un prompt détaillé et visuellement percutant qui reflète fidèlement les idées principales du texte.\n\nLe prompt généré doit :\n\n-Être aligné avec les thèmes, les sujets et les émotions essentiels véhiculés dans l’article.\n\n-Être rédigé de manière claire et précise, optimisé pour une représentation visuelle de haute qualité.\n\n-Adopter une esthétique de photographie commerciale.\n\n-Être rendu en haute définition, dans un style photo-réaliste et ultra-réaliste.\n\n-Éviter les éléments trop technologiques ou de science-fiction (ex. : pas de cyberpunk ou de visuels trop numériques, sauf si cela est explicitement mentionné dans l’article).\n\n-Mettre l’accent sur le réalisme, la clarté, la fidélité émotionnelle et un rendu visuel de haute qualité adapté à un usage commercial.\n\n-Tout le texte visible dans l’image doit toujours être en français. Ne jamais traduire ou modifier les noms de marques.\n\n-Exiger de ne pas avoir de personnes ou humains dans l'image à créer. Uniquement une image de fond avec le nom de l'invité dans l'image, en bas à gauche. Les graphistes ajouteront la photo de l'invité par la suite.",
+              "type": "string"
+            },
+            {
+              "id": "304f8236-b57a-49dc-a735-0f96eab072ec",
+              "name": "data",
+              "value": "={{ $json['JSON Article'] }}",
+              "type": "object"
+            },
+            {
+              "id": "97def9f2-b512-436f-8e46-76d4c34f1d95",
+              "name": "prompt2",
+              "value": "=Tu es un ingénieur expert en intelligence artificielle, spécialisé dans la création d’images. Tu excelles dans l’analyse de textes, l’extraction des concepts clés et leur synthèse en prompts concis et descriptifs. À partir d’un article (actualités, blog, etc.), ta mission est de créer une image détaillé et visuellement percutant qui reflète fidèlement les idées principales du texte.\n\nAnalyser attentivement l’article suivant :\n{{ $('Récupérer un article1').item.json['Texte Article'] }}\n\nSur la base de cette analyse, produire **une photographie commerciale ultra‑réaliste (8 K)**, SANS AUCUN personnage, silhouette ni trace humaine.\n\nScène : représenter visuellement avec beaucoup de détails et de couleurs vices les idées clés, l’ambiance générale, les émotions dominantes et les éléments concrets évoqués dans l’article (couleurs, textures, lumière, lieu, objets) de façon strictement réaliste (pas de futurisme ni d’esthétique techno sauf mention explicite dans l’article).\n\nParamètres techniques : objectif professionnel f/2.8, lumière naturelle douce, profondeur de champ réaliste, post‑traitement subtil, rendu 8 K, style photo‑réaliste haute définition, prêt pour impression magazine pleine page.\n\nS'il y a du texte visible dans l’image, le texte doit toujours être en français. Vérifier l'orthographe correctement. Ne jamais traduire ou modifier les noms de marques.\n\nNégation absolue (Negative / --no) : people, person, human, silhouette, figure, face, portrait, crowd, mannequin, statue, shadow_of_person, reflection_of_person, humanoid.\n\n--stylize 80",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        860,
+        2260
+      ],
+      "id": "f01823c1-61eb-4b88-a903-663bd4539b74",
+      "name": "Prompt d'image"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "id": "={{ $json.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        260,
+        1480
+      ],
+      "id": "4f62db36-56c0-4fb6-9198-746adee1d191",
+      "name": "Récupérer un article",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "id": "={{ $json.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        260,
+        2240
+      ],
+      "id": "e26fbb60-09c0-48db-ab73-6b9c8fc34beb",
+      "name": "Récupérer un article1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Récupérer un article1').item.json.id }}",
+            "Status": "Création d'une image en cours",
+            "URL Image": "={{ $json.url }}",
+            "Détails du Status": "Création de l'image terminée."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Rédiger un article",
+                  "value": "Rédiger un article"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Création d'une image en cours",
+                  "value": "Création d'une image en cours"
+                },
+                {
+                  "name": "Publication de l'article en cours",
+                  "value": "Publication de l'article en cours"
+                },
+                {
+                  "name": "Rédaction terminée",
+                  "value": "Rédaction terminée"
+                },
+                {
+                  "name": "Rédigé et Publié",
+                  "value": "Rédigé et Publié"
+                },
+                {
+                  "name": "Publier",
+                  "value": "Publier"
+                },
+                {
+                  "name": "Draft",
+                  "value": "Draft"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL Publication",
+              "displayName": "URL Publication",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectif",
+              "displayName": "Objectif",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raisonnement",
+              "displayName": "Raisonnement",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entrevues",
+              "displayName": "Entrevues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire Entrevue",
+              "displayName": "Vocabulaire Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "recId Entrevue",
+              "displayName": "recId Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "JSON Article",
+              "displayName": "JSON Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Texte Article",
+              "displayName": "Texte Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "HTML Article",
+              "displayName": "HTML Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prompt Image",
+              "displayName": "Prompt Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Image",
+              "displayName": "URL Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL Interface Voir",
+              "displayName": "URL Interface Voir",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Itself",
+              "displayName": "Itself",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2340,
+        2240
+      ],
+      "id": "3623ddf2-8297-481b-827b-a8f0c6270937",
+      "name": "Mettre à jour URL de l'image",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "id": "={{ $json.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        240,
+        3060
+      ],
+      "id": "1d8ad544-d8f8-4a67-bda2-696ff2e388eb",
+      "name": "Récupérer un article2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.airtable.com/v0/appiGnT20FZtvm0v6/Articles/recYpzJ7yJpcybiKp",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        3320
+      ],
+      "id": "43a9fb09-7415-405b-b42f-0581f800b12d",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        },
+        "httpBasicAuth": {
+          "id": "vWv0jOl3dsDFS86m",
+          "name": "Airtable Publishing"
+        },
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "29711a1b-c30e-4961-928e-ad26ac702b78",
+              "name": "prompt",
+              "value": "=Based on the following article title and content, determine the most appropriate WordPress category to assign from the provided list.\nAnalyze the content and select the SINGLE most relevant category based on the main topic and theme.\nRespond ONLY with the ID number of the most appropriate category. Do not include any explanation or other text.\n\nRespond ONLY with the ID number of the most appropriate category. Do not include any explanation or other text.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        520,
+        3300
+      ],
+      "id": "04993010-de3d-4352-80a0-87fbafa02d1b",
+      "name": "Prompt Catégorie"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb86f8c5-943e-4857-8b05-3fd5b9905dbe",
+              "name": "html_content",
+              "value": "=<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">{{ $json.output.article.title }}</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $json.output.article.introduction }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">{{ $json.output.podcast_details.guest_details }}</h3>\n<!-- /wp:heading -->\n\n{{ $json.output?.article?.paragraphs?.[0]?.sub_title\n    ? `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json.output.article.paragraphs[0].sub_title}</h3>\n<!-- /wp:heading -->`\n    : ''}}\n\n{{ $json.output?.article?.paragraphs?.[0]?.paragraph ? \n  `<!-- wp:paragraph -->\n<p>${$json.output.article.paragraphs[0].paragraph}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n<p>{{ $json.output.quotes[0].quote }}</p>\n<!-- /wp:paragraph --><cite>- {{ $json.output.podcast_details.guest }}</cite></blockquote>\n<!-- /wp:quote -->\n\n{{ $json.output?.article?.paragraphs?.[1]?.sub_title\n    ? `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json.output.article.paragraphs[1].sub_title}</h3>\n<!-- /wp:heading -->`\n    : ''}}\n\n{{ $json.output?.article?.paragraphs?.[1]?.paragraph ? \n  `<!-- wp:paragraph -->\n<p>${$json.output.article.paragraphs[1].paragraph}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n{{ $json.output?.article?.paragraphs?.[2]?.sub_title\n    ? `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json.output.article.paragraphs[2].sub_title}</h3>\n<!-- /wp:heading -->`\n    : ''}}\n\n{{ $json.output?.article?.paragraphs?.[2]?.paragraph ? \n  `<!-- wp:paragraph -->\n<p>${$json.output.article.paragraphs[2].paragraph}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n<p>{{ $json.output.quotes[1].quote }}</p>\n<!-- /wp:paragraph --><cite>- {{ $json.output.podcast_details.guest }}</cite></blockquote>\n<!-- /wp:quote -->\n\n{{ $json.output?.article?.paragraphs?.[3]?.sub_title\n    ? `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json.output.article.paragraphs[3].sub_title}</h3>\n<!-- /wp:heading -->`\n    : ''}}\n\n{{ $json.output?.article?.paragraphs?.[3]?.paragraph ? \n  `<!-- wp:paragraph -->\n<p>${$json.output.article.paragraphs[3].paragraph}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n{{ $json.output?.article?.paragraphs?.[4]?.sub_title\n    ? `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json.output.article.paragraphs[4].sub_title}</h3>\n<!-- /wp:heading -->`\n    : ''}}\n\n{{ $json.output?.article?.paragraphs?.[4]?.paragraph ? \n  `<!-- wp:paragraph -->\n<p>${$json.output.article.paragraphs[4].paragraph}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Le mot de la fin</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $json.output.article.conclusion }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":4} -->\n<h4 class=\"wp-block-heading\">Vous avez découvert {{ $json.output.podcast_details.guest }}.</h4>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $json.output.article.final_note }}</p>\n<!-- /wp:paragraph -->",
+              "type": "string"
+            },
+            {
+              "id": "4d61b870-260f-4e7b-83af-cc2e7827b4f1",
+              "name": "text_content",
+              "value": "={{ $json.output.article.title }}\n\n{{ $json.output.article.introduction }}\n{{ $json.output.podcast_details.guest_details }}.\n\n{{ $json.output?.article?.paragraphs?.[0]?.sub_title\n    ? `${$json.output.article.paragraphs[0].sub_title}`\n    : ''}}\n{{ $json.output?.article?.paragraphs?.[0]?.paragraph ? \n  `${$json.output.article.paragraphs[0].paragraph}` \n  : \"\" }}\n\nCitation : \"{{ $json.output.quotes[0].quote }}\"\n-{{ $json.output.podcast_details.guest }}\n\n{{ $json.output?.article?.paragraphs?.[1]?.sub_title\n    ? `${$json.output.article.paragraphs[1].sub_title}`\n    : ''}}\n{{ $json.output?.article?.paragraphs?.[1]?.paragraph ? \n  `${$json.output.article.paragraphs[1].paragraph}` \n  : \"\" }}\n\n{{ $json.output?.article?.paragraphs?.[2]?.sub_title\n    ? `${$json.output.article.paragraphs[2].sub_title}`\n    : ''}}\n{{ $json.output?.article?.paragraphs?.[2]?.paragraph ? \n  `${$json.output.article.paragraphs[2].paragraph}` \n  : \"\" }}\n\nCitation : \"{{ $json.output.quotes[1].quote }}\"-{{ $json.output.podcast_details.guest }}\n\n{{ $json.output?.article?.paragraphs?.[3]?.sub_title\n    ? `${$json.output.article.paragraphs[3].sub_title}`\n    : ''}}\n{{ $json.output?.article?.paragraphs?.[3]?.paragraph ? \n  `${$json.output.article.paragraphs[3].paragraph}` \n  : \"\" }}\n\n{{ $json.output?.article?.paragraphs?.[4]?.sub_title\n    ? `${$json.output.article.paragraphs[4].sub_title}`\n    : ''}}\n{{ $json.output?.article?.paragraphs?.[4]?.paragraph ? \n  `${$json.output.article.paragraphs[4].paragraph}` \n  : \"\" }}\n\nLe mot de la fin\n{{ $json.output.article.conclusion }}\n\nVous avez découvert {{ $json.output.podcast_details.guest }}.\n\n{{ $json.output.article.final_note }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f62e493b-39b6-4cdc-bb9d-9ac46cecce30",
+      "name": "Mise en page Contenu",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2020,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "Analyse",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "baf6794b-858d-421a-9c89-ec77b06f9040"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Analyse"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "08acb1dd-0088-4440-8199-64659ebb8ba7",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "Rédaction",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Rédaction"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9a2e5f71-e0ba-4587-a040-f8292671346e",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "Image",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "89961d36-8b17-434c-8253-d733fcd025f7",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "Publier",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Publier"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -440,
+        1880
+      ],
+      "id": "cd6cb668-bb16-46f7-8a51-7ad72dc502c8",
+      "name": "Action"
+    },
+    {
+      "parameters": {
+        "content": "# 4-Publication sur Wordpress",
+        "height": 760,
+        "width": 2760,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        140,
+        2760
+      ],
+      "id": "21671572-9d14-4835-9de3-701232a8ddc3",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Récupérer Information entrevue').item.json.id }}",
+            "Status": "Analyse complétée",
+            "Détails du Status": "Analyse et création de sujets terminées."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Préparer les articles",
+                  "value": "Préparer les articles"
+                },
+                {
+                  "name": "Analyse complétée",
+                  "value": "Analyse complétée"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire",
+              "displayName": "Vocabulaire",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Youtube URL",
+              "displayName": "Youtube URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Articles",
+              "displayName": "Articles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lien Interne",
+              "displayName": "Lien Interne",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1720,
+        500
+      ],
+      "id": "3a4fa563-e206-4ae4-ae44-794b5f45671e",
+      "name": "Mettre à jour le Status de l'entrevue",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "recId",
+              "value": "={{ $json.body.recId }}"
+            },
+            {
+              "key": "status",
+              "value": "={{ $json.body.status }}"
+            },
+            {
+              "key": "level",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        1900
+      ],
+      "id": "03237ffd-ab3f-459a-9b8b-59916094c3b3",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f10fdc06-4a3c-466d-9122-60a6f48b7e89",
+              "name": "recId",
+              "value": "={{ $json.body.recId }}",
+              "type": "string"
+            },
+            {
+              "id": "0b5c5a9e-3db9-4602-8c4e-66df5d1403f8",
+              "name": "status",
+              "value": "={{ $json.body.status }}",
+              "type": "string"
+            },
+            {
+              "id": "a1a38f29-7a8f-4e13-bdb9-823c080ca7fb",
+              "name": "typeDemande",
+              "value": "={{ $json.body.typeDemande }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -660,
+        1900
+      ],
+      "id": "440a8055-a272-4bcb-9f7b-4d381876438a",
+      "name": "Valeurs Initiales"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "44985b9f-43bc-4c9e-b51f-bd4a11047781",
+              "leftValue": "={{ $json.Contenu }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        520,
+        560
+      ],
+      "id": "0fd6b44b-ef39-4ae1-8d95-39975a105db7",
+      "name": "Contenu de l'entrevue existe ?"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Récupérer Information entrevue').item.json.id }}",
+            "Status": "Analyse en cours",
+            "Détails du Status": "Analyse de l'entrevue en cours ..."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Image",
+              "displayName": "Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Analyse et articles à préparer",
+                  "value": "Analyse et articles à préparer"
+                },
+                {
+                  "name": "Analyse à préparer",
+                  "value": "Analyse à préparer"
+                },
+                {
+                  "name": "Articles à préparer",
+                  "value": "Articles à préparer"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Analyse en cours",
+                  "value": "Analyse en cours"
+                },
+                {
+                  "name": "Analyse complétée",
+                  "value": "Analyse complétée"
+                },
+                {
+                  "name": "Transcription complétée",
+                  "value": "Transcription complétée"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Incomplète",
+                  "value": "Incomplète"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email Invité",
+              "displayName": "Email Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire",
+              "displayName": "Vocabulaire",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Youtube URL",
+              "displayName": "Youtube URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vidéo Id",
+              "displayName": "Vidéo Id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Articles",
+              "displayName": "Articles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lien Interne",
+              "displayName": "Lien Interne",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Ajout",
+              "displayName": "Date Ajout",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        800,
+        300
+      ],
+      "id": "9e762db5-9a8a-4dc0-904f-95209750c786",
+      "name": "Mettre à jour le Status de l'entrevue - Analyse en cours",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1932978a-06f0-4726-9c1a-ec94e9b40f98",
+              "leftValue": "={{ $json.Contenu[0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        500,
+        1480
+      ],
+      "id": "18711cf3-2d76-4917-818b-f81762e1f898",
+      "name": "Contenu de l'entrevue existe ?1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.Entrevues[0] }}",
+            "Status": "Rédaction en cours",
+            "Détails du Status": "=Rédaction de l'article : {{ $json.Titre }} en cours de processus ..."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Image",
+              "displayName": "Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Analyse et articles à préparer",
+                  "value": "Analyse et articles à préparer"
+                },
+                {
+                  "name": "Analyse à préparer",
+                  "value": "Analyse à préparer"
+                },
+                {
+                  "name": "Articles à préparer",
+                  "value": "Articles à préparer"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Analyse en cours",
+                  "value": "Analyse en cours"
+                },
+                {
+                  "name": "Analyse complétée",
+                  "value": "Analyse complétée"
+                },
+                {
+                  "name": "Transcription complétée",
+                  "value": "Transcription complétée"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Incomplète",
+                  "value": "Incomplète"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email Invité",
+              "displayName": "Email Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire",
+              "displayName": "Vocabulaire",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Youtube URL",
+              "displayName": "Youtube URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vidéo Id",
+              "displayName": "Vidéo Id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Articles",
+              "displayName": "Articles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lien Interne",
+              "displayName": "Lien Interne",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Ajout",
+              "displayName": "Date Ajout",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        860,
+        1140
+      ],
+      "id": "a347a864-ab5f-40c4-b7b4-43bfe0a067d5",
+      "name": "Mettre à jour le Status de l'entrevue - Rédaction en cours",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "Status": "Rédaction en cours",
+            "Détails du Status": "Analyse du contenu et rédaction de l'article en cours ..."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Rédiger un article",
+                  "value": "Rédiger un article"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Rédigé et Publié",
+                  "value": "Rédigé et Publié"
+                },
+                {
+                  "name": "Publier",
+                  "value": "Publier"
+                },
+                {
+                  "name": "Draft",
+                  "value": "Draft"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL Publication",
+              "displayName": "URL Publication",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectif",
+              "displayName": "Objectif",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raisonnement",
+              "displayName": "Raisonnement",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entrevues",
+              "displayName": "Entrevues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire Entrevue",
+              "displayName": "Vocabulaire Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "recId Entrevue",
+              "displayName": "recId Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "JSON Article",
+              "displayName": "JSON Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Texte Article",
+              "displayName": "Texte Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "HTML Article",
+              "displayName": "HTML Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prompt Image",
+              "displayName": "Prompt Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Image",
+              "displayName": "URL Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Interface Voir",
+              "displayName": "URL Interface Voir",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Itself",
+              "displayName": "Itself",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        860,
+        1320
+      ],
+      "id": "ce8a043a-8aa5-4c2a-bf24-3bef4a0cdb21",
+      "name": "Mettre à jour le Status de l'article - Rédaction en cours1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.Entrevues[0] }}",
+            "Status": "Rédaction en cours",
+            "Détails du Status": "=Création de l'image du cover : {{ $json.Titre }} en cours de processus ..."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Image",
+              "displayName": "Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Analyse et articles à préparer",
+                  "value": "Analyse et articles à préparer"
+                },
+                {
+                  "name": "Analyse à préparer",
+                  "value": "Analyse à préparer"
+                },
+                {
+                  "name": "Articles à préparer",
+                  "value": "Articles à préparer"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Analyse en cours",
+                  "value": "Analyse en cours"
+                },
+                {
+                  "name": "Analyse complétée",
+                  "value": "Analyse complétée"
+                },
+                {
+                  "name": "Transcription complétée",
+                  "value": "Transcription complétée"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Incomplète",
+                  "value": "Incomplète"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email Invité",
+              "displayName": "Email Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire",
+              "displayName": "Vocabulaire",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Youtube URL",
+              "displayName": "Youtube URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vidéo Id",
+              "displayName": "Vidéo Id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Articles",
+              "displayName": "Articles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lien Interne",
+              "displayName": "Lien Interne",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Ajout",
+              "displayName": "Date Ajout",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        580,
+        2020
+      ],
+      "id": "f6771304-95ce-4f53-8544-de524bdacde8",
+      "name": "Mettre à jour le Status de l'entrevue - Image en cours",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "Status": "Création d'une image en cours",
+            "Détails du Status": "Création de l'image de couverture en cours..."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Rédiger un article",
+                  "value": "Rédiger un article"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Création d'une image en cours",
+                  "value": "Création d'une image en cours"
+                },
+                {
+                  "name": "Publication de l'article en cours",
+                  "value": "Publication de l'article en cours"
+                },
+                {
+                  "name": "Rédaction terminée",
+                  "value": "Rédaction terminée"
+                },
+                {
+                  "name": "Rédigé et Publié",
+                  "value": "Rédigé et Publié"
+                },
+                {
+                  "name": "Publier",
+                  "value": "Publier"
+                },
+                {
+                  "name": "Draft",
+                  "value": "Draft"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL Publication",
+              "displayName": "URL Publication",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectif",
+              "displayName": "Objectif",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raisonnement",
+              "displayName": "Raisonnement",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entrevues",
+              "displayName": "Entrevues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire Entrevue",
+              "displayName": "Vocabulaire Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "recId Entrevue",
+              "displayName": "recId Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "JSON Article",
+              "displayName": "JSON Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Texte Article",
+              "displayName": "Texte Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "HTML Article",
+              "displayName": "HTML Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prompt Image",
+              "displayName": "Prompt Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Image",
+              "displayName": "URL Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Interface Voir",
+              "displayName": "URL Interface Voir",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Itself",
+              "displayName": "Itself",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        580,
+        2220
+      ],
+      "id": "2bf0cc8b-376f-4997-a66e-62246bf211a3",
+      "name": "Mettre à jour le Status de l'article - Rédaction en cours",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.Entrevues[0] }}",
+            "Status": "Rédaction en cours",
+            "Détails du Status": "=Publication de l'article : {{ $json.Titre }} en cours de processus ..."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Image",
+              "displayName": "Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Analyse et articles à préparer",
+                  "value": "Analyse et articles à préparer"
+                },
+                {
+                  "name": "Analyse à préparer",
+                  "value": "Analyse à préparer"
+                },
+                {
+                  "name": "Articles à préparer",
+                  "value": "Articles à préparer"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Analyse en cours",
+                  "value": "Analyse en cours"
+                },
+                {
+                  "name": "Analyse complétée",
+                  "value": "Analyse complétée"
+                },
+                {
+                  "name": "Transcription complétée",
+                  "value": "Transcription complétée"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Incomplète",
+                  "value": "Incomplète"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email Invité",
+              "displayName": "Email Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire",
+              "displayName": "Vocabulaire",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Youtube URL",
+              "displayName": "Youtube URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vidéo Id",
+              "displayName": "Vidéo Id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Articles",
+              "displayName": "Articles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lien Interne",
+              "displayName": "Lien Interne",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Ajout",
+              "displayName": "Date Ajout",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        2880
+      ],
+      "id": "9d722e5b-fdd1-4e91-932e-09a07eb3eb18",
+      "name": "Mettre à jour le Status de l'entrevue - Publication en cours",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "Status": "Publication de l'article en cours",
+            "Détails du Status": "Publication de l'article en cours..."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Rédiger un article",
+                  "value": "Rédiger un article"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Création d'une image en cours",
+                  "value": "Création d'une image en cours"
+                },
+                {
+                  "name": "Publication de l'article en cours",
+                  "value": "Publication de l'article en cours"
+                },
+                {
+                  "name": "Rédaction terminée",
+                  "value": "Rédaction terminée"
+                },
+                {
+                  "name": "Rédigé et Publié",
+                  "value": "Rédigé et Publié"
+                },
+                {
+                  "name": "Publier",
+                  "value": "Publier"
+                },
+                {
+                  "name": "Draft",
+                  "value": "Draft"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL Publication",
+              "displayName": "URL Publication",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectif",
+              "displayName": "Objectif",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raisonnement",
+              "displayName": "Raisonnement",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entrevues",
+              "displayName": "Entrevues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire Entrevue",
+              "displayName": "Vocabulaire Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "recId Entrevue",
+              "displayName": "recId Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "JSON Article",
+              "displayName": "JSON Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Texte Article",
+              "displayName": "Texte Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "HTML Article",
+              "displayName": "HTML Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prompt Image",
+              "displayName": "Prompt Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Image",
+              "displayName": "URL Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Interface Voir",
+              "displayName": "URL Interface Voir",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Itself",
+              "displayName": "Itself",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        3060
+      ],
+      "id": "fec44535-8247-472b-a000-d6c90d73c643",
+      "name": "Mettre à jour le Status de l'article - Publication en cours",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "086ea455-c071-4227-a658-9da52aff4945",
+              "name": "race",
+              "value": "=**RÔLE**\nTu es **mon Assistant éditorial** spécialisé en structuration de contenu pour mon blogue. Ta mission est d’extraire le meilleur d’une entrevue audio pour en faire des propositions d’articles solides et non redondantes.\n\n---\n\n**ACTION**\n\n1. Analyse intégralement la transcription de l’entrevue réalisée par **{{ $json.Animateur }}** dans l’émission *Dans la Jungle des Affaires* et l’entrepreneur invité : **{{ $json['Invité'] }} {{ $json['CV Invité'] }}**.\n2. À partir du résultat de l'analyse de de l'entrevue, Identifie **3 sujets de discussion distincts** pouvant servir de base à **3 articles** différents parmi les . \n8 axes de sujets qui mettent en lumière l’histoire unique, la persévérance, la créativité et la détermination de invité. Identifie les axes qui vont bien faire resortir les parties de l'entrevue lié ces axes:\n\n**Le déclic fondateur : du premier insight à la mise en marché\n-Comment l’idée est‑elle née ?\n-Qu’est‑ce qui a transformé un simple concept en projet concret ?\n-Moments charnières et premières validations clients.\n\n**Le grand mur & le pivot : surmonter l’obstacle majeur\n-La plus grosse embûche rencontrée (financement, produit, marché, personnel).\n-Le pivot stratégique ou l’astuce créative qui a permis de rebondir.\n-Leçons tirées pour les entrepreneur·e·s qui font face à leur propre “mur”.\n\n**Culture d’entreprise & leadership authentique\n-Valeurs clés qui guident les décisions au quotidien.\n-Stratégies pour cultiver l’engagement de l’équipe lorsqu’on grandit.\n-Comment rester fidèle à sa vision malgré la pression du marché.\n\n**Innovation durable : innover sans brûler la chandelle par les deux bouts\n-Processus ou rituels qui stimulent la créativité continue.\n-Exemples concrets d’itérations produit/service réussies.\n-Équilibre entre R&D, rentabilité et impact sociétal.\n\n**Résilience personnelle & bien‑être du/de la fondateur·rice\n-Routines, systèmes de soutien et mindset pour tenir le long terme.\n-Gestion du stress et des échecs publics.\n-Trucs pour préserver la santé mentale tout en menant une entreprise ambitieuse.\n\n**L’argent sans tabou : financement, pricing & rentabilité\n-Pourquoi (ou pourquoi pas) lever des fonds ?\n-Leçons apprises en matière de tarification et de marges.\n-Stratégies pour rester maître de son capital… et de sa vision.\n\n**Grandir par l’écosystème : réseaux, partenariats et communautés\n-Les rencontres clés qui ont accéléré la trajectoire de l’entreprise.\n-Comment transformer un client, un fournisseur ou un concurrent en allié stratégique ?\n-Bonnes pratiques pour bâtir une communauté d’ambassadeurs autour de la marque.\n\n**Regarder loin : vision à 5‑10 ans et paris sur l’avenir\n-Les mégatendances (tech, sociétales, réglementaires) que l’entrepreneur·e anticipe.\n-Les premiers signaux faibles observés sur le terrain.\n-Comment aligner la roadmap actuelle avec cette vision long terme sans se perdre en chemin.\n\n3. Pour chacun des 3 sujets, rédige :\n\n   * **Le titre de l’article** 8 mots maximum incluant le nom de l'invité (en français). Ce sera le titre de l'article magazine.\n   * **Une explication détaillée** : angles à traiter, idées ou données clés pour enrichir le contenu, moments marquants de l’entrevue, questions à creuser.\n   * **L'objectif recherché pour cet article.\n4. Explication du raisonnement :\n     * pourquoi cette thématique a été sélectionnée ;\n     * en quoi elle ne chevauche pas les deux autres.\n---\n\n**CONTEXTE**\n*Dans la Jungle des Affaires* explore la dimension humaine et aventureuse du monde entrepreneurial : histoires inspirantes, défis surmontés, réussites, créativité et persévérance. L’objectif est de tisser des liens entre dirigeants d’ici et d’ailleurs en partageant leurs expériences.\n\n---\n\n**EXIGENCES**\n\n* Les 3 propositions doivent **éviter toute duplication de contenu** ; chaque article doit posséder un angle propre.\n* Rédige toutes les sorties en français clair, engageant et centré sur la valeur pour le lecteur.\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        500
+      ],
+      "id": "fe4260e6-c6bc-4570-8fe0-fa258812a9ad",
+      "name": "Préparation du Prompt d'analyse"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        580
+      ],
+      "id": "04e4b81d-ea04-4a7e-959d-a0814d84f199",
+      "name": "MAX IA - Analyse",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        780
+      ],
+      "id": "f42c44ad-8a4f-4a00-bf23-1885421e7d07",
+      "name": "Max IA - Révision",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "\n  {\n    \"output\": {\n      \"articles\": [\n        {\n          \"title\": \"Daniel Lamarre: De la roulotte à la renommée\",\n          \"explication\": \"Cet article se penche sur l'enfance de Daniel Lamarre, son parcours scolaire et comment un emploi saisonnier à la roulotte de patates frites a déclenché en lui la passion du journalisme. Les questions à explorer incluent : Qu'est-ce qui l'a motivé à changer de voie ? Comment ses parents ont stimulé son élan vers une carrière dans les médias ? Ce récit permettra de mettre en lumière le pouvoir des premières expériences professionnelles et l'importance du soutien familial.\",\n          \"raisonnement\": \"Ce sujet a été choisi car il illustre parfaitement le déclic fondateur dans la vie d'un entrepreneur, ancrant l'idée que même les débuts modestes peuvent mener à de grandes choses. Il se distingue des autres articles en se concentrant sur les débuts personnels et professionnels, alors que les autres articles se pencheront davantage sur des aspects de leadership ou de croissance stratégique.\"\n        },\n        {\n          \"title\": \"La résilience de Daniel Lamarre face aux défis\",\n          \"explication\": \"Cet article traitera des moments difficiles que Daniel a rencontrés durant sa carrière, notamment son passage de la télévision au Cirque du Soleil. Comment a-t-il surmonté ces obstacles et quelles leçons en a-t-il tirées pour de futurs entrepreneurs ? Les défis financiers et la nécessité d'innovation seront discutés. Des anecdotes sur son adieu au journalisme et l’entrée dans le monde du spectacle enrichiront ce récit.\",\n          \"raisonnement\": \"Ce thème a été retenu pour illustrer la capacité de Lamarre à pivoter et à rebondir face à des défis majeurs, en soulignant l'importance de la résilience dans l'entrepreneuriat. Il possède un angle distinct car il se concentre sur des épreuves spécifiques et des réponses stratégiques, tandis que les autres articles aborderont la culture d'entreprise et l'innovation.\"\n        },\n        {\n          \"title\": \"Leadership et culture d'entreprise au Cirque du Soleil\",\n          \"explication\": \"Dans cet article, nous explorerons les valeurs qui guident le leadership de Daniel Lamarre chez Cirque du Soleil. Quels mécanismes met-il en place pour engager les employés et favoriser une culture d'innovation ? Comment reste-t-il fidèle à sa vision malgré les pressions commerciales ? Le récit inclura des exemples concrets de la manière dont il a cultivé une ambiance créative au sein d'une grande organisation.\",\n          \"raisonnement\": \"Ce sujet a été choisi pour mettre en avant l'approche de leadership authentique de Lamarre, en mettant l'accent sur l'engagement des employés et la préservation d'une culture d'entreprise dynamique. Ce sujet est séparé des autres car il se concentre spécifiquement sur la gestion interne d'une entreprise, tandis que les autres articles traitent de l'histoire personnelle et des défis externes.\"\n        }\n      ]\n    }\n  }"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1400,
+        780
+      ],
+      "id": "83347b25-73b1-4f08-b0ac-eda104b51f06",
+      "name": "Structure de l'analyse"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        580
+      ],
+      "id": "f4501d68-e04b-46b1-a254-53d55314fd26",
+      "name": "Correction automatique de la structure"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Voici le texte intégral de l'entrevue :\n\"\"\"{{ $('Récupérer Information entrevue').item.json.Contenu }}\"\"\"",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.race }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        1120,
+        380
+      ],
+      "id": "9d89edfa-4df4-41e4-906c-2b3f09a593bd",
+      "name": "Analyse de l'entrevue",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.articles",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        380
+      ],
+      "id": "9d95898c-b81a-4529-b48a-0a21168d9b22",
+      "name": "Séparation des suggestions d'articles"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Titre": "={{ $json.title }}",
+            "Objectif": "={{ $json.explication }}",
+            "Raisonnement": "={{ $json.raisonnement }}",
+            "Entrevues": "=['{{ $('Récupérer Information entrevue').item.json.id }}']"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Objectif",
+              "displayName": "Objectif",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Raisonnement",
+              "displayName": "Raisonnement",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Entrevues",
+              "displayName": "Entrevues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1720,
+        320
+      ],
+      "id": "6c2ab305-0b66-4623-a2c9-7099f30d7d24",
+      "name": "Ajouter les idées d'articles",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        1520
+      ],
+      "id": "cc6b93a0-dff6-48de-a037-5763dcbd3284",
+      "name": "Max IA - Création",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        1680
+      ],
+      "id": "5654faf4-d257-48df-8465-c6833f5202e2",
+      "name": "Max IA - Révision - 2",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"type\": \"object\",\n  \"additionalProperties\": false,\n  \"properties\": {\n    \"podcast_details\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"interviewer\": { \"type\": \"string\" },\n        \"co_interviewer\": { \"type\": \"string\" },\n        \"guest_details\": { \"type\": \"string\" },\n        \"guest\": { \"type\": \"string\" }\n      },\n      \"required\": [\n        \"interviewer\",\n        \"co_interviewer\",\n        \"guest_details\",\n        \"guest\"\n      ]\n    },\n\n    \"article\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"title\": { \"type\": \"string\" },\n        \"introduction\": { \"type\": \"string\" },\n        \"interviewers_presentation\": { \"type\": \"string\" },\n        \"guest_presentation\": { \"type\": \"string\" },\n        \"in_this_article\": { \"type\": \"string\" },\n\n        \"paragraphs\": {\n          \"type\": \"array\",\n          \"minItems\": 5,\n          \"maxItems\": 5,\n          \"items\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"properties\": {\n              \"sub_title\": { \"type\": \"string\" },\n              \"paragraph\": { \"type\": \"string\" }\n            },\n            \"required\": [\n              \"sub_title\",\n              \"paragraph\"\n            ]\n          }\n        },\n\n        \"conclusion\": { \"type\": \"string\" },\n        \"final_note\": { \"type\": \"string\" }\n      },\n      \"required\": [\n        \"title\",\n        \"introduction\",\n        \"interviewers_presentation\",\n        \"guest_presentation\",\n        \"in_this_article\",\n        \"paragraphs\",\n        \"conclusion\",\n        \"final_note\"\n      ]\n    },\n\n    \"images_creation_idea\": {\n      \"type\": \"array\",\n      \"minItems\": 2,\n      \"maxItems\": 2,\n      \"items\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"properties\": {\n          \"image_idea\": { \"type\": \"string\" }\n        },\n        \"required\": [ \"image_idea\" ]\n      }\n    },\n\n    \"quotes\": {\n      \"type\": \"array\",\n      \"minItems\": 2,\n      \"maxItems\": 2,\n      \"items\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"properties\": {\n          \"quote\": { \"type\": \"string\" }\n        },\n        \"required\": [ \"quote\" ]\n      }\n    }\n  },\n\n  \"required\": [\n    \"podcast_details\",\n    \"article\",\n    \"images_creation_idea\",\n    \"quotes\"\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1880,
+        1680
+      ],
+      "id": "2ed6d91b-02d2-4489-99fd-cef87dc13425",
+      "name": "Structure de l'article"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        1500
+      ],
+      "id": "0444d113-d468-45bf-97cf-f1d372f0707d",
+      "name": "Correction automatique de l'article"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $items(\"Récupérer un article\")[0].json.id }}",
+            "JSON Article": "={{ JSON.stringify($json.output) }}",
+            "HTML Article": "={{ $json.html_content }}",
+            "Texte Article": "={{ $json.text_content }}",
+            "Status": "Rédaction terminée",
+            "Détails du Status": "Rédaction de l'article terminée."
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Rédiger un article",
+                  "value": "Rédiger un article"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Rédaction terminée",
+                  "value": "Rédaction terminée"
+                },
+                {
+                  "name": "Rédigé et Publié",
+                  "value": "Rédigé et Publié"
+                },
+                {
+                  "name": "Publier",
+                  "value": "Publier"
+                },
+                {
+                  "name": "Draft",
+                  "value": "Draft"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL Publication",
+              "displayName": "URL Publication",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Objectif",
+              "displayName": "Objectif",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raisonnement",
+              "displayName": "Raisonnement",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entrevues",
+              "displayName": "Entrevues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire Entrevue",
+              "displayName": "Vocabulaire Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "recId Entrevue",
+              "displayName": "recId Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "JSON Article",
+              "displayName": "JSON Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Texte Article",
+              "displayName": "Texte Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "HTML Article",
+              "displayName": "HTML Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Prompt Image",
+              "displayName": "Prompt Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Image",
+              "displayName": "URL Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Interface Voir",
+              "displayName": "URL Interface Voir",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Itself",
+              "displayName": "Itself",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2300,
+        1320
+      ],
+      "id": "29211242-f83d-44ca-949e-8d9866d1e348",
+      "name": "Enregistrement de l'article et mise à jour du status",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-image-1"
+            },
+            {
+              "name": "moderation",
+              "value": "low"
+            },
+            {
+              "name": "output_format",
+              "value": "webp"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.prompt2 }}"
+            },
+            {
+              "name": "n",
+              "value": "={{ 1 }}"
+            },
+            {
+              "name": "quality",
+              "value": "high"
+            },
+            {
+              "name": "size",
+              "value": "1536x1024"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1080,
+        2260
+      ],
+      "id": "2c20b9c2-bd48-4f57-90de-a618ee0b91ae",
+      "name": "Modèle IMAGE IA",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].b64_json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1300,
+        2260
+      ],
+      "id": "99dfea0a-7e81-45be-bdf5-131f19120391",
+      "name": "Préparer enregistrement image"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ `publishing/${$('Identifier le nom du fichier image').item.json.filename}.${$binary.data.fileExtension}` }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        2260
+      ],
+      "id": "7a77700c-2b5a-4a26-aa70-8319d285eea8",
+      "name": "Enregistrer l'image",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ecb6f3bc-59ad-48c4-9c4a-50d2eaede73e",
+              "name": "url",
+              "value": "=  {{ `https://boost-data.nyc3.cdn.digitaloceanspaces.com/publishing/${$('Identifier le nom du fichier image').item.json.filename}.${$('Préparer enregistrement image').item.binary.data.fileExtension}` }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1740,
+        2260
+      ],
+      "id": "69a0c375-962b-49de-a43b-6799c233dafb",
+      "name": "Définir l'url de l'image"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9a6f547d-2a7e-4a03-bdc8-39015101a37d",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": ".webp",
+              "operator": {
+                "type": "string",
+                "operation": "endsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1960,
+        2260
+      ],
+      "id": "426aef2e-4a78-49d2-b8c7-ab9b46f98763",
+      "name": "Image est format webp?"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "0lsNxVY9QFWvP5Mv",
+          "mode": "list",
+          "cachedResultName": "Boost — Compress image to webp"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "delete_original": true,
+            "image_url": "={{ $json.url }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "image_url",
+              "displayName": "image_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "delete_original",
+              "displayName": "delete_original",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2160,
+        2380
+      ],
+      "id": "6863928d-795f-413e-b17f-743d9c7c5a6f",
+      "name": "Convertir l'image en format webp pour réduire grosseur"
+    },
+    {
+      "parameters": {
+        "url": "https://danslajungledesaffaires.blog/wp-json/wp/v2/categories?per_page=100",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        3300
+      ],
+      "id": "9f77d213-d4ac-49f7-8ada-456de8803d74",
+      "name": "Récupérer les catégories sur Wordpress",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        },
+        "httpBasicAuth": {
+          "id": "AEYaquraPwgEuM4S",
+          "name": "Wordpress Jungle Blog"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "categories",
+        "include": "specifiedFields",
+        "fieldsToInclude": "id,name,description",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        960,
+        3060
+      ],
+      "id": "f1f6cccb-1859-4714-9746-0ffc0a65d94b",
+      "name": "Combiner toutes les catégories"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Article Title: \n{{ $('Récupérer un article2').item.json.Titre }}\n\nArticle Content:\n{{ $('Récupérer un article2').item.json['Texte Article'] }}\n\nAvailable Categories:\n{{ \n  $json.categories\n    .map(cat => {\n      const desc = cat.description ?? '—';\n      return `- ID: ${cat.id}, Name: ${cat.name} (${desc})`;\n    })\n    .join('\\n') \n}}\n",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $('Prompt Catégorie').item.json.prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1100,
+        3060
+      ],
+      "id": "a77faa19-d05e-4a28-9959-1437d1d13c62",
+      "name": "Identifier la catégorie de l'article",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        3220
+      ],
+      "id": "682e4623-c0eb-4132-a0cd-20c036e1c3e6",
+      "name": "Max IA - Catégoriseur",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Redirection selon la demande",
+        "height": 2800,
+        "width": 1080
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1060,
+        420
+      ],
+      "id": "b9d2ee65-830d-421b-a405-df3d7b3999d2",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "id": "={{ $json.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        280,
+        560
+      ],
+      "id": "b26e1a95-1929-4ad5-bb86-a74426c71850",
+      "name": "Récupérer Information entrevue",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fa2f89d8-9c45-476d-9714-878b047f7335",
+              "name": "filename",
+              "value": "={{ $now.toMillis() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        580,
+        2460
+      ],
+      "id": "b51c9c9c-6f9f-4ff9-91b2-db8379a4c09f",
+      "name": "Identifier le nom du fichier image"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://danslajungledesaffaires.blog/wp-json/wp/v2/posts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "status",
+              "value": "publish"
+            },
+            {
+              "name": "content",
+              "value": "={{ $('Récupérer un article2').item.json['HTML Article'] }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $('Récupérer un article2').item.json.Titre }}"
+            },
+            {
+              "name": "categories",
+              "value": "={{ $json.text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a5710036-dba0-4b15-8882-7911acd1961d",
+      "name": "Publier article sur Wordpress",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1440,
+        3060
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "AEYaquraPwgEuM4S",
+          "name": "Wordpress Jungle Blog"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "62aa042f-7913-4ab1-a04c-84d317fcc8d8",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "ed594d0e-2e2d-4325-97a2-4ae252bd2bfb",
+              "name": "link",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "ccdb2479-d274-4e70-ad3a-c582ab146868",
+              "name": "author",
+              "value": "={{ $json.author }}",
+              "type": "number"
+            },
+            {
+              "id": "1b053d62-7911-4f59-a9e7-a1ee91d15274",
+              "name": "featured_media",
+              "value": "={{ $json.featured_media }}",
+              "type": "number"
+            },
+            {
+              "id": "4cd7bc2b-8a50-4ac3-864f-dae1621858e6",
+              "name": "comment_status",
+              "value": "={{ $json.comment_status }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ed22d0a7-e891-4b64-82c2-af239de25de9",
+      "name": "Récupérer les infos de article publié",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1640,
+        3060
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://danslajungledesaffaires.blog/wp-json/wp/v2/media",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "={{ $json.mimeType }}"
+            },
+            {
+              "name": "content-disposition",
+              "value": "=attachment; filename={{ $binary.data.fileName }}.{{ $binary.data.fileExtension }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "id": "44ae4e2f-74c6-4e26-99b5-c976c519a2be",
+      "name": "Envoyer lmage sur Wordpress",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2020,
+        3060
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "AEYaquraPwgEuM4S",
+          "name": "Wordpress Jungle Blog"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Récupérer un article2').item.json['URL Image'] }}",
+        "options": {}
+      },
+      "id": "e71eb905-97f6-4167-9cc0-60d2e5fa9755",
+      "name": "Télécharger image de couverture",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1820,
+        3060
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b5404bdc-3039-479e-a4f8-1cc6580cd8ae",
+              "name": "link",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "05788a6f-a6de-4e7f-9ec5-23e450ce4f10",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "efb52ac5-c500-425c-849d-4dfb3816d370",
+      "name": "Récupération des infos de image",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2240,
+        3060
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://danslajungledesaffaires.blog/wp-json/wp/v2/posts/{{ $('Récupérer les infos de article publié').item.json[\"id\"] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "featured_media",
+              "value": "={{ $json.id }}\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b0274bce-3006-4e3b-945b-b2f7db7de243",
+      "name": "Ajouter image à l'article",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2480,
+        3060
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "AEYaquraPwgEuM4S",
+          "name": "Wordpress Jungle Blog"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCCwcKJ3aTabwpe",
+          "mode": "list",
+          "cachedResultName": "Articles",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblCCwcKJ3aTabwpe"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Récupérer un article2').item.json.id }}",
+            "Status": "Rédigé et Publié",
+            "Détails du Status": "Publication de l'article terminée.",
+            "URL Publication": "={{ $('Récupérer les infos de article publié').item.json.link }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Rédiger un article",
+                  "value": "Rédiger un article"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Création d'une image en cours",
+                  "value": "Création d'une image en cours"
+                },
+                {
+                  "name": "Publication de l'article en cours",
+                  "value": "Publication de l'article en cours"
+                },
+                {
+                  "name": "Rédaction terminée",
+                  "value": "Rédaction terminée"
+                },
+                {
+                  "name": "Rédigé et Publié",
+                  "value": "Rédigé et Publié"
+                },
+                {
+                  "name": "Publier",
+                  "value": "Publier"
+                },
+                {
+                  "name": "Draft",
+                  "value": "Draft"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL Publication",
+              "displayName": "URL Publication",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Objectif",
+              "displayName": "Objectif",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raisonnement",
+              "displayName": "Raisonnement",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entrevues",
+              "displayName": "Entrevues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire Entrevue",
+              "displayName": "Vocabulaire Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "recId Entrevue",
+              "displayName": "recId Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "JSON Article",
+              "displayName": "JSON Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Texte Article",
+              "displayName": "Texte Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "HTML Article",
+              "displayName": "HTML Article",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prompt Image",
+              "displayName": "Prompt Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL Image",
+              "displayName": "URL Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL Interface Voir",
+              "displayName": "URL Interface Voir",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Itself",
+              "displayName": "Itself",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2680,
+        3060
+      ],
+      "id": "7c4fe24a-163f-45f7-b2b5-5e35814d9bc8",
+      "name": "Mettre à jour URL de image1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-31T12:25:08.000Z",
+  "versionId": "7a5d7a4a-2bfe-4b3d-a630-970e5e42481c"
+}
