@@ -1,0 +1,287 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "Get All Persons": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        []
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-15T13:26:11.922Z",
+  "id": "rlEm597Cl6NOHGL5",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Convert Leads From TypeForm to Boost 2025 CRM",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -580,
+        0
+      ],
+      "id": "6ba9ebad-bf2f-4343-bb72-00a6a8ffad7d",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvawhPibiGSOM3I",
+          "mode": "list",
+          "cachedResultName": "yJDKtIDw",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblvawhPibiGSOM3I"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -320,
+        0
+      ],
+      "id": "6b5e0667-1f8c-4a18-809d-6e88dce32940",
+      "name": "Get All Persons",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keep": "lastItems"
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        -240
+      ],
+      "id": "3087c484-1765-4f22-8aaf-80132b475d9c",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7f25beb6-f83f-4e9f-b3d3-f54215fae3be",
+              "name": "body.first-name",
+              "value": "={{ $json[\"First name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "99173341-500a-4a35-8ecf-bd7c469a80a4",
+              "name": "body.last-name",
+              "value": "={{ $json[\"Last name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "9e247387-e60d-4ab6-8512-977e6c98aaa4",
+              "name": "body.work-email",
+              "value": "={{ $json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "4f95ca3f-9de9-4841-a9b6-acdf7d3aecb9",
+              "name": "body.phone-number",
+              "value": "={{ $json[\"Phone number\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "3b60a70b-efa5-48c1-99c1-756a0f2a8722",
+              "name": "body.company-name",
+              "value": "={{ $json.Company }}",
+              "type": "string"
+            },
+            {
+              "id": "d9f15c75-2afc-4169-bfd0-930ad47e2f11",
+              "name": "body.notes",
+              "value": "=Patrick Aubé présente l'IA générative à La Boite Événementielle de Répentigny. Mardi 13 mai 2025 19h.\n\nAvez-vous aimé la conférence/soirée (1 = Aucunement, 4 = Totalement) ? {{ $json[\"Avez-vous aimé la conférence/soirée ?\"] }}\n\nLe contenu de la conférence va BOOSTER vos performances immédiatement (1 = Aucunement, 4 = Totalement) ? {{ $json[\"Le contenu de la conférence va BOOSTER vos performances immédiatement\"] }}\n\nJe suis intéressé d'en savoir plus sur vos offres ?{{ $json[\"Je suis intéressé d'en savoir plus sur vos offres\"] }}\n\nComment avez-vous trouvé la présentation de votre conférencier Patrick Aubé ce soir (1 = Aucunement, 4 = Totalement) ?\n{{ $json[\"Comment avez-vous trouvé la présentation de votre conférencier Patrick Aubé ce soir ?\"] }}\n\nDonnez-nous en quelques mots votre appréciation de la conférence/soirée ? \n{{ $json[\"Donnez-nous en quelques mots votre appréciation de la conférence/soirée\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "d2b0c675-6b6a-48b9-a26e-8c09cf692062",
+              "name": "body.provenance",
+              "value": "Présentiel",
+              "type": "string"
+            },
+            {
+              "id": "efe9aba9-6dec-4144-9fd7-59afc7221a29",
+              "name": "body.type-de-demande",
+              "value": "Information",
+              "type": "string"
+            },
+            {
+              "id": "c4ad2937-a637-4e58-af91-19383af1b05a",
+              "name": "body.ref",
+              "value": "Répentigny",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        380,
+        -340
+      ],
+      "id": "1d6b16ac-244d-4643-944a-550c28d3f484",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://boostperformance.app.n8n.cloud/webhook/lead_from_boost_ws",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "=first-name",
+              "value": "={{ $json[\"First name\"] }}"
+            },
+            {
+              "name": "last-name",
+              "value": "={{ $json[\"Last name\"] }}"
+            },
+            {
+              "name": "work-email",
+              "value": "={{ $json.Email }}"
+            },
+            {
+              "name": "phone-number",
+              "value": "={{ $json[\"Phone number\"] }}"
+            },
+            {
+              "name": "company-name",
+              "value": "={{ $json.Company }}"
+            },
+            {
+              "name": "notes",
+              "value": "=Patrick Aubé présente l'IA générative à La Boite Événementielle de Répentigny. Mardi 13 mai 2025 19h.\n\nAvez-vous aimé la conférence/soirée (1 = Aucunement, 4 = Totalement) ? {{ $json[\"Avez-vous aimé la conférence/soirée ?\"] }}\n\nLe contenu de la conférence va BOOSTER vos performances immédiatement (1 = Aucunement, 4 = Totalement) ? {{ $json[\"Le contenu de la conférence va BOOSTER vos performances immédiatement\"] }}\n\nJe suis intéressé d'en savoir plus sur vos offres ?{{ $json[\"Je suis intéressé d'en savoir plus sur vos offres\"] }}\n\nComment avez-vous trouvé la présentation de votre conférencier Patrick Aubé ce soir (1 = Aucunement, 4 = Totalement) ?\n{{ $json[\"Comment avez-vous trouvé la présentation de votre conférencier Patrick Aubé ce soir ?\"] }}\n\nDonnez-nous en quelques mots votre appréciation de la conférence/soirée ? \n{{ $json[\"Donnez-nous en quelques mots votre appréciation de la conférence/soirée\"] }}"
+            },
+            {
+              "name": "provenance",
+              "value": "Présentiel"
+            },
+            {
+              "name": "type-de-demande",
+              "value": "Information"
+            },
+            {
+              "name": "ref",
+              "value": "Répentigny-13-mai"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        -60
+      ],
+      "id": "4e989dd6-e512-47b8-8cf0-725e257fdd8e",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e981f4ca-ea33-4883-bc9c-0b45b5b8d61e",
+              "leftValue": "={{ JSON.stringify($json[\"Je suis intéressé d'en savoir plus sur vos offres\"]) }}",
+              "rightValue": "OUI",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -20,
+        0
+      ],
+      "id": "52b91c8f-b070-4a31-a626-f71ada77bb6a",
+      "name": "If"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-15T20:40:32.000Z",
+  "versionId": "f9870388-39ce-4853-a07e-84ca614e9fa8"
+}
