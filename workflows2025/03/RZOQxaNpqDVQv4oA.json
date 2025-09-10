@@ -1,0 +1,398 @@
+{
+  "active": true,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Liste des documents Entreprise",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Liste des documents Entreprise": {
+      "main": [
+        [
+          {
+            "node": "Switch Document Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Document Type": {
+      "main": [
+        [
+          {
+            "node": "Download PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download PDF": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Update Content in Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Liste des documents Entreprise",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-08T14:12:39.441Z",
+  "id": "RZOQxaNpqDVQv4oA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AI Agents - Convert Documents in Text",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        -60
+      ],
+      "id": "3c0ecd04-baad-4110-9c43-50e01796f19c",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblRKC6ytQDRznAuw",
+          "mode": "list",
+          "cachedResultName": "Documents",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblRKC6ytQDRznAuw"
+        },
+        "filterByFormula": "{Status} = \"À Analyser\"",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -220,
+        -180
+      ],
+      "id": "0ca5d93f-e177-4319-91d4-b6677faf0c5f",
+      "name": "Liste des documents Entreprise",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        440,
+        -320
+      ],
+      "id": "89b36d7d-5273-4182-a787-a218d8cfd5b9",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Documents[0].type }}",
+                    "rightValue": "application/pdf",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "afd46947-ec83-4bc0-9b08-93de08db79d9"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "PDF"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        0,
+        -180
+      ],
+      "id": "76356440-e558-4907-a052-9c5c1587a65e",
+      "name": "Switch Document Type"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.Documents[0].url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        -320
+      ],
+      "id": "4bb87b0d-4756-45ab-ae7f-abc62d15bdef",
+      "name": "Download PDF"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apptnXMRLX3RoVASl",
+          "mode": "list",
+          "cachedResultName": "AI Agent Marketing",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblRKC6ytQDRznAuw",
+          "mode": "list",
+          "cachedResultName": "Documents",
+          "cachedResultUrl": "https://airtable.com/apptnXMRLX3RoVASl/tblRKC6ytQDRznAuw"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Liste des documents Entreprise').item.json.id }}",
+            "Filename": "={{ $('Liste des documents Entreprise').item.json.Documents[0].filename }}",
+            "Size": "={{ $('Liste des documents Entreprise').item.json.Documents[0].size }}",
+            "Type": "={{ $('Liste des documents Entreprise').item.json.Documents[0].type }}",
+            "Status": "Contenu Analysé",
+            "Contenu": "={{ $json.text }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Documents",
+              "displayName": "Documents",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Filename",
+              "displayName": "Filename",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Size",
+              "displayName": "Size",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyse",
+              "displayName": "Analyse",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "À Analyser",
+                  "value": "À Analyser"
+                },
+                {
+                  "name": "Contenu Analysé",
+                  "value": "Contenu Analysé"
+                },
+                {
+                  "name": "Erreur",
+                  "value": "Erreur"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        -320
+      ],
+      "id": "f61f30b5-2995-471d-8da4-c9eb5a31f687",
+      "name": "Update Content in Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "analyse_doc_ia",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -460,
+        -340
+      ],
+      "id": "28038eec-e989-41d0-9a7f-ea6b4636e673",
+      "name": "Webhook",
+      "webhookId": "91bbb614-888c-45ee-980c-2c372d029306"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-10T20:30:01.598Z",
+      "updatedAt": "2024-12-10T20:30:01.598Z",
+      "id": "F771zq5Qm7kvL27R",
+      "name": "Airtable"
+    },
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-03-09T16:55:18.000Z",
+  "versionId": "1a0cb33f-ef05-4f3e-80b8-ba436327bc8d"
+}
