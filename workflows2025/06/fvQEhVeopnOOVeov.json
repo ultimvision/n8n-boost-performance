@@ -1,0 +1,1452 @@
+{
+  "active": false,
+  "connections": {
+    "Generate Image": {
+      "main": [
+        [
+          {
+            "node": "Convert to Binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to Binary": {
+      "main": [
+        [
+          {
+            "node": "Send Post",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "LinkedIn",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "High Quality",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Medium Quality",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Low Quality",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "High Quality": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Medium Quality": {
+      "main": [
+        [
+          {
+            "node": "Convert to File2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Low Quality": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LinkedIn Post",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LinkedIn Image",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily": {
+      "ai_tool": [
+        [
+          {
+            "node": "LinkedIn Post",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LinkedIn Image": {
+      "main": [
+        [
+          {
+            "node": "Generate Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LinkedIn Post": {
+      "main": [
+        [
+          {
+            "node": "LinkedIn Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Image1": {
+      "main": [
+        [
+          {
+            "node": "Convert to Binary1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to Binary1": {
+      "main": [
+        [
+          {
+            "node": "Send Post1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Upload Media 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Twitter Post",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Twitter Image",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Twitter Post",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Twitter Post": {
+      "main": [
+        [
+          {
+            "node": "Twitter Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Twitter Image": {
+      "main": [
+        [
+          {
+            "node": "Generate Image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Image2": {
+      "main": [
+        [
+          {
+            "node": "Convert to Binary2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to Binary2": {
+      "main": [
+        [
+          {
+            "node": "Send Post2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Blog Post",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Blog Image",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Blog Post",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Blog Post": {
+      "main": [
+        [
+          {
+            "node": "Blog Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Blog Image": {
+      "main": [
+        [
+          {
+            "node": "Generate Image2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Classifier": {
+      "main": [
+        [
+          {
+            "node": "Twitter Post",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "LinkedIn Post",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Blog Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Media 1": {
+      "main": [
+        [
+          {
+            "node": "X",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-04T20:28:37.803Z",
+  "id": "fvQEhVeopnOOVeov",
+  "isArchived": false,
+  "meta": null,
+  "name": "The New Content Powerhouse",
+  "nodes": [
+    {
+      "parameters": {
+        "person": "=",
+        "text": "={{ $('LinkedIn Post').item.json.output }}",
+        "shareMediaCategory": "IMAGE",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        720
+      ],
+      "id": "5eb7d9e5-2c36-41de-a26d-6fd31009d63f",
+      "name": "LinkedIn",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOURAPIKEYHERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-image-1"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.output }}"
+            },
+            {
+              "name": "size",
+              "value": "1024x1024"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        620
+      ],
+      "id": "45ace072-e441-4b4e-87d4-2247b9ed27e8",
+      "name": "Generate Image"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].b64_json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1160,
+        620
+      ],
+      "id": "e7dd72b5-eebe-4b36-bbc6-c194258a4a57",
+      "name": "Convert to Binary"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('On form submission').item.json.Email }}",
+        "subject": "Your LinkedIn Post is Here!",
+        "emailType": "text",
+        "message": "=Post text:\n\n{{ $('LinkedIn Post').item.json.output }}\n",
+        "options": {
+          "appendAttribution": true,
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {}
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1540,
+        520
+      ],
+      "id": "f213fe08-4423-49ac-a5b5-50d08a4e8ae8",
+      "name": "Send Post",
+      "webhookId": "fc6495d1-fbbe-4f36-a4f6-29396179faa9"
+    },
+    {
+      "parameters": {
+        "formTitle": "LinkedIn Post Generator",
+        "formDescription": "Fill out these fields and you'll have your post and image ready in seconds!",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Email",
+              "fieldType": "email",
+              "placeholder": "name@example.com",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Platform",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "LinkedIn"
+                  },
+                  {
+                    "option": "Twitter"
+                  },
+                  {
+                    "option": "Blog / Other"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Topic of Post",
+              "placeholder": "AI and Productivity",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Target Audience",
+              "placeholder": "Tech Professionals",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Image Type",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Default (AI recommended)"
+                  },
+                  {
+                    "option": "Marketing Graphic"
+                  },
+                  {
+                    "option": "Infographic"
+                  },
+                  {
+                    "option": "Conceptual / Abstract"
+                  },
+                  {
+                    "option": "Simple Icon / Simple"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Visual Style",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Default (AI recommended)"
+                  },
+                  {
+                    "option": "Studio Ghibli "
+                  },
+                  {
+                    "option": "Cartoon / Comic Book"
+                  },
+                  {
+                    "option": "Wtercolor"
+                  },
+                  {
+                    "option": "3D Render / Digital Art"
+                  },
+                  {
+                    "option": "Photorealistic"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -540,
+        620
+      ],
+      "id": "31ec102a-8974-4113-ae41-24e7afe2f39f",
+      "name": "On form submission",
+      "webhookId": "3774d9d5-383c-4e54-858b-01cd7a8e4429"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        2820,
+        520
+      ],
+      "id": "490613dc-96aa-421e-b2bc-5015c824f96f",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].b64_json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3400,
+        360
+      ],
+      "id": "b23ae758-6810-49c1-bc8c-7c80e568b741",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].b64_json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3400,
+        700
+      ],
+      "id": "4b08d18b-45fe-41f7-8846-425dee0ca46f",
+      "name": "Convert to File1"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].b64_json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3400,
+        520
+      ],
+      "id": "476d0e4c-ee54-437b-92d3-1b900e045ad1",
+      "name": "Convert to File2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOURAPIKEYHERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-image-1"
+            },
+            {
+              "name": "prompt",
+              "value": "A cute baby sea otter"
+            },
+            {
+              "name": "size",
+              "value": "1024x1024"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3180,
+        360
+      ],
+      "id": "c9ba2597-ac4b-4740-b5d8-e483c70a0149",
+      "name": "High Quality"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOURAPIKEYHERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-image-1"
+            },
+            {
+              "name": "prompt",
+              "value": "A cute baby sea otter"
+            },
+            {
+              "name": "size",
+              "value": "1024x1024"
+            },
+            {
+              "name": "quality",
+              "value": "medium"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3180,
+        520
+      ],
+      "id": "dde667b3-4580-42c7-8cc1-360edef63942",
+      "name": "Medium Quality"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOURAPIKEYHERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-image-1"
+            },
+            {
+              "name": "prompt",
+              "value": "A cute baby sea otter"
+            },
+            {
+              "name": "size",
+              "value": "1024x1024"
+            },
+            {
+              "name": "quality",
+              "value": "low"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3180,
+        700
+      ],
+      "id": "5d7e8f82-146c-4aff-94da-3fba4987eb25",
+      "name": "Low Quality"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        300,
+        780
+      ],
+      "id": "634afbd6-3d9f-4fb4-9db8-e9c89a256b80",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        780
+      ],
+      "id": "63e9d5a2-7a34-4575-82aa-8df4b275f460",
+      "name": "OpenAI Chat Model1"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Use this tool to search the web. ",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "Authorization",
+              "valueProvider": "fieldValue",
+              "value": "Bearer YOURAPIKEYHERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query\": \"{searchTerm}\",\n  \"topic\": \"general\",\n  \"search_depth\": \"advanced\",\n  \"chunks_per_source\": 3,\n  \"max_results\": 1,\n  \"time_range\": null,\n  \"days\": 7,\n  \"include_answer\": true,\n  \"include_raw_content\": false,\n  \"include_images\": false,\n  \"include_image_descriptions\": false,\n  \"include_domains\": [],\n  \"exclude_domains\": []\n}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "searchTerm",
+              "description": "What the user is searching for. "
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        520,
+        780
+      ],
+      "id": "60932481-6dc0-4332-8808-751983246e59",
+      "name": "Tavily"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Prompt for the written copy: {{ $json.output }}\n\nImage speficiations: \n\nImage type: {{ $('Text Classifier').item.json['Image Type'] }}\nVisual Style: {{ $('Text Classifier').item.json['Visual Style'] }}\n",
+        "options": {
+          "systemMessage": "=## Overview\nYou are an AI agent that converts LinkedIn posts into prompt descriptions for text-to-image generators.\n\nYou will recieve the LinkedIn post content, alongside the required Image Type and Visual Style. The image created should align with the content and tone of the LinkedIn post, **considering user preferences for `Image Type` and `Visual Style` when provided**, enhancing its message through visually appealing graphics.\n\n## Objectives\n- Carefully read the provided LinkedIn post content and **identify any user-specified `Image Type` or `Visual Style`**.\n- Identify the main point, message, or insight the post conveys.\n- Create a compelling and clear prompt suitable for a text-to-image model.\n- **Prioritize user input:** If `Image Type` and `Visual Style` are provided, generate a prompt reflecting those choices.\n- **Default behavior:** If user inputs for type/style are absent, generate a prompt resulting in a **marketing-style graphic** (not a hyperrealistic photo) suitable for LinkedIn.\n- The generated graphic should:\n    1. Visually communicate or emphasize the core message of the LinkedIn post.\n    2. Fit seamlessly into a professional LinkedIn feed.\n    3. Look polished, modern, and visually engaging based on the specified or default style.\n\n## Output Instructions\n- Only return the final image prompt — do **not** use quotation marks.\n- Do **not** include extra commentary or context — just the prompt.\n- Avoid placeholders like \"Header area reserved for customizable callout text.\"\n- Include numeric/statistical references when they appear in the post.\n\n## Style Guidelines\n- **Prioritize User Input:** Base the prompt's core structure on the user-specified `Image Type` (e.g., 'infographic', 'conceptual', 'photorealistic scene') and its aesthetic on the `Visual Style` (e.g., 'minimalist', 'vector art', 'painted', '3D render'), if provided.\n- **Default Approach:** If type/style are not specified by the user, think like a visual brand designer or marketing creative aiming for a modern LinkedIn graphic.\n- **Keywords:** Use descriptive keywords reflecting the content, the **user-specified `Image Type` and `Visual Style` if available**. If not specified, use keywords appropriate for a professional LinkedIn marketing graphic (e.g., `modern illustration`, `clean design`, `infographic elements`, `conceptual visualization`).\n- **Elements (Default/Inspiration):** If generating the default style, graphics may include: text, charts, icons, abstract shapes, overlays, modern illustrations, motion-like effects, bold typography (described, not rendered), and conceptual visuals. Adapt these based on user's specified type/style if provided.\n- You can suggest layout ideas (e.g., “split screen composition,” “header with bold title over soft gradient background”).\n- Assume an AI image generation tool will be used — your prompt must guide that tool effectively based on the specified or default style.\n- **Spacing/Margins:** Crucially, ensure your prompt guides the image generator to place all key elements, particularly any text overlays near edges, with sufficient padding or margin from the image borders to avoid being cut off. When describing headers or topmost text, you **MUST** use explicit phrasing like 'header text positioned well below the top edge with ample margin', 'title placed in the upper area with clear padding above it', or similar strong instruction for top spacing. A general 'ample spacing' instruction for the whole image is NOT sufficient for edge elements. Do *not* use vague terms like 'space allocated'.\n- Try to keep text away from the very edges of the image in order to prevent them from becoming cut off\n\n## Example Prompt Format (Illustrative - Photorealistic Style)\n\t\nGenerate a photorealistic image of downtown toronto on a saturday in summer 2006, it's a beautiful late june day near the st lawrence market, people are shopping and eating peameal bacon sandwiches, and there is a world cup match shown on a big screen in a plaza in the background. the photo should be reminiscent of that a digital camera from 2006 would take, with a timestamp like a printed photo would have."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        620,
+        620
+      ],
+      "id": "a9204b5b-9048-4988-a7b4-79c92bb2f19b",
+      "name": "LinkedIn Image"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Post Topic: {{ $json['Topic of Post'] }}\n\nTarget Audience: {{ $json['Target Audience'] }}",
+        "options": {
+          "systemMessage": "=## Purpose  \nYou are a specialized AI assistant designed to craft high-quality, informative, and engaging LinkedIn posts tailored to any topic provided by the user.\n\n## Key Responsibilities  \n- Begin every task by using the **Tavily** tool to perform a live web search and collect the most relevant, up-to-date insights on the chosen topic.  \n- Ensure the final post resonates with the intended audience by adapting tone and content accordingly.  \n- Use your findings to create a LinkedIn post that is:  \n  - Opened with a **compelling hook**  \n  - **Professional and polished** in tone  \n  - **Straightforward and digestible**  \n  - **Educational and valuable** to readers  \n  - **Minimal in emoji usage** (only use when highly appropriate)  \n  - Properly **cited** with sources (e.g., “as reported by [source]”)  \n  - Tagged with **relevant hashtags** to increase reach  \n  - Concluded with a strong **call to action** (e.g., inviting engagement, comments, or shares)\n\n## Output Guidelines  \nOnly return the **LinkedIn post text** — no commentary, context, or extra explanation.\n\n## Example Workflow  \n1. Receive a prompt (i.e. “AI Agents and Lead Generation”)  \n2. Use **Tavily** to search for recent news, data, or case studies  \n3. Draft a clear, insightful LinkedIn post based on the findings  \n4. Structure the post with:\n   - Citations where necessary  \n   - Clean formatting  \n   - Strategic hashtags  \n   - An actionable closing line\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        300,
+        620
+      ],
+      "id": "d13a816e-588f-4b7b-8dfc-b7884a63e979",
+      "name": "LinkedIn Post"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOURAPIKEYHERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-image-1"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.output }}"
+            },
+            {
+              "name": "size",
+              "value": "1024x1024"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        120
+      ],
+      "id": "75337b20-966c-4689-bca9-133ceafa9bb7",
+      "name": "Generate Image1"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].b64_json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1140,
+        120
+      ],
+      "id": "702fc69c-3763-48bc-a13a-acf6ac0cb0fa",
+      "name": "Convert to Binary1"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('On form submission').item.json.Email }}",
+        "subject": "Your LinkedIn Post is Here!",
+        "emailType": "text",
+        "message": "=Post text:\n\n{{ $('Twitter Post').item.json.output }}\n",
+        "options": {
+          "appendAttribution": true,
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {}
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1440,
+        20
+      ],
+      "id": "ddcfcd89-8e1d-4bc4-b204-f5b157f589ed",
+      "name": "Send Post1",
+      "webhookId": "4b1ab6ff-2688-4e45-ab73-f2404ad546a2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        280,
+        300
+      ],
+      "id": "37658f6d-34cf-4503-a833-6680dbaedadb",
+      "name": "OpenAI Chat Model2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        700,
+        300
+      ],
+      "id": "0e94ddeb-3994-4d08-bdda-c833aefe8338",
+      "name": "OpenAI Chat Model3"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Use this tool to search the web. ",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "Authorization",
+              "valueProvider": "fieldValue",
+              "value": "Bearer YOURAPIKEYHERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query\": \"{searchTerm}\",\n  \"topic\": \"general\",\n  \"search_depth\": \"advanced\",\n  \"chunks_per_source\": 3,\n  \"max_results\": 1,\n  \"time_range\": null,\n  \"days\": 7,\n  \"include_answer\": true,\n  \"include_raw_content\": false,\n  \"include_images\": false,\n  \"include_image_descriptions\": false,\n  \"include_domains\": [],\n  \"exclude_domains\": []\n}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "searchTerm",
+              "description": "What the user is searching for. "
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        500,
+        280
+      ],
+      "id": "0df20202-fce3-4e54-bca7-87c4d636be6b",
+      "name": "Tavily1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Post Topic: {{ $json['Topic of Post'] }}\n\nTarget Audience: {{ $json['Target Audience'] }}",
+        "options": {
+          "systemMessage": "=## Purpose\nYou are an AI assistant crafting concise and engaging Twitter posts based on provided input. Your goal is to create compelling tweets that capture attention, deliver a key message quickly, and encourage interaction, suitable for a professional or brand account.\n\n## Core Responsibilities\n1.  **Analyze:** Understand the core message or update from the input provided.\n2.  **Condense:** Distill the main point into a brief, impactful message.\n3.  **Format for Twitter:** Craft a tweet that adheres to Twitter's best practices.\n\n## Key Constraints & Guidelines\n*   **Character Limit:** The **ENTIRE** tweet text **MUST** be significantly under the standard Twitter character limit (aim for well under 280 characters, ideally closer to 150-200 to leave room for links/media). BE EXTREMELY CONCISE.\n*   **Clarity:** Despite brevity, the core message must be clear.\n*   **Engagement:** Where appropriate, consider posing a question, using strong verbs, or including a clear call-to-action (if applicable).\n*   **Hashtags:** Include 1-3 relevant and targeted hashtags (#example #AI) at the end.\n*   **Tone:** Adapt the tone based on the input, but generally aim for conversational, informative, or punchy. Avoid overly formal corporate jargon unless the input specifically demands it.\n*   **Emojis:** Use relevant emojis sparingly (1-2) to add personality or break up text, if appropriate.\n*   **Links:** Assume a link might be added later; focus on crafting the core text.\n\n## Output Instructions\n*   Return **only the final tweet text**.\n*   Do **not** include quotation marks, explanations, or any text other than the tweet content itself.\n\n## Example Tweet Text\n*AI is revolutionizing sales! 🤖 Faster prospecting & personalized outreach are driving major growth. Seeing huge potential in predictive analytics. What AI tools are you using? #AISales #LeadGen #FutureOfSales*"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        300,
+        120
+      ],
+      "id": "b71d384e-14f7-4236-bc87-5cfa5d37830d",
+      "name": "Twitter Post"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Twitter Post: {{ $json.output }}\n\nImage speficiations: \n\nImage type: {{ $('Text Classifier').item.json['Image Type'] }}\nVisual Style: {{ $('Text Classifier').item.json['Visual Style'] }}",
+        "options": {
+          "systemMessage": "=## Overview\nYou are an AI agent that converts Twitter post content into visual prompt descriptions for text-to-image generators.\n\nYou will receive the Twitter post content (or summary), alongside the user's specified `Image Type` and `Visual Style` if provided. The image created should align with the content and tone of the Twitter post, **prioritizing user preferences for `Image Type` and `Visual Style`**, enhancing its message through visually appealing graphics suitable for a fast-scrolling feed.\n\n## Objectives\n- Carefully read the provided Twitter post content/summary and **identify any user-specified `Image Type` or `Visual Style`**.\n- Identify the main point or message the post conveys.\n- Create a compelling and clear prompt suitable for a text-to-image model.\n- **Prioritize user input:** If `Image Type` and `Visual Style` are provided, generate a prompt reflecting those choices.\n- **Default behavior:** If user inputs for type/style are absent, generate a prompt resulting in a **bold, simple, high-impact graphic** (not overly complex or hyperrealistic) suitable for Twitter.\n- The generated graphic should:\n    1. Visually communicate or emphasize the core message of the Twitter post quickly.\n    2. Fit effectively within a Twitter feed, grabbing attention.\n    3. Look polished and engaging based on the specified or default style.\n\n## Output Instructions\n- Only return the final image prompt — do **not** use quotation marks.\n- Do **not** include extra commentary or context — just the prompt.\n- Avoid placeholders.\n- Include key numbers/stats if relevant and suitable for visual representation.\n\n## Style Guidelines\n- **Prioritize User Input:** Base the prompt's core structure on the user-specified `Image Type` (e.g., 'simple infographic', 'bold icon', 'photorealistic scene if requested') and its aesthetic on the `Visual Style` (e.g., 'flat design', 'cartoon', 'minimalist', '3D render'), if provided.\n- **Default Approach:** If type/style are not specified by the user, think like a social media graphic designer aiming for immediate impact with a clean, bold visual.\n- **Keywords:** Use descriptive keywords reflecting the content, the **user-specified `Image Type` and `Visual Style` if available**. If not specified, focus on keywords for Twitter's default style (`bold`, `simple`, `clear symbol`, `minimalist`, `high impact`, `vector icon`).\n- **Elements (Default/Inspiration):** Default style often involves bold icons, strong typography, simple illustrations, or abstract elements. Adapt based on user's specified type/style if provided.\n- You can suggest simple layout ideas (e.g., “central icon focus,” “bold text overlay on gradient”).\n- Assume an AI image generation tool will be used — your prompt must guide that tool effectively based on the specified or default style.\n- **Spacing/Margins:** Crucially, ensure your prompt guides the image generator to place all key elements, particularly any text overlays near edges, with sufficient padding or margin from the image borders to avoid being cut off. When describing headers or topmost text, you **MUST** use explicit phrasing like 'header text positioned well below the top edge with ample margin', 'title placed in the upper area with clear padding above it', or similar strong instruction for top spacing. A general 'ample spacing' instruction for the whole image is NOT sufficient for edge elements. Do *not* use vague terms like 'space allocated'.\n- Try to keep text away from the very edges of the image in order to prevent them from becoming cut off.\n\n## Example Prompt Format (Illustrative - Cartoon Style)\n*A bright cartoon-style illustration of a cheerful robot giving a thumbs-up next to a rapidly growing bar chart. Use simple lines, vibrant colors, and a clean background. Ensure the main elements are centered with clear space around them.*"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        600,
+        120
+      ],
+      "id": "f4a063b5-4a69-4887-a103-54714e69bd2e",
+      "name": "Twitter Image"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOURAPIKEYHERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-image-1"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.output }} The image should be widescreen, and slightly zoomed out so the entire image can be viewed."
+            },
+            {
+              "name": "size",
+              "value": "1024x1024"
+            },
+            {
+              "name": "moderation",
+              "value": "low"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1020,
+        1040
+      ],
+      "id": "a75fa5f7-3490-4de2-8cef-6d8367d03200",
+      "name": "Generate Image2"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].b64_json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1220,
+        1040
+      ],
+      "id": "f28aba1f-f726-4866-b3d5-aad19b59367c",
+      "name": "Convert to Binary2"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('On form submission').item.json.Email }}",
+        "subject": "Your LinkedIn Post is Here!",
+        "emailType": "text",
+        "message": "=Post text:\n\n{{ $('Blog Post').item.json.output }}\n",
+        "options": {
+          "appendAttribution": true,
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {}
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1500,
+        1040
+      ],
+      "id": "ab40105f-0edf-4032-b028-6898a1862f7e",
+      "name": "Send Post2",
+      "webhookId": "03cd94db-7971-41cd-9c20-0ab84520710f"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        340,
+        1220
+      ],
+      "id": "1da68fa4-be43-48f1-927f-e8fb424a8999",
+      "name": "OpenAI Chat Model4"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        720,
+        1220
+      ],
+      "id": "1110bddc-70b7-407b-a931-6984626940bf",
+      "name": "OpenAI Chat Model5"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Use this tool to search the web. ",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "Authorization",
+              "valueProvider": "fieldValue",
+              "value": "Bearer YOURAPIKEYHERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query\": \"{searchTerm}\",\n  \"topic\": \"general\",\n  \"search_depth\": \"advanced\",\n  \"chunks_per_source\": 3,\n  \"max_results\": 1,\n  \"time_range\": null,\n  \"days\": 7,\n  \"include_answer\": true,\n  \"include_raw_content\": false,\n  \"include_images\": false,\n  \"include_image_descriptions\": false,\n  \"include_domains\": [],\n  \"exclude_domains\": []\n}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "searchTerm",
+              "description": "What the user is searching for. "
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        540,
+        1220
+      ],
+      "id": "cd80025e-903d-402d-810f-a51948074618",
+      "name": "Tavily2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Post Topic: {{ $json['Topic of Post'] }}\n\nTarget Audience: {{ $json['Target Audience'] }}",
+        "options": {
+          "systemMessage": "=## Purpose\nYou are an AI assistant tasked with drafting well-structured and informative blog posts based on provided input or topics. Your goal is to generate engaging, potentially SEO-friendly long-form content suitable for publishing on a website blog.\n\n## Core Responsibilities\n1.  **Analyze:** Understand the topic, key points, and target audience from the input.\n2.  **Structure:** Organize the content logically with a clear introduction, body paragraphs (potentially suggesting subheadings), and conclusion.\n3.  **Elaborate:** Expand on the key points, providing explanations, examples, or insights as appropriate.\n4.  **Format for Readability:** Create content that is easy to read online (e.g., shorter paragraphs, potentially using lists).\n\n## Key Constraints & Guidelines\n*   **Length:** Aim for a standard blog post length (e.g., 500-1500 words, depending on the input's depth – use judgment, don't be unnecessarily verbose).\n*   **Title:** Propose a compelling and relevant title for the blog post.\n*   **Introduction:** Write an engaging introduction that hooks the reader and outlines the post's purpose.\n*   **Body:** Develop the main points. **Consider suggesting logical subheadings (e.g., enclose suggested H2 or H3 headings in double square brackets like [[Suggested Subheading]])** to break up the text, based on the input concepts.\n*   **Conclusion:** Provide a summary or concluding thoughts, potentially with a call-to-action (e.g., \"What are your thoughts? Leave a comment below!\").\n*   **Tone:** Adapt the tone based on the input and target audience (e.g., informative, conversational, technical, persuasive, narrative). Maintain consistency.\n*   **SEO:** Naturally incorporate relevant keywords from the input topic if appropriate, without keyword stuffing.\n*   **Readability:** Use clear language, relatively short paragraphs, and potentially bullet points or numbered lists where suitable.\n\n## Output Instructions\n*   Return the **full drafted blog post text**, starting with the proposed title.\n*   Include suggested subheadings within double square brackets `[[Like This]]` where appropriate.\n*   Do **not** include quotation marks around the entire output.\n*   Do **not** include extra commentary outside the blog post content itself.\n\n## Example Blog Post Snippet (Illustrative)\n*   **Title:** Unlocking Growth: How AI is Transforming Lead Generation in 2024\n\n    *   **(Intro Paragraph):** In today's competitive landscape, finding and converting leads is tougher than ever. But a powerful new ally is changing the game: Artificial Intelligence... This post explores how AI is revolutionizing lead generation strategies right now.\n\n    *   **[[Understanding AI's Role]]**\n        *(Body Paragraph):* AI isn't just hype; it's delivering tangible results. Machine learning algorithms can analyze vast datasets to identify patterns...\n\n    *   **[[Key Benefits for Sales Teams]]**\n        *(Body Paragraph with list):* Implementing AI offers several advantages:\n        *   **Increased Efficiency:** Automating repetitive tasks...\n        *   **Enhanced Personalization:** Tailoring outreach...\n        *   **Improved Lead Scoring:** Focusing efforts...\n\n    *   **(Conclusion Paragraph):** ...AI is no longer a futuristic concept but a present-day necessity for effective lead generation. Embracing these tools can unlock significant growth... What are your experiences with AI in sales? Share your thoughts below!*"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        360,
+        1040
+      ],
+      "id": "52ca6a6b-2bf4-4e9a-aaf0-94aa05c88052",
+      "name": "Blog Post"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Blog Post: {{ $json.output }}\n\nImage speficiations: \n\nImage type: {{ $('Text Classifier').item.json['Image Type'] }}\nVisual Style: {{ $('Text Classifier').item.json['Visual Style'] }}",
+        "options": {
+          "systemMessage": "=## Overview\nYou are an AI agent that converts blog post topics or summaries into visual prompt descriptions for text-to-image generators.\n\n\n\nYou will receive the blog post topic/summary, alongside the user's specified `Image Type` and `Visual Style`. The image created should serve as a compelling featured image, aligning with the blog post's theme and tone, **prioritizing user preferences for `Image Type` and `Visual Style`**.\n\n## Objectives\n- Carefully read the provided blog post topic/summary and **identify any user-specified `Image Type` or `Visual Style`**.\n- Identify the main theme or core message of the blog post.\n- Create a compelling and clear prompt suitable for generating a featured image using a text-to-image model.\n- **Prioritize user input:** If `Image Type` and `Visual Style` are provided, generate a prompt reflecting those choices.\n- **Default behavior:** If user inputs for type/style are absent, generate a prompt resulting in a **thematically relevant, high-quality marketing-style graphic or illustration** (not a generic stock photo) suitable for a blog header.\n- The generated graphic should:\n    1. Visually represent or symbolize the core theme of the blog post.\n    2. Be professional, engaging, and suitable for web use as a featured image.\n    3. Look polished and visually appealing based on the specified or default style.\n\n## Output Instructions\n- Only return the final image prompt — do **not** use quotation marks.\n- Do **not** include extra commentary or context — just the prompt.\n- Avoid placeholders.\n\n## **MANDATORY RULE: Text Element Spacing**\n- **If (and only if) your generated prompt includes descriptions of text elements (titles, stats, labels, etc.) that should appear *within* the image:**\n    - You **MUST** conclude the prompt or the relevant text description with explicit instructions demanding padding from the image edges.\n    - **Use Specific Phrasing:** Employ phrases like: `...ensuring text has ample padding from all edges.`, `...positioned well within the frame, far from the image borders.`, `...with significant clear space around the text element.`, `...making sure the title is placed well below the top edge.`\n    - **Strictly FORBIDDEN:** Do **NOT** rely on general spacing descriptions for the whole image. Do **NOT** use vague terms like 'space allocated'. Do **NOT** omit edge spacing instructions if text is present in the prompt.\n- **Failure to include explicit edge spacing commands for described text elements is a critical error.**\n\n## Style Guidelines\n- **Prioritize User Input:** Base the prompt's core structure on the user-specified `Image Type` (e.g., 'conceptual illustration', 'photorealistic scene', 'abstract visualization', 'infographic') and its aesthetic on the `Visual Style` (e.g., 'vector art', 'painted', '3D render', 'art deco'), if provided.\n- **Default Approach:** If type/style are not specified by the user, think like a visual content strategist aiming for a relevant and engaging blog header image.\n- **Keywords:** Use descriptive keywords reflecting the blog theme, the **user-specified `Image Type` and `Visual Style` if available**. If unspecified, use default keywords like `illustration`, `conceptual art`, `professional design`, `blog header graphic`, `vector art`, `abstract visualization`, `thematic imagery`.\n- **Elements (Default/Inspiration):** Default style often involves conceptual illustrations, abstract visualizations, or relevant symbolic imagery. Adapt based on user's specified type/style if provided (e.g., generate a realistic scene if `Photorealistic Scene` is requested).\n-Spacing/Margins: If the prompt includes text elements within the image, ensure it guides the image generator to place them with sufficient padding or margin from the image borders. Explicit top and bottom margin instructions ('header text positioned well below the top edge') MUST be used if header text is part of the image itself. Do not use vague terms like 'space allocated'.\n\n\n## Example Prompt Format (Illustrative - Ghibli Style requested by user)\n*Create a featured image for a blog post about sustainable technology, depicted in the style of Studio Ghibli. Show lush green nature gently intertwining with clean, subtly futuristic technology elements like solar panels and wind turbines. Soft, warm lighting, painted aesthetic*"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        680,
+        1040
+      ],
+      "id": "abca734a-5cde-4d21-a69f-09af57cdca24",
+      "name": "Blog Image"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.Platform }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "Twitter",
+              "description": "Platform chosen is Twitter"
+            },
+            {
+              "category": "LinkedIn",
+              "description": "Platform chosen is LinkedIn"
+            },
+            {
+              "category": "Blog",
+              "description": "Platform chosen is Blog"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        620
+      ],
+      "id": "48a42f2c-d561-401f-9092-9a41708c3c9a",
+      "name": "Text Classifier"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -300,
+        780
+      ],
+      "id": "fbdb5602-8895-4b43-8c7d-af300ffd2360",
+      "name": "OpenAI Chat Model6"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.twitter.com/2/media/upload",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "twitterOAuth2Api",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "media",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1420,
+        220
+      ],
+      "id": "5014b5f8-aaff-436f-a223-4afeb8ed2015",
+      "name": "Upload Media 1"
+    },
+    {
+      "parameters": {
+        "text": "={{ $('Twitter Post').item.json.output }}",
+        "additionalFields": {
+          "attachments": "={{ $json.body.id }}"
+        }
+      },
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        220
+      ],
+      "id": "8dd5491f-a900-4acb-9314-f47295d9624b",
+      "name": "X",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Quality Comparisons\n- High = $0.17\n- Medium = $0.07\n- Low = $0.02",
+        "height": 560,
+        "width": 880,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        320
+      ],
+      "id": "c925e012-3989-42d8-810c-f5eeb8c437ea",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Twitter Posts\n- https://community.n8n.io/t/post-media-to-x-twitter-via-api-new/90997?u=mohamed3nan",
+        "height": 460,
+        "width": 1840,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "aaadb047-c478-42d8-aec7-5f3f971527ca",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Blog Posts\n- Can add WordPress functionality",
+        "height": 460,
+        "width": 1840,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        900
+      ],
+      "id": "e53fdc30-78fe-494d-b857-65edf3b79ab4",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## LinkedIn Posts\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 440,
+        "width": 1840,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        460
+      ],
+      "id": "d9ffde45-0779-49eb-ab1c-eabc27ea54ff",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Form Submission + Router\n- Can replace form submission with any sort of trigger",
+        "height": 440,
+        "width": 640,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        460
+      ],
+      "id": "bdbe69ea-5465-45c1-9709-2a488e884b28",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "# | The Content Machine \n\n## - Powered by the new GPT image gen API\n## - Text + relevant images\n## - Posts to LinkedIn, Twitter, & Personal Blogs\n## - Platform optimized prompts\n\n## _____________________\n\n# | How It Works\n\n## - Choose topic, image style, and platform\n## - Topic research completed via Tavily\n## - GPT 4.1 nano creates the copy\n## - Image prompt created based on copy\n## - Image generated via GPT-image-1\n## - Content consolidated, posted, and emailed\n\n## _____________________\n\n# | Tools Used\n\n## - OpenAI API: https://platform.openai.com/\n## - Tavily API: https://tavily.com/\n\n",
+        "height": 960,
+        "width": 620,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        200
+      ],
+      "id": "f9af325d-12bd-43c1-9c51-cb8c56c6e0a3",
+      "name": "Sticky Note"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-04T20:28:37.000Z",
+  "versionId": "4f45cb5e-a543-4d9c-8bd8-de118da904ed"
+}
