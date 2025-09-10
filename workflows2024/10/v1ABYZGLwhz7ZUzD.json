@@ -1,0 +1,1843 @@
+{
+  "active": false,
+  "connections": {
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Extract video id",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get existing video": {
+      "main": [
+        [
+          {
+            "node": "Record exists",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record exists": {
+      "main": [
+        [
+          {
+            "node": "Add resumeUrl2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare data for DB - initial",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create initial record": {
+      "main": [
+        [
+          {
+            "node": "Add resumeUrl2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM data": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract video id": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data (init)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing3": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing4": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM Circle User": {
+      "main": [
+        [
+          {
+            "node": "Refresh DB item1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing5": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Audio": {
+      "main": [
+        [
+          {
+            "node": "Wait for audio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM data (audio)": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM Circle User2": {
+      "main": [
+        [
+          {
+            "node": "Get existing video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM data (init)": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM Circle User1": {
+      "main": [
+        [
+          {
+            "node": "Refresh DB item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing6": {
+      "main": [
+        [
+          {
+            "node": "DM: internal error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM data (transcript)": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcription successful": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data (transcript)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM: internal error": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User (error)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Audio downloaded": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data (audio)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing9": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Refresh DB item": {
+      "main": [
+        [
+          {
+            "node": "Add resumeUrl1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Refresh DB item1": {
+      "main": [
+        [
+          {
+            "node": "Add resumeUrl",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video downloaded": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add resumeUrl2": {
+      "main": [
+        [
+          {
+            "node": "Download video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add resumeUrl": {
+      "main": [
+        [
+          {
+            "node": "Download Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for transcription": {
+      "main": [
+        [
+          {
+            "node": "Transcription successful",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add resumeUrl1": {
+      "main": [
+        [
+          {
+            "node": "Transcribe audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for audio": {
+      "main": [
+        [
+          {
+            "node": "Audio downloaded",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for video": {
+      "main": [
+        [
+          {
+            "node": "Video downloaded",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe audio": {
+      "main": [
+        [
+          {
+            "node": "Wait for transcription",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download video": {
+      "main": [
+        [
+          {
+            "node": "Wait for video",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for DB - initial": {
+      "main": [
+        [
+          {
+            "node": "Create initial record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-22T13:56:59.783Z",
+  "id": "v1ABYZGLwhz7ZUzD",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "YouTube Processing",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "284cd831-a32e-4fc8-b640-5fbf53ffa197",
+              "leftValue": "={{ $json.data.youtube_url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "b8815ab3-66cb-4ce9-81ee-f86eb0d717e4",
+              "leftValue": "={{ $json.user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "77a94564-828c-4d98-ad33-f9afd3f30bf1",
+              "leftValue": "={{ $json.circle_user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e5caa433-e6d6-42bd-8101-6f9878a6e314",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -480,
+        -100
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5a597d85-0abf-42e6-8908-4c9fb5f606ef",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -760,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.user_id }}"
+            },
+            {
+              "column": "provider",
+              "value": "youtube"
+            },
+            {
+              "column": "provider_id",
+              "value": "={{ $('Extract video id').item.json.video_id }}"
+            }
+          ]
+        },
+        "options": {
+          "delayClosingIdleConnection": 10
+        }
+      },
+      "id": "f2c951c9-6ec5-4a57-b40c-e080f3b41b3e",
+      "name": "Get existing video",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1200,
+        -100
+      ],
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "01a27849-9aa6-4af3-8abd-bc443c9e19f6",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "da993684-f7b7-4eb2-8925-1e4e7d320248",
+      "name": "Record exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1500,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "provider",
+              "displayName": "provider",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "provider_id",
+              "displayName": "provider_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "video_url",
+              "displayName": "video_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "audio_url",
+              "displayName": "audio_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "size",
+              "displayName": "size",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "duration",
+              "displayName": "duration",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "caption",
+              "displayName": "caption",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transcript_provider",
+              "displayName": "transcript_provider",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transcript_provider_id",
+              "displayName": "transcript_provider_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "metadata",
+              "displayName": "metadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sentiment_analysis",
+              "displayName": "sentiment_analysis",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d333badf-6563-4a55-af95-b5b1c309b846",
+      "name": "Create initial record",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1940,
+        40
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=YouTube video has been downloaded and is getting ready for processing",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5cfb5fcc-aa9b-48c4-b1b1-8b6bbc45b6b9",
+      "name": "Prepare DM data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3440,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "function extractYouTubeID(url) {\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\n\nreturn {\n  json: {\n    video_url: $input.item.json.data.youtube_url,\n    video_id: extractYouTubeID($input.item.json.data.youtube_url)\n  }\n};"
+      },
+      "id": "c2daa673-dac7-4875-8fe6-504efc366a4a",
+      "name": "Extract video id",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        -100
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "4422ac24-a884-405d-94af-ff10095aae0f",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "db6f2e68-8e0e-4a71-abd2-111441e0626c",
+      "name": "No Operation, do nothing3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "afe6c8e5-9456-42b8-be8f-58b266e185de",
+      "name": "No Operation, do nothing4",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2780,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "eade3c09-7fab-405d-9938-503475e81b65",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "649ca653-39a9-458c-897a-6ecaecefdd20",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "5b5d3e34-1fed-49e2-bf50-93ca6264a1e9",
+      "name": "DM Circle User",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        3660,
+        -320
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {},
+      "id": "3da5c1a7-9842-4150-adeb-844f3a7abfe3",
+      "name": "No Operation, do nothing5",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4400,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "vZcB3clbp18XmyYj",
+          "mode": "list",
+          "cachedResultName": "YouTube Download Audio"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "4fd1a45d-86ac-4a23-b246-a1120cec7c93",
+      "name": "Download Audio",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        4360,
+        -100
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "0509adf0-a14b-429f-b977-7ab89237aca3",
+      "name": "DM Circle User1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        5440,
+        -320
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=YouTube audio has been downloaded and is getting ready for processing",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "88d74a6f-567a-4176-83cd-afc4dd4a965c",
+      "name": "Prepare DM data (audio)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5220,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "8c4b1d16-9283-44c2-9819-dfe592aa462a",
+      "name": "DM Circle User2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        620,
+        -400
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=YouTube Processing job has started",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "15ca5ee0-bd17-43cd-a9b5-f0dd58829c8b",
+      "name": "Prepare DM data (init)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        420,
+        -400
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "da1348f0-fe8e-4067-be01-ebbc2744b57a",
+      "name": "DM Circle User (error)",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        7700,
+        440
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {},
+      "id": "ab6eacd1-b68d-4d8f-b22a-460af7d2c399",
+      "name": "No Operation, do nothing6",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        6340,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "0f77a1a1-266b-4d66-ae76-8de4b5ccb557",
+      "name": "DM Circle User3",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        7520,
+        -420
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Audio has been transcribed and processed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4fbc1763-0230-4652-b44d-321e854c29d6",
+      "name": "Prepare DM data (transcript)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7300,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8ad4dc52-5a26-4261-8f26-7014f1edffc7",
+              "leftValue": "={{ $json.body.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0976e939-c5dc-40f0-a698-72d5974c2b04",
+      "name": "Transcription successful",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        6780,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f1ee53d-9fc1-4d92-a060-f6e61e05cf33",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "70326461-e6e7-4012-bcd4-3019b16bf0ed",
+              "name": "message",
+              "value": "=Something went wrong during the execution of your job. Our team is currently investigating. Job number {{ $execution.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1c5397cb-0de1-48da-b3f1-0b764482ad1f",
+      "name": "DM: internal error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7480,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e8c22d11-0293-4f70-9a2f-675347553b44",
+              "leftValue": "={{ $json.body.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "70c51715-bed4-4e10-a35a-f6d6347835be",
+      "name": "Audio downloaded",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4820,
+        -100
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "62f3a644-a8b9-4a37-807d-7b5e1399f7e5",
+      "name": "No Operation, do nothing9",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4680,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.user_id }}"
+            },
+            {
+              "column": "provider",
+              "value": "youtube"
+            },
+            {
+              "column": "provider_id",
+              "value": "={{ $('Extract video id').item.json.video_id }}"
+            }
+          ]
+        },
+        "options": {
+          "delayClosingIdleConnection": 10
+        }
+      },
+      "id": "f709f7c3-04c9-4172-8312-b9375581b94c",
+      "name": "Refresh DB item",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        5820,
+        -60
+      ],
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.user_id }}"
+            },
+            {
+              "column": "provider",
+              "value": "youtube"
+            },
+            {
+              "column": "provider_id",
+              "value": "={{ $('Extract video id').item.json.video_id }}"
+            }
+          ]
+        },
+        "options": {
+          "delayClosingIdleConnection": 10
+        }
+      },
+      "id": "944169ec-dc66-4990-b547-73cdc23939a8",
+      "name": "Refresh DB item1",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        3980,
+        -100
+      ],
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e8c22d11-0293-4f70-9a2f-675347553b44",
+              "leftValue": "={{ $json.body.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "2cad087b-5773-4271-abe9-6c5df1700ccd",
+      "name": "Video downloaded",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3100,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dbe970ef-498c-4434-a437-ebc3ab09f6bb",
+              "name": "resumeUrl",
+              "value": "={{ $execution.resumeUrl }}/video",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "bbc3b67b-9624-4173-a45d-49489da66b4c",
+      "name": "Add resumeUrl2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2500,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dbe970ef-498c-4434-a437-ebc3ab09f6bb",
+              "name": "resumeUrl",
+              "value": "={{ $execution.resumeUrl }}/audio",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "1e9028c3-977e-4619-9905-bdf86ded8301",
+      "name": "Add resumeUrl",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4160,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "POST",
+        "limitWaitTime": true,
+        "options": {
+          "webhookSuffix": "/transcription"
+        }
+      },
+      "id": "a4899367-51b5-4c1f-996f-8217736ad7ef",
+      "name": "Wait for transcription",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        6520,
+        -60
+      ],
+      "webhookId": "f1e3edab-faa5-4a83-8560-20c04d718be6",
+      "retryOnFail": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dbe970ef-498c-4434-a437-ebc3ab09f6bb",
+              "name": "resumeUrl",
+              "value": "={{ $execution.resumeUrl }}/transcription",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "dc916ef7-055f-4cfd-8556-a792f0bafa14",
+      "name": "Add resumeUrl1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6020,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "POST",
+        "limitWaitTime": true,
+        "options": {
+          "webhookSuffix": "/audio"
+        }
+      },
+      "id": "824e464a-b79a-4472-a823-e3c187102357",
+      "name": "Wait for audio",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4600,
+        -100
+      ],
+      "webhookId": "f1e3edab-faa5-4a83-8560-20c04d718be6",
+      "retryOnFail": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "POST",
+        "limitWaitTime": true,
+        "options": {
+          "webhookSuffix": "/video"
+        }
+      },
+      "id": "b58c2d8e-a959-498e-92cb-53eb7222816a",
+      "name": "Wait for video",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2900,
+        -100
+      ],
+      "webhookId": "f1e3edab-faa5-4a83-8560-20c04d718be6",
+      "retryOnFail": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "UVwi3TCIXQycyICF",
+          "mode": "list",
+          "cachedResultName": "Transcribe Audio Assembly AI"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "3232cf68-046b-42a9-a475-fc733ce19e76",
+      "name": "Transcribe audio",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        6260,
+        -60
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "Dd7hu5HZXTAUUYlC",
+          "mode": "list",
+          "cachedResultName": "YouTube Download"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "cf97a3fc-f000-4ac0-bf16-0cce1a03b4e0",
+      "name": "Download video",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        2700,
+        -100
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "content": "## Input validation",
+        "height": 1257.4350305090409,
+        "width": 985.3498706271537,
+        "color": 5
+      },
+      "id": "4f720b1e-3752-4128-b486-84581c7f79d4",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Prepare DB record",
+        "height": 1257.4350305090409,
+        "width": 1110.94750076046,
+        "color": 5
+      },
+      "id": "e3b6ec8f-1ee5-426e-b028-67c7543acb08",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Download video",
+        "height": 1257.4350305090409,
+        "width": 937.9933871342703,
+        "color": 5
+      },
+      "id": "0c85e95b-bb52-4bee-9105-5a5e420697b6",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: job started",
+        "height": 1257.4350305090409,
+        "width": 787.688026482937,
+        "color": 4
+      },
+      "id": "3f87ef41-2175-485d-8484-81f60f0f9ef9",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Video downloaded",
+        "height": 1257.4350305090409,
+        "width": 489.1362827234418,
+        "color": 4
+      },
+      "id": "6df72096-aa30-443e-ac74-945c1daa4d24",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3400,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Download audio",
+        "height": 1257.4350305090409,
+        "width": 1123.3013660194736,
+        "color": 5
+      },
+      "id": "5343d067-6745-40f9-ac42-b3a7512918ec",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3940,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Audio downloaded",
+        "height": 1245.4189823451968,
+        "width": 489.1362827234418,
+        "color": 4
+      },
+      "id": "1b347ba8-53d6-4807-9526-615f0224cd66",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        5140,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Transcribe audio",
+        "height": 1257.4350305090409,
+        "width": 1428.0300424084746,
+        "color": 5
+      },
+      "id": "ea5dfc75-35fc-4536-80dc-439274e27308",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        5720,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Job completed",
+        "height": 545.028800572591,
+        "width": 680.6211942381524,
+        "color": 4
+      },
+      "id": "6014505d-8dca-4ccf-b5ba-59bbcc9254a1",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        7260,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Internal error",
+        "height": 545.028800572591,
+        "width": 680.6211942381524,
+        "color": 3
+      },
+      "id": "bf6630f5-be12-4956-b71c-054b214cfefd",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        7260,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f4fb409-0e7f-4a64-9421-c277a692b812",
+              "name": "provider_id",
+              "type": "string",
+              "value": "={{ $('Extract video id').item.json.video_id }}"
+            },
+            {
+              "id": "d717058d-61f4-4aa5-9db0-f5e45a0f01ab",
+              "name": "provider",
+              "type": "string",
+              "value": "youtube"
+            },
+            {
+              "id": "5b5b7d9a-cbe8-482b-b8d2-b110616dd235",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.user_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f12ff48f-4273-44aa-8565-73ca83660154",
+      "name": "Prepare data for DB - initial",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1720,
+        40
+      ],
+      "typeVersion": 3.4
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T13:57:05.753Z",
+      "updatedAt": "2024-10-22T13:57:05.753Z",
+      "id": "Q3qpTHNcg1K6uHlR",
+      "name": "Routine"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-24T21:01:13.000Z",
+  "versionId": "42d9aca0-dc0c-499d-9cf2-dd9572c7c847"
+}
