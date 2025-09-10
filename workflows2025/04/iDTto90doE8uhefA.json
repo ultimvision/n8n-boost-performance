@@ -1,0 +1,537 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get article": {
+      "main": [
+        [
+          {
+            "node": "Get categories",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get categories": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get prompt": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Categorize",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Categorize",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Categorize": {
+      "main": [
+        [
+          {
+            "node": "Has image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download featured image": {
+      "main": [
+        [
+          {
+            "node": "Upload featured image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has image": {
+      "main": [
+        [
+          {
+            "node": "Download featured image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set empty media id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload featured image": {
+      "main": [
+        [
+          {
+            "node": "Publish post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set empty media id": {
+      "main": [
+        [
+          {
+            "node": "Publish post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-10T16:38:19.207Z",
+  "id": "iDTto90doE8uhefA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Publish to WP",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "record_id"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bff33b81-6126-4674-b18f-b525461e5657",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appY3aedb8dbqsB6a",
+          "mode": "list",
+          "cachedResultName": "Publishing",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl470iWRiQEZxTUe",
+          "mode": "list",
+          "cachedResultName": "Generated Articles",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a/tbl470iWRiQEZxTUe"
+        },
+        "id": "={{ $json.record_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        300,
+        0
+      ],
+      "id": "c251e421-1603-446e-85cf-d748058e311a",
+      "name": "Get article",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://boostperformance.ai/wp-json/wp/v2/categories?per_page=100",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        -140
+      ],
+      "id": "e5148165-444d-419f-83f8-97620f8a4290",
+      "name": "Get categories",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        },
+        "httpBasicAuth": {
+          "id": "YwkLtHNydAvH43Hm",
+          "name": "boost performance wp n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "categories",
+        "include": "specifiedFields",
+        "fieldsToInclude": "id,name",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        860,
+        -140
+      ],
+      "id": "d6c19151-66a4-43a3-aa1a-335eef57ecbd",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appY3aedb8dbqsB6a",
+          "mode": "list",
+          "cachedResultName": "Publishing",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblaQf2mThD7Qzx1T",
+          "mode": "list",
+          "cachedResultName": "Prompts",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a/tblaQf2mThD7Qzx1T"
+        },
+        "filterByFormula": "Name = 'match_wp_category'",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        100
+      ],
+      "id": "b8fbc37e-5414-4ffe-adc0-625a303c5602",
+      "name": "Get prompt",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1300,
+        0
+      ],
+      "id": "0307fc33-6365-4e78-bc46-4149c9930476",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "model": "={{ $('Merge').item.json.Model }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        240
+      ],
+      "id": "a364f9ea-a080-4deb-a818-b194602d2475",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Article Title: \n{{ $('Get article').first().json.title }}\n\nArticle Content:\n{{ $('Get article').first().json.raw_content_web }}\n\nAvailable Categories:\n{{ $json.categories.map((cat) => `- ID: ${cat.id}, Name: ${cat.name}`).join('\\n') }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.Prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1520,
+        0
+      ],
+      "id": "a88fa387-61c2-45f5-b680-cc75b18d018e",
+      "name": "Categorize"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://boostperformance.ai/wp-json/wp/v2/media",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Disposition",
+              "value": "=attachment; filename=\"{{ $binary.data.fileName }}\""
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        -240
+      ],
+      "id": "e70daa8f-109c-42c5-8fe1-29819c596301",
+      "name": "Upload featured image",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "YwkLtHNydAvH43Hm",
+          "name": "boost performance wp n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Get article').item.json.featured_image_url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2220,
+        -240
+      ],
+      "id": "76a9d252-f04e-41bc-8dfc-e2c48ef546a1",
+      "name": "Download featured image"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ddcc26d5-d08c-46cd-b5c3-f51b4404dcbc",
+              "leftValue": "={{ $('Get article').item.json.featured_image_url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1940,
+        0
+      ],
+      "id": "88c8a95c-fbdc-4244-9343-8109e2145740",
+      "name": "Has image"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "33737f52-0167-46cd-8647-73d9c662aafe",
+              "name": "id",
+              "value": 0,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2600,
+        20
+      ],
+      "id": "0e9365f0-160b-421a-9628-549c3dfacb1c",
+      "name": "Set empty media id"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://boostperformance.ai/wp-json/wp/v2/posts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "title",
+              "value": "={{ $('Get article').item.json.title }}"
+            },
+            {
+              "name": "content",
+              "value": "={{ $('Get article').item.json.content_web }}"
+            },
+            {
+              "name": "status",
+              "value": "={{ $('Get article').item.json.publish_as || 'draft' }}"
+            },
+            {
+              "name": "featured_media",
+              "value": "={{ $json.id || null }}"
+            },
+            {
+              "name": "categories",
+              "value": "={{ [$('Categorize').first().json.text.toNumber()] }}"
+            },
+            {
+              "name": "template",
+              "value": "={{ $('Get article').item.json.wordpress_template || 'page-with-sidebar' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3000,
+        -100
+      ],
+      "id": "7f895fa2-2e90-40e7-8db4-837f8b818110",
+      "name": "Publish post",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "YwkLtHNydAvH43Hm",
+          "name": "boost performance wp n8n"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-09T18:54:30.662Z",
+      "updatedAt": "2025-04-09T18:54:30.662Z",
+      "id": "bwORh3v4jHXqexLE",
+      "name": "Publishing"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-11T14:44:51.000Z",
+  "versionId": "faeb2624-f4e5-4be2-b212-e0c7df58237c"
+}
