@@ -1,0 +1,539 @@
+{
+  "active": false,
+  "connections": {
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Is the Podcast Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is the Podcast Exists": {
+      "main": [
+        [
+          {
+            "node": "API AssemblyAI | Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return Podcast Not Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Transcript": {
+      "main": [
+        [
+          {
+            "node": "Update Podcasts Table",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return API Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return Podcast Not Exists": {
+      "main": [
+        [
+          {
+            "node": "Save Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return API Error": {
+      "main": [
+        [
+          {
+            "node": "Save Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Podcasts Table": {
+      "main": [
+        [
+          {
+            "node": "Set Log Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Log Success": {
+      "main": [
+        [
+          {
+            "node": "Save Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-29T17:08:09.014Z",
+  "id": "hHPdtNJmGg1q5eaq",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Transcribe Audio | Speaker Identification",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e1fa4e28-222e-417c-9bf2-1c8ecb4de443",
+              "name": "podcast_id",
+              "value": "={{ $json.podcast_id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "b387e4ba-f685-4d0e-aeec-055a5fa603ec",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        640,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "615b13b9-de53-497d-b17a-2f6ae768aba5",
+      "name": "Get Podcast Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        860,
+        340
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "assembly_ai_transcript_id",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "column": "status",
+              "value": "transcript_in_progress"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1ae65dce-48cb-4adb-907f-4936d9ec0c67",
+      "name": "Update Podcasts Table",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1800,
+        320
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "30f94ac9-9a4f-466b-b5e7-45ffe08cafe2",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        440,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Speech to Text\n![Image](https://boostperformance.ai/logos/logo_amplify_ai.png)\n\n[Connect to Assembly AI](https://www.assemblyai.com/app)\n\n",
+        "height": 235.1516932040904,
+        "width": 253,
+        "color": 7
+      },
+      "id": "ab827445-b2a8-4fda-a023-7d3462626dc9",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        440,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Transcribe an audio file with Speaker Diarization\nThe Speaker Diarization model lets you detect multiple speakers in an audio file and what each speaker said.\n\n1. Get the audio url from Podcast Details database.\n2. Call Amplify AI API to create a transcript task with speaker_labels at true.\n3. Update the assembly_ai_transcript_id and status to transcript_in_progress in the podcast table.\n4. Wait a Webhook callback to continue the process.\n",
+        "height": 232.2476676377646,
+        "width": 692,
+        "color": 7
+      },
+      "id": "6ed2e8db-ec68-4e11-b22d-2f6ae8005252",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        720,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "870a73ae-2a38-4694-9fc4-664ed2956dad",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1f162008-1cb3-4f6e-8369-f0e9b0af6c17",
+      "name": "Is the Podcast Exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "status",
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "status_message",
+              "value": "Podcast not exists",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "4527a42c-5f31-4f15-94e6-53fdf7311769",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0a83521e-3557-4d29-a167-3d00f009edde",
+      "name": "Return Podcast Not Exists",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1100,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.assemblyai.com/v2/transcript",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $vars.ASSEMBLYAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "audio_url",
+              "value": "={{ $json.url_audio }}"
+            },
+            {
+              "name": "speaker_labels",
+              "value": "true"
+            },
+            {
+              "name": "language_code",
+              "value": "={{ $json.language_code }}"
+            },
+            {
+              "name": "speakers_expected",
+              "value": "={{ $json.speakers_expected }}"
+            },
+            {
+              "name": "audio_start_from",
+              "value": "={{ $json.audio_start_from }}"
+            },
+            {
+              "name": "webhook_url",
+              "value": "https://boostperformance.app.n8n.cloud/webhook/assemblyai"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e3dd689a-cd13-4f93-a952-c6d7b4c7e59d",
+      "name": "API AssemblyAI | Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1520,
+        340
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": "n6aTf9L7yrxjW418",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "55651928-96d4-45bb-9b53-49e09792b34c",
+      "name": "Save Log",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d8f32c58-460d-41e5-bcd1-b75d7c2dc1c0",
+              "name": "status",
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "id": "4e9bce30-61e4-4f31-8d03-93c2ab1f4c4f",
+              "name": "status_message",
+              "value": "={{ $json.error.message }}",
+              "type": "string"
+            },
+            {
+              "id": "c2b675fb-4192-4e22-b288-0dd9f63589be",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "936e39c2-49e7-4724-9bfe-7af3d21e7ac6",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "5c9cc70c-70e3-4332-9e30-910ef8a2a996",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "84bda93e-b1fe-4443-96a1-fcf6de7cd587",
+      "name": "Return API Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1600,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d8f32c58-460d-41e5-bcd1-b75d7c2dc1c0",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "id": "4e9bce30-61e4-4f31-8d03-93c2ab1f4c4f",
+              "name": "status_message",
+              "value": "=Audio transcription request sent successfully.",
+              "type": "string"
+            },
+            {
+              "id": "c2b675fb-4192-4e22-b288-0dd9f63589be",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "936e39c2-49e7-4724-9bfe-7af3d21e7ac6",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "5c9cc70c-70e3-4332-9e30-910ef8a2a996",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "28ebccb0-3083-4c99-8aaf-9e558a4941e9",
+      "name": "Set Log Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2040,
+        320
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-30T20:05:18.275Z",
+      "updatedAt": "2024-06-30T20:05:18.275Z",
+      "id": "jJFrFpoe6jftwcE3",
+      "name": "Transcribe Audio"
+    },
+    {
+      "createdAt": "2024-06-30T18:43:25.919Z",
+      "updatedAt": "2024-06-30T20:11:06.644Z",
+      "id": "wETg74dXNmj5dlPh",
+      "name": "Assembly AI API"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-07-02T12:44:05.000Z",
+  "versionId": "5785c6d0-9b0d-4b6f-af5f-09b926c7a3a8"
+}
