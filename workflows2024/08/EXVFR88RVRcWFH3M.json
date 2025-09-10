@@ -1,0 +1,887 @@
+{
+  "active": false,
+  "connections": {
+    "Validate input": {
+      "main": [
+        [
+          {
+            "node": "Download song",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return invalid input error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download song": {
+      "main": [
+        [
+          {
+            "node": "Upload to YesStreaming",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return song download error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to YesStreaming": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return song upload error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Files": {
+      "main": [
+        [
+          {
+            "node": "Find uploaded file1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return fetching songs error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for update": {
+      "main": [
+        [
+          {
+            "node": "Add song to playlist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add song to playlist": {
+      "main": [
+        [
+          {
+            "node": "Is successful",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return playlist update error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is successful": {
+      "main": [
+        [
+          {
+            "node": "Successful output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return playlist update error 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL": {
+      "main": [
+        [
+          {
+            "node": "Set Data Song",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find uploaded file1": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Data Song": {
+      "main": [
+        [
+          {
+            "node": "Validate input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Successful output": {
+      "main": [
+        [
+          {
+            "node": "MySQL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-19T22:13:20.532Z",
+  "id": "EXVFR88RVRcWFH3M",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Transfer song to YesStreaming",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "24cc3e78-cd1c-40a6-8209-c470ce9d9c6f",
+              "leftValue": "={{ $json.audio_url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "ef4b6526-f291-41a7-8296-9c57eb77a1fa",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f0562fa7-04e2-4711-afa8-cb9191410640",
+      "name": "Validate input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        980,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Invalid input",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2f3d2dd1-8e26-4644-9cec-7f5e7be87c6a",
+      "name": "Return invalid input error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1140,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.audio_url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "9e1203ed-bbd7-4a4e-8aea-77c85461b84f",
+      "name": "Download song",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1280,
+        380
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Unable to download song",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a7b17bd6-54c9-4780-94d3-a81d9e549267",
+      "name": "Return song download error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1440,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "protocol": "sftp",
+        "operation": "upload",
+        "path": "={{ $('Validate input').item.json.title }}-{{ $('Set Data Song').item.json[\"id\"] }}.{{ $binary.data.fileExtension }}"
+      },
+      "id": "b2634d61-626f-45b4-8384-0aa373f892b0",
+      "name": "Upload to YesStreaming",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        360
+      ],
+      "credentials": {
+        "sftp": {
+          "id": "jeuU5gHXV9wM8tbi",
+          "name": "YesStreaming - n8n"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Unable to upload song",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "80132223-a2e7-4ef5-b133-83a8d078c009",
+      "name": "Return song upload error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1780,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "b00c8045-b6af-49ea-ac17-1a00bb0cecfd",
+              "leftValue": "={{ $json.path }}",
+              "rightValue": "={{ $('Validate input').item.json.title }}.{{ $('Download song').item.binary.data.fileExtension }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "699255c4-6c49-424a-83f2-6483aa41d2c4",
+              "leftValue": "={{ $json.playlists }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fcc9d168-3881-4f9f-ab72-de4f16597ff4",
+      "name": "Find uploaded file",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        2320,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $vars.YES_STREAMING_API_URL }}/station/{{ $vars.YES_STREAMING_STATION_ID }}/files",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "ccaf8eb3-af05-4390-b962-ed8f6f065d24",
+      "name": "Get Files",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        220
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "7C9M1GsG6SJrjiRX",
+          "name": "YesStreaming API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Unable to get uploaded files",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "44b091e0-289a-48ed-b5d4-05596a0ee629",
+      "name": "Return fetching songs error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2140,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "71fa1280-641c-413c-9092-c0c205823acf",
+              "name": "playlists",
+              "value": "={{ JSON.stringify([{\"id\": 1255, \"name\": \"Nannette De Gaspé - Products Song\", \"weight\": 3 }]) }}",
+              "type": "array"
+            },
+            {
+              "id": "ec3c6ed0-dc22-4bb4-a3ed-6f93959166e7",
+              "name": "playlists2",
+              "value": "={{ JSON.stringify([{\"id\": parseInt($vars.YES_STREAMING_DEFAULT_PLAYLIST_ID), \"name\": \"default\", \"weight\": 3 }]) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "except",
+        "excludeFields": "playlists,song_id",
+        "options": {}
+      },
+      "id": "d14286d4-b9d4-4ff5-87e4-97b458ead87b",
+      "name": "Prepare data for update",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $vars.YES_STREAMING_API_URL }}/station/{{ $vars.YES_STREAMING_STATION_ID }}/file/{{ $json.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "3cc622e7-d647-4ab9-95a3-a7adafa3c117",
+      "name": "Add song to playlist",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2900,
+        380
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "7C9M1GsG6SJrjiRX",
+          "name": "YesStreaming API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Unable to set playlist",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ccadf6e4-ec34-486a-8800-5a2ca72cd9c8",
+      "name": "Return playlist update error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3080,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "e4e98570-6ca0-467d-8d0d-7f03cb223a82",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "18e506dd-d609-4dcd-ab1d-3f3b1f4b43bd",
+      "name": "Is successful",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        3200,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ba2c3082-4fee-44af-b766-22149f4d8a2b",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "036f1036-7740-4dc4-ad4d-033ace21fc01",
+              "name": "message",
+              "value": "Song uploaded successfully",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e9dd7457-91e4-445c-8656-c0fc287068e7",
+      "name": "Successful output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3560,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "={{ $json.message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d21c67e4-a999-485d-916e-6d165728e582",
+      "name": "Return playlist update error 2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3400,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Error Handling",
+        "height": 326.50614582370497,
+        "width": 2904.0983331792804,
+        "color": 3
+      },
+      "id": "2f5da458-55c6-45a2-b199-38d86b2f7cce",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        800,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Documentation\n\nThis workflow transfers a song from one server to YesStreaming and puts it into the default playlist.\n\nThis workflow should be called by another workflow and be passed a `url` and a `title`.",
+        "height": 198.31690397034987,
+        "width": 899.3150028001606
+      },
+      "id": "66715e54-0a91-4441-abd6-350d513efa4f",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        540,
+        -160
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "7e2d758c-240a-43b2-9456-e370e6132a78",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        920
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "id": "6ec06b2b-e3b9-47f6-98fb-0905921aac66",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        180,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "music",
+          "mode": "list",
+          "cachedResultName": "music"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "published_radio",
+              "value": "0"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "title",
+            "audio_url",
+            "id"
+          ]
+        }
+      },
+      "id": "7b3cfbe4-cf08-49d8-9e92-fd2dbf863e38",
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        440,
+        380
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "b7605580-a50e-4c47-96dd-d221ba916a2f",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2320,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "b00c8045-b6af-49ea-ac17-1a00bb0cecfd",
+              "leftValue": "={{ $json.path }}",
+              "rightValue": "={{ $('Validate input').item.json.title }}-{{ $('Set Data Song').item.json[\"id\"] }}.{{ $('Download song').item.binary.data.fileExtension }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "21057c22-03f3-4f53-bcf0-87a59a6e3a43",
+      "name": "Find uploaded file1",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        2320,
+        180
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4e386ebc-7043-4648-85b1-f3d147ec849d",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1800,
+        220
+      ],
+      "webhookId": "89f9d660-3bba-45c8-b693-bd04ab138fef"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "b7d0a8c8-934c-4351-abae-465aa3a5e5a2",
+      "name": "Set Data Song",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        780,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "music",
+          "mode": "list",
+          "cachedResultName": "music"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $('Set Data Song').item.json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "published_radio",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "11f86aba-8a27-45a7-a610-0196244a4f6d",
+      "name": "MySQL1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3860,
+        380
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T23:46:00.687Z",
+      "updatedAt": "2024-08-26T23:46:00.687Z",
+      "id": "0KXvsYRAyI7MffNz",
+      "name": "Music"
+    },
+    {
+      "createdAt": "2024-08-19T22:12:15.331Z",
+      "updatedAt": "2024-08-19T22:12:15.331Z",
+      "id": "ZbXwG7AJQyGR2N1C",
+      "name": "Radio"
+    },
+    {
+      "createdAt": "2024-07-03T10:27:21.057Z",
+      "updatedAt": "2024-07-03T10:27:21.057Z",
+      "id": "kjd4NuS0MxgHxPmw",
+      "name": "Content Creation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T15:20:24.000Z",
+  "versionId": "165872a0-36a9-43fb-8c6e-efa808c0b7eb"
+}
