@@ -1,0 +1,129 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "n8n1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n8n Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-10T18:41:04.877Z",
+  "id": "jlT6Gd7voucOBssW",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 4",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "4123bff3-276a-4d23-98ba-a8bc4dfd37d4",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "filters": {},
+        "requestOptions": {}
+      },
+      "id": "a224402d-f9d6-4576-9240-d0aaf1eec3e4",
+      "name": "n8n",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        220
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "HAW0AYPLT8fzaLEv",
+          "name": "n8n account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "execution",
+        "filters": {},
+        "options": {},
+        "requestOptions": {}
+      },
+      "id": "e6b4607d-d1d2-4b57-8972-7e79afd79505",
+      "name": "n8n1",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        280
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "HAW0AYPLT8fzaLEv",
+          "name": "n8n account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "events": [
+          "init"
+        ]
+      },
+      "id": "29f9f94f-f0a2-4962-977d-7744b1d3edb9",
+      "name": "n8n Trigger",
+      "type": "n8n-nodes-base.n8nTrigger",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "ea9ace84-049d-47bb-8350-ef7185f1a683",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1760,
+        620
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-13T12:11:18.000Z",
+  "versionId": "2d327b13-a9cd-4665-aa4b-15dc23a7d124"
+}
