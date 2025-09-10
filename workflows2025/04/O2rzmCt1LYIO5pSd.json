@@ -1,0 +1,1127 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch Action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Contact Details": {
+      "main": [
+        [
+          {
+            "node": "Verify if email exists in Mailchimp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify if email exists in Mailchimp": {
+      "main": [
+        [
+          {
+            "node": "Subscribe to newsletter ?1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Subscribe to newsletter ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subscribe to newsletter ?": {
+      "main": [
+        [
+          {
+            "node": "Add a new member in Mailchimp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subscribe to newsletter ?1": {
+      "main": [
+        [
+          {
+            "node": "Subscribe to newsletter",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "UnSubscribe to newsletter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Action": {
+      "main": [
+        [
+          {
+            "node": "Get Contact Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Tag Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Tag Task": {
+      "main": [
+        [
+          {
+            "node": "If Contact 1 exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Contact 1 exists": {
+      "main": [
+        [
+          {
+            "node": "Set Contact ID1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If contact 2 exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If contact 2 exists": {
+      "main": [
+        [
+          {
+            "node": "Set Contact ID",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If contact 3 Lead Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Contact Details1": {
+      "main": [
+        [
+          {
+            "node": "Verify if email exists in Mailchimp1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Contact ID": {
+      "main": [
+        [
+          {
+            "node": "Get Contact Details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Contact ID1": {
+      "main": [
+        [
+          {
+            "node": "Get Contact Details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify if email exists in Mailchimp1": {
+      "main": [
+        [
+          {
+            "node": "If Add TAG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Add TAG": {
+      "main": [
+        [
+          {
+            "node": "Mailchimp add Tag",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Mailchimp Delete Tag",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Set Sync with mailchimp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Sync with mailchimp": {
+      "main": [
+        [
+          {
+            "node": "Switch Action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Contact ID3": {
+      "main": [
+        [
+          {
+            "node": "Get Contact Details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If contact 3 Lead Exists": {
+      "main": [
+        [
+          {
+            "node": "Set Contact ID3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Lac Info": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify if email exists in Mailchimp2": {
+      "main": [
+        [
+          {
+            "node": "Mailchimp add Tag1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mailchimp add Tag1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Verify if email exists in Mailchimp2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-27T12:32:04.019Z",
+  "id": "O2rzmCt1LYIO5pSd",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost 2025 - Contacts Sync with Mailchimp",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/newsletter/sync",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -620,
+        40
+      ],
+      "id": "13a5dcbd-6adb-4449-ac8d-cbc71541646e",
+      "name": "Webhook",
+      "webhookId": "4d4c378a-f700-4274-81d0-e99b3e3fd9d2"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblldDBQts69Z6v2I",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblldDBQts69Z6v2I"
+        },
+        "id": "={{ $json.body.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        160,
+        -220
+      ],
+      "id": "40731c08-89d3-4a51-9d7f-fa7b7ddda395",
+      "name": "Get Contact Details",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "list": "ba44ab9f0e",
+        "email": "={{ $json.Email }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        380,
+        -220
+      ],
+      "id": "02958e02-a4da-4976-aef3-731934422c6a",
+      "name": "Verify if email exists in Mailchimp",
+      "credentials": {
+        "mailchimpApi": {
+          "id": "ev6I0u4hIWUgE3u1",
+          "name": "Mailchimp Boost Performance"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2c766712-606d-445b-b96d-51e488789c6a",
+              "leftValue": "={{ $('Get Contact Details').item.json.Newsletter }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        80
+      ],
+      "id": "1eefe3e4-8283-4328-bdb3-99278156c70a",
+      "name": "Subscribe to newsletter ?"
+    },
+    {
+      "parameters": {
+        "list": "ba44ab9f0e",
+        "email": "={{ $('Get Contact Details').item.json.Email }}",
+        "status": "subscribed",
+        "options": {
+          "emailType": "html",
+          "language": "fr_CA"
+        },
+        "mergeFieldsUi": {
+          "mergeFieldsValues": [
+            {
+              "name": "FNAME",
+              "value": "={{ $('Get Contact Details').item.json['Prénom'] }}"
+            },
+            {
+              "name": "LNAME",
+              "value": "={{ $('Get Contact Details').item.json.Nom }}"
+            },
+            {
+              "name": "COMPANY",
+              "value": "={{ $('Get Contact Details').item.json.Entreprise }}"
+            },
+            {
+              "name": "PHONE",
+              "value": "={{ $('Get Contact Details').item.json['Téléphone'] }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        960,
+        -40
+      ],
+      "id": "7229dee5-01f4-4b3e-9b3a-f58564386751",
+      "name": "Add a new member in Mailchimp",
+      "credentials": {
+        "mailchimpApi": {
+          "id": "ev6I0u4hIWUgE3u1",
+          "name": "Mailchimp Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2c766712-606d-445b-b96d-51e488789c6a",
+              "leftValue": "={{ $('Get Contact Details').item.json.Newsletter }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        700,
+        -380
+      ],
+      "id": "bc4c944a-758e-4aae-a485-9b93e206274f",
+      "name": "Subscribe to newsletter ?1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "list": "ba44ab9f0e",
+        "email": "={{ $json.email_address }}",
+        "updateFields": {
+          "status": "subscribed"
+        }
+      },
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        960,
+        -480
+      ],
+      "id": "fedb8f20-882c-4ba8-ae1b-8dd269178725",
+      "name": "Subscribe to newsletter",
+      "credentials": {
+        "mailchimpApi": {
+          "id": "ev6I0u4hIWUgE3u1",
+          "name": "Mailchimp Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "list": "ba44ab9f0e",
+        "email": "={{ $json.email_address }}",
+        "updateFields": {
+          "status": "unsubscribed"
+        }
+      },
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        960,
+        -300
+      ],
+      "id": "6aba3036-dd59-4e0d-9400-0c7d96d5e04d",
+      "name": "UnSubscribe to newsletter",
+      "credentials": {
+        "mailchimpApi": {
+          "id": "ev6I0u4hIWUgE3u1",
+          "name": "Mailchimp Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.action }}",
+                    "rightValue": "sync",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "5d8e0cc2-2d58-495c-a293-0cf19a38a41e"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Sync"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3e313520-7a62-490d-931e-9a61ac7a576a",
+                    "leftValue": "={{ $json.body.action }}",
+                    "rightValue": "tag",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Tag"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -100,
+        -100
+      ],
+      "id": "4cf7e8b4-f352-4a8c-915a-145c0c6db80a",
+      "name": "Switch Action"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblPuUSKcPM2cW9Hg",
+          "mode": "list",
+          "cachedResultName": "Tags Automatisation",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblPuUSKcPM2cW9Hg"
+        },
+        "id": "={{ $json.body.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        160,
+        460
+      ],
+      "id": "91c047b7-a5aa-4713-8842-b3659f0c583b",
+      "name": "Get Tag Task",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a85856fb-27fa-4936-85f1-28292df974a3",
+              "leftValue": "={{ $json['Contact recId 1'][0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        380,
+        460
+      ],
+      "id": "dc33bf8b-92b5-43bc-a5ab-c3865e4f283f",
+      "name": "If Contact 1 exists"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "75e7482f-e6b1-4b32-863c-4e4d9150a5fa",
+              "leftValue": "={{ $json['Contact recId 2'][0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        580,
+        620
+      ],
+      "id": "f2cffb6d-60f3-4944-8820-77e9e17edbb8",
+      "name": "If contact 2 exists"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "508edc76-936b-4257-a042-ae3f4e0242cb",
+              "name": "contactId",
+              "value": "={{ $json['Contact recId 2'][0] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        900,
+        560
+      ],
+      "id": "c34e2edd-2b9c-446b-86f6-a4d95adb0240",
+      "name": "Set Contact ID"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "508edc76-936b-4257-a042-ae3f4e0242cb",
+              "name": "contactId",
+              "value": "={{ $json['Contact recId 1'][0] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        920,
+        340
+      ],
+      "id": "97529989-ae9a-4f17-a25c-b024c43ab31f",
+      "name": "Set Contact ID1"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblldDBQts69Z6v2I",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblldDBQts69Z6v2I"
+        },
+        "id": "={{ $json.contactId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1400,
+        360
+      ],
+      "id": "02698671-1e46-4d79-8eaa-92ca74b18e59",
+      "name": "Get Contact Details1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "list": "ba44ab9f0e",
+        "email": "={{ $json.Email }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        360
+      ],
+      "id": "5bcbe825-bda7-46fd-bacc-93437911c625",
+      "name": "Verify if email exists in Mailchimp1",
+      "credentials": {
+        "mailchimpApi": {
+          "id": "ev6I0u4hIWUgE3u1",
+          "name": "Mailchimp Boost Performance"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0d20bcef-b457-4d4a-9948-661f1e468830",
+              "leftValue": "={{ $('Get Tag Task').item.json.Action }}",
+              "rightValue": "Ajout",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1840,
+        260
+      ],
+      "id": "25b2826c-b36c-4d13-b1fb-d36190108ed4",
+      "name": "If Add TAG"
+    },
+    {
+      "parameters": {
+        "resource": "memberTag",
+        "list": "ba44ab9f0e",
+        "email": "={{ $('Get Contact Details1').item.json.Email }}",
+        "tags": [
+          "={{ $('Get Tag Task').item.json['Tag Texte'][0] }}"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        100
+      ],
+      "id": "28b5666a-85a7-4280-9573-2a478d8d1406",
+      "name": "Mailchimp add Tag",
+      "credentials": {
+        "mailchimpApi": {
+          "id": "ev6I0u4hIWUgE3u1",
+          "name": "Mailchimp Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "memberTag",
+        "operation": "delete",
+        "list": "ba44ab9f0e",
+        "email": "={{ $('Get Contact Details1').item.json.Email }}",
+        "tags": [
+          "={{ $('Get Tag Task').item.json['Tag Texte'][0] }}"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        380
+      ],
+      "id": "3c207201-a316-4010-b619-ec13c5a2c36a",
+      "name": "Mailchimp Delete Tag",
+      "credentials": {
+        "mailchimpApi": {
+          "id": "ev6I0u4hIWUgE3u1",
+          "name": "Mailchimp Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -540,
+        -400
+      ],
+      "id": "6f9c1c95-def9-471d-b9d2-2ea7dcc9478d",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8acd604a-dbb4-444b-9969-9a923a1b7314",
+              "name": "body.action",
+              "value": "={{ $json.action }}",
+              "type": "string"
+            },
+            {
+              "id": "33e3738c-dda2-44f4-8c9d-23ac729d75ee",
+              "name": "body.recId",
+              "value": "={{ $json.recId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -320,
+        -400
+      ],
+      "id": "ed8890bf-d325-4727-af91-ee8082615f94",
+      "name": "Set Sync with mailchimp"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "508edc76-936b-4257-a042-ae3f4e0242cb",
+              "name": "contactId",
+              "value": "={{ $json['Contacts recId 3'][0] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1140,
+        680
+      ],
+      "id": "211a0d48-9d1f-4031-82a5-93d65bfc6d7f",
+      "name": "Set Contact ID3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7341783b-8945-4ff8-a6d7-635097013e23",
+              "leftValue": "={{ $json['Contacts recId 3'][0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        820
+      ],
+      "id": "9b2c7a02-a1e5-4b1b-b88d-f3b3b7e311f7",
+      "name": "If contact 3 Lead Exists"
+    },
+    {
+      "parameters": {
+        "path": "/lac-epaule-ia/info",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -320,
+        1340
+      ],
+      "id": "a71e5991-a9bb-4de2-860a-a8dd5f393535",
+      "name": "Get Lac Info",
+      "webhookId": "c35c0b3d-6c81-4c3f-96a7-6f70146847a5"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "list": "ba44ab9f0e",
+        "email": "={{ $json.query.e }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        240,
+        1340
+      ],
+      "id": "4c85231e-9384-48d0-bb6e-855adbe1ff9a",
+      "name": "Verify if email exists in Mailchimp2",
+      "credentials": {
+        "mailchimpApi": {
+          "id": "ev6I0u4hIWUgE3u1",
+          "name": "Mailchimp Boost Performance"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "memberTag",
+        "list": "ba44ab9f0e",
+        "email": "={{ $json.email_address }}",
+        "tags": [
+          "=lac-30-mai-2025"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [
+        580,
+        1200
+      ],
+      "id": "5b5398ad-38e3-44d7-bf03-f86c700ee250",
+      "name": "Mailchimp add Tag1",
+      "credentials": {
+        "mailchimpApi": {
+          "id": "ev6I0u4hIWUgE3u1",
+          "name": "Mailchimp Boost Performance"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "redirect",
+        "redirectURL": "https://boostperformance.ai/lac-a-lepaule-ia/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        860,
+        1100
+      ],
+      "id": "836ecd51-5472-4452-9db4-1662d4cb29c5",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "30ab15b2-6bc8-4a42-ac4d-a38699f5264f",
+              "leftValue": "={{ $json.query.e }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -60,
+        1420
+      ],
+      "id": "c2ad4353-1f5b-4748-924f-b6b7e307b1da",
+      "name": "If"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-10T20:30:01.598Z",
+      "updatedAt": "2024-12-10T20:30:01.598Z",
+      "id": "F771zq5Qm7kvL27R",
+      "name": "Airtable"
+    },
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-05-15T12:55:49.000Z",
+  "versionId": "28e08496-5b18-4154-9e97-0f4c954ac3de"
+}
