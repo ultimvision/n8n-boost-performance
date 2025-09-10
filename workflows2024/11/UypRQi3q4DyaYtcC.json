@@ -1,0 +1,41 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-11-20T19:20:50.030Z",
+  "id": "UypRQi3q4DyaYtcC",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Création d'un Chat Boost Performance",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "fcb94113-344a-4e62-a571-edf814bb8088",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        480
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-20T19:23:43.000Z",
+  "versionId": "17b600ff-5811-42da-a473-2f912f63f03f"
+}
