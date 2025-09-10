@@ -1,0 +1,732 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Récupère les information de la chanson",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate song": {
+      "main": [
+        [
+          {
+            "node": "Job started",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Job started": {
+      "main": [
+        [
+          {
+            "node": "Wait 10s",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 10s": {
+      "main": [
+        [
+          {
+            "node": "Get song details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get song details": {
+      "main": [
+        [
+          {
+            "node": "Job completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Job completed": {
+      "main": [
+        [
+          {
+            "node": "Set output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Timed out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Timed out": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 10s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupère les information de la chanson": {
+      "main": [
+        [
+          {
+            "node": "Generate song",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set output": {
+      "main": [
+        [
+          {
+            "node": "Enregistrement des Chansons",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-19T17:43:46.463Z",
+  "id": "A8VJjYMWUkbVPPOX",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Créer version musicale chanson (SUB)",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        100,
+        0
+      ],
+      "id": "5ced7ed9-fd96-4912-b2cf-6e4a59be2a12",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://apibox.erweima.ai/api/v1/generate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer 0f8161e36a7e17470bf0782bcef22eed"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "customMode",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "instrumental",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.Paroles }}"
+            },
+            {
+              "name": "model",
+              "value": "V4_5"
+            },
+            {
+              "name": "style",
+              "value": "={{ JSON.stringify($json['Style musical']) }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $json.Nom }}"
+            },
+            {
+              "name": "callBackUrl",
+              "value": "={{ $execution.resumeUrl }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        0
+      ],
+      "id": "0bf7866d-b1a0-45d1-8001-54062240a7df",
+      "name": "Generate song"
+    },
+    {
+      "parameters": {
+        "url": "https://apibox.erweima.ai/api/v1/generate/record-info",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "taskId",
+              "value": "={{ $('Generate song').first().json.data.taskId }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer 0f8161e36a7e17470bf0782bcef22eed"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        -20
+      ],
+      "id": "bcb96d7d-caeb-4523-8e70-e67753bf8da4",
+      "name": "Get song details"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5d30836c-fd86-4ad1-8e38-fcc5048803e3",
+              "leftValue": "={{ $json.code }}",
+              "rightValue": 200,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        680,
+        0
+      ],
+      "id": "c9e7039f-263f-45d2-b08e-8dc0de7766df",
+      "name": "Job started"
+    },
+    {
+      "parameters": {
+        "errorType": "errorObject",
+        "errorObject": "={{ $json }}"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        700,
+        340
+      ],
+      "id": "f47b464e-1bfa-4d52-a1ab-78faf5d68226",
+      "name": "Stop and Error"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        960,
+        -20
+      ],
+      "id": "e6811475-1ccb-4ca5-8a4c-e51ba953eca8",
+      "name": "Wait 10s",
+      "webhookId": "349412a3-246b-43a7-a44d-6f3a386c84d2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c3e1059-8351-4006-b9ab-ecf93712c692",
+              "leftValue": "={{ $json.data.response.sunoData[0].audioUrl }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1440,
+        -20
+      ],
+      "id": "651d51fd-4a13-4010-9597-85a02d1bf5ad",
+      "name": "Job completed"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "429c250f-ba25-4f62-a662-c07b005c008e",
+              "leftValue": "={{ $runIndex }}",
+              "rightValue": 30,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1440,
+        260
+      ],
+      "id": "856beb6e-a8c6-4503-956d-935df6e0306a",
+      "name": "Timed out"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Song generation timed out"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        240
+      ],
+      "id": "e521449f-0b68-4b69-afff-9ed58d3c8c20",
+      "name": "Stop and Error1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3e078091-00ae-4b05-996f-3dc5ef46975a",
+              "name": "id",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[0].id }}",
+              "type": "string"
+            },
+            {
+              "id": "291e2bc9-f049-4647-a677-3c5d75052417",
+              "name": "task_id",
+              "value": "={{ $('Get song details').item.json.data.response.taskId }}",
+              "type": "string"
+            },
+            {
+              "id": "bf45f3c2-16df-4735-ba6c-4deed1340170",
+              "name": "image_url",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[0].imageUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "0f4664ed-b595-4a3f-99a6-778096d0e3d5",
+              "name": "url",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[0].audioUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "52c11ced-1b63-423c-8cad-c5f6f6a68eaa",
+              "name": "image_url2",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[1].imageUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "dcbec211-d49e-420d-9951-95fe08aa52f7",
+              "name": "url2",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[1].audioUrl }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1700,
+        -40
+      ],
+      "id": "1d5a3930-8e4c-475e-b682-d814c84d6071",
+      "name": "Set output"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblZzGvPuwJrzbsjt",
+          "mode": "list",
+          "cachedResultName": "Chanson",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblZzGvPuwJrzbsjt"
+        },
+        "id": "={{ $json.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        300,
+        0
+      ],
+      "id": "1fb08c45-2c4e-4c94-ae8d-378257ac6674",
+      "name": "Récupère les information de la chanson",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblZzGvPuwJrzbsjt",
+          "mode": "list",
+          "cachedResultName": "Chanson",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblZzGvPuwJrzbsjt"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Récupère les information de la chanson').item.json.id }}",
+            "Musique v1": "={{ $json.url }}",
+            "Musique v2": "={{ $json.url2 }}",
+            "Cover1": "={{ $json.image_url }}",
+            "Cover2": "={{ $json.image_url2 }}",
+            "Statut": "Terminé"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entrevue",
+              "displayName": "Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Name (from Entrevue)",
+              "displayName": "Name (from Entrevue)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Paroles",
+              "displayName": "Paroles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Style musical",
+              "displayName": "Style musical",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Blues",
+                  "value": "Blues"
+                },
+                {
+                  "name": "Pop",
+                  "value": "Pop"
+                },
+                {
+                  "name": "Dance",
+                  "value": "Dance"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Statut",
+              "displayName": "Statut",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Créer la musique",
+                  "value": "Créer la musique"
+                },
+                {
+                  "name": "Publier à la radio",
+                  "value": "Publier à la radio"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Studio en cours de travail",
+                  "value": "Studio en cours de travail"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Musique v1",
+              "displayName": "Musique v1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Musique v2",
+              "displayName": "Musique v2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cover1",
+              "displayName": "Cover1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cover2",
+              "displayName": "Cover2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Bouton Chanson v1",
+              "displayName": "Bouton Chanson v1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Bouton Chanson v2",
+              "displayName": "Bouton Chanson v2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1940,
+        -40
+      ],
+      "id": "94243340-4b3b-48bd-9c7f-93bee22ed05d",
+      "name": "Enregistrement des Chansons",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "any"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-20T19:32:29.000Z",
+  "versionId": "f185d4de-e8c0-45c8-8919-542e4fe18bf2"
+}
