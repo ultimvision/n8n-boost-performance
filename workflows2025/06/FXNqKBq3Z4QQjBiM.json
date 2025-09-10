@@ -1,0 +1,1424 @@
+{
+  "active": true,
+  "connections": {
+    "List ElevenLabs Docs": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Filter agent files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter agent files": {
+      "main": [
+        [
+          {
+            "node": "Already set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Already set": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Add doc to elevenlabs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add doc to 11labs": {
+      "main": [
+        [
+          {
+            "node": "Get config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get airtable doc": {
+      "main": [
+        [
+          {
+            "node": "List ElevenLabs Docs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get config": {
+      "main": [
+        [
+          {
+            "node": "Get airtable doc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add doc to elevenlabs": {
+      "main": [
+        [
+          {
+            "node": "Get agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update error in airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get agent": {
+      "main": [
+        [
+          {
+            "node": "Link doc to agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Link doc to agent": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Update error in airtable1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List ElevenLabs Docs1": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Filter agent files1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter agent files1": {
+      "main": [
+        [
+          {
+            "node": "Already set1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Already set1": {
+      "main": [
+        [
+          {
+            "node": "Get agent1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Get airtable doc1": {
+      "main": [
+        [
+          {
+            "node": "List ElevenLabs Docs1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get config1": {
+      "main": [
+        [
+          {
+            "node": "Get airtable doc1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove doc from 11labs": {
+      "main": [
+        [
+          {
+            "node": "Get config1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete doc": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Update error in airtable3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get agent1": {
+      "main": [
+        [
+          {
+            "node": "Unlink doc to agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unlink doc to agent": {
+      "main": [
+        [
+          {
+            "node": "Delete doc",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update error in airtable2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-23T17:42:38.661Z",
+  "id": "FXNqKBq3Z4QQjBiM",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Base de conaissances Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/convai/knowledge-base",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "show_only_owned_documents",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "types",
+              "value": "={{ [\"file\"] }}"
+            },
+            {
+              "name": "page_size",
+              "value": "2"
+            }
+          ]
+        },
+        "options": {
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "cursor",
+                    "value": "={{ $response.body.next_cursor }}"
+                  }
+                ]
+              },
+              "paginationCompleteWhen": "other",
+              "completeExpression": "={{ $response.body.has_more === false }}",
+              "limitPagesFetched": true,
+              "maxRequests": 5
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        940,
+        -840
+      ],
+      "id": "e3729ab1-3517-46c8-9bd1-bb0598ad7b7d",
+      "name": "List ElevenLabs Docs",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "092m7TFCIn8HuwX6",
+          "name": "ElevenLabs API Techno-pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "documents",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        -840
+      ],
+      "id": "b14ae3aa-edd0-4ace-80c9-0d85e1e10365",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "66eac069-cf7a-4c2b-85ad-477ba39d4f41",
+              "leftValue": "={{ $json.dependent_agents?.some(a => a.id === '$('Get config').first().json['Eleven Labs Agent ID']') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "4ea87c4c-43ba-4530-84bd-1f7868b5cffd",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "={{ $('Get airtable doc').first().json.Fichier[0].filename }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1580,
+        -840
+      ],
+      "id": "67f8e8e5-5406-4649-b6fe-fe48906bd7b4",
+      "name": "Filter agent files",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "95852817-7ea4-496c-861b-a7ef5cad930e",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1900,
+        -840
+      ],
+      "id": "e8a2b2fd-d7b6-44ee-97b5-0655affebea1",
+      "name": "Already set"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/convai/knowledge-base/file",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "name",
+              "value": "={{ $('Get airtable doc').item.json.Fichier[0].filename }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2620,
+        -840
+      ],
+      "id": "a5caacaf-1d00-4aeb-9b90-04b086e3ba36",
+      "name": "Add doc to elevenlabs",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "092m7TFCIn8HuwX6",
+          "name": "ElevenLabs API Techno-pompes"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Get airtable doc').item.json.Fichier[0].url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2260,
+        -840
+      ],
+      "id": "c989cc94-d158-4856-89ff-e670e0f5061e",
+      "name": "Download file"
+    },
+    {
+      "parameters": {
+        "path": "techno-pompes/elevenlabs/add-doc",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        20,
+        -840
+      ],
+      "id": "37379517-29d0-4445-af13-bbc66a64f53f",
+      "name": "Add doc to 11labs",
+      "webhookId": "d3d4ff4d-e976-4119-932d-178640fee81a"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblS5fwWBlZlGNmLL",
+          "mode": "list",
+          "cachedResultName": "Base de connaissances",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblS5fwWBlZlGNmLL"
+        },
+        "id": "={{ $('Add doc to 11labs').item.json.query.recordId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        600,
+        -840
+      ],
+      "id": "d3e969b6-416b-4cc3-85d1-219d1139e246",
+      "name": "Get airtable doc",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblS5fwWBlZlGNmLL",
+          "mode": "list",
+          "cachedResultName": "Base de connaissances",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblS5fwWBlZlGNmLL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Log": "={{ $now.toLocal().format('yyyy-MM-dd H:m:ss') }}: \n\n{{ $json.error.message }}",
+            "id": "={{ $('Get airtable doc').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Fichier",
+              "displayName": "Fichier",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Sync",
+              "displayName": "Sync",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Theo (IA Telephone)",
+                  "value": "Theo (IA Telephone)"
+                },
+                {
+                  "name": "Agent Email",
+                  "value": "Agent Email"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Log",
+              "displayName": "Log",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2680,
+        -420
+      ],
+      "id": "bb6b1a08-bedd-4d6d-9de2-9a4021694abd",
+      "name": "Update error in airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.elevenlabs.io/v1/convai/agents/{{ $('Get config').first().json['Eleven Labs Agent ID'] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ \n(() => {\n\nconst docs = $('Get agent').item.json.conversation_config.agent.prompt.knowledge_base.concat([{\n  \"type\": \"file\",\n  \"name\": $('Add doc to elevenlabs').item.json.name,\n  \"id\": $('Add doc to elevenlabs').item.json.id,\n  \"usage\": \"auto\"\n}])\n\nreturn JSON.stringify({\n  \"conversation_config\": {\n    \"agent\": {\n      \"prompt\": {\n        \"knowledge_base\": docs\n      }\n    }\n  }\n}) \n\n})()\n\n}}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3260,
+        -840
+      ],
+      "id": "186f8a43-8a2a-4af9-b25f-4c152af75ae3",
+      "name": "Link doc to agent",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "092m7TFCIn8HuwX6",
+          "name": "ElevenLabs API Techno-pompes"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblBiFbxDHgMHXyW4",
+          "mode": "list",
+          "cachedResultName": "Configuration",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblBiFbxDHgMHXyW4"
+        },
+        "filterByFormula": "Name = 'Configuration'",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        320,
+        -840
+      ],
+      "id": "01b78b43-e597-45bf-939c-a57c5adc0442",
+      "name": "Get config",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.elevenlabs.io/v1/convai/agents/{{ $('Get config').first().json['Eleven Labs Agent ID'] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2900,
+        -840
+      ],
+      "id": "edc2b1f9-afd5-4668-8ddc-1b2e51ea924d",
+      "name": "Get agent",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "092m7TFCIn8HuwX6",
+          "name": "ElevenLabs API Techno-pompes"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblS5fwWBlZlGNmLL",
+          "mode": "list",
+          "cachedResultName": "Base de connaissances",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblS5fwWBlZlGNmLL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Log": "={{ $now.toLocal().format('yyyy-MM-dd H:m:ss') }}: \n\n{{ $json.error.message }}",
+            "id": "={{ $('Get airtable doc').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Fichier",
+              "displayName": "Fichier",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Sync",
+              "displayName": "Sync",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Theo (IA Telephone)",
+                  "value": "Theo (IA Telephone)"
+                },
+                {
+                  "name": "Agent Email",
+                  "value": "Agent Email"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Log",
+              "displayName": "Log",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3320,
+        -420
+      ],
+      "id": "137aa5f3-5564-4408-a634-5840e0c81a1c",
+      "name": "Update error in airtable1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/convai/knowledge-base",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "show_only_owned_documents",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "types",
+              "value": "={{ [\"file\"] }}"
+            },
+            {
+              "name": "page_size",
+              "value": "2"
+            }
+          ]
+        },
+        "options": {
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "cursor",
+                    "value": "={{ $response.body.next_cursor }}"
+                  }
+                ]
+              },
+              "paginationCompleteWhen": "other",
+              "completeExpression": "={{ $response.body.has_more === false }}",
+              "limitPagesFetched": true,
+              "maxRequests": 5
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        920,
+        100
+      ],
+      "id": "929581ca-eaba-4604-8689-8379fcf99d4f",
+      "name": "List ElevenLabs Docs1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "092m7TFCIn8HuwX6",
+          "name": "ElevenLabs API Techno-pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "documents",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        100
+      ],
+      "id": "59ec78db-0756-4a03-950b-bfa03215dcd6",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "66eac069-cf7a-4c2b-85ad-477ba39d4f41",
+              "leftValue": "={{ $json.dependent_agents.filter(a => a.id === $('Get config1').first().json['Eleven Labs Agent ID'] ).length > 0}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "4ea87c4c-43ba-4530-84bd-1f7868b5cffd",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "={{ $('Get airtable doc1').first().json.Fichier[0].filename }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1560,
+        100
+      ],
+      "id": "b5a1f734-73c1-4c61-9299-3bf149bcb380",
+      "name": "Filter agent files1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "95852817-7ea4-496c-861b-a7ef5cad930e",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1880,
+        100
+      ],
+      "id": "0bddcb96-9884-471d-ba82-cb6028b08a94",
+      "name": "Already set1"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblS5fwWBlZlGNmLL",
+          "mode": "list",
+          "cachedResultName": "Base de connaissances",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblS5fwWBlZlGNmLL"
+        },
+        "id": "={{ $('Remove doc from 11labs').item.json.query.recordId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        580,
+        100
+      ],
+      "id": "624ecb15-d2c3-4100-b642-0484c87442f4",
+      "name": "Get airtable doc1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblBiFbxDHgMHXyW4",
+          "mode": "list",
+          "cachedResultName": "Configuration",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblBiFbxDHgMHXyW4"
+        },
+        "filterByFormula": "Name = 'Configuration'",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        300,
+        100
+      ],
+      "id": "bf01a19c-900b-4819-92de-bae72d04a0b6",
+      "name": "Get config1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblS5fwWBlZlGNmLL",
+          "mode": "list",
+          "cachedResultName": "Base de connaissances",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblS5fwWBlZlGNmLL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Log": "={{ $now.toLocal().format('yyyy-MM-dd H:m:ss') }}: \n\n{{ $json.error.message }}",
+            "id": "={{ $('Get airtable doc1').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Fichier",
+              "displayName": "Fichier",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Sync",
+              "displayName": "Sync",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Theo (IA Telephone)",
+                  "value": "Theo (IA Telephone)"
+                },
+                {
+                  "name": "Agent Email",
+                  "value": "Agent Email"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Log",
+              "displayName": "Log",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3100,
+        520
+      ],
+      "id": "bca7c0e8-923a-49a4-807b-17f91f0144ec",
+      "name": "Update error in airtable3",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "techno-pompes/elevenlabs/remove-doc",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        100
+      ],
+      "id": "e8518fa6-bff2-4945-9a54-cb3c455576ad",
+      "name": "Remove doc from 11labs",
+      "webhookId": "d3d4ff4d-e976-4119-932d-178640fee81a"
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "=https://api.elevenlabs.io/v1/convai/knowledge-base/{{ $('Filter agent files1').item.json.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "force",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3040,
+        100
+      ],
+      "id": "20352315-1c07-4c9b-b8a1-3255494841b7",
+      "name": "Delete doc",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "092m7TFCIn8HuwX6",
+          "name": "ElevenLabs API Techno-pompes"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.elevenlabs.io/v1/convai/agents/{{ $('Get config1').first().json['Eleven Labs Agent ID'] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2260,
+        100
+      ],
+      "id": "baec6ab7-460c-4e46-b233-77b9c88b8fec",
+      "name": "Get agent1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "092m7TFCIn8HuwX6",
+          "name": "ElevenLabs API Techno-pompes"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblS5fwWBlZlGNmLL",
+          "mode": "list",
+          "cachedResultName": "Base de connaissances",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblS5fwWBlZlGNmLL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Log": "={{ $now.toLocal().format('yyyy-MM-dd H:m:ss') }}: \n\n{{ $json.error.message }}",
+            "id": "={{ $('Get airtable doc').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Fichier",
+              "displayName": "Fichier",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Sync",
+              "displayName": "Sync",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Theo (IA Telephone)",
+                  "value": "Theo (IA Telephone)"
+                },
+                {
+                  "name": "Agent Email",
+                  "value": "Agent Email"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Log",
+              "displayName": "Log",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2680,
+        520
+      ],
+      "id": "7e11ed64-2186-452b-a75f-0facb330c6cc",
+      "name": "Update error in airtable2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.elevenlabs.io/v1/convai/agents/{{ $('Get config1').first().json['Eleven Labs Agent ID'] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ \n(() => {\n\nconst docs = $('Get agent1').item.json.conversation_config.agent.prompt.knowledge_base.filter(d => d.id !== $('Filter agent files1').first().json.id)\n\nreturn JSON.stringify({\n  \"conversation_config\": {\n    \"agent\": {\n      \"prompt\": {\n        \"knowledge_base\": docs\n      }\n    }\n  }\n}) \n\n})()\n\n}}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2620,
+        100
+      ],
+      "id": "6736b2b4-01f8-4c33-9e54-4a55c45ff641",
+      "name": "Unlink doc to agent",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "092m7TFCIn8HuwX6",
+          "name": "ElevenLabs API Techno-pompes"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-06-25T13:44:00.000Z",
+  "versionId": "8f8651f5-d745-45bc-a878-f03a06d3d354"
+}
