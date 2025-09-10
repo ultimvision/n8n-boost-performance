@@ -1,0 +1,1643 @@
+{
+  "active": false,
+  "connections": {
+    "DM Circle User2": {
+      "main": [
+        [
+          {
+            "node": "Song Writing Instructions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM data (init)": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Music Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4o": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Music Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4o1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input": {
+      "main": [
+        [
+          {
+            "node": "AI Music Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate input": {
+      "main": [
+        [
+          {
+            "node": "Generate JWT",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Song": {
+      "main": [
+        [
+          {
+            "node": "Music Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Has songs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has songs": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for Circle file upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "DM: internal error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM: internal error": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User (error)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for Circle file upload": {
+      "main": [
+        [
+          {
+            "node": "Upload to Circle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to Circle": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate JWT": {
+      "main": [
+        [
+          {
+            "node": "Generate Song",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Music Agent": {
+      "main": [
+        [
+          {
+            "node": "Prepare Music",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is private?": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data (init)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare data for new post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing3": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing4": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM completed": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for new post": {
+      "main": [
+        [
+          {
+            "node": "Create Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is private?1": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM completed",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare comment content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare comment content": {
+      "main": [
+        [
+          {
+            "node": "Prepare comment data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Is private?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Song Writing Instructions": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Post": {
+      "main": [
+        [
+          {
+            "node": "New post data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare comment data": {
+      "main": [
+        [
+          {
+            "node": "Create comment on post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New post data": {
+      "main": [
+        [
+          {
+            "node": "Song Writing Instructions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Music": {
+      "main": [
+        [
+          {
+            "node": "Validate input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Music Data": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create comment on post": {
+      "main": [
+        [],
+        [
+          {
+            "node": "DM: internal error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Is private?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-28T13:42:24.829Z",
+  "id": "TXzKcgk3jdVPUSuG",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Jingle Create",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "312b9a69-9ea5-470a-99a4-3ccc3d36bdd7",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        880,
+        440
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "ef5559d1-3c33-48cd-acd4-607d0151350e",
+      "name": "DM Circle User2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1800,
+        -240
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Jingle Creation job has started",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "676f336d-1265-45fe-8d3b-b2bb031743c4",
+      "name": "Prepare DM data (init)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"The title of the song.\"\n    },\n    \"lyrics\": {\n      \"type\": \"string\",\n      \"description\": \"The complete lyrics of the song, including all verses, choruses, intro, and outro.\"\n    }\n  },\n  \"required\": [\"title\", \"lyrics\"]\n}"
+      },
+      "id": "1123e411-c460-4a6d-8f20-a876b5fb7f89",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        3100,
+        220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b1eac2ea-8bb8-416a-ac39-539a0f7279e9",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        3000,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4",
+        "options": {}
+      },
+      "id": "7145414f-ab52-47c6-968e-b0747726e7f2",
+      "name": "4o",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2740,
+        80
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "7d2184c5-a1ab-4aa4-a746-8c8e259f4222",
+      "name": "4o1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        220
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8a86f9c7-643e-44cc-9c2b-6370ef15d8aa",
+              "name": "prompt",
+              "value": "={{ $('Execute Workflow Trigger').first().json.data.target === 'Individual' ? $('Execute Workflow Trigger').first().json.data.person_prompt : $('Execute Workflow Trigger').first().json.data.company_prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "6eea3af4-0823-4315-9f8c-20cc9e836895",
+              "name": "name",
+              "value": "={{ $('Execute Workflow Trigger').first().json.data.target === 'Individual' ? $('Execute Workflow Trigger').first().json.data.person_name : $('Execute Workflow Trigger').first().json.data.company_name }}",
+              "type": "string"
+            },
+            {
+              "id": "90451033-73de-416b-8830-7f8116bec62c",
+              "name": "genre",
+              "value": "={{ $('Execute Workflow Trigger').first().json.data.genre }}",
+              "type": "string"
+            },
+            {
+              "id": "08653a63-1fe2-4485-bcfa-b9bbf4ff5fe3",
+              "name": "language",
+              "value": "={{ $('Execute Workflow Trigger').first().json.data.language }}",
+              "type": "string"
+            },
+            {
+              "id": "1e3a8995-8925-4226-87d6-24b92223e74c",
+              "name": "instructions",
+              "value": "={{ $('Execute Workflow Trigger').first().json.data.target === 'Individual' ? $json.instructions_individual : $json.instructions_company }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "76d44e67-cc6a-40a0-8630-675ae936ac8c",
+      "name": "Input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "ff2521ee-7fc0-4ef3-bc41-2f86c3f5cba8",
+              "leftValue": "={{ $json.lyrics }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "a3b72449-4e91-4862-a6e9-b38a62628a41",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1bba7629-b023-43ba-861f-6380bc2106f1",
+      "name": "Validate input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        3540,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $vars.SUNO_API_V2_URL }}/custom_generate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "prompt",
+              "value": "={{ $('Validate input').first().json.lyrics }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $('Validate input').first().json.title }}"
+            },
+            {
+              "name": "tags",
+              "value": "={{ $('Input').first().json.genre }}"
+            },
+            {
+              "name": "wait_audio",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "make_instrumental",
+              "value": "={{ false }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {}
+          }
+        }
+      },
+      "id": "a29618e7-d715-4ad7-afb8-9199a1a19aa6",
+      "name": "Generate Song",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4120,
+        -120
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "d5d2f05d-b9d9-4bef-8b4d-274e0244fbbd",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        4600,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4cb42777-30e6-48e0-8825-90176f16d8b6",
+              "leftValue": "={{ $json.data }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d6a1a88d-3fbb-4c8b-ab9b-664adc2cc135",
+      "name": "Has songs",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4820,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "e2b83ae2-7c9d-4437-84fe-36fe8253474d",
+      "name": "DM Circle User",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        6920,
+        -340
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "406a8ef6-d4b2-4837-8c61-8604d9c9bff6",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        5240,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "cba7f5a0-e02d-4789-b0cc-c3e3ab2d633d",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3600,
+        460
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "31e182cb-ca27-4eb3-832e-edd12a5195a6",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        5800,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "407df438-0e59-4ff8-bf88-15aca33cd2ce",
+      "name": "DM Circle User (error)",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        7440,
+        460
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f1ee53d-9fc1-4d92-a060-f6e61e05cf33",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "70326461-e6e7-4012-bcd4-3019b16bf0ed",
+              "name": "message",
+              "value": "=Something went wrong during the execution of your job. Our team is currently investigating. Job number {{ $execution.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f53cc304-b7d4-4136-8f95-7999ab9bf043",
+      "name": "DM: internal error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7220,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4bbd48ab-7067-45a7-a946-064f4f9941cb",
+              "name": "file_url",
+              "value": "={{ $json.audio_url }}",
+              "type": "string"
+            },
+            {
+              "id": "605581f0-460a-45b7-b8d7-1777bece1817",
+              "name": "sender_email",
+              "value": "mat@thetrading.ai",
+              "type": "string"
+            },
+            {
+              "id": "7ec0107a-34e1-4a20-a1e4-f943256a1eec",
+              "name": "file_name",
+              "value": "={{ $json.title }}.mp3",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "16b80a6b-3fb0-4eff-89c6-ff9282dc5a98",
+      "name": "Prepare data for Circle file upload",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5480,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "vYauQyRwKt228x0L",
+          "mode": "list",
+          "cachedResultName": "Circle - Upload File"
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "id": "c990dc8b-a035-4960-a9ec-a02c15df7b3f",
+      "name": "Upload to Circle",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        5720,
+        -120
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "id": "41e7a7ee-931f-4520-bddf-353280087964",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        5040,
+        -120
+      ],
+      "webhookId": "e469a5be-3ede-41d9-a5ae-74a1da720f62"
+    },
+    {
+      "parameters": {
+        "content": "## Input validation",
+        "height": 1257.4350305090409,
+        "width": 690.1769509983911,
+        "color": 5
+      },
+      "id": "88116ba2-8c51-45aa-a90c-566d73faa7cf",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        415.17291962876254,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: job started",
+        "height": 1257.4350305090409,
+        "width": 1076.4862642800442,
+        "color": 4
+      },
+      "id": "3fd2eacd-8755-4b4f-bac6-6e210fed6b11",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        -540
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Generate Lyrics",
+        "height": 1257.4350305090409,
+        "width": 1484.8675692391957,
+        "color": 5
+      },
+      "id": "efa382b4-a37f-4337-91d4-ded5c8617105",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Generate Songs",
+        "height": 1257.4350305090409,
+        "width": 1627.8415950025574,
+        "color": 5
+      },
+      "id": "bd4d945d-c270-47a4-970b-a16b1eebf9a8",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3760,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Upload songs to Circle",
+        "height": 1257.4350305090409,
+        "width": 682.6124697211751,
+        "color": 5
+      },
+      "id": "6a3a1038-d821-48eb-a5dd-8bb88e4eeb0c",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        5420,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Job completed",
+        "height": 699.1462275852631,
+        "width": 1524.5344757744037,
+        "color": 4
+      },
+      "id": "4b1ece53-8da1-4f72-b0c1-35eca1a16649",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        6140,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Alert user: Internal error",
+        "height": 515.472033748243,
+        "width": 1533.5722626353802,
+        "color": 3
+      },
+      "id": "4cc42957-0c27-4dfc-8520-e988fa39f740",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        6140.264318808231,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "claims": {
+          "expiresIn": 300,
+          "issuer": "n8n",
+          "subject": "suno"
+        },
+        "options": {}
+      },
+      "id": "f1553741-25ce-4d80-9eca-da6d7156f042",
+      "name": "Generate JWT",
+      "type": "n8n-nodes-base.jwt",
+      "typeVersion": 1,
+      "position": [
+        3860,
+        -120
+      ],
+      "credentials": {
+        "jwtAuth": {
+          "id": "6Cv84ZfUAW17AbjB",
+          "name": "JWT Suno API V2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ JSON.stringify($json.prompt) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.instructions }}"
+            }
+          ]
+        }
+      },
+      "id": "cdace732-013e-45f3-9fa5-e365937ee2f4",
+      "name": "AI Music Agent",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        2860,
+        -120
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 3000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "57f11511-2194-4b0e-b34b-ef85511b4b49",
+              "leftValue": "={{ $json.data.scope }}",
+              "rightValue": "Private",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c4882fa0-5317-43de-bfe0-bce2953571f5",
+      "name": "Is private?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1240,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b2786ed5-5c29-487c-9bf8-19d9fe39eee7",
+      "name": "No Operation, do nothing3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1880,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "050a04da-a2ff-46a6-8baa-882ed901f435",
+      "name": "No Operation, do nothing4",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4220,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Here are your audio tracks",
+              "type": "string"
+            },
+            {
+              "id": "e1275ce1-ea65-4101-ab21-9586adbbddbf",
+              "name": "attachments",
+              "value": "={{ JSON.stringify($json.data.map(i => i.block_data.attrs.signed_id)) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cee518d9-8f7d-4a09-8cf4-48749dbac982",
+      "name": "Prepare DM completed",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6680,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b37504b8-d992-453f-9d18-e24e7d937ba7",
+              "name": "title",
+              "value": "=Jingle Musical pour {{ $json.data.company_name || $json.data.person_name }}",
+              "type": "string"
+            },
+            {
+              "id": "013668a8-7aaf-499b-840b-e76a6d66d25d",
+              "name": "content",
+              "value": "=[\n  {\n    \"type\": \"paragraph\",\n    \"content\": [\n      {\n        \"text\": \"Création de Jingles musicaux pour {{ $json.data.person_name || $json.data.company_name }}\",\n        \"type\": \"text\"\n      }\n    ]\n  },\n  {\n    \"type\": \"paragraph\",\n    \"content\": [\n      {\n        \"text\": \"Style de musique: {{ $json.data.genre }}\",\n        \"type\": \"text\"\n      }\n    ]\n  },\n  {\n    \"type\": \"paragraph\",\n    \"content\": [\n      {\n        \"text\": \"Langue des paroles: {{ $json.data.language === 'English' ? 'Anglais' : 'Français' }}\",\n        \"type\": \"text\"\n      }\n    ]\n  }\n]\n",
+              "type": "array"
+            },
+            {
+              "id": "a89ae8fa-390c-4ebc-b9fb-715132ca4f3f",
+              "name": "space_id",
+              "value": 1501983,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "30245d5f-5962-47e3-9d46-4061428765fa",
+      "name": "Prepare data for new post",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "57f11511-2194-4b0e-b34b-ef85511b4b49",
+              "leftValue": "={{ $('Execute Workflow Trigger').first().json.scope }}",
+              "rightValue": "Private",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8357cec8-5363-458a-8abd-f9cfa17f467c",
+      "name": "Is private?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        6260,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log($input.first())\nconst files = $input.first().json.data.map(i => {\n  return i.block_data;\n})\n\nreturn [{\n  json: {content: [{\n    type: 'text',\n    text: 'Voici vos Jingles personalisés:'\n  }, ...files]\n        }\n}]"
+      },
+      "id": "b3293be6-6541-453e-8d03-ef201ed4b50e",
+      "name": "Prepare comment content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6680,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "284cd831-a32e-4fc8-b640-5fbf53ffa197",
+              "leftValue": "={{ $json.data.genre }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "b8815ab3-66cb-4ce9-81ee-f86eb0d717e4",
+              "leftValue": "={{ $json.user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "77a94564-828c-4d98-ad33-f9afd3f30bf1",
+              "leftValue": "={{ $json.circle_user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "abe32562-a73c-4ad9-9a41-cc30c1358dc3",
+              "leftValue": "={{ $json.data.target }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "bc5d2614-36c7-4152-a1e6-d6b2a4090274",
+              "leftValue": "={{ $json.data.language }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "823e7e7d-b285-42f4-9f2b-649471f8ae05",
+              "leftValue": "={{ $json.data.scope }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "90ec3604-63f2-42a7-a067-396f478d4e85",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6d6ae528-97e5-4c98-8a8a-1f2195997fea",
+              "name": "instructions_company",
+              "value": "=Vous êtes un auteur-compositeur talentueux, spécialisé dans la création de jingle ou une chanson utilisée à des fins publicitaires, souvent pour renforcer l'identité de marque et marquer les esprits des consommateurs. Elle met en avant les valeurs, les produits ou les services de l'entreprise de manière attrayante et mémorable.\n\nTa tâche est d’écrire les paroles d’une chanson en {{ $('Execute Workflow Trigger').first().json.data.language }} à des fins publicitaires pour une entreprise. On va te partager des informations à propos de l’entreprise et tu devras suivre les étapes suivantes pour la rédiger : \n\n1. Comprendre l’entreprise\n- Analyse des informations : Réunir et analyser les informations sur l’entreprise, telles que sa mission, ses produits, ses services, ses valeurs et ses clients cibles.\n- Définir l’objectif : Clarifier l’objectif du jingle (promotion d’un produit, renforcement de l'image de marque, sensibilisation à un service).\n\n2. Identifier le message clé\n- Message principal : Décider du message central à transmettre (ex. : qualité des produits, innovation, service exceptionnel).\n- Ton et style : Déterminer le ton (ex. : fun, sérieux, inspirant) et le style (rapide, entraînant, doux) en fonction du public cible.\n\n3. Rechercher des mots-clés et des phrases accrocheuses\n- Identifier les termes essentiels : Relever les mots-clés liés aux valeurs de l’entreprise (ex. : « excellence », « innovation », « confiance ») et les intégrer dans le texte.\n- Formuler des accroches : Créer des slogans ou des phrases impactantes qui peuvent être répétés dans la chanson pour un effet mémorable.\n\n4. Établir la structure de la chanson\n- Structurer les paroles : Choisir une structure de chanson classique (couplet, refrain, pont). Par exemple :\n[Intro] : Présentation ou slogan de l’entreprise.\n[Couplet 1] : Décrire le produit ou le service principal.\n[Refrain] : Message clé, mémorable, facile à retenir.\n[Couplet 2] : Mettre en avant les avantages pour le client.\n[Pont] : Variation qui donne de la dynamique à la chanson.\n[Outro] : Résumer ou répéter le message clé.\n\n5. Composer les paroles en {{ $('Execute Workflow Trigger').first().json.data.language }}\n- Couplet : Commencer par des paroles descriptives qui capturent l’essence de l’entreprise et ce qu’elle offre.\n- Refrain : Créer un refrain simple, répétitif et accrocheur qui rappelle le message principal et se grave dans la mémoire.\n- Utiliser un langage positif : Utiliser un langage qui évoque des émotions positives et fait ressentir aux auditeurs que l’entreprise répond à leurs besoins.\n\n6. Adapter le contenu aux valeurs de l’entreprise\n- Alignement avec la marque : S'assurer que les paroles reflètent fidèlement l'image de la marque et ses valeurs fondamentales.\n- Éviter le jargon : Éviter les termes trop techniques et privilégier des mots que le public cible peut comprendre facilement.\n\n7. Réviser et tester\n- Révision : Relire et affiner les paroles pour qu’elles soient fluides et naturelles en musique.\n- Tester : Tester les paroles en chantant pour vérifier leur fluidité et l’impact de chaque section.\n\n8. Finaliser la chanson\n- Derniers ajustements : Faire les ajustements finaux pour que la chanson soit cohérente et prête à être mise en musique.\n\n9. Nom de la chanson \n- Donnez un titre à la chanson en {{ $('Execute Workflow Trigger').first().json.data.language }}, comportant au maximum 10 mots, qui inclut le nom du produit ou service.\n\n[Instrumental intro]\n[Pre-Intro]\nIn the neon glow, he was standing alone\n[Intro]\nUnder disco lights, he caught her eyes\n\nVoici la structure que tu dois respecter pour placer les paroles de ta chanson en {{ $('Execute Workflow Trigger').first().json.data.language }}: \n\n[Instrumental intro]\n[Pre-Intro]\n[Intro]\n[Verse] : Utilisé pour les couplets de la chanson. Chaque couplet raconte généralement une partie de l'histoire ou développe le thème de la chanson.\n[Chorus] : Utilisé pour le refrain, la partie répétée de la chanson, souvent la plus mémorable et accrocheuse. Il contient généralement le message principal ou l'accroche de la chanson.\n[Verse 2], [Verse 3], etc. : Similaire au [Verse], mais numéroté pour indiquer la progression dans la chanson. Chaque couplet numéroté représente une section différente.\n[Bridge] : Utilisé pour la transition entre différentes parties de la chanson, souvent pour introduire un contraste ou une montée en émotion avant de revenir au refrain.\n[Outro] : Utilisé pour la conclusion ou la fin de la chanson. L'outro peut reprendre des éléments du refrain ou du couplet, ou introduire une nouvelle section musicale ou lyrique. Il sert à conclure la chanson en douceur, souvent en réduisant l'intensité ou en répétant des phrases clés. L'outro peut également offrir une réflexion finale ou un message qui laisse une impression durable à l'auditeur.\n\nVoici un exemple pour écrire les paroles de la chanson avec les balises:\n\n[Instrumental intro]\n[Pre-Intro]\nDans le souffle du vent, nous avançons ensemble,\nVers un monde plus vert, vers un avenir qui rassemble.\n[Intro]\nNous bâtissons un avenir plus vert,\nDes solutions qui inspirent et éclairent.\nAvec EcoTech, chaque jour est un pas,\nVers un monde plus pur, c’est notre combat.\n[Verse 1]\nNous bâtissons un avenir plus vert,\nDes solutions qui inspirent et éclairent.\nAvec EcoTech, chaque jour est un pas,\nVers un monde plus pur, c’est notre combat.\n[Chorus]\nEcoTech, pour la planète et demain,\nInnover pour un monde serein.\nÉnergie propre, solutions durables,\nUn futur radieux, c'est inévitable.\n[Verse 2]\nNos technologies changent l’horizon,\nRéduire l’empreinte, c’est notre mission.\nDes panneaux solaires aux éoliennes,\nPour chaque maison, une énergie saine.\n[Chorus]\nEcoTech, pour la planète et demain,\nInnover pour un monde serein.\nÉnergie propre, solutions durables,\nUn futur radieux, c'est inévitable.\n[Bridge]\nÉco-responsable, c’est notre fierté,\nPour les générations à protéger.\nAvec passion, on avance sans crainte,\nUn avenir vert, une promesse sans feinte.\n[Chorus]\nEcoTech, pour la planète et demain,\nInnover pour un monde serein.\nÉnergie propre, solutions durables,\nUn futur radieux, c'est inévitable.\n[Outro]\nPour chaque pas, une victoire à venir,\nAvec EcoTech, le monde va sourire.\nNous sommes la clé, nous sommes le chemin,\nVers un futur où tout ira bien.\n\nMaintenant, voici les informations de l'entreprise pour laquelle tu dois écrire une chanson :\n\n",
+              "type": "string"
+            },
+            {
+              "id": "1c050376-6d39-4af4-adda-0fcbcdeef299",
+              "name": "instructions_individual",
+              "value": "=Vous êtes un auteur-compositeur talentueux, spécialisé dans la création de chansons personnalisées, offrant une expérience unique pour chaque individu. Ces chansons mettent en avant l’histoire, les valeurs ou les moments spéciaux d'une personne de manière touchante et mémorable.  Ta tâche est d’écrire les paroles d’une chanson en {{ $('Execute Workflow Trigger').first().json.data.language }} pour une personne. Nous te fournirons des informations sur cette personne, et tu devras suivre les étapes suivantes pour rédiger les paroles :  Comprendre la personne  Analyse des informations : Réunir et analyser les détails partagés sur cette personne, tels que ses passions, ses valeurs, ses moments marquants et ses proches. Définir l’objectif : Clarifier l’objectif de la chanson (célébration d'un événement spécial, hommage, souvenir touchant). Identifier le message clé  Message principal : Décider du message central à transmettre (ex. : un moment inoubliable, une qualité unique). Ton et style : Déterminer le ton (ex. : joyeux, émotionnel, inspirant) et le style (doux, énergique, intime) en fonction de la personnalité et du contexte. Rechercher des mots-clés et des phrases significatives  Identifier les termes essentiels : Relever des mots-clés liés aux qualités ou souvenirs de la personne (ex. : « courage », « amour », « amitié ») et les intégrer dans le texte. Formuler des accroches : Créer des phrases marquantes qui résonneront dans la mémoire de la personne. Établir la structure de la chanson  Structurer les paroles : Choisir une structure de chanson classique (couplet, refrain, pont). Par exemple : [Intro] : Présentation ou moment marquant. [Couplet 1] : Décrire un souvenir ou une qualité. [Refrain] : Message clé, mémorable, facile à retenir. [Couplet 2] : Mettre en avant les liens avec ses proches ou d’autres qualités. [Pont] : Variation qui ajoute de l’émotion à la chanson. [Outro] : Résumer ou répéter le message clé. Composer les paroles en {{ $('Execute Workflow Trigger').first().json.data.language }}  Couplet : Commencer par des paroles descriptives qui capturent l’essence de la personne et ce qu’elle inspire. Refrain : Créer un refrain simple, répétitif et accrocheur qui rappelle le message principal et se grave dans la mémoire. Utiliser un langage positif : Utiliser un langage qui évoque des émotions positives et fait ressentir à la personne qu'elle est unique. Adapter le contenu aux valeurs de la personne  Alignement personnel : S'assurer que les paroles reflètent fidèlement les valeurs et moments importants de la personne. Éviter le jargon : Privilégier des mots simples et touchants, compréhensibles par le destinataire. Réviser et tester  Révision : Relire et affiner les paroles pour qu’elles soient fluides et naturelles en musique. Tester : Tester les paroles en chantant pour vérifier leur fluidité et l’impact de chaque section. Finaliser la chanson  Derniers ajustements : Faire les ajustements finaux pour que la chanson soit cohérente et prête à être mise en musique. Nom de la chanson  Donnez un titre à la chanson en {{ $('Execute Workflow Trigger').first().json.data.language }}, comportant au maximum 10 mots, qui inclut un élément représentatif de la personne. [Instrumental intro] [Pre-Intro] Sous les étoiles, son rire éclaire la nuit  Voici un exemple pour les paroles d'une chanson personnalisée :  [Instrumental intro] [Pre-Intro] Dans la douceur du matin, elle éclaire nos chemins, Une amie, une étoile, dans le ciel elle s’installe. [Intro] Elle sourit, elle danse, comme une brise en avance, Avec {{ $('Execute Workflow Trigger').first().json.data.person_name }}, la vie prend tout son sens. [Verse 1] De rires en éclats, elle fait battre les cœurs, Une âme si douce, pleine de chaleur. Elle est l’étincelle, le feu dans la nuit, Avec elle, chaque instant est magie. [Chorus] {{ $('Execute Workflow Trigger').first().json.data.person_name }}, notre rayon de soleil, Chaque jour avec toi, est un jour sans pareil. Ta force et ton amour, ta lumière dans l’ombre, Nous te célébrons, toi, qui jamais ne sombre. [Verse 2] Des souvenirs partagés, des secrets chuchotés, Dans chaque pas, elle nous fait avancer. Un cœur de générosité et de douceur, Un cadeau pour tous, elle nous rend meilleurs. [Chorus] {{ $('Execute Workflow Trigger').first().json.data.person_name }}, notre rayon de soleil, Chaque jour avec toi, est un jour sans pareil. Ta force et ton amour, ta lumière dans l’ombre, Nous te célébrons, toi, qui jamais ne sombre. [Bridge] Tu es l’espoir, le vent de renouveau, Dans chaque rire, un cadeau pour le monde. Avec toi, l’avenir est lumineux, Un trésor précieux, un amour précieux. [Outro] Pour chaque sourire, un monde à éclairer, Avec {{ $('Execute Workflow Trigger').first().json.data.person_name }}, la vie est sublimée. Tu es notre joie, notre bonheur sans fin, Et pour toujours, tu brilleras dans nos mains.  Maintenant, voici les informations sur la personne pour laquelle tu dois écrire une chanson :",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "10c2e2e2-f931-48d8-9710-e2ea618f0369",
+      "name": "Song Writing Instructions",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2360,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "0XUVESvHdVXrB9mx",
+          "mode": "list",
+          "cachedResultName": "Circle - Create post"
+        },
+        "options": {}
+      },
+      "id": "9312400e-b015-43d1-9f74-36f4249c5367",
+      "name": "Create Post",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1800,
+        0
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c9fda34c-d372-4930-acc2-7521bafc4957",
+              "name": "post_id",
+              "value": "={{ $('New post data').first().json.post.id }}",
+              "type": "number"
+            },
+            {
+              "id": "5ef5467d-eda0-4bcb-b215-a4a49f07cdbc",
+              "name": "content",
+              "value": "={{ JSON.stringify($json.content) }}",
+              "type": "array"
+            },
+            {
+              "id": "1d0108ee-7b85-4d18-8c86-f60f28575311",
+              "name": "sender_email",
+              "value": "={{ $vars.hub_content_creator_email }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0079163e-71e9-44c3-ba5a-0303f65a1f5f",
+      "name": "Prepare comment data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6920,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "ae0439b1-d78e-48a0-8994-82b1daafb647",
+      "name": "New post data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2040,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a0b083e7-d2f2-40a9-b8eb-85d1fdf7b0f7",
+              "name": "tags",
+              "value": "={{ $('Input').first().json.genre }}",
+              "type": "string"
+            },
+            {
+              "id": "f013fc6e-93b2-4099-a6f5-6b73fc65cc27",
+              "name": "lyrics",
+              "value": "={{ $json.output.lyrics }}",
+              "type": "string"
+            },
+            {
+              "id": "00ecd33e-3d69-4d12-96b9-2bdf45e1a574",
+              "name": "title",
+              "value": "={{ $json.output.title }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "46956053-ed04-47ef-8d18-ead69f4229e0",
+      "name": "Prepare Music",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3280,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d04a8818-b5bf-492d-9358-e782ae6e8e84",
+      "name": "Music Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4380,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ee0a61c4-4189-4754-9d45-a90b2cbb5ae4",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        520,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "b7Jkcn6XM1Hpa0i5",
+          "mode": "list",
+          "cachedResultName": "Circle - Create Comment"
+        },
+        "options": {}
+      },
+      "id": "ddb81072-5606-4c63-a166-addc462beb37",
+      "name": "Create comment on post",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        7140,
+        -60
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "4fbb12e7-27c3-4c79-b4aa-e2eb1034f8ef",
+      "name": "Aggregate1",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        5940,
+        -120
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T13:57:05.753Z",
+      "updatedAt": "2024-10-22T13:57:05.753Z",
+      "id": "Q3qpTHNcg1K6uHlR",
+      "name": "Routine"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-04T16:03:42.000Z",
+  "versionId": "e183e0ac-02f0-4afc-86ed-a321e1b3bb29"
+}
