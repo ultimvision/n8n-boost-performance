@@ -1,0 +1,334 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Reviewer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM 4o": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Reviewer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent Reviewer",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Add the Url Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Step by Step": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "AI Agent Reviewer": {
+      "main": [
+        [
+          {
+            "node": "Step by Step",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-21T21:39:37.498Z",
+  "id": "WfuhMl4rmgCCACgl",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AI Web Page Reviewer",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "6b103b76-874f-4928-a4f8-78d9bfac76ff",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "ed377900-926a-4043-97f9-0d934f692e6f",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1260,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.data }}",
+        "options": {}
+      },
+      "id": "962164f6-7d2d-428a-8ee8-289980dfae21",
+      "name": "Markdown",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "2c95b88c-84ef-49af-82d3-4bd535919640",
+      "name": "LLM 4o",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        540
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"step_by_step_plan\": \"Step 1, step 2\",\n\t\"content\": \"The detailed content.\"\n}"
+      },
+      "id": "07621f41-1b5a-4f92-9c01-65fafe0dc4b6",
+      "name": "Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1780,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "5a41662b-d35c-4c4a-95cf-c4a8f1266912",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2280,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "url_content",
+          "mode": "list",
+          "cachedResultName": "url_content"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "customer",
+              "value": "={{ $('Workflow Data').item.json[\"customer_id\"] }}"
+            },
+            {
+              "column": "url",
+              "value": "={{ $('Workflow Data').item.json[\"url\"] }}"
+            },
+            {
+              "column": "content",
+              "value": "={{ $json.content }}"
+            },
+            {
+              "column": "step_by_step",
+              "value": "={{ $json.step_by_step_plan }}"
+            },
+            {
+              "column": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "column": "description",
+              "value": "={{ $json.description }}"
+            },
+            {
+              "column": "html_content",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "754c8cd9-6361-4fb8-93a5-782bafd0288c",
+      "name": "Add the Url Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2520,
+        220
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "51ddbc3c-d3e7-4686-a1ee-d3d5d36c3f69",
+              "name": "step_by_step_plan",
+              "value": "={{ $json.output.step_by_step_plan }}",
+              "type": "string"
+            },
+            {
+              "id": "5b46a606-be79-4728-9266-22d060b4c739",
+              "name": "content",
+              "value": "={{ $json.output.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6fbd8897-10df-4739-8dd4-aadb41083c90",
+      "name": "Step by Step",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1960,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ JSON.stringify($json.data) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You must act as a content analysis expert who excels in creating detailed descriptive sheets for content aimed at customers with questions about purchasing a product or customers needing support to use a product.\n\nYour task is to analyze the entirety of the provided textual content and create a structured, step-by-step plan for the content that needs to be prepared for sales, marketing, and customer service.\n\nThen, you will follow the established step-by-step plan to write the descriptive sheet.\n\nHere's the content to analyse:\n\n"
+            }
+          ]
+        }
+      },
+      "id": "006394f1-c687-4e27-aded-8e0c0e0cd722",
+      "name": "AI Agent Reviewer",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        1560,
+        340
+      ],
+      "retryOnFail": true
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T22:01:28.989Z",
+      "updatedAt": "2024-08-26T22:01:28.989Z",
+      "id": "kxxK9uQIRkujnphG",
+      "name": "Assistant"
+    },
+    {
+      "createdAt": "2024-08-21T22:13:12.952Z",
+      "updatedAt": "2024-08-21T22:13:12.952Z",
+      "id": "mJoeScWZH1pi52Xo",
+      "name": "AI Agent"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-08T10:42:33.000Z",
+  "versionId": "4bff9b3f-8b35-46e3-9795-90e1de7a3649"
+}
