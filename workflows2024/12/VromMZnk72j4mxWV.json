@@ -1,0 +1,129 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get coins",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get coins": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-12T17:01:21.858Z",
+  "id": "VromMZnk72j4mxWV",
+  "isArchived": false,
+  "meta": null,
+  "name": "Test REST API",
+  "nodes": [
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "path": "weweb/api",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1efc6b79-1d1c-44a9-823a-48feca73a98a",
+      "name": "Webhook",
+      "webhookId": "3c63fcb4-7c49-40a2-8e06-a6c2325f0491"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "coins",
+          "mode": "list",
+          "cachedResultName": "coins"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        280,
+        -120
+      ],
+      "id": "1e6fe3f8-7ad9-45ff-83b6-b012839d7b47",
+      "name": "Get coins",
+      "credentials": {
+        "mySql": {
+          "id": "woCsFeSlIGUplW2H",
+          "name": "MySQL - DO - dev_tradingai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        500,
+        -120
+      ],
+      "id": "51bb2629-e837-4a96-a859-789efe8f4c1a",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        340,
+        160
+      ],
+      "id": "02cd90fe-0a5a-4cae-96c9-de639dd7a70e",
+      "name": "Respond to Webhook1"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-06T21:15:08.860Z",
+      "updatedAt": "2024-08-06T21:15:08.860Z",
+      "id": "fCd4LZ9ipYWyIPrk",
+      "name": "TEST"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-12-12T17:03:16.000Z",
+  "versionId": "25bc9f32-c233-4661-85b5-75d2e58e59b8"
+}
