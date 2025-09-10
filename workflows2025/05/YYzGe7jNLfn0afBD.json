@@ -1,0 +1,2421 @@
+{
+  "active": false,
+  "connections": {
+    "Run Apify Actor & Get Results": {
+      "main": [
+        []
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Générer message de connexion",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Générer message de connexion": {
+      "main": [
+        [
+          {
+            "node": "Ajouter à Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manuel": {
+      "main": [
+        [
+          {
+            "node": "Client Boost Connect",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer les items": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        []
+      ]
+    },
+    "Get Profile LinkedIn Details": {
+      "main": [
+        []
+      ]
+    },
+    "Insert or Update new Compagnie from Apollo": {
+      "main": [
+        [
+          {
+            "node": "Set Company Info",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set Data from People",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Company Info": {
+      "main": [
+        [
+          {
+            "node": "If Compagnie exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Compagnie exists": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Variable": {
+      "main": [
+        [
+          {
+            "node": "Récupérer les items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Data from People": {
+      "main": [
+        [
+          {
+            "node": "Insert or Update new Compagnie from Apollo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable1": {
+      "main": [
+        [
+          {
+            "node": "Get LinkedIn Profile Reactions Scraper1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get LinkedIn Profile Reactions Scraper2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set JsonConnect": {
+      "main": [
+        []
+      ]
+    },
+    "Client Boost Connect": {
+      "main": [
+        [
+          {
+            "node": "Get Client Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-13T11:23:23.256Z",
+  "id": "YYzGe7jNLfn0afBD",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "DEV APify",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/jljBwyyQakqrL1wae/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"getPersonalEmails\": true,\n    \"getWorkEmails\": true,\n    \"totalRecords\": 500,\n    \"url\": \"{{ $json.url }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        -1000
+      ],
+      "id": "1d77dab7-1998-4865-9807-c01095cec48b",
+      "name": "Run Apify Actor & Get Results",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# 🅱🅾🅾🆂🆃  🅿🅴🆁🅵🅾🆁🅼🅰🅽🅲🅴 🅰🅸 | Get Leads",
+        "height": 80,
+        "width": 1000,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -660,
+        -1140
+      ],
+      "id": "05ef41ad-0e9e-4a2b-8e46-cbe727c40a72",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        -580
+      ],
+      "id": "a8d315d1-ae81-41c1-aa05-faf14cd6a984",
+      "name": "OpenRouter Chat Model1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=LinkedIn content:\n{{ $json.toJsonString() }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Tu es un assistant d’écriture intelligent et efficace.\n\nTa tâche est de prendre en entrée des informations issues d’un profil LinkedIn, puis de générer une accroche, en français, très courte et percutante que je peux utiliser comme variable dans ma demande de connexion.\n\nRetourne uniquement le message, rien d’autre.\n\nPour garantir que les accroches soient percutantes et de qualité, suis ce modèle :\n\nSalut {{name}}, j’ai adoré voir {{thingAboutThem}}. Je m’intéresse aussi à {{plausibleTieIn}}, je me suis dit qu’on pourrait se connecter.\n\nPour {{thingAboutThem}} et {{plausibleTieIn}}, ne reprends jamais les infos exactes du profil LinkedIn. Reformule toujours. Le message doit paraître écrit par un humain, pas généré automatiquement. Garde-le super court. Ne dis jamais des trucs comme « passionné par la réalisation de visions » — sois ultra concis et direct.\n\nExample:\n\nUser:\n{\"linkedInFields\":\"Danielle Morgan, Fort Lauderdale, Founder & CEO at DM Creative Agency, previous experience: Regional Sales Director at Out East Eyewear, Account Director at Radancy\"}\n\nAssistant:\n\"Salut Danielle, super inspiré par ton parcours en agence créative. Je travaille aussi sur le développement de marques, alors je me suis dit qu’on pourrait se connecter.\"\n"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        1160,
+        -800
+      ],
+      "id": "294994f8-6f2f-404f-9a49-520c8414067c",
+      "name": "Générer message de connexion"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appJ1khiBJyILNxR1",
+          "mode": "list",
+          "cachedResultName": "Lead Generator",
+          "cachedResultUrl": "https://airtable.com/appJ1khiBJyILNxR1"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblxYjaIkesox9CPG",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Connexions",
+          "cachedResultUrl": "https://airtable.com/appJ1khiBJyILNxR1/tblxYjaIkesox9CPG"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Message": "={{ $json.text }}",
+            "Nom": "={{ $('Run Apify Actor & Get Results').item.json.name }}",
+            "Apollo Data": "={{ $('Run Apify Actor & Get Results').item.json.toJsonString() }}",
+            "Courriel": "={{ $('Run Apify Actor & Get Results').item.json.email }}",
+            "Titre": "={{ $('Run Apify Actor & Get Results').item.json.title }}",
+            "Profile LinkedIn": "={{ $('Run Apify Actor & Get Results').item.json.linkedin_url }}",
+            "Ville": "={{ $('Run Apify Actor & Get Results').item.json.city }}",
+            "Entreprise": "={{ $('Run Apify Actor & Get Results').item.json.organization?.name }}",
+            "Apollo URL de recherche": "={{ $('On form submission').item.json[\"URL Apollo\"] || $('Générer l\\'URL de recherche Apollo').item.json.text }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Apollo Data",
+              "displayName": "Apollo Data",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Courriel",
+              "displayName": "Courriel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Profile LinkedIn",
+              "displayName": "Profile LinkedIn",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Entreprise",
+              "displayName": "Entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Apollo URL de recherche",
+              "displayName": "Apollo URL de recherche",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1640,
+        -800
+      ],
+      "id": "145992e0-9e0c-4350-a0e7-80d929f276a9",
+      "name": "Ajouter à Airtable"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/actor-tasks",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"actId\": \"jljBwyyQakqrL1wae\",\n  \"name\": \"N8n-Task-Apollo\",\n  \"options\": {\n    \"build\": \"latest\",\n    \"timeoutSecs\": 1000,\n    \"memoryMbytes\": 512\n  },\n  \"input\": {\n    \"cleanOutput\": false,\n    \"fileName\": \"Apollo Prospect\",\n    \"totalRecords\": 500,\n    \"getPersonalEmails\": true,\n    \"getWorkEmails\": true,\n    \"url\": \"{{ $json.url }}\"\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        -880
+      ],
+      "id": "a32acd63-3d6f-4341-8f53-8516e5052bff",
+      "name": "Créer une tâche de recherche",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2540,
+        2200
+      ],
+      "id": "2f6ef729-d310-4d9a-bb2a-87fb6cf69218",
+      "name": "Manuel"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/actor-tasks/I4GBNnAMMgCSpSBps",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        -660
+      ],
+      "id": "7cac2e36-ea9a-4732-a4af-04de992671c8",
+      "name": "Récupérer info de la tâche",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/actor-tasks/I4GBNnAMMgCSpSBps/runs\n",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        -420
+      ],
+      "id": "aedd1335-d7d3-448c-98fa-59a4d2e02229",
+      "name": "Exécuter une tâche",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/actor-runs/v16XtGy4EkhrpVfsU",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        -180
+      ],
+      "id": "e551e740-7c40-436d-828f-9dd19e40821b",
+      "name": "Récupérer info de la run",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/ySyHkFfSV15HTLfqH",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        40
+      ],
+      "id": "5d63d0d5-1401-4acc-b754-3f5d7658e430",
+      "name": "Récupérer les datas",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/ySyHkFfSV15HTLfqH/items\n",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "format",
+              "value": "json"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -220,
+        1280
+      ],
+      "id": "e3f69a67-b86e-46f6-9b93-9c37dca3a0c8",
+      "name": "Récupérer les items",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "maxItems": 100
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -40,
+        1140
+      ],
+      "id": "6959fee4-37f1-4ed5-bf2f-404aee6fa5f3",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/apimaestro~linkedin-profile-detail/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"username\": \"{{ $json.linkedin_url }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        80
+      ],
+      "id": "add0c1c6-3ff1-4b1d-b03c-879b25cb212e",
+      "name": "Get Profile LinkedIn Details",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/apimaestro~linkedin-profile-reactions/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"username\": \"{{ $json.linkedin_url }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        360
+      ],
+      "id": "21300259-94ee-4289-b4d5-977f59c743fb",
+      "name": "Get LinkedIn Profile Reactions Scraper",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/apimaestro~linkedin-profile-full-sections-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"username\": \"{{ $json.linkedin_url }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        680
+      ],
+      "id": "e9d5efee-abb3-4c68-9249-0006809fe032",
+      "name": "Get Linkedin Profile Full Sections Scraper",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Create a task and run",
+        "height": 1260,
+        "width": 420
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        80,
+        -1000
+      ],
+      "id": "fefbff15-6690-44e9-9a65-858f9dea51e2",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Grab Profile Details One per One",
+        "height": 940,
+        "width": 420
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        800,
+        -20
+      ],
+      "id": "c505f13c-e9db-4786-ac68-93e841fff5fb",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "contacts",
+          "mode": "list",
+          "cachedResultName": "contacts"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        520,
+        600
+      ],
+      "id": "0da1ed1c-a4d3-4072-8943-81123de3c1b8",
+      "name": "Postgres1",
+      "credentials": {
+        "postgres": {
+          "id": "VXTmteR52YW9Jz0c",
+          "name": "Postgres Playground account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "entreprises",
+          "mode": "list",
+          "cachedResultName": "entreprises"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "apollo_organization_id": "={{ $json.organization_id }}",
+            "name": "={{ $json.organization.name }}",
+            "website_url": "={{ $json.organization.website_url }}",
+            "linkendin_url": "={{ $json.organization.linkedin_url }}",
+            "facebook_url": "={{ $json.organization.facebook_url }}",
+            "primary_phone": "={{ $json.organization.primary_phone.number }}",
+            "primary_phone_sanitized_number": "={{ $json.organization.primary_phone.sanitized_number }}",
+            "linkedin_uid": "={{ $json.organization.linkedin_uid }}",
+            "founded_year": "={{ $json.organization.founded_year }}",
+            "logo_url": "={{ $json.organization.logo_url }}",
+            "industry": "={{ $json.organization.industry }}",
+            "keywords": "={{ JSON.stringify(Object.fromEntries($json.organization.keywords.map((v, i) => [`keyword${i + 1}`, v]))) }}",
+            "estimated_num_employees": "={{ $json.organization.estimated_num_employees }}",
+            "postal_code": "={{ $json.organization.postal_code }}",
+            "country": "={{ $json.organization.country }}",
+            "state": "={{ $json.organization.state }}",
+            "city": "={{ $json.organization.city }}",
+            "address": "={{ $json.organization.street_address }}",
+            "user_id": "={{ $('Set Variable').item.json.user_uuid }}"
+          },
+          "matchingColumns": [
+            "apollo_organization_id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "apollo_organization_id",
+              "displayName": "apollo_organization_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "website_url",
+              "displayName": "website_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "linkendin_url",
+              "displayName": "linkendin_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "facebook_url",
+              "displayName": "facebook_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "primary_phone",
+              "displayName": "primary_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "primary_phone_sanitized_number",
+              "displayName": "primary_phone_sanitized_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "linkedin_uid",
+              "displayName": "linkedin_uid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "founded_year",
+              "displayName": "founded_year",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "logo_url",
+              "displayName": "logo_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "industry",
+              "displayName": "industry",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "keywords",
+              "displayName": "keywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "address",
+              "displayName": "address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "city",
+              "displayName": "city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "state",
+              "displayName": "state",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "postal_code",
+              "displayName": "postal_code",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "estimated_num_employees",
+              "displayName": "estimated_num_employees",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        520,
+        760
+      ],
+      "id": "f8c25be1-c6e4-43af-97be-1bdfc79d897f",
+      "name": "Insert or Update Entreprise",
+      "credentials": {
+        "postgres": {
+          "id": "VXTmteR52YW9Jz0c",
+          "name": "Postgres Playground account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "contacts",
+          "mode": "list",
+          "cachedResultName": "contacts"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "first_name",
+              "displayName": "first_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "last_name",
+              "displayName": "last_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "linkedin_url",
+              "displayName": "linkedin_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "email_status",
+              "displayName": "email_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "photo_url",
+              "displayName": "photo_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "twitter_url",
+              "displayName": "twitter_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "github_url",
+              "displayName": "github_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "facebook_url",
+              "displayName": "facebook_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "headline",
+              "displayName": "headline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "employment_history",
+              "displayName": "employment_history",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "entreprise_id",
+              "displayName": "entreprise_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        520,
+        960
+      ],
+      "id": "12348758-2b97-45ad-8bee-2de6a7dc90f7",
+      "name": "Insert or Update Contacts",
+      "credentials": {
+        "postgres": {
+          "id": "VXTmteR52YW9Jz0c",
+          "name": "Postgres Playground account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "appqouWoLSXFcLg27",
+          "mode": "list",
+          "cachedResultName": "Leads Platform",
+          "cachedResultUrl": "https://airtable.com/appqouWoLSXFcLg27"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblAE9pCoPBXAWSSm",
+          "mode": "list",
+          "cachedResultName": "Compagnies",
+          "cachedResultUrl": "https://airtable.com/appqouWoLSXFcLg27/tblAE9pCoPBXAWSSm"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Identifiant Organisation Apollo": "={{ $json.organization_id }}",
+            "Nom Compagnie": "={{ $json.organization.name }}",
+            "Site Web": "={{ $json.organization.website_url }}",
+            "Lien LinkedIn": "={{ $json.organization.linkedin_url }}",
+            "Lien Facebook": "={{ $json.organization.facebook_url }}",
+            "Téléphone Principal": "={{ $json.organization.primary_phone.number }}",
+            "Téléphone (Format Normalisé)": "={{ $json.organization.primary_phone.sanitized_number }}",
+            "Identifiant LinkedIn": "={{ $json.organization.linkedin_uid }}",
+            "Année De Fondation": "={{ $json.organization.founded_year }}",
+            "Logo (URL)": "={{ $json.organization.logo_url }}",
+            "Secteur Activité": "={{ $json.organization.industry }}",
+            "Mots-Clés": "={{ JSON.stringify($json.organization.keywords) }}",
+            "Adresse": "={{ $json.organization.street_address }}",
+            "Ville": "={{ $json.organization.city }}",
+            "Province": "={{ $json.organization.state }}",
+            "Pays": "={{ $json.organization.country }}",
+            "Code Postal": "={{ $json.organization.postal_code }}",
+            "Nombre Estimé Employés": "={{ $json.organization.estimated_num_employees }}",
+            "Utilisateurs": "=['{{ $('Set Variable').item.json.user_uuid }}']"
+          },
+          "matchingColumns": [
+            "Identifiant Organisation Apollo"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nom Compagnie",
+              "displayName": "Nom Compagnie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Identifiant Organisation Apollo",
+              "displayName": "Identifiant Organisation Apollo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Site Web",
+              "displayName": "Site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lien LinkedIn",
+              "displayName": "Lien LinkedIn",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lien Facebook",
+              "displayName": "Lien Facebook",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone Principal",
+              "displayName": "Téléphone Principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone (Format Normalisé)",
+              "displayName": "Téléphone (Format Normalisé)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Identifiant LinkedIn",
+              "displayName": "Identifiant LinkedIn",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Année De Fondation",
+              "displayName": "Année De Fondation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Logo (URL)",
+              "displayName": "Logo (URL)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Secteur Activité",
+              "displayName": "Secteur Activité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Mots-Clés",
+              "displayName": "Mots-Clés",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Adresse",
+              "displayName": "Adresse",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Province",
+              "displayName": "Province",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Pays",
+              "displayName": "Pays",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Code Postal",
+              "displayName": "Code Postal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nombre Estimé Employés",
+              "displayName": "Nombre Estimé Employés",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Utilisateurs",
+              "displayName": "Utilisateurs",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Imported table",
+              "displayName": "Imported table",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        580,
+        1340
+      ],
+      "id": "9e7a1c43-e653-44b6-acb6-af6e43889921",
+      "name": "Insert or Update new Compagnie from Apollo",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e0246b4b-cd52-487d-b3d0-35f4044bbec6",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        840,
+        1160
+      ],
+      "id": "f9ff7dc0-13bf-4870-9859-c24c4707ce86",
+      "name": "Set Company Info"
+    },
+    {
+      "parameters": {
+        "batchSize": 50,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        140,
+        1260
+      ],
+      "id": "84ff8896-440d-4cb7-94e1-f44ba670fdfe",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "027b5329-949f-469e-b07f-e56d3a7eb0dc",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "0a4f138e-19ed-42c6-9a72-83f157ce7d9c",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1020,
+        1320
+      ],
+      "id": "2560c509-86fe-4339-9944-9541ce5efe38",
+      "name": "If Compagnie exists"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "appqouWoLSXFcLg27",
+          "mode": "list",
+          "cachedResultName": "Leads Platform",
+          "cachedResultUrl": "https://airtable.com/appqouWoLSXFcLg27"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblpxuiyiGDvZXUzG",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/appqouWoLSXFcLg27/tblpxuiyiGDvZXUzG"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Affiche Intention": "={{ $('Set Data from People').item.json.show_intent }}",
+            "Numéro Contact Apollo ": "={{ $('Set Data from People').item.json.id }}",
+            "Compagnie": "=['{{ $('Set Company Info').item.json.id }}']",
+            "Utilisateur": "=['{{ $('Set Variable').item.json.user_uuid }}']",
+            "Prénom": "={{ $('Set Data from People').item.json.first_name }}",
+            "Nom": "={{ $('Set Data from People').item.json.last_name }}",
+            "Lien LinkedIn": "={{ $('Set Data from People').item.json.linkedin_url }}",
+            "Titre": "={{ $('Set Data from People').item.json.title }}",
+            "Statut Courriel": "={{ $('Set Data from People').item.json.email_status }}",
+            "URL Photo": "={{ $('Set Data from People').item.json.photo_url }}",
+            "Lien Twitter": "={{ $('Set Data from People').item.json.twitter_url }}",
+            "Lien Github": "={{ $('Set Data from People').item.json.github_url }}",
+            "Lien Facebook": "={{ $('Set Data from People').item.json.facebook_url }}",
+            "Confiance Courriel Extrapolé": "={{ $('Set Data from People').item.json.extrapolated_email_confidence }}",
+            "Poste Actuel": "={{ $('Set Data from People').item.json.headline }}",
+            "Courriel Professionnel": "={{ $('Set Data from People').item.json.email }}",
+            "Province": "={{ $('Set Data from People').item.json.state }}",
+            "Ville": "={{ $('Set Data from People').item.json.city }}",
+            "Pays": "={{ $('Set Data from People').item.json.country }}",
+            "Départements": "={{ JSON.stringify($('Set Data from People').item.json.departments) }}",
+            "Sous Départements": "={{ JSON.stringify($('Set Data from People').item.json.subdepartments) }}",
+            "Séniorité": "={{ $('Set Data from People').item.json.seniority }}",
+            "Fonctions": "={{ JSON.stringify($('Set Data from People').item.json.functions) }}",
+            "Force Intention": "={{ $('Set Data from People').item.json.intent_strength }}",
+            "Domaine Courriel Catchall": "={{ $('Set Data from People').item.json.email_domain_catchall }}",
+            "Courriels Personnels": "={{ JSON.stringify($('Set Data from People').item.json.personal_emails) }}",
+            "Emplois Précédents": "={{ JSON.stringify($('Set Data from People').item.json.employment_history) }}"
+          },
+          "matchingColumns": [
+            "Numéro Contact Apollo "
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nom Complet",
+              "displayName": "Nom Complet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Numéro Contact Apollo ",
+              "displayName": "Numéro Contact Apollo ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Création",
+              "displayName": "Date Création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Compagnie",
+              "displayName": "Compagnie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Utilisateur",
+              "displayName": "Utilisateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lien LinkedIn",
+              "displayName": "Lien LinkedIn",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Titre",
+              "displayName": "Titre",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Statut Courriel",
+              "displayName": "Statut Courriel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL Photo",
+              "displayName": "URL Photo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lien Twitter",
+              "displayName": "Lien Twitter",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lien Github",
+              "displayName": "Lien Github",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lien Facebook",
+              "displayName": "Lien Facebook",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Confiance Courriel Extrapolé",
+              "displayName": "Confiance Courriel Extrapolé",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Poste Actuel",
+              "displayName": "Poste Actuel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Emplois Précédents",
+              "displayName": "Emplois Précédents",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Courriel Professionnel",
+              "displayName": "Courriel Professionnel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Province",
+              "displayName": "Province",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Pays",
+              "displayName": "Pays",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Départements",
+              "displayName": "Départements",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Sous Départements",
+              "displayName": "Sous Départements",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Séniorité",
+              "displayName": "Séniorité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fonctions",
+              "displayName": "Fonctions",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Force Intention",
+              "displayName": "Force Intention",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Affiche Intention",
+              "displayName": "Affiche Intention",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Domaine Courriel Catchall",
+              "displayName": "Domaine Courriel Catchall",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Courriels Personnels",
+              "displayName": "Courriels Personnels",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1300,
+        1240
+      ],
+      "id": "7596483e-5114-4080-8452-c36ab603808e",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "24f4cb1b-0f65-4279-b5c2-00f9dc9f2b67",
+              "name": "url",
+              "value": "https://app.apollo.io/#/people?contactEmailExcludeCatchAll=true&sortAscending=false&sortByField=recommendations_score&personLocations%5B%5D=Saguenay%2C+Canada&page=1&organizationNumEmployeesRanges%5B%5D=1%2C10&organizationNumEmployeesRanges%5B%5D=11%2C20&organizationNumEmployeesRanges%5B%5D=21%2C50",
+              "type": "string"
+            },
+            {
+              "id": "f3c8f7e1-9453-4dda-b56c-f4dd0eddc74e",
+              "name": "user_uuid",
+              "value": "recKv5q1TXfw1r9qT",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -460,
+        1280
+      ],
+      "id": "2a7ff84f-c991-4f1d-8d28-4c3c9dfee3d3",
+      "name": "Set Variable"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        1340
+      ],
+      "id": "77c286aa-f1f6-424a-b27b-56bd124875ad",
+      "name": "Set Data from People"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        1600
+      ],
+      "id": "21f30564-0186-4d62-9534-032bfb7d9251",
+      "name": "Clean Data"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/apimaestro~linkedin-profile-reactions/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"username\": \"{{ $json[\"Lien LinkedIn\"] }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -860,
+        2140
+      ],
+      "id": "eb95fc34-77c0-4ff5-a012-049a19c861c4",
+      "name": "Get LinkedIn Profile Reactions Scraper1",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appqouWoLSXFcLg27",
+          "mode": "list",
+          "cachedResultName": "Leads Platform",
+          "cachedResultUrl": "https://airtable.com/appqouWoLSXFcLg27"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblpxuiyiGDvZXUzG",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/appqouWoLSXFcLg27/tblpxuiyiGDvZXUzG"
+        },
+        "returnAll": false,
+        "limit": 1,
+        "options": {},
+        "sort": {
+          "property": [
+            {
+              "field": "Date Création"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -1160,
+        2220
+      ],
+      "id": "47e812c9-6e89-46f7-bdfb-8bc2125c1e82",
+      "name": "Airtable1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/acts/apimaestro~linkedin-profile-comments/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"username\": \"{{ $json[\"Lien LinkedIn\"] }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -880,
+        2400
+      ],
+      "id": "130f4a54-a4e4-4e8e-8b47-080cc9e3e345",
+      "name": "Get LinkedIn Profile Reactions Scraper2",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.airtable.com/v0/{{ $json.baseId }}/Contacts",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "maxRecords",
+              "value": "2"
+            },
+            {
+              "name": "fields",
+              "value": "={{ [\"Prénom\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.key }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1500,
+        2200
+      ],
+      "id": "0866adc5-c346-460b-b947-306d814df121",
+      "name": "HTTP Get Contacts from Lead"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e2db6d1-efcf-4fb0-a1d8-9ec0051f9575",
+              "name": "key",
+              "value": "patWeLCqAbZBcclAR.38bf85afbe78bd4abaf2c79a014907fddcf9fa729814de5d401aaa8f62356256",
+              "type": "string"
+            },
+            {
+              "id": "be97fa47-601d-4887-b2c4-a817d2991898",
+              "name": "baseId",
+              "value": "appqouWoLSXFcLg27",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1820,
+        2200
+      ],
+      "id": "cef403a0-529c-4e5e-877f-04946cf51592",
+      "name": "Set JsonConnect"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5f9ef06d-d3bc-4270-9cc6-d736c240f3dd",
+              "name": "client_uuid",
+              "value": "12d69ba5-0075-42ab-bd4a-54c14a9e548b",
+              "type": "string"
+            },
+            {
+              "id": "f6e172d4-b686-48d3-9418-8e74558b6e3e",
+              "name": "ClientRecId",
+              "value": "recs8gCDfTR73ncoY",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2320,
+        2200
+      ],
+      "id": "9537a4e3-68e7-41d8-8c80-830af3eecf5b",
+      "name": "Client Boost Connect"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "app61n2zYFNQfA9NF",
+          "mode": "list",
+          "cachedResultName": "Boost Connect 1.0",
+          "cachedResultUrl": "https://airtable.com/app61n2zYFNQfA9NF"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblhncZ8c2pMv2U9l",
+          "mode": "list",
+          "cachedResultName": "Clients",
+          "cachedResultUrl": "https://airtable.com/app61n2zYFNQfA9NF/tblhncZ8c2pMv2U9l"
+        },
+        "id": "={{ $json.ClientRecId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -2100,
+        2200
+      ],
+      "id": "fbde5991-9fce-43b2-bcec-2bd03ddb4036",
+      "name": "Get Client Info",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-20T17:25:19.000Z",
+  "versionId": "abbaa45c-16d0-4efe-b7d2-6952f667a036"
+}
