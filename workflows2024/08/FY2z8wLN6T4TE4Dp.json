@@ -1,0 +1,252 @@
+{
+  "active": false,
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Extract title tag and meta description",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Extract title tag and meta description": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Return Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-21T20:32:56.129Z",
+  "id": "FY2z8wLN6T4TE4Dp",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Convert HTML in Markdown",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "caf50ad5-db94-4657-aef8-cb68725b8f35",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        260,
+        600
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "id": "f8ed15ee-c5d7-4c79-9d59-cb04a3f0e345",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        260,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.data }}",
+        "options": {
+          "ignore": "img,a,button"
+        }
+      },
+      "id": "346785f9-bb15-4ff3-ae64-1f703d5f2b52",
+      "name": "Markdown",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {}
+      },
+      "id": "c5c06fe0-8865-440c-84a1-6adb624f2606",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        700,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "8aa2dde4-12b6-4ebf-9788-c8270ebb301a",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "48198ca3-cca0-4da0-bd6a-d6d8779085f2",
+              "name": "url",
+              "value": "={{ $('Workflow Data').item.json[\"url\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "613647a8-d3af-4a9d-9c98-e755d1b65adf",
+              "name": "customer_id",
+              "value": "={{ $('Workflow Data').item.json[\"customer_id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "af024579-5db7-4dd6-a536-d6fa5f203e74",
+      "name": "Return Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1440,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "title",
+              "cssSelector": "title"
+            },
+            {
+              "key": "description",
+              "cssSelector": "meta[name=\"description\"]",
+              "returnValue": "attribute",
+              "attribute": "content"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dd520e21-6b68-41a1-8732-e2214e4513bb",
+      "name": "Extract title tag and meta description",
+      "type": "n8n-nodes-base.html",
+      "position": [
+        1000,
+        240
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "3f8ea901-1c3b-4a84-b11e-252b657238b2",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1260,
+        380
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-21T22:13:12.952Z",
+      "updatedAt": "2024-08-21T22:13:12.952Z",
+      "id": "mJoeScWZH1pi52Xo",
+      "name": "AI Agent"
+    },
+    {
+      "createdAt": "2024-08-23T11:08:00.035Z",
+      "updatedAt": "2024-08-23T11:08:00.035Z",
+      "id": "utsbeq43faVbBEYy",
+      "name": "Function"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-23T17:19:29.000Z",
+  "versionId": "4167fa69-5b9b-4bd2-8bee-bce7bc994928"
+}
