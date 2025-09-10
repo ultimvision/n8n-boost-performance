@@ -1,0 +1,1055 @@
+{
+  "active": false,
+  "connections": {
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Generate Scenes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Scenes",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text-to-Image": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Image": {
+      "main": [
+        [
+          {
+            "node": "Image-to-Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image-to-Video": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Get Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Video": {
+      "main": [
+        [
+          {
+            "node": "Text-to-Sound",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text-to-Sound": {
+      "main": [
+        [
+          {
+            "node": "Upload MP3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload MP3": {
+      "main": [
+        [
+          {
+            "node": "Update Access",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Update Access": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "List Elements",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Elements": {
+      "main": [
+        [
+          {
+            "node": "Render Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Render Video": {
+      "main": [
+        [
+          {
+            "node": "Final Video Link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Generate Scenes",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Video Prompts",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Caption Prompts",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Generate Scenes": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Caption Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Video Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Prompts": {
+      "main": [
+        [
+          {
+            "node": "Text-to-Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Caption Prompts": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-04T20:35:48.495Z",
+  "id": "FyGGFwzVXpQcKtn3",
+  "isArchived": false,
+  "meta": null,
+  "name": "Faceless Video Generation",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1PiOKciq_uBKVxEoF90eMVQOGCbg9TJ6QE2-s9aq6l1s",
+          "mode": "list",
+          "cachedResultName": "Faceless Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PiOKciq_uBKVxEoF90eMVQOGCbg9TJ6QE2-s9aq6l1s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PiOKciq_uBKVxEoF90eMVQOGCbg9TJ6QE2-s9aq6l1s/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "status",
+              "lookupValue": "pending"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1180,
+        20
+      ],
+      "id": "781ed1dd-4b4d-444e-bd9f-9b7c4b96d541",
+      "name": "Google Sheets"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1140,
+        220
+      ],
+      "id": "b53e904b-2c0e-4659-a427-4a40a0d10439",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "content": "## Prompt Generation\n- Image, video, and caption prompts\n",
+        "height": 460,
+        "width": 1040,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -460,
+        -260
+      ],
+      "id": "bf7dbe04-794e-4cd4-bb6f-47a6e9d707a1",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.piapi.ai/api/v1/task",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={\n    \"model\": \"Qubico/flux1-dev\",\n    \"task_type\": \"txt2img\",\n    \"input\": {\n        \"prompt\": \"{{ $('Image Prompts').item.json.message.content }}\",\n        \"width\": 540,\n        \"height\": 960\n    }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -160,
+        300
+      ],
+      "id": "899197ee-8b3c-445d-aa68-09b71b2c1181",
+      "name": "Text-to-Image"
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        20,
+        300
+      ],
+      "id": "028a0af6-bb8d-43b2-81bd-3503257dac48",
+      "name": "Wait",
+      "webhookId": "11cf6ed9-265d-45d2-8eb4-2228e7faa4db"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.piapi.ai/api/v1/task/{{ $json.data.task_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        300
+      ],
+      "id": "20dfce7b-86ad-4446-b620-dc33c4ab1c4a",
+      "name": "Get Image"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.piapi.ai/api/v1/task",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={\n    \"model\": \"kling\",\n    \"mode\": \"pro\",\n    \"task_type\": \"video_generation\",\n    \"input\": {\n        \"prompt\": \"{{ $('Video Prompts').item.json.text }}\",\n        \"negative_prompt\": \"bad quality\",\n        \"cfg_scale\": 0.65,\n        \"duration\": 5,\n        \"image_url\": \"{{ $json.data.output.image_url }}\",\n        \"camera_control\": {\n            \"type\": \"simple\",\n            \"config\": {\n                \"horizontal\": 0,\n                \"vertical\": 0,\n                \"pan\": 0,\n                \"tilt\": 0,\n                \"roll\": 0,\n                \"zoom\": 0\n            }\n        }\n    },\n    \"config\": {}\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -160,
+        540
+      ],
+      "id": "077bd4cc-3c2f-41d1-9476-e17ceb52a601",
+      "name": "Image-to-Video"
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        40,
+        540
+      ],
+      "id": "fd04e2b7-fc32-4d9a-a837-823f92774bfa",
+      "name": "Wait1",
+      "webhookId": "e8f927fd-19e1-4b40-bc53-6eb3cb4f26cf"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.piapi.ai/api/v1/task/{{ $json.data.task_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        540
+      ],
+      "id": "905b544c-3f63-4880-9498-fd513d838321",
+      "name": "Get Video"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/sound-generation",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={\n  \"text\": \"Generate a seamless, looping ambient soundtrack evoking the atmosphere of: {{ $('Google Sheets').first().json.idea }}. Focus on mood and background texture.\",\n  \"duration_seconds\": 5,\n  \"prompt_influence\": 0.6\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -160,
+        820
+      ],
+      "id": "e8cf6a92-a97a-4eea-ab63-da928bfc74ad",
+      "name": "Text-to-Sound",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "name": "={{ $json.data.task_id }}.mp3",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1SwBox2TrTTG8y79xhK_rYgpO_3MCMASv",
+          "mode": "list",
+          "cachedResultName": "Faceless-Video",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1SwBox2TrTTG8y79xhK_rYgpO_3MCMASv"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        40,
+        820
+      ],
+      "id": "3e6cc4c8-1ec5-4bdd-aba0-acfac58c2c74",
+      "name": "Upload MP3"
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "writer",
+            "type": "anyone",
+            "allowFileDiscovery": true
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        220,
+        820
+      ],
+      "id": "ed96ff4b-0993-421e-90ef-0c0311c8a060",
+      "name": "Update Access"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 4,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        900,
+        560
+      ],
+      "id": "4b586aa2-b019-4318-9a07-2dd73a53fc6b",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Code for the FINAL node (after the Merge node)\n\n// Input 'items' is an array containing the SINGLE merged item from the Merge node\nconst mergedItemJson = items[0]?.json;\n\n// --- Validation ---\nif (!mergedItemJson) {\n  console.error(\"Merged item JSON not found in input.\");\n  return [{ json: { error: \"Input data missing\", scene_titles: [], video_urls: [], sound_urls: [] } }];\n}\n\n// --- Initialize Output Arrays ---\nlet titles = [];\nlet videoUrls = [];\nlet soundUrls = [];\n\n// --- 1. Extract Titles (More Robust Logic) ---\ntry {\n  const textContent = mergedItemJson.text;\n  if (typeof textContent === 'string' && textContent.trim() !== '') {\n    titles = textContent\n      .split('\\n') // Split by SINGLE newline\n      .map(line => line.trim()) // Trim whitespace\n      .filter(line => line !== '') // Filter empty lines\n      .map(line => line.replace(/^\\d+\\.\\s*/, '').trim()) // Remove leading \"N. \"\n      .map(line => { // <-- NEW STEP: Remove surrounding quotes\n        // Remove quotes if they exist at both start and end\n        if ((line.startsWith('\"') && line.endsWith('\"')) || (line.startsWith(\"'\") && line.endsWith(\"'\"))) {\n          return line.slice(1, -1).trim(); // Remove first and last char, trim again\n        }\n        return line; // Return line as is if no surrounding quotes\n      });\n    console.log(`Extracted ${titles.length} titles:`, titles);\n  } else {\n    console.warn(\"Titles 'text' property missing or empty in merged data.\");\n  }\n} catch (e) {\n  console.error(\"Error parsing titles:\", e);\n}\n\n// --- Sections 2, 3, 4, 5 (Video URLs, Sound URL, Sound Repetition, Sanity Check) remain the same ---\n// ... (Paste the code for sections 2, 3, 4, 5 from the previous correct version here) ...\n\n\n// --- 2. Extract Video URLs from the Consolidated Array ---\ntry {\n  const videoResultsArray = mergedItemJson.data;\n  if (Array.isArray(videoResultsArray)) {\n    videoUrls = videoResultsArray.map((videoResultItem, index) => {\n      if (!videoResultItem) {\n          console.warn(`Video result item at index ${index} is null or undefined.`);\n          return null;\n      }\n      const path1 = videoResultItem.data?.output?.works?.[0]?.video?.resource_without_watermark;\n      const path2 = videoResultItem.data?.output?.video_url;\n      const path3 = videoResultItem.data?.output?.works?.[0]?.video?.resource;\n      const foundUrl = path1 || path2 || path3 || null;\n       if (!foundUrl) {\n           console.warn(`Could not find video URL for item at index ${index} within the video array.`);\n       }\n      return foundUrl;\n    }).filter(url => url !== null);\n    console.log(`Extracted ${videoUrls.length} video URLs.`);\n  } else {\n    console.warn(\"Video results array ('data' key) missing or not an array in merged data.\");\n  }\n} catch (e) {\n  console.error(\"Error parsing video URLs:\", e);\n}\n\n// --- 3. Extract Single Sound URL ---\nlet singleSoundUrl = null;\ntry {\n  singleSoundUrl = mergedItemJson.webContentLink;\n  if (singleSoundUrl) {\n    console.log(\"Extracted sound URL.\");\n  } else {\n    console.warn(\"Sound 'webContentLink' property missing in merged data.\");\n  }\n} catch (e) {\n  console.error(\"Error parsing sound URL:\", e);\n}\n\n// --- 4. Create Final Sound URLs array (Repeating) ---\nif (titles.length > 0) {\n  if (singleSoundUrl) {\n    soundUrls = titles.map(_ => singleSoundUrl);\n  } else {\n    soundUrls = titles.map(_ => null);\n  }\n  console.log(`Created ${soundUrls.length} sound URL entries.`);\n} else {\n    console.warn(\"Cannot create sound URLs because no titles were extracted.\");\n}\n\n// --- 5. Sanity Check & Alignment ---\nif (titles.length > 0 && titles.length !== videoUrls.length) {\n  console.warn(`*** Alignment Mismatch: ${titles.length} titles vs ${videoUrls.length} video URLs. Data might be misaligned. ***`);\n  // Optional: Add truncation/padding logic here if needed\n}\n\n\n// --- 6. Construct Final Output Data ---\nconst resultData = {\n  scene_titles: titles,\n  video_urls: videoUrls,\n  sound_urls: soundUrls\n};\n\nconsole.log(\"Final constructed data:\", JSON.stringify(resultData, null, 2));\n\n// Return the result structure wrapped in an array, inside the 'json' property of an item\nreturn [{ json: resultData }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1060,
+        580
+      ],
+      "id": "90d6dfd9-6a64-4019-8a45-c4b7b5014132",
+      "name": "List Elements"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.creatomate.com/v1/renders",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"template_id\": \"aa6819bb-f781-472e-ae51-ab63e6df8b9d\",\n  \"modifications\": {\n    \"Audio-1.source\": \"{{ $json.sound_urls[0] }}\",\n    \"Audio-2.source\": \"{{ $json.sound_urls[1] }}\",\n    \"Audio-3.source\": \"{{ $json.sound_urls[2] }}\",\n    \"Video-1.source\": \"{{ $json.video_urls[0] }}\",\n    \"Video-2.source\": \"{{ $json.video_urls[1] }}\",\n    \"Video-3.source\": \"{{ $json.video_urls[2] }}\",\n    \"Text-1.text\": \"{{ $json.scene_titles[0] }}\",   \n    \"Text-2.text\": \"{{ $json.scene_titles[1] }}\",  \n    \"Text-3.text\": \"{{ $json.scene_titles[2] }}\"    \n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1240,
+        580
+      ],
+      "id": "2621a9c6-3902-4580-a2f8-603540ba34c9",
+      "name": "Render Video",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1PiOKciq_uBKVxEoF90eMVQOGCbg9TJ6QE2-s9aq6l1s",
+          "mode": "list",
+          "cachedResultName": "Faceless Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PiOKciq_uBKVxEoF90eMVQOGCbg9TJ6QE2-s9aq6l1s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PiOKciq_uBKVxEoF90eMVQOGCbg9TJ6QE2-s9aq6l1s/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "idea": "=",
+            "id": "={{ $('Google Sheets').first().json.id }}",
+            "status": "complete",
+            "video_link": "={{ $json.url }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "idea",
+              "displayName": "idea",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "style",
+              "displayName": "style",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "number_of_scenes",
+              "displayName": "number_of_scenes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "video_link",
+              "displayName": "video_link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1420,
+        580
+      ],
+      "id": "d1494601-6117-4130-81e1-47c463837a28",
+      "name": "Final Video Link"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1360,
+        20
+      ],
+      "id": "aa4c266f-2c92-4071-be6a-2bcf584ea39a",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -680,
+        20
+      ],
+      "id": "fbd24b52-95e1-46bb-a986-8004d60818eb",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "[\n  {\n    \"scene_concept\": \"A short description of the first scene concept\"\n  },\n  {\n    \"scene_concept\": \"A short description of the second scene concept\"\n  }\n]"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -980,
+        220
+      ],
+      "id": "bbce401e-79f1-431e-a0d1-465a12c49c3b",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        100
+      ],
+      "id": "868399ea-a4dc-4d56-a966-284021d25bbd",
+      "name": "OpenAI Chat Model2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        -60
+      ],
+      "id": "a801c9a5-6916-4ed1-b6b6-c7a44ce1896b",
+      "name": "OpenAI Chat Model3"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        620,
+        540
+      ],
+      "id": "7e0b1177-3229-4d80-aade-b1927a47a299",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.idea }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are a creative assistant tasked with generating representative scene concepts for a video focused on a specific subject. Your goal is to output a single, clean, numbered list of text which a downstream system will parse into separate items.\n\n**Subject Focus:** {{ $('Google Sheets').first().json.subject || \"Ancient Rome\" }}  \n**(To adapt this prompt for a different subject, simply change the input value providing the 'Subject Focus' above)**\n**Number of Scenes Required:** {{ $('Google Sheets').first().json.num_scenes || 3 }}\n\nGenerate **exactly** {{ $('Google Sheets').first().json.num_scenes || 3 }} distinct scene concepts based on the **Subject Focus**. Each concept should:\n- Be a vivid, evocative descriptive phrase (5-15 words).\n- Represent a visually compelling moment clearly recognizable as belonging to the Subject Focus.\n- Showcase *different facets* of the Subject Focus (e.g., iconic landmarks, typical daily life, key figures/elements, characteristic atmosphere, symbolic events).\n- Vary in composition (close-ups, medium shots, wide establishing shots), emotion, and perspective.\n- Incorporate diversity in lighting, mood, and energy appropriate to the Subject Focus.\n\n**Output Format Requirements (Strictly Follow):**\n1. List each scene concept on a new line.\n2. Your entire response MUST consist **only** of this numbered list of plain text. Do not add any summaries, closing remarks, explanations, variations, code formatting, or any text before or after the list.\n\n**Example Input:**\nSubject Focus: Ancient Rome\nNumber of Scenes Required: 3\n\n**Example Correct Plain Text Output (This is the exact text format you must generate):**\n1. Sweeping panorama of Rome from Palatine Hill at sunset\n2. Sunbeams illuminating the vast interior of the Pantheon dome\n3. A view of the Colosseum from the street \n\n**(Note for context, not for you to generate):** A downstream system will take the plain text list you generate and parse it into separate JSON objects like `[{\"text\": \"Scene 1 text\"}, {\"text\": \"Scene 2 text\"}, ...]`. Your job is ONLY to provide the correctly formatted plain text list above.**\n\nNow, generate the scene concepts for the provided **Subject Focus** following these exact formatting rules for plain text output."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        -1020,
+        20
+      ],
+      "id": "d2ea2b3b-cc3c-4d55-a7fa-25394a8dd203",
+      "name": "Generate Scenes"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert image prompt generator. Take the scene concept below and expand it into a single, detailed, cinematic image prompt suitable for AI image generation (like Midjourney or Flux).\n\nOverall Video Theme: {{ $('Google Sheets').first().json.idea }}\nSpecific Scene Concept: {{ $json.scene_concept }} \nDesired Style/Environment: {{ $('Google Sheets').item.json.style || 'hyper-realistic' }}\nGuidelines:\n- Create a rich, atmospheric description.\n- Focus on visual details, lighting, composition, and mood.\n- Incorporate the desired style/environment.\n- Keep the prompt under 1000 characters.\n- Do NOT force a first-person POV or visible limbs unless the scene concept *clearly* implies it (e.g., \"POV of holding a glowing orb\"). Default to cinematic camera angles.\n\nExample Scene Concept: Wood elf in a forest with an 80s fantasty style\nExample Output: A luminous wood elf maiden captured in authentic 80s fantasy film aesthetic. Her delicate fairy wings shimmer as she stands amid a mystical forest bathed in warm, magical light. Her emerald gown catches and reflects the surrounding ethereal glow. Framed in a waist-up composition, her youthful face is complemented by flowing golden-blonde hair with soft, feathery bangs.\nThe cinematography features dreamlike bokeh backgrounds and the distinctive look of Panavision lenses, creating the nostalgic visual signature reminiscent of beloved fantasy classics like \"The NeverEnding Story\" and \"Legend.\" The image maintains photorealistic quality with characteristic 80s film elements—subtle grain texture, rich shadows, and glowing highlights that enhance the magical atmosphere."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -400,
+        20
+      ],
+      "id": "876fa6d0-cd10-4ecc-ba99-bcb764032020",
+      "name": "Image Prompts"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an AI assistant specializing in creating descriptive prompts for an image-to-video AI model (like Kling) to guide its animation.\n\nYou will receive a detailed prompt that was used to generate a static image, and the original scene concept. An image generated from the detailed prompt will serve as the starting point for the 5-second video clip.\n\nYour task is to generate a NEW, descriptive prompt detailing the action, camera movement, atmospheric changes, or character evolution that should occur during the video, building upon the provided static image and concept.\n\n**Context:**\nOverarching video idea: {{ $('Google Sheets').item.json.idea }}\nDetailed Static Image Prompt (that created the starting image): {{ $('Image Prompts').item.json.message.content }}\n\n**Instructions:**\n1.  **Focus on Dynamics:** Describe what *changes* or *moves* during the 5 seconds. This could be camera motion, environmental effects (light changing, smoke swirling, weather shifting), object interaction, or subtle character animation.\n2.  **Be Descriptive:** Elaborate on the *quality* of the motion or change. Instead of just \"zoom in\", consider \"A slow, ominous camera zoom towards the flickering artifact, revealing intricate, glowing runes on its surface as shadows deepen around it.\"\n3.  **Maintain Consistency:** Ensure the described action logically follows from the static image prompt and the scene concept.\n4.  **Atmospheric Detail:** Include details about how the atmosphere or lighting might evolve during the action.\n5.  **Output ONLY the video prompt text.** Do not include introductions, explanations, labels, quotation marks, or the original context in your final output.\n\n**Example Input Context:**\nScene Concept: Gleaming chrome blades reflecting stormy sky\nStatic Image Prompt: Extreme close-up on intricate, razor-sharp chrome blades comprising the Shrike's hand, reflecting a turbulent dark sky filled with lightning flashes. Metallic surfaces glint menacingly. Hyperrealistic, cinematic, dark fantasy art style, volumetric lighting, ultra-detailed.\n\n**Example Descriptive Video Motion Prompt Output:**\nRain begins to streak down the reflective chrome blades as the storm clouds overhead swirl more violently, casting dynamic, flickering shadows. A subtle electrical energy crackles around the fingertips. The camera performs a very slow, almost imperceptible pull-back.\n\nGenerate the descriptive video motion prompt now based on the provided context."
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        220,
+        20
+      ],
+      "id": "36ae064d-d174-4ae6-98dc-89571a4329b6",
+      "name": "Video Prompts"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=The user will give you the description of scenes that are part of a larger video about  {{ $('Google Sheets').item.json.idea }}.\n\nCreate short, less than 5 word captions for each scene that describes the scene in relation to the overarching video theme.\n\nDO NOT USE DOUBLE QUOTES"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        -80,
+        -220
+      ],
+      "id": "053c5748-551b-4e2c-99f2-a3a5c33fe685",
+      "name": "Caption Prompts"
+    },
+    {
+      "parameters": {
+        "content": "## Image Generation\n- Flux.dev via PiApi\n- $0.015 / img\n- https://piapi.ai/workspace/flux",
+        "height": 260,
+        "width": 1040,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -460,
+        200
+      ],
+      "id": "c14a5792-0b38-49b1-990d-debbb3549580",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Video Generation\n- Kling 1.5 via PiApi\n- $0.26 / 5s video\n- https://piapi.ai/workspace/kling",
+        "height": 260,
+        "width": 1040,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -460,
+        460
+      ],
+      "id": "37104e34-51c2-4fbd-8027-e64a3812d3ac",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Audio Generation\n- Elevelabs\n- $5 / month for API\n- https://elevenlabs.io/",
+        "height": 260,
+        "width": 1040,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -460,
+        720
+      ],
+      "id": "71c2e113-d3ed-4dd6-a8c4-a6e61bcaad1a",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Scene Generation\n- Turn your initial idea into a visual story\n- Pulls general idea + style from Sheets",
+        "height": 480,
+        "width": 960,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1420,
+        -120
+      ],
+      "id": "3062cbf8-d6d6-4b5c-94bf-970c3ec90450",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Automated Video Editing\n- Creatomate\n- $50 / month for API\n- https://creatomate.com/",
+        "height": 440,
+        "width": 1040,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        580,
+        400
+      ],
+      "id": "e58f279a-ce21-4bfa-9b09-c47e03a5dcf7",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "# Faceless Video AI Automation\n## - Flux for images\n## - Kling for videos\n## - Elevenlabs for audio\n## - Createomate for editing",
+        "height": 240,
+        "width": 540,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1060,
+        400
+      ],
+      "id": "5c1810b2-1586-4f14-bdcc-8cec22245afb",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# Potential Enhancements\n## - Tighter prompt scope\n## - Automated posting to socials\n## - Better ($$$) APIs: Kling 2.0, Midjourney, GPT (?)",
+        "height": 220,
+        "width": 580,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        100
+      ],
+      "id": "634dc375-4494-4407-b413-20edd696fedc",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## I'm a note \nhttps://www.skool.com/chase-ai/classroom/e4347615?md=b80dfcded6744f82af97b6582694e60b",
+        "width": 1220
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1420,
+        -540
+      ],
+      "id": "3df3a617-a3d5-4616-b955-83f22859fba1",
+      "name": "Sticky Note7"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-04T20:37:57.000Z",
+  "versionId": "5b87c421-f200-43cb-afdd-1121c5ca551d"
+}
