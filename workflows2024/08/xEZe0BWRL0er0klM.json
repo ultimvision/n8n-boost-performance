@@ -1,0 +1,398 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get Nannette Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set Comments List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Comments List": {
+      "main": [
+        [
+          {
+            "node": "MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Nannette Posts": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL": {
+      "main": [
+        [
+          {
+            "node": "Prepare the Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare the Content": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "MySQL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Nannette Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-26T22:29:28.872Z",
+  "id": "xEZe0BWRL0er0klM",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Instagram - Auto Commentator",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "cb6868a0-f0ee-4741-b755-92f3221038b6",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        380,
+        700
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "instagram_comments",
+          "mode": "list",
+          "cachedResultName": "instagram_comments"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "post_code",
+              "value": "={{ $json.code }}"
+            },
+            {
+              "column": "is_created_by_media_owner",
+              "value": "0"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "created_at"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dba8c6a6-5e6e-435f-afb5-55ad722fa56a",
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1380,
+        640
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"video.a\": \"value\",\n  \"video.b\": 1\n}\n",
+        "options": {}
+      },
+      "id": "75430281-c001-4649-a219-7bc102016d53",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "a26dee81-0bb7-40f5-a7b1-f596347053db",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        900,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b01fa0c2-431c-4cc7-8089-21e92ba0fa8a",
+              "name": "original_text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "1d96141c-f912-4bf0-81b2-84635c4037a0",
+              "name": "code",
+              "value": "={{ $json.code }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6d71aaad-957d-41fd-af92-16039e7e1d8e",
+      "name": "Set Comments List",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1160,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b94cd96b-fd06-455c-ad5f-6dcdfb6f213f",
+              "name": "textDisplay",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "717e5338-799a-4439-8d18-014b7b6f573a",
+              "name": "authorDisplayName",
+              "value": "={{ $json.username }}",
+              "type": "string"
+            },
+            {
+              "id": "c9546fcb-450c-487e-900a-3d8d359fedc3",
+              "name": "original_content",
+              "value": "={{ $('Set Comments List').item.json[\"original_text\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4ef59f17-ce1d-49e2-9593-75898113ce2d",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "29a98ec9-d2b0-4230-b8b9-dd5b7dd5fa15",
+      "name": "Prepare the Content",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1600,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "instagram_comments",
+          "mode": "list",
+          "cachedResultName": "instagram_comments"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $('Prepare the Content').item.json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "reply_suggested",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a7dbd62d-47d4-49af-8f46-1ea56bc632f9",
+      "name": "MySQL1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2220,
+        700
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "instagram_posts",
+          "mode": "list",
+          "cachedResultName": "instagram_posts"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "username",
+              "value": "nannettedegaspe"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff65dbff-9083-4728-a236-80381fd2f3db",
+      "name": "Get Nannette Posts",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        580,
+        540
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_PnksqNL7GFGSiVRhWjByyUvt",
+          "mode": "list",
+          "cachedResultName": "Commentator Nannette de Gaspe"
+        },
+        "prompt": "define",
+        "text": "=Original content :\n {{ $json.original_content }}\n\nComment from the person named {{ $json.authorDisplayName }}:\n {{ $json.textDisplay }}",
+        "options": {}
+      },
+      "id": "e162c0fa-c3e2-46b8-8793-36cbf9f1a8a8",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        1820,
+        640
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "d706b305-f97f-4a32-9c53-a6ff22dce451",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        360,
+        440
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T13:07:53.389Z",
+      "updatedAt": "2024-08-26T13:07:53.389Z",
+      "id": "gQxWtkeNcVbI6Tr5",
+      "name": "Instagram"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T23:42:20.000Z",
+  "versionId": "5a22ca0d-9cd7-4601-8b28-f5fae4a3cefd"
+}
