@@ -1,0 +1,1765 @@
+{
+  "active": false,
+  "connections": {
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by video quality asc": {
+      "main": [
+        [
+          {
+            "node": "Limit first",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Formats": {
+      "main": [
+        [
+          {
+            "node": "Filter videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for DB update": {
+      "main": [
+        [
+          {
+            "node": "Update DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Prepare pending output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare successful existing output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit first": {
+      "main": [
+        [
+          {
+            "node": "Set filename with extension",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by video quality asc1": {
+      "main": [
+        [
+          {
+            "node": "Limit first1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Formats1": {
+      "main": [
+        [
+          {
+            "node": "Filter videos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Download URL1": {
+      "main": [
+        [
+          {
+            "node": "Split Out Formats1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter videos1": {
+      "main": [
+        [
+          {
+            "node": "Sort by video quality asc1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit first1": {
+      "main": [
+        [
+          {
+            "node": "Download Video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update DB": {
+      "main": [
+        [
+          {
+            "node": "Prepare successful output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload video to S3": {
+      "main": [
+        [
+          {
+            "node": "Is uploaded",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Download URL": {
+      "main": [
+        [
+          {
+            "node": "Split Out Formats",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update status": {
+      "main": [
+        [
+          {
+            "node": "Get Download URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter videos": {
+      "main": [
+        [
+          {
+            "node": "Sort by video quality asc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parent workflow is waiting": {
+      "main": [
+        [
+          {
+            "node": "Wake up parent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Is successful",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is successful": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare failed output": {
+      "main": [
+        [
+          {
+            "node": "Parent workflow is waiting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare successful output": {
+      "main": [
+        [
+          {
+            "node": "Parent workflow is waiting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Prepare failed output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for async download": {
+      "main": [
+        [
+          {
+            "node": "Get updated task from DM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare async download for DB": {
+      "main": [
+        [
+          {
+            "node": "Save task in DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save task in DB": {
+      "main": [
+        [
+          {
+            "node": "Wait for async download",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get updated task from DM": {
+      "main": [
+        [
+          {
+            "node": "Is uploaded1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set filename with extension": {
+      "main": [
+        [
+          {
+            "node": "Prepare async download for DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is uploaded1": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for DB update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-22T19:06:39.493Z",
+  "id": "Dd7hu5HZXTAUUYlC",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "YouTube Download Video",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "284cd831-a32e-4fc8-b640-5fbf53ffa197",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "1a445b77-fc13-425b-8a08-27025f990ed2",
+              "leftValue": "={{ $json.user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "5007d441-ff88-44c9-b7be-796022e758d8",
+              "leftValue": "={{ $json.provider }}",
+              "rightValue": "youtube",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "d6b1351f-ddb8-454c-a218-cd63e16dfb85",
+              "leftValue": "={{ $json.provider_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "46f01e54-ce62-4dee-bd52-3a65242faabe",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1060,
+        2220
+      ]
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "size"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c6c3ab6d-2b59-476e-9d60-0d33d2e11523",
+      "name": "Sort by video quality asc",
+      "type": "n8n-nodes-base.sort",
+      "position": [
+        2900,
+        2200
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "88d75e01-a1c9-4855-89a7-75cb70957916",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        780,
+        2220
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"success\": true,\n  \"message\": \"Video already downloaded\",\n  \"data\": {{ JSON.stringify($json) }}\n}\n",
+        "options": {}
+      },
+      "id": "140a7e3d-5bcb-4abf-999e-df8398f13ac9",
+      "name": "Prepare successful existing output",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1900,
+        1900
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"success\": false,\n  \"message\": \"Video being processed\",\n  \"data\": {{ JSON.stringify($json) }}\n}\n",
+        "options": {}
+      },
+      "id": "4368c9a0-1056-4342-8fb7-64cabdb08d69",
+      "name": "Prepare pending output",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1900,
+        1700
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "videos.items",
+        "options": {}
+      },
+      "id": "32a91597-47f7-4861-9abb-a9ad12d848cf",
+      "name": "Split Out Formats",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        2320,
+        2200
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"success\": true,\n  \"message\": \"Video downloaded\",\n  \"data\": {{ JSON.stringify($json) }}\n}\n",
+        "options": {}
+      },
+      "id": "a25f824c-3470-4ae1-98bc-9d3b48feb4bf",
+      "name": "Prepare successful output",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        5580,
+        2200
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "76f030af-5e2d-44cc-9b5f-403ce1a17807",
+              "name": "video_url",
+              "value": "={{ $json.destination_url }}",
+              "type": "string"
+            },
+            {
+              "id": "a77ab0da-8a0e-4de8-8411-667a92c65f25",
+              "name": "title",
+              "value": "={{ $('Get Download URL').first().json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "ac24f616-6b6a-4f95-8183-a1a334ce313d",
+              "name": "id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "d9faf942-b601-434f-90cf-d0763715f3ba",
+              "name": "duration",
+              "value": "={{ Math.floor(parseInt($('Limit first').first().json.approxDurationMs || String($('Limit first').first().json.lengthMs) || '0') / 1000) }}",
+              "type": "number"
+            },
+            {
+              "id": "e0ed0447-b4df-46ac-9827-b72e35cdc747",
+              "name": "size",
+              "value": "={{ parseInt($('Limit first').first().json.contentLength || String($('Limit first').first().json.size) || '0') }}",
+              "type": "number"
+            },
+            {
+              "id": "ecac2c0d-4317-4b37-b034-618cde8b18dc",
+              "name": "status",
+              "value": "video_downloaded",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "041a5aab-0e61-4b70-a234-a24048b40158",
+      "name": "Prepare data for DB update",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4900,
+        2200
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "53913b76-56bf-4950-8f04-5fcf62cf5f16",
+      "name": "Limit first",
+      "type": "n8n-nodes-base.limit",
+      "position": [
+        3180,
+        2200
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "pending",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "pending"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6772fcab-3cb7-4ca8-951d-83007497cb77",
+                    "leftValue": "={{ Boolean($json.video_url) }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "processed"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "8d16c0ae-7ded-493f-acb0-ea9e3e17c9a9",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1420,
+        2220
+      ]
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "bitrate"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6271ae01-199d-4d24-88ba-41c37cd68be3",
+      "name": "Sort by video quality asc1",
+      "type": "n8n-nodes-base.sort",
+      "position": [
+        3420,
+        1520
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            }
+          ]
+        },
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "862d6d7d-d40e-41e1-8223-a440ffbe823f",
+      "name": "Download Video1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        3940,
+        1520
+      ],
+      "typeVersion": 4.2,
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "adaptiveFormats",
+        "options": {}
+      },
+      "id": "43cdf436-af02-4d0d-965a-38589eae7dc8",
+      "name": "Split Out Formats1",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        2840,
+        1520
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://ytstream-download-youtube-videos.p.rapidapi.com/dl",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $json.provider_id }}"
+            },
+            {
+              "name": "cgeo",
+              "value": "US"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1ce16d7e-6cca-45de-b7b8-e5a06a890d2d",
+      "name": "Get Download URL1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2540,
+        1520
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c6132bf-3734-4b53-9ceb-6fe6b5946541",
+              "leftValue": "={{ $json.mimeType }}",
+              "rightValue": "video/",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "061bd934-1ba4-44f3-ba9c-a24e7e508845",
+      "name": "Filter videos1",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        3140,
+        1520
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "951f4b6a-f409-4d5e-89a2-714600e9f047",
+      "name": "Limit first1",
+      "type": "n8n-nodes-base.limit",
+      "position": [
+        3700,
+        1520
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Working Backup\n\nWe know this rapidapi flow works, but it eventually starts to fail.\nI suspect the IP of the cloud n8n instance gets banned.\n\nRapid API: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos",
+        "height": 508.7467072725056,
+        "width": 1945.1701985391262
+      },
+      "id": "29e00891-db33-415f-a6e5-6eb76cad10b6",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "provider",
+              "displayName": "provider",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "provider_id",
+              "displayName": "provider_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "video_url",
+              "displayName": "video_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "audio_url",
+              "displayName": "audio_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "size",
+              "displayName": "size",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "duration",
+              "displayName": "duration",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "caption",
+              "displayName": "caption",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transcript_provider",
+              "displayName": "transcript_provider",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transcript_provider_id",
+              "displayName": "transcript_provider_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "metadata",
+              "displayName": "metadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sentiment_analysis",
+              "displayName": "sentiment_analysis",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f7bc4fd6-b0c4-4b95-b45a-6fa332b1a5eb",
+      "name": "Update DB",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        5200,
+        2200
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3ce2580b-62c8-44d9-b087-2a80d202a3b9",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0c067e37-c78c-43b9-80e1-d7827113c779",
+      "name": "Is uploaded",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3780,
+        3220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ $json.filename }}",
+        "additionalFields": {
+          "acl": "publicRead",
+          "parentFolderKey": "=rag_videos/{{ $('Execute Workflow Trigger').first().json.user_id }}/{{ $('Execute Workflow Trigger').item.json.id }}"
+        }
+      },
+      "id": "8d5e4741-4d1d-4892-b928-b38aa87050cd",
+      "name": "Upload video to S3",
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        3500,
+        3220
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            }
+          ]
+        },
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "367e9e55-bcfb-42a9-806f-926e3b212359",
+      "name": "Download Video",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        3300,
+        3240
+      ],
+      "typeVersion": 4.2,
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-media-downloader.p.rapidapi.com/v2/video/details",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "videoId",
+              "value": "={{ $json.provider_id }}"
+            },
+            {
+              "name": "videos",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9ccbab37-66eb-40fd-a66e-05922655f0a2",
+      "name": "Get Download URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2020,
+        2200
+      ],
+      "typeVersion": 4.2,
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "status": "pending"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "provider",
+              "displayName": "provider",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "provider_id",
+              "displayName": "provider_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "video_url",
+              "displayName": "video_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "audio_url",
+              "displayName": "audio_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "size",
+              "displayName": "size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "duration",
+              "displayName": "duration",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "caption",
+              "displayName": "caption",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "transcript_provider",
+              "displayName": "transcript_provider",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "transcript_provider_id",
+              "displayName": "transcript_provider_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "metadata",
+              "displayName": "metadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sentiment_analysis",
+              "displayName": "sentiment_analysis",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "41364575-0c3c-4305-b75e-01eb7312a8f9",
+      "name": "Update status",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1760,
+        2200
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c6132bf-3734-4b53-9ceb-6fe6b5946541",
+              "leftValue": "={{ $json.mimeType }}",
+              "rightValue": "video/",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "84b31081-886b-4b18-85cc-75219058f4f6",
+      "name": "Filter videos",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2620,
+        2200
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Transcription failed"
+      },
+      "id": "28628042-b827-47c6-805a-0fef70565b71",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        6580,
+        2480
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7e24d5cf-d031-4b3c-924a-053af973deba",
+              "leftValue": "={{ $('Execute Workflow Trigger').item.json.resumeUrl }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "bfe71855-c41b-4829-aac7-19ec0153910c",
+      "name": "Parent workflow is waiting",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        5980,
+        2320
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Execute Workflow Trigger').first().json.resumeUrl }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "success",
+              "value": "={{ $json.success }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "97ba494b-004a-4893-aef8-0140fbcc1c01",
+      "name": "Wake up parent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        6260,
+        2240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "042ef820-7f58-4d2e-87ce-680d1e12e4ed",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "2e3db0ed-b33f-428d-b873-103ec35f8440",
+      "name": "Is successful",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        6260,
+        2460
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"success\": true,\n  \"message\": \"Audio downloaded\",\n  \"data\": {{ JSON.stringify($json) }}\n}\n",
+        "options": {}
+      },
+      "id": "382ae952-ec5c-402c-9822-04563da02978",
+      "name": "Prepare failed output",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        5580,
+        2420
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {},
+      "id": "cf129ae0-a60f-4aeb-8c16-7a7c62c0a630",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4900,
+        2420
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "POST",
+        "limitWaitTime": true,
+        "options": {}
+      },
+      "id": "566ddd0a-2e2b-4828-9b78-a82cade926f7",
+      "name": "Wait for async download",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4080,
+        2200
+      ],
+      "webhookId": "14e4791e-2507-4eaa-a99d-d85fa8d54830"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "db6d682a-8e94-4bc3-a7e2-036439b3c34f",
+              "name": "source_url",
+              "value": "={{ $('Limit first').first().json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "f61c0bbb-c0a5-4f2f-be87-456c9926c7c7",
+              "name": "destination_path",
+              "value": "=rag_videos/{{ $('Execute Workflow Trigger').first().json.user_id }}/{{ $('Execute Workflow Trigger').first().json.id }}/{{ $('Set filename with extension').first().json.filename }}",
+              "type": "string"
+            },
+            {
+              "id": "c422d102-567c-4be6-9983-96ff85963194",
+              "name": "callback_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f71f9915-a139-4643-a92e-34e2a25d4447",
+      "name": "Prepare async download for DB",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3660,
+        2200
+      ]
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "file_transfer_tasks",
+          "mode": "list",
+          "cachedResultName": "file_transfer_tasks"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "source_url",
+              "displayName": "source_url",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "destination_path",
+              "displayName": "destination_path",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "callback_url",
+              "displayName": "callback_url",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "502e1abc-9347-498e-8474-504f897d49c3",
+      "name": "Save task in DB",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        3880,
+        2200
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "file_transfer_tasks",
+          "mode": "list",
+          "cachedResultName": "file_transfer_tasks"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $json.body.task_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "054561bf-cb0f-4d9b-856f-24db42de3f5c",
+      "name": "Get updated task from DM",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        4300,
+        2200
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3ce2580b-62c8-44d9-b087-2a80d202a3b9",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "completed",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "33383196-9dcc-4c30-ab94-05beb7dd7f98",
+      "name": "Is uploaded1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4560,
+        2200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9bce0263-d054-465b-896f-6d4c069b8000",
+              "name": "filename",
+              "type": "string",
+              "value": "={{ $('Get Download URL').first().json.title }}.{{ $json.extension }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "55b2e806-1ee4-461d-80b7-3806c5144886",
+      "name": "Set filename with extension",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        3420,
+        2200
+      ],
+      "typeVersion": 3.4
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T19:06:31.377Z",
+      "updatedAt": "2024-10-22T19:06:31.377Z",
+      "id": "bKPfZp0igWIPyAvq",
+      "name": "Task"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-24T20:52:24.000Z",
+  "versionId": "8d9d6989-3b10-4f76-a81f-23ce9b04dfb9"
+}
