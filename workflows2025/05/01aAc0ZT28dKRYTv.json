@@ -1,0 +1,763 @@
+{
+  "active": false,
+  "connections": {
+    "Return the full transcript": {
+      "main": [
+        [
+          {
+            "node": "Ajouter la transcription dans le système",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer Information de la vidéo": {
+      "main": [
+        [
+          {
+            "node": "Vidéo ID Existe ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vidéo ID Existe ?": {
+      "main": [
+        [
+          {
+            "node": "Récupérer les informations de la vidéo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Retrouver le numéro de la vidéo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enregistrer le numéro de Vidéo": {
+      "main": [
+        [
+          {
+            "node": "Récupérer les informations de la vidéo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer les informations de la vidéo": {
+      "main": [
+        [
+          {
+            "node": "Est-ce que la vidéo à une transcription ?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Est-ce que la vidéo à une transcription ?": {
+      "main": [
+        [
+          {
+            "node": "Récupérer la transcription",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Récupérer la transcription": {
+      "main": [
+        [
+          {
+            "node": "Convertir la transcription en texte lisible",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Convertir la transcription en texte lisible": {
+      "main": [
+        [
+          {
+            "node": "Return the full transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrouver le numéro de la vidéo": {
+      "main": [
+        [
+          {
+            "node": "Enregistrer le numéro de Vidéo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Ajouter la transcription dans le système": {
+      "main": [
+        [
+          {
+            "node": "Terminée avec succès.",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Terminée avec succès.": {
+      "main": [
+        []
+      ]
+    },
+    "Appelé du Centre de rédaction": {
+      "main": [
+        [
+          {
+            "node": "Récupérer Information de la vidéo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exécution manuelle": {
+      "main": [
+        [
+          {
+            "node": "Récupérer Information de la vidéo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-15T20:07:47.820Z",
+  "id": "01aAc0ZT28dKRYTv",
+  "isArchived": false,
+  "meta": null,
+  "name": "Récupérer Transcription Youtube Jungle (SUB)",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// 1. Récupère le transcript depuis le premier item d’entrée\nconst transcript = $input.first().json.transcript;\n\n// 2. Initialise fullText à une chaîne vide\nlet fullText = '';\n\n// 3. Si transcript.text existe et contient au moins un segment, on construit la chaîne\nif (transcript && Array.isArray(transcript.text) && transcript.text.length > 0) {\n  const segments = transcript.text.map(segment => segment._);\n  fullText = segments.join(' ');\n}\n\n// 4. Retourne un nouvel item n8n avec le texte complet (ou vide)\nreturn [\n  {\n    json: {\n      fullText\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        20,
+        -180
+      ],
+      "id": "02c810ac-6b8f-4b5b-b99f-548b5c590c9b",
+      "name": "Return the full transcript"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "id": "={{ $json.recId }}",
+        "options": {}
+      },
+      "id": "b376a1dd-e226-4019-946f-2fb86e8648c7",
+      "name": "Récupérer Information de la vidéo",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -2160,
+        -80
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "63c2e3c9-4d49-4cd4-92d2-b2cff94d38cb",
+              "leftValue": "={{ $json['Vidéo Id'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1920,
+        -140
+      ],
+      "id": "59a0a7db-38b9-4406-ab5b-578fc901264e",
+      "name": "Vidéo ID Existe ?"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "22c1a1ef-e3c8-4826-87fa-13f4d6df764b",
+              "name": "Vidéo Id",
+              "value": "={{ $json.video_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1480,
+        20
+      ],
+      "id": "295d715e-a800-4839-b0e6-d7e82668e43a",
+      "name": "Enregistrer le numéro de Vidéo"
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-media-downloader.p.rapidapi.com/v2/video/details",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "videoId",
+              "value": "={{ $json['Vidéo Id'] }}"
+            },
+            {
+              "name": "videos",
+              "value": "false"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "07e22e3f-a387-46a3-bec7-f917ecd43c0d",
+      "name": "Récupérer les informations de la vidéo",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -1240,
+        -160
+      ],
+      "typeVersion": 4.2,
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "de96b9e8-765b-47ce-87d1-64bd235b0008",
+              "leftValue": "={{ $json.subtitles.items }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "4a3f644d-6528-4ac3-9867-9d1db6aa1f52",
+              "leftValue": "={{ $json.subtitles.items[0].url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "197a0e10-b2bc-4f3a-bfe0-57c9fd623152",
+      "name": "Est-ce que la vidéo à une transcription ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -880,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.subtitles.items[0].url }}",
+        "options": {}
+      },
+      "id": "61ec9013-da9e-4659-809c-f18c66e1f67e",
+      "name": "Récupérer la transcription",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -460,
+        -180
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        -180
+      ],
+      "id": "0d7d71ea-12dc-41d1-b539-eb0ffbece39f",
+      "name": "Convertir la transcription en texte lisible"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "function extractYouTubeID(url) {\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\n\nreturn {\n  json: {\n    video_url: $input.item.json[\"Youtube URL\"],\n    video_id: extractYouTubeID($input.item.json[\"Youtube URL\"])\n  }\n};"
+      },
+      "id": "05c14327-f5fc-4fea-a0b5-53fd1ae07e83",
+      "name": "Retrouver le numéro de la vidéo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1720,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Récupérer Information de la vidéo').item.json.id }}",
+            "Contenu": "={{ $json.fullText }}",
+            "Name": "={{ $('Récupérer les informations de la vidéo').item.json.title }}",
+            "Animateur": "Réjean Gauthier",
+            "Vocabulaire": "=L'animateur est Réjean Gauthier. Éviter l'erreur de le nommer Jean.",
+            "CV Invité": "={{ $('Récupérer les informations de la vidéo').item.json.description }}",
+            "Status": "Transcription complétée"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Analyse et articles à préparer",
+                  "value": "Analyse et articles à préparer"
+                },
+                {
+                  "name": "Analyse à préparer",
+                  "value": "Analyse à préparer"
+                },
+                {
+                  "name": "Analyse complétée",
+                  "value": "Analyse complétée"
+                },
+                {
+                  "name": "Articles à préparer",
+                  "value": "Articles à préparer"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Transcription complétée",
+                  "value": "Transcription complétée"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email Invité",
+              "displayName": "Email Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Vocabulaire",
+              "displayName": "Vocabulaire",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Youtube URL",
+              "displayName": "Youtube URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Articles",
+              "displayName": "Articles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lien Interne",
+              "displayName": "Lien Interne",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Ajout",
+              "displayName": "Date Ajout",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "fc246b0c-255a-456c-a873-cff35da7d843",
+      "name": "Ajouter la transcription dans le système",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        280,
+        -180
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        540,
+        -180
+      ],
+      "id": "f2bd0d06-af01-4cf4-97c2-0fdc90abe85e",
+      "name": "Terminée avec succès."
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2480,
+        40
+      ],
+      "id": "5c26b79a-0c2c-423c-8290-1c6fc35aed36",
+      "name": "Appelé du Centre de rédaction"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2480,
+        -200
+      ],
+      "id": "a72fd757-d78e-414f-b683-b1d9b3886915",
+      "name": "Exécution manuelle"
+    },
+    {
+      "parameters": {
+        "content": "# Préparation de l'automatisation\n## **On récupère les informations de la vidéo pour récupérer la transcription ** ",
+        "height": 680,
+        "width": 1500
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2560,
+        -400
+      ],
+      "typeVersion": 1,
+      "id": "4df983a0-14cb-4656-a79f-f36ff3affc75",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# Récupération de la transcription\n## **Analyse des textes et uniformisation ** \n",
+        "height": 680,
+        "width": 1420,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -620,
+        -400
+      ],
+      "typeVersion": 1,
+      "id": "ccddf1e3-04aa-4ef1-b8f8-41f89f08ca85",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "# Validation\n",
+        "height": 680,
+        "width": 360,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1020,
+        -400
+      ],
+      "typeVersion": 1,
+      "id": "e88b722d-e9ff-4189-97bd-8fc58aaadb3a",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "# Explication de l'automatisation\nCe workflow s’exécute à la demande depuis votre Centre de rédaction et se charge de prendre en compte chaque vidéo référencée dans Airtable, d’en extraire automatiquement l’identifiant YouTube, puis d’interroger l’API RapidAPI pour obtenir le flux de sous‑titres. Après avoir converti le XML en un texte intégral, il assemble l’ensemble des segments pour reconstituer la transcription complète. Enfin, il met à jour la fiche Airtable en remplissant le champ « Contenu » avec ce texte, en standardisant le titre, la description et les consignes de vocabulaire, puis en basculant le statut en « Transcription complétée ». Grâce à cette automatisation, votre équipe gagne un temps précieux et dispose immédiatement d’un contenu prêt à être exploité ou analysé, sans aucune intervention manuelle.\n",
+        "height": 180,
+        "width": 1900,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2560,
+        -620
+      ],
+      "typeVersion": 1,
+      "id": "a9ee4210-6ea8-4f7d-b292-b00375b65399",
+      "name": "Sticky Note4"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    },
+    {
+      "createdAt": "2025-05-20T13:41:49.885Z",
+      "updatedAt": "2025-05-20T13:41:49.885Z",
+      "id": "zCvhLE2uoQi7srz2",
+      "name": "Done"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-20T13:42:14.000Z",
+  "versionId": "36191e9b-baf3-4550-83a7-8f400386849b"
+}
