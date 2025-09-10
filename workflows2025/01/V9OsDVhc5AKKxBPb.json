@@ -1,0 +1,163 @@
+{
+  "active": false,
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Insert Error Logs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-25T14:47:28.102Z",
+  "id": "V9OsDVhc5AKKxBPb",
+  "isArchived": false,
+  "meta": null,
+  "name": "Groupe Performance - Catch All - Errors",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        0
+      ],
+      "id": "a35417f4-eb8a-454d-be1e-7a5dce88e353",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appKjVmXp6kvATgcO",
+          "mode": "list",
+          "cachedResultName": "Groupe Performance",
+          "cachedResultUrl": "https://airtable.com/appKjVmXp6kvATgcO"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNNuSPqpcXRzgJF",
+          "mode": "list",
+          "cachedResultName": "Logs Dev",
+          "cachedResultUrl": "https://airtable.com/appKjVmXp6kvATgcO/tblNNuSPqpcXRzgJF"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Analysed": false,
+            "Status": "Error",
+            "Name": "={{ $json.execution.error.message }}",
+            "Notes": "={{ $json.execution.error.description }}\n\nN8N Node : {{ $json.workflow.name }}\n\nN8N Id : {{ $json.workflow.id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Error",
+                  "value": "Error"
+                },
+                {
+                  "name": "Success",
+                  "value": "Success"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analysed",
+              "displayName": "Analysed",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -200,
+        0
+      ],
+      "id": "67de4542-4044-49cd-b7eb-b77bb9b5974e",
+      "name": "Insert Error Logs",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-02-02T13:36:37.412Z",
+      "updatedAt": "2025-02-02T13:36:37.412Z",
+      "id": "V4OMeuwcX3eNQhlA",
+      "name": "Groupe Performance"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-02T13:37:36.000Z",
+  "versionId": "4c0b7d83-1f82-468d-8115-90ca1457e822"
+}
