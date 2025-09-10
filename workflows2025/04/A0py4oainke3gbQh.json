@@ -1,0 +1,245 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get meta prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get meta prompt": {
+      "main": [
+        [
+          {
+            "node": "Generate research prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate research prompt",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate research prompt": {
+      "main": [
+        [
+          {
+            "node": "Perplexity research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Perplexity research": {
+      "main": [
+        [
+          {
+            "node": "Set output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-10T19:05:16.084Z",
+  "id": "A0py4oainke3gbQh",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Run Perplexity",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "input"
+            }
+          ]
+        }
+      },
+      "id": "c055762a-8fe7-4141-a639-df2372f30060",
+      "typeVersion": 1.1,
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        260,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appY3aedb8dbqsB6a",
+          "mode": "list",
+          "cachedResultName": "Publishing",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblaQf2mThD7Qzx1T",
+          "mode": "list",
+          "cachedResultName": "Prompts",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a/tblaQf2mThD7Qzx1T"
+        },
+        "filterByFormula": "Name = 'perplexity_meta_prompt'",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        340
+      ],
+      "id": "8fcca7e5-573b-437a-abbd-1d3b971baa14",
+      "name": "Get meta prompt",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Generate a comprehensive research prompt related to:\n\n{{ $('When Executed by Another Workflow').item.json.input }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.Prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        800,
+        340
+      ],
+      "id": "be3fd2d8-932b-497e-897e-1421450b3d72",
+      "name": "Generate research prompt"
+    },
+    {
+      "parameters": {
+        "model": "={{ $('Get meta prompt').item.json.Model }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        800,
+        600
+      ],
+      "id": "1605cd5b-5b43-420f-8939-b87f2d09bbc6",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"sonar-pro\",\n  \"messages\": [{\"role\": \"system\", \"content\": {{ JSON.stringify($('Get meta prompt').first().json.Prompt) }}}, {\"role\": \"user\", \"content\": {{ JSON.stringify($json.text) }}}]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1260,
+        340
+      ],
+      "id": "ee718495-3c4f-4cb7-8447-eb40b3d5c0f2",
+      "name": "Perplexity research",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CArFM3AhwEDRQdnG",
+          "name": "API Perplexiti AI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bfd9ee0b-e858-47f7-aefa-6c27d262a919",
+              "name": "content",
+              "value": "={{ $json.choices[0].message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "4e2d9af7-2725-4e2a-a44f-11a7cb6cdc15",
+              "name": "citations",
+              "value": "={{ $json.citations }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1580,
+        340
+      ],
+      "id": "a325d4c3-5b16-4784-9afe-660e1ff3c570",
+      "name": "Set output"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-09T18:54:30.662Z",
+      "updatedAt": "2025-04-09T18:54:30.662Z",
+      "id": "bwORh3v4jHXqexLE",
+      "name": "Publishing"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-07T14:49:30.000Z",
+  "versionId": "84060c5d-9137-4a8b-baf7-03266f921054"
+}
