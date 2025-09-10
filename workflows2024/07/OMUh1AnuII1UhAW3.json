@@ -1,0 +1,71 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-21T10:18:03.359Z",
+  "id": "OMUh1AnuII1UhAW3",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost Performance - Dall-e",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "8fc08866-83ec-40cd-9263-698507cefb7f",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        420,
+        380
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "Un quartier général avec un style comme le film de ironman ou on voit tous les coeurs de métiers que l'inteliggence artificielle peut remplacer, comme auteur, rédacteur, dessinateur, comptable, cinéaste, musicien, programmeur et plus encore.",
+        "options": {
+          "size": "1792x1024",
+          "style": "vivid"
+        }
+      },
+      "id": "335d92d7-cc56-4d84-8e91-8ad5c0c0fd4a",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        640,
+        380
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-21T10:43:53.000Z",
+  "versionId": "eff077fe-2bac-4432-af55-ac07e9a30e4a"
+}
