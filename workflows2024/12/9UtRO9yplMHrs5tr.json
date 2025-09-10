@@ -1,0 +1,28 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-12-17T15:50:25.971Z",
+  "id": "9UtRO9yplMHrs5tr",
+  "isArchived": false,
+  "meta": null,
+  "name": "Replicate Test",
+  "nodes": [],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-17T15:50:29.000Z",
+  "versionId": "e94e29bb-5df6-4144-9962-160a6f3073d4"
+}
