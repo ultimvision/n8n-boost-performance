@@ -1,0 +1,307 @@
+{
+  "active": true,
+  "connections": {
+    "n8n Form Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Insert Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Post": {
+      "main": [
+        [
+          {
+            "node": "Create a Jingle Post1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a Jingle Post1": {
+      "main": [
+        [
+          {
+            "node": "Post Id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post Id": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-12T18:56:46.156Z",
+  "id": "9Y8FmQHAHoO5FVqJ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "FORM - Création d'un Jingle d'entreprise",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "jingle",
+        "formTitle": "Création d'un Jingle",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "A Propos de la compagnie",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Site Web"
+            },
+            {
+              "fieldLabel": "Style de musique"
+            },
+            {
+              "fieldLabel": "Document de la compagnie",
+              "fieldType": "file"
+            },
+            {
+              "fieldLabel": "Langue des paroles",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Français"
+                  },
+                  {
+                    "option": "Anglais"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cfb5e304-1c57-46c6-9d2e-c637372e8e70",
+      "name": "n8n Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.1,
+      "position": [
+        340,
+        220
+      ],
+      "webhookId": "322f794e-584c-4d3f-a738-0945202485d0"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "963f6d41-6618-40ce-9bc7-2ecb0f0aa236",
+      "name": "Data Workflow",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        520,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "1eGoip75CfAtSLdF",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "aba87faa-456d-424a-9f04-f59b1309e3ae",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1860,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4b67d6cc-ce66-4769-86ba-8c802aa8054a",
+              "name": "community_id",
+              "value": 233308,
+              "type": "number"
+            },
+            {
+              "id": "e33752c9-6835-49d0-8cb2-8f5171eafa6a",
+              "name": "space_id",
+              "value": 1501983,
+              "type": "number"
+            },
+            {
+              "id": "2307b093-f1f4-4145-869f-d8147433c5d6",
+              "name": "customer_name",
+              "value": "Boost Performance",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "a14f73d2-5bea-4376-b94c-3170404d4864",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        600,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "84669fef-4cd3-4131-a1cd-abcf983f8869",
+              "name": "new_post",
+              "value": "=<div><!--block-->Création de Jingles musicaux pour la compagnie : {{ $json.customer_name }}<br><br>Style de musique : {{ $json['Style de musique'] }} <br><br>Langue des paroles : {{ $json['Langue des paroles'] }}</div>",
+              "type": "string"
+            },
+            {
+              "id": "087b3b63-f1af-4233-ab68-da0c1fad1fcb",
+              "name": "topics",
+              "value": "95075",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "0dbb3678-3d11-4dd9-91d1-82a5964cc043",
+      "name": "Insert Post",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/posts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"community_id\" : {{ $json.community_id }},\n  \"space_id\": {{ $json.space_id }},\n  \"name\": \"Jingle Musical pour {{ $json.customer_name }}\",\n  \"body\": {{ JSON.stringify($json.new_post) }},\n  \"slug\": \"jingle musical\",\n  \"is_truncation_disabled\": false,\n  \"is_comments_closed\": false,\n  \"is_comments_enabled\": true,\n  \"is_liking_enabled\": true,\n  \"hide_meta_info\": true,\n  \"hide_from_featured_areas\": true,\n  \"meta_title\": \"Jingle Musical pour l'entreprise\",\n  \"meta_description\": \"meta description\",\n  \"opengraph_title\": \"opengraph_title\",\n  \"opengraph_description\":\"opengraph_description\",\n  \"topics\": [\n    95075\n  ],\n  \"skip_notifications\": false,\n  \"is_pinned\": false,\n  \"internal_custom_html\": \"\",\n  \"hide_from_featured_areas\": false\n}",
+        "options": {}
+      },
+      "id": "679f3ebf-584b-4efb-9796-01ac53196ed3",
+      "name": "Create a Jingle Post1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "db3513fb-0932-4cb1-bee0-e560b728f822",
+              "name": "post.id",
+              "value": "={{ $json.post.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "35f120eb-97a6-4029-9052-74897eeb09b9",
+      "name": "Post Id",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1340,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "45b9ec48-a3c5-4866-be15-dc4b85cda7e2",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1580,
+        200
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-28T19:39:31.444Z",
+      "updatedAt": "2024-10-28T19:39:31.444Z",
+      "id": "9zQPlsZadSQimtqF",
+      "name": "Deprecated"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-10-28T19:39:55.000Z",
+  "versionId": "3a6137ab-eb49-4d03-81ed-5f2e726f4fb0"
+}
