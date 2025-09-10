@@ -1,0 +1,827 @@
+{
+  "active": true,
+  "connections": {
+    "Get days off": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initial data webhook": {
+      "main": [
+        [
+          {
+            "node": "Get days off1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get days off1": {
+      "main": [
+        [
+          {
+            "node": "Set data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search customer": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get invoice by id": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get overtime rate": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ending webhook": {
+      "main": [
+        [
+          {
+            "node": "Translate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Translate",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Categorize",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Translate": {
+      "main": [
+        [
+          {
+            "node": "Categorize",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Categorize": {
+      "main": [
+        [
+          {
+            "node": "Create airtable record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create task": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create BdT": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send email": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send SMS": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create prospect": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-23T16:43:00.364Z",
+  "id": "L2ViYcNHUPECQhVQ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ElevenLabs Tools",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "headerAuth",
+        "path": "techno-pompes/elevenlabs/mcp"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        160
+      ],
+      "id": "1ceda4ab-494b-4681-97d4-be7c8b19a1db",
+      "name": "MCP Server Trigger",
+      "webhookId": "b707adde-3dc4-45ac-bd93-f25d629780c7",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "F1pcjGhPQ9jgo7jv",
+          "name": "Eleven Labs Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Get list of days off for Techno-Pompes, returning the name of the holiday or day off (Name), when it starts (Debut) and when it ends (Fin). If there are no ending date, assume it is only one day (Debut).",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblZ4sGMfo2PIYeS6",
+          "mode": "list",
+          "cachedResultName": "Jours Fériés",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblZ4sGMfo2PIYeS6"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtableTool",
+      "typeVersion": 2.1,
+      "position": [
+        60,
+        500
+      ],
+      "id": "9f630db7-b5fa-4e82-be8f-d6f3d939af64",
+      "name": "Get days off",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "techno-pompes/elevenlabs/initial-data",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        20,
+        -560
+      ],
+      "id": "9ed5a76d-3c92-4954-8c7f-bded5f60c672",
+      "name": "Initial data webhook",
+      "webhookId": "145aeca7-f56f-4a02-8a88-d70e27498112"
+    },
+    {
+      "parameters": {
+        "content": "# webhook signature secret \nHMAC: `wsec_7aad20ee612aeb4f0559a0c484e77cdd5f3b4c47e09ad964d8a2e0e066dd5e15`",
+        "height": 120,
+        "width": 680
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        -840
+      ],
+      "id": "fa162d76-d891-4405-bcac-1724d954b4d3",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "techno-pompes/elevenlabs/end",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        20,
+        -300
+      ],
+      "id": "504d1ada-970e-4bf8-82e2-300c6ab47ac6",
+      "name": "Ending webhook",
+      "webhookId": "145aeca7-f56f-4a02-8a88-d70e27498112"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"type\": \"conversation_initiation_client_data\",\n  \"dynamic_variables\": {\n    \"now\": \"{{ $now.toISO() }}\",\n    \"office_status\": \"{{ $json.id === undefined ? \"Ouvert\" : \"Fermé\" }}\"\n  }\n}\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        600,
+        -560
+      ],
+      "id": "78648991-23e5-4470-8fe6-5212b74d8f64",
+      "name": "Set data"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblZ4sGMfo2PIYeS6",
+          "mode": "list",
+          "cachedResultName": "Jours Fériés",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblZ4sGMfo2PIYeS6"
+        },
+        "filterByFormula": "=AND({Début} <= \"{{ $now.format('yyyy-MM-dd') }}\", {Fin} >= \"{{ $now.format('yyyy-MM-dd') }}\")",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        300,
+        -560
+      ],
+      "id": "33da0e51-cce3-4f10-adef-368adb6ffbaf",
+      "name": "Get days off1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Call this tool with a postal code and a civic number to search for an existing customer.",
+        "workflowId": {
+          "__rl": true,
+          "value": "txYHrP3g4XhiFzjX",
+          "mode": "list",
+          "cachedResultName": "Boost — ServiCentre: search customer"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "postal_code": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('postal_code', `The first 3 characters of the code postal of the customer to search for`, 'string') }}",
+            "civic_number": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('civic_number', `The civic number (numeric part) of the address of the customer to search for`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "postal_code",
+              "displayName": "postal_code",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "civic_number",
+              "displayName": "civic_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        260,
+        500
+      ],
+      "id": "0611088d-aac5-40e3-b957-df551ead9cc8",
+      "name": "Search customer"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to retrieve invoice by invoice id.",
+        "workflowId": {
+          "__rl": true,
+          "value": "R2zmyW79BcY1SElk",
+          "mode": "list",
+          "cachedResultName": "Boost — ServiCentre: get invoice"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "invoice_id": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('invoice_id', `The invoice ID to retrieve`, 'string') }}"
+          },
+          "matchingColumns": [
+            "invoice_id"
+          ],
+          "schema": [
+            {
+              "id": "invoice_id",
+              "displayName": "invoice_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        460,
+        500
+      ],
+      "id": "7bdd3f04-9bf0-4909-a5b9-2abc5ae4b07a",
+      "name": "Get invoice by id"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Call this tool to retrieve the hourly rate of overtime work used in emergency situations. The value is in canadian dollars and stored under the \"Taux Horaire temps double\" key.",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblBiFbxDHgMHXyW4",
+          "mode": "list",
+          "cachedResultName": "Configuration",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblBiFbxDHgMHXyW4"
+        },
+        "filterByFormula": "Name = 'Configuration'",
+        "returnAll": false,
+        "limit": 1,
+        "options": {
+          "fields": [
+            "Taux Horaire temps double"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtableTool",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        500
+      ],
+      "id": "60b35829-6b58-4e07-80a3-5f42f356fafc",
+      "name": "Get overtime rate",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.data.analysis.transcript_summary }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Tu es un traducteur automatique hautement précis, spécialisé dans la traduction de l’anglais vers le français.\n\nTa mission est de traduire chaque texte de manière **fidèle, complète et rigoureusement exacte**, sans altérer, omettre ou interpréter le sens de l’original.\n\n**Règles à suivre :**\n\n* **Ne jamais résumer** ou simplifier le contenu.\n* **Ne rien ajouter** qui ne figure pas explicitement dans le texte source.\n* **Conserver tous les détails techniques, stylistiques, culturels ou spécifiques**, même s’ils semblent mineurs.\n* Respecter la **ponctuation, les majuscules, les formats de date, les unités de mesure**, etc.\n* Adapter uniquement la syntaxe et les tournures de phrase pour qu’elles soient naturelles en français, tout en conservant le sens exact.\n\nEn cas de doute sur une expression ou un mot ambigu, **traduis littéralement** sans interprétation. N’invente jamais de contenu.\n"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        240,
+        -300
+      ],
+      "id": "20f27780-c36c-4f8d-aef3-132ec62d3341",
+      "name": "Translate"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        420,
+        -60
+      ],
+      "id": "476e5581-5258-45e8-8358-84464f889fb8",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Ending webhook').item.json.body.data.analysis.transcript_summary }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Tu es un classificateur intelligent de conversations téléphoniques. Ta tâche consiste à analyser le contenu d’une transcription d’appel et à identifier la **catégorie principale du sujet abordé**.\n\nTu dois absolument choisir **une seule** des catégories suivantes :\n\n1. **Urgence** : Problème critique nécessitant une intervention immédiate (p. ex. panne, sécurité, incident bloquant).\n2. **Ventes** : Toute demande liée à l’achat, l’information sur un produit ou un service, une soumission, ou un devis.\n3. **Services** : Demande de support technique ou opérationnel, configuration, modification ou assistance liée à un service existant.\n4. **Facturation** : Question liée à une facture, un paiement, un solde, un montant facturé, une erreur de facturation, etc.\n5. **Autre** : Si la conversation ne rentre clairement dans aucune des catégories ci-dessus ou si l’information est insuffisante pour prendre une décision catégorique.\n\n**Règles à suivre :**\n\n* Ne fais aucune supposition si l'information n’est pas présente dans la transcription.\n* Base ta classification uniquement sur ce qui est dit explicitement ou de manière claire.\n* Si plusieurs sujets sont abordés, choisis **le sujet principal** ou celui qui motive l’appel initial.\n* Si tu n’es pas certain de la bonne catégorie, retourne systématiquement **\"Autre\"**.\n\n**Format de sortie attendu :**\n\n`<nom exact de la catégorie parmi les 5 ci-dessus>`\n"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        640,
+        -300
+      ],
+      "id": "ec7f6e6e-af6b-4641-9f4e-08a3082871a7",
+      "name": "Categorize"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblyfW467H0lNcMaw",
+          "mode": "list",
+          "cachedResultName": "Appels",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblyfW467H0lNcMaw"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ DateTime.fromSeconds($('Ending webhook').item.json.body.event_timestamp) }}",
+            "Détails": "=https://elevenlabs.io/app/conversational-ai/history/{{ $('Ending webhook').item.json.body.data.conversation_id }}",
+            "Type": "={{ $json.text }}",
+            "Résumé": "={{ $('Translate').item.json.text }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails",
+              "displayName": "Détails",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Urgence",
+                  "value": "Urgence"
+                },
+                {
+                  "name": "Ventes",
+                  "value": "Ventes"
+                },
+                {
+                  "name": "Services",
+                  "value": "Services"
+                },
+                {
+                  "name": "Facturation",
+                  "value": "Facturation"
+                },
+                {
+                  "name": "Autre",
+                  "value": "Autre"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Résumé",
+              "displayName": "Résumé",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1060,
+        -300
+      ],
+      "id": "b5ff781a-9451-4a60-a262-e806d32e79a0",
+      "name": "Create airtable record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to create a task. It is always used as a way to give context to a human before transferring a call. **This tool MUST be called before transfering a call to a human.** \n\nMake sure to provide 2 arguments:\n- message: (string) The full summary of the call so far, with details about the caller, especially their name, and the purpose of the call.\n- destination: (string) who the forwarded call is destined to (could be an extension or a department name).",
+        "jsCode": "return \"success\"",
+        "specifyInputSchema": true,
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"CreateTaskPayload\",\n  \"type\": \"object\",\n  \"required\": [\"message\", \"destination\"],\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"A detailed summary of the call so far, including the caller's name. This should include who is calling, what the call is about, and any relevant context that will help a human understand the issue before taking over the call.\"\n    },\n    \"destination\": {\n      \"type\": \"string\",\n      \"description\": \"The intended recipient of the call transfer. This can be an extension number (e.g., '200') or the name of a department (e.g., 'support', 'sales').\"\n    }\n  }\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.2,
+      "position": [
+        880,
+        500
+      ],
+      "id": "d8e43511-9f2a-46e3-afda-a76d5854cddf",
+      "name": "Create task"
+    },
+    {
+      "parameters": {
+        "content": "# Mock",
+        "height": 360,
+        "width": 180
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        820,
+        340
+      ],
+      "id": "2aa236e3-3535-4da7-a57d-930d73c1895f",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to create a BdT \"bon de travail\".",
+        "jsCode": "return \"success\"",
+        "specifyInputSchema": true,
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"ServiceTicketBDT\",\n  \"description\": \"Schema for generating a service request ticket (Bon de Travail - BDT) containing client and problem details.\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"Detailed description of the issue or request for which the client requires service. This field should clearly explain the situation or problem to be addressed.\"\n    },\n    \"type\": {\n      \"type\": \"string\",\n      \"enum\": [\"SERVICE\", \"URGENCE\"],\n      \"description\": \"The type of service request. Must be either 'SERVICE' for standard requests or 'URGENCE' for high-priority or emergency situations.\"\n    },\n    \"postal_code\": {\n      \"type\": \"string\",\n      \"description\": \"Client’s postal code in Canadian format (e.g., J1E 3W6). Used for geographical lookup or dispatch routing.\"\n    },\n    \"address\": {\n      \"type\": \"string\",\n      \"description\": \"Street address where the service is required. Should include civic number and street name.\"\n    },\n    \"first_name\": {\n      \"type\": \"string\",\n      \"description\": \"First name of the client requesting the service.\"\n    },\n    \"last_name\": {\n      \"type\": \"string\",\n      \"description\": \"Last name of the client requesting the service.\"\n    },\n    \"telephone\": {\n      \"type\": \"string\",\n      \"description\": \"Client's contact phone number, ideally in the format xxx-xxx-xxxx. Used for scheduling or follow-up communication.\"\n    },\n    \"city\": {\n      \"type\": \"string\",\n      \"description\": \"City where the service is to be performed. Complements the address and postal code.\"\n    },\n    \"email\": {\n      \"type\": \"string\",\n      \"format\": \"email\",\n      \"description\": \"Client’s email address. Used for confirmation, updates, or follow-up regarding the service ticket.\"\n    }\n  },\n  \"required\": [\n    \"message\",\n    \"type\",\n    \"postal_code\",\n    \"address\",\n    \"first_name\",\n    \"last_name\",\n    \"telephone\",\n    \"city\",\n    \"email\"\n  ],\n  \"additionalProperties\": false\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.2,
+      "position": [
+        1100,
+        500
+      ],
+      "id": "b71ffe20-0d2b-436a-b2c1-ec7b1c585976",
+      "name": "Create BdT"
+    },
+    {
+      "parameters": {
+        "content": "# Mock",
+        "height": 360,
+        "width": 180
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        340
+      ],
+      "id": "56c59dce-c794-4815-bd90-94307c7caa76",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to send an email.",
+        "jsCode": "return \"success\"",
+        "specifyInputSchema": true,
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"EmailPayload\",\n  \"description\": \"Schema representing the minimal required structure to generate and send a contextual email.\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"The full body content of the email. This should include the main message to be communicated to the recipient, written in natural language. Can include context, instructions, or a summary.\"\n    },\n    \"sujet\": {\n      \"type\": \"string\",\n      \"description\": \"A concise subject line for the email. It should summarize the situation in one short sentence, ideally under 80 characters, to give the recipient immediate context.\"\n    },\n    \"recipient_email\": {\n      \"type\": \"string\",\n      \"format\": \"email\",\n      \"description\": \"The destination email address for the recipient. Must be a valid email format (e.g., name@example.com).\"\n    }\n  },\n  \"required\": [\"message\", \"sujet\", \"recipient_email\"],\n  \"additionalProperties\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.2,
+      "position": [
+        1360,
+        500
+      ],
+      "id": "eaebfe7a-4fda-4565-aaea-5f839eb1bed0",
+      "name": "Send email"
+    },
+    {
+      "parameters": {
+        "content": "# Mock",
+        "height": 360,
+        "width": 180
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        340
+      ],
+      "id": "1e56f8aa-ecb8-48d1-b2f8-5817876311d9",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "# Mock",
+        "height": 360,
+        "width": 180
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        340
+      ],
+      "id": "16d3bdda-9225-496f-ad4c-f16cc5dd7e03",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to send a text message.",
+        "jsCode": "return \"success\"",
+        "specifyInputSchema": true,
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"TextMessagePayload\",\n  \"description\": \"Schema representing the structure required to send a text (SMS) message to a recipient.\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"The body content of the text message (SMS). This should be clear, concise, and formatted for delivery via mobile messaging. Avoid long blocks of text or unsupported characters.\"\n    },\n    \"destination_phone\": {\n      \"type\": \"string\",\n      \"description\": \"The recipient's phone number in the format xxx-xxx-xxxx or E.164 if required by the provider. This must be a valid phone number capable of receiving SMS.\"\n    }\n  },\n  \"required\": [\"message\", \"destination_phone\"],\n  \"additionalProperties\": false\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.2,
+      "position": [
+        1580,
+        500
+      ],
+      "id": "b26e8d7b-74a2-40d9-9b06-031fc64572d2",
+      "name": "Send SMS"
+    },
+    {
+      "parameters": {
+        "content": "# Mock",
+        "height": 360,
+        "width": 180
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        340
+      ],
+      "id": "eefdcc00-a892-45a3-bfa6-fc66bd9bd8da",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to create a prospect.",
+        "jsCode": "return \"success\"",
+        "specifyInputSchema": true,
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"UserContactInfo\",\n  \"type\": \"object\",\n  \"required\": [\n    \"postal_code\",\n    \"address\",\n    \"first_name\",\n    \"last_name\",\n    \"telephone\",\n    \"city\",\n    \"email\"\n  ],\n  \"properties\": {\n    \"postal_code\": {\n      \"type\": \"string\",\n      \"description\": \"The Canadian postal code in the standard format (e.g., J1E 3W6). Must be a valid alphanumeric code with a space separating the third and fourth characters.\"\n    },\n    \"address\": {\n      \"type\": \"string\",\n      \"description\": \"The street address including street number, street name, and optional apartment/unit information (e.g., 233 20e Av Nord).\"\n    },\n    \"first_name\": {\n      \"type\": \"string\",\n      \"description\": \"The individual's first name, which may include hyphens or compound forms (e.g., Mathieu-Philippe).\"\n    },\n    \"last_name\": {\n      \"type\": \"string\",\n      \"description\": \"The individual's last name or family name.\"\n    },\n    \"telephone\": {\n      \"type\": \"string\",\n      \"description\": \"The phone number in the format 123-456-7891. Must include area code and be formatted with dashes.\"\n    },\n    \"city\": {\n      \"type\": \"string\",\n      \"description\": \"The name of the city where the individual resides (e.g., Sherbrooke).\"\n    },\n    \"email\": {\n      \"type\": \"string\",\n      \"format\": \"email\",\n      \"description\": \"The individual's email address. Must follow standard email formatting rules (e.g., mat@boostperformance.ai).\"\n    }\n  }\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.2,
+      "position": [
+        1820,
+        500
+      ],
+      "id": "8aff16ec-76c3-4868-b148-f0eaebaaa313",
+      "name": "Create prospect"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 3,
+  "updatedAt": "2025-07-08T19:15:15.000Z",
+  "versionId": "81c4f75a-3957-415e-8b36-7845f35f882a"
+}
