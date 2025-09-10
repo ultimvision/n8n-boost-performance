@@ -1,0 +1,239 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "MySQL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-27T19:35:03.444Z",
+  "id": "QMVfiAfRpm1MsvKi",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Create Video Stories",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e0d80c50-d8ac-4f75-b0df-36fd0c3d7269",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        1100,
+        520
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.creatomate.com/v1/renders",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer bae57b009ecd4e399e90f9b49697cdcc8f228469c3804d9e4aae72f8c780c5750717e68988873e9e8eacd9164cda0cda"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"template_id\": \"837f0670-8bde-4bf5-bc29-defe0f4d4aa1\",\n  \"modifications\": {\n    \"c4473b25-e010-4cbf-8e0a-96d41f23a776\": \"https://boostperformance.ai/aiagent/photos/beautifull_women.jpg\",\n    \"Text\": \"Don’t shy away from it. 😏 At NANNETTE de GASPÉ, we believe aging is a beautiful journey, not something to be ‘anti’ about. That’s why we choose to use the term ‘youth-restoring’ over ‘anti-aging.\",\n    \"Handle\": \"@nannettedegaspe\",\n    \"Name\": \"Nannette De Gaspé\",\n    \"Picture\": \"https://boostperformance.ai/aiagent/photos/logo_nannette_blanc.png\"\n  }\n}",
+        "options": {}
+      },
+      "id": "6ca428c2-f490-43da-accf-e689e6ed3a9a",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1460,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.creatomate.com/v1/renders/{{ $json[\"video_id\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer bae57b009ecd4e399e90f9b49697cdcc8f228469c3804d9e4aae72f8c780c5750717e68988873e9e8eacd9164cda0cda"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c0b810e6-0c22-48dd-9cf0-8d986c4b9a03",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1720,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "video_creation",
+          "mode": "list",
+          "cachedResultName": "video_creation"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "video_id",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "column": "customer_id",
+              "value": "nannette-de-gaspe"
+            },
+            {
+              "column": "content",
+              "value": "={{ JSON.stringify($json.modifications) }}"
+            },
+            {
+              "column": "url_video",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "column": "snapshot_url",
+              "value": "={{ $json.snapshot_url }}"
+            },
+            {
+              "column": "status",
+              "value": "={{ $json.status }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fb08d1e5-7f7c-4c81-869d-ab85d9ee1845",
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1940,
+        520
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "15d8d30f-0f56-4cba-bc22-c0eb88b09c06",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1680,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "video_creation",
+          "mode": "list",
+          "cachedResultName": "video_creation"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "status",
+              "value": "planned"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9a1473c4-5467-4640-9c92-b726d2a8f63c",
+      "name": "MySQL1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1440,
+        260
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-27T19:55:08.762Z",
+      "updatedAt": "2024-08-27T19:55:08.762Z",
+      "id": "5QQSdOtvrL4nDC7a",
+      "name": "Video"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T19:55:09.000Z",
+  "versionId": "182053ed-f213-4992-ac93-b30413cb9e32"
+}
