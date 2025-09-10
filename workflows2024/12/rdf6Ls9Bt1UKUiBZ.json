@@ -1,0 +1,78 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "SendGrid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-10T12:56:36.113Z",
+  "id": "rdf6Ls9Bt1UKUiBZ",
+  "isArchived": false,
+  "meta": null,
+  "name": "SendGrid - Test",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -180
+      ],
+      "id": "45b4ccb6-7267-47f5-aebe-26b0bc7704ab",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "mail",
+        "fromEmail": "coach@boostperformance.ai",
+        "fromName": "Boost Performance",
+        "toEmail": "p@justmove.app",
+        "subject": "Test de Sendgrid",
+        "contentType": "text/html",
+        "contentValue": "Hi Pat",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.sendGrid",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        -180
+      ],
+      "id": "8e89c90e-de7a-4c99-bfef-c485bea2064c",
+      "name": "SendGrid",
+      "credentials": {
+        "sendGridApi": {
+          "id": "jCpCzhJAf3NNm1VT",
+          "name": "SendGrid BoostPerformance"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-23T14:42:32.000Z",
+  "versionId": "1fec73d8-51be-4733-82ab-dc4baa7378ae"
+}
