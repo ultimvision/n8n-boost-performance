@@ -1,0 +1,3439 @@
+{
+  "active": false,
+  "connections": {
+    "Liste Nouveaux Membres": {
+      "main": [
+        []
+      ]
+    },
+    "Sélectionner un membre": {
+      "main": [
+        [
+          {
+            "node": "Profile Membre CRM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Départ de l'automatisation": {
+      "main": [
+        [
+          {
+            "node": "Sélectionner un membre",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Information du membre circle": {
+      "main": [
+        [
+          {
+            "node": "Profile Détaillé",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aucune information",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Profile Membre CRM": {
+      "main": [
+        [
+          {
+            "node": "Rapport de recherche Deepseek1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aucune information": {
+      "main": [
+        [
+          {
+            "node": "Combinaison des profils",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Profile Détaillé": {
+      "main": [
+        [
+          {
+            "node": "Combinaison des profils",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combinaison des profils": {
+      "main": [
+        []
+      ]
+    },
+    "Rapport de recherche Perplexity": {
+      "main": [
+        [
+          {
+            "node": "Mise à Jour Recherche 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rapport de recherche Gemini": {
+      "main": [
+        [
+          {
+            "node": "Mise à Jour Recherche ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rapport de recherche Deepseek": {
+      "main": [
+        [
+          {
+            "node": "Mise à Jour Recherche 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Perplexity AI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Rapport de recherche Perplexity",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini AI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Rapport de recherche Gemini",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deepseek AI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Rapport de recherche Deepseek",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mise à Jour Recherche 2": {
+      "main": [
+        []
+      ]
+    },
+    "Deepseek AI1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Rapport de recherche Deepseek1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rapport de recherche Deepseek1": {
+      "main": [
+        [
+          {
+            "node": "Mise à Jour Recherche 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-07T14:19:12.318Z",
+  "id": "M5YrWlHmi8oO2kep",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Lead Research",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appKjVmXp6kvATgcO",
+          "mode": "list",
+          "cachedResultName": "Groupe Performance",
+          "cachedResultUrl": "https://airtable.com/appKjVmXp6kvATgcO"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblxzNYwH4PF8rWPz",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/appKjVmXp6kvATgcO/tblxzNYwH4PF8rWPz"
+        },
+        "filterByFormula": "FIND(\"Membre\", {Type STR}) > 0",
+        "returnAll": false,
+        "limit": 10,
+        "options": {},
+        "sort": {
+          "property": [
+            {
+              "field": "Date Adhésion",
+              "direction": "desc"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -340,
+        60
+      ],
+      "id": "555ccf89-37ee-43b0-b4fd-1b0b2add5627",
+      "name": "Liste Nouveaux Membres",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblldDBQts69Z6v2I",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblldDBQts69Z6v2I"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Combinaison des profils').item.json.crm.Email.trim() }}",
+            "Analyse Perplexity": "={{ $json.text }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nom complet",
+              "displayName": "Nom complet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date création",
+              "displayName": "Date création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Type contact",
+              "displayName": "Type contact",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Prospect",
+                  "value": "Prospect"
+                },
+                {
+                  "name": "Participant",
+                  "value": "Participant"
+                },
+                {
+                  "name": "Prospect GP",
+                  "value": "Prospect GP"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entreprise",
+              "displayName": "Entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse 1",
+              "displayName": "Adresse 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse 2",
+              "displayName": "Adresse 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Province",
+              "displayName": "Province",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Code Postal",
+              "displayName": "Code Postal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Pays",
+              "displayName": "Pays",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Site Web",
+              "displayName": "Site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Nouveau",
+                  "value": "Nouveau"
+                },
+                {
+                  "name": "En discussion",
+                  "value": "En discussion"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Suivi Automatique",
+              "displayName": "Suivi Automatique",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Newsletter",
+              "displayName": "Newsletter",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-in",
+              "displayName": "Date Opt-in",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-out",
+              "displayName": "Date Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raison Opt-out",
+              "displayName": "Raison Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Sync",
+              "displayName": "Date Sync",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_source",
+              "displayName": "utm_source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_medium",
+              "displayName": "utm_medium",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_campaign",
+              "displayName": "utm_campaign",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_term",
+              "displayName": "utm_term",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_content",
+              "displayName": "utm_content",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ref",
+              "displayName": "ref",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ip",
+              "displayName": "ip",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Leads",
+              "displayName": "Leads",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Mobile",
+              "displayName": "Mobile",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Opportunités",
+              "displayName": "Opportunités",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tags Automatisation",
+              "displayName": "Tags Automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "LinkendIn",
+              "displayName": "LinkendIn",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Détails du site Web",
+              "displayName": "Détails du site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse Perplexity",
+              "displayName": "Analyse Perplexity",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyse Gemini",
+              "displayName": "Analyse Gemini",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse DeepSeek",
+              "displayName": "Analyse DeepSeek",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1880,
+        -20
+      ],
+      "id": "3b9f8d84-6eab-4b76-b99a-c4f89a30b99a",
+      "name": "Mise à Jour Recherche 1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblldDBQts69Z6v2I",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblldDBQts69Z6v2I"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Combinaison des profils').item.json.crm.Email.trim() }}",
+            "Analyse Gemini": "={{ $json.text }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nom complet",
+              "displayName": "Nom complet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date création",
+              "displayName": "Date création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Type contact",
+              "displayName": "Type contact",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Prospect",
+                  "value": "Prospect"
+                },
+                {
+                  "name": "Participant",
+                  "value": "Participant"
+                },
+                {
+                  "name": "Prospect GP",
+                  "value": "Prospect GP"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entreprise",
+              "displayName": "Entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse 1",
+              "displayName": "Adresse 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse 2",
+              "displayName": "Adresse 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Province",
+              "displayName": "Province",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Code Postal",
+              "displayName": "Code Postal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Pays",
+              "displayName": "Pays",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Site Web",
+              "displayName": "Site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Nouveau",
+                  "value": "Nouveau"
+                },
+                {
+                  "name": "En discussion",
+                  "value": "En discussion"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Suivi Automatique",
+              "displayName": "Suivi Automatique",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Newsletter",
+              "displayName": "Newsletter",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-in",
+              "displayName": "Date Opt-in",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-out",
+              "displayName": "Date Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raison Opt-out",
+              "displayName": "Raison Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Sync",
+              "displayName": "Date Sync",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_source",
+              "displayName": "utm_source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_medium",
+              "displayName": "utm_medium",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_campaign",
+              "displayName": "utm_campaign",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_term",
+              "displayName": "utm_term",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_content",
+              "displayName": "utm_content",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ref",
+              "displayName": "ref",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ip",
+              "displayName": "ip",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Leads",
+              "displayName": "Leads",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Mobile",
+              "displayName": "Mobile",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Opportunités",
+              "displayName": "Opportunités",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tags Automatisation",
+              "displayName": "Tags Automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "LinkendIn",
+              "displayName": "LinkendIn",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Détails du site Web",
+              "displayName": "Détails du site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse Perplexity",
+              "displayName": "Analyse Perplexity",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse Gemini",
+              "displayName": "Analyse Gemini",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Analyse DeepSeek",
+              "displayName": "Analyse DeepSeek",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1880,
+        160
+      ],
+      "id": "c9d00648-943f-4390-8d4f-57f52de595f9",
+      "name": "Mise à Jour Recherche ",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblldDBQts69Z6v2I",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblldDBQts69Z6v2I"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Combinaison des profils').item.json.crm.Email.trim() }}",
+            "Analyse DeepSeek": "={{ $json.text }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nom complet",
+              "displayName": "Nom complet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date création",
+              "displayName": "Date création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Type contact",
+              "displayName": "Type contact",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Prospect",
+                  "value": "Prospect"
+                },
+                {
+                  "name": "Participant",
+                  "value": "Participant"
+                },
+                {
+                  "name": "Prospect GP",
+                  "value": "Prospect GP"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entreprise",
+              "displayName": "Entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse 1",
+              "displayName": "Adresse 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse 2",
+              "displayName": "Adresse 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Province",
+              "displayName": "Province",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Code Postal",
+              "displayName": "Code Postal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Pays",
+              "displayName": "Pays",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Site Web",
+              "displayName": "Site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Nouveau",
+                  "value": "Nouveau"
+                },
+                {
+                  "name": "En discussion",
+                  "value": "En discussion"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Suivi Automatique",
+              "displayName": "Suivi Automatique",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Newsletter",
+              "displayName": "Newsletter",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-in",
+              "displayName": "Date Opt-in",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-out",
+              "displayName": "Date Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raison Opt-out",
+              "displayName": "Raison Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Sync",
+              "displayName": "Date Sync",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_source",
+              "displayName": "utm_source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_medium",
+              "displayName": "utm_medium",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_campaign",
+              "displayName": "utm_campaign",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_term",
+              "displayName": "utm_term",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_content",
+              "displayName": "utm_content",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ref",
+              "displayName": "ref",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ip",
+              "displayName": "ip",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Leads",
+              "displayName": "Leads",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Mobile",
+              "displayName": "Mobile",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Opportunités",
+              "displayName": "Opportunités",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tags Automatisation",
+              "displayName": "Tags Automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "LinkendIn",
+              "displayName": "LinkendIn",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Détails du site Web",
+              "displayName": "Détails du site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse Perplexity",
+              "displayName": "Analyse Perplexity",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse Gemini",
+              "displayName": "Analyse Gemini",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse DeepSeek",
+              "displayName": "Analyse DeepSeek",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1880,
+        320
+      ],
+      "id": "c0ac3cbf-8395-4f51-9699-f6e4ee1e7d92",
+      "name": "Mise à Jour Recherche 2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appKjVmXp6kvATgcO",
+          "mode": "list",
+          "cachedResultName": "Groupe Performance",
+          "cachedResultUrl": "https://airtable.com/appKjVmXp6kvATgcO"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblxzNYwH4PF8rWPz",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/appKjVmXp6kvATgcO/tblxzNYwH4PF8rWPz"
+        },
+        "id": "recflI4j4juk4jFI4",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -340,
+        240
+      ],
+      "id": "f552d368-2b59-4897-838e-d7e4879d7c2c",
+      "name": "Sélectionner un membre",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -580,
+        240
+      ],
+      "id": "e0dd8b93-640a-48c1-9e55-cde8806b1fad",
+      "name": "Départ de l'automatisation"
+    },
+    {
+      "parameters": {
+        "url": "=https://app.circle.so/api/admin/v2/community_members/{{ $json['Circle Membre ID'] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "23bf3e2a-71ce-4c09-9fa1-813be6732c24",
+      "name": "Information du membre circle",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -40,
+        80
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "YXT1saYwBN8GKzcx",
+          "name": "Circle V2 Groupe Performance"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b1d18d5a-c5ce-47d6-bcd9-7abce248a93c",
+              "name": "crm.Nom Complet",
+              "value": "={{ $json['Nom Complet'] }}",
+              "type": "string"
+            },
+            {
+              "id": "a3b65e23-df4a-4903-84be-24d7ddb8cc3d",
+              "name": "crm.Entreprise",
+              "value": "={{ $json.Entreprise }}",
+              "type": "string"
+            },
+            {
+              "id": "fdd80c55-9024-4276-a554-27ff61e3e012",
+              "name": "crm.Prénom",
+              "value": "={{ $json['Prénom'] }}",
+              "type": "string"
+            },
+            {
+              "id": "0b9b3850-cf26-4af9-bc74-98617001e130",
+              "name": "crm.Nom",
+              "value": "={{ $json.Nom }}",
+              "type": "string"
+            },
+            {
+              "id": "f27dba39-d5c1-4d7b-9edb-e761953c927b",
+              "name": "crm.Téléphone",
+              "value": "={{ $json['Téléphone'] }}",
+              "type": "string"
+            },
+            {
+              "id": "bde90d8e-1b51-49ac-9244-1402b7242554",
+              "name": "crm.Email",
+              "value": "={{ $json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "0bad80ab-e5fa-49f6-80b2-46cb9cb014bc",
+              "name": "crm.Région",
+              "value": "={{ $json['Région'] }}",
+              "type": "string"
+            },
+            {
+              "id": "9479251f-2963-4841-ab09-cd1d8a747458",
+              "name": "crm.Ville",
+              "value": "={{ $json.Ville }}",
+              "type": "string"
+            },
+            {
+              "id": "aa7bcfb2-8021-4538-9df0-7e2d74e588de",
+              "name": "crm.Province",
+              "value": "={{ $json.Province }}",
+              "type": "string"
+            },
+            {
+              "id": "1cace5d6-d326-4f3a-86ec-e0816903c5ec",
+              "name": "crm.Code Postal",
+              "value": "={{ $json['Code Postal'] }}",
+              "type": "string"
+            },
+            {
+              "id": "3e6e19c0-45f5-4f1f-9766-db8c48b299a6",
+              "name": "crm.Site Web URL",
+              "value": "={{ $json['Site Web URL'] }}",
+              "type": "string"
+            },
+            {
+              "id": "540ff76b-67c5-4bfa-906c-375e1671ac9b",
+              "name": "crm.Domaine Activité",
+              "value": "={{ $json['Domaine Activité'] }}",
+              "type": "string"
+            },
+            {
+              "id": "317fa576-ea1c-461c-b9e1-59814d55ae5e",
+              "name": "crm.Expertise Entreprise",
+              "value": "={{ $json['Expertise Entreprise'] }}",
+              "type": "string"
+            },
+            {
+              "id": "3c3439f3-8573-40af-aa31-e2cd7e7b0997",
+              "name": "crm.LinkedIn URL",
+              "value": "={{ $json['LinkedIn URL'] }}",
+              "type": "string"
+            },
+            {
+              "id": "44f0efb6-422a-42c2-b546-6e0eed3bb070",
+              "name": "crm.Page Facebook URL",
+              "value": "={{ $json['Page Facebook URL'] }}",
+              "type": "string"
+            },
+            {
+              "id": "94bc3948-bb1f-4a5a-a64c-a2880b40b437",
+              "name": "crm.Instagram URL",
+              "value": "={{ $json['Instagram URL'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -40,
+        340
+      ],
+      "id": "16095e8f-9b69-4c3b-bdbe-7fde602bb758",
+      "name": "Profile Membre CRM"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        200,
+        180
+      ],
+      "id": "ddb28c48-1a55-411c-8fb3-6692e614e4d2",
+      "name": "Aucune information"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2ef3d28a-772f-46dd-b749-f471728c5514",
+              "name": "flattened_profile_fields.first_name",
+              "value": "={{ $json.first_name }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c7b1c5-3361-4b39-82c4-e67873238b19",
+              "name": "flattened_profile_fields.last_name",
+              "value": "={{ $json.last_name }}",
+              "type": "string"
+            },
+            {
+              "id": "d1719ec9-0a10-46d7-a39a-264cd812bfd2",
+              "name": "flattened_profile_fields.bio",
+              "value": "={{ $json.flattened_profile_fields.bio }}",
+              "type": "string"
+            },
+            {
+              "id": "6401dcd3-e0a9-46a0-8e29-f136d5193af0",
+              "name": "flattened_profile_fields.location",
+              "value": "={{ $json.flattened_profile_fields.location }}",
+              "type": "string"
+            },
+            {
+              "id": "c8c925da-8829-47f5-8d5c-dd83ee301405",
+              "name": "flattened_profile_fields.website",
+              "value": "={{ $json.flattened_profile_fields.website }}",
+              "type": "string"
+            },
+            {
+              "id": "7626782a-fa99-4efb-8428-16de42c886c7",
+              "name": "flattened_profile_fields.twitter_url",
+              "value": "={{ $json.flattened_profile_fields.twitter_url }}",
+              "type": "string"
+            },
+            {
+              "id": "04820120-7c3e-46cd-8b9b-7afc607900c0",
+              "name": "flattened_profile_fields.facebook_url",
+              "value": "={{ $json.flattened_profile_fields.facebook_url }}",
+              "type": "string"
+            },
+            {
+              "id": "9136fb03-c833-4979-9865-15e51f34bd3b",
+              "name": "flattened_profile_fields.instagram_url",
+              "value": "={{ $json.flattened_profile_fields.instagram_url }}",
+              "type": "string"
+            },
+            {
+              "id": "008e64a1-3e9b-4bb0-ad77-4164129139d7",
+              "name": "flattened_profile_fields.linkedin_url",
+              "value": "={{ $json.flattened_profile_fields.linkedin_url }}",
+              "type": "string"
+            },
+            {
+              "id": "e651cf63-e6c6-4427-900e-af6896dba76b",
+              "name": "flattened_profile_fields.profession",
+              "value": "={{ $json.flattened_profile_fields.profession }}",
+              "type": "string"
+            },
+            {
+              "id": "72f628aa-22fb-403c-ae4d-6b98986c3261",
+              "name": "flattened_profile_fields.birthday",
+              "value": "={{ $json.flattened_profile_fields.birthday }}",
+              "type": "string"
+            },
+            {
+              "id": "00a5b492-a208-4107-b621-645a3a25536e",
+              "name": "flattened_profile_fields.company",
+              "value": "={{ $json.flattened_profile_fields.company }}",
+              "type": "string"
+            },
+            {
+              "id": "73f318e3-f118-4cde-ab0f-876d63535fa2",
+              "name": "flattened_profile_fields.headline",
+              "value": "={{ $json.flattened_profile_fields.headline }}",
+              "type": "string"
+            },
+            {
+              "id": "832676c6-e2fa-4c7b-81f0-cf0ada48ebc7",
+              "name": "flattened_profile_fields.telephone",
+              "value": "={{ $json.flattened_profile_fields.telephone }}",
+              "type": "string"
+            },
+            {
+              "id": "ab854efa-682c-4e6f-8b60-b012747ed65f",
+              "name": "flattened_profile_fields.champ_expertise",
+              "value": "={{ $json.flattened_profile_fields.champ_expertise }}",
+              "type": "string"
+            },
+            {
+              "id": "0168ff13-0d3c-45dc-b489-13b3ee33a553",
+              "name": "flattened_profile_fields.domaine_activite",
+              "value": "={{ $json.flattened_profile_fields.domaine_activite }}",
+              "type": "string"
+            },
+            {
+              "id": "a1f15167-32a7-4231-a70f-e4b96448ccf6",
+              "name": "flattened_profile_fields.email",
+              "value": "={{ $json.email }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        200,
+        20
+      ],
+      "id": "e76264ac-c377-4a16-a32d-8b8d8d62e8b0",
+      "name": "Profile Détaillé"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        480,
+        200
+      ],
+      "id": "60dee3d0-90e0-4fb8-b53e-1df1abbb084d",
+      "name": "Combinaison des profils"
+    },
+    {
+      "parameters": {
+        "content": "## Récupération des informations de base du client \n",
+        "height": 600,
+        "width": 1300
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        -60
+      ],
+      "id": "f4a02aa4-cfd7-4fef-a424-c10453f21123",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## On met à jour la fiche client dans le CRM",
+        "height": 600,
+        "width": 360,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        700,
+        -340
+      ],
+      "typeVersion": 1,
+      "id": "3ba5841b-6fc9-4178-b988-f0e1448245bb",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblldDBQts69Z6v2I",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblldDBQts69Z6v2I"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Combinaison des profils').item.json.crm.Email.trim() }}",
+            "Prénom": "={{ $json.crm['Prénom'] }}",
+            "Nom": "={{ $json.crm.Nom }}",
+            "Téléphone": "={{ $json.crm['Téléphone'] }}",
+            "Entreprise": "={{ $json.crm.Entreprise }}",
+            "Site Web": "={{ $json.flattened_profile_fields.website }}",
+            "Status": "Nouveau",
+            "LinkendIn": "={{ $json.flattened_profile_fields.linkedin_url }}",
+            "Type contact": "['Prospect GP']"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nom complet",
+              "displayName": "Nom complet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date création",
+              "displayName": "Date création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Type contact",
+              "displayName": "Type contact",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Prospect",
+                  "value": "Prospect"
+                },
+                {
+                  "name": "Participant",
+                  "value": "Participant"
+                },
+                {
+                  "name": "Prospect GP",
+                  "value": "Prospect GP"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Entreprise",
+              "displayName": "Entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Adresse 1",
+              "displayName": "Adresse 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse 2",
+              "displayName": "Adresse 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Province",
+              "displayName": "Province",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Code Postal",
+              "displayName": "Code Postal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Pays",
+              "displayName": "Pays",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Site Web",
+              "displayName": "Site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Nouveau",
+                  "value": "Nouveau"
+                },
+                {
+                  "name": "En discussion",
+                  "value": "En discussion"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Suivi Automatique",
+              "displayName": "Suivi Automatique",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Newsletter",
+              "displayName": "Newsletter",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-in",
+              "displayName": "Date Opt-in",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-out",
+              "displayName": "Date Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raison Opt-out",
+              "displayName": "Raison Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Sync",
+              "displayName": "Date Sync",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_source",
+              "displayName": "utm_source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_medium",
+              "displayName": "utm_medium",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_campaign",
+              "displayName": "utm_campaign",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_term",
+              "displayName": "utm_term",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_content",
+              "displayName": "utm_content",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ref",
+              "displayName": "ref",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ip",
+              "displayName": "ip",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Leads",
+              "displayName": "Leads",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Mobile",
+              "displayName": "Mobile",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Opportunités",
+              "displayName": "Opportunités",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tags Automatisation",
+              "displayName": "Tags Automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "LinkendIn",
+              "displayName": "LinkendIn",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Détails du site Web",
+              "displayName": "Détails du site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse Perplexity",
+              "displayName": "Analyse Perplexity",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse Gemini",
+              "displayName": "Analyse Gemini",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse DeepSeek",
+              "displayName": "Analyse DeepSeek",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        820,
+        -200
+      ],
+      "id": "65e22d55-63af-4f6e-854b-78f8f4d64899",
+      "name": "Mise à jour Profile CRM",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Tu peux démarrer ta recherche détaillée.",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=En fonction de la date d'aujourd'hui qui est le {{ $now }}.\n\nTu es un analyste d’affaires senior spécialisé en renseignement concurrentiel et prospection B2B.\n\nTa mission est de produire un **rapport complet** sur un·e entrepreneur·e et son entreprise, puis d’identifier les axes d’amélioration où l’IA générative créerait le plus de valeur.\n\n## VARIABLES (remplace-les AVANT d’exécuter le prompt)\n- company_name      = \"{{ $json.flattened_profile_fields.company }} {{ $json.flattened_profile_fields.company }}\"\n- company_url       = \"{{ $json.flattened_profile_fields.website }}\"\n- person_name       = \"{{ $json.flattened_profile_fields.first_name }} {{ $json.flattened_profile_fields.last_name }} {{ $json.crm['Nom Complet'] }}\"\n- linkedin_url      = \"{{ $json.flattened_profile_fields.linkedin_url }}\"\n- sector            = \"{{ $json.flattened_profile_fields.domaine_activite }}\"\n- email             = \"{{ $json.crm.Email }}, {{ $json.flattened_profile_fields.email }}\"\n- phone             = \"{{ $json.flattened_profile_fields.telephone }},{{ $json.crm['Téléphone'] }} \"\n- région, pays      = \"{{ $json.flattened_profile_fields.location }}, {{ $json.crm['Région'] }}, Canada\"\n- info extra = \"{{ $json.flattened_profile_fields.champ_expertise }}\"\n- bio = \"{{ $json.flattened_profile_fields.bio }}\"\n\n---\n\n## RÈGLES GÉNÉRALES\n1. Travaille exclusivement à partir de sources ouvertes (site officiel, rapports annuels, registres légaux, presse – 12 derniers mois –, LinkedIn, Twitter, GitHub, Crunchbase, SimilarWeb, Trustpilot, Glassdoor, Hunter, Lusha…).\n2. Cite la **source précise** (URL court + date) pour chaque fait chiffré ou déclaratif.\n3. Réponds en **UN SEUL RAPPORT DÉTAILLÉ**, divisée en 8 blocs numérotés avec le nom de la section, suivi du contenu détaillé associé à ta recherche pour cette section.\n\nUtilise ton raisonnement avant chaque étape pour comprendre l'information accumulée et adapter ton analyse.\n\n---\n\n## ÉTAPES (exécute‑les dans l’ordre)\n\n### 1 ▪︎ Analyse stratégique de l’entreprise\n- Fournis : `ca` ({\"2024\": n, \"2023\": n, \"2022\": n}), `positionnement`, `concurrents` (≥3), `innovations`, `litiges`.\n- Sources prioritaires : company_url, rapports annuels, registres légaux, presse < 12 mois.\n\n### 2 ▪︎ Profil détaillé de la personne\n- Reconstitue le parcours à partir de linkedin_url, publications académiques, presse.\n- Donne : `parcours` (chronologie), `competences`, `projets_phare`, `reseau_influence` (≤ 10 contacts clés).\n\n### 3 ▪︎ Veille numérique multicanal\n- Analyse Twitter, GitHub, blogs, 90 derniers jours.\n- Donne : `sujets_recurrents`, `collaborations`, `technologies_maitrisees`, `engagements_publics` (liste des posts >100 interactions).\n\n### 4 ▪︎ Benchmark concurrentiel\n- Compare company_name aux 3 competitors.\n- Donne : `parts_marche`, `strategie_pricing`, `satisfaction_client`, `innovation_tech`.\n\n### 5 ▪︎ Impact sectoriel\n- Période 2022‑2025.\n- Donne : `citations_pro`, `conferences_majeures`, `collaborations_academiques`.\n\n### 6 ▪︎ Validation des coordonnées\n- Vérifie `email` et `phone` via WHOIS company_url, profils sociaux, Hunter, Lusha.\n- Donne : `email_valid` (bool), `phone_valid` (bool), `ecarts` (liste divergences).\n\n### **7 ▪︎ Forces & Faiblesses (personne + entreprise)**  \nÀ partir des données précédentes, dresse :  \n- `forces_personne` (liste) & `faiblesses_personne` (liste)  \n- `forces_entreprise` (liste) & `faiblesses_entreprise` (liste)  \nChaque entrée = phrase courte résumant l’enjeu (+ éventuelle donnée chiffrée).\n\n### **8 ▪︎ Opportunités IA générative**  \nIdentifie jusqu’à **5 besoins** où l’IA générative améliorerait fortement : productivité, opérations, marketing, ventes, service client, etc.  \nPour chaque besoin, renseigne les informations suivantes :  \n\n  \"besoin\": \"<domaine/exemple>\",\n  \"solution_ia\": \"<description détaillée de la solution>\",\n  \"roi_estime\": \"<% ou valeur> sur <période>\",\n  \"benefices_long_terme\": \"<explications>\",\n  \"arguments de ventes\" : \"<explications>\",\n  \"raisonnement pour proposer ce besoin\": \" <explications\"\n\n"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1420,
+        0
+      ],
+      "id": "58dcb591-03b1-4f28-b40b-0e7bca1d6cd9",
+      "name": "Rapport de recherche Perplexity",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Tu peux démarrer ta recherche détaillée.",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=En fonction de la date d'aujourd'hui qui est le {{ $now }}.\n\nTu es un analyste d’affaires senior spécialisé en renseignement concurrentiel et prospection B2B.\n\nTa mission est de produire un **rapport complet** sur un·e entrepreneur·e et son entreprise, puis d’identifier les axes d’amélioration où l’IA générative créerait le plus de valeur.\n\n## VARIABLES (remplace-les AVANT d’exécuter le prompt)\n- company_name      = \"{{ $json.flattened_profile_fields.company }} {{ $json.flattened_profile_fields.company }}\"\n- company_url       = \"{{ $json.flattened_profile_fields.website }}\"\n- person_name       = \"{{ $json.flattened_profile_fields.first_name }} {{ $json.flattened_profile_fields.last_name }} {{ $json.crm['Nom Complet'] }}\"\n- linkedin_url      = \"{{ $json.flattened_profile_fields.linkedin_url }}\"\n- sector            = \"{{ $json.flattened_profile_fields.domaine_activite }}\"\n- email             = \"{{ $json.crm.Email }}, {{ $json.flattened_profile_fields.email }}\"\n- phone             = \"{{ $json.flattened_profile_fields.telephone }},{{ $json.crm['Téléphone'] }} \"\n- région, pays      = \"{{ $json.flattened_profile_fields.location }}, {{ $json.crm['Région'] }}, Canada\"\n- info extra = \"{{ $json.flattened_profile_fields.champ_expertise }}\"\n- bio = \"{{ $json.flattened_profile_fields.bio }}\"\n\n---\n\n## RÈGLES GÉNÉRALES\n1. Travaille exclusivement à partir de sources ouvertes (site officiel, rapports annuels, registres légaux, presse – 12 derniers mois –, LinkedIn, Twitter, GitHub, Crunchbase, SimilarWeb, Trustpilot, Glassdoor, Hunter, Lusha…).\n2. Cite la **source précise** (URL court + date) pour chaque fait chiffré ou déclaratif.\n3. Réponds en **UN SEUL RAPPORT DÉTAILLÉ**, divisée en 8 blocs numérotés avec le nom de la section, suivi du contenu détaillé associé à ta recherche pour cette section.\n\nUtilise ton raisonnement avant chaque étape pour comprendre l'information accumulée et adapter ton analyse.\n\n---\n\n## ÉTAPES (exécute‑les dans l’ordre)\n\n### 1 ▪︎ Analyse stratégique de l’entreprise\n- Fournis : `ca` ({\"2024\": n, \"2023\": n, \"2022\": n}), `positionnement`, `concurrents` (≥3), `innovations`, `litiges`.\n- Sources prioritaires : company_url, rapports annuels, registres légaux, presse < 12 mois.\n\n### 2 ▪︎ Profil détaillé de la personne\n- Reconstitue le parcours à partir de linkedin_url, publications académiques, presse.\n- Donne : `parcours` (chronologie), `competences`, `projets_phare`, `reseau_influence` (≤ 10 contacts clés).\n\n### 3 ▪︎ Veille numérique multicanal\n- Analyse Twitter, GitHub, blogs, 90 derniers jours.\n- Donne : `sujets_recurrents`, `collaborations`, `technologies_maitrisees`, `engagements_publics` (liste des posts >100 interactions).\n\n### 4 ▪︎ Benchmark concurrentiel\n- Compare company_name aux 3 competitors.\n- Donne : `parts_marche`, `strategie_pricing`, `satisfaction_client`, `innovation_tech`.\n\n### 5 ▪︎ Impact sectoriel\n- Période 2022‑2025.\n- Donne : `citations_pro`, `conferences_majeures`, `collaborations_academiques`.\n\n### 6 ▪︎ Validation des coordonnées\n- Vérifie `email` et `phone` via WHOIS company_url, profils sociaux, Hunter, Lusha.\n- Donne : `email_valid` (bool), `phone_valid` (bool), `ecarts` (liste divergences).\n\n### **7 ▪︎ Forces & Faiblesses (personne + entreprise)**  \nÀ partir des données précédentes, dresse :  \n- `forces_personne` (liste) & `faiblesses_personne` (liste)  \n- `forces_entreprise` (liste) & `faiblesses_entreprise` (liste)  \nChaque entrée = phrase courte résumant l’enjeu (+ éventuelle donnée chiffrée).\n\n### **8 ▪︎ Opportunités IA générative**  \nIdentifie jusqu’à **5 besoins** où l’IA générative améliorerait fortement : productivité, opérations, marketing, ventes, service client, etc.  \nPour chaque besoin, renseigne les informations suivantes :  \n\n  \"besoin\": \"<domaine/exemple>\",\n  \"solution_ia\": \"<description détaillée de la solution>\",\n  \"roi_estime\": \"<% ou valeur> sur <période>\",\n  \"benefices_long_terme\": \"<explications>\",\n  \"arguments de ventes\" : \"<explications>\",\n  \"raisonnement pour proposer ce besoin\": \" <explications\"\n\n"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1420,
+        180
+      ],
+      "id": "31495109-8905-414d-b2ba-617fed6e770d",
+      "name": "Rapport de recherche Gemini",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Tu peux démarrer ta recherche détaillée.",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=En fonction de la date d'aujourd'hui qui est le {{ $now }}.\n\nTu es un analyste d’affaires senior spécialisé en renseignement concurrentiel et prospection B2B.\n\nTa mission est de produire un **rapport complet** sur un·e entrepreneur·e et son entreprise, puis d’identifier les axes d’amélioration où l’IA générative créerait le plus de valeur.\n\n## VARIABLES (remplace-les AVANT d’exécuter le prompt)\n- company_name      = \"{{ $json.flattened_profile_fields.company }} {{ $json.flattened_profile_fields.company }}\"\n- company_url       = \"{{ $json.flattened_profile_fields.website }}\"\n- person_name       = \"{{ $json.flattened_profile_fields.first_name }} {{ $json.flattened_profile_fields.last_name }} {{ $json.crm['Nom Complet'] }}\"\n- linkedin_url      = \"{{ $json.flattened_profile_fields.linkedin_url }}\"\n- sector            = \"{{ $json.flattened_profile_fields.domaine_activite }}\"\n- email             = \"{{ $json.crm.Email }}, {{ $json.flattened_profile_fields.email }}\"\n- phone             = \"{{ $json.flattened_profile_fields.telephone }},{{ $json.crm['Téléphone'] }} \"\n- région, pays      = \"{{ $json.flattened_profile_fields.location }}, {{ $json.crm['Région'] }}, Canada\"\n- info extra = \"{{ $json.flattened_profile_fields.champ_expertise }}\"\n- bio = \"{{ $json.flattened_profile_fields.bio }}\"\n\n---\n\n## RÈGLES GÉNÉRALES\n1. Travaille exclusivement à partir de sources ouvertes (site officiel, rapports annuels, registres légaux, presse – 12 derniers mois –, LinkedIn, Twitter, GitHub, Crunchbase, SimilarWeb, Trustpilot, Glassdoor, Hunter, Lusha…).\n2. Cite la **source précise** (URL court + date) pour chaque fait chiffré ou déclaratif.\n3. Réponds en **UN SEUL RAPPORT DÉTAILLÉ**, divisée en 8 blocs numérotés avec le nom de la section, suivi du contenu détaillé associé à ta recherche pour cette section.\n\nUtilise ton raisonnement avant chaque étape pour comprendre l'information accumulée et adapter ton analyse.\n\n---\n\n## ÉTAPES (exécute‑les dans l’ordre)\n\n### 1 ▪︎ Analyse stratégique de l’entreprise\n- Fournis : `ca` ({\"2024\": n, \"2023\": n, \"2022\": n}), `positionnement`, `concurrents` (≥3), `innovations`, `litiges`.\n- Sources prioritaires : company_url, rapports annuels, registres légaux, presse < 12 mois.\n\n### 2 ▪︎ Profil détaillé de la personne\n- Reconstitue le parcours à partir de linkedin_url, publications académiques, presse.\n- Donne : `parcours` (chronologie), `competences`, `projets_phare`, `reseau_influence` (≤ 10 contacts clés).\n\n### 3 ▪︎ Veille numérique multicanal\n- Analyse Twitter, GitHub, blogs, 90 derniers jours.\n- Donne : `sujets_recurrents`, `collaborations`, `technologies_maitrisees`, `engagements_publics` (liste des posts >100 interactions).\n\n### 4 ▪︎ Benchmark concurrentiel\n- Compare company_name aux 3 competitors.\n- Donne : `parts_marche`, `strategie_pricing`, `satisfaction_client`, `innovation_tech`.\n\n### 5 ▪︎ Impact sectoriel\n- Période 2022‑2025.\n- Donne : `citations_pro`, `conferences_majeures`, `collaborations_academiques`.\n\n### 6 ▪︎ Validation des coordonnées\n- Vérifie `email` et `phone` via WHOIS company_url, profils sociaux, Hunter, Lusha.\n- Donne : `email_valid` (bool), `phone_valid` (bool), `ecarts` (liste divergences).\n\n### **7 ▪︎ Forces & Faiblesses (personne + entreprise)**  \nÀ partir des données précédentes, dresse :  \n- `forces_personne` (liste) & `faiblesses_personne` (liste)  \n- `forces_entreprise` (liste) & `faiblesses_entreprise` (liste)  \nChaque entrée = phrase courte résumant l’enjeu (+ éventuelle donnée chiffrée).\n\n### **8 ▪︎ Opportunités IA générative**  \nIdentifie jusqu’à **5 besoins** où l’IA générative améliorerait fortement : productivité, opérations, marketing, ventes, service client, etc.  \nPour chaque besoin, renseigne les informations suivantes :  \n\n  \"besoin\": \"<domaine/exemple>\",\n  \"solution_ia\": \"<description détaillée de la solution>\",\n  \"roi_estime\": \"<% ou valeur> sur <période>\",\n  \"benefices_long_terme\": \"<explications>\",\n  \"arguments de ventes\" : \"<explications>\",\n  \"raisonnement pour proposer ce besoin\": \" <explications\"\n\n"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1420,
+        340
+      ],
+      "id": "83451b1a-c979-49bd-86a9-4f1fb6326e0d",
+      "name": "Rapport de recherche Deepseek",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": "perplexity/sonar-deep-research",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        40
+      ],
+      "id": "739cf549-7f2b-431e-be4e-8053ff437746",
+      "name": "Perplexity AI",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "google/gemini-2.5-pro-exp-03-25",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        200
+      ],
+      "id": "dc3a9060-181b-4607-9b8d-325c89230960",
+      "name": "Gemini AI",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-r1",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        380
+      ],
+      "id": "a8835ba4-a0ba-46d6-9133-8c45930ebc29",
+      "name": "Deepseek AI",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Recherche Avancée et mise à jour du CRM",
+        "height": 600,
+        "width": 1140,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        -60
+      ],
+      "id": "b61e3404-a6eb-4e69-b2e4-f5f9d2d6e8e4",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2240,
+        320
+      ],
+      "id": "7c4b36c4-2b0a-4e59-a9d3-55b30601bf67",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Tu peux démarrer ta recherche détaillée.",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=En fonction de la date d'aujourd'hui qui est le {{ $now }}.\n\nTu es un analyste d’affaires senior spécialisé en renseignement concurrentiel et prospection B2B.\n\nTa mission est de produire un **rapport complet** sur un·e entrepreneur·e et son entreprise, puis d’identifier les axes d’amélioration où l’IA générative créerait le plus de valeur.\n\n## VARIABLES\n{{ JSON.stringify($json.crm) }}\n---\n\n## RÈGLES GÉNÉRALES\n1. Travaille exclusivement à partir de sources ouvertes (site officiel, rapports annuels, registres légaux, presse – 12 derniers mois –, LinkedIn, Twitter, GitHub, Crunchbase, SimilarWeb, Trustpilot, Glassdoor, Hunter, Lusha…).\n2. Cite la **source précise** (URL court + date) pour chaque fait chiffré ou déclaratif.\n3. Réponds en **UN SEUL RAPPORT DÉTAILLÉ**, divisée en 8 blocs numérotés avec le nom de la section, suivi du contenu détaillé associé à ta recherche pour cette section.\n\nUtilise ton raisonnement avant chaque étape pour comprendre l'information accumulée et adapter ton analyse.\n\n---\n\n## ÉTAPES (exécute‑les dans l’ordre)\n\n### 1 ▪︎ Analyse stratégique de l’entreprise\n- Fournis : `ca` ({\"2024\": n, \"2023\": n, \"2022\": n}), `positionnement`, `concurrents` (≥3), `innovations`, `litiges`.\n- Sources prioritaires : company_url, rapports annuels, registres légaux, presse < 12 mois.\n\n### 2 ▪︎ Profil détaillé de la personne\n- Reconstitue le parcours à partir de linkedin_url, publications académiques, presse.\n- Donne : `parcours` (chronologie), `competences`, `projets_phare`, `reseau_influence` (≤ 10 contacts clés).\n\n### 3 ▪︎ Veille numérique multicanal\n- Analyse Twitter, GitHub, blogs, 90 derniers jours.\n- Donne : `sujets_recurrents`, `collaborations`, `technologies_maitrisees`, `engagements_publics` (liste des posts >100 interactions).\n\n### 4 ▪︎ Benchmark concurrentiel\n- Compare company_name aux 3 competitors.\n- Donne : `parts_marche`, `strategie_pricing`, `satisfaction_client`, `innovation_tech`.\n\n### 5 ▪︎ Impact sectoriel\n- Période 2022‑2025.\n- Donne : `citations_pro`, `conferences_majeures`, `collaborations_academiques`.\n\n### 6 ▪︎ Validation des coordonnées\n- Vérifie `email` et `phone` via WHOIS company_url, profils sociaux, Hunter, Lusha.\n- Donne : `email_valid` (bool), `phone_valid` (bool), `ecarts` (liste divergences).\n\n### **7 ▪︎ Forces & Faiblesses (personne + entreprise)**  \nÀ partir des données précédentes, dresse :  \n- `forces_personne` (liste) & `faiblesses_personne` (liste)  \n- `forces_entreprise` (liste) & `faiblesses_entreprise` (liste)  \nChaque entrée = phrase courte résumant l’enjeu (+ éventuelle donnée chiffrée).\n\n### **8 ▪︎ Opportunités IA générative**  \nIdentifie jusqu’à **5 besoins** où l’IA générative améliorerait fortement : productivité, opérations, marketing, ventes, service client, etc.  \nPour chaque besoin, renseigne les informations suivantes :  \n\n  \"besoin\": \"<domaine/exemple>\",\n  \"solution_ia\": \"<description détaillée de la solution>\",\n  \"roi_estime\": \"<% ou valeur> sur <période>\",\n  \"benefices_long_terme\": \"<explications>\",\n  \"arguments de ventes\" : \"<explications>\",\n  \"raisonnement pour proposer ce besoin\": \" <explications\"\n\n"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1420,
+        600
+      ],
+      "id": "ff9861a5-6fce-4fc1-9f70-51652e783673",
+      "name": "Rapport de recherche Deepseek1",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-r1",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        860
+      ],
+      "id": "ee96f33f-6486-4e99-8945-8e94e61100d8",
+      "name": "Deepseek AI1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblldDBQts69Z6v2I",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblldDBQts69Z6v2I"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Profile Membre CRM').item.json.crm.Email }}",
+            "Analyse DeepSeek": "={{ $json.text }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nom complet",
+              "displayName": "Nom complet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date création",
+              "displayName": "Date création",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Type contact",
+              "displayName": "Type contact",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Prospect",
+                  "value": "Prospect"
+                },
+                {
+                  "name": "Participant",
+                  "value": "Participant"
+                },
+                {
+                  "name": "Prospect GP",
+                  "value": "Prospect GP"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entreprise",
+              "displayName": "Entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse 1",
+              "displayName": "Adresse 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Adresse 2",
+              "displayName": "Adresse 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ville",
+              "displayName": "Ville",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Province",
+              "displayName": "Province",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Code Postal",
+              "displayName": "Code Postal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Pays",
+              "displayName": "Pays",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Site Web",
+              "displayName": "Site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Nouveau",
+                  "value": "Nouveau"
+                },
+                {
+                  "name": "En discussion",
+                  "value": "En discussion"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Suivi Automatique",
+              "displayName": "Suivi Automatique",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Newsletter",
+              "displayName": "Newsletter",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-in",
+              "displayName": "Date Opt-in",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Opt-out",
+              "displayName": "Date Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Raison Opt-out",
+              "displayName": "Raison Opt-out",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Sync",
+              "displayName": "Date Sync",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_source",
+              "displayName": "utm_source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_medium",
+              "displayName": "utm_medium",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_campaign",
+              "displayName": "utm_campaign",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_term",
+              "displayName": "utm_term",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "utm_content",
+              "displayName": "utm_content",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ref",
+              "displayName": "ref",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ip",
+              "displayName": "ip",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Leads",
+              "displayName": "Leads",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Mobile",
+              "displayName": "Mobile",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Opportunités",
+              "displayName": "Opportunités",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tags Automatisation",
+              "displayName": "Tags Automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "LinkendIn",
+              "displayName": "LinkendIn",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Détails du site Web",
+              "displayName": "Détails du site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse Perplexity",
+              "displayName": "Analyse Perplexity",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse Gemini",
+              "displayName": "Analyse Gemini",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Analyse DeepSeek",
+              "displayName": "Analyse DeepSeek",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1920,
+        600
+      ],
+      "id": "3dfdd14b-319e-465d-96b5-274f5b096f7d",
+      "name": "Mise à Jour Recherche 3",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-09T21:19:32.000Z",
+  "versionId": "e74b78ca-974f-4f9c-b25a-d00318822e92"
+}
