@@ -1,0 +1,851 @@
+{
+  "active": false,
+  "connections": {
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Files": {
+      "main": [
+        [
+          {
+            "node": "Find uploaded file1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for update": {
+      "main": [
+        [
+          {
+            "node": "Add song to playlist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add song to playlist": {
+      "main": [
+        [
+          {
+            "node": "Is successful",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is successful": {
+      "main": [
+        [
+          {
+            "node": "Mise a jour publication radio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download audio file": {
+      "main": [
+        [
+          {
+            "node": "Upload to YesStreaming",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing5": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing6": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find uploaded file1": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to YesStreaming": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Get Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Récupère les information de la chanson1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupère les information de la chanson1": {
+      "main": [
+        [
+          {
+            "node": "Url v1 existe ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Url v1 existe ?": {
+      "main": [
+        [
+          {
+            "node": "Download audio file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-19T18:43:26.196Z",
+  "id": "iKbrpDsvwCDq9FNa",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Publication de la chanson à la Radio",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "55aad75a-9e79-432d-bbaa-43971d57c638",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4100,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Input validation",
+        "height": 1017,
+        "width": 690,
+        "color": 5
+      },
+      "id": "599e9398-31d6-45b3-854c-2f38360231db",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $vars.YES_STREAMING_API_URL }}/station/{{ $vars.YES_STREAMING_STATION_ID }}/files",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "6c6b5102-b713-4732-bb1f-26341983b2c3",
+      "name": "Get Files",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3160,
+        -120
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "7C9M1GsG6SJrjiRX",
+          "name": "YesStreaming API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "71fa1280-641c-413c-9092-c0c205823acf",
+              "name": "playlists",
+              "value": "={{ JSON.stringify([{\"id\": parseInt($vars.YES_STREAMING_DEFAULT_PLAYLIST_ID), \"name\": \"default\", \"weight\": 3 }]) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "except",
+        "excludeFields": "playlists,song_id",
+        "options": {}
+      },
+      "id": "5e86d74f-5215-423d-8886-8965beed1b77",
+      "name": "Prepare data for update",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3820,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $vars.YES_STREAMING_API_URL }}/station/{{ $vars.YES_STREAMING_STATION_ID }}/file/{{ $json.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "4ba9225b-6ba0-405d-8695-b9f1650de043",
+      "name": "Add song to playlist",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4000,
+        -120
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "7C9M1GsG6SJrjiRX",
+          "name": "YesStreaming API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "e4e98570-6ca0-467d-8d0d-7f03cb223a82",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0857905b-6ef9-4e6c-bde5-0259b3ab50a2",
+      "name": "Is successful",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4260,
+        -120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4f0877e1-a418-4189-aae6-e216ee2da363",
+      "name": "No Operation, do nothing5",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2440,
+        480
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ed44d7e7-4a76-4e94-bdff-4db240162b56",
+      "name": "No Operation, do nothing6",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3240,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json['Musique v1'] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "*/*"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f677997c-cdee-4b13-8936-a181acee9e36",
+      "name": "Download audio file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2380,
+        -120
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "b00c8045-b6af-49ea-ac17-1a00bb0cecfd",
+              "leftValue": "={{ $json.path }}",
+              "rightValue": "={{ $('Récupère les information de la chanson1').item.json.Nom }}.{{ $('Download audio file').first().binary.data.fileExtension }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ad9845c5-611c-4327-8ff9-3de0f6c67d82",
+      "name": "Find uploaded file1",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        3560,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "protocol": "sftp",
+        "operation": "upload",
+        "path": "={{ $('Récupère les information de la chanson1').item.json.Nom }}.{{ $binary.data.fileExtension }}"
+      },
+      "id": "ecd4e567-bd32-4a16-99de-507cdafa6bcf",
+      "name": "Upload to YesStreaming",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        2600,
+        -120
+      ],
+      "credentials": {
+        "sftp": {
+          "id": "jeuU5gHXV9wM8tbi",
+          "name": "YesStreaming - n8n"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "602a10b0-a955-4690-9489-5ddc96f80890",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2900,
+        -120
+      ],
+      "webhookId": "4b02a1e9-d9c0-4f4a-a07e-cacabb54745b"
+    },
+    {
+      "parameters": {
+        "content": "## Transfer songs to YesStreaming",
+        "height": 1017,
+        "width": 1227,
+        "color": 5
+      },
+      "id": "678cb826-05f1-47b9-959d-e1b059fc0088",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Add songs to default playlist",
+        "height": 1017,
+        "width": 1068,
+        "color": 5
+      },
+      "id": "283452e4-691c-411e-a07b-9a3631d4e0a0",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3520,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "={{ $json.error.message }}"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        4360,
+        480
+      ],
+      "id": "0c11172c-8e4f-4aa1-b106-db90b0dcb70d",
+      "name": "Stop and Error"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1600,
+        -100
+      ],
+      "id": "e461ad1c-5fab-4a14-9ad3-fd3990716570",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblZzGvPuwJrzbsjt",
+          "mode": "list",
+          "cachedResultName": "Chanson",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblZzGvPuwJrzbsjt"
+        },
+        "id": "={{ $json.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1820,
+        -100
+      ],
+      "id": "01943d23-f6d6-46e5-8118-43c1978e3fdb",
+      "name": "Récupère les information de la chanson1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "29fde1a6-a200-4e0a-bb97-d8b2043dfb41",
+              "leftValue": "={{ $json['Musique v1'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2060,
+        -100
+      ],
+      "id": "05718f22-3084-4e17-aafe-b603e235a93f",
+      "name": "Url v1 existe ?"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblZzGvPuwJrzbsjt",
+          "mode": "list",
+          "cachedResultName": "Chanson",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblZzGvPuwJrzbsjt"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Récupère les information de la chanson1').item.json.recId }}",
+            "Statut": "Terminé"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Entrevue",
+              "displayName": "Entrevue",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Name (from Entrevue)",
+              "displayName": "Name (from Entrevue)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Paroles",
+              "displayName": "Paroles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Style musical",
+              "displayName": "Style musical",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "Blues",
+                  "value": "Blues"
+                },
+                {
+                  "name": "Pop",
+                  "value": "Pop"
+                },
+                {
+                  "name": "Dance",
+                  "value": "Dance"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Statut",
+              "displayName": "Statut",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Créer la musique",
+                  "value": "Créer la musique"
+                },
+                {
+                  "name": "Publier à la radio",
+                  "value": "Publier à la radio"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Studio en cours de travail",
+                  "value": "Studio en cours de travail"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Musique v1",
+              "displayName": "Musique v1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Musique v2",
+              "displayName": "Musique v2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Cover1",
+              "displayName": "Cover1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Cover2",
+              "displayName": "Cover2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Bouton Chanson v1",
+              "displayName": "Bouton Chanson v1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Bouton Chanson v2",
+              "displayName": "Bouton Chanson v2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date publication Radio",
+              "displayName": "Date publication Radio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        4720,
+        -160
+      ],
+      "id": "43d701f1-58ae-4f92-b562-72854142b49d",
+      "name": "Mise a jour publication radio",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-20T18:50:07.000Z",
+  "versionId": "8d0e6d16-df3a-4d7d-ae09-9655d1e21132"
+}
