@@ -1,0 +1,179 @@
+{
+  "active": false,
+  "connections": {
+    "API AssemblyAI | Full": {
+      "main": [
+        [
+          {
+            "node": "Get Audio Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "API AssemblyAI | Full",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-21T15:04:32.846Z",
+  "id": "ZwlIat5W39oiXyAA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Convert english video to french",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "0eff6697-3fe7-45c0-ae2d-5c5aa656114d",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        240,
+        320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/86063acf-1e30-4ac9-bc9e-9178b1494b5d",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $vars.ASSEMBLYAI_API_KEY }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0e9debd3-796a-4d55-b8d4-cb1292c5b97b",
+      "name": "API AssemblyAI | Full",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4926247f-a2f1-4f72-a163-afc8bd84448e",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "3f27b030-5c05-4f2c-90a3-ac0050f7e0f8",
+              "name": "language_code",
+              "value": "={{ $json.language_code }}",
+              "type": "string"
+            },
+            {
+              "id": "f29af1b3-b6aa-4bb4-a7f8-f32888cd5976",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "4fdb2888-d9c1-44e5-80fe-6c5e77ffa765",
+              "name": "audio_url",
+              "value": "={{ $json.audio_url }}",
+              "type": "string"
+            },
+            {
+              "id": "6be53c56-bd4d-48e7-ae35-2894147faffd",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "8c776283-a335-47f6-8194-b415a90b3318",
+              "name": "audio_duration",
+              "value": "={{ $json.audio_duration }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b41e18fd-1a6d-449e-87f3-593d262b9620",
+      "name": "Get Audio Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1340,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.assemblyai.com/v2/transcript",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $vars.ASSEMBLYAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "audio_url",
+              "value": "=https://boostperformance.ai/academy/audios/suno-audio-ai-song.m4a"
+            },
+            {
+              "name": "language_code",
+              "value": "=en"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "13797df3-26f7-48c5-b128-5cfed22b6b4a",
+      "name": "API AssemblyAI | Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        600,
+        200
+      ],
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-21T19:54:53.000Z",
+  "versionId": "6848eec9-23e2-4d6d-8279-557acd9ad15e"
+}
