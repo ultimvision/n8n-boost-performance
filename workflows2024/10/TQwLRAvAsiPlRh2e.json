@@ -1,0 +1,1041 @@
+{
+  "active": false,
+  "connections": {
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data (init)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for DB - initial1": {
+      "main": [
+        [
+          {
+            "node": "Create initial record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record exists": {
+      "main": [
+        [
+          {
+            "node": "Add resumeUrl",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare data for DB - initial1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create initial record": {
+      "main": [
+        [
+          {
+            "node": "Add resumeUrl",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM Circle User2": {
+      "main": [
+        [
+          {
+            "node": "Get existing data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM data (init)": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM: internal error": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User (error)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe audio": {
+      "main": [
+        [
+          {
+            "node": "Do we already have a transcript?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing6": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare DM data (transcript)": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get existing data": {
+      "main": [
+        [
+          {
+            "node": "Record exists",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing3": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcription successful": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data (transcript)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "DM: internal error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for transcription": {
+      "main": [
+        [
+          {
+            "node": "Transcription successful",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing4": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add resumeUrl": {
+      "main": [
+        [
+          {
+            "node": "Transcribe audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Do we already have a transcript?": {
+      "main": [
+        [
+          {
+            "node": "Transcription successful",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait for transcription",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-23T02:03:14.501Z",
+  "id": "TQwLRAvAsiPlRh2e",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Audio Transcription",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "284cd831-a32e-4fc8-b640-5fbf53ffa197",
+              "leftValue": "={{ $json.data.audio_url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "b8815ab3-66cb-4ce9-81ee-f86eb0d717e4",
+              "leftValue": "={{ $json.user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "77a94564-828c-4d98-ad33-f9afd3f30bf1",
+              "leftValue": "={{ $json.circle_user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9b4b94c0-abf6-4c53-b33f-5aae85e5a78c",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        -100
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "529c84ef-2fbc-4b70-890a-d728e00e9ecc",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        520,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "01a27849-9aa6-4af3-8abd-bc443c9e19f6",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b999bc43-5015-4486-9dfc-ba82db646c83",
+      "name": "Record exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2200,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f4fb409-0e7f-4a64-9421-c277a692b812",
+              "name": "audio_url",
+              "type": "string",
+              "value": "={{ $('Execute Workflow Trigger').first().json.data.audio_url }}"
+            },
+            {
+              "id": "5b5b7d9a-cbe8-482b-b8d2-b110616dd235",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.user_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0b5fca3b-671a-46b4-8b7d-4ef1cc36e3dd",
+      "name": "Prepare data for DB - initial1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2420,
+        40
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "provider",
+              "displayName": "provider",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "provider_id",
+              "displayName": "provider_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "video_url",
+              "displayName": "video_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "audio_url",
+              "displayName": "audio_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "size",
+              "displayName": "size",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "duration",
+              "displayName": "duration",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "caption",
+              "displayName": "caption",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transcript_provider",
+              "displayName": "transcript_provider",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transcript_provider_id",
+              "displayName": "transcript_provider_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "metadata",
+              "displayName": "metadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sentiment_analysis",
+              "displayName": "sentiment_analysis",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "840b53f2-f0fe-41f5-8ea9-b0e05c6f58c5",
+      "name": "Create initial record",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2640,
+        40
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "ce62a265-c817-4f0b-bcbc-a13d31374b4f",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ef2623ed-d279-402e-977e-0b5b0f216b62",
+      "name": "No Operation, do nothing3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2720,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "bf51f85a-1dbe-47d0-a832-8ecbe27c1269",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        880,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "aafa5af3-5e5c-41e6-9b01-16194494582e",
+      "name": "DM Circle User2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1500,
+        -400
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Audio Transcription job has started",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "797182de-bbe4-4f90-ba25-29362bb37d95",
+      "name": "Prepare DM data (init)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1300,
+        -400
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "262bd5e4-9243-477c-a2cf-dcffec517ab5",
+      "name": "DM Circle User (error)",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        4780,
+        440
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f1ee53d-9fc1-4d92-a060-f6e61e05cf33",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "70326461-e6e7-4012-bcd4-3019b16bf0ed",
+              "name": "message",
+              "value": "=Something went wrong during the execution of your job. Our team is currently investigating. Job number {{ $execution.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3c19eaa8-7c3c-47f8-be89-3ef69a6aaeca",
+      "name": "DM: internal error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4520,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "UVwi3TCIXQycyICF",
+          "mode": "list",
+          "cachedResultName": "Transcribe Audio Assembly AI"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "c11dbae9-3c0f-45cf-a71d-b05c2ba2e704",
+      "name": "Transcribe audio",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        3160,
+        -100
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "cbd1bd43-fd55-4773-ad14-0f9f421d2c78",
+      "name": "No Operation, do nothing6",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3440,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "f0cab3e0-d70d-496a-98e2-24aceb12fbde",
+      "name": "DM Circle User3",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        4600,
+        -360
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Audio has been transcribed and processed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fa515ac2-ad7e-415f-bda7-ce4ba2ebc4d8",
+      "name": "Prepare DM data (transcript)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4380,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.user_id }}"
+            },
+            {
+              "column": "audio_url",
+              "value": "={{ $('Execute Workflow Trigger').item.json.data.audio_url }}"
+            }
+          ]
+        },
+        "options": {
+          "delayClosingIdleConnection": 10
+        }
+      },
+      "id": "b4f32283-ae86-4b3b-a821-3c03fb2add63",
+      "name": "Get existing data",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1900,
+        -100
+      ],
+      "retryOnFail": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b88cefb2-ab43-457d-b6c7-db4e36c5f5e6",
+              "name": "resumeUrl",
+              "value": "={{ $execution.resumeUrl }}/transcription",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "0405d93e-4770-439a-9f3c-e7315416addc",
+      "name": "Add resumeUrl",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2920,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8ad4dc52-5a26-4261-8f26-7014f1edffc7",
+              "leftValue": "={{ $json.body?.success || $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f83eadbf-8d39-414e-8218-d1bab0572b89",
+      "name": "Transcription successful",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4000,
+        -100
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0e2d60f1-ee7c-4dfa-bede-0f3cdb563da3",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4080,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "POST",
+        "responseMode": "lastNode",
+        "responseData": "noData",
+        "options": {
+          "webhookSuffix": "/transcription"
+        }
+      },
+      "id": "cb162b96-e984-4861-90f5-3f9c8f6ed8fa",
+      "name": "Wait for transcription",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3680,
+        40
+      ],
+      "webhookId": "f1e3edab-faa5-4a83-8560-20c04d718be6",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "a1b9ccf9-1e82-4d27-adb6-99494730fc45",
+      "name": "No Operation, do nothing4",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3760,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3e6fae49-28bb-42b7-b3a0-f2a590075050",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "29a1eac0-8040-4acd-b7d8-4cc9b9647833",
+      "name": "Do we already have a transcript?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3440,
+        -100
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T13:57:05.753Z",
+      "updatedAt": "2024-10-22T13:57:05.753Z",
+      "id": "Q3qpTHNcg1K6uHlR",
+      "name": "Routine"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-20T14:04:33.000Z",
+  "versionId": "c217157b-c66e-4fac-b6bb-d6cf32e45f0a"
+}
