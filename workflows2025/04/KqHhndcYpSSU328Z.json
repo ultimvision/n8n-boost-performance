@@ -1,0 +1,34 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-04-28T19:23:38.517Z",
+  "id": "KqHhndcYpSSU328Z",
+  "isArchived": false,
+  "meta": null,
+  "name": "Get Facebook Profile",
+  "nodes": [],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-25T17:32:25.846Z",
+      "updatedAt": "2025-04-25T17:32:25.846Z",
+      "id": "GLJ1Lw5LTDnzGFAu",
+      "name": "Lead Generator"
+    },
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-28T19:23:45.000Z",
+  "versionId": "5c9aab4d-dcba-4841-b521-63663ae84bdc"
+}
