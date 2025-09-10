@@ -1,0 +1,1553 @@
+{
+  "active": false,
+  "connections": {
+    "Récupérer les derniers vidéos du Channel": {
+      "main": [
+        [
+          {
+            "node": "Liste des dernières vidéos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Liste des dernières vidéos": {
+      "main": [
+        [
+          {
+            "node": "On vérifie chaque vidéo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On vérifie chaque vidéo": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Nouvelle vidéo publiée ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nouvelle vidéo publiée ?": {
+      "main": [
+        [
+          {
+            "node": "Est-ce que la vidéo a déjà été analysée ?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nettoyage de l'exécution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ajout d'une vidéo à analyser": {
+      "main": [
+        [
+          {
+            "node": "Identifier le numéro de la vidéo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On continue à la vidéo suivante": {
+      "main": [
+        [
+          {
+            "node": "On vérifie chaque vidéo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vérification tous les jours à 5ham": {
+      "main": [
+        [
+          {
+            "node": "Est-ce que la tâche est active ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Récupérer le numéro de la dernière vidéo publiée": {
+      "main": [
+        [
+          {
+            "node": "Récupérer les derniers vidéos du Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Est-ce que la vidéo a déjà été analysée ?": {
+      "main": [
+        [
+          {
+            "node": "Est-ce que la vidéo existe dans le système ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Est-ce que la vidéo existe dans le système ?": {
+      "main": [
+        [
+          {
+            "node": "Ajout d'une vidéo à analyser",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "On continue à la vidéo suivante",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mise à jour de la dernière vidéo publiée": {
+      "main": [
+        []
+      ]
+    },
+    "Est-ce que la tâche est active ?": {
+      "main": [
+        [
+          {
+            "node": "Active ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Active ?": {
+      "main": [
+        [
+          {
+            "node": "Récupérer le numéro de la dernière vidéo publiée",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Informer que la tâche est en cours",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Tâche Inactive. Terminée.",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vérification terminée.": {
+      "main": [
+        [
+          {
+            "node": "Informer que la tâche est terminée",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Identifier le numéro de la vidéo": {
+      "main": [
+        [
+          {
+            "node": "Récupérer la transcription",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "On continue à la vidéo suivante",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nettoyage de l'exécution": {
+      "main": [
+        [
+          {
+            "node": "Vérification terminée.",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Démarrage": {
+      "main": [
+        [
+          {
+            "node": "Est-ce que la tâche est active ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-18T13:50:28.755Z",
+  "id": "Veeh2z4JyuEigz2h",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Surveillance Channel Youtube Dans La Jungle",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://youtube-media-downloader.p.rapidapi.com/v2/channel/videos",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "channelId",
+              "value": "@danslajungledesaffaires"
+            },
+            {
+              "name": "type",
+              "value": "videos"
+            },
+            {
+              "name": "sortBy",
+              "value": "newest"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        -140
+      ],
+      "id": "5667585b-301f-4a8f-abe5-57bf2ab2e05d",
+      "name": "Récupérer les derniers vidéos du Channel",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        540,
+        -140
+      ],
+      "id": "5ddedaa9-1016-4af8-b23c-1a1e136a89de",
+      "name": "Liste des dernières vidéos"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        920,
+        -140
+      ],
+      "id": "46b64391-da77-4226-b60f-eecc7c225229",
+      "name": "On vérifie chaque vidéo"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "eeddf814-59b6-4041-8b1c-87217a3a4231",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "={{ $('Récupérer le numéro de la dernière vidéo publiée').item.json.Valeur }}",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        -120
+      ],
+      "id": "5d00401b-d9e1-46c4-805a-aa9b477254cb",
+      "name": "Nouvelle vidéo publiée ?"
+    },
+    {
+      "parameters": {
+        "content": "# Préparation de l'automatisation\n## **On récupère le numéro de la dernière vidéo analysée dans le système.** ",
+        "height": 680,
+        "width": 1080
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -940,
+        -380
+      ],
+      "typeVersion": 1,
+      "id": "8b49c017-e665-435a-ae1b-68d1e133450a",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# Connexion avec Youtube\n## **On récupère la liste des dernières vidéos publiées sur le channel Dans La Jungle des Affaires** ",
+        "height": 680,
+        "width": 560,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        180,
+        -380
+      ],
+      "typeVersion": 1,
+      "id": "27187ced-4214-4362-a4b9-3fc3700a0cc8",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $('On vérifie chaque vidéo').item.json.title }}",
+            "Animateur": "Réjean Gauthier",
+            "Youtube URL": "=https://www.youtube.com/watch?v={{ $('On vérifie chaque vidéo').item.json.id }}",
+            "Vidéo Id": "={{ $('On vérifie chaque vidéo').item.json.id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Image",
+              "displayName": "Image",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "En attente",
+                  "value": "En attente"
+                },
+                {
+                  "name": "Transcription complétée",
+                  "value": "Transcription complétée"
+                },
+                {
+                  "name": "Analyse et articles à préparer",
+                  "value": "Analyse et articles à préparer"
+                },
+                {
+                  "name": "Analyse à préparer",
+                  "value": "Analyse à préparer"
+                },
+                {
+                  "name": "Analyse complétée",
+                  "value": "Analyse complétée"
+                },
+                {
+                  "name": "Articles à préparer",
+                  "value": "Articles à préparer"
+                },
+                {
+                  "name": "Rédaction en cours",
+                  "value": "Rédaction en cours"
+                },
+                {
+                  "name": "Terminé",
+                  "value": "Terminé"
+                },
+                {
+                  "name": "Incomplète",
+                  "value": "Incomplète"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Détails du Status",
+              "displayName": "Détails du Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Animateur",
+              "displayName": "Animateur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Invité",
+              "displayName": "Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email Invité",
+              "displayName": "Email Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CV Invité",
+              "displayName": "CV Invité",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Vocabulaire",
+              "displayName": "Vocabulaire",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Youtube URL",
+              "displayName": "Youtube URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Vidéo Id",
+              "displayName": "Vidéo Id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Contenu",
+              "displayName": "Contenu",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Articles",
+              "displayName": "Articles",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lien Interne",
+              "displayName": "Lien Interne",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Ajout",
+              "displayName": "Date Ajout",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Date Modification",
+              "displayName": "Date Modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1920,
+        -300
+      ],
+      "id": "93ed1ebd-194f-4c0e-b08c-6d6a08bfdd02",
+      "name": "Ajout d'une vidéo à analyser",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Analyse des vidéos\n## **Est-ce une nouvelle vidéo ?** \n### L'ajouter au CRM de travail.",
+        "height": 680,
+        "width": 1920,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        780,
+        -380
+      ],
+      "typeVersion": 1,
+      "id": "78aa9a01-ffd6-4faa-8351-9b26a76182a5",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "# Automatisation terminée\n## Mise à jour du système",
+        "height": 680,
+        "width": 720,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2740,
+        -380
+      ],
+      "typeVersion": 1,
+      "id": "926a4526-8298-44a2-8d25-a636439976f0",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        40
+      ],
+      "id": "31d7801d-beb9-4a93-a1db-6f88e9633d09",
+      "name": "On continue à la vidéo suivante"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 5
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -860,
+        0
+      ],
+      "id": "f485735f-5643-4898-893a-0958aed1165e",
+      "name": "Vérification tous les jours à 5ham"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNW7iQFIE6s2J7u",
+          "mode": "list",
+          "cachedResultName": "Configuration",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblNW7iQFIE6s2J7u"
+        },
+        "filterByFormula": "{Paramètres} = 'Dernière vidéo analysée'",
+        "returnAll": false,
+        "limit": 1,
+        "options": {
+          "fields": [
+            "Valeur"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -140,
+        -80
+      ],
+      "id": "b87bdf29-28ec-42d0-9bce-b989b0cfcb8d",
+      "name": "Récupérer le numéro de la dernière vidéo publiée",
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblglCKRhupsgXfLo",
+          "mode": "list",
+          "cachedResultName": "Entrevues",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblglCKRhupsgXfLo"
+        },
+        "filterByFormula": "={Vidéo Id} = '{{ $json.id }}'",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1420,
+        -240
+      ],
+      "id": "e0b10e97-3d52-4dc8-b4e7-20fd93188e1a",
+      "name": "Est-ce que la vidéo a déjà été analysée ?",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "49e082f1-6b82-4714-a2b4-eb2f344530be",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1660,
+        -240
+      ],
+      "id": "d5fdfb11-3158-4691-88e8-0140b063440f",
+      "name": "Est-ce que la vidéo existe dans le système ?"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNW7iQFIE6s2J7u",
+          "mode": "list",
+          "cachedResultName": "Configuration",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tblNW7iQFIE6s2J7u"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Paramètres": "Dernière vidéo analysée",
+            "Valeur": "={{ $('Récupérer les derniers vidéos du Channel').item.json.items[0].id }}"
+          },
+          "matchingColumns": [
+            "Paramètres"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Paramètres",
+              "displayName": "Paramètres",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Valeur",
+              "displayName": "Valeur",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date modification",
+              "displayName": "Date modification",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3260,
+        -220
+      ],
+      "id": "b251674d-72ea-4df6-9a42-b6e257cbdb36",
+      "name": "Mise à jour de la dernière vidéo publiée",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3000,
+        -120
+      ],
+      "id": "f05d6b83-600e-4c5b-9448-ada104966d8f",
+      "name": "Vérification terminée."
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl57jIYeopWas7nB",
+          "mode": "list",
+          "cachedResultName": "Tâches",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tbl57jIYeopWas7nB"
+        },
+        "id": "rec51Nzd8MyoUgGG9",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -620,
+        -120
+      ],
+      "id": "552563c0-1a1f-4c01-bd8e-ea2ddcf0b05b",
+      "name": "Est-ce que la tâche est active ?",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7a9cf398-3403-4942-b81d-9594127cf865",
+              "leftValue": "={{ $json.Status }}",
+              "rightValue": "Active",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -400,
+        -120
+      ],
+      "id": "333501fe-5bf2-45e9-aab1-f7ed76aa209d",
+      "name": "Active ?"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        120
+      ],
+      "id": "544041cc-dfac-489d-9a75-933e16ce4cc0",
+      "name": "Tâche Inactive. Terminée."
+    },
+    {
+      "parameters": {
+        "content": "# Explication de l'automatisation\n## Chaque jour à 5 h du matin, nous vérifions si de nouvelles vidéos ont été ajoutées à la chaîne YouTube.\nChaque jour (ou à la demande), ce petit “robot” vérifie votre chaîne YouTube “Dans La Jungle des Affaires” pour voir si une nouvelle vidéo est parue. S’il en trouve une que vous n’avez pas encore traitée, il l’enregistre automatiquement dans votre base de données Airtable avec son titre et son lien. Ensuite, il lance directement la récupération de la transcription de la vidéo, pour que votre équipe puisse commencer à travailler dessus sans perdre de temps. C’est comme un assistant qui garde toujours un œil sur votre chaîne et vous alerte dès qu’il y a du neuf !",
+        "height": 220,
+        "width": 1680,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -940,
+        -640
+      ],
+      "typeVersion": 1,
+      "id": "943b590c-02f8-4a80-85e1-9a8860392360",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "01aAc0ZT28dKRYTv",
+          "mode": "list",
+          "cachedResultName": "Boost — Récupérer Transcription Youtube Jungle"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2420,
+        -300
+      ],
+      "id": "6cbf065c-55b6-4792-8716-50cb54e6827a",
+      "name": "Récupérer la transcription"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "53f173f4-05ae-4cba-8a5c-a98c82fe2af2",
+              "name": "recId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2140,
+        -300
+      ],
+      "id": "d85b6459-3e02-4fc5-9dfa-465a3a1dabd4",
+      "name": "Identifier le numéro de la vidéo"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2780,
+        -120
+      ],
+      "id": "d47aedd6-7287-4d4c-974e-957b72428327",
+      "name": "Nettoyage de l'exécution"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -860,
+        -220
+      ],
+      "id": "90979705-5ab1-4d2c-90a2-fee821d6622a",
+      "name": "Démarrage"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl57jIYeopWas7nB",
+          "mode": "list",
+          "cachedResultName": "Tâches",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tbl57jIYeopWas7nB"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Est-ce que la tâche est active ?').item.json.id }}",
+            "Tâche en cours": "Oui"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Active",
+                  "value": "Active"
+                },
+                {
+                  "name": "En Pause",
+                  "value": "En Pause"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Responsable",
+              "displayName": "Responsable",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Name (from Responsable)",
+              "displayName": "Name (from Responsable)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Photos (from Responsable)",
+              "displayName": "Photos (from Responsable)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Url automatisation",
+              "displayName": "Url automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Voir Automatisation",
+              "displayName": "Voir Automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Configuration",
+              "displayName": "Configuration",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date modification (from Configuration)",
+              "displayName": "Date modification (from Configuration)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Decription (from Configuration)",
+              "displayName": "Decription (from Configuration)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tâche en cours",
+              "displayName": "Tâche en cours",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Oui",
+                  "value": "Oui"
+                },
+                {
+                  "name": "Non",
+                  "value": "Non"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -140,
+        -240
+      ],
+      "id": "6eeb5626-0da5-4372-9086-ae6a30f0505c",
+      "name": "Informer que la tâche est en cours",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appiGnT20FZtvm0v6",
+          "mode": "list",
+          "cachedResultName": "Jungle",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl57jIYeopWas7nB",
+          "mode": "list",
+          "cachedResultName": "Tâches",
+          "cachedResultUrl": "https://airtable.com/appiGnT20FZtvm0v6/tbl57jIYeopWas7nB"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Est-ce que la tâche est active ?').item.json.id }}",
+            "Tâche en cours": "Non"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Active",
+                  "value": "Active"
+                },
+                {
+                  "name": "En Pause",
+                  "value": "En Pause"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Responsable",
+              "displayName": "Responsable",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Name (from Responsable)",
+              "displayName": "Name (from Responsable)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Photos (from Responsable)",
+              "displayName": "Photos (from Responsable)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Url automatisation",
+              "displayName": "Url automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Voir Automatisation",
+              "displayName": "Voir Automatisation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "recId",
+              "displayName": "recId",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Configuration",
+              "displayName": "Configuration",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date modification (from Configuration)",
+              "displayName": "Date modification (from Configuration)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Decription (from Configuration)",
+              "displayName": "Decription (from Configuration)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tâche en cours",
+              "displayName": "Tâche en cours",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Oui",
+                  "value": "Oui"
+                },
+                {
+                  "name": "Non",
+                  "value": "Non"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3260,
+        20
+      ],
+      "id": "c45bc1bd-7524-4472-aa77-9f61e3ca9aab",
+      "name": "Informer que la tâche est terminée",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Vérification tous les jours à 5ham": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-06-24T21:09:18.887Z",
+      "updatedAt": "2024-06-24T21:09:18.887Z",
+      "id": "IzovHyYMj2l2t3WZ",
+      "name": "Jungle"
+    },
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-20T17:47:19.000Z",
+  "versionId": "83e49402-a3e5-4319-991c-a1f24415e1c2"
+}
