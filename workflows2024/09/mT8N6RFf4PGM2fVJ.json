@@ -1,0 +1,499 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get Baume Noir Face Details from Brain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Music Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4o": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Music Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4o1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Baume Noir Face Details from Brain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Music": {
+      "main": [
+        [
+          {
+            "node": "Generate Jingle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Music1": {
+      "main": [
+        [
+          {
+            "node": "Generate Song1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Music2": {
+      "main": [
+        [
+          {
+            "node": "Generate Song2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Song Writing Instructions": {
+      "main": [
+        [
+          {
+            "node": "AI Music Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Baume Noir Face Details from Brain": {
+      "main": [
+        [
+          {
+            "node": "Song Writing Instructions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Music Agent": {
+      "main": [
+        [
+          {
+            "node": "Prepare Music",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Music1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Music2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-19T17:07:15.376Z",
+  "id": "mT8N6RFf4PGM2fVJ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost - Generate Lyrics and Product Music Song with AI copy",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "56f15921-67af-4b02-a528-11c671f2b9fe",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        1040,
+        660
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6d6ae528-97e5-4c98-8a8a-1f2195997fea",
+              "name": "instructions",
+              "value": "=You are a skilled song writer, specializing in crafting catchy and memorable tunes that effectively promote products by highlighting their best features.\n\nYour task is to write a lyric based on the definition and key features of a beauty product. The lyric should explain the product, focusing on its positive attributes. There should be no user comments or personal opinions included.\n\nInstructions:\n1. Product Description: Analyze the product definition and identify its key features, benefits, and unique selling points.\n\n2. Positive Messaging: Focus on the product's strengths, such as its effectiveness, ingredients, or how it makes the user feel. Ensure the lyrics are uplifting and resonate with the target audience.\n\n4. Catchy Hook: The chorus should have a catchy hook that makes the product memorable and easy to recall.\n\n5. The song should have verses and choruses.\n\n6. The song should have an intro and an outro.\n\n7. The chorus must mention the product name from Nannette de Gaspé.\n\n8. Identify a song name with maximum 10 words including the product name.\n\n9. The lyric can't mention any price.\n\n10. The lyric can't invite people to join community.\n\nStructure of the song :\n\n[Verse]: Used for the verses of the song. Each verse typically tells a part of the story or develops the theme of the song.\n\n[Chorus]: Used for the chorus, the repeated part of the song, often the most memorable and catchy. It usually contains the main message or hook of the song.\n\n[Verse 2], [Verse 3], etc.: Similar to [Verse], but numbered to indicate progression in the song. Each numbered verse represents a different section.\n\n[Bridge]: Used for the transition between different parts of the song, often to introduce a contrast or emotional build-up before returning to the chorus.\n\n[Outro]: Used for the conclusion or end of the song. The outro can reprise elements from the chorus or verse, or introduce a new musical or lyrical section. It serves to smoothly wrap up the song, often by gradually reducing intensity or repeating key phrases. The outro might also offer a final reflection or message that leaves a lasting impression on the listener.\n\nOutput example :\n[Instrumental intro]\n[Pre-Intro]\nIn the neon glow, he was standing alone\n[Intro]\nUnder disco lights, he caught her eyes\n[Verse 1]\nHe was watching the night, in the rhythm's hold\nA story of love, about to unfold\nShe was dancing away, in a trance so bold\nWith a guy who was just too hard to scold\n[Chorus]\nHe meets a girl, she kisses a boy, oh the disco joy\n[Verse 2]\nThe beats were high, and the night was young\nHe felt the twist of fate, on his tongue\nShe was like a melody, in an Italo song\nBut the kiss she gave, was to someone wrong\n[Chorus]\nHe meets a girl, she kisses a boy, lost in the disco noise\n[Bridge]\nIn the heart of the night, where the feelings are strong\nHe's got to find a way, to where he belongs\n[Pre-Outro]\nAs the music fades, he's ready to go\nBut the image of her kiss, still a vibrant show\n[Outro]\nIn the silence of the night, after the disco lights\nHe'll remember the girl, and the boy she likes",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "5892dd3b-ac5f-46f0-b833-7cd81c40292b",
+      "name": "Song Writing Instructions",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1660,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"The title of the song.\"\n    },\n    \"lyrics\": {\n      \"type\": \"string\",\n      \"description\": \"The complete lyrics of the song, including all verses, choruses, intro, and outro.\"\n    }\n  },\n  \"required\": [\"title\", \"lyrics\"]\n}"
+      },
+      "id": "55f95c92-e0a6-4e5c-8591-1bb3fad8267b",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        2180,
+        880
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "2d28c057-de74-41fd-a603-4c157d41a890",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4",
+        "options": {}
+      },
+      "id": "b1f54c32-fe75-409d-a6c4-372223c9c236",
+      "name": "4o",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1880,
+        740
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "cad16f93-0732-4cde-950f-d5323492b5c8",
+      "name": "4o1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        880
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a0b083e7-d2f2-40a9-b8eb-85d1fdf7b0f7",
+              "name": "tags",
+              "value": "jazz,blues,rock",
+              "type": "string"
+            },
+            {
+              "id": "f013fc6e-93b2-4099-a6f5-6b73fc65cc27",
+              "name": "lyrics",
+              "value": "={{ $json.output.lyrics }}",
+              "type": "string"
+            },
+            {
+              "id": "00ecd33e-3d69-4d12-96b9-2bdf45e1a574",
+              "name": "title",
+              "value": "={{ $json.output.title }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d396aff1-3b50-4b4a-be75-a158e60383f9",
+      "name": "Prepare Music",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2740,
+        320
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "2b197e9f-5456-4412-afe4-cc2e3fbcb6ef",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "0QMD2L27NZHMOjoK",
+        "options": {}
+      },
+      "id": "5a95cac3-5dc3-45e9-9901-3aff2bf03e23",
+      "name": "Generate Song1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a0b083e7-d2f2-40a9-b8eb-85d1fdf7b0f7",
+              "name": "tags",
+              "value": "soulful, mowtown, blues, female voice",
+              "type": "string"
+            },
+            {
+              "id": "f013fc6e-93b2-4099-a6f5-6b73fc65cc27",
+              "name": "lyrics",
+              "value": "={{ $json.output.lyrics }}",
+              "type": "string"
+            },
+            {
+              "id": "00ecd33e-3d69-4d12-96b9-2bdf45e1a574",
+              "name": "title",
+              "value": "={{ $json.output.title }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e3765ee5-46ea-499f-b652-0245655ba463",
+      "name": "Prepare Music1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2740,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a0b083e7-d2f2-40a9-b8eb-85d1fdf7b0f7",
+              "name": "tags",
+              "value": "soulful, gospel, female voice",
+              "type": "string"
+            },
+            {
+              "id": "f013fc6e-93b2-4099-a6f5-6b73fc65cc27",
+              "name": "lyrics",
+              "value": "={{ $json.output.lyrics }}",
+              "type": "string"
+            },
+            {
+              "id": "00ecd33e-3d69-4d12-96b9-2bdf45e1a574",
+              "name": "title",
+              "value": "={{ $json.output.title }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0c19ba8d-483a-44d0-8e89-cfd35dd86cc8",
+      "name": "Prepare Music2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2740,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "0QMD2L27NZHMOjoK",
+        "options": {}
+      },
+      "id": "cc686acd-d49d-4a10-80c8-cd53fadac376",
+      "name": "Generate Song2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "0QMD2L27NZHMOjoK",
+        "options": {}
+      },
+      "id": "4dae2aef-381f-4b5d-9151-a71ddb435102",
+      "name": "Generate Jingle",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "url_content",
+          "mode": "list",
+          "cachedResultName": "url_content"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "20"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "content"
+          ]
+        }
+      },
+      "id": "bbadd44c-61cc-4816-bafb-f0e25d15fe11",
+      "name": "Get Baume Noir Face Details from Brain",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1440,
+        540
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Here's the content to analyse for writing the song :\n\n{{ JSON.stringify($json[\"content\"]) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ JSON.stringify($json.instructions) }}"
+            }
+          ]
+        }
+      },
+      "id": "9d57fd75-e661-44e8-ad92-412855bed44a",
+      "name": "AI Music Agent",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        1940,
+        540
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T23:46:00.687Z",
+      "updatedAt": "2024-08-26T23:46:00.687Z",
+      "id": "0KXvsYRAyI7MffNz",
+      "name": "Music"
+    },
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-19T17:07:15.376Z",
+  "versionId": "22c9b027-29d8-461c-aef0-340a5b9880da"
+}
