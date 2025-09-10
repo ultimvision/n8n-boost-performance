@@ -1,0 +1,562 @@
+{
+  "active": true,
+  "connections": {
+    "Parse answers": {
+      "main": [
+        [
+          {
+            "node": "Enter Routine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Audio Transcribe": {
+      "main": [
+        [
+          {
+            "node": "Parse answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform YT Processing": {
+      "main": [
+        [
+          {
+            "node": "Parse answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Jingle Creation": {
+      "main": [
+        [
+          {
+            "node": "Parse answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Parse query params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse query params": {
+      "main": [
+        [
+          {
+            "node": "Has redirect",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Enter Routine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has redirect": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook: redirect",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook: 200",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform News Generation": {
+      "main": [
+        [
+          {
+            "node": "Parse answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform News Generation From YouTube": {
+      "main": [
+        [
+          {
+            "node": "Parse answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Jingles and Radio Publication": {
+      "main": [
+        [
+          {
+            "node": "Parse answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Jingle Upload and Radio Publication": {
+      "main": [
+        [
+          {
+            "node": "Parse answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Upload and transcribe": {
+      "main": [
+        [
+          {
+            "node": "Parse answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Demo Bill": {
+      "main": [
+        [
+          {
+            "node": "Parse answers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-22T16:03:38.403Z",
+  "id": "ppmCmRTBMSL8l0Xo",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Active Routine Entrypoint: TypeForm and Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "const hiddenFields = $input.first().json.form_response.hidden;\n\nconst fields = $input.first().json.form_response.definition.fields;\n\nconst answers = $input.first().json.form_response.answers;\n\nlet normalizedAnswers = fields.reduce((acc, f) => {\n  acc[f.ref] = answers[f.title]\n  return acc\n}, {})\n\n\nreturn [{\n  json: {\n    ...hiddenFields,\n    ...normalizedAnswers,\n    \n  }\n}]"
+      },
+      "id": "b0942397-96f3-40cd-8519-182893bc8069",
+      "name": "Parse answers",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        780,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "ZEhPqIQKNXTAdSTC",
+          "mode": "list",
+          "cachedResultName": "Routine Entrypoint"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "c4750a27-c28e-412d-97b0-96a0261d63f8",
+      "name": "Enter Routine",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1140,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "formId": "hTGFQMYZ",
+        "onlyAnswers": false
+      },
+      "id": "2ca6e822-7f3d-438f-9d22-0eb371535629",
+      "name": "Typeform Audio Transcribe",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        200
+      ],
+      "webhookId": "857e14f3-83a4-4412-b03f-2fd429891ce6",
+      "credentials": {
+        "typeformApi": {
+          "id": "f7e9mSCqw4uL0lbk",
+          "name": "Typeform - Mat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "Okpz74Cf",
+        "onlyAnswers": false
+      },
+      "id": "8710138a-4160-4504-8151-db10fd7fa01e",
+      "name": "Typeform YT Processing",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        420
+      ],
+      "webhookId": "99a372a6-6490-4101-bfa7-086560949548",
+      "credentials": {
+        "typeformApi": {
+          "id": "f7e9mSCqw4uL0lbk",
+          "name": "Typeform - Mat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "oWBbsVrd",
+        "onlyAnswers": false
+      },
+      "id": "f4c46ef7-4b08-4af3-ab43-fd0c2ce3d5e6",
+      "name": "Typeform Jingle Creation",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        640
+      ],
+      "webhookId": "99a372a6-6490-4101-bfa7-086560949548",
+      "credentials": {
+        "typeformApi": {
+          "id": "f7e9mSCqw4uL0lbk",
+          "name": "Typeform - Mat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "routine/start",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "f7fb3615-8b10-422e-8cb0-bc07ea5b6329",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        400,
+        -60
+      ],
+      "webhookId": "a1d2da50-fdff-4f83-bf41-fdf6a308e0eb"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return {\n  json: $input.item.json.query\n}"
+      },
+      "id": "bcad3632-4f15-4664-b2a4-9b2eba28c1ac",
+      "name": "Parse query params",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        780,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8db4d59a-e8c8-4230-ae13-3363d7b643a9",
+              "leftValue": "={{ $json.redirect_on_success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "97c6ba96-41ee-4311-a344-2fae5600da58",
+      "name": "Has redirect",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1020,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "redirect",
+        "redirectURL": "={{ $json.redirect_on_success }}",
+        "options": {}
+      },
+      "id": "53c317fb-8b6b-4af9-be3c-3864fb112fb0",
+      "name": "Respond to Webhook: redirect",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1280,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "61af36a5-960c-4de0-af75-ec45a9d209b0",
+      "name": "Respond to Webhook: 200",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1280,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Documentation\n\nThis workflow serves as a global entrypoint to the AI Routine System.\n\nIt has an active webhook that can be used (GET request) to start routines.\n\nIt also generates webhooks to typeform and routes them to the passive entrypoint.",
+        "height": 284.81416687982653,
+        "width": 1023.6692772946485
+      },
+      "id": "5daa5131-1f97-4b36-b3f3-da718a2b7d8a",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        400,
+        -720
+      ]
+    },
+    {
+      "parameters": {
+        "formId": "EitQvFD7",
+        "onlyAnswers": false
+      },
+      "id": "134b1120-0bf2-4394-85e9-cbbc27878bb9",
+      "name": "Typeform News Generation",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        860
+      ],
+      "webhookId": "99a372a6-6490-4101-bfa7-086560949548",
+      "credentials": {
+        "typeformApi": {
+          "id": "f7e9mSCqw4uL0lbk",
+          "name": "Typeform - Mat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "Vp9HBd7N",
+        "onlyAnswers": false
+      },
+      "id": "b070d9bb-0a52-4921-9d95-ca69b8e9675d",
+      "name": "Typeform News Generation From YouTube",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        1100
+      ],
+      "webhookId": "99a372a6-6490-4101-bfa7-086560949548",
+      "credentials": {
+        "typeformApi": {
+          "id": "f7e9mSCqw4uL0lbk",
+          "name": "Typeform - Mat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "bGaRsT5C",
+        "onlyAnswers": false
+      },
+      "id": "0fc4a2bf-1286-4e00-a5f2-296a09ddc7c7",
+      "name": "Typeform Jingles and Radio Publication",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        1320
+      ],
+      "webhookId": "99a372a6-6490-4101-bfa7-086560949548",
+      "credentials": {
+        "typeformApi": {
+          "id": "f7e9mSCqw4uL0lbk",
+          "name": "Typeform - Mat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "xRsuPsKq",
+        "onlyAnswers": false
+      },
+      "id": "51e72084-7108-4403-808f-389b9675e13a",
+      "name": "Typeform Jingle Upload and Radio Publication",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        1540
+      ],
+      "webhookId": "99a372a6-6490-4101-bfa7-086560949548",
+      "credentials": {
+        "typeformApi": {
+          "id": "f7e9mSCqw4uL0lbk",
+          "name": "Typeform - Mat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "vG3duNw3",
+        "onlyAnswers": false
+      },
+      "id": "be9667a4-6d86-4262-8c8a-917295c834e3",
+      "name": "Typeform Upload and transcribe",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        1780
+      ],
+      "webhookId": "99a372a6-6490-4101-bfa7-086560949548",
+      "credentials": {
+        "typeformApi": {
+          "id": "f7e9mSCqw4uL0lbk",
+          "name": "Typeform - Mat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "zZCoBWQ6",
+        "onlyAnswers": false
+      },
+      "id": "c8c2411e-b5bd-43bf-8062-c03d8d4fd728",
+      "name": "Typeform Demo Bill",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        2020
+      ],
+      "webhookId": "99a372a6-6490-4101-bfa7-086560949548",
+      "credentials": {
+        "typeformApi": {
+          "id": "f7e9mSCqw4uL0lbk",
+          "name": "Typeform - Mat"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Typeform Trigger": {},
+    "node:Typeform Audio Transcribe": {
+      "webhookId": "n8n-m4bvvu3qwp"
+    },
+    "node:Typeform YT Processing": {
+      "webhookId": "n8n-nqdwjatcwv"
+    },
+    "node:Typeform Jingle Creation": {
+      "webhookId": "n8n-3h5knsidjw"
+    },
+    "node:Typeform News Generation": {
+      "webhookId": "n8n-nfus7hprri"
+    },
+    "node:Typeform News Generation From YouTube": {
+      "webhookId": "n8n-hkqcbpgkte"
+    },
+    "node:Typeform Jingles and Radio Publication": {
+      "webhookId": "n8n-k87fydusks"
+    },
+    "node:Typeform Jingle Upload and Radio Publication": {
+      "webhookId": "n8n-k9tirqpth9"
+    },
+    "node:Typeform Upload and transcribe": {
+      "webhookId": "n8n-ol8vgy4pqg"
+    },
+    "node:Typeform Demo Bill": {
+      "webhookId": "n8n-ykbupycokm"
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-10-22T15:58:06.592Z",
+      "updatedAt": "2024-10-22T15:58:06.592Z",
+      "id": "CcptiS7rCoDKSkAG",
+      "name": "TypeForm"
+    },
+    {
+      "createdAt": "2024-10-16T13:39:21.071Z",
+      "updatedAt": "2024-10-16T13:39:21.071Z",
+      "id": "E8nPTYjZtWlaLr4T",
+      "name": "Webhook"
+    },
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    }
+  ],
+  "triggerCount": 10,
+  "updatedAt": "2024-12-11T19:05:29.000Z",
+  "versionId": "a3d1b1d6-c790-4728-8bbb-9bb8d1fd3a89"
+}
