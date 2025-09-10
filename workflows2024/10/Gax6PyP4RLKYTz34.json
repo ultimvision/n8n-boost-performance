@@ -1,0 +1,809 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Community Details": {
+      "main": [
+        [
+          {
+            "node": "Data Community",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Comments from Post": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert HTML5 Audio": {
+      "main": [
+        [
+          {
+            "node": "Posts a new comment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert PDF": {
+      "main": [
+        [
+          {
+            "node": "Posts a new comment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Posts from Space": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Get Comments from Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-05T17:36:27.364Z",
+  "id": "Gax6PyP4RLKYTz34",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "WebHook & API Circle",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "843d80c6-c50f-4faf-b917-80af748a9f17",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -480,
+        1440
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/v1/me",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "2e1bfad6-5c54-4f4c-85be-a7ad5764a751",
+      "name": "Circle ME1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/v1/communities",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6a76bc9b-d39d-45f6-ad0a-70451e32ab3f",
+      "name": "Community Details",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "61db6e24-ce84-4ca0-8cf8-6be245012b12",
+      "name": "Data Community",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/v1/spaces",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "233308"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "db07dbe7-a25a-4725-8071-415879e90cf8",
+      "name": "Spaces Details",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4b67d6cc-ce66-4769-86ba-8c802aa8054a",
+              "name": "community_id",
+              "value": 233308,
+              "type": "number"
+            },
+            {
+              "id": "e33752c9-6835-49d0-8cb2-8f5171eafa6a",
+              "name": "space_id",
+              "value": 1501983,
+              "type": "number"
+            },
+            {
+              "id": "9a25ada6-8066-4d65-8945-fcea7db5f985",
+              "name": "user_email",
+              "value": "karen@boostperformance.ai",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "63e7970a-83bd-455f-b08e-a08b6ce111ba",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -200,
+        1440
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/v1/posts",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $json.community_id }}"
+            },
+            {
+              "name": "space_id",
+              "value": "={{ $json.space_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aa8aca1f-dff2-4aab-9899-5a9200ef7b0a",
+      "name": "Posts from Space",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        140,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "560e07a0-5029-4f93-ae42-62e3935aab96",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -80,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/v1/comments",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $json.community_id }}"
+            },
+            {
+              "name": "space_id",
+              "value": "={{ $json.space_id }}"
+            },
+            {
+              "name": "post_id",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cdee8587-e592-4683-8725-192e9c51b05b",
+      "name": "Get Comments from Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        920,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://app.circle.so/api/v1/comments",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $json.community_id }}"
+            },
+            {
+              "name": "space_id",
+              "value": "={{ $json.space_id }}"
+            },
+            {
+              "name": "body",
+              "value": "={{ $json.new_message }}"
+            },
+            {
+              "name": "post_id",
+              "value": "={{ $json.topic_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "590051d8-a56d-4abd-83c0-2ecaf7a77516",
+      "name": "Posts a new comment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1640,
+        920
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "31fac226-3b0d-4186-bcf0-200e368b3d61",
+      "name": "Limit",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "84669fef-4cd3-4131-a1cd-abcf983f8869",
+              "name": "new_message",
+              "value": "=<figure>\n  <figcaption>Listen to the T-Rex:</figcaption>\n  <audio controls src=\"https://cdn1.suno.ai/9085a9c0-78e8-47f0-95c6-ad41944dfe78.mp3\"></audio>\n  <a href=\"https://cdn1.suno.ai/9085a9c0-78e8-47f0-95c6-ad41944dfe78.mp3\"> Download audio </a>\n</figure>",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "c1ad7eb0-4028-4d2a-a928-60a72e72044c",
+      "name": "Insert HTML5 Audio",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "84669fef-4cd3-4131-a1cd-abcf983f8869",
+              "name": "new_message",
+              "value": "=Voici votre PDF :\n<iframe src=\"https://boostperformance.ai/pdf/Rev-Generative-AI-Guide-01%20%282%29.pdf\" width=\"100%\" height=\"600px\"</iframe>\n",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "58c13650-0fcd-41c0-bb43-4f8646095635",
+      "name": "Insert PDF",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "84669fef-4cd3-4131-a1cd-abcf983f8869",
+              "name": "new_message",
+              "value": "=Voici votre vidéo :\n<video controls=\"controls\" src=\"https://boostperformance.ai/pdf/Patrick%20-%20Bienvenue%20Boost.mp4\">Your browser does not support the HTML5 Video element.</video>\n",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "aba01c7f-1016-4b0d-939d-178efd7f67f9",
+      "name": "Insert PDF1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new_event",
+        "options": {}
+      },
+      "id": "9898e2e0-fce4-4acd-9dc1-7d3d63e0db12",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -340,
+        260
+      ],
+      "webhookId": "92c9fce3-ff58-4a8c-9c96-a6c7f3735c7b",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/posts",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $json.community_id }}"
+            },
+            {
+              "name": "space_id",
+              "value": "={{ $json.space_id }}"
+            },
+            {
+              "name": "name",
+              "value": "Post 3"
+            },
+            {
+              "name": "body",
+              "value": "Created through api"
+            },
+            {
+              "name": "is_pinned",
+              "value": "false"
+            },
+            {
+              "name": "is_comments_enabled",
+              "value": "true"
+            },
+            {
+              "name": "is_comments_closed",
+              "value": "false"
+            },
+            {
+              "name": "is_liking_enabled",
+              "value": "true"
+            },
+            {
+              "name": "skip_notifications",
+              "value": "false"
+            },
+            {
+              "name": "slug",
+              "value": "post3"
+            },
+            {
+              "name": "meta_title",
+              "value": "Meta Title"
+            },
+            {
+              "name": "meta_description",
+              "value": "Meta Description"
+            },
+            {
+              "name": "opengraph_title",
+              "value": "Opengraph Title"
+            },
+            {
+              "name": "opengraph_description",
+              "value": "Opengraph Description"
+            },
+            {
+              "name": "hide_from_featured_areas",
+              "value": "false"
+            },
+            {
+              "name": "topics",
+              "value": "={{ $json.topics }}"
+            },
+            {
+              "name": "custom_html",
+              "value": "<div></div>"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2ec2cf55-facd-4a8a-90a2-efc1fc484a3d",
+      "name": "Create a Jingle Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        1980
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "84669fef-4cd3-4131-a1cd-abcf983f8869",
+              "name": "new_psot",
+              "value": "=Voici votre vidéo :\n<video controls=\"controls\" src=\"https://boostperformance.ai/pdf/Patrick%20-%20Bienvenue%20Boost.mp4\">Your browser does not support the HTML5 Video element.</video>",
+              "type": "string"
+            },
+            {
+              "id": "087b3b63-f1af-4233-ab68-da0c1fad1fcb",
+              "name": "topics",
+              "value": "95075",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d0d70f1e-5d60-4df2-96d0-89faea46673b",
+      "name": "Insert Post",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        80,
+        1780
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/v1/topics",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $json.community_id }}"
+            },
+            {
+              "name": "space_id",
+              "value": "={{ $json.space_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "87a5683e-f0a6-446b-8421-ad4a157043cb",
+      "name": "Topics from Space1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        140,
+        1140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "9a8a5a28-0986-4c7e-ab91-1ce6403d0147",
+      "name": "Limit1",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        360,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://app.circle.so/api/v1/posts/{{ $json.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"name\": \"How to Automate Community Engagement: A Step-by-Step Guide\",\n  \"is_truncation_disabled\": false,\n  \"is_comments_closed\": false,\n  \"is_comments_enabled\": true,\n  \"is_liking_enabled\": true,\n  \"hide_meta_info\": true,\n  \"hide_from_featured_areas\": true,\n  \"meta_title\": \"How to Automate Community Engagement: A Step-by-Step Guide\",\n  \"meta_description\": \"Learn how to automate your community management processes using simple, no-code tools. This guide will help you save time, improve member engagement, and reduce manual work.\",\n  \"topics\": [\n    95075\n  ],\n  \"skip_notifications\": true,\n  \"is_pinned\": true,\n  \"internal_custom_html\": \"<div>Patrick</div>\"\n}",
+        "options": {}
+      },
+      "id": "2a0048bd-6c8c-4b59-95ec-1cbf906ed020",
+      "name": "Update Jingle Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/posts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"community_id\" : {{ $json.community_id }},\n  \"space_id\": {{ $json.space_id }},\n  \"name\": \"Jingle Musical pour la business\",\n  \"body\": \"Discussion pour la création d’un Jingle Musical Pour Boost Performance.\",\n  \"slug\": \"jingle musical\",\n  \"is_truncation_disabled\": false,\n  \"is_comments_closed\": false,\n  \"is_comments_enabled\": true,\n  \"is_liking_enabled\": true,\n  \"hide_meta_info\": true,\n  \"hide_from_featured_areas\": true,\n  \"meta_title\": \"Jingle Musical pour la business\",\n  \"meta_description\": \"meta description\",\n  \"opengraph_title\": \"opengraph_title\",\n  \"opengraph_description\":\"opengraph_description\",\n  \"topics\": [\n    95075\n  ],\n  \"skip_notifications\": false,\n  \"is_pinned\": false,\n  \"internal_custom_html\": \"<div>Patrick</div>\",\n  \"hide_from_featured_areas\": false\n}",
+        "options": {}
+      },
+      "id": "c3255641-3f38-4485-89c3-85d34eee9551",
+      "name": "Create a Jingle Post JSON",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -380,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"community_id\" : {{ $json.community_id }},\n  \"user_email\": \"{{ $json.user_email }}\",\n  \"body\": \"La plus belle, est toi.\"\n}",
+        "options": {}
+      },
+      "id": "2971462f-f9d8-4dcd-8427-2cee36c5b306",
+      "name": "Send a Message JSON",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        120,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/messages",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $json.community_id }}"
+            },
+            {
+              "name": "user_email",
+              "value": "={{ $json.user_email }}"
+            },
+            {
+              "name": "message_body",
+              "value": "Hello and welcome to my Community"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "c7370b45-abaf-4e32-ae16-641d82edb39f",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        120,
+        1540
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-05T17:36:33.024Z",
+      "updatedAt": "2024-10-05T17:36:33.024Z",
+      "id": "6a2yDqPgvbIHqEKO",
+      "name": "Hub"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-10-13T12:56:03.000Z",
+  "versionId": "28fad401-85af-407f-ba64-5aca4334f5e4"
+}
