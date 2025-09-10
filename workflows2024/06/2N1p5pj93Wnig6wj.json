@@ -1,0 +1,142 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-28T23:44:20.693Z",
+  "id": "2N1p5pj93Wnig6wj",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "DEV | TEST API PDF Monkey",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "9bbc2d17-64e7-41b1-ba84-c6dbd2fb56ab",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        400,
+        260
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "iyzNtu2cs1C6j2ev_Nvx",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "value": "Bearer iyzNtu2cs1C6j2ev_Nvx"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8fc3ec71-3420-4c98-b950-f5c9a50190f2",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        740,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.pdfmonkey.io/api/v1/current_user",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer iyzNtu2cs1C6j2ev_Nvx"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1d4f6592-44c8-4b96-a68c-82f3f23caa79",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        740,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.pdfmonkey.io/api/v1/documents",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "5ff5127e-aa2d-48cf-828c-1dbab8e3b3be",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1000,
+        340
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-06-30T22:54:03.750Z",
+      "updatedAt": "2024-06-30T22:54:03.750Z",
+      "id": "c5NEvO9qFRDDjJfy",
+      "name": "DEV"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-06-30T22:54:04.000Z",
+  "versionId": "6fb52705-3f32-48af-bf63-dfa9eeb85a84"
+}
