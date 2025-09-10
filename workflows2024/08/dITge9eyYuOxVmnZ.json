@@ -1,0 +1,476 @@
+{
+  "active": false,
+  "connections": {
+    "Url": {
+      "main": [
+        [
+          {
+            "node": "Get url type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Urls List": {
+      "main": [
+        [
+          {
+            "node": "Loop Over sitemap urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent sitemap": {
+      "main": [
+        [
+          {
+            "node": "Sitemap exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sitemap exists?": {
+      "main": [
+        [
+          {
+            "node": "Get Urls List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over sitemap urls": {
+      "main": [
+        [
+          {
+            "node": "Url List",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Url is xml?": {
+      "main": [
+        [
+          {
+            "node": "Agent sitemap1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add Direct Url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Agent sitemap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get url type": {
+      "main": [
+        [
+          {
+            "node": "Url is xml?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent sitemap1": {
+      "main": [
+        [
+          {
+            "node": "Split Urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Urls": {
+      "main": [
+        [
+          {
+            "node": "Add Url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Url": {
+      "main": [
+        [
+          {
+            "node": "Loop Over sitemap urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Direct Url": {
+      "main": [
+        [
+          {
+            "node": "Loop Over sitemap urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-21T10:27:23.231Z",
+  "id": "dITge9eyYuOxVmnZ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Get Sitemap Urls - Master",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "f7dfdb18-d777-4cba-a449-4dfec14493b2",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        740,
+        580
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "id": "a0a1cfb8-469f-473c-98aa-764d7da00f18",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        740,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## AI Agent - Analyse URLs Website\n** summarize the content",
+        "height": 145.29576507364328,
+        "width": 364.98599687403276
+      },
+      "id": "2ba5075b-0967-4bcd-a2a1-db330486d0e8",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "481bf24a-a896-4ce1-b2ea-b47396fb98da",
+      "name": "Url",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2240,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "sitemap_urls",
+        "options": {}
+      },
+      "id": "5db4108f-ed92-4518-9300-5fc40d11a97e",
+      "name": "Get Urls List",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "Uq3rN6cr35YblZmR",
+        "options": {}
+      },
+      "id": "e63748a5-1354-4799-92b1-b087329c96d9",
+      "name": "Agent sitemap",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c052b8d6-3344-4455-b2ba-2f21eccc46bd",
+              "leftValue": "={{ $json.sitemap_urls }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ad40a7bb-ccd5-4cf9-989b-f17fc117f467",
+      "name": "Sitemap exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1500,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "45e4afce-e847-4158-bc01-e0bda001c659",
+      "name": "Loop Over sitemap urls",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1980,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "0506c347-8b38-4808-8272-af789f6b9950",
+              "leftValue": "={{ $json.isXml }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "3107bcbe-8bd5-4652-800e-8ad39333a3e4",
+      "name": "Url is xml?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2640,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0a6e0194-0710-4ce3-84d0-32fae51d195f",
+              "name": "sitemap_url",
+              "value": "={{ $json.sitemap_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7852ee7e-7fee-44d2-8e15-bd6f15b083f5",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1020,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the URL from the input variable\nconst sitemap_url = $input.all()[0].json.loc;\n\n// Function to check if the URL has an XML extension before any query parameters\nfunction isXmlFile(sitemap_url) {\n    // Extract the part of the URL before any query parameters\n    const cleanUrl = sitemap_url.split('?')[0];\n    return cleanUrl.toLowerCase().endsWith('.xml');\n}\n\n// Use the function and return the result\nconst isXml = isXmlFile(sitemap_url);\n\n// Return the result along with the original URL to n8n\nreturn [{ json: { sitemap_url, isXml } }];\n"
+      },
+      "id": "8682d133-04c9-4743-a3c9-dec4d9c7aea4",
+      "name": "Get url type",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2440,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "Uq3rN6cr35YblZmR",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "4974b199-a148-4c69-9363-130d165df115",
+      "name": "Agent sitemap1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2960,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "urls",
+        "options": {}
+      },
+      "id": "bd1b53df-8a0e-46ca-bf7e-c54d50c71262",
+      "name": "Split Urls",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3f39ebab-9936-4a00-8c23-6aafeca57469",
+              "name": "loc",
+              "value": "={{ $json.loc }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "76aa0be7-f681-465a-9953-91e70321281e",
+      "name": "Add Url",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3440,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "bf6f261d-a32f-4388-ba1b-ce4bd4698354",
+      "name": "Add Direct Url",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2960,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "fbd3764e-60a9-42a1-ad3a-184773738a0c",
+      "name": "Url List",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2240,
+        20
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-21T09:40:50.188Z",
+      "updatedAt": "2024-08-21T09:40:50.188Z",
+      "id": "Wsb2eZzrbohCRrM1",
+      "name": "Sitemap"
+    },
+    {
+      "createdAt": "2024-08-26T22:01:28.989Z",
+      "updatedAt": "2024-08-26T22:01:28.989Z",
+      "id": "kxxK9uQIRkujnphG",
+      "name": "Assistant"
+    },
+    {
+      "createdAt": "2024-08-21T22:13:12.952Z",
+      "updatedAt": "2024-08-21T22:13:12.952Z",
+      "id": "mJoeScWZH1pi52Xo",
+      "name": "AI Agent"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T12:52:31.000Z",
+  "versionId": "152e0aaa-19e9-4104-ab16-747a0e8fa3f8"
+}
