@@ -1,0 +1,715 @@
+{
+  "active": false,
+  "connections": {
+    "Split out comments": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get video comments2": {
+      "main": [
+        [
+          {
+            "node": "Split out comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Test Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Video Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Summary": {
+      "main": [
+        [
+          {
+            "node": "Get video comments2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get video Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Comment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Comment": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-19T18:51:32.957Z",
+  "id": "oFUPrA126vjuUXY1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Youtube Comments Generator",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e03dead1-318c-40d8-b459-fa5664dd1159",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        300,
+        660
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://yt-api.p.rapidapi.com/comments",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $('Workflow Data').item.json[\"video_id\"] }}"
+            },
+            {
+              "name": "geo",
+              "value": "CA"
+            },
+            {
+              "name": "sort_by",
+              "value": "newest"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cfb9f85f-4922-4ff8-a5fd-539c076488d7",
+      "name": "Get video comments2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1120,
+        680
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "id": "a66aa5a0-aad5-4a33-9e86-a2ae8a137ecc",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "position": [
+        2200,
+        380
+      ],
+      "webhookId": "3ab703d5-b8d1-4c8b-9df0-ccf2bb8de881",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "47042900-b6ee-4d9b-904b-a8fc75024b22",
+              "operator": {
+                "type": "array",
+                "operation": "lengthGt",
+                "rightType": "number"
+              },
+              "leftValue": "={{ $json.textDisplay.split('') }}",
+              "rightValue": 100
+            },
+            {
+              "id": "4c61199d-35ba-45cf-9557-d5c9f3f2132b",
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              },
+              "leftValue": "={{ parseInt($json.likesCount) || 0 }}",
+              "rightValue": 5
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bacc7b9e-f2df-4209-bff8-4afa9a6e17cb",
+      "name": "Filter by substantial comments",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        760,
+        120
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "41a56eb6-7335-4cb3-989d-207423143ed4",
+      "name": "Split out comments",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        1320,
+        680
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $json.video_rag_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c081a50e-7e6e-4608-9f1a-c221aab08d6c",
+      "name": "Select Youtube Video",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        520,
+        120
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "fd235d33-068d-4b37-a35f-a5c217d960e2",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "a06e981d-e693-42a3-97ee-4bb12554ac2c",
+      "name": "Test Data1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1460,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.caption }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Analyse the content in details and generate a summary of the video and analyse the sentiments."
+            }
+          ]
+        }
+      },
+      "id": "5e478a7f-69a6-4c7e-a98b-72b8e35378f7",
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        1040,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Analyse the following content in details and generate a summary of the video and an analyse of the sentiments. \n\n{{ $json.caption }}",
+              "role": "system"
+            }
+          ]
+        },
+        "simplify": false,
+        "jsonOutput": true,
+        "options": {}
+      },
+      "id": "c7155721-5444-4566-b71e-cb4a68d60a58",
+      "name": "OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        560,
+        -120
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a94e07c8-1547-491a-a2dd-19ce55374002",
+              "name": "video_id",
+              "value": "cWno-cmR5fE",
+              "type": "string"
+            },
+            {
+              "id": "a03facd0-82e9-45a5-8642-668f7c55798d",
+              "name": "video_rag_id",
+              "value": 91,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "86017a5c-e5c8-456b-bed3-1adfa2f94992",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        620,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "4b44643a-7336-4403-b1ec-a273c541ab67",
+      "name": "Video Summary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        860,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "publishedAt"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9e71e4e1-0c7b-4d80-92a7-3298c330500e",
+      "name": "Sort",
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://yt-api.p.rapidapi.com/video/info?id=cWno-cmR5fE",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "b0b5659f-1ea5-41be-aa03-5c3b4f8c6754",
+      "name": "Get video Details",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1120,
+        1000
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-2024-08-06",
+          "cachedResultName": "GPT-4O-2024-08-06"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a subtle marketing expert.\nYou are able to craft inviting messages so that users want to try your products.\n\nGiven the provided YouTube comment by \"{{ $json.authorText }}\", generate a reply that could incite the user to want to try a new AI trading platform called \"The Trading AI\".\n\nUser comment: \n\"{{ $json.textDisplay }}\"\n\nYouTube video description:\n{{ $('Loop Over videos').first().json.snippet.description }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c93218a6-84f8-4322-8d32-4c17cb1047b8",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        1820,
+        380
+      ],
+      "typeVersion": 1.4
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "id": "a034a17d-c687-4d00-a8f3-d89817f93aa9",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        940
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c68cbb29-2adb-497f-a6c4-8a42b4067709",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1720,
+        680
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c7dc64cf-4e06-46b5-b725-d90e06b62eb3",
+      "name": "Replace Me",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2620,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "17878ac7-4aaf-4970-9a2e-8da930673975",
+              "name": "analyse",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "5a82a937-4ef7-4b6d-8231-d5f572e21c9b",
+              "name": "comment",
+              "value": "={{ $('Comment').item.json[\"textDisplay\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "dff922a6-4659-4cf8-9409-801fa7d7d133",
+              "name": "author",
+              "value": "={{ $('Comment').item.json[\"authorText\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "777d1320-021b-46dd-9435-4fdca3c12202",
+              "name": "likes",
+              "value": "={{ $('Comment').item.json[\"likesCount\"] }}{{ 0 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9c5fb60f-49df-4a7c-9191-c08fcb0d0949",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2640,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c4cf2a3a-496b-4472-a17a-30f783857528",
+              "name": "textDisplay",
+              "value": "={{ $json.textDisplay }}",
+              "type": "string"
+            },
+            {
+              "id": "1378c698-f06b-499c-b7ab-3d773be89c50",
+              "name": "authorText",
+              "value": "={{ $json.authorText }}",
+              "type": "string"
+            },
+            {
+              "id": "92290571-c30c-47e8-9d58-1b4adc1760b0",
+              "name": "authorChannelId",
+              "value": "={{ $json.authorChannelId }}",
+              "type": "string"
+            },
+            {
+              "id": "f3e4c812-b083-4200-a6a0-b4d67c0b3139",
+              "name": "likesCount",
+              "value": "={{ $json.likesCount }}",
+              "type": "string"
+            },
+            {
+              "id": "b16aff9f-5fe9-4c5c-bc7b-1d9847a326a3",
+              "name": "authorThumbnail[0].url",
+              "value": "={{ $json.authorThumbnail[0].url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7e3c061f-9bb8-4bb2-a31d-b0da16728cff",
+      "name": "Comment",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1940,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.textDisplay }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You're an expert to analyse comments posted by user for a youtube video. \nThe video is an review analyse of a product created by my company Nannette de Gaspe.\n\nYour task is to understand the content of the video and analyse the comment of the user associated with this video and report a small report and write an answer to the comment. \n\nYour goal is to bring the customer to discuss with me.\n\nInstructions to create the small report and to create the answer:\n\n1. Explain what is the intention of the user with this comment.\n2. Analyse the sentiment of the comment and determine if is positive, negative or neutral.\n3. Write an answer to this comment with the goal in mind.\n \n\nHere's the comment to analyse and answering :\n\n"
+            }
+          ]
+        }
+      },
+      "id": "b56ded0c-df44-4e4c-8630-561be39bd8a4",
+      "name": "Basic LLM Chain1",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        2160,
+        640
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-24T16:38:49.491Z",
+      "updatedAt": "2024-08-24T16:38:49.491Z",
+      "id": "OwqwkxPGrxiRpjaG",
+      "name": "Youtube"
+    },
+    {
+      "createdAt": "2024-08-19T18:51:38.428Z",
+      "updatedAt": "2024-08-19T18:51:38.428Z",
+      "id": "XcurWvOTtCt4RmkW",
+      "name": "Agent"
+    },
+    {
+      "createdAt": "2024-08-19T18:51:40.887Z",
+      "updatedAt": "2024-08-19T18:51:40.887Z",
+      "id": "ce2WuPb6RcA0ulld",
+      "name": "Marketing"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-25T21:25:02.000Z",
+  "versionId": "5edc6f1a-d808-4771-b0f8-41922b6b1ba8"
+}
