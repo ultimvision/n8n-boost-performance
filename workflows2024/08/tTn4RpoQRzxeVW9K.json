@@ -1,0 +1,137 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "Generate Video and Audio Sequence": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Video and Audio Sequence1": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-08-30T14:55:01.818Z",
+  "id": "tTn4RpoQRzxeVW9K",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Creatomate API",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "7c30742d-137a-43f8-9e70-47a93fd92ad6",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        140,
+        420
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.creatomate.com/v1/renders",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.CREATOMATE_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"output_format\": \"mp4\",\n  \"width\": 1280,\n  \"height\": 720,\n  \"source\": {\n  \"output_format\": \"mp4\",\n  \"width\": 1280,\n  \"height\": 720,\n  \"duration\": 20,\n  \"elements\": [\n    {\n\n      \"type\": \"audio\",\n      \"track\": 1,\n      \"time\": 13.28,\n      \"source\": \"https://boostperformance.ai/aiagent/audios/nannette-podcast.m4a\"\n    },\n    {\n\n      \"type\": \"audio\",\n      \"track\": 2,\n      \"time\": 0,\n      \"source\": \"https://boostperformance.ai/aiagent/audios/jingle_nannette_3.mp3\"\n    }\n  ]\n}\n}\n",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "eb4de7ea-bbbd-449c-9b44-4f7294aa382d",
+      "name": "Generate Video and Audio Sequence",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        600,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "58d1cbd6-48c2-4643-bd01-dfaf361a0e84",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        900,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.creatomate.com/v1/renders",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.CREATOMATE_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"output_format\": \"mp4\",\n  \"width\": 1280,\n  \"height\": 720,\n  \"source\": {\n    \"elements\": [\n      {\n        \"type\": \"image\",\n        \"source\": \"https://creatomate.com/files/assets/c43e2d38-a5e6-49d0-a84a-58ee13109097.jpg\",\n        \"duration\": 5\n      },\n      {\n        \"type\": \"image\",\n        \"source\": \"https://creatomate.com/files/assets/09ab8999-d5e3-420b-9259-1ad85f1a7cef.jpg\",\n        \"duration\": 5\n      },\n      {\n        \"type\": \"image\",\n        \"source\": \"https://creatomate.com/files/assets/10158a94-e644-472f-ae43-07a802da70ff.jpg\",\n        \"duration\": 5\n      },\n      {\n        \"type\": \"image\",\n        \"source\": \"https://creatomate.com/files/assets/8f3fa3ad-db05-414b-8599-333ca712ac39.jpg\",\n        \"duration\": 5\n      }\n    ]\n  }\n}\n",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "075e06a0-3def-4fe8-98bd-5913615b827f",
+      "name": "Generate Video and Audio Sequence1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        340,
+        120
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-30T16:17:42.000Z",
+  "versionId": "081a61a5-0444-49ae-ab1e-7994f561242b"
+}
