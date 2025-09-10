@@ -1,0 +1,1640 @@
+{
+  "active": true,
+  "connections": {
+    "Is Input Data Complete?": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invalid Input Data Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invalid Input Data Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invalid Input Data Error": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing4": {
+      "main": [
+        [
+          {
+            "node": "Prepare Error Log1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Log": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return Completed with Success1": {
+      "main": [
+        [
+          {
+            "node": "Call Back Task Manager",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return Error Status": {
+      "main": [
+        [
+          {
+            "node": "Call Back Task Manager",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Insert Log",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Return Error Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Error Log1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Update Transcript Status to Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Full Transcripts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Audio Details": {
+      "main": [
+        [
+          {
+            "node": "Update Youtube Video Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Status is completed": {
+      "main": [
+        [
+          {
+            "node": "Get Video ID",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "API AssemblyAI | Full",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Status Incomplete",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Video Details": {
+      "main": [
+        [
+          {
+            "node": "API AssemblyAI | Sentences",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Delete Previous Transcripts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Full Transcripts": {
+      "main": [
+        [
+          {
+            "node": "Insert Full Transcript With Speakers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Task Data": {
+      "main": [
+        [
+          {
+            "node": "If Status is completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Full": {
+      "main": [
+        [
+          {
+            "node": "Get Audio Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Sentences": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error API1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing5": {
+      "main": [
+        [
+          {
+            "node": "Error API1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Tasks": {
+      "main": [
+        [
+          {
+            "node": "Task Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status Incomplete": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error API1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Youtube Video Table": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Video ID": {
+      "main": [
+        [
+          {
+            "node": "Set Video Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Full Transcript With Speakers": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Update Transcript Status to Error": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Is Input Data Complete?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Select Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Return Completed with Success1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-18T10:37:39.738Z",
+  "id": "Jt41p795AsB7RtNY",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost - Transcribe Audio | Webhook | Youtube",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ed489722-f0ff-4979-9873-eb7320dea995",
+              "leftValue": "={{ $json.body.status }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "26ec186f-0544-4f77-895a-892d37a084f9",
+              "leftValue": "={{ $json.body.status }}",
+              "rightValue": "completed",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "75a39e5b-d94a-49c7-89fa-083a6cd32404",
+              "leftValue": "={{ $json.body.transcript_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "3c238979-f6ac-490d-a00f-cb4e5863909d",
+      "name": "Is Input Data Complete?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        400,
+        1120
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6e470941-0ecd-405b-8cfa-9cfac0b71743",
+              "name": "execution_id",
+              "value": "={{  $execution.id }}",
+              "type": "number"
+            },
+            {
+              "id": "a57a8c2e-2a93-4be4-9c02-1f95949d3588",
+              "name": "status",
+              "value": "={{ $json.body.status }}",
+              "type": "string"
+            },
+            {
+              "id": "c26941a5-83c8-4cd5-b835-be1f04dc8d18",
+              "name": "transcript_id",
+              "value": "={{ $json.body.transcript_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "except",
+        "excludeFields": "data",
+        "options": {}
+      },
+      "id": "4f0e99df-1417-453b-9d70-2a641d7e72df",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        620,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Validate Initial Workflow Data and Task Status",
+        "height": 729.7538332813613,
+        "width": 1108.662482057193,
+        "color": 6
+      },
+      "id": "0c26a3c7-704a-4b97-b34c-66f212f18bf0",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        320,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "Invalid input data to execute the workflow. Operation canceled.",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "073a9b43-a4dc-42a4-b505-34238b61edd8",
+      "name": "Invalid Input Data Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        620,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Return Error",
+        "height": 401.53991537241654,
+        "width": 2729.919910461417,
+        "color": 3
+      },
+      "id": "f43f8731-13b1-4195-b985-71fe9c598e86",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        320,
+        1540
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "b2edd6d2-e3b1-42f4-8519-5d28213cfd1d",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        840,
+        1760
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "45ae6a3e-9042-44a5-86e8-c196489dded7",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        1760
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ad1a7b8b-3730-4d25-aea0-236ae63f3ddf",
+      "name": "No Operation, do nothing4",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2740,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "jxGlO5w6gHJCOVFN",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "727ca272-64c6-4a06-98af-531cfa8a0ac2",
+      "name": "Insert Log",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3980,
+        1660
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hnzntJEVcAoZejQ5",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "4783371f-04c5-46ea-80b2-c8625111da7c",
+      "name": "Call Back Task Manager",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        4620,
+        1660
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7c63dda1-c6c9-484e-9665-7f4808981bbd",
+              "name": "task_id",
+              "value": "={{ $('Task Data').item.json.task_id }}",
+              "type": "number"
+            },
+            {
+              "id": "c59f80bd-ec6c-4471-9e81-131fc46c5157",
+              "name": "job_id",
+              "value": "={{ $('Task Data').item.json.job_id }}",
+              "type": "number"
+            },
+            {
+              "id": "37960e4c-e4b5-457e-9f09-34d9092d276a",
+              "name": "sequence_id",
+              "value": "={{ $('Task Data').item.json.next_sequence }}",
+              "type": "number"
+            },
+            {
+              "id": "51e7e0dc-0692-4f4a-9194-4372dde3aa74",
+              "name": "type",
+              "value": "sequence",
+              "type": "string"
+            },
+            {
+              "id": "88c57a7d-08ae-4d99-94cf-dd74097496fd",
+              "name": "execution_id",
+              "value": "={{ $('Task Data').item.json.execution_id }}",
+              "type": "number"
+            },
+            {
+              "id": "74854e30-2f8a-4efc-9599-a033383134b6",
+              "name": "success",
+              "value": "true",
+              "type": "string"
+            },
+            {
+              "id": "fb5acc62-6b57-4a47-a542-6efb7e42d1bf",
+              "name": "status",
+              "value": "completed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2019737e-6ed9-4c0a-ba91-99f91e3fe38f",
+      "name": "Return Completed with Success1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4240,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return Completed",
+        "height": 234.60734154241658,
+        "color": 4
+      },
+      "id": "6d026139-a5a3-49a7-9ee7-6cbe741053fd",
+      "name": "Sticky Note20",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        4160,
+        1444
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return Error",
+        "height": 230.76492242997267,
+        "width": 231.41178453104197,
+        "color": 3
+      },
+      "id": "cadcb37a-3b03-4e5b-b962-ebb18e464e8f",
+      "name": "Sticky Note17",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        4180,
+        1744
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Final Stage",
+        "height": 681.0760317487717,
+        "width": 1031.9878382458237,
+        "color": 6
+      },
+      "id": "a6889455-af2e-4c52-95f9-1cf54c25b04b",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3460,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7c63dda1-c6c9-484e-9665-7f4808981bbd",
+              "name": "task_id",
+              "value": "={{ $('Workflow Data').item.json.task_id }}",
+              "type": "number"
+            },
+            {
+              "id": "c59f80bd-ec6c-4471-9e81-131fc46c5157",
+              "name": "job_id",
+              "value": "={{ $('Workflow Data').item.json.job_id }}",
+              "type": "number"
+            },
+            {
+              "id": "37960e4c-e4b5-457e-9f09-34d9092d276a",
+              "name": "sequence_id",
+              "value": "={{ $('Workflow Data').item.json.next_sequence }}",
+              "type": "number"
+            },
+            {
+              "id": "51e7e0dc-0692-4f4a-9194-4372dde3aa74",
+              "name": "type",
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "id": "88c57a7d-08ae-4d99-94cf-dd74097496fd",
+              "name": "execution_id",
+              "value": "={{ $('Workflow Data').item.json.execution_id }}",
+              "type": "number"
+            },
+            {
+              "id": "4f9ea4c6-7370-4aa2-835a-fb0475c4b994",
+              "name": "status",
+              "value": "error",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "58bb4a5f-b485-4b60-9f8e-df9d7503d7ad",
+      "name": "Return Error Status",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4240,
+        1804
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "id": "9b719b88-bd7e-45c7-b1a2-28a0e45418c2",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3740,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "id": "104a62ca-f164-4931-aaee-88e3593fd721",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3980,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "906c16e6-ef9b-4ffd-b942-f3f1e9d152f6",
+      "name": "Prepare Error Log1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3200,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Prepare Error Log",
+        "height": 265.5604114594288,
+        "width": 274.8837112707881,
+        "color": 3
+      },
+      "id": "d211622b-0b1b-4c15-a6cb-c8c88560d26f",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3120,
+        1680
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "sentences",
+        "options": {}
+      },
+      "id": "82a2c66c-cddc-40c7-8a70-26a5ed72eaee",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2300,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4926247f-a2f1-4f72-a163-afc8bd84448e",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "3f27b030-5c05-4f2c-90a3-ac0050f7e0f8",
+              "name": "language_code",
+              "value": "={{ $json.language_code }}",
+              "type": "string"
+            },
+            {
+              "id": "f29af1b3-b6aa-4bb4-a7f8-f32888cd5976",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "4fdb2888-d9c1-44e5-80fe-6c5e77ffa765",
+              "name": "audio_url",
+              "value": "={{ $json.audio_url }}",
+              "type": "string"
+            },
+            {
+              "id": "6be53c56-bd4d-48e7-ae35-2894147faffd",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "8c776283-a335-47f6-8194-b415a90b3318",
+              "name": "audio_duration",
+              "value": "={{ $json.audio_duration }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2eb49f0f-3434-4ed8-a40f-951c9d3841ba",
+      "name": "Get Audio Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1800,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "16964fa5-7a5c-41ba-9607-8306e75961e1",
+              "leftValue": "={{ $('Workflow Data').item.json.status }}",
+              "rightValue": "completed",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9e76b221-6b42-4a17-837d-28e12ee7f5df",
+      "name": "If Status is completed",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a5c7d964-753a-4071-b97c-14fa624e1ae9",
+              "name": "video_id",
+              "value": "={{ $json.video_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "35c3c460-0789-4746-9cb4-96cad222054c",
+      "name": "Set Video Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1800,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eff59631-715c-4c16-bd6a-ae34c348ad62",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "d910b3d8-97e6-4676-b2de-699a0da01efd",
+              "name": "start",
+              "value": "={{ $json.start }}",
+              "type": "number"
+            },
+            {
+              "id": "f5e13d05-72fb-4150-95dd-5f3904c14165",
+              "name": "end",
+              "value": "={{ $json.end }}",
+              "type": "number"
+            },
+            {
+              "id": "24d3836c-efd8-4311-bd77-40df00e6282a",
+              "name": "confidence",
+              "value": "={{ $json.confidence }}",
+              "type": "number"
+            },
+            {
+              "id": "05345e9e-6cb5-4b7b-b6fe-746d86ab808d",
+              "name": "speaker",
+              "value": "={{ $json.speaker }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ef08ce46-66ba-43bb-ae37-3798c5be4529",
+      "name": "Full Transcripts",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2500,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1c65419d-a707-4804-bca2-e20f9a0d79ed",
+              "name": "execution_id",
+              "value": "={{ $json.execution_id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "8983bad1-daff-4ea4-8a82-8217b393b1ea",
+      "name": "Task Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1000,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "This transcript status is not completed. Operation canceled.",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            },
+            {
+              "id": "c142ed38-3dbc-48b1-bf5d-220c4dfd54f8",
+              "name": "continue_sequence",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3b1f72c4-e2ed-40f0-a640-feb1c13c3989",
+      "name": "Status Incomplete",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1480,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "b0e539f7-69e7-486c-ad2a-ab947b196ac5",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2900,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/{{ $('Workflow Data').item.json[\"transcript_id\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $vars.ASSEMBLYAI_API_KEY }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "85d09a33-ec17-42e8-aece-3c26bb002393",
+      "name": "API AssemblyAI | Full",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1540,
+        1040
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/{{ $('Workflow Data').item.json[\"transcript_id\"] }}/sentences",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $vars.ASSEMBLYAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8cdffb0f-925e-432c-9534-c08e2eb44349",
+      "name": "API AssemblyAI | Sentences",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2040,
+        1260
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "1a1158d9-a0b3-4f39-bd7b-396bd92aa509",
+      "name": "No Operation, do nothing5",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "boost_tasks",
+          "mode": "list",
+          "cachedResultName": "boost_tasks"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "external_key",
+              "value": "={{ $json.transcript_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "09151c74-caaa-4075-b46a-976792e48ef4",
+      "name": "Select Tasks",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        820,
+        1020
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "={{ $json.error.code }}",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            },
+            {
+              "id": "c142ed38-3dbc-48b1-bf5d-220c4dfd54f8",
+              "name": "continue_sequence",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7ec9d330-84a5-45a5-b46b-8f0720dd6c64",
+      "name": "Error API1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2260,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "boost_yt_videos",
+          "mode": "list",
+          "cachedResultName": "boost_yt_videos"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "transcript_provider_id",
+        "valueToMatchOn": "={{ $json.id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "audio_duration",
+              "value": "={{ $json.audio_duration }}"
+            },
+            {
+              "column": "full_text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "column": "transcription_status",
+              "value": "transcript_completed"
+            },
+            {
+              "column": "language_code",
+              "value": "={{ $json.language_code }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cc8736e0-9b24-4056-94b5-9419dc8d0062",
+      "name": "Update Youtube Video Table",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2040,
+        880
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "boost_yt_videos",
+          "mode": "list",
+          "cachedResultName": "boost_yt_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "transcript_provider_id",
+              "value": "={{ $('Workflow Data').item.json[\"transcript_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "video_id"
+          ]
+        }
+      },
+      "id": "b71d1e8f-9b27-4d6d-ba12-fa75d35d5089",
+      "name": "Get Video ID",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1540,
+        1260
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteTable",
+        "table": {
+          "__rl": true,
+          "value": "boost_yt_transcripts",
+          "mode": "list",
+          "cachedResultName": "boost_yt_transcripts"
+        },
+        "deleteCommand": "delete",
+        "where": {
+          "values": [
+            {
+              "column": "video_id",
+              "value": "={{ $json.video_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "69a2dcb7-c26f-4000-97c0-59cacfb978cb",
+      "name": "Delete Previous Transcripts",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2040,
+        1080
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "boost_yt_transcripts",
+          "mode": "list",
+          "cachedResultName": "boost_yt_transcripts"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "video_id",
+              "value": "={{ $('Set Video Details').item.json[\"video_id\"] }}"
+            },
+            {
+              "column": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "column": "start",
+              "value": "={{ $json.start }}"
+            },
+            {
+              "column": "end",
+              "value": "={{ $json.end }}"
+            },
+            {
+              "column": "confidence",
+              "value": "={{ $json.confidence }}"
+            },
+            {
+              "column": "speaker",
+              "value": "={{ $json.speaker }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cf5567eb-92f0-4f32-ba78-a8d00a78b593",
+      "name": "Insert Full Transcript With Speakers",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2700,
+        1120
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "boost_yt_videos",
+          "mode": "list",
+          "cachedResultName": "boost_yt_videos"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "video_id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json[\"video_id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "transcript_provider",
+              "value": "assemblyai"
+            },
+            {
+              "column": "transcription_status",
+              "value": "error"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "41683067-cce2-4f40-94ff-b7713ebb07cb",
+      "name": "Update Transcript Status to Error",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3560,
+        1680
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "yt",
+        "options": {}
+      },
+      "id": "e86f943b-57cb-4598-b316-109b49bcf83b",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        20,
+        1120
+      ],
+      "webhookId": "2c4d382b-bdf8-4353-a590-0b4a1117c1f7"
+    },
+    {
+      "parameters": {
+        "content": "## Get Information from the transcription",
+        "height": 729.7538332813613,
+        "width": 1581.4443039293485
+      },
+      "id": "5e9c5676-ee69-4970-8764-f807e287884e",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        760
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "fXkkWUafb0bki9uP"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-09-07T13:08:32.695Z",
+      "updatedAt": "2024-09-07T13:08:32.695Z",
+      "id": "zvxPXyJqeprP9Nex",
+      "name": "Core"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-09-18T11:35:53.000Z",
+  "versionId": "3a014178-2767-4e46-a2a4-a0dfccae26a5"
+}
