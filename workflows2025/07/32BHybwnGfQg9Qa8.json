@@ -1,0 +1,48 @@
+{
+  "active": false,
+  "connections": {
+    "Start": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-07-20T18:30:07.699Z",
+  "id": "32BHybwnGfQg9Qa8",
+  "isArchived": false,
+  "meta": null,
+  "name": "Youtube Download Transcript",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "video_id",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "id": "73363d2a-84fd-45c5-8cce-169d9b78ad43",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        784,
+        -128
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-20T18:33:36.000Z",
+  "versionId": "d64ce696-6e75-4e14-ac91-b247d8611ab8"
+}
