@@ -1,0 +1,723 @@
+{
+  "active": false,
+  "connections": {
+    "Has more": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Reset data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Circle users": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Has more",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Find user in Supabase",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Sync with airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find user in Supabase": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User exists": {
+      "main": [
+        [
+          {
+            "node": "Update user with circle",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create supabase user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create JWT for cloud function": {
+      "main": [
+        [
+          {
+            "node": "Get Circle users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "User exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Create JWT for cloud function",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Find users not recently updated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get circle user": {
+      "main": [
+        [
+          {
+            "node": "Update user with circle1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Remove circle user id from user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reset data": {
+      "main": [
+        [
+          {
+            "node": "Get Circle users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find users not recently updated": {
+      "main": [
+        [
+          {
+            "node": "Get circle user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-26T15:35:21.745Z",
+  "id": "neZWeftTzWotgaEu",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Sync Circle Supabase Users",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "40f77a6b-bc54-4bb8-ac9c-9b8a86338ffe",
+              "leftValue": "={{ $json.has_next_page }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "1a92f5e7-15eb-4c4e-ac03-5797187d52c0",
+              "leftValue": "={{ $runIndex }}",
+              "rightValue": 100,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "00b70f31-a2e5-46f7-9b9b-4a454635dc8b",
+      "name": "Has more",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        920,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "1b0296b9-6688-4e54-8310-d96ff54f917d",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1000,
+        1240
+      ],
+      "webhookId": "ad7183ad-14fe-4597-9294-c6bedc7f6976"
+    },
+    {
+      "parameters": {
+        "content": "# Documentation\n\nHealing routine to synchronize hub.boostperformance.ai users with supabase by looping through Circle users and assigning a circle_user_id and member_tags to supabase users table.",
+        "height": 256.9230769230769,
+        "width": 454.30769230769226
+      },
+      "id": "333cb975-058a-4812-8215-563bb3487882",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/admin/v2/community_members",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "per_page",
+              "value": "50"
+            },
+            {
+              "name": "page",
+              "value": "={{ $runIndex + 1 }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bfbdeccd-1d54-4344-a09c-2398d4bc9b06",
+      "name": "Get Circle users",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        820,
+        740
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "records",
+        "options": {}
+      },
+      "id": "24a7d4c3-3c18-4572-bb63-154a62eae07b",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "email",
+              "value": "={{ $json.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5b1d4a6d-ef14-4f13-80ef-8db7b1be20c8",
+      "name": "Find user in Supabase",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1840,
+        600
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8452cb6d-5f45-4353-9937-0312a457ff8a",
+              "leftValue": "={{ $json.uuid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "90f01fd0-dc7b-4799-b6a1-7cb83c3eb3f7",
+      "name": "User exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2400,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "useJson": true,
+        "claimsJson": "={\n  \"sub\": \"{{ $vars.mat_admin_supabase_uuid }}\",\n  \"role\": \"authenticated\"\n}\n",
+        "options": {}
+      },
+      "id": "ca9ed46f-7318-4644-814e-4663847ef78d",
+      "name": "Create JWT for cloud function",
+      "type": "n8n-nodes-base.jwt",
+      "typeVersion": 1,
+      "position": [
+        280,
+        740
+      ],
+      "credentials": {
+        "jwtAuth": {
+          "id": "pzlG0azbnAhqdblo",
+          "name": "Service Access JWT"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "update public.users set circle_tags = ARRAY(\n    SELECT jsonb_array_elements('{{ JSON.stringify($json.member_tags) }}')\n), circle_user_id = $1, name = $3 where public.users.email = $2",
+        "options": {
+          "queryReplacement": "={{ $json.id }},{{ $json.email }},{{ (($json.first_name || '') + ' ' + ($json.last_name || '')).trim() }}"
+        }
+      },
+      "id": "683590b9-2f6f-4e6e-ba4a-90125eb90122",
+      "name": "Update user with circle",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2700,
+        560
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://cmzypijrhwwhgqzaiulz.supabase.co/functions/v1/circle/new",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Create JWT for cloud function').first().json.token }}"
+            },
+            {
+              "name": "apikey",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNtenlwaWpyaHd3aGdxemFpdWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkxNzgxNDIsImV4cCI6MjA0NDc1NDE0Mn0.nUrJWzmwm93fyxWpHjiRyRLPopuTxeh4tO99jLKThEk"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $json.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7e61c49d-263d-4740-8765-9322aebd81d2",
+      "name": "Create supabase user",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2700,
+        840
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "fieldsToMatchString": "email",
+        "joinMode": "enrichInput2",
+        "options": {
+          "clashHandling": {
+            "values": {
+              "resolveClash": "preferLast"
+            }
+          }
+        }
+      },
+      "id": "570d56f7-e82b-49d6-848e-69ef86d19c60",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2160,
+        720
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "cf5d7a6e-4677-45bf-b995-fefca84ff5b5",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "nothing"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6b2bf6e8-8ffc-46c6-9e57-8de275aea83f",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "update public.users set circle_tags = ARRAY(\n    SELECT jsonb_array_elements('{{ JSON.stringify($json.member_tags) }}')\n), circle_user_id = $1, name = $3 where public.users.email = $2",
+        "options": {
+          "queryReplacement": "={{ $json.id }},{{ $json.email }},{{ (($json.first_name || '') + ' ' + ($json.last_name || '')).trim() }}"
+        }
+      },
+      "id": "f229d96f-df80-40a6-a59c-f445ce9fd934",
+      "name": "Update user with circle1",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2720,
+        1340
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "update public.users set circle_user_id = NULL where public.users.email = $1",
+        "options": {
+          "queryReplacement": "={{ $json.email }}"
+        }
+      },
+      "id": "dbc7bbc5-9334-4c5c-b824-7d047d2cab08",
+      "name": "Remove circle user id from user",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2720,
+        1580
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://app.circle.so/api/admin/v2/community_members/{{ $json.circle_user_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "cd8f974f-64c7-4667-8c30-60a4d219bf3d",
+      "name": "Get circle user",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2220,
+        1340
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "content": "# Sanitize Users\n\nIn a case where one of our previously sync'd Supabase users doesn't exist in Circle anymore, let's remove its circle_user_id.",
+        "height": 748.1464521379904,
+        "width": 1646.2331395533326,
+        "color": 5
+      },
+      "id": "4c7ab1a4-b871-401c-a3db-e2bdf5b11397",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1361.1193341423211,
+        1105.9315214504181
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Sync Users",
+        "height": 633.9584441431149,
+        "width": 1646.2331395533326,
+        "color": 5
+      },
+      "id": "2cb626f7-722c-4cde-8b1f-e3921c1d1488",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        454.18800799487553
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Work in batches",
+        "height": 1391.0405793420168,
+        "width": 681.109839103492,
+        "color": 5
+      },
+      "id": "71eae56d-cdaf-4972-a4e6-4cadf4428bde",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5bad2cee-07a1-469c-b3be-876c6f5aeb25",
+      "name": "Reset data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1080,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT *\nFROM public.users\nWHERE updated_at < NOW() - INTERVAL '60 minutes' AND circle_user_id IS NOT NULL",
+        "options": {}
+      },
+      "id": "6972c528-b1e3-4b4d-9ed7-99372cfb4158",
+      "name": "Find users not recently updated",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1860,
+        1340
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "rxmQOaus2TEPWE3g",
+          "mode": "list",
+          "cachedResultName": "Sync Circle Users to Airtable"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1840,
+        900
+      ],
+      "id": "2b22cb6f-1578-4f4e-8463-3904f210be6f",
+      "name": "Sync with airtable"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-12-11T16:08:26.000Z",
+  "versionId": "9a97d197-2ad5-4a61-9e6f-d8a3bf679a9e"
+}
