@@ -1,0 +1,324 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Has query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get store status": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has query": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Get days off",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get days off": {
+      "main": [
+        [
+          {
+            "node": "Set data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-02T14:12:40.601Z",
+  "id": "NyVP5b9Jd8DPbvXf",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Retell tools",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "techno-pompes/retell/tools",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -200,
+        -20
+      ],
+      "id": "1702f951-dd69-4a02-980d-c44772f371b5",
+      "name": "Webhook",
+      "webhookId": "e9b59caf-4ef5-4c54-a0f2-43733455805b"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.args.query }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "9e93b6e2-2e29-4c7b-b0c6-a7d920ac4cf1",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        380,
+        240
+      ],
+      "id": "9f247bf1-bcb1-4eb1-9405-a82b7ed0491c",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sseEndpoint": "https://boostperformance.app.n8n.cloud/mcp/techno-pompes/elevenlabs/mcp/sse",
+        "authentication": "headerAuth"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        700,
+        260
+      ],
+      "id": "516d99f7-06a9-4972-92bc-b6530d02db35",
+      "name": "MCP Client",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "F1pcjGhPQ9jgo7jv",
+          "name": "Eleven Labs Techno-Pompes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Fetch the current date and time, as well as the current state of the Techno-Pompes office, to see if it's open (Ouvert) or closed (Fermé).",
+        "method": "POST",
+        "url": "https://boostperformance.app.n8n.cloud/webhook/techno-pompes/elevenlabs/initial-data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        900,
+        260
+      ],
+      "id": "95f5d463-90f0-4190-92af-f593c5e5c8fe",
+      "name": "Get store status"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "79706cac-cc41-42ff-a9c9-47ef714d39a9",
+              "leftValue": "={{ $json.query }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        60,
+        -20
+      ],
+      "id": "60ed8ac9-9b36-40cc-8092-bee187975b3d",
+      "name": "Has query"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.query.action }}",
+                    "rightValue": "store_status",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "0afaa2b5-d56e-4f62-8dad-c39d196cca31"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "store status"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        460,
+        -200
+      ],
+      "id": "91525cd2-fe4f-4bbe-984b-9e77551c2c0c",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n    \"now\": \"{{ $now.toISO() }}\",\n    \"office_status\": \"{{ $json.id === undefined ? \"Ouvert\" : \"Fermé\" }}\"\n}\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1060,
+        -200
+      ],
+      "id": "51eb8cf5-5993-4df5-80ae-2d30833e1fa1",
+      "name": "Set data"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appKiQMtukleKTYQm",
+          "mode": "list",
+          "cachedResultName": "Techno-Pompes",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblZ4sGMfo2PIYeS6",
+          "mode": "list",
+          "cachedResultName": "Jours Fériés",
+          "cachedResultUrl": "https://airtable.com/appKiQMtukleKTYQm/tblZ4sGMfo2PIYeS6"
+        },
+        "filterByFormula": "=AND({Début} <= \"{{ $now.format('yyyy-MM-dd') }}\", {Fin} >= \"{{ $now.format('yyyy-MM-dd') }}\")",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        760,
+        -200
+      ],
+      "id": "f10b77d5-c3b8-4019-9051-6318a37dfc44",
+      "name": "Get days off",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "w8Ps0gNqoJg3acAe",
+          "name": "Airtable Techno-Pompes"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-16T11:51:22.000Z",
+  "versionId": "8b506825-3923-420c-ab0a-bc0348d4d8f4"
+}
