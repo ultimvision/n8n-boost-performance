@@ -1,0 +1,73 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Microsoft Outlook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-17T18:40:13.645Z",
+  "id": "DYssNOdXRyEGURNR",
+  "isArchived": false,
+  "meta": null,
+  "name": "Isofor Email Tests",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e1430463-0bcb-4c6d-be98-5a115e5a5177",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "6f6bb6ea-9f66-4e8c-8676-a782efde561d",
+      "name": "Microsoft Outlook",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "5sTyc5A0623iKrdc",
+          "name": "Microsoft Outlook - Isofor"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-17T20:29:03.000Z",
+  "versionId": "6b59eea8-8719-4002-af58-40e3a6e5de0d"
+}
