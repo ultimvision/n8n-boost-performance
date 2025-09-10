@@ -1,0 +1,1223 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get questionnaires",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get questionnaires": {
+      "main": [
+        [
+          {
+            "node": "Création des paroles de la chanson",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Création des paroles de la chanson": {
+      "main": [
+        [
+          {
+            "node": "Paroles de la chanson",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Max IA - Parolier": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Création des paroles de la chanson",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sabrina IA - Réviseuse": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Correction automatique de la structure",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structure de la chanson": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Correction automatique de la structure",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Correction automatique de la structure": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Création des paroles de la chanson",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate song": {
+      "main": [
+        [
+          {
+            "node": "Job started",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Suno error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get song details": {
+      "main": [
+        [
+          {
+            "node": "Job completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Job started": {
+      "main": [
+        [
+          {
+            "node": "Wait 10s",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Suno job not started",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 10s": {
+      "main": [
+        [
+          {
+            "node": "Get song details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Job completed": {
+      "main": [
+        [
+          {
+            "node": "Set output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Timed out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Timed out": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 10s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set output": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Paroles de la chanson": {
+      "main": [
+        [
+          {
+            "node": "-",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "-": {
+      "main": [
+        [
+          {
+            "node": "Generate song",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Files": {
+      "main": [
+        [
+          {
+            "node": "Find uploaded file1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for update": {
+      "main": [
+        [
+          {
+            "node": "Add song to playlist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add song to playlist": {
+      "main": [
+        [
+          {
+            "node": "Is successful",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is successful": {
+      "main": [
+        [],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing5": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing6": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download audio file": {
+      "main": [
+        [
+          {
+            "node": "Upload to YesStreaming",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find uploaded file1": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to YesStreaming": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Get Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Download audio file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-31T12:26:48.675Z",
+  "id": "HCV4AFH0AwiDBXgN",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Générateur de musique",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -260,
+        0
+      ],
+      "id": "7378c933-38cd-4a45-bacf-dfe508339227",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appVjFhlr3AdywqHf",
+          "mode": "list",
+          "cachedResultName": "Event Planning",
+          "cachedResultUrl": "https://airtable.com/appVjFhlr3AdywqHf"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblE16oEonIeThoHb",
+          "mode": "list",
+          "cachedResultName": "Questionnaire",
+          "cachedResultUrl": "https://airtable.com/appVjFhlr3AdywqHf/tblE16oEonIeThoHb"
+        },
+        "filterByFormula": "LEN({Résumé Profile}) > 0",
+        "options": {
+          "fields": [
+            "Nom réel",
+            "Titre / poste",
+            "Nom de lentreprise",
+            "Secteur dactivité principal",
+            "Responsabilités principales",
+            "Super‑pouvoir secret",
+            "Style musical",
+            "Époque ou inspiration musicale",
+            "Ambiance émotion musicale",
+            "Langue musicale",
+            "First Name (from Attendee)",
+            "Last Name (from Attendee)",
+            "Résumé Profile"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        380,
+        0
+      ],
+      "id": "83596424-4cab-43a7-b2b1-c5dd1996b5f8",
+      "name": "Get questionnaires",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Language for the song lyrics: {{ $json[\"Langue musicale\"] || 'French' }}\n\n{{ $json.toJsonString() }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=**You are a creative assistant specialized in writing upbeat, structured song lyrics celebrating the achievements, character, and energy of individuals based on a mixed-format input profile (text, JSON, or both).**\n\n---\n\n### 🎯 Instructions:\n\nGenerate **positive, structured lyrics** (English or French based on input content) that are:\n\n* Inspired by the **person's feats, role, impact, testimonials, or personality**.\n* Optimized for **musicality and flow**, intended for Suno API to convert into a **fully produced song**.\n* Style should match the **vibe of the profile** (e.g., relaxed and warm for beauty, dynamic for entrepreneurship).\n* Highlight **strengths, superpowers, and customer praise** in a lyrical, poetic, and engaging way.\n\nThe **language** and **musical style** will also be provided in the user message and must be respected.\n\n---\n\n### 🛠 Output Format:\n\nYour response must be a **JSON object** in the following structure:\n\n```json\n{\n  \"paroles\": \"uniquement les paroles structurées\",\n  \"titre_chanson\": \"10 mots\"\n}\n```\n\nThe `paroles` field must include **plain text lyrics** with structured sections like `[Verse]`, `[Chorus]`, `[Bridge]`, etc.\n\nThe `titre_chanson` must be a **short, catchy, relevant title** with a maximum of **10 words**. It should reflect the theme, tone, or hook of the song and be suitable as a title for a released track.\n\n---\n\n### 🧾 Input Payload Example:\n\n```json\n{\n  \"name\": \"Chloé\",\n  \"business\": {\n    \"name\": \"Coiffure 4 Saisons\",\n    \"location\": \"Lévis, QC\",\n    \"team_size\": 12,\n    \"hours\": {\n      \"tue_fri\": \"9h à 20h\",\n      \"sat\": \"8h à 15h\",\n      \"sun_mon\": \"fermé\"\n    },\n    \"products\": [\"Revitalisant lissant\", \"Revitalisant volumisant\"],\n    \"online_shop\": true\n  },\n  \"skills\": [\"gestion de boutique\", \"marketing réseaux sociaux\", \"infolettres\", \"crochet\"],\n  \"testimonials\": [\n    \"Chloé est une coiffeuse hors pair, à l'écoute et hyper gentille.\",\n    \"Un salon exceptionnel.\",\n    \"Un vrai coiffeur/barbier digne de ce nom.\",\n    \"100% satisfaite.\",\n    \"Je recommande cette boutique.\"\n  ],\n  \"superpower\": \"Excellente au crochet\"\n}\n```\n\n---\n\n### 📌 Notes:\n\n* If the input is in French, the song should be in French.\n* Include the **person's name and business name** in the lyrics.\n* The **chorus** should be catchy and repeatable.\n"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        980,
+        0
+      ],
+      "id": "375267c8-33eb-4715-bf2a-c1ba3a6f590b",
+      "name": "Création des paroles de la chanson",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        860,
+        220
+      ],
+      "id": "c16bd417-0122-4f81-8f12-7a8110636e25",
+      "name": "Max IA - Parolier",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        980,
+        360
+      ],
+      "id": "7630e1e6-c524-4a40-b781-5e8956f23902",
+      "name": "Sabrina IA - Réviseuse",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"paroles\": \"uniquement les paroles structurées\",\n    \"titre_chanson\" : \"10 mots\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1180,
+        360
+      ],
+      "id": "9ccd8821-5c71-4d34-a320-e29aebcede0c",
+      "name": "Structure de la chanson"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        180
+      ],
+      "id": "d3ab11fb-9965-4ca0-a590-fc0624ec301a",
+      "name": "Correction automatique de la structure"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e732420-e289-4109-a8f0-598aeceaa551",
+              "name": "paroles",
+              "value": "={{ $json.output.paroles }}",
+              "type": "string"
+            },
+            {
+              "id": "20dffd14-0caa-47c4-bdf2-0e473a59d3df",
+              "name": "titre_chanson",
+              "value": "={{ $json.output.titre_chanson }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1480,
+        0
+      ],
+      "id": "0f089e6b-4d65-46e0-98c2-867cc17960ee",
+      "name": "Paroles de la chanson"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://apibox.erweima.ai/api/v1/generate",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "customMode",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "instrumental",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.paroles }}"
+            },
+            {
+              "name": "model",
+              "value": "V4_5"
+            },
+            {
+              "name": "style",
+              "value": "={{ ($('Get questionnaires').item.json[\"Style musical\"] || []).join(', ') }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $json.titre_chanson }}"
+            },
+            {
+              "name": "callBackUrl",
+              "value": "={{ $execution.resumeUrl }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        180,
+        820
+      ],
+      "id": "836e0eb9-d3c0-4443-851e-e56796a226da",
+      "name": "Generate song",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "SfV5VZQZ1TlKi46M",
+          "name": "Suno API mat@ultimvision.io"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://apibox.erweima.ai/api/v1/generate/record-info",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "taskId",
+              "value": "={{ $('Generate song').item.json.data.taskId }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer 0f8161e36a7e17470bf0782bcef22eed"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        820
+      ],
+      "id": "67a697c3-bc70-4d9b-890f-cca78107c96c",
+      "name": "Get song details"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5d30836c-fd86-4ad1-8e38-fcc5048803e3",
+              "leftValue": "={{ $json.code }}",
+              "rightValue": 200,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        420,
+        820
+      ],
+      "id": "5726686b-1553-4633-b8c0-25e513957d63",
+      "name": "Job started"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        820
+      ],
+      "id": "969d58e8-62f0-4999-8e5b-db16713e55a0",
+      "name": "Wait 10s",
+      "webhookId": "349412a3-246b-43a7-a44d-6f3a386c84d2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c3e1059-8351-4006-b9ab-ecf93712c692",
+              "leftValue": "={{ $json.data.response.sunoData[0].audioUrl }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        820
+      ],
+      "id": "8e1ddb71-5a3e-40ee-ad91-a5db95226436",
+      "name": "Job completed"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "429c250f-ba25-4f62-a662-c07b005c008e",
+              "leftValue": "={{ $runIndex }}",
+              "rightValue": 30,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        1100
+      ],
+      "id": "e13cc478-acdf-47bd-ac54-5d3c5004e3b3",
+      "name": "Timed out"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Song generation timed out"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        1100
+      ],
+      "id": "ac43bd01-d519-42ef-9cc7-d72dbf669876",
+      "name": "Stop and Error1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3e078091-00ae-4b05-996f-3dc5ef46975a",
+              "name": "id",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[0].id }}",
+              "type": "string"
+            },
+            {
+              "id": "291e2bc9-f049-4647-a677-3c5d75052417",
+              "name": "task_id",
+              "value": "={{ $('Get song details').item.json.data.response.taskId }}",
+              "type": "string"
+            },
+            {
+              "id": "bf45f3c2-16df-4735-ba6c-4deed1340170",
+              "name": "image_url",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[0].imageUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "0f4664ed-b595-4a3f-99a6-778096d0e3d5",
+              "name": "url",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[0].audioUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "52c11ced-1b63-423c-8cad-c5f6f6a68eaa",
+              "name": "image_url2",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[1].imageUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "dcbec211-d49e-420d-9951-95fe08aa52f7",
+              "name": "url2",
+              "value": "={{ $('Get song details').item.json.data.response.sunoData[1].audioUrl }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1700,
+        820
+      ],
+      "id": "bc4d311d-7ea7-4e62-8746-86adc2632c8a",
+      "name": "Set output"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        500
+      ],
+      "id": "a95a3f68-9779-4976-8f42-7abccbdc2b32",
+      "name": "-"
+    },
+    {
+      "parameters": {},
+      "id": "dc2e0f3d-de68-4886-b6b2-4f4209584435",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        2520
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $vars.YES_STREAMING_API_URL }}/station/{{ $vars.YES_STREAMING_STATION_ID }}/files",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "95b16b0d-22a1-414c-8b2d-152ce5d19e06",
+      "name": "Get Files",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        1920
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "7C9M1GsG6SJrjiRX",
+          "name": "YesStreaming API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "71fa1280-641c-413c-9092-c0c205823acf",
+              "name": "playlists",
+              "value": "={{ JSON.stringify([{\"id\": parseInt($vars.YES_STREAMING_DEFAULT_PLAYLIST_ID), \"name\": \"default\", \"weight\": 3 }]) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "except",
+        "excludeFields": "playlists,song_id",
+        "options": {}
+      },
+      "id": "a557c290-76eb-49bb-945f-fe2662614886",
+      "name": "Prepare data for update",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1520,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $vars.YES_STREAMING_API_URL }}/station/{{ $vars.YES_STREAMING_STATION_ID }}/file/{{ $json.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "33a015aa-30fa-4025-99ae-7259063af02a",
+      "name": "Add song to playlist",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1760,
+        1920
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "7C9M1GsG6SJrjiRX",
+          "name": "YesStreaming API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "e4e98570-6ca0-467d-8d0d-7f03cb223a82",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0205a7b0-c0c9-4aff-b171-f56cec195636",
+      "name": "Is successful",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2160,
+        1920
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b56655b9-aba7-44b9-bf49-0f8bdb92f707",
+      "name": "No Operation, do nothing5",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        120,
+        2520
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "e950e1c2-93c1-452c-96a4-cfc2bacb8724",
+      "name": "No Operation, do nothing6",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        920,
+        2520
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json['url'] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "*/*"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff2dea36-9e9a-4ce5-90be-fdb73bcd9db5",
+      "name": "Download audio file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        60,
+        1920
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "b00c8045-b6af-49ea-ac17-1a00bb0cecfd",
+              "leftValue": "={{ $json.path }}",
+              "rightValue": "={{ $('Paroles de la chanson').item.json.titre_chanson }}.{{ $('Download audio file').first().binary.data.fileExtension }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "efd99b7b-411a-483e-8d2a-ed256f02d93e",
+      "name": "Find uploaded file1",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        1260,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "protocol": "sftp",
+        "operation": "upload",
+        "path": "={{ $('Paroles de la chanson').item.json.titre_chanson }}.{{ $binary.data.fileExtension }}"
+      },
+      "id": "d5e182d6-da2d-4af3-aa4c-3b9356757b8e",
+      "name": "Upload to YesStreaming",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        320,
+        1920
+      ],
+      "credentials": {
+        "sftp": {
+          "id": "jeuU5gHXV9wM8tbi",
+          "name": "YesStreaming - n8n"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "2d410497-4469-4703-8b4a-dedb47c32526",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        580,
+        1920
+      ],
+      "webhookId": "4b02a1e9-d9c0-4f4a-a07e-cacabb54745b"
+    },
+    {
+      "parameters": {
+        "content": "## Transfer songs to YesStreaming",
+        "height": 1017,
+        "width": 1227,
+        "color": 5
+      },
+      "id": "03df741e-0fa4-4abc-86c7-ca0818f46e35",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        1740
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Add songs to default playlist",
+        "height": 1017,
+        "width": 1288,
+        "color": 5
+      },
+      "id": "c6580d7f-d16d-4184-85eb-b7d37d44797a",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        1740
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "={{ $json.error.message }}"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        2520
+      ],
+      "id": "5e552fe7-be23-4303-9a60-160e15ee60df",
+      "name": "Stop and Error2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        1420
+      ],
+      "id": "75b684dd-2e1a-4236-8782-fa3105f9b18b",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "content": "# Générer les paroles avec OpenAI",
+        "height": 840,
+        "width": 1880,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        20,
+        -200
+      ],
+      "id": "ad8f1833-6217-4a83-9c05-46e1c47bee4a",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# Générer la chanson avec Suno",
+        "height": 840,
+        "width": 1880,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        20,
+        720
+      ],
+      "id": "7946a216-0ca0-430a-80f6-ffd656345960",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        180,
+        1160
+      ],
+      "id": "de27db7a-4dbb-4690-b8ad-1ea8ed0ca8c8",
+      "name": "Suno error"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        460,
+        1160
+      ],
+      "id": "caf4f2b9-8c78-441d-8cce-1d0399fcc6c9",
+      "name": "Suno job not started"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-31T13:54:50.000Z",
+  "versionId": "9169b9d6-2cf5-4b10-82f9-5eb64aa298bb"
+}
