@@ -1,0 +1,501 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get data": {
+      "main": [
+        [
+          {
+            "node": "Get job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update to canceled": {
+      "main": [
+        [
+          {
+            "node": "Delete zip",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get job": {
+      "main": [
+        [
+          {
+            "node": "Get the LoRA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete zip": {
+      "main": [
+        [
+          {
+            "node": "Job data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to DO": {
+      "main": [
+        [
+          {
+            "node": "Update to canceled",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compression": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        []
+      ]
+    },
+    "Get the LoRA": {
+      "main": [
+        [
+          {
+            "node": "Compression",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-18T20:45:18.203Z",
+  "id": "iA6XIJRdNSyFRgPX",
+  "isArchived": false,
+  "meta": null,
+  "name": "Services - LoRA training is terminated | Local LoRA",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1a7039d6-5287-4c42-97f2-df1f9a5e1955",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1000,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "05d4c28c-6751-484a-b050-e94e18bfc748",
+              "name": "id",
+              "value": "={{ $json.body.id }}",
+              "type": "string"
+            },
+            {
+              "id": "952b2624-e044-440b-8cf8-d57fb513f3af",
+              "name": "status",
+              "value": "={{ $json.body.status }}",
+              "type": "string"
+            },
+            {
+              "id": "02d62268-2462-4160-9b15-6675bffc36bf",
+              "name": "version",
+              "value": "={{ $json.body.output.version.split(':').pop() }}",
+              "type": "string"
+            },
+            {
+              "id": "316dae2f-826a-41a4-a283-4db52a34b228",
+              "name": "LoRA",
+              "value": "={{ $json.body.output.weights }}",
+              "type": "string"
+            },
+            {
+              "id": "f5dd63e7-e5f4-4ec6-a6e2-09eaf853d817",
+              "name": "api_output",
+              "value": "={{ $json.body }}",
+              "type": "object"
+            },
+            {
+              "id": "bf04380d-1a0c-4237-bc14-3dcfebf5cea5",
+              "name": "trigger_word",
+              "value": "={{ $json.body.input.trigger_word }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -800,
+        -20
+      ],
+      "id": "70a3d1c0-5954-4e8c-9af1-e74856ff108e",
+      "name": "Get data"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "access_granted": "=",
+            "id": "={{ $json.id }}",
+            "status": "={{ $('Get data').item.json.status }}",
+            "generated_content": "={{ JSON.stringify($('Execute Workflow Trigger').item.json) }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "42004403-1136-4a0b-8852-910291f84d89",
+      "name": "Update to canceled",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        500,
+        -20
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * \nFROM service_access_logs\nWHERE generated_content->>'id' = '{{ $json.id }}';\n",
+        "options": {}
+      },
+      "id": "52afd477-cc1d-4996-aec5-398d7db5f64a",
+      "name": "Get job",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -620,
+        -20
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "bucketName": "=boost-data",
+        "fileKey": "={{ $('Get job').item.json.generated_content.zipFile.split('/').pop() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        760,
+        -20
+      ],
+      "id": "b8035637-161b-46b1-b123-f8ca76f0f7a3",
+      "name": "Delete zip",
+      "executeOnce": true,
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "65a7b1a0-9829-4365-94b2-338cce47458a",
+              "name": "id",
+              "value": "={{ $('Get data').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "21a5d85d-bc79-4287-8b35-d3247c2295d6",
+              "name": "user_id",
+              "value": "={{ $('Get job').item.json.user_id }}",
+              "type": "string"
+            },
+            {
+              "id": "c38cd8e0-7702-4cbb-a4ba-2a33cd876ff1",
+              "name": "generated_content",
+              "value": "={{ $('Get job').item.json.generated_content }}",
+              "type": "object"
+            },
+            {
+              "id": "fa671c5c-4ed2-414e-8085-f3d89d3268da",
+              "name": "status",
+              "value": "={{ $('Get data').item.json.status }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        980,
+        -20
+      ],
+      "id": "8adeae19-d7cc-4280-a173-07192f1ab18f",
+      "name": "Job data"
+    },
+    {
+      "parameters": {
+        "outputPrefix": "files_"
+      },
+      "type": "n8n-nodes-base.compression",
+      "typeVersion": 1.1,
+      "position": [
+        -220,
+        -20
+      ],
+      "id": "1b7c241c-ea7b-4804-999d-adb10164f15b",
+      "name": "Compression"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ `test/${$('Get filenames').first().json.trainingName}` }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        300,
+        -20
+      ],
+      "id": "045b5a16-a72d-4a2b-a203-f16719410aa0",
+      "name": "Upload to DO",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const targetFilename = 'lora.safetensors';\n\nfor (let i = 0; i < items.length; i++) {\n  if (items[i].binary && items[i].binary.data && items[i].json.fileName === targetFilename) {\n    return [items[i]];\n  }\n}\n\nreturn [];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        -20
+      ],
+      "id": "ce1addb2-3e9c-4e62-bd38-c48b2ef7d637",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Execute Workflow Trigger').item.json.body.output.weights }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -420,
+        -20
+      ],
+      "id": "8da1c8d8-f88f-4be2-ad4e-58ed7fda6e81",
+      "name": "Get the LoRA",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QI4vypKYZmD2NQGr",
+          "name": "Replicate Auth"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T16:32:57.263Z",
+      "updatedAt": "2024-12-18T16:32:57.263Z",
+      "id": "amjVeuraiVY1rsI9",
+      "name": "Dev:Bill"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-09T20:29:28.000Z",
+  "versionId": "2ae10dc8-f96c-48d8-bc8e-514d43e6bd18"
+}
