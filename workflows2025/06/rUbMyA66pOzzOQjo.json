@@ -1,0 +1,1003 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Parsed Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Content": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "Prepare Google Sheets Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store to Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Google Sheets Data": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Parsed Data": {
+      "main": [
+        [
+          {
+            "node": "Parse Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Maps Scraper": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-04T18:27:48.529Z",
+  "id": "rUbMyA66pOzzOQjo",
+  "isArchived": false,
+  "meta": null,
+  "name": "Google Maps Business Scraper",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -760,
+        60
+      ],
+      "id": "26212b95-39ee-4fda-b7ac-954fa7c73b3c",
+      "name": "When chat message received",
+      "webhookId": "ee87946b-4fcd-469e-86df-86413dbd7e9c"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=You are a research agent that finds business contact information from Google Maps \"Map Searcher\" or websites. Your job is to return results in a precise JSON format that can be directly stored in a database.\n\nRESPONSE FORMAT REQUIREMENTS:\n- Return ONLY pure JSON data with no extra text, explanations, or markdown\n- Do NOT wrap the results in any container object\n- Do NOT add quotes around the entire array\n- Include ALL required fields for each business\n\nAfter searching with \"Map Searcher\", call \"Store To Google Sheets\" with this exact JSON structure:\n\n[\n  {\n    \"Name\": \"Business Name\",\n    \"Address\": \"Full Address\",\n    \"Website\": \"Website URL\",\n    \"Rating\": \"Rating Value\",\n    \"Operating Hours\": \"Business Hours\",\n    \"Email\": \"Email Address\",\n    \"Phone\": \"Phone Number\"\n  },\n  {\n    \"Name\": \"Second Business\",\n    \"Address\": \"Second Address\",\n    \"Website\": \"Second Website\",\n    \"Rating\": \"Second Rating\",\n    \"Operating Hours\": \"Second Hours\",\n    \"Email\": \"Second Email\",\n    \"Phone\": \"Second Phone\"\n  }\n]\n\nFor each page of search results, call \"Store To Google Sheets\" immediately after receiving the data. Do not accumulate results across multiple pages.\n\nCRITICAL: Ensure your output is ONLY the JSON array itself - no introduction text, no explanation, no code blocks, no extra quotes.",
+          "maxIterations": "=2"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -460,
+        60
+      ],
+      "id": "da8639e0-a71c-41df-ae84-cccc3cfefd95",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -680,
+        240
+      ],
+      "id": "19e6cc50-d894-42fa-9d5a-46438cb88e09",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -540,
+        280
+      ],
+      "id": "be70d1ab-8875-4b54-8792-3e8b0c78711a",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -700,
+        600
+      ],
+      "id": "4805027a-69f0-4e43-be33-d0485a5bd579",
+      "name": "When Executed by Another Workflow",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1) Read the first incoming item\nconst inputData = $input.all()[0];\nconsole.log('Input data structure:', JSON.stringify(inputData, null, 2));\n\nlet data = [];\n\n// 2) Try finding the data in different possible structures\ntry {\n  if (inputData.json && inputData.json.query) {\n    // If there's a \"query\" field with JSON data\n    data = JSON.parse(inputData.json.query);\n  } \n  else if (inputData.json) {\n    // If the JSON is directly in the input\n    data = inputData.json;\n  } \n  else {\n    // If all else fails, treat the entire input as data\n    data = inputData;\n  }\n\n  // 3) Ensure \"data\" is an array\n  if (!Array.isArray(data)) {\n    // If data.items is an array\n    if (data.items && Array.isArray(data.items)) {\n      data = data.items;\n    }\n    // If it's a single object, wrap it\n    else if (typeof data === 'object') {\n      data = [data];\n    }\n    // If none of the above, default to empty array\n    else {\n      data = [];\n    }\n  }\n} catch (error) {\n  console.log('Error parsing data:', error.message);\n  data = [];\n}\n\n// 4) Map in a custom UUID for each entry\nconst dataWithId = data.map((item, index) => {\n  const uniqueId = `${Date.now()}-${index}-${Math.floor(Math.random() * 1000)}`;\n  return { \n    UUID: uniqueId, \n    ...item \n  };\n});\n\n// 5) Return each entry as its own \"item\" in n8n\nreturn dataWithId.map(entry => {\n  return {\n    json: entry\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -180,
+        700
+      ],
+      "id": "b28278fb-4294-463a-bb5c-3a9dc2f96f6e",
+      "name": "Parse Content"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY",
+          "mode": "list",
+          "cachedResultName": "Business Emails Scraper",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "Address": "={{ $json.Address }}",
+            "Website": "={{ $json.Website }}",
+            "Email": "={{ $json.Email }}",
+            "Phone Number": "={{ $json.Phone }}",
+            "Rating": "={{ $json.Rating }}",
+            "UUID": "={{ $json.UUID }}",
+            "Operating Hours": "={{ $json[\"Operating Hours\"] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "UUID",
+              "displayName": "UUID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Address",
+              "displayName": "Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Background",
+              "displayName": "Background",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Operating Hours",
+              "displayName": "Operating Hours",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Rating",
+              "displayName": "Rating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        580,
+        580
+      ],
+      "id": "176b02c5-5e10-4094-a26f-40b17febd886",
+      "name": "Google Sheets"
+    },
+    {
+      "parameters": {
+        "jsCode": "return { json: {response: \"ok\" } }"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        740,
+        580
+      ],
+      "id": "8ffa271f-3135-4f71-8b38-49abbb651571",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY",
+          "mode": "list",
+          "cachedResultName": "Business Emails Scraper",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY/edit#gid=0"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        60
+      ],
+      "id": "02ba3001-2ba1-4457-85df-de5c1cc168a8",
+      "name": "Google Sheets Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2b43db32-e0f1-4749-a3cf-ce4d334d3d20",
+              "leftValue": "={{ $json.Name }}",
+              "rightValue": "Name",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "7d6dab7e-edc5-4bbc-8e8a-aff69fc87c05",
+              "leftValue": "={{ $json.Name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        140,
+        60
+      ],
+      "id": "b1cd005f-9302-4297-9baf-628375dbaa57",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        320,
+        60
+      ],
+      "id": "4e6920db-dcac-40d2-b37b-4cd23f59afa3",
+      "name": "Loop Over Items",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all()[0].json.choices[0].message.content;\nconst cleaned = items.replace(\"```json\", \"\").replace(\"```\", \"\")\nconst parsed = JSON.parse(cleaned);\nreturn {data: parsed}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        740,
+        80
+      ],
+      "id": "cc60e53f-64cc-4129-9f1d-412900fbb74c",
+      "name": "Code1",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY",
+          "mode": "list",
+          "cachedResultName": "Business Emails Scraper",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $json.data.email }}",
+            "Background": "={{ $json.data.companyBackground }}",
+            "UUID": "={{ $('Loop Over Items').item.json.UUID }}"
+          },
+          "matchingColumns": [
+            "UUID"
+          ],
+          "schema": [
+            {
+              "id": "UUID",
+              "displayName": "UUID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Address",
+              "displayName": "Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Rating",
+              "displayName": "Rating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Opening Hours",
+              "displayName": "Opening Hours",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Background",
+              "displayName": "Background",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        900,
+        80
+      ],
+      "id": "84940398-ddb0-4773-895c-172c4606fee0",
+      "name": "Google Sheets1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"sonar\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a research assistant. Retrieve data from a company and return it. If a field does not exist, return \\\"N/A\\\" for that field. Return JSON only, without any other information.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Get the email and company background of {{  $json.Name }} in {{  $json.Address }}, reference website {{  $json.Website }}\"\n    }\n  ],\n  \"response_format\": {\n    \"type\": \"json_schema\",\n    \"json_schema\": {\n      \"schema\": {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"CompanyDetails\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"Email\": {\n            \"type\": \"string\"\n          },\n          \"Background\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"Email\",\n          \"Background\"\n        ]\n      }\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        580,
+        80
+      ],
+      "id": "f3e780fe-ffb3-4dc0-bc53-61293b5a6527",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// DUPLICATE DETECTION WITH GUARANTEED UUID GENERATION\n\n// 1. Get all items from the Merge node\nconst allItems = $input.all();\n\n// 2. Find the existing business data from Google Sheets\nlet existingBusinesses = [];\nconst existingBusinessesItem = allItems.find(item => \n  item.json && item.json.source === \"google_sheets_data\"\n);\n\nif (existingBusinessesItem && existingBusinessesItem.json.businesses) {\n  existingBusinesses = existingBusinessesItem.json.businesses;\n  console.log(`Found ${existingBusinesses.length} existing businesses from Google Sheets`);\n}\n\n// 3. Create a set for quick lookup of existing businesses\nconst existingBusinessSet = new Set();\nexistingBusinesses.forEach(business => {\n  // Create a normalized key from business name and address\n  if (business.Name && business.Address) {\n    const key = createBusinessKey(business);\n    existingBusinessSet.add(key);\n  }\n});\n\nconsole.log(`Created set with ${existingBusinessSet.size} unique existing businesses`);\n\n// 4. Track duplicates within this batch\nconst batchBusinessSet = new Set();\nconst filteredOutput = [];\n\n// 5. Find the new business data from Parse Content\nconst newBusinessItems = allItems.filter(item => \n  item.json && item.json.source === \"parsed_content\"\n);\n\n// 6. Process each new business\nfor (const item of newBusinessItems) {\n  if (!item.json.businesses || !Array.isArray(item.json.businesses)) {\n    continue;\n  }\n  \n  for (const business of item.json.businesses) {\n    if (!business.Name || !business.Address) {\n      console.log(\"Skipping business with missing Name or Address\");\n      continue;\n    }\n    \n    // Create a normalized key for this business\n    const key = createBusinessKey(business);\n    \n    // Check if it's a duplicate (either exists in sheets or seen in this batch)\n    const isDuplicate = existingBusinessSet.has(key) || batchBusinessSet.has(key);\n    \n    // ALWAYS generate a new UUID - guaranteed for all businesses\n    const uuid = generateUUID();\n    \n    if (isDuplicate) {\n      console.log(`Duplicate found: ${business.Name} at ${business.Address}`);\n      filteredOutput.push({\n        json: {\n          ...business,\n          UUID: uuid,  // Add new UUID\n          _isDuplicate: true\n        }\n      });\n    } else {\n      console.log(`New unique business: ${business.Name} at ${business.Address}`);\n      // Add to batch set to prevent duplicates within this batch\n      batchBusinessSet.add(key);\n      filteredOutput.push({\n        json: {\n          ...business,\n          UUID: uuid,  // Add new UUID\n          _isDuplicate: false\n        }\n      });\n    }\n  }\n}\n\n// 7. Check if all items are duplicates and add a status item if needed\nconst anyNonDuplicates = filteredOutput.some(item => item.json._isDuplicate === false);\n\n// If all items are duplicates, add a status item that will pass through the If node\nif (!anyNonDuplicates) {\n  console.log(\"All items are duplicates - adding status item to ensure workflow continues\");\n  \n  filteredOutput.push({\n    json: {\n      Name: \"Status Update\",\n      Address: \"N/A\",\n      UUID: `status-${Date.now()}`,  // Give status item a special UUID\n      _isDuplicate: false,\n      _isStatusItem: true,\n      message: \"All items were duplicates - no new businesses to add\"\n    }\n  });\n}\n\n// Output statistics\nconsole.log(`Processing complete:`);\nconsole.log(`- Total businesses processed: ${filteredOutput.length}`);\nconsole.log(`- Unique businesses: ${filteredOutput.filter(b => !b.json._isDuplicate && !b.json._isStatusItem).length}`);\nconsole.log(`- Duplicates found: ${filteredOutput.filter(b => b.json._isDuplicate).length}`);\n\n// Helper function to create a consistent business key\nfunction createBusinessKey(business) {\n  // Normalize name and address to create a consistent key\n  const name = (business.Name || \"\").toLowerCase().replace(/[^a-z0-9]/g, \"\");\n  const address = (business.Address || \"\").toLowerCase().replace(/[^a-z0-9]/g, \"\");\n  return `${name}-${address}`;\n}\n\n// Helper function to generate UUID - format: timestamp-randomNumber\nfunction generateUUID() {\n  const timestamp = Date.now();\n  const randomNum = Math.floor(Math.random() * 1000);\n  return `${timestamp}-${randomNum}`;\n}\n\n// Return the filtered businesses\nreturn filteredOutput;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        180,
+        600
+      ],
+      "id": "7a326543-5a08-477a-a58f-5c820b2035da",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY",
+          "mode": "list",
+          "cachedResultName": "Business Emails Scraper",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNoTySy38AhZC8mt77UD3tepvyIycEUOtEYz70wcByY/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -360,
+        520
+      ],
+      "id": "7f6c7f10-fb9f-4908-98cb-73f48fa343eb",
+      "name": "Google Sheets2",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "name": "store_to_google_sheet",
+        "description": "This is a tool to parse the input and store to google sheet, columns including:\n\n{\n    \"Name\": \"xxx\",\n    \"Address\": \"xxx\",\n    \"Website\": \"xxx\",\n    \"Rating\" : \"xxx\",\n    \"Operating Hours\": \"xxx\",\n    \"Email\": \"xxx\",\n    \"Phone\": \"xxx\"\n}",
+        "workflowId": {
+          "__rl": true,
+          "value": "WsCqxK8zTW7C5aeO",
+          "mode": "id"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        280
+      ],
+      "id": "72a5cf2e-fc67-45a8-b602-ea66309eedf7",
+      "name": "Store to Google Sheets"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9b166bbb-e7f8-4a80-8bfd-6fc524daa31d",
+              "leftValue": "={{ $json._isDuplicate }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        360,
+        600
+      ],
+      "id": "7ef86fdf-d5b6-4c0b-ab61-866af664baeb",
+      "name": "If",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format the Google Sheets data for merging\nconst sheetsData = $input.all();\nlet businesses = [];\n\n// Process all items from Google Sheets\nif (sheetsData && sheetsData.length > 0) {\n  // Loop through all input items to collect all businesses\n  for (const item of sheetsData) {\n    if (!item.json) continue;\n    \n    // If item.json is an array, add all entries\n    if (Array.isArray(item.json)) {\n      console.log(`Found array of ${item.json.length} items in Google Sheets data`);\n      businesses = businesses.concat(item.json);\n    }\n    // If item.json has an items property that's an array, add all entries\n    else if (item.json.items && Array.isArray(item.json.items)) {\n      console.log(`Found array of ${item.json.items.length} items in Google Sheets data.items`);\n      businesses = businesses.concat(item.json.items);\n    }\n    // If item.json is a single business object with Name and Address\n    else if (item.json.Name && item.json.Address) {\n      console.log(`Found single business: ${item.json.Name}`);\n      businesses.push(item.json);\n    }\n  }\n}\n\n// Log and output all found businesses\nconsole.log(`Total of ${businesses.length} businesses found in Google Sheets data`);\nif (businesses.length > 0) {\n  console.log(`First business: ${businesses[0].Name}`);\n  if (businesses.length > 1) {\n    console.log(`Last business: ${businesses[businesses.length-1].Name}`);\n  }\n}\n\n// Return ALL businesses in the formatted data\nreturn [{\n  json: {\n    source: \"google_sheets_data\",\n    businesses: businesses\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -180,
+        520
+      ],
+      "id": "079f5e44-d586-4f9a-8ff3-b9654322f93f",
+      "name": "Prepare Google Sheets Data"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format the parsed business data\nconst parsedItems = $input.all();\nconst businesses = [];\n\n// Extract all valid businesses from the parsed content\nfor (const item of parsedItems) {\n  // Check if we have query data (which appears to be an array of businesses)\n  if (item.json && item.json.query) {\n    try {\n      // If query is a string containing JSON, parse it\n      if (typeof item.json.query === 'string' && item.json.query.trim().startsWith('[')) {\n        const queryData = JSON.parse(item.json.query);\n        if (Array.isArray(queryData)) {\n          console.log(`Found ${queryData.length} businesses in query JSON string`);\n          for (const business of queryData) {\n            if (business.Name && business.Address) {\n              businesses.push(business);\n            }\n          }\n        }\n      } \n      // If query is already an array\n      else if (Array.isArray(item.json.query)) {\n        console.log(`Found ${item.json.query.length} businesses in query array`);\n        for (const business of item.json.query) {\n          if (business.Name && business.Address) {\n            businesses.push(business);\n          }\n        }\n      }\n      // If query is a single business object\n      else if (typeof item.json.query === 'object' && item.json.query.Name && item.json.query.Address) {\n        console.log(\"Found a single business in query object\");\n        businesses.push(item.json.query);\n      }\n    } catch (error) {\n      console.log(`Error parsing query data: ${error.message}`);\n    }\n  }\n  // Legacy check: if item.json has direct business properties\n  else if (item.json && item.json.Name && item.json.Address) {\n    businesses.push(item.json);\n  }\n}\n\nconsole.log(`Prepared ${businesses.length} businesses from parsed content`);\n\n// Return the formatted data\nreturn [{\n  json: {\n    source: \"parsed_content\",\n    businesses: businesses\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -360,
+        700
+      ],
+      "id": "97580029-f948-491a-b25b-bd036974e2a8",
+      "name": "Prepare Parsed Data"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        20,
+        600
+      ],
+      "id": "507e5afc-58ab-4a5a-bf3d-98b372e19170",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "toolDescription": "This bot help you to scrap all contact information for lead gen from google map. Input query \"q\" for search input, \"ll\" for latLng, \"page\" is for the current page. For \"ll\", please follow coordinates in this format: @latitude,longitude,zoom, for example: @40.6973709,-74.1444871,11z",
+        "url": "https://google.serper.dev/maps",
+        "sendQuery": true,
+        "parametersQuery": {
+          "values": [
+            {
+              "name": "q"
+            },
+            {
+              "name": "ll"
+            },
+            {
+              "name": "page"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "X-API-KEY",
+              "valueProvider": "fieldValue"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        -240,
+        280
+      ],
+      "id": "9081e05f-5b42-4cd7-86a0-13642a5b792f",
+      "name": "Google Maps Scraper"
+    },
+    {
+      "parameters": {
+        "content": "## Google Maps Business Info Scraper",
+        "height": 540,
+        "width": 760,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -820,
+        -100
+      ],
+      "id": "05497b0c-fdee-4ca0-b300-f057c9f62aec",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Email + Background [Perplexity]",
+        "height": 540,
+        "width": 1160,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        -100
+      ],
+      "id": "f14bc8bb-1a42-4617-a07d-2127d39deb86",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Data Parser",
+        "height": 440,
+        "width": 1860,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        440
+      ],
+      "id": "f56d3925-6937-432b-bb95-4904867e92ff",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Perplexity + Google Maps Business Info Scraper\nhttps://www.skool.com/chase-ai/classroom/2acd8173?md=a053c0c428d54ff1a217d3c3aa08ffa9",
+        "height": 120,
+        "width": 580,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -200,
+        -260
+      ],
+      "id": "dda37169-9325-4ecc-9cac-ecfb78c008e6",
+      "name": "Sticky Note3"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-04T18:29:13.000Z",
+  "versionId": "32273d09-6958-47a2-8222-66f521f98136"
+}
