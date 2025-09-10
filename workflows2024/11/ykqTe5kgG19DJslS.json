@@ -1,0 +1,40 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-11-24T16:58:24.254Z",
+  "id": "ykqTe5kgG19DJslS",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Webhook - Typeform",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "typeform",
+        "options": {}
+      },
+      "id": "683cdee9-660e-4893-89b3-3617af110eb4",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        560
+      ],
+      "webhookId": "3f4e4a2b-ed55-4c28-9ccc-d49d5349b769"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-06T21:50:06.000Z",
+  "versionId": "436a8ee7-06ad-4aeb-af93-09e5a60196cd"
+}
