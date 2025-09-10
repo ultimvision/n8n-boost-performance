@@ -1,0 +1,1082 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get rooms list": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "get rooms",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "get future reservations",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "search contacts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set reservation data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set customer data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get future reservations": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create reservation": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search contact by phone": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new contact": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set reservation data": {
+      "main": [
+        [
+          {
+            "node": "create reservation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set customer data": {
+      "main": [
+        [
+          {
+            "node": "create contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-22T18:28:52.522Z",
+  "id": "toSsGsofmHZoA05C",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Reservation Salles Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "cc27431e-f54a-4bd1-9cb1-3a82d389d5f1",
+      "name": "When chat message received",
+      "webhookId": "4cdc835e-265c-437f-b246-288cbe5f0c48"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=You are a virtual receptionist whose sole responsibility is to assist users with **reserving internal rooms** (e.g., meeting or reception rooms, not hotel rooms).\n\nYou can:\n- **List available rooms**\n- **Provide room details** such as location, capacity, and equipment\n- **Help users reserve a room** by gathering the necessary information and completing the booking\n\nYou do not handle unrelated requests (e.g., managing existing reservations, contact databases, or general chat).\n\n---\n\n### 🧭 YOUR OBJECTIVE\n\nHelp users explore and reserve rooms by:\n\n1. **Providing room options**  \n   Respond to questions like “What rooms are available?” or “How many people fit in the big room?”\n\n2. **Clarifying reservation requests**  \n   When users want to book, ask:\n   - Which room\n   - Date and time (start and end)\n   - Their phone number\n\n3. **Checking availability**  \n   Make sure the requested room is not already reserved.\n\n4. **Identifying the person**  \n   Ask for their phone number to identify who is reserving. If needed, collect and **confirm** new contact information before proceeding.\n\n5. **Confirming and booking**  \n   Summarize and validate all details with the user before submitting the reservation.\n\n---\n\n### 🧠 BEHAVIOR RULES\n\n- Stay within your scope: **list rooms, describe them, and help reserve**.\n- Validate everything. Do not proceed with a booking unless you’ve:\n  - Confirmed the room\n  - Verified availability\n  - Verified user identity or registered a new contact (after confirming the info)\n- Be concise, professional, and step-by-step.\n- Never guess missing info — always ask clearly.\n\n---\n\n### ✅ EXAMPLES\n\n**User**: “Can you book the big meeting room tomorrow from 2 to 4?”  \n→ You:\n- Confirm which room exactly (\"big\" might need clarification)\n- Ask for the date/time in standard format if vague\n- Check if the room is free\n- Ask for their phone number\n- If not found, request name/email and confirm it before continuing\n- Summarize everything, then proceed to reserve\n\n**User**: “What rooms do we have for 10 people?”  \n→ You:\n- List available rooms with capacity info\n- Ask if they'd like to book one\n\n---\n\nYour purpose is simple: **help users choose and reserve rooms with accurate, validated information**.\nToday's date is {{ $now.toISO() }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        220,
+        0
+      ],
+      "id": "f90b3a11-d652-4089-ab30-2594fce3ba3d",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "openai/o4-mini",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ],
+      "id": "dc9b19ef-527f-4b2f-b642-916f42ecda34",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        -560
+      ],
+      "id": "ccc22871-801e-4352-a1a3-f444c9fba8c7",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "name": "get_rooms_list",
+        "description": "Call this tool to fetch the list of existing rooms that can be reserved.",
+        "workflowId": {
+          "__rl": true,
+          "value": "toSsGsofmHZoA05C",
+          "mode": "list",
+          "cachedResultName": "Reservation Salles Chatbot"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "get_rooms_list"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        700,
+        380
+      ],
+      "id": "4a82663a-ce20-4dc7-8996-e0fc77a063af",
+      "name": "Get rooms list"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "get_rooms_list",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "19d7dc89-94ba-4f09-a6d3-1968745300db"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "rooms"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "75e28a9b-a472-470d-850f-bc69cddf3e08",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "get_future_reservations",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "future reso"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a092f699-76b0-4868-b0cc-27889e8a3c07",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "search_contact_by_phone",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "search contacts"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "581b61e6-b4b3-401c-8474-ab823e0915ad",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "create_reservation",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "create reso"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b76f9ae0-1bef-4def-a9a7-35c4bfac02c0",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "create_contact",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "create contact"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        260,
+        -600
+      ],
+      "id": "fd2de4b0-f2e1-40a1-92a2-58b731be5101",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appbDmO8ros8vpeVr",
+          "mode": "list",
+          "cachedResultName": "Reservation de Salles",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblf6UTykj8RItqhD",
+          "mode": "list",
+          "cachedResultName": "Salles",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr/tblf6UTykj8RItqhD"
+        },
+        "filterByFormula": "{Utilisable}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        940,
+        -1160
+      ],
+      "id": "1cfa0026-df76-4531-9393-41bf5deaa4d7",
+      "name": "get rooms",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "get_future_reservations",
+        "description": "Call this tool to fetch the list of upcoming reservations. Useful when determining if a room is available or already reserved.",
+        "workflowId": {
+          "__rl": true,
+          "value": "toSsGsofmHZoA05C",
+          "mode": "list",
+          "cachedResultName": "Reservation Salles Chatbot"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "get_future_reservations"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        380
+      ],
+      "id": "afdabb10-98b5-4128-a53b-94429336b8a1",
+      "name": "Get future reservations"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appbDmO8ros8vpeVr",
+          "mode": "list",
+          "cachedResultName": "Reservation de Salles",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJWpyVVnoeSG5x8",
+          "mode": "list",
+          "cachedResultName": "Reservations",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr/tblJWpyVVnoeSG5x8"
+        },
+        "filterByFormula": "{Début} > NOW()",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        940,
+        -960
+      ],
+      "id": "e77510d0-b6ca-479e-b278-9266621ad7eb",
+      "name": "get future reservations",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "create_reservation",
+        "description": "Call this tool to create a new reservation for a room.\n\nInput parameters for the 'data' property:\n{\n  \"client\": <record id of the contact to reserve a room for>,\n  \"room\": <record id of the room to reserve as string>,\n  \"start\": <datetime in America/Montreal timezone to start the reservation in format 'YYYY-MM-DD HH:MM'>,\n  \"end\": <datetime in America/Montreal timezone to end the reservation in format 'YYYY-MM-DD HH:MM'>\n}",
+        "workflowId": {
+          "__rl": true,
+          "value": "toSsGsofmHZoA05C",
+          "mode": "list",
+          "cachedResultName": "Reservation Salles Chatbot"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "create_reservation",
+            "data": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('data', `example:\n{\n  \"client\": <record id of the contact to reserve a room for>,\n  \"room\": <record id of the room to reserve as string>,\n  \"start\": <datetime in America/Montreal timezone to start the reservation in format 'YYYY-MM-DD HH:MM'>,\n  \"end\": <datetime in America/Montreal timezone to end the reservation in format 'YYYY-MM-DD HH:MM'>\n}`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        1080,
+        380
+      ],
+      "id": "9967499b-9e8e-4275-b19e-d7a92f45809e",
+      "name": "Create reservation"
+    },
+    {
+      "parameters": {
+        "name": "search_contact_by_phone",
+        "description": "Search for an existing contact by phone number (without regional code, in this format: xxx-xxxx)",
+        "workflowId": {
+          "__rl": true,
+          "value": "toSsGsofmHZoA05C",
+          "mode": "list",
+          "cachedResultName": "Reservation Salles Chatbot"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "search_contact_by_phone",
+            "data": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('data', `the phone number to search with, without regional code, in this format: xxx-xxxx`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        520
+      ],
+      "id": "695523a2-8e38-46e7-9008-d816c398885e",
+      "name": "Search contact by phone"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appbDmO8ros8vpeVr",
+          "mode": "list",
+          "cachedResultName": "Reservation de Salles",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl3CdJtIf3xCY7iE",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr/tbl3CdJtIf3xCY7iE"
+        },
+        "filterByFormula": "=SEARCH(\"{{ $json.data }}\", {Téléphone}) > 0",
+        "options": {
+          "fields": []
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        940,
+        -760
+      ],
+      "id": "ad5db082-25fe-4cec-81ad-7d3fcf592220",
+      "name": "search contacts",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appbDmO8ros8vpeVr",
+          "mode": "list",
+          "cachedResultName": "Reservation de Salles",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJWpyVVnoeSG5x8",
+          "mode": "list",
+          "cachedResultName": "Reservations",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr/tblJWpyVVnoeSG5x8"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Salle": "={{ [$json.data.room] }}",
+            "Début": "={{ $json.data.start }}",
+            "Fin": "={{ $json.data.end }}",
+            "Client": "={{ [$json.data.client] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Salle",
+              "displayName": "Salle",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Début",
+              "displayName": "Début",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fin",
+              "displayName": "Fin",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Client",
+              "displayName": "Client",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom de la salle",
+              "displayName": "Nom de la salle",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1220,
+        -520
+      ],
+      "id": "b94eaf25-da7b-44b7-b204-edc7cf987037",
+      "name": "create reservation",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "create_contact",
+        "description": "Create a new contact. Must have all the correct info before calling this tool:\n{\n\"first_name\": <contact first name>,\n\"last_name\": <contact last name>,\n\"phone\": <contact phone number>\n\"email\": <contact email>\n\"business\": <optional contact business name>\n}",
+        "workflowId": {
+          "__rl": true,
+          "value": "toSsGsofmHZoA05C",
+          "mode": "list",
+          "cachedResultName": "Reservation Salles Chatbot"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "create_contact",
+            "data": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('data', `Contact info, as json. here is an example:\n{\n\"first_name\": <contact first name>,\n\"last_name\": <contact last name>,\n\"phone\": <contact phone number>\n\"email\": <contact email>\n\"business\": <contact business name>\n}`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        340,
+        520
+      ],
+      "id": "b780c843-f093-4ba7-baa7-e1cea172a47d",
+      "name": "Create new contact"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appbDmO8ros8vpeVr",
+          "mode": "list",
+          "cachedResultName": "Reservation de Salles",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl3CdJtIf3xCY7iE",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/appbDmO8ros8vpeVr/tbl3CdJtIf3xCY7iE"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Prénom": "={{ $json.data.first_name }}",
+            "Nom": "={{ $json.data.last_name }}",
+            "Entreprise": "={{ $json.data.business }}",
+            "Téléphone": "={{ $json.data.phone }}",
+            "Courriel": "={{ $json.data.email }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Prénom",
+              "displayName": "Prénom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom",
+              "displayName": "Nom",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Entreprise",
+              "displayName": "Entreprise",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Courriel",
+              "displayName": "Courriel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Reservations",
+              "displayName": "Reservations",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1220,
+        -300
+      ],
+      "id": "b9fe40be-126d-47a1-ac57-92b2804e09e2",
+      "name": "create contact",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 50
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        160,
+        300
+      ],
+      "id": "6400d0ac-3cb4-4536-a644-4439b09dba46",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fdcef4e9-c2e0-43d9-9fc0-e03e1015b61f",
+              "name": "data",
+              "value": "={{ typeof $json.data === 'object' ? $json.data : JSON.parse($json.data) }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        -520
+      ],
+      "id": "3bdbbba2-40d5-41eb-8740-ea72f91ba4d9",
+      "name": "Set reservation data"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fdcef4e9-c2e0-43d9-9fc0-e03e1015b61f",
+              "name": "data",
+              "value": "={{ typeof $json.data === 'object' ? $json.data : JSON.parse($json.data) }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        -300
+      ],
+      "id": "2c2aa69f-1fc9-4b7e-8581-4b3ae3598dd8",
+      "name": "Set customer data"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1,
+      "position": [
+        180,
+        640
+      ],
+      "id": "d4def122-429d-4a26-b6a9-383800d52aaa",
+      "name": "Think"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-24T15:35:32.000Z",
+  "versionId": "4654101b-17dd-4350-861a-ec7da4267027"
+}
