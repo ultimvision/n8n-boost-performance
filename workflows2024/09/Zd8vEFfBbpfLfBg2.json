@@ -1,0 +1,428 @@
+{
+  "active": false,
+  "connections": {
+    "Generate Path Folder": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Insert New Client in DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert New Client in DB": {
+      "main": [
+        [
+          {
+            "node": "Set Success",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Error 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Input Data Complete?": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invalid input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Is Input Data Complete?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Generate Path Folder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-07T13:08:27.472Z",
+  "id": "Zd8vEFfBbpfLfBg2",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost - Core - Create New Client",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "![Image](https://boostperformance.ai/logos/logo_boost_performance.png)\n",
+        "height": 126.5138075838814,
+        "width": 242.73163146139782,
+        "color": 7
+      },
+      "id": "79026561-19dc-46c5-ae47-cd8c2dd049cb",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Input text\nconst inputText = $input.all()[0].json.name // Change this to your actual text input field if necessary\n\n// Generate a 4-character unique ID\nconst uniqueId = Math.random().toString(36).substring(2, 6); // Generates a random 4-character string\n\n// Replace spaces and special characters to create a folder-friendly path\nconst folderPath = inputText\n  .trim() // Remove leading and trailing spaces\n  .replace(/[^a-zA-Z0-9]/g, '_') // Replace all non-alphanumeric characters with underscores\n  .toLowerCase(); // Convert to lowercase for consistency\n\n// Combine folder name with unique ID\nconst folderNameWithId = `${folderPath}_${uniqueId}`;\n\n// Output the folder path\nreturn {\n  path: folderNameWithId\n};\n"
+      },
+      "id": "9335a54b-e52e-40c4-bcb1-c1f6412ad677",
+      "name": "Generate Path Folder",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Return Error : Can't Insert New Client",
+        "height": 265.61276640975836,
+        "width": 250.39166499440336,
+        "color": 3
+      },
+      "id": "8dde926b-1a1f-41b4-bbf6-1c806ece9e20",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2900,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Prepare New Client Data and Insert in DB",
+        "height": 648.3149956367511,
+        "width": 590.9166126116639
+      },
+      "id": "cb3f9bb7-318c-43b2-a50d-cac8c6a227cc",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2201.4683544468585,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "578c837a-0a32-4670-8666-417750707e3e",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2300,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Return Success",
+        "height": 236.31362586840683,
+        "color": 4
+      },
+      "id": "fd528bfc-8d21-4537-8bca-d58d60cfda3c",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2900,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"success\": true\n} ",
+        "options": {}
+      },
+      "id": "eb56ed56-8ad4-4720-85f1-0be3ab201a38",
+      "name": "Set Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2960,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "boost_client",
+          "mode": "list",
+          "cachedResultName": "boost_client"
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "57ab4a81-498b-45a2-8003-37df53d02f80",
+      "name": "Insert New Client in DB",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2600,
+        900
+      ],
+      "retryOnFail": false,
+      "maxTries": 3,
+      "alwaysOutputData": false,
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "content": "## Creation of a New Client in DB and Creation of his files structure inside Boost Performance Server.",
+        "height": 798.3457012418978,
+        "width": 1048.8171461823133,
+        "color": 7
+      },
+      "id": "352f70d7-91c8-4ceb-b9ea-7b424f21e9a0",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2160,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"success\": false,\n  \"message\":  {{ JSON.stringify($json.message) }},\n  \"data\": {{ JSON.stringify($json) }}\n}",
+        "options": {}
+      },
+      "id": "2c20ad03-01fa-4d62-84fa-c57f23f0c377",
+      "name": "Set Error 1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2980,
+        1080
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "55b7495b-4d54-4fe0-a006-1932ab71c950",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "ef54af81-8cea-4279-bfc8-f4b373460082",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1840,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Return Error",
+        "height": 230.76492242997267,
+        "width": 231.41178453104197,
+        "color": 3
+      },
+      "id": "972f47ec-da61-4b50-95c3-9d0c13827e55",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1780,
+        1040
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"success\": false,\n  \"message\": \"Invalid input\"\n}\n",
+        "options": {}
+      },
+      "id": "ce9832f8-0744-476b-a215-8f760d62c4f5",
+      "name": "Invalid input",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1840,
+        1100
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a7e6a601-e9ec-440f-94ad-2aea5b22d776",
+              "leftValue": "={{ $json.client_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "891ca9b5-65d5-4735-b425-b762de831fbc",
+              "leftValue": "={{ $json.client_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "227d1b7f-4f27-4965-aaf4-9b546d2eed39",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "456e549b-4e7e-4832-b5cb-d934e2620bf0",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e8694c66-81fa-4feb-8fd5-f0772e7ae23c",
+      "name": "Is Input Data Complete?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1560,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Validate Input Data before processing the Workflow.",
+        "height": 801.7582698938769,
+        "width": 659.8519477830155,
+        "color": 7
+      },
+      "id": "951b3ba3-0175-4f54-af92-9cf420d36a84",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        540
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-09-07T13:08:32.695Z",
+      "updatedAt": "2024-09-07T13:08:32.695Z",
+      "id": "zvxPXyJqeprP9Nex",
+      "name": "Core"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-07T14:08:20.000Z",
+  "versionId": "e3c66979-62e4-4a70-ad4a-024c60335042"
+}
