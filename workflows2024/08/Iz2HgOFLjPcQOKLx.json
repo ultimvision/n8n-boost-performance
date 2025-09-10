@@ -1,0 +1,496 @@
+{
+  "active": false,
+  "connections": {
+    "create-upload-url": {
+      "main": [
+        [
+          {
+            "node": "fileUploadUrl",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Jingle Nannette": {
+      "main": [
+        [
+          {
+            "node": "create-upload-url1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create-upload-url1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fileUploadUrl": {
+      "main": [
+        [
+          {
+            "node": "Download Jingle Nannette",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "Get Content Folder": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        []
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-30T13:24:48.875Z",
+  "id": "Iz2HgOFLjPcQOKLx",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Audiostack API",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "6fa13546-448e-448f-a2da-fcba6a734253",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        820,
+        840
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://v2.api.audio/content/script",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "x-api-key",
+              "value": "6d986e27-03d0-4b93-bcdb-ccb455a5b55d"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "projectName",
+              "value": "myFirstAudioProject"
+            },
+            {
+              "name": "moduleName",
+              "value": "admodule"
+            },
+            {
+              "name": "scriptName",
+              "value": "script1"
+            },
+            {
+              "name": "scriptText",
+              "value": "Got my first script created!"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0bf66d4e-2b6d-4afc-a93d-d4093431e27d",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1280,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "52cdca9a-1f46-4e2c-84a9-1b1aa1d63fdc",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://v2.api.audio/content/file/create-upload-url",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "x-api-key",
+              "value": "6d986e27-03d0-4b93-bcdb-ccb455a5b55d"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "projectName",
+              "value": "myFirstAudioProject"
+            },
+            {
+              "name": "moduleName",
+              "value": "admodule"
+            },
+            {
+              "name": "scriptName",
+              "value": "script1"
+            },
+            {
+              "name": "scriptText",
+              "value": "Got my first script created!"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cc5f4bec-b6e8-42ae-8459-7a190384b07f",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://v2.api.audio/content/file/create-upload-url",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "x-api-key",
+              "value": "6d986e27-03d0-4b93-bcdb-ccb455a5b55d"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "filePath",
+              "value": "jingle_nannette_3.mp3"
+            },
+            {
+              "name": "category",
+              "value": "jingle"
+            },
+            {
+              "name": "source",
+              "value": "api"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "30fdfbff-c444-4195-8132-5c22abb9ab47",
+      "name": "create-upload-url",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://boostperformance.ai/aiagent/audios/jingle_nannette_3.mp3",
+        "options": {}
+      },
+      "id": "8017ea74-f2b7-44cc-b721-4735ef382b33",
+      "name": "Download Jingle Nannette",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1640,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $('fileUploadUrl').item.json[\"data\"][\"fileUploadUrl\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "5579cbaa-b8ec-4365-8ac2-6dc9c206b45f",
+      "name": "create-upload-url1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1880,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "1a25fb8d-d7b0-4963-a801-6ce07f0e1f29",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2140,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "3a4c4d77-f0d8-47ee-a5a8-bca9119b1adb",
+      "name": "fileUploadUrl",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1400,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Upload Audio",
+        "height": 334,
+        "width": 1323
+      },
+      "id": "dae07c8a-516f-4ea6-b93e-900b7628df14",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## List Folder",
+        "height": 334,
+        "width": 1323
+      },
+      "id": "8ddaff50-0924-45d7-94a8-6f70981b480b",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://v2.api.audio/content/folder",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "x-api-key",
+              "value": "6d986e27-03d0-4b93-bcdb-ccb455a5b55d"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c69db743-77fb-4590-be14-858732ed138e",
+      "name": "Get Content Folder",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "6fd967ed-f15c-4439-8c1c-1f47bff4aad1",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1900,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "478e5c49-8b22-471a-ba06-22d02d587371",
+              "leftValue": "={{ $json.size }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "1d6dd7c4-1ca0-4c5e-8781-309049bdb04f",
+              "leftValue": "={{ $json.size }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c4d86375-191c-4048-b2ec-9cf7641e57f5",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data.files",
+        "options": {}
+      },
+      "id": "2c73f7ed-b0c5-46e9-82c8-daf484d9844e",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        1080
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-30T14:37:58.000Z",
+  "versionId": "404c12b8-e739-4730-9043-06012a57b492"
+}
