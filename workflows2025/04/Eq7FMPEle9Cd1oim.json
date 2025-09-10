@@ -1,0 +1,447 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "has prompt object",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Run llm",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run llm": {
+      "main": [
+        [
+          {
+            "node": "Has output schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has output schema": {
+      "main": [
+        [
+          {
+            "node": "Structure output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set text output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structure output": {
+      "main": [
+        [
+          {
+            "node": "Set json output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set json output": {
+      "main": [
+        []
+      ]
+    },
+    "Prompt": {
+      "main": [
+        [
+          {
+            "node": "Run llm",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get prompt by id": {
+      "main": [
+        [
+          {
+            "node": "Set prompt data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "has prompt object": {
+      "main": [
+        [
+          {
+            "node": "Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get prompt by id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set prompt data": {
+      "main": [
+        [
+          {
+            "node": "Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-10T13:21:18.832Z",
+  "id": "Eq7FMPEle9Cd1oim",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Run Prompt",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "prompt_id"
+            },
+            {
+              "name": "input"
+            },
+            {
+              "name": "prompt",
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -180,
+        0
+      ],
+      "id": "f9500704-102f-409f-9605-2d928f224f53",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('When Executed by Another Workflow').first().json.input }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.prompt.Prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1080,
+        0
+      ],
+      "id": "b25842c1-e913-46ba-9909-034cf332b779",
+      "name": "Run llm"
+    },
+    {
+      "parameters": {
+        "model": "={{ $('Prompt').item.json.prompt.Model }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        240
+      ],
+      "id": "acfabc51-4c5c-4a83-87b9-cb36ff6e60d4",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4f0f32b9-71da-427e-92f7-0be3af6ab368",
+              "leftValue": "={{ $('Prompt').item.json.prompt[\"Output Schema\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1560,
+        0
+      ],
+      "id": "0e2568f7-d4f4-4ce8-b0e0-1a785f7a9a0a",
+      "name": "Has output schema"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $('Run llm').item.json.text }}"
+            },
+            {
+              "content": "=Structure the user message in JSON respecting the following JSON schema:\n\n{{ $('Prompt').item.json.prompt[\"Output Schema\"] }}",
+              "role": "system"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1860,
+        -160
+      ],
+      "id": "f3aa24f9-821b-49b9-a3d8-ccecf3369d0f",
+      "name": "Structure output",
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "970a9437-8f26-4b1a-bebd-fdf151eed0d4",
+              "name": "output",
+              "value": "={{ $json.message.content }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2340,
+        -160
+      ],
+      "id": "e3d26499-6cf6-490e-9434-719d71216ae3",
+      "name": "Set json output"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "970a9437-8f26-4b1a-bebd-fdf151eed0d4",
+              "name": "output",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1880,
+        220
+      ],
+      "id": "bb22f594-14fb-4818-8d9d-2df57c24f9f9",
+      "name": "Set text output"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        860,
+        0
+      ],
+      "id": "fcc6655b-d8b6-4b53-be31-966d04f3e297",
+      "name": "Prompt"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appY3aedb8dbqsB6a",
+          "mode": "list",
+          "cachedResultName": "Publishing",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblaQf2mThD7Qzx1T",
+          "mode": "list",
+          "cachedResultName": "Prompts",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a/tblaQf2mThD7Qzx1T"
+        },
+        "id": "={{ $json.prompt_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        400,
+        140
+      ],
+      "id": "5e9c2001-96aa-4709-840b-b7700921fe90",
+      "name": "Get prompt by id",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "21ba0661-6f69-4676-ac32-d0c83fe3be09",
+              "leftValue": "={{ $json.prompt }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        80,
+        0
+      ],
+      "id": "832bd544-4fda-4808-9914-889fe992b3f3",
+      "name": "has prompt object"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a2db0d3e-2d44-4cf2-a8df-16c3e82d6391",
+              "name": "prompt",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        600,
+        140
+      ],
+      "id": "f712cd42-d421-47ff-b4b1-d8a72d28a923",
+      "name": "Set prompt data"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-09T18:54:30.662Z",
+      "updatedAt": "2025-04-09T18:54:30.662Z",
+      "id": "bwORh3v4jHXqexLE",
+      "name": "Publishing"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-25T20:17:17.000Z",
+  "versionId": "9545e426-3931-40f9-a586-b2fd20bc53e7"
+}
