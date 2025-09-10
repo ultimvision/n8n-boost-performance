@@ -1,0 +1,275 @@
+{
+  "active": false,
+  "connections": {
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Prepare DM data (init)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "DM: internal error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM Circle User2": {
+      "main": [
+        []
+      ]
+    },
+    "Prepare DM data (init)": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DM: internal error": {
+      "main": [
+        [
+          {
+            "node": "DM Circle User (error)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-11T19:02:18.455Z",
+  "id": "c5YunxHWwFEy8PMs",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Demo Bill - Name Routine",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "284cd831-a32e-4fc8-b640-5fbf53ffa197",
+              "leftValue": "={{ $json.data.name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "6a958dce-f624-40c1-94a5-92d7b9383821",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        -100
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "8d00c532-8047-4947-aeb1-ccb5d97e5051",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        520,
+        -100
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a20e321e-94bd-4d0b-b3f6-2c9dc90267f1",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "bc9ac371-5d61-4200-9162-31ae50bcdcb9",
+      "name": "DM Circle User2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1440,
+        -300
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0fbc2981-e0b1-4885-8a54-8e9e432e8a3f",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e26af5a-fef1-4d41-afc9-92caa7126f99",
+              "name": "message",
+              "value": "=Hello {{ $json.data.name }}!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "be059a45-ed7f-409d-9cc3-f2433094a09b",
+      "name": "Prepare DM data (init)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1200,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "l9R3rQEK6x6Jpwbd",
+          "mode": "list",
+          "cachedResultName": "Send DM to Circle"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "278fece3-ed05-4d98-9c1d-c3d3fc4bcf5d",
+      "name": "DM Circle User (error)",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1760,
+        60
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f1ee53d-9fc1-4d92-a060-f6e61e05cf33",
+              "name": "user_id",
+              "value": "={{ $('Execute Workflow Trigger').first().json.circle_user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "70326461-e6e7-4012-bcd4-3019b16bf0ed",
+              "name": "message",
+              "value": "=Something went wrong during the execution of your job. Our team is currently investigating. Job number {{ $execution.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1e005654-c434-4f33-a60a-754197c9ff6a",
+      "name": "DM: internal error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1500,
+        60
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T13:57:05.753Z",
+      "updatedAt": "2024-10-22T13:57:05.753Z",
+      "id": "Q3qpTHNcg1K6uHlR",
+      "name": "Routine"
+    },
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-11T19:25:17.000Z",
+  "versionId": "4ef92d99-2366-46cf-9e4b-a212c60c0284"
+}
