@@ -1,0 +1,258 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Authenticate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Authenticate": {
+      "main": [
+        [
+          {
+            "node": "Search invoice by invoice id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search invoice by invoice id": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Found": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set not found data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-25T19:04:09.994Z",
+  "id": "R2zmyW79BcY1SElk",
+  "isArchived": false,
+  "meta": null,
+  "name": "ServiCentre: get invoice",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "invoice_id"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "172b93b4-ff2d-42d4-8767-0d0d74afeaf3",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.servicentre.net/v1/api/User/FullLoginSession",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "clientId",
+              "value": "A30C6F66-8140-4828-82BF-3FDA3DA288B9"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"Credentials\": {\"companyName\": \"technopompes\", \"userName\": \"WEBAPI\", \"password\": \"tDF79vn56C6ykX\", \"clientId\": \"A30C6F66-8140-4828-82BF-3FDA3DA288B9\"}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        0
+      ],
+      "id": "63faa1d6-2148-4120-a6f8-8bcf055eb64c",
+      "name": "Authenticate"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "Data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        960,
+        0
+      ],
+      "id": "41230c30-8034-4bd7-a1be-ceb40c87d4c5",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ae8f4795-e033-4465-b6ce-0252a4e6aa6e",
+              "name": "error",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "a3ff4628-9874-4a50-8436-ce08a64aac1a",
+              "name": "message",
+              "value": "Invoice not found",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1820,
+        140
+      ],
+      "id": "9ac5b10d-3832-4a52-a3b7-7402830bb7a7",
+      "name": "Set not found data"
+    },
+    {
+      "parameters": {
+        "url": "https://api.servicentre.net/v1/api/Transaction/Search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "startIndex",
+              "value": "0"
+            },
+            {
+              "name": "endIndex",
+              "value": "5"
+            },
+            {
+              "name": "searchExpression",
+              "value": "={{ $('When Executed by Another Workflow').item.json.invoice_id }}"
+            },
+            {
+              "name": "searchCriteria",
+              "value": "0"
+            },
+            {
+              "name": "transactionType",
+              "value": "1"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Cookie",
+              "value": "=ASP.NET_SessionId={{ $json.SessionId }}"
+            },
+            {
+              "name": "clientId",
+              "value": "A30C6F66-8140-4828-82BF-3FDA3DA288B9"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        0
+      ],
+      "id": "9e932d4c-056c-4b32-a82c-2f0fc654bd00",
+      "name": "Search invoice by invoice id"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fb9bd3fa-59df-4a82-aa0a-f848fe34cc10",
+              "leftValue": "={{ $json.Id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1360,
+        0
+      ],
+      "id": "f82012c5-f55d-4b72-9ce3-898cd68093d6",
+      "name": "Found"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-25T19:08:25.000Z",
+  "versionId": "8bc13202-90db-4951-8b1c-9e2618f79068"
+}
