@@ -1,0 +1,157 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-04T21:47:09.146Z",
+  "id": "VMKPG9xuPY0NdWz2",
+  "isArchived": false,
+  "meta": null,
+  "name": "Blog Search Template",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        -120
+      ],
+      "id": "c41e2408-1b5e-4173-8e5e-f5eba2b8e682",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.query }}"
+            },
+            {
+              "content": "=You are a Research Query Generator. Your task is to analyze the user's input and transform it into a comprehensive, research-optimized query. This query should be designed for in-depth exploration of the specified topic.\n\nGuidelines:\n1. **Identify the Focus:** Extract the main topic and the specific subtopic or aspect mentioned.\n2. **Research Orientation:** Frame the query to invite detailed analysis, covering current technologies, challenges, advancements, and potential improvements.\n3. **Context and Clarity:** Ensure the query provides enough context for thorough research, making it clear and specific.\n4. **Conciseness:** Keep the query concise, yet informative, emphasizing the need for a deep dive into the topic.\n\nExamples:\n- Input: \"I want to research more about AI in the airline industry, specifically flight path optimization.\"\n  Output: \"Conduct an in-depth research on the use of AI in the airline industry, with a specific focus on flight path optimization. Analyze current technologies, challenges, and innovative approaches to improving flight path efficiency.\"\n\n- Input: \"I'm interested in exploring how blockchain is transforming supply chain management.\"\n  Output: \"Investigate the impact of blockchain technology on supply chain management, emphasizing current applications, challenges, and future trends.\"\n\nApply these guidelines to generate a detailed, research-focused query from the user's input.\n\nDO NOT GIVE THE OUTPUT DOUBLE QUOTES",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        420,
+        -120
+      ],
+      "id": "0a8942bb-14bf-47b7-a651-498bfb3e22ec",
+      "name": "OpenAI"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"sonar\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a deep-dive research assistant. Your role is to provide comprehensive, detailed, and structured research insights on the given query. Focus on analyzing current trends, technologies, challenges, and potential solutions in the specified field.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"{{ $json.message.content }}\"\n    }\n  ],\n  \"max_tokens\": 1000,\n  \"temperature\": 0.7,\n  \"citations\": true\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        -120
+      ],
+      "id": "8be748a8-99e4-4bda-9b69-2ef3dee4a597",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f4df325-90df-4765-8879-d2013d952e41",
+              "name": "response",
+              "value": "={{ $json.choices[0].message.content }}\n\n{{ $json.citations }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        -120
+      ],
+      "id": "58b39d81-2c8c-40f0-8227-e3142984349b",
+      "name": "Edit Fields"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-04T21:47:20.000Z",
+  "versionId": "495fb1a0-2db5-42f8-bbb4-4eb9d4795e6b"
+}
