@@ -1,0 +1,326 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract video id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract video id": {
+      "main": [
+        [
+          {
+            "node": "Get Download URL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "400",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Download URL": {
+      "main": [
+        [
+          {
+            "node": "Has subtitles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has subtitles": {
+      "main": [
+        [
+          {
+            "node": "Download subtitles",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "422",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download subtitles": {
+      "main": [
+        [
+          {
+            "node": "Respond with subtitles",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "500",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-18T16:58:49.434Z",
+  "id": "vmkpQWsJVsQn6Kro",
+  "isArchived": false,
+  "meta": null,
+  "name": "YouTube GPT Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"error\": \"invalid url, no YouTube ID found in url\"\n}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        340,
+        120
+      ],
+      "id": "ebf68f14-ef1a-4fd5-a090-f59c208680ad",
+      "name": "400"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"error\": \"Video doesn't have any generated subtitles, cannot proceed.\"\n}",
+        "options": {
+          "responseCode": 422
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1120,
+        140
+      ],
+      "id": "3f3be822-f0da-48fd-903a-214552ebaf31",
+      "name": "422"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"error\": \"Unable to download subtitles for this YouTube video\"\n}",
+        "options": {
+          "responseCode": 500
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1520,
+        140
+      ],
+      "id": "cfd03ff7-c3cc-49ab-81e6-a0e8319a79a5",
+      "name": "500"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "gpt/youtube-transcribe",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -120,
+        -360
+      ],
+      "id": "aae3652c-6ec5-403f-8d6d-aef9e55c359b",
+      "name": "Webhook",
+      "webhookId": "4fd58a3d-59bf-44d9-be4b-1476dbcb6142",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "IYI0eyvbDLVT2NpQ",
+          "name": "GPT Security Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-media-downloader.p.rapidapi.com/v2/video/details",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "videoId",
+              "value": "={{ $json.video_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ea34f323-bd88-4957-993b-4f6e6e2052c4",
+      "name": "Get Download URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        660,
+        -360
+      ],
+      "typeVersion": 4.2,
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "function extractYouTubeID(url) {\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\n\nreturn {\n  json: {\n    video_url: $input.item.json.body.url,\n    video_id: extractYouTubeID($input.item.json.body.url)\n  }\n};"
+      },
+      "id": "46aa7ae3-9c90-40e9-840a-73859b4cffce",
+      "name": "Extract video id",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        -360
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cf076197-51e2-41b7-a7bb-3dd4df5c9315",
+              "leftValue": "={{ $json.subtitles.items[0].url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1040,
+        -360
+      ],
+      "id": "ef422f9a-565b-40a8-a9f0-1771ede78293",
+      "name": "Has subtitles"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.subtitles.items[0].url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        -360
+      ],
+      "id": "6a902d12-1d4d-42aa-bc2e-305994dd9d27",
+      "name": "Download subtitles",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"text\": {{ JSON.stringify($json.data) }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1940,
+        -360
+      ],
+      "id": "5356ceef-4e6f-41f6-abff-5311d3ae54e9",
+      "name": "Respond with subtitles"
+    },
+    {
+      "parameters": {
+        "content": "# Error Handling",
+        "height": 300,
+        "width": 1840,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        20
+      ],
+      "id": "6ecf58c9-2b85-4de4-9674-cfad505d1994",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# Documentation\n\n## Workflow Summary\nThis workflow handles YouTube transcription requests by validating input URLs, extracting video IDs, and attempting to download subtitles. It responds with the subtitles or appropriate error codes if issues occur.\n\n### Nodes\n1. **Webhook**: Receives a POST request at `/gpt/youtube-transcribe` with a YouTube URL.\n2. **Extract video id**: Extracts the YouTube video ID from the URL. If extraction fails, responds with a `400` error.\n3. **Get Download URL**: Queries the RapidAPI service for video metadata. Continues only if subtitles are detected.\n4. **Has subtitles**: Checks if subtitles exist. Proceeds to download subtitles or responds with a `422` error if none are available.\n5. **Download subtitles**: Downloads the subtitles using the provided URL. If downloading fails, a `500` error is returned.\n6. **Respond with subtitles**: Sends the downloaded subtitles back to the client as a JSON response.\n\n### Error Handling\n- **400**: Invalid YouTube URL or missing video ID.\n- **422**: Subtitles not available for the video.\n- **500**: Subtitles failed to download.\n\n## Improvement Suggestions\n- Validate the URL format earlier to reduce unnecessary processing.\n- Implement retries for subtitle downloads with better error logging.\n- Optimize error messages to provide more user-friendly guidance.\n- Use a conditional node to bypass API calls for invalid URLs directly after extraction.\n\n## Key Use Case\nThis workflow facilitates YouTube video transcription by automating the process of fetching subtitles or returning clear error responses when issues occur.\n",
+        "height": 740,
+        "width": 1120
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        100,
+        -1300
+      ],
+      "id": "ee077386-a948-4749-a156-8448022e4794",
+      "name": "Sticky Note1"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:39:21.071Z",
+      "updatedAt": "2024-10-16T13:39:21.071Z",
+      "id": "E8nPTYjZtWlaLr4T",
+      "name": "Webhook"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-12-18T18:00:27.000Z",
+  "versionId": "66fc64b1-553a-46ae-b02c-1145db7ee3dd"
+}
