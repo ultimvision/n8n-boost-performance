@@ -1,0 +1,355 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get Nannette Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Nannette Video": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set Comments List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Comments List": {
+      "main": [
+        [
+          {
+            "node": "MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL": {
+      "main": [
+        [
+          {
+            "node": "Prepare the Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare the Content": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MySQL1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "MySQL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-26T19:08:28.039Z",
+  "id": "6Ue8aqmqm7QULoDN",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Youtube - Auto Commentator",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "b00bfe96-6864-416f-afa0-0d51d1977949",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        500,
+        540
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "rag_videos_comments",
+          "mode": "list",
+          "cachedResultName": "rag_videos_comments"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "video_id",
+              "value": "={{ $json.provider_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "56d2c329-f6b7-477d-ac8a-f71306dcfbc3",
+      "name": "MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1380,
+        640
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"video.a\": \"value\",\n  \"video.b\": 1\n}\n",
+        "options": {}
+      },
+      "id": "cea28f8d-73ed-479c-b7d0-9f6f8b2b2432",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5b3791bf-6530-4cf0-8afc-301247e74988",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        900,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "channelId",
+              "value": "UCBKchMWqaKF10UhWfT50WhQ"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "provider_id",
+            "rewrited_content",
+            "description_video"
+          ]
+        }
+      },
+      "id": "0617ead4-6474-4039-8ff7-033e42110f93",
+      "name": "Get Nannette Video",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        700,
+        540
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "fece6987-f3ee-4571-a7ba-e0c0db0e2070",
+      "name": "Set Comments List",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1160,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b94cd96b-fd06-455c-ad5f-6dcdfb6f213f",
+              "name": "textDisplay",
+              "value": "={{ $json.textDisplay }}",
+              "type": "string"
+            },
+            {
+              "id": "717e5338-799a-4439-8d18-014b7b6f573a",
+              "name": "authorDisplayName",
+              "value": "={{ $json.authorDisplayName }}",
+              "type": "string"
+            },
+            {
+              "id": "c9546fcb-450c-487e-900a-3d8d359fedc3",
+              "name": "original_content",
+              "value": "={{ $('Set Comments List').item.json[\"rewrited_content\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4ef59f17-ce1d-49e2-9593-75898113ce2d",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "676a8e36-bf15-4105-83cf-cca8a6580208",
+      "name": "Prepare the Content",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1600,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "rag_videos_comments",
+          "mode": "list",
+          "cachedResultName": "rag_videos_comments"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $('Prepare the Content').item.json[\"id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "reply_suggested",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bd70d9ff-b412-4807-9711-8992dc1f63f1",
+      "name": "MySQL1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2220,
+        700
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_PnksqNL7GFGSiVRhWjByyUvt",
+          "mode": "list",
+          "cachedResultName": "Commentator Nannette de Gaspe"
+        },
+        "prompt": "define",
+        "text": "=Original content :\n {{ $json.original_content }}\n\nComment from the person named {{ $json.authorDisplayName }}:\n {{ $json.textDisplay }}",
+        "options": {}
+      },
+      "id": "ed1e47d7-d0cc-466b-8181-370900655504",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        1820,
+        640
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-24T16:38:49.491Z",
+      "updatedAt": "2024-08-24T16:38:49.491Z",
+      "id": "OwqwkxPGrxiRpjaG",
+      "name": "Youtube"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T22:27:16.000Z",
+  "versionId": "8700414f-31b0-48e3-a778-858bc30b04ee"
+}
