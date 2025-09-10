@@ -1,0 +1,1578 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Is Input Data Complete?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Task Status": {
+      "main": [
+        [
+          {
+            "node": "Status ok?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Task Verification": {
+      "main": [
+        [
+          {
+            "node": "Validate Task Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status ok?": {
+      "main": [
+        [
+          {
+            "node": "Get Details Video",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Details Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Input Data Complete?": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invalid Input Data Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invalid Input Data Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Task Verification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invalid Input Data Error": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status Error": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error API": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error FTP": {
+      "main": [
+        [
+          {
+            "node": "Prepare Error Log1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Download": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing3": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing4": {
+      "main": [
+        [
+          {
+            "node": "Prepare Error Log1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Audio Already Downloaded": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Log": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return Completed with Success1": {
+      "main": [
+        [
+          {
+            "node": "Call Back Task Manager",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return Error Status": {
+      "main": [
+        [
+          {
+            "node": "Call Back Task Manager",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Return Error Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Error Log1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Insert Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Details Video": {
+      "main": [
+        [
+          {
+            "node": "Set Video Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summarization Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-18T12:58:11.257Z",
+  "id": "yOSh73toJY5YPXYz",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost - Generate Blog Content from Video",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "8b65afdb-3429-4b9d-bd56-7ff003137270",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "n1eCnGvb4t2CYhce",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "aac05810-b395-4a84-b6a2-530321fdaf4b",
+      "name": "Validate Task Status",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        2060,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1c65419d-a707-4804-bca2-e20f9a0d79ed",
+              "name": "execution_id",
+              "value": "={{ $json.execution_id }}",
+              "type": "number"
+            },
+            {
+              "id": "79ee686d-7615-4d24-be61-4665f060b377",
+              "name": "task_id",
+              "value": "={{ $json.task_id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "eed4498b-acf5-4c9b-a309-5c1ab54c4b2e",
+      "name": "Task Verification",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1860,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "0cd457e3-0951-4e44-8bbf-0ba3614c1f42",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c7db71eb-ed65-4ae4-b7ea-d5e7027b0543",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1fb1c0d1-a1dd-4594-a05c-0b7a8ba4ae79",
+      "name": "Status ok?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        2280,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a7e6a601-e9ec-440f-94ad-2aea5b22d776",
+              "leftValue": "={{ $json.data.video_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "f979fd4e-f81d-419f-acac-0b2804447221",
+              "leftValue": "={{ $json.data.client_details }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "a5434a45-e52c-4764-b06e-f520cc4b2b6d",
+              "leftValue": "={{ $json.action }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "4004812d-528a-4296-be28-7a3f32cee906",
+              "leftValue": "={{ $json.data.video_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "de94c60c-b1f0-4172-b313-46d4899d3e13",
+              "leftValue": "={{ $json.task_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "db2df2a5-8875-4dc6-9ba3-cafe1998f782",
+              "leftValue": "={{ $json.task_id }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            },
+            {
+              "id": "adef2169-eb67-41ee-864a-ddef2472af3d",
+              "leftValue": "={{ $json.next_sequence }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "56e24084-1bba-4193-ac93-0d397823820f",
+              "leftValue": "={{ $json.next_sequence }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "ee953898-1147-4876-88a4-f43cb82055c5",
+              "leftValue": "={{ $json.job_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "ed489722-f0ff-4979-9873-eb7320dea995",
+              "leftValue": "={{ $json.job_id }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "62d6b90a-5978-449e-b773-710553c807b8",
+      "name": "Is Input Data Complete?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        1240
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "094a42b2-f44f-4c97-ba3f-d8c5f5bdd516",
+              "name": "client_id",
+              "value": "={{ $json.data.client_details.client_id }}",
+              "type": "string"
+            },
+            {
+              "id": "fc60e719-64aa-4ef0-ba28-dbdd477a1746",
+              "name": "client_name",
+              "value": "={{ $json.data.client_details.name }}",
+              "type": "string"
+            },
+            {
+              "id": "1dc76d47-c78a-4d8c-b0b7-0158ce00f3c5",
+              "name": "path",
+              "value": "={{ $json.data.client_details.path }}",
+              "type": "string"
+            },
+            {
+              "id": "1d18163a-dc87-4209-a685-cc8999b5425b",
+              "name": "video_id",
+              "value": "={{ $json.data.video_id }}",
+              "type": "string"
+            },
+            {
+              "id": "6e470941-0ecd-405b-8cfa-9cfac0b71743",
+              "name": "execution_id",
+              "value": "={{  $execution.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "except",
+        "excludeFields": "data",
+        "options": {}
+      },
+      "id": "819abc17-060c-4f74-a229-912060e33dcd",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1680,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Validate Initial Workflow Data and Task Status",
+        "height": 729.7538332813613,
+        "width": 1186.9114598294861,
+        "color": 6
+      },
+      "id": "08a71764-3e03-4f3b-8021-53a05e815fa1",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "Invalid input data to execute the workflow. Operation canceled.",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b182bcb8-1ae4-46bb-b9b7-42011658dd51",
+      "name": "Invalid Input Data Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1660,
+        1740
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "00eeea5e-149e-43c6-90f0-9980902f7765",
+      "name": "Status Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2700,
+        1740
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Return Error",
+        "height": 401.53991537241654,
+        "width": 5043.949714550163,
+        "color": 3
+      },
+      "id": "db7e69a1-2199-4637-830d-b2e9b19a95fb",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1360,
+        1700
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "={{ $json.error.message }}",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            },
+            {
+              "id": "c142ed38-3dbc-48b1-bf5d-220c4dfd54f8",
+              "name": "continue_sequence",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "648ca172-9b1d-418b-a2cf-f312a80919c2",
+      "name": "Error API",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        4400,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "={{ $json.error }}",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            },
+            {
+              "id": "c142ed38-3dbc-48b1-bf5d-220c4dfd54f8",
+              "name": "continue_sequence",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c9793097-fa10-44c6-9211-c7d44a20de1e",
+      "name": "Error FTP",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        6220,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "={{ $json.error.message }}",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            },
+            {
+              "id": "c142ed38-3dbc-48b1-bf5d-220c4dfd54f8",
+              "name": "continue_sequence",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "964ebcf6-69f6-4be8-8bde-533a30ad571a",
+      "name": "Error Download",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        5760,
+        1760
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "6cbd9cff-4338-4ed5-9fb0-62236bb8375c",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1880,
+        1920
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "30e093cc-eb5f-4ca5-86ad-e0e61970369d",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        1920
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "395a05fc-80e1-4775-8a34-b7af25fe1777",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3600,
+        1920
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ae589ce1-1abf-4fc7-b7c2-9281c249a02c",
+      "name": "No Operation, do nothing3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4840,
+        1920
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "7d7413ae-bc6c-4753-9554-1267fc631e39",
+      "name": "No Operation, do nothing4",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        6200,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "This audio has already been downloaded. Operation canceled.",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            },
+            {
+              "id": "ac26f946-2d3d-47a0-b8c2-3e4bbc953af0",
+              "name": "continue_sequence",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b968984c-e551-4cd4-9c18-94707a0a7b04",
+      "name": "Error Audio Already Downloaded",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3180,
+        1740
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "jxGlO5w6gHJCOVFN",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "3fdb6851-0c4e-4aee-9fdf-8e7b0e3fba0e",
+      "name": "Insert Log",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        7600,
+        1840
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "hnzntJEVcAoZejQ5",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "f28092a1-8b5d-4ab8-b657-7215c2112f25",
+      "name": "Call Back Task Manager",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        8260,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7c63dda1-c6c9-484e-9665-7f4808981bbd",
+              "name": "task_id",
+              "value": "={{ $('Workflow Data').item.json.task_id }}",
+              "type": "number"
+            },
+            {
+              "id": "c59f80bd-ec6c-4471-9e81-131fc46c5157",
+              "name": "job_id",
+              "value": "={{ $('Workflow Data').item.json.job_id }}",
+              "type": "number"
+            },
+            {
+              "id": "37960e4c-e4b5-457e-9f09-34d9092d276a",
+              "name": "sequence_id",
+              "value": "={{ $('Workflow Data').item.json.next_sequence }}",
+              "type": "number"
+            },
+            {
+              "id": "51e7e0dc-0692-4f4a-9194-4372dde3aa74",
+              "name": "type",
+              "value": "sequence",
+              "type": "string"
+            },
+            {
+              "id": "88c57a7d-08ae-4d99-94cf-dd74097496fd",
+              "name": "execution_id",
+              "value": "={{ $('Workflow Data').item.json.execution_id }}",
+              "type": "number"
+            },
+            {
+              "id": "74854e30-2f8a-4efc-9599-a033383134b6",
+              "name": "success",
+              "value": "true",
+              "type": "string"
+            },
+            {
+              "id": "fb5acc62-6b57-4a47-a542-6efb7e42d1bf",
+              "name": "status",
+              "value": "completed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "51d995c8-18ef-41c7-9a18-c5b22a911f1e",
+      "name": "Return Completed with Success1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7660,
+        1664
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return Completed",
+        "height": 234.60734154241658,
+        "color": 4
+      },
+      "id": "4c0eb028-21aa-4ba0-9020-b987825c15ba",
+      "name": "Sticky Note20",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        7580,
+        1604
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return Error",
+        "height": 230.76492242997267,
+        "width": 231.41178453104197,
+        "color": 3
+      },
+      "id": "05c807a5-b2b6-48d0-b12a-8deeb3a556da",
+      "name": "Sticky Note17",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        7600,
+        1904
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Final Stage",
+        "height": 633.3249059736795,
+        "width": 1012.3256099854914,
+        "color": 6
+      },
+      "id": "8e7fd41d-49cd-471d-8311-2e5fd7bc7732",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        6900,
+        1560
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7c63dda1-c6c9-484e-9665-7f4808981bbd",
+              "name": "task_id",
+              "value": "={{ $('Workflow Data').item.json.task_id }}",
+              "type": "number"
+            },
+            {
+              "id": "c59f80bd-ec6c-4471-9e81-131fc46c5157",
+              "name": "job_id",
+              "value": "={{ $('Workflow Data').item.json.job_id }}",
+              "type": "number"
+            },
+            {
+              "id": "37960e4c-e4b5-457e-9f09-34d9092d276a",
+              "name": "sequence_id",
+              "value": "={{ $('Workflow Data').item.json.next_sequence }}",
+              "type": "number"
+            },
+            {
+              "id": "51e7e0dc-0692-4f4a-9194-4372dde3aa74",
+              "name": "type",
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "id": "88c57a7d-08ae-4d99-94cf-dd74097496fd",
+              "name": "execution_id",
+              "value": "={{ $('Workflow Data').item.json.execution_id }}",
+              "type": "number"
+            },
+            {
+              "id": "4f9ea4c6-7370-4aa2-835a-fb0475c4b994",
+              "name": "status",
+              "value": "error",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "4d9aed70-7d67-414d-bfe0-abf9e109f196",
+      "name": "Return Error Status",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7880,
+        1964
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "id": "0f8b5afc-798e-4f21-ac68-a76df1f25e1c",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        7600,
+        2040
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "dea53333-d35c-446a-8bfe-a63cc1ba85ba",
+      "name": "Prepare Error Log1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6840,
+        1884
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Prepare Error Log",
+        "height": 265.5604114594288,
+        "width": 274.8837112707881,
+        "color": 3
+      },
+      "id": "1ad32e1c-de40-4fa0-b9aa-b2b413a1603a",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        6540,
+        1804
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Code",
+        "height": 729.7538332813613,
+        "width": 3802.1761389813573
+      },
+      "id": "d3ba8c60-78e1-4c39-808e-8745c69ab3b2",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2600,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "boost_yt_videos",
+          "mode": "list",
+          "cachedResultName": "boost_yt_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "video_id",
+              "value": "={{ $('Workflow Data').item.json.video_id }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "description_video",
+            "full_text_speakers"
+          ]
+        }
+      },
+      "id": "77930938-2056-4fa1-8c6e-7aeba2aa8ddb",
+      "name": "Get Details Video",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2660,
+        1140
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d96f4498-81ac-46c7-86dc-aec9648ac520",
+      "name": "Set Video Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2860,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "98b0418e-8d48-4f33-909c-951158f95245",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        4300,
+        1200
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "254220a8-f3ae-4de3-8ae5-66402668766e",
+      "name": "Summarization Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainSummarization",
+      "typeVersion": 2,
+      "position": [
+        4180,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "9a4fdcd7-f39a-4952-ac22-76fef9269c3b",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2960,
+        1360
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"title\": \"ArticleTopicResponse\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"topics\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"title\": {\n            \"type\": \"string\",\n            \"description\": \"The title of the potential article topic\"\n          },\n          \"description\": {\n            \"type\": \"string\",\n            \"description\": \"A brief explanation of why the topic might be engaging for readers\"\n          }\n        },\n        \"required\": [\"title\", \"description\"]\n      }\n    }\n  },\n  \"required\": [\"topics\"]\n}\n"
+      },
+      "id": "b109c292-01eb-4450-a506-509c61590213",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        3120,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Here's the content :\n{{ $json.description_video }}\n\n{{ $json.full_text_speakers }}\n",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Analyze the provided content and identify potential topics that could be interesting for writing unique articles based on it. For each topic identified, provide a relevant article title and briefly explain why this topic might be engaging for readers."
+            }
+          ]
+        }
+      },
+      "id": "ad78a91e-6aa7-4959-af59-4903a58763ab",
+      "name": "Basic LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        3020,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "ea3333d0-e6f3-43fc-a879-43bef7b47d0a",
+      "name": "OpenAI Chat Model2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3760,
+        1140
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.full_text_speakers }}",
+        "options": {}
+      },
+      "id": "b08c763e-fe70-4767-9262-2a762da71e65",
+      "name": "Text Classifier",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [
+        3700,
+        880
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "fXkkWUafb0bki9uP"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-09-07T13:08:32.695Z",
+      "updatedAt": "2024-09-07T13:08:32.695Z",
+      "id": "zvxPXyJqeprP9Nex",
+      "name": "Core"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-20T11:23:53.000Z",
+  "versionId": "faaeaefb-ad60-47fb-aa47-1021fe06a74d"
+}
