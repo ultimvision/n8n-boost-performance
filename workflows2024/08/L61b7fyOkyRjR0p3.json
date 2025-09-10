@@ -1,0 +1,89 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-08-07T11:55:23.759Z",
+  "id": "L61b7fyOkyRjR0p3",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "test Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "6c1aaf99-7753-46f3-a78d-aa236f9cd484",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        180,
+        320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "model": "tts-1-hd",
+        "input": "The Team\n\nPatrick Aubé - CEO / CPO / Co-Founder\nBassel Moukaddem - CFO / COO / Co-Founder\nMathieu Boucher - CCO / Co-Founder\nMathieu Bourgeois - CTO\nAssaf Semaan - CMO\nInvestment Traction\n\nBroad Interest from Diverse Investment Groups in Our Project:\n\nCPC and RTO Offers: We have received several Capital Pool Company (CPC) offers and two Reverse Takeover (RTO) offers, with valuations ranging from CAD 24M to CAD 55M.\nGEM Digital Limited Offering: A $20M investment proposal from GEM Digital Limited, a digital asset investment firm in The Bahamas, part of the $3.4 billion Global Emerging Markets group.\nPharmacy Investment: The CEO of Uniprix (a group of 560 pharmacies) is a shareholder and has secured $1M from four pharmacists, with more expressing interest in investing.\nWeb3 VC Discussions: Engaged in numerous discussions with Web3 venture capital firms eager to explore investment opportunities in our project.\nASK: $4M\n75% Equity / 25% Convertible Debenture\nCorporate Value: $12.5M ($8.9M USD)\nMaturity: 3 years\n30% Discount\nUse of Proceeds:\n\nMarketing & Sales: 37.5%\nProduct & Technology: 25%\nFinanced Bots: 25%\nNewly Added Talent: 15%",
+        "voice": "nova",
+        "options": {}
+      },
+      "id": "e7949398-3184-4ccc-ba9c-9e2bef879143",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        1040,
+        220
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "cinematic scene Radio studio set up in the heart of a lush, vibrant jungle. The style should be realistic with a whimsical, imaginative touch, merging the worlds of technology and nature in a captivating way. Add a Neon «On Air» sign inside the image on the top in the middle. Add animals of the jungle singing and playing music.",
+        "options": {
+          "quality": "hd",
+          "size": "1792x1024",
+          "style": "vivid"
+        }
+      },
+      "id": "6d5233f4-d64e-42ea-9c89-47add4fa6156",
+      "name": "OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        500,
+        140
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-17T19:47:12.000Z",
+  "versionId": "3910313b-235c-4fae-b155-696f76361716"
+}
