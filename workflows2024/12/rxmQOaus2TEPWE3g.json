@@ -1,0 +1,176 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Empty response",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-11T15:39:57.446Z",
+  "id": "rxmQOaus2TEPWE3g",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sync Circle Users to Airtable",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "fc2ee38d-183c-4b3b-9c06-8a18a60b14bb",
+      "name": "Execute Workflow Trigger"
+    },
+    {
+      "parameters": {
+        "batchSize": 10,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        300,
+        0
+      ],
+      "id": "ff409d60-a816-4ce8-87dd-d0a4c4ccdd6b",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        860,
+        -280
+      ],
+      "id": "b74322c3-4327-4b3b-ae0c-a38d93937874",
+      "name": "Empty response"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "https://api.airtable.com/v0/appdeqfYpOKVRTPop/tblGq8NPg77A4Rrgb",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"performUpsert\": {\n    \"fieldsToMergeOn\": [\"id\"]\n  },\n\"typecast\": true,\n  \"records\": {{ JSON.stringify($json.data.map(user => {\n    return {\n\"fields\": {\n\"id\": user.id,\n\"Name\": user.name,\n\"Email\": user.email,\n\"Company\": user.flattened_profile_fields.company,\n\"sso_uuid\": user.sso_provider_user_id,\n\"Tags\": user.member_tags.pluck('name'),\n\"Date Joined\": user.created_at\n}\n    }\n  })) }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        0
+      ],
+      "id": "57e833e1-44ae-4aa9-adcf-97f754bbfbe8",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "8W4ND93t6yGrkQTi",
+          "name": "Airtable API"
+        },
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        600,
+        0
+      ],
+      "id": "928f5264-cdec-431d-919c-8b9cf8ed05ac",
+      "name": "Aggregate"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "any"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-10T20:30:01.598Z",
+      "updatedAt": "2024-12-10T20:30:01.598Z",
+      "id": "F771zq5Qm7kvL27R",
+      "name": "Airtable"
+    },
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    },
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-13T11:02:22.000Z",
+  "versionId": "55354811-dc41-49b2-a14a-a84924483e78"
+}
