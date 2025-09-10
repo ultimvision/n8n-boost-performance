@@ -1,0 +1,181 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-06-23T16:26:24.724Z",
+  "id": "tsOcBEqbfozNXQRR",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "DEV | Test API",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1592d8cc-b127-468e-9a4e-261caf04a0ed",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -80,
+        -40
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://api.creatomate.com/v1/renders/95f6e0b9-dd89-4c27-90e5-fee844df90d4",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer bae57b009ecd4e399e90f9b49697cdcc8f228469c3804d9e4aae72f8c780c5750717e68988873e9e8eacd9164cda0cda"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "507b666c-21c0-4028-87ce-c059d49e56f0",
+      "name": "Get Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        600,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apyhub.com/extract/video/audio/url/file",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "output",
+              "value": "test-sample"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apy-token",
+              "value": "APY0E3lpNEro3MXDVvC6zAKzS5VWkgiUKoOuFjXyGu0Jio9i7BWMlW5TfUDOZpru5hy8tkM"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "video_url",
+              "value": "https://boostperformance.ai/video/video_karl_talbot_jungle.mp4"
+            },
+            {
+              "name": "start_time",
+              "value": "0"
+            },
+            {
+              "name": "duration",
+              "value": "60"
+            },
+            {
+              "name": "output_format",
+              "value": "mp3"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "70d11d44-0073-4f98-8976-29d93724b1a9",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        160,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apyhub.com/generate/image-thumbnail/url",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "output",
+              "value": "test-sample.png"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apy-token",
+              "value": "APY0E3lpNEro3MXDVvC6zAKzS5VWkgiUKoOuFjXyGu0Jio9i7BWMlW5TfUDOZpru5hy8tkM"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "video_url",
+              "value": "https://boostperformance.ai/video/video_karl_talbot_jungle.mp4"
+            },
+            {
+              "name": "time",
+              "value": "5"
+            },
+            {
+              "name": "size",
+              "value": "400x300"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b5591b3b-eff5-428a-a0e8-7387ec84c0e4",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        -20
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-06-30T22:54:03.750Z",
+      "updatedAt": "2024-06-30T22:54:03.750Z",
+      "id": "c5NEvO9qFRDDjJfy",
+      "name": "DEV"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-02T10:32:34.000Z",
+  "versionId": "ccc65b5e-8ee0-4df2-9b2d-05ebcd89a95f"
+}
