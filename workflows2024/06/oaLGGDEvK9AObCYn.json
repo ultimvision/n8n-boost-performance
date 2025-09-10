@@ -1,0 +1,1986 @@
+{
+  "active": false,
+  "connections": {
+    "Json Parser Image": {
+      "main": [
+        [
+          {
+            "node": "Prompt Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Details": {
+      "main": [
+        [
+          {
+            "node": "Call OpenAI API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Title and Topic": {
+      "main": [
+        [
+          {
+            "node": "Prompt Details2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set Title and Topic",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Q/A with AI": {
+      "main": [
+        [
+          {
+            "node": "Q/A Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Q/A Article": {
+      "main": [
+        [
+          {
+            "node": "Full Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call OpenAI API": {
+      "main": [
+        [
+          {
+            "node": "Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Q/A Article1": {
+      "main": [
+        [
+          {
+            "node": "Full Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Q/A with AI3": {
+      "main": [
+        [
+          {
+            "node": "Q/A Article1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Full Content1": {
+      "main": [
+        [
+          {
+            "node": "Insert Content Q/A Emotions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML Content1": {
+      "main": [
+        [
+          {
+            "node": "Update HTML Content Q/A Emotions1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Prompt for Q/A - Emotions": {
+      "main": [
+        [
+          {
+            "node": "Create Q/A with AI3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Content Q/A Emotions": {
+      "main": [
+        [
+          {
+            "node": "Insert Id Emotion Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Id Emotion Article": {
+      "main": [
+        [
+          {
+            "node": "HTML Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Content Q/A Inspiration": {
+      "main": [
+        [
+          {
+            "node": "Insert Id Inspiration Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Id Inspiration Article": {
+      "main": [
+        [
+          {
+            "node": "HTML Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML Content": {
+      "main": [
+        [
+          {
+            "node": "Update HTML Content Q/A Emotions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Content Q/A Inspiration1": {
+      "main": [
+        [
+          {
+            "node": "Insert Id Inspiration Article1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Id Inspiration Article1": {
+      "main": [
+        [
+          {
+            "node": "HTML Content2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML Content2": {
+      "main": [
+        [
+          {
+            "node": "Update HTML Content Q/A Emotions2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call OpenAI API3": {
+      "main": [
+        [
+          {
+            "node": "Content2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Details2": {
+      "main": [
+        [
+          {
+            "node": "Call OpenAI API3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Content2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content2": {
+      "main": [
+        [
+          {
+            "node": "Json Parser Specific Articles1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call OpenAI API4": {
+      "main": [
+        [
+          {
+            "node": "Content3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Json Parser Specific Articles1": {
+      "main": [
+        [
+          {
+            "node": "Prompt Details3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Details3": {
+      "main": [
+        [
+          {
+            "node": "Call OpenAI API4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Content3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content3": {
+      "main": [
+        [
+          {
+            "node": "Full Content3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update HTML Content Q/A Emotions2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Value": {
+      "main": [
+        [
+          {
+            "node": "Q/A Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Prompts": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Prompts": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Prompt Details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Json Schema and Instructions": {
+      "main": [
+        [
+          {
+            "node": "Prepare Prompt for Q/A",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Prompt for Q/A": {
+      "main": [
+        [
+          {
+            "node": "Split Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt Details1": {
+      "main": [
+        [
+          {
+            "node": "Create Q/A with AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Dialog",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dialog": {
+      "main": [
+        [
+          {
+            "node": "Json Parser Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Full Content3": {
+      "main": [
+        [
+          {
+            "node": "Insert Content Q/A Inspiration1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-24T21:09:09.473Z",
+  "id": "oaLGGDEvK9AObCYn",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Jungle | Create Blog Content",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "1bf18c53-381e-4d1f-9ced-a5813820a87c",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -420,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01b05bce-aad7-442c-85d1-0ee9703e417b",
+              "name": "system_prompt",
+              "value": "=Je vais te partager le contenu d'une entrevue réalisée par {{ $('Podcast Details').item.json[\"interviewer\"] }} pour l'émission Dans la Jungle des Affaires. \n\nVoici quelques détails essentiels :\n\n- Co-animateur invité pour cette émission : {{ $('Podcast Details').item.json[\"co_interviewer\"] }}\n- L'entrepreneur invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nVotre tâche :\nVous agirez en tant qu'Assistant avec moi, et votre mission sera d'analyser en détail tout le texte de l'interview et d'identifier 4 sujets de discussion avec lesquels je pourrais séparer le contenu pour générer 4 articles différents.\n\nPrenez en compte le concept de mon émission et proposez 4 concepts d'articles qui seraient écrits sous forme de blog et dans un magazine. Vous devez vous assurer que le contenu ne se duplique pas.\n\nPour chaque sujet, vous devez fournir :\n\n- Le Titre de l'article en français.\n- Une Explication détaillé du contenu de l'article à rédiger avec des idées à utiliser pour renforcer le contenu, des sujets à aborder dans l'article, des moments précis, des événements marquants.\n\nNote : Le texte contient l'horodatage du dialogue et le nom du locuteur.\nLe locuteur A est {{ $('Podcast Details').item.json[\"interviewer\"] }}, l'intervieweur.\nLe locuteur B est {{ $('Podcast Details').item.json[\"co_interviewer\"] }}, le co-intervieweur.\nLe locuteur C est l'invité {{ $('Podcast Details').item.json[\"guest\"] }}. {{ $('Podcast Details').item.json[\"guest_details\"] }}.\n\nVoici le contenu écrit dans la langue {{ $('Podcast Details').item.json[\"language_code\"] }} de l'interview à analyser en détail pour créer 4 articles :\n\n{{ $json['dialog'] }}\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "00e4c06c-621a-4a88-a3b8-5521131c2133",
+      "name": "Prompt Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        720,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28cc1467-4503-401f-a285-208dea8131c2",
+              "name": "json_schema",
+              "value": "={\n   \"type\": \"object\",\n   \"properties\": {\n      \"articles\": {\n         \"type\": \"array\",\n         \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n               \"title\": { \"type\": \"string\" },\n               \"explication\": { \"type\": \"string\" }\n            },\n            \"required\": [\"title\", \"explication\"]\n         },\n         \"minItems\": 4,\n         \"maxItems\": 4\n      }\n   },\n   \"required\": [\"articles\"],\n   \"additionalProperties\": false\n}",
+              "type": "string"
+            },
+            {
+              "id": "656241ae-f49a-48de-b1dd-5d34ff9a5d01",
+              "name": "json_instructions",
+              "value": "=You must format your output as a JSON value that adheres to a given JSON schema. JSON schema is a declarative language that allows you to annotate and validate JSON documents. Your output will be parsed and verified against the provided schema instance, so make sure all fields in your output exactly match the schema and that there are no extra commas! Here is the JSON schema instance that your output must conform to:",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "b929a4bd-cdee-47bf-88b8-7f41f0bd7d1a",
+      "name": "Json Parser Image",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        520,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.OPENAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"temperature\": 1,\n  \"response_format\": { \"type\": \"json_object\" },\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": {{ JSON.stringify($json[\"system_prompt\"]) }}\n    }\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "7d715a7a-d692-4a32-8caa-6625312fdb51",
+      "name": "Call OpenAI API",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        900,
+        200
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "0109594e-eeae-4552-90c7-b6b675a86626",
+      "name": "Content1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1080,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "41a55d28-d224-4a86-aa49-10df38e68e94",
+              "name": "content",
+              "value": "={{ $json.body.choices[0].message.content }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c2905075-f9db-48e9-bb4c-c8b017fbfba2",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1260,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "content.articles",
+        "options": {}
+      },
+      "id": "6ca45b89-72db-445f-9087-a748cf326830",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "67257e12-a55b-41b1-a255-340a10b7daea",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "9eecff87-ad92-4f9c-a644-75f8bd848e39",
+      "name": "Set Title and Topic",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2000,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "2a7b2973-8386-4897-a614-80468bf1487b",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        900,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "41a55d28-d224-4a86-aa49-10df38e68e94",
+              "name": "content",
+              "value": "={{ $json.body.choices[0].message.content }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e0639185-8ec4-4bf7-a7e2-2df469248a52",
+      "name": "Q/A Article",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2120,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.OPENAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"temperature\": 1,\n  \"response_format\": { \"type\": \"json_object\" },\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": {{ JSON.stringify($json[\"system_prompt\"]) }}\n    }\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "162fb143-56e9-4d2a-9492-1a915dee5f3e",
+      "name": "Create Q/A with AI",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1880,
+        -520
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01b05bce-aad7-442c-85d1-0ee9703e417b",
+              "name": "system_prompt",
+              "value": "=Je vais te partager le contenu d'une entrevue réalisée par {{ $('Podcast Details').item.json[\"interviewer\"] }} pour l'émission Dans la Jungle des Affaires. Voici quelques détails essentiels :\n\n- Co-animateur invité pour cette émission : {{ $('Podcast Details').item.json[\"co_interviewer\"] }}\n- Invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nTâche :\nTa tâche consiste à rédiger un article basé sur le contenu du podcast, sous la forme d'une entrevue Questions et Réponses. Le sujet de l'article devra questionner l'invité sur les moments marquants de sa vie, le côté humain. Les moments exceptionnels et les moments difficiles. Le contenu ne sera pas technique. L'article doit faire resortir les émotions humaines de l'entrevue. Il doit inclure les moments les plus marquants et les points les plus négatifs de la vie de l'invité\n\nLe titre de ton article sera : Émotions avec {{ $('Podcast Details').item.json[\"guest\"] }}.\n\nInstructions de rédaction :\n\n1. Analyse : Analyse l'entrevue Podcast entièrement et identifie 15 moments d'émotions humaines, de joie, de peines et faits marquant de l'entrevue entre les animateurs et l'invité qui réponds au sujet de l'article à rédiger. Ne pas tenir compte des éléments techniques, scientifiques ou autres éléements qui ne sont pas en relation avec les émotions humaines. \n\n2. Langue : L'article doit être écrit en français.\n\n3. Style : La rédaction doit avoir un style professionnel, comparable à celui du New York Times, et doit cibler un large public. Bien utiliser la ponctuation.\n\n4. Rédaction de l'Introduction pour débuter:\n- Présente l'émission Dans la Jungle des Affaires et son animateur.\n- Présente le co-animateur et mentionner qu'il est invité pour co-animer cette entrevue.\n- Présente l'invité, en soulignant sa passion, son travail et ses accomplissements.\n\n5. Ensuite, on explique aux lecteurs la Formule Questions et Réponses :\n- Présente et explique le concept de l'article qui sera sous forme de Questions et Réponses pour bien découvrir notre invité.\n\n6. Ensuite, on rédige les questions et réponses :\n- On ne doit pas numéroter les questions.\n- Chaque question posée par un animateur doit débuter avec le prénom de l'animateur suivi de deux points et d'un espace (par exemple, « Réjean : »).\n- Chaque réponse de l'invité doit débuter avec son prénom suivi de deux points et d'un espace (par exemple, « Karl : »).\n\n7. Identifie deux éléments importants qui vont servir de quote dans l'article. Un maximum de 15 mots par quote.\n\n8. On termine l'article avec le mot de la fin :\n- Conclus l'article avec un résumé positif de l'invité, en le présentant sous son meilleur jour. Inspire les lecteurs à découvrir cet invité et à s'inspirer de son parcours pour évoluer dans le monde des affaires.\n- Termine avec un mot de l'animateur, invitant les lecteurs à découvrir d'autres entrevues tout aussi inspirantes sur le site.\n\nContenu de l'entrevue Podcast à analyser :\n\n{{ $json[\"dialog\"] }}\n\nEn suivant ces instructions, rédige un article structuré sous forme de Questions et Réponses et engageant qui met en valeur l'invité et le concept de l'émission.\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e6952440-51a1-4475-a972-8c36ad1cb9fc",
+      "name": "Prepare Prompt for Q/A - Emotions",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1660,
+        -1060
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb86f8c5-943e-4857-8b05-3fd5b9905dbe",
+              "name": "full_content",
+              "value": "={{ $json[\"content\"][\"article\"][\"title\"] }}\n\n{{ $json[\"content\"][\"article\"][\"introduction\"] }}\n\n{{ $json[\"content\"][\"article\"][\"interviewers_presentation\"] }}\n\n{{ $json[\"content\"][\"article\"][\"guest_presentation\"] }}\n\n{{ $json[\"content\"][\"article\"][\"concept_presentation_q_and_a\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][0][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][0][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][0][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][0][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][1][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][1][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][1][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][1][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][2][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][2][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][2][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][2][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][3][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][3][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][3][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][3][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][4][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][4][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][4][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][4][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][5][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][5][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][5][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][5][\"answer\"] }}\n\n« {{ $json[\"content\"][\"quotes\"][0][\"quote\"] }} »\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][6][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][6][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][6][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][6][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][7][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][7][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][7][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][7][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][8][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][8][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][8][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][8][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][9][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][9][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][9][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][9][\"answer\"] }}\n\n« {{ $json[\"content\"][\"quotes\"][1][\"quote\"] }} »\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][10][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][10][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][10][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][10][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][11][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][11][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][11][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][11][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][12][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][12][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][12][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][12][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][13][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][13][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][13][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][13][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][14][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][14][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][14][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][14][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"conclusion\"] }}\n\n{{ $json[\"content\"][\"article\"][\"final_note\"] }}\n\n",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f39fca58-7be3-495b-b1dd-a11c90e0fcb1",
+      "name": "Full Content",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2340,
+        -520
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "fbb4fc14-86c0-40d7-8f8d-4a5ac4e2250b",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        200
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "41a55d28-d224-4a86-aa49-10df38e68e94",
+              "name": "content",
+              "value": "={{ $json.body.choices[0].message.content }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f4c87bf-29d0-4055-b90a-e540d7937d02",
+      "name": "Q/A Article1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2120,
+        -1060
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.OPENAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"temperature\": 1,\n  \"response_format\": { \"type\": \"json_object\" },\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": {{ JSON.stringify($json[\"system_prompt\"]) }}\n    }\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "72b32f09-672e-430b-bb2c-3888645e943d",
+      "name": "Create Q/A with AI3",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1880,
+        -1060
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb86f8c5-943e-4857-8b05-3fd5b9905dbe",
+              "name": "full_content",
+              "value": "={{ $json[\"content\"][\"article\"][\"title\"] }}\n\n{{ $json[\"content\"][\"article\"][\"introduction\"] }}\n\n{{ $json[\"content\"][\"article\"][\"interviewers_presentation\"] }}\n\n{{ $json[\"content\"][\"article\"][\"guest_presentation\"] }}\n\n{{ $json[\"content\"][\"article\"][\"concept_presentation_q_and_a\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][0][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][0][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][0][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][0][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][1][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][1][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][1][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][1][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][2][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][2][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][2][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][2][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][3][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][3][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][3][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][3][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][4][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][4][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][4][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][4][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][5][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][5][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][5][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][5][\"answer\"] }}\n\n« {{ $json[\"content\"][\"quotes\"][0][\"quote\"] }} »\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][6][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][6][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][6][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][6][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][7][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][7][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][7][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][7][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][8][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][8][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][8][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][8][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][9][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][9][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][9][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][9][\"answer\"] }}\n\n« {{ $json[\"content\"][\"quotes\"][1][\"quote\"] }} »\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][10][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][10][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][10][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][10][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][11][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][11][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][11][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][11][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][12][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][12][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][12][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][12][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][13][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][13][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][13][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][13][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][14][\"question_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][14][\"question\"] }}\n\n{{ $json[\"content\"][\"article\"][\"q_and_a\"][14][\"answer_by\"] }} : {{ $json[\"content\"][\"article\"][\"q_and_a\"][14][\"answer\"] }}\n\n{{ $json[\"content\"][\"article\"][\"conclusion\"] }}\n\n{{ $json[\"content\"][\"article\"][\"final_note\"] }}\n\n",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "36512afa-4dd9-464a-aa53-5035744cafd6",
+      "name": "Full Content1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2360,
+        -1060
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb86f8c5-943e-4857-8b05-3fd5b9905dbe",
+              "name": "html_content",
+              "value": "=<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"title\"] }}</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"introduction\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"interviewers_presentation\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"width\":\"1000px\"} -->\n<figure class=\"wp-block-image is-resized\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/jpg/hd_4x_image_interviewer_1.jpg\" alt=\"\" style=\"width:1000px\"/><figcaption class=\"wp-element-caption\">{{ $('Podcast Details').item.json[\"interviewer_details\"] }} {{ $('Podcast Details').item.json[\"co_interviewer_details\"] }}</figcaption></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Dans la Jungle des Affaires reçoit {{ $('Podcast Details').item.json[\"guest\"] }}</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"guest_presentation\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"width\":\"1000px\"} -->\n<figure class=\"wp-block-image is-resized\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/jpg/hd_4x_image_guest_1.jpg\" alt=\"\" style=\"width:1000px\"/><figcaption class=\"wp-element-caption\">{{ $('Get Podcast Details').item.json[\"guest\"] }}</figcaption></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Entrevue Questions et Réponses</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"concept_presentation_q_and_a\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][0][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][0][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][0][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][0][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][1][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][1][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][1][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][1][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][2][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][2][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][2][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][2][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][3][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][3][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][3][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][3][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][4][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][4][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][4][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][4][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"width\":\"1000px\"} -->\n<figure class=\"wp-block-image is-resized\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/jpg/{{ $json.insertId }}_ai_image_2.jpg\" alt=\"\" style=\"width:1000px\"/><figcaption class=\"wp-element-caption\">{{ $('Podcast Details').item.json[\"interviewer_details\"] }} {{ $('Podcast Details').item.json[\"co_interviewer_details\"] }}</figcaption></figure>\n<!-- /wp:image -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][5][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][5][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][5][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][5][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n<p>{{ $('Q/A Article1').item.json[\"content\"][\"quotes\"][0][\"quote\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><cite>- {{ $('Podcast Details').item.json[\"guest\"] }}</cite></p>\n<!-- /wp:paragraph --></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][6][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][6][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][6][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][6][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][7][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][7][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][7][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][7][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][8][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][8][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][8][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][8][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][9][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][9][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][9][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][9][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][10][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][10][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][10][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][10][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"width\":\"1000px\"} -->\n<figure class=\"wp-block-image is-resized\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/jpg/{{ $json.insertId }}_ai_image_3.jpg\" alt=\"\" style=\"width:1000px\"/><figcaption class=\"wp-element-caption\">{{ $('Get Podcast Details').item.json[\"guest\"] }}</figcaption></figure>\n<!-- /wp:image -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][11][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][11][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][11][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][11][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n<p>{{ $('Q/A Article1').item.json[\"content\"][\"quotes\"][1][\"quote\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><cite>- {{ $('Podcast Details').item.json[\"guest\"] }}</cite></p>\n<!-- /wp:paragraph --></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][12][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][12][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][12][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][12][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][13][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][13][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][13][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][13][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][14][\"question_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][14][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][14][\"answer_by\"] }} : </strong> {{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"q_and_a\"][14][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Le mot de la fin</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"conclusion\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Découvrez-en plus</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article1').item.json[\"content\"][\"article\"][\"final_note\"] }}</p>\n<!-- /wp:paragraph -->",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "8260ec50-a335-4f4d-9146-a3eac99fbbbf",
+      "name": "HTML Content1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3020,
+        -1060
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            },
+            {
+              "column": "type",
+              "value": "questions-reponses"
+            },
+            {
+              "column": "topic",
+              "value": "=Entrevue Inspiration de 15 Questions et Réponses"
+            },
+            {
+              "column": "title",
+              "value": "={{ $json.content.article.title }}"
+            },
+            {
+              "column": "json_content",
+              "value": "={{ JSON.stringify($json.content) }}"
+            },
+            {
+              "column": "content",
+              "value": "={{ $json.full_content }}"
+            },
+            {
+              "column": "image_idea_1",
+              "value": "={{ $json.content.images_creation_idea[0].image_idea }}"
+            },
+            {
+              "column": "image_idea_2",
+              "value": "={{ $json.content.images_creation_idea[1].image_idea }}"
+            },
+            {
+              "column": "qty_images",
+              "value": "2"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "43420c97-0a26-439f-895b-a43407d22e80",
+      "name": "Insert Content Q/A Inspiration",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2580,
+        -520
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            },
+            {
+              "column": "type",
+              "value": "questions-reponses"
+            },
+            {
+              "column": "topic",
+              "value": "=Entrevue Emotions de 15 Questions et Réponses"
+            },
+            {
+              "column": "title",
+              "value": "={{ $json.content.article.title }}"
+            },
+            {
+              "column": "json_content",
+              "value": "={{ JSON.stringify($json.content) }}"
+            },
+            {
+              "column": "content",
+              "value": "={{ $json.full_content }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "c7065df4-6b1a-4c83-af59-eeaf2228efac",
+      "name": "Insert Content Q/A Emotions",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2580,
+        -1060
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aae17245-60ea-49d8-ae02-f41835c2a5e8",
+              "name": "insertId",
+              "value": "={{ $json.data.insertId }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e1ef6fca-b112-42b4-9b62-b8830dd2fa09",
+      "name": "Insert Id Emotion Article",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2800,
+        -1060
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aae17245-60ea-49d8-ae02-f41835c2a5e8",
+              "name": "insertId",
+              "value": "={{ $json.data.insertId }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a6bce9e8-b79c-4ccd-adfe-783d0cbbb204",
+      "name": "Insert Id Inspiration Article",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2800,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb86f8c5-943e-4857-8b05-3fd5b9905dbe",
+              "name": "html_content",
+              "value": "=<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"title\"] }}</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"introduction\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"interviewers_presentation\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"width\":\"1000px\"} -->\n<figure class=\"wp-block-image is-resized\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/jpg/hd_4x_image_interviewer_1.jpg\" alt=\"\" style=\"width:1000px\"/><figcaption class=\"wp-element-caption\">{{ $('Podcast Details').item.json[\"interviewer_details\"] }} {{ $('Podcast Details').item.json[\"co_interviewer_details\"] }}</figcaption></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Dans la Jungle des Affaires reçoit {{ $('Podcast Details').item.json[\"guest\"] }}</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"guest_presentation\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"width\":\"1000px\"} -->\n<figure class=\"wp-block-image is-resized\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/jpg/hd_4x_image_guest_1.jpg\" alt=\"\" style=\"width:1000px\"/><figcaption class=\"wp-element-caption\">{{ $('Get Podcast Details').item.json[\"guest\"] }}</figcaption></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Entrevue Questions et Réponses</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"concept_presentation_q_and_a\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][0][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][0][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][0][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][0][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][1][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][1][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][1][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][1][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][2][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][2][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][2][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][2][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][3][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][3][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][3][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][3][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][4][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][4][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][4][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][4][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"width\":\"1000px\"} -->\n<figure class=\"wp-block-image is-resized\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/jpg/{{ $json.insertId }}_ai_image_2.jpg\" alt=\"\" style=\"width:1000px\"/><figcaption class=\"wp-element-caption\">{{ $('Podcast Details').item.json[\"interviewer_details\"] }} {{ $('Podcast Details').item.json[\"co_interviewer_details\"] }}</figcaption></figure>\n<!-- /wp:image -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][5][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][5][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][5][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][5][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n<p>{{ $('Q/A Article').item.json[\"content\"][\"quotes\"][0][\"quote\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><cite>- {{ $('Podcast Details').item.json[\"guest\"] }}</cite></p>\n<!-- /wp:paragraph --></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][6][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][6][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][6][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][6][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][7][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][7][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][7][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][7][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][8][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][8][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][8][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][8][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][9][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][9][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][9][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][9][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][10][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][10][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][10][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][10][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"width\":\"1000px\"} -->\n<figure class=\"wp-block-image is-resized\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/jpg/{{ $json.insertId }}_ai_image_3.jpg\" alt=\"\" style=\"width:1000px\"/><figcaption class=\"wp-element-caption\">{{ $('Get Podcast Details').item.json[\"guest\"] }}</figcaption></figure>\n<!-- /wp:image -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][11][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][11][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][11][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][11][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n<p>{{ $('Q/A Article').item.json[\"content\"][\"quotes\"][1][\"quote\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><cite>- {{ $('Podcast Details').item.json[\"guest\"] }}</cite></p>\n<!-- /wp:paragraph --></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][12][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][12][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][12][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][12][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][13][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][13][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][13][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][13][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][14][\"question_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][14][\"question\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][14][\"answer_by\"] }} : </strong> {{ $('Q/A Article').item.json[\"content\"][\"article\"][\"q_and_a\"][14][\"answer\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Le mot de la fin</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"conclusion\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Découvrez-en plus</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Q/A Article').item.json[\"content\"][\"article\"][\"final_note\"] }}</p>\n<!-- /wp:paragraph -->\n\n\n<!-- wp:spacer {\"height\":\"30px\"} -->\n<div style=\"height:30px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"width\":100,\"className\":\"is-style-fill\"} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100 is-style-fill\"><a class=\"wp-block-button__link wp-element-button\" href=\"{{  $('Podcast Details').item.json[\"link_jungle_site_guest\"] }}\" target=\"_blank\" rel=\"noreferrer noopener\">Écoutez l'entrevue de {{ $('Podcast Details').item.json[\"guest\"] }}</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n\n<!-- wp:spacer {\"height\":\"30px\"} -->\n<div style=\"height:30px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:heading {\"level\":4} -->\n<h4 class=\"wp-block-heading\">Vous avez découvert {{ $('Podcast Details').item.json[\"guest\"] }}</h4>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Podcast Details').item.json[\"guest_nickname\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:social-links {\"openInNewTab\":true,\"showLabels\":true,\"layout\":{\"type\":\"flex\",\"flexWrap\":\"wrap\",\"orientation\":\"horizontal\"}} -->\n\n<ul class=\"wp-block-social-links has-visible-labels\">\n{{ $('Podcast Details').item.json[\"guest_linkedin_link\"] ? \n  `<!-- wp:social-link {\"url\":\"` + $('Podcast Details').item.json[\"guest_linkedin_link\"] + `\",\"service\":\"linkedin\"} /-->` \n  : \"\" }}\n{{ $('Podcast Details').item.json[\"guest_website_link\"] ? \n  `<!-- wp:social-link {\"url\":\"` + $('Podcast Details').item.json[\"guest_website_link\"]+ `\",\"service\":\"chain\"} /-->` \n  : \"\" }}\n</ul>\n<!-- /wp:social-links -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Podcast Details').item.json[\"guest_pitch_sales\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":4} -->\n<h4 class=\"wp-block-heading\">À propos de la co-animation de cette entrevue avec {{ $('Podcast Details').item.json[\"co_interviewer\"] }}</h4>\n<!-- /wp:heading -->\n\n<ul class=\"wp-block-social-links has-visible-labels\">\n{{ $('Podcast Details').item.json[\"co_interviewer_linkedin_link\"] ? \n  `<!-- wp:social-link {\"url\":\"` + $('Podcast Details').item.json[\"co_interviewer_linkedin_link\"] + `\",\"service\":\"linkedin\"} /-->` \n  : \"\" }}\n{{ $('Podcast Details').item.json[\"co_interviewer_website_link\"] ? \n  `<!-- wp:social-link {\"url\":\"` + $('Podcast Details').item.json[\"co_interviewer_website_link\"]+ `\",\"service\":\"chain\"} /-->` \n  : \"\" }}\n</ul>\n<!-- /wp:social-links -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Podcast Details').item.json[\"co_interviewer_pitch_sales\"] }}</p>\n<!-- /wp:paragraph -->",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "142471d6-fa52-4b2f-ac96-d7a3db38fc04",
+      "name": "HTML Content",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3020,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $json.insertId }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "html_content",
+              "value": "={{ $json.html_content }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "f404d0e4-c79c-4541-ad2a-c646aaaef50e",
+      "name": "Update HTML Content Q/A Emotions",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3280,
+        -520
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $json.insertId }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "html_content",
+              "value": "={{ $json.html_content }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "859153ef-780f-460d-a314-8011f1d1d4f8",
+      "name": "Update HTML Content Q/A Emotions1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3220,
+        -1060
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28cc1467-4503-401f-a285-208dea8131c2",
+              "name": "json_schema",
+              "value": "={\n  \"type\": \"object\",\n  \"properties\": {\n    \"podcast_details\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"interviewer\": {\n          \"type\": \"string\"\n        },\n        \"co_interviewer\": {\n          \"type\": \"string\"\n        },\n        \"guest_details\": {\n          \"type\": \"string\"\n        },\n        \"guest\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"interviewer\",\n        \"co_interviewer\",\n        \"guest_details\",\n        \"guest\"\n      ]\n    },\n    \"article\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"introduction\": {\n          \"type\": \"string\"\n        },\n        \"interviewers_presentation\": {\n          \"type\": \"string\"\n        },\n        \"guest_presentation\": {\n          \"type\": \"string\"\n        },\n        \"in_this_article\": {\n          \"type\": \"string\"\n        },\n        \"paragraphs\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"sub-title_10_words\": {\n                \"type\": \"string\"\n              },\n              \"paragpraph_50_words\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"title_10_words\",\n              \"paragpraph_50_words\"\n            ]\n          },\n          \"minItems\": 5,\n          \"maxItems\": 5\n        },\n        \"conclusion\": {\n          \"type\": \"string\"\n        },\n        \"final_note\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"title\",\n        \"introduction\",\n        \"interviewers_presentation\",\n        \"guest_presentation\",\n        \"in_this_article\",\n        \"paragraphs\",\n        \"conclusion\",\n        \"final_note\"\n      ]\n    },\n    \"quotes\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"quote\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"quote\"\n        ]\n      },\n      \"minItems\": 2,\n      \"maxItems\": 2\n    }\n  },\n  \"required\": [\n    \"podcast_details\",\n    \"article\",\n    \"quotes\"\n  ],\n  \"additionalProperties\": false\n}",
+              "type": "string"
+            },
+            {
+              "id": "656241ae-f49a-48de-b1dd-5d34ff9a5d01",
+              "name": "json_instructions",
+              "value": "=You must format your output as a JSON value that adheres to a given JSON schema. JSON schema is a declarative language that allows you to annotate and validate JSON documents. Your output will be parsed and verified against the provided schema instance, so make sure all fields in your output exactly match the schema and that there are no extra commas! Here is the JSON schema instance that your output must conform to:",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f56dd6e3-4b9e-4ae2-acd4-bc68fdd22a1f",
+      "name": "Json Parser Specific Articles",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2240,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            },
+            {
+              "column": "type",
+              "value": "entrevue"
+            },
+            {
+              "column": "topic",
+              "value": "={{ $('Set Title and Topic').item.json[\"explication\"] }}"
+            },
+            {
+              "column": "title",
+              "value": "={{ $json.content.article.title }}"
+            },
+            {
+              "column": "json_content",
+              "value": "={{ JSON.stringify($json.content) }}"
+            },
+            {
+              "column": "content",
+              "value": "={{ $json.full_content }}"
+            },
+            {
+              "column": "image_idea_1",
+              "value": "={{ $json.content.images_creation_idea[0].image_idea }}"
+            },
+            {
+              "column": "image_idea_2",
+              "value": "={{ $json.content.images_creation_idea[1].image_idea }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "1a89ad62-3858-4ebe-ac20-3060ab00df54",
+      "name": "Insert Content Q/A Inspiration1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        4280,
+        280
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aae17245-60ea-49d8-ae02-f41835c2a5e8",
+              "name": "insertId",
+              "value": "={{ $json.data.insertId }}",
+              "type": "number"
+            },
+            {
+              "id": "57ffdacb-94f8-4a40-947b-7a8683b16b9e",
+              "name": "content",
+              "value": "={{ $('Content3').item.json[\"content\"] }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7bae3a20-9291-4c5d-9dc9-6b45651373f4",
+      "name": "Insert Id Inspiration Article1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        4500,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb86f8c5-943e-4857-8b05-3fd5b9905dbe",
+              "name": "html_content",
+              "value": "=<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">{{ $json[\"content\"][\"article\"][\"title\"] }}</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $json[\"content\"][\"article\"][\"introduction\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Dans la Jungle des Affaires reçoit {{ $('Podcast Details').item.json[\"guest\"] }}</h3>\n<!-- /wp:heading -->\n\n<!-- wp:media-text {\"mediaId\":0,\"mediaLink\":\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/jpg/hd_4x_image_guest_1.jpg\",\"mediaType\":\"image\",\"mediaWidth\":40,\"verticalAlignment\":\"top\",\"imageFill\":false} -->\n<div class=\"wp-block-media-text is-stacked-on-mobile is-vertically-aligned-top\" style=\"grid-template-columns:40% auto\"><figure class=\"wp-block-media-text__media\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/jpg/hd_4x_image_guest_1.jpg\" alt=\"\"/></figure><div class=\"wp-block-media-text__content\"><!-- wp:paragraph {\"placeholder\":\"Contenu…\"} -->\n<p>{{ $json[\"content\"][\"article\"][\"guest_presentation\"] }}</p>\n<!-- /wp:paragraph --></div></div>\n<!-- /wp:media-text -->\n\n<!-- wp:spacer {\"height\":\"30px\"} -->\n<div style=\"height:30px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[0]?.[\"title\"] ? \n  `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json[\"content\"][\"article\"][\"paragraphs\"][0][\"title\"]}</h3>\n<!-- /wp:heading -->` \n  : \"\" }}\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[0]?.[\"paragpraph\"] ? \n  `<!-- wp:paragraph -->\n<p>${$json[\"content\"][\"article\"][\"paragraphs\"][0][\"paragpraph\"]}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n<p>{{ $json[\"content\"][\"quotes\"][0][\"quote\"] }}</p>\n<!-- /wp:paragraph --><cite>- {{ $('Podcast Details').item.json[\"guest\"] }}</cite></blockquote>\n<!-- /wp:quote -->\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[1]?.[\"title\"] ? \n  `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json[\"content\"][\"article\"][\"paragraphs\"][1][\"title\"]}</h3>\n<!-- /wp:heading -->` \n  : \"\" }}\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[1]?.[\"paragpraph\"] ? \n  `<!-- wp:paragraph -->\n<p>${$json[\"content\"][\"article\"][\"paragraphs\"][1][\"paragpraph\"]}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n<!-- wp:image {\"width\":\"1000px\"} -->\n<figure class=\"wp-block-image is-resized\"><img src=\"/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/jpg/{{ $json.insertId }}_ai_image_2.jpg\" alt=\"\" style=\"width:1000px\"/><figcaption class=\"wp-element-caption\">{{ $('Podcast Details').item.json[\"interviewer_details\"] }} {{ $('Podcast Details').item.json[\"co_interviewer_details\"] }}</figcaption></figure>\n<!-- /wp:image -->\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[2]?.[\"title\"] ? \n  `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json[\"content\"][\"article\"][\"paragraphs\"][2][\"title\"]}</h3>\n<!-- /wp:heading -->` \n  : \"\" }}\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[2]?.[\"paragpraph\"] ? \n  `<!-- wp:paragraph -->\n<p>${$json[\"content\"][\"article\"][\"paragraphs\"][2][\"paragpraph\"]}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n<p>{{ $json[\"content\"][\"quotes\"][1][\"quote\"] }}</p>\n<!-- /wp:paragraph --><cite>- {{ $('Podcast Details').item.json[\"guest\"] }}</cite></blockquote>\n<!-- /wp:quote -->\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[3]?.[\"title\"] ? \n  `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json[\"content\"][\"article\"][\"paragraphs\"][3][\"title\"]}</h3>\n<!-- /wp:heading -->` \n  : \"\" }}\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[3]?.[\"paragpraph\"] ? \n  `<!-- wp:paragraph -->\n<p>${$json[\"content\"][\"article\"][\"paragraphs\"][3][\"paragpraph\"]}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[4]?.[\"title\"] ? \n  `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json[\"content\"][\"article\"][\"paragraphs\"][4][\"title\"]}</h3>\n<!-- /wp:heading -->` \n  : \"\" }}\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[4]?.[\"paragpraph\"] ? \n  `<!-- wp:paragraph -->\n<p>${$json[\"content\"][\"article\"][\"paragraphs\"][4][\"paragpraph\"]}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[5]?.[\"title\"] ? \n  `<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">${$json[\"content\"][\"article\"][\"paragraphs\"][5][\"title\"]}</h3>\n<!-- /wp:heading -->` \n  : \"\" }}\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[5]?.[\"paragpraph\"] ? \n  `<!-- wp:paragraph -->\n<p>${$json[\"content\"][\"article\"][\"paragraphs\"][5][\"paragpraph\"]}</p>\n<!-- /wp:paragraph -->` \n  : \"\" }}\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Le mot de la fin</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $json[\"content\"][\"article\"][\"conclusion\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:spacer {\"height\":\"30px\"} -->\n<div style=\"height:30px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"width\":100,\"className\":\"is-style-fill\"} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100 is-style-fill\"><a class=\"wp-block-button__link wp-element-button\" href=\"{{  $('Podcast Details').item.json[\"link_jungle_site_guest\"] }}\" target=\"_blank\" rel=\"noreferrer noopener\">Écoutez l'entrevue de {{ $('Podcast Details').item.json[\"guest\"] }}</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n\n<!-- wp:spacer {\"height\":\"30px\"} -->\n<div style=\"height:30px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n<!-- /wp:spacer -->\n\n<!-- wp:heading {\"level\":4} -->\n<h4 class=\"wp-block-heading\">Vous avez découvert {{ $('Podcast Details').item.json[\"guest\"] }}</h4>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Podcast Details').item.json[\"guest_nickname\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:social-links {\"openInNewTab\":true,\"showLabels\":true,\"layout\":{\"type\":\"flex\",\"flexWrap\":\"wrap\",\"orientation\":\"horizontal\"}} -->\n\n<ul class=\"wp-block-social-links has-visible-labels\">\n{{ $('Podcast Details').item.json[\"guest_linkedin_link\"] ? \n  `<!-- wp:social-link {\"url\":\"` + $('Podcast Details').item.json[\"guest_linkedin_link\"] + `\",\"service\":\"linkedin\"} /-->` \n  : \"\" }}\n{{ $('Podcast Details').item.json[\"guest_website_link\"] ? \n  `<!-- wp:social-link {\"url\":\"` + $('Podcast Details').item.json[\"guest_website_link\"]+ `\",\"service\":\"chain\"} /-->` \n  : \"\" }}\n</ul>\n<!-- /wp:social-links -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Podcast Details').item.json[\"guest_pitch_sales\"] }}</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":4} -->\n<h4 class=\"wp-block-heading\">À propos de la co-animation de cette entrevue avec {{ $('Podcast Details').item.json[\"co_interviewer\"] }}</h4>\n<!-- /wp:heading -->\n\n<ul class=\"wp-block-social-links has-visible-labels\">\n{{ $('Podcast Details').item.json[\"co_interviewer_linkedin_link\"] ? \n  `<!-- wp:social-link {\"url\":\"` + $('Podcast Details').item.json[\"co_interviewer_linkedin_link\"] + `\",\"service\":\"linkedin\"} /-->` \n  : \"\" }}\n{{ $('Podcast Details').item.json[\"co_interviewer_website_link\"] ? \n  `<!-- wp:social-link {\"url\":\"` + $('Podcast Details').item.json[\"co_interviewer_website_link\"]+ `\",\"service\":\"chain\"} /-->` \n  : \"\" }}\n</ul>\n<!-- /wp:social-links -->\n\n<!-- wp:paragraph -->\n<p>{{ $('Podcast Details').item.json[\"co_interviewer_pitch_sales\"] }}</p>\n<!-- /wp:paragraph -->",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "88cedf59-97b0-4c72-ab44-56777fd461f1",
+      "name": "HTML Content2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        4700,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $json.insertId }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "html_content",
+              "value": "={{ $json.html_content }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "dfc4ea9b-fcb9-4736-975f-d7acbf6dedba",
+      "name": "Update HTML Content Q/A Emotions2",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        4920,
+        340
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ce0ffffc-8aab-4a16-8b50-612574bb307a",
+              "name": "content",
+              "value": "={{ $json.body.choices[0].message.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b14ae65b-728a-424b-91b6-f35aefeea77e",
+      "name": "Content2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2900,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.OPENAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"temperature\": 0.7,\n  \"presence_penalty\": 1,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": {{ JSON.stringify($json[\"system_prompt\"]) }}\n    }\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "51c76068-3b6f-4b13-bcbd-3613cad92299",
+      "name": "Call OpenAI API3",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2680,
+        280
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01b05bce-aad7-442c-85d1-0ee9703e417b",
+              "name": "system_prompt",
+              "value": "=Je vais te partager le contenu d'une entrevue Podcast réalisée pour Dans la Jungle des Affaires. \n\nVoici quelques détails essentiels :\n\n- L'animateur : {{ $('Podcast Details').item.json[\"interviewer\"] }}\n{{ $('Podcast Details').item.json[\"co_interviewer\"] ? `- Co-animateur invité pour cette émission : ${$('Podcast Details').item.json[\"co_interviewer\"]}` : '- Aucun Co-Animateur' }}\n- L'invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nLe podcast Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nTâche :\nTa tâche est d'analyser en détail le contenu de l'entrevue et ensuite de ré-écrire un nouvel article détaillé qui aura pour titre {{ $json[\"title\"] }}. Le sujet de l'article est le suivant :  {{ $json[\"explication\"] }}.\n\nInstructions de rédaction :\n\n0. Le nouvel article ne doit jamais faire référence à l'entrevue du Podcast. \n- On n'écrit pas : \"Par exemple, il raconte ...\"\n\n1. Langue : L'article doit être écrit en français.\n\n3. Style : \n- La rédaction de l'article doit avoir un style professionnel, comparable à celui du New York Times, et doit cibler un large public. \n- Bien utiliser la ponctuation.\n\n4. Introduction de l'article :\n- Présente la mission \"Dans la Jungle des Affaires et son animateur\" en mentionnant.\n- Si un co-animateur est présent le présente et on doit mentionner qu'il est invité pour co-animer cette entrevue.\n- Souhaite la bienvenue aux lecteurs à ce nouvel article du Blog Magazine Dans La Jungles Des affaires et Invite les lecteurs à découvrir dans cet article un superbe invité.\n\n5. Présentation de l'invité:\n- Présente l'invité, en soulignant sa passion, son travail et ses accomplissements de façon très positive.\n\n6. Ensuite, on rédige l'article avec des paragraphes :\n- Rédiger le paragraphe d'environ 50 mots en relation avec le sous-titre.\n- Chaque paragraphe est une continu des paragraphes précédent.\n\n7. À la fin, identifie deux éléments importants dans l'article, provenant des paragraphes qui vont servir de quote dans l'article. Un maximum de 15 mots par quote.\n\n8. On termine l'article avec le mot de la fin :\n- Conclus l'article avec un résumé positif de l'invité, en le présentant sous son meilleur jour. Inspire les lecteurs à découvrir cet invité et à s'inspirer de son parcours pour évoluer dans le monde des affaires.\n- Termine avec un mot de l'animateur, invitant les lecteurs à découvrir d'autres entrevues tout aussi inspirantes sur le site.\n\nContenu de l'entrevue Podcast à analyser :\n\n{{  $('Get Podcast Details').item.json[\"full_text\"] }}\n\nEn suivant ces instructions, rédige un article détaillé et engageant qui met en valeur l'invité et qui respecte le sujet de l'article.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1a2daa37-4792-4c8c-aa21-4facd7f0b116",
+      "name": "Prompt Details2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2480,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "81f96e04-45b7-4ba9-b779-21dc7f5ce240",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2680,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28cc1467-4503-401f-a285-208dea8131c2",
+              "name": "json_schema",
+              "value": "={\n  \"type\": \"object\",\n  \"properties\": {\n    \"podcast_details\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"interviewer\": {\n          \"type\": \"string\"\n        },\n        \"co_interviewer\": {\n          \"type\": \"string\"\n        },\n        \"guest_details\": {\n          \"type\": \"string\"\n        },\n        \"guest\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"interviewer\",\n        \"co_interviewer\",\n        \"guest_details\",\n        \"guest\"\n      ]\n    },\n    \"article\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"introduction\": {\n          \"type\": \"string\"\n        },\n        \"interviewers_presentation\": {\n          \"type\": \"string\"\n        },\n        \"guest_presentation\": {\n          \"type\": \"string\"\n        },\n        \"in_this_article\": {\n          \"type\": \"string\"\n        },\n        \"paragraphs\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"sub-title\": {\n                \"type\": \"string\"\n              },\n              \"paragpraph\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"title\",\n              \"paragpraph\"\n            ]\n          },\n          \"minItems\": 3,\n          \"maxItems\": 6\n        },\n        \"conclusion\": {\n          \"type\": \"string\"\n        },\n        \"final_note\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"title\",\n        \"introduction\",\n        \"interviewers_presentation\",\n        \"guest_presentation\",\n        \"in_this_article\",\n        \"paragraphs\",\n        \"conclusion\",\n        \"final_note\"\n      ]\n    },\n    \"images_creation_idea\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"image_idea\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"image_idea\"\n        ]\n      },\n      \"minItems\": 2,\n      \"maxItems\": 2\n    },\n    \"quotes\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"quote\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"quote\"\n        ]\n      },\n      \"minItems\": 2,\n      \"maxItems\": 2\n    }\n  },\n  \"required\": [\n    \"podcast_details\",\n    \"article\",\n    \"images_creation_idea\",\n    \"quotes\"\n  ],\n  \"additionalProperties\": false\n}",
+              "type": "string"
+            },
+            {
+              "id": "656241ae-f49a-48de-b1dd-5d34ff9a5d01",
+              "name": "json_instructions",
+              "value": "=You must format your output as a JSON value that adheres to a given JSON schema. JSON schema is a declarative language that allows you to annotate and validate JSON documents. Your output will be parsed and verified against the provided schema instance, so make sure all fields in your output exactly match the schema and that there are no extra commas! Here is the JSON schema instance that your output must conform to:",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "4a73a349-8a32-4f30-bbd7-97d9439e9b7a",
+      "name": "Json Parser Specific Articles1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3160,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ce0ffffc-8aab-4a16-8b50-612574bb307a",
+              "name": "content",
+              "value": "={{ $json.body.choices[0].message.content }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9ba2046a-ba53-481b-9664-cd532e3fa482",
+      "name": "Content3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3840,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01b05bce-aad7-442c-85d1-0ee9703e417b",
+              "name": "system_prompt",
+              "value": "=Je vais te partager un article. \n\nTa tâche est de l'analyser et le structurer dans un format json.\n\nInstructions:\n1. Utiliser tout le contenu de l'article.\n2. Ré-organiser le contenu dans le format json pour être utilisé dans une base de données.\n3. Ajoutez deux idées très détaillée pour la création de deux images qui illustrerait 2 moments très alléatoires de l'article. Les deux idées doivent être complètement différentes et être très précises dans les détails pour partager avec un graphiste. \n\nVoci l'article :\n\n{{ $json[\"content\"] }}\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6ef0ebd2-ea6f-4189-ab63-5bf1343a833d",
+      "name": "Prompt Details3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3400,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.OPENAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"temperature\": 0.5,\n  \"response_format\": { \"type\": \"json_object\" },\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": {{ JSON.stringify($json[\"system_prompt\"]) }}\n    }\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "c6c2abcd-77d7-4fb0-a52d-11d29914bc8c",
+      "name": "Call OpenAI API4",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        3580,
+        280
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.1,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "45559037-4cc0-4f3a-8ecd-f28f9f1e2414",
+      "name": "Edit Fields5",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3580,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb86f8c5-943e-4857-8b05-3fd5b9905dbe",
+              "name": "full_content",
+              "value": "={{ $json[\"content\"][\"article\"][\"title\"] }}\n\n{{ $json[\"content\"][\"article\"][\"introduction\"] }}\n\nDans la Jungle des Affaires reçoit {{ $json[\"content\"][\"podcast_details\"][\"guest\"] }}\n{{ $json[\"content\"][\"article\"][\"guest_presentation\"]}}\n\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[0]?.[\"title\"] ?? \"\" }}\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[0]?.[\"paragpraph\"] ?? \"\" }}\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[1]?.[\"title\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][1][\"title\"]}` : \"\" }}{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[1]?.[\"paragpraph\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][1][\"paragpraph\"]}` : \"\" }}\n\n« {{ $json[\"content\"][\"quotes\"][0][\"quote\"] }} »\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[2]?.[\"title\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][2][\"title\"]}` : \"\" }}{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[2]?.[\"paragpraph\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][2][\"paragpraph\"]}` : \"\" }}\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[3]?.[\"title\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][3][\"title\"]}` : \"\" }}{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[3]?.[\"paragpraph\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][3][\"paragpraph\"]}` : \"\" }}\n\n« {{ $json[\"content\"][\"quotes\"][1][\"quote\"] }} »\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[4]?.[\"title\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][4][\"title\"]}` : \"\" }}{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[4]?.[\"paragpraph\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][4][\"paragpraph\"]}` : \"\" }}\n{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[5]?.[\"title\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][5][\"title\"]}` : \"\" }}{{ $json[\"content\"]?.[\"article\"]?.[\"paragraphs\"]?.[5]?.[\"paragpraph\"] ? '\\n' +`${$json[\"content\"][\"article\"][\"paragraphs\"][5][\"paragpraph\"]}` : \"\" }}\n\nLe mot de la fin\n{{ $json[\"content\"][\"article\"][\"conclusion\"] }}\n\nPour en découvrir plus\n{{ $json[\"content\"][\"article\"][\"final_note\"] }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "8ece08b3-70f5-496e-804c-e9125543290b",
+      "name": "Full Content3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        4060,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "53f895dd-3c93-468e-80f6-5ff8cad61fff",
+      "name": "Test Value",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1880,
+        -700
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "system_prompt",
+        "options": {}
+      },
+      "id": "aaa65372-7df8-4906-90cb-3be163268147",
+      "name": "Split Prompts",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        -600
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "b5b19a2e-5cad-4896-a146-4b628873ecfe",
+      "name": "Loop Over Prompts",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1320,
+        -600
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28cc1467-4503-401f-a285-208dea8131c2",
+              "name": "json_schema",
+              "value": "={\n  \"type\": \"object\",\n  \"properties\": {\n    \"podcast_details\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"interviewer\": {\n          \"type\": \"string\"\n        },\n        \"co_interviewer\": {\n          \"type\": \"string\"\n        },\n        \"guest_details\": {\n          \"type\": \"string\"\n        },\n        \"guest\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"interviewer\",\n        \"co_interviewer\",\n        \"guest_details\",\n        \"guest\"\n      ]\n    },\n    \"article\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"introduction\": {\n          \"type\": \"string\"\n        },\n        \"interviewers_presentation\": {\n          \"type\": \"string\"\n        },\n        \"guest_presentation\": {\n          \"type\": \"string\"\n        },\n        \"concept_presentation_q_and_a\": {\n          \"type\": \"string\"\n        },\n        \"q_and_a\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"question_by\": {\n                \"type\": \"string\"\n              },\n              \"question\": {\n                \"type\": \"string\"\n              },\n              \"answer_by\": {\n                \"type\": \"string\"\n              },\n              \"answer\": {\n                \"type\": \"string\"\n              }\n            },\n            \"required\": [\n              \"question_by\",\n              \"question\",\n              \"answer_by\",\n              \"answer\"\n            ]\n          },\n          \"minItems\": 15,\n          \"maxItems\": 15\n        },\n        \"conclusion\": {\n          \"type\": \"string\"\n        },\n        \"final_note\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"title\",\n        \"introduction\",\n        \"interviewers_presentation\",\n        \"guest_presentation\",\n        \"concept_presentation_q_and_a\",\n        \"q_and_a\",\n        \"conclusion\",\n        \"final_note\"\n      ]\n    },\n    \"images_creation_idea\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"image_idea\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"image_idea\"\n        ]\n      },\n      \"minItems\": 2,\n      \"maxItems\": 2\n    },\n    \"quotes\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"quote\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"quote\"\n        ]\n      },\n      \"minItems\": 2,\n      \"maxItems\": 2\n    }\n  },\n  \"required\": [\n    \"podcast_details\",\n    \"article\",\n    \"quotes\"\n  ],\n  \"additionalProperties\": false\n}            \"q_and_a\": {\n               \"type\": \"array\",\n               \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                     \"question_by\": { \"type\": \"string\" },\n                     \"question\": { \"type\": \"string\" },\n                     \"answer_by\": { \"type\": \"string\" },\n                     \"answer\": { \"type\": \"string\" }\n                  },\n                  \"required\": [\"question_by\", \"question\", \"answer_by\", \"answer\"]\n               },\n               \"minItems\": 15,\n               \"maxItems\": 15\n            },\n            \"conclusion\": { \"type\": \"string\" },\n            \"final_note\": { \"type\": \"string\" }\n         },\n         \"required\": [\"title\", \"introduction\", \"interviewers_presentation\", \"guest_presentation\", \"concept_presentation_q_and_a\", \"q_and_a\", \"conclusion\", \"final_note\"]\n      },\n      \"quotes\": {\n         \"type\": \"array\",\n         \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n               \"quote\": { \"type\": \"string\" }\n            },\n            \"required\": [\"quote\"]\n         },\n         \"minItems\": 2,\n         \"maxItems\": 2\n      }\n   },\n   \"required\": [\"podcast_details\", \"article\", \"quotes\"],\n   \"additionalProperties\": false\n}",
+              "type": "string"
+            },
+            {
+              "id": "656241ae-f49a-48de-b1dd-5d34ff9a5d01",
+              "name": "json_instructions",
+              "value": "=You must format your output as a JSON value that adheres to a given JSON schema. JSON schema is a declarative language that allows you to annotate and validate JSON documents. Your output will be parsed and verified against the provided schema instance, so make sure all fields in your output exactly match the schema and that there are no extra commas! Here is the JSON schema instance that your output must conform to:",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "68433b66-7719-4d43-9494-0d824d2f66ed",
+      "name": "Json Schema and Instructions",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        720,
+        -600
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01b05bce-aad7-442c-85d1-0ee9703e417b",
+              "name": "system_prompt.a",
+              "value": "=Je vais te partager le contenu d'une entrevue podcast réalisée pour l'émission Dans la Jungle des Affaires. L'entrevue est structurée sous forme d'un dialogue, chacune des interventions commence avec le nom de la personne qui parle suivi de son contenu. \nPar exemple:\n- Réjean Gauthier: Alors, Philippe Gillet qui est avec nous. Bonjour Philippe.\n- Philippe Gillet: Bonjour\n\nVoici quelques détails essentiels pour mieux comprendre l'entrevue:\n\n- L'animateur : {{ $('Podcast Details').item.json[\"interviewer\"] }}\n{{ $('Podcast Details').item.json[\"co_interviewer\"] ? `- Co-animateur invité pour cette émission : ${$('Podcast Details').item.json[\"co_interviewer\"]}` : '- Aucun Co-Animateur' }}\n- L'invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nTâche :\nTa tâche consiste à rédiger un article basé sur le contenu du podcast, sous la forme d'une entrevue Questions et Réponses. Le sujet de l'article devra questionner l'invité sur sa passion, son travail, ses expériences et ses succès. L'article doit faire resortir les moments d'expertise de l'invité, des moments positifs de l'entrevue et les exploits ou événements positifs marquants.\n\nLe titre de ton article sera : Inspiration avec {{ $('Podcast Details').item.json[\"guest\"] }}.\n\nInstructions de rédaction :\n\n1. Analyse : Analyse l'entrevue Podcast entièrement et identifie 15 moments et faits marquant de l'entrevue entre les animateurs et l'invité qui réponds au sujet de l'article à rédiger. \n\n2. Langue : L'article doit être écrit en français.\n\n3. Style : La rédaction doit avoir un style professionnel, comparable à celui du New York Times, et doit cibler un large public. Bien utiliser la ponctuation.\n\n4. Rédaction de l'Introduction pour débuter:\n- Présente l'émission Dans la Jungle des Affaires et son animateur.\n- Présente le co-animateur et mentionner qu'il est invité pour co-animer cette entrevue.\n\n5. Présentation de l'invité:\n- Présente l'invité, en soulignant sa passion, son travail et ses accomplissements.\n\n6. Ensuite, on explique aux lecteurs la Formule Questions et Réponses :\n- Présente et explique le concept de l'article qui sera sous forme de Questions et Réponses pour bien découvrir notre invité.\n\n7. Ensuite, on rédige les questions et réponses :\n- On ne doit pas numéroter les questions.\n- Chaque question posée par un animateur doit débuter avec le prénom de l'animateur suivi de deux points et d'un espace (par exemple, « Réjean : »).\n- Chaque réponse de l'invité doit débuter avec son prénom suivi de deux points et d'un espace (par exemple, « Karl : »).\n- Les questions doivent être claires et précises.\n- Les réponses doivent être bien structurées et détaillées et contenir un minimum de 50 mots et un maximum de 100 mots. \n\n8. Identifie deux éléments importants dans l'article qui vont servir de quote dans l'article. Un maximum de 15 mots par quote.\n\n9. Ajoutez deux idées très détaillée pour la création de deux images qui illustrerait 2 moments très alléatoires de l'article. Les deux idées doivent être complètement différentes et être très précises dans les détails pour partager avec un graphiste. \n\n10. On termine l'article avec le mot de la fin :\n- Conclus l'article avec un résumé positif de l'invité, en le présentant sous son meilleur jour. Inspire les lecteurs à découvrir cet invité et à s'inspirer de son parcours pour évoluer dans le monde des affaires.\n- Termine avec un mot de l'animateur, invitant les lecteurs à découvrir d'autres entrevues tout aussi inspirantes sur le site.\n\nContenu de l'entrevue Podcast à analyser :\n\n{{ $json[\"dialog\"] }}\n\nEn suivant ces instructions, rédige un article structuré sous forme de Questions et Réponses et engageant qui met en valeur l'invité et le concept de l'émission.\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "cfb67256-4f6d-449a-87f7-4c3774372f0d",
+              "name": "system_prompt.b",
+              "value": "=Je vais te partager le contenu d'une entrevue podcast réalisée pour l'émission Dans la Jungle des Affaires. L'entrevue est structurée sous forme d'un dialogue, chacune des interventions commence avec le nom de la personne qui parle suivi de son contenu. \nPar exemple:\n- Réjean Gauthier: Alors, Philippe Gillet qui est avec nous. Bonjour Philippe.\n- Philippe Gillet: Bonjour\n\nVoici quelques détails essentiels pour mieux comprendre l'entrevue:\n\n- L'animateur : {{ $('Podcast Details').item.json[\"interviewer\"] }}\n{{ $('Podcast Details').item.json[\"co_interviewer\"] ? `- Co-animateur invité pour cette émission : ${$('Podcast Details').item.json[\"co_interviewer\"]}` : '- Aucun Co-Animateur' }}\n- L'invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nTâche :\nTâche :\nTa tâche consiste à rédiger un article basé sur le contenu du podcast, sous la forme d'une entrevue Questions et Réponses. Le sujet de l'article devra questionner l'invité sur les moments marquants de sa vie, le côté humain. Les moments exceptionnels et les moments difficiles. Le contenu ne sera pas technique. L'article doit faire resortir les émotions humaines de l'entrevue. Il doit inclure les moments les plus marquants et les points les plus négatifs de la vie de l'invité\n\nLe titre de ton article sera : Inspiration avec {{ $('Podcast Details').item.json[\"guest\"] }}.\n\nInstructions de rédaction :\n\n1. Analyse : Analyse l'entrevue Podcast entièrement et identifie 15 moments et faits marquant de l'entrevue entre les animateurs et l'invité qui réponds au sujet de l'article à rédiger. \n\n2. Langue : L'article doit être écrit en français.\n\n3. Style : La rédaction doit avoir un style professionnel, comparable à celui du New York Times, et doit cibler un large public. Bien utiliser la ponctuation.\n\n4. Rédaction de l'Introduction pour débuter:\n- Présente l'émission Dans la Jungle des Affaires et son animateur.\n- Présente le co-animateur et mentionner qu'il est invité pour co-animer cette entrevue.\n\n5. Présentation de l'invité:\n- Présente l'invité, en soulignant sa passion, son travail et ses accomplissements.\n\n6. Ensuite, on explique aux lecteurs la Formule Questions et Réponses :\n- Présente et explique le concept de l'article qui sera sous forme de Questions et Réponses pour bien découvrir notre invité.\n\n7. Ensuite, on rédige les questions et réponses :\n- On ne doit pas numéroter les questions.\n- Chaque question posée par un animateur doit débuter avec le prénom de l'animateur suivi de deux points et d'un espace (par exemple, « Réjean : »).\n- Chaque réponse de l'invité doit débuter avec son prénom suivi de deux points et d'un espace (par exemple, « Karl : »).\n- Les questions doivent être claires et précises.\n- Les réponses doivent être bien structurées et détaillées et contenir un minimum de 50 mots et un maximum de 100 mots. \n\n8. Identifie deux éléments importants dans l'article qui vont servir de quote dans l'article. Un maximum de 15 mots par quote.\n\n9. Ajoutez deux idées très détaillée pour la création de deux images qui illustrerait 2 moments très alléatoires de l'article. Les deux idées doivent être complètement différentes et être très précises dans les détails pour partager avec un graphiste. \n\n10. On termine l'article avec le mot de la fin :\n- Conclus l'article avec un résumé positif de l'invité, en le présentant sous son meilleur jour. Inspire les lecteurs à découvrir cet invité et à s'inspirer de son parcours pour évoluer dans le monde des affaires.\n- Termine avec un mot de l'animateur, invitant les lecteurs à découvrir d'autres entrevues tout aussi inspirantes sur le site.\n\nContenu de l'entrevue Podcast à analyser :\n\n{{ $json[\"dialog\"] }}\n\nEn suivant ces instructions, rédige un article structuré sous forme de Questions et Réponses et engageant qui met en valeur l'invité et le concept de l'émission.\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ae11b318-51f7-40d8-a3fd-5db0f950d43c",
+      "name": "Prepare Prompt for Q/A",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        920,
+        -600
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bcdd6892-44d9-4a56-8011-c08edc19f8c5",
+              "name": "system_prompt",
+              "value": "={{ $json.system_prompt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c2730c9b-64b7-4b69-93ed-f4f6336368af",
+      "name": "Prompt Details1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1600,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "interviewer",
+            "co_interviewer",
+            "guest",
+            "guest_details",
+            "language_code",
+            "full_text",
+            "co_interviewer_details",
+            "interviewer_details",
+            "co_interviewer_pitch_sales",
+            "co_interviewer_website_link",
+            "co_interviewer_linkedin_link",
+            "guest_pitch_sales",
+            "guest_website_link",
+            "guest_linkedin_link",
+            "link_jungle_site_guest",
+            "speakers_expected",
+            "guest_nickname",
+            "full_text_speakername"
+          ]
+        }
+      },
+      "id": "1319b849-c77b-4ef5-a97c-578e5dffb41e",
+      "name": "Get Podcast Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -220,
+        200
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "3718f0a1-6b04-4581-ab26-bfaebc7c32e3",
+      "name": "Podcast Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        0,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5d5a3f2-0480-4dcd-899c-81eb061dda3e",
+              "name": "dialog",
+              "value": "={{ $json.full_text_speakername }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "af8fcebb-b5f0-4d96-b2b7-08c1cd983cae",
+      "name": "Dialog",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        180,
+        200
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        -240
+      ],
+      "id": "14eb7ffe-29bc-4afe-bfa7-6b59f8d671c7",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "12c988ff-86ac-40b5-8fb5-43af04af7c4f",
+              "name": "prompt",
+              "value": "=Je vais te partager le contenu d'une entrevue réalisée par {{ $('Podcast Details').item.json[\"interviewer\"] }} pour l'émission Dans la Jungle des Affaires. \n\nVoici quelques détails essentiels :\n\n- Co-animateur invité pour cette émission : {{ $('Podcast Details').item.json[\"co_interviewer\"] }}\n- L'entrepreneur invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nVotre tâche :\nVous agirez en tant qu'Assistant avec moi, et votre mission sera d'analyser en détail tout le texte de l'interview et d'identifier 4 sujets de discussion avec lesquels je pourrais séparer le contenu pour générer 4 articles différents.\n\nPrenez en compte le concept de mon émission et proposez 4 concepts d'articles qui seraient écrits sous forme de blog et dans un magazine. Vous devez vous assurer que le contenu ne se duplique pas.\n\nPour chaque sujet, vous devez fournir :\n\n- Le Titre de l'article en français.\n- Une Explication détaillé du contenu de l'article à rédiger avec des idées à utiliser pour renforcer le contenu, des sujets à aborder dans l'article, des moments précis, des événements marquants.\n\nNote : Le texte contient l'horodatage du dialogue et le nom du locuteur.\nLe locuteur A est {{ $('Podcast Details').item.json[\"interviewer\"] }}, l'intervieweur.\nLe locuteur B est {{ $('Podcast Details').item.json[\"co_interviewer\"] }}, le co-intervieweur.\nLe locuteur C est l'invité {{ $('Podcast Details').item.json[\"guest\"] }}. {{ $('Podcast Details').item.json[\"guest_details\"] }}.\n\nVoici le contenu écrit dans la langue {{ $('Podcast Details').item.json[\"language_code\"] }} de l'interview à analyser en détail pour créer 4 articles :\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -400,
+        -220
+      ],
+      "id": "b759bbcc-1ca3-42e5-a06c-df7ad5a7684a",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        -60,
+        -160
+      ],
+      "id": "13e33bd1-7757-4445-a24b-79093c7e1468",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "openai/o3-mini",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        40
+      ],
+      "id": "f4ba4c7f-1896-4150-a3da-539214c3689a",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-24T21:09:18.887Z",
+      "updatedAt": "2024-06-24T21:09:18.887Z",
+      "id": "IzovHyYMj2l2t3WZ",
+      "name": "Jungle"
+    },
+    {
+      "createdAt": "2024-07-03T10:27:21.057Z",
+      "updatedAt": "2024-07-03T10:27:21.057Z",
+      "id": "kjd4NuS0MxgHxPmw",
+      "name": "Content Creation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-01T22:27:20.000Z",
+  "versionId": "b3c9aa0c-9aad-4282-8342-cfa185b3ef57"
+}
