@@ -1,0 +1,824 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Documentation à créer avec IA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Formations": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Préparation des informations de la formation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get latest Doc Version Number",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get latest Doc Version Number": {
+      "main": [
+        [
+          {
+            "node": "Set Documentation Version",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Data": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        []
+      ]
+    },
+    "Set Documentation Version": {
+      "main": [
+        [
+          {
+            "node": "Merge Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Préparation des informations de la formation": {
+      "main": [
+        [
+          {
+            "node": "Merge Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Update Formation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Documentation à créer avec IA": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Formations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs": {
+      "main": [
+        [
+          {
+            "node": "Documentation à créer avec IA1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Doc Creation": {
+      "main": [
+        [
+          {
+            "node": "Google Docs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Documentation à créer avec IA1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Google Docs1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-29T21:32:56.065Z",
+  "id": "6ekXJTXAHmS236KD",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Création de la documentation Masterclass",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "56fbe685-a3f9-4946-a98c-fbd9eac472e7",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1060,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"llama-3.1-sonar-small-128k-online\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Be precise and concise.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"How many stars are there in our galaxy?\"\n    }\n  ],\n  \"temperature\": 0.2,\n  \"top_p\": 0.9,\n  \"search_domain_filter\": [\n    \"perplexity.ai\"\n  ],\n  \"return_images\": false,\n  \"return_related_questions\": false,\n  \"search_recency_filter\": \"month\",\n  \"top_k\": 0,\n  \"stream\": false,\n  \"presence_penalty\": 0,\n  \"frequency_penalty\": 1\n}",
+        "options": {}
+      },
+      "id": "1ea53971-d9fd-458a-bdeb-e204455e9e4e",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        460
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CArFM3AhwEDRQdnG",
+          "name": "API Perplexiti AI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXDHExWitNZ6UVz",
+          "mode": "list",
+          "cachedResultName": "Automatisations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTyMRIwC0CGRgKh",
+          "mode": "list",
+          "cachedResultName": "Formations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz/tblTyMRIwC0CGRgKh"
+        },
+        "filterByFormula": "({Status Documentation} = 'À Préparer')",
+        "options": {}
+      },
+      "id": "b7c2295e-f583-44ba-b203-aeb32c2f069d",
+      "name": "Documentation à créer avec IA",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -760,
+        680
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "78b333e0-8fd0-4820-8447-b9fe67482df5",
+              "name": "Overview",
+              "value": "=Nom de la formation\n{{ $json.Name }}\n\nSommaire\n{{ $json.Overview }}\n\nPrésentation de la formation\n{{ $json['Info Vente'] }}\n\nProgramme de formation\n{{ $json.Programme }}",
+              "type": "string"
+            },
+            {
+              "id": "a667daf7-4355-4b93-a812-5eec4df9be96",
+              "name": "Nom",
+              "value": "={{ $json.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "8c48fb27-d483-472c-ba66-8b9184ba766e",
+              "name": "Type Formation",
+              "value": "={{ $json['Nom du Type'][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "d3f2067b-2e1f-4813-bfdd-06754cecccc4",
+              "name": "Instructions",
+              "value": "={{ $json.Instructions[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "07b689ad-edc8-475d-a8d0-82364881c9a1",
+              "name": "Formation ID",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6f112a42-4f59-4891-8d68-7f139ddc01b6",
+      "name": "Préparation des informations de la formation",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -80,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "245adff2-90c7-4459-8593-92a95925b206",
+      "name": "Loop Over Formations",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -480,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "GVudN2HXSSQQvODP",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "f37d5d59-b7d4-4456-8bc1-d1786bc89526",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        660,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXDHExWitNZ6UVz",
+          "mode": "list",
+          "cachedResultName": "Automatisations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblclOxekywjQtLHF",
+          "mode": "list",
+          "cachedResultName": "Documentation",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz/tblclOxekywjQtLHF"
+        },
+        "filterByFormula": "=FIND(\"{{ $json.Name }}\", ARRAYJOIN({Nom de la formation}, \",\"))",
+        "returnAll": false,
+        "limit": 1,
+        "options": {
+          "fields": [
+            "Version"
+          ]
+        },
+        "sort": {
+          "property": [
+            {
+              "field": "Version",
+              "direction": "desc"
+            }
+          ]
+        }
+      },
+      "id": "2c7e797c-e059-476a-bdff-f2eee702211d",
+      "name": "Get latest Doc Version Number",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -100,
+        740
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXDHExWitNZ6UVz",
+          "mode": "list",
+          "cachedResultName": "Automatisations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblclOxekywjQtLHF",
+          "mode": "list",
+          "cachedResultName": "Documentation",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz/tblclOxekywjQtLHF"
+        },
+        "filterByFormula": "=AND(\n    FIND(\"{{ $('Google Doc Creation').item.json.Name }}\", ARRAYJOIN({Nom de la formation}, \",\")) > 0,\n    {Version} = {{ $('Google Doc Creation').item.json.Version }}\n)",
+        "options": {
+          "fields": [
+            "Name",
+            "Nom de la formation",
+            "Contenu Texte"
+          ]
+        },
+        "sort": {
+          "property": [
+            {
+              "field": "Ordre Section"
+            }
+          ]
+        }
+      },
+      "id": "07f2bb56-38d8-46ca-b1fa-fedf5e0ddde3",
+      "name": "Documentation à créer avec IA1",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -440,
+        340
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "3f332d5b-0078-44c5-a6f2-3e9fcec99a0f",
+      "name": "Merge Data",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        440,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d83ad394-fd0c-4a97-bca1-d4169604155e",
+              "name": "content",
+              "value": "={{ $json.fields[\"Contenu JSON\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9303648f-4bfe-4f5e-bc99-0d846819adb2",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1060,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5229c6e1-be21-4061-a845-c17f4a4f9fb6",
+              "name": "=Version",
+              "value": "={{ $json.Version ? $json.Version + 1 : 1 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dbc51f80-4dbb-4c8e-82ac-eac83a50bb29",
+      "name": "Set Documentation Version",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        120,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "fields['Contenu Texte']",
+              "renameField": true,
+              "outputFieldName": "Contenu"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d7aed660-53e5-4ec7-bf02-b40848d35725",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appXDHExWitNZ6UVz",
+          "mode": "list",
+          "cachedResultName": "Automatisations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTyMRIwC0CGRgKh",
+          "mode": "list",
+          "cachedResultName": "Formations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz/tblTyMRIwC0CGRgKh"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Loop Over Formations').item.json.id }}",
+            "Status Documentation": "Complété",
+            "Version": "={{ $('Merge Data').item.json.Version }}",
+            "Structure finale": "={{ JSON.stringify($json.Contenu) }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Type",
+              "displayName": "Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom du Type",
+              "displayName": "Nom du Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Instructions",
+              "displayName": "Instructions",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Overview",
+              "displayName": "Overview",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Info Vente",
+              "displayName": "Info Vente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Programme",
+              "displayName": "Programme",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status Documentation",
+              "displayName": "Status Documentation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "À Préparer",
+                  "value": "À Préparer"
+                },
+                {
+                  "name": "En création",
+                  "value": "En création"
+                },
+                {
+                  "name": "Complété",
+                  "value": "Complété"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Version",
+              "displayName": "Version",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Structure finale",
+              "displayName": "Structure finale",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Prompts",
+              "displayName": "Prompts",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Documentation",
+              "displayName": "Documentation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7a6a1aa6-3106-4860-9410-28491f74868b",
+      "name": "Update Formation",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1460,
+        860
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "folderId": "default",
+        "title": "Patrick Test N8n"
+      },
+      "id": "6ab2d3f7-8e3d-4405-8dbb-d27510b0bb1a",
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        -620,
+        200
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "hAQ9sOU1yr6NBLFm",
+          "name": "Google Docs Patrick UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenir les données d'entrée\nconst input = items;\n\n// Initialiser une chaîne pour stocker le contenu formaté\nlet output = '';\n\n// Boucler sur chaque élément d'entrée\ninput.forEach(item => {\n    if (item.json && item.json.content) {\n        const content = item.json.content;\n\n        // Boucler sur chaque clé et valeur dans l'objet \"content\"\n        for (const [key, value] of Object.entries(content)) {\n            if (typeof value === 'object' && value !== null) {\n                // Si la valeur est un objet, la convertir en JSON formaté\n                output += `${key}:\\n${JSON.stringify(value, null, 2)}\\n\\n`;\n            } else {\n                // Sinon, ajouter la valeur directement\n                output += `${key}:\\n${value}\\n\\n`;\n            }\n        }\n        // Ajouter un séparateur de section avec deux sauts de ligne\n        output += '\\n';\n    } else {\n        output += 'Aucun contenu trouvé pour cet élément.\\n\\n';\n    }\n});\n\n// Supprimer les lignes vides supplémentaires à la fin\noutput = output.trim();\n\n// Retourner le contenu formaté\nreturn [{ json: { formattedOutput: output } }];\n"
+      },
+      "id": "124437d7-3048-4a6f-9a88-fbd1fb79119b",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appXDHExWitNZ6UVz",
+          "mode": "list",
+          "cachedResultName": "Automatisations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTyMRIwC0CGRgKh",
+          "mode": "list",
+          "cachedResultName": "Formations",
+          "cachedResultUrl": "https://airtable.com/appXDHExWitNZ6UVz/tblTyMRIwC0CGRgKh"
+        },
+        "filterByFormula": "({Status Documentation} = 'Préparer Google Doc')",
+        "options": {
+          "fields": [
+            "Name",
+            "Version"
+          ]
+        }
+      },
+      "id": "5e901b18-84f3-405d-b280-7df25fa24d30",
+      "name": "Google Doc Creation",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -860,
+        340
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $('Google Docs').first().json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $json.aggregatedText }}"
+            }
+          ]
+        }
+      },
+      "id": "5169c6e2-6a36-4f4f-a271-06e183200142",
+      "name": "Google Docs1",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        40,
+        340
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "hAQ9sOU1yr6NBLFm",
+          "name": "Google Docs Patrick UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Itère sur tous les items et crée une chaîne de texte agrégée\nconst aggregatedText = items.map(item => {\n  const name = item.json[\"Name\"] || \"Sans titre\";\n  const content = item.json[\"Contenu Texte\"] || \"\";\n  return `### ${name}\\n\\n${content}`;\n}).join(\"\\n\\n---\\n\\n\");\n\n// Ajoute le texte agrégé comme une propriété sur un nouvel item\nreturn [\n  {\n    json: {\n      aggregatedText: aggregatedText\n    }\n  }\n];\n"
+      },
+      "id": "2b2da0d1-1658-4855-af96-374b6e0c2292",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        340
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-29T21:33:30.953Z",
+      "updatedAt": "2024-11-29T21:33:30.953Z",
+      "id": "oVF1xEjAGV832rDB",
+      "name": "Documentation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-30T17:32:17.000Z",
+  "versionId": "7c3f291a-12f4-49c2-8da7-817cd55f86b6"
+}
