@@ -1,0 +1,712 @@
+{
+  "active": false,
+  "connections": {
+    "Image To Process": {
+      "main": [
+        [
+          {
+            "node": "Extract Filename and Extension",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "I Love IMG Token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "I Love IMG Token": {
+      "main": [
+        [
+          {
+            "node": "Get All Images to be Converted in JPG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Filename and Extension": {
+      "main": [
+        [
+          {
+            "node": "Set HD Image Filename",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "I Love IMG API Start Convert": {
+      "main": [
+        [
+          {
+            "node": "I Love IMG API Upload HD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "I Love IMG API Upload HD": {
+      "main": [
+        [
+          {
+            "node": "Prepare File to be Converted",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "I Love IMG API Convert": {
+      "main": [
+        [
+          {
+            "node": "I Love IMG API Download JPG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare File to be Converted": {
+      "main": [
+        [
+          {
+            "node": "I Love IMG API Convert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "I Love IMG API Download JPG": {
+      "main": [
+        [
+          {
+            "node": "Upload Image JPG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set HD Image Filename": {
+      "main": [
+        [
+          {
+            "node": "I Love IMG API Start Convert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Image JPG": {
+      "main": [
+        [
+          {
+            "node": "Update Image Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Images to be Converted in JPG": {
+      "main": [
+        [
+          {
+            "node": "Set Files Listing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Files Listing": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Images": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Image To Process",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Image Status": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Set Status Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-02T21:03:32.971Z",
+  "id": "umMDkqmcCwxHfAJs",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Jungle | Convert HD AI Images | PNG to JPG",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "91fe3068-6439-48cc-a2db-17f7391e7e9f",
+      "name": "Loop Over Images",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1680,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "19abc0e6-1680-45ed-950c-28e33ef1a9f1",
+              "name": "name",
+              "value": "={{ $json.image_name }}",
+              "type": "string"
+            },
+            {
+              "id": "800032d6-3663-4ffb-8f02-7eef40815a5c",
+              "name": "url",
+              "value": "={{ $json.image_link }}",
+              "type": "string"
+            },
+            {
+              "id": "81aabecf-cacf-4746-829e-560a2fe3319e",
+              "name": "image_id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "db6ab2e6-2193-4831-9a0c-93e0254dab5c",
+      "name": "Image To Process",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1960,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "da21992f-4aa8-4e52-b556-b02c05a1aa31",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        740,
+        340
+      ],
+      "notesInFlow": false,
+      "notes": "Set Workflow Data: Defines initial workflow data, such as podcast_id."
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4cb21f99-f83c-4771-9cee-50a1e419724c",
+              "name": "podcast_Id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "8f8044d8-eaec-45f1-8c5b-54631aa9b9f0",
+      "name": "Set Files Listing",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1400,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ilovepdf.com/v1/auth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "public_key",
+              "value": "project_public_6e536aa01881d0d6cade3c617d76c153_7af_392e2dea317bf29dd3b856041b8de0c0c"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ad3b0a57-244b-4441-9b9e-a42efddd6b7f",
+      "name": "I Love IMG Token",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8da7af5d-4957-43dd-9a41-555352a3d661",
+              "name": "filename_extension",
+              "value": "={{ $json.filename }}.{{ $json[\"extension\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "0ec0b753-61a7-4101-b848-bf91067f6fad",
+              "name": "filename",
+              "value": "={{ $json.filename }}",
+              "type": "string"
+            },
+            {
+              "id": "34b3ae26-3e80-42d9-ae72-7556d0301955",
+              "name": "extension",
+              "value": "={{ $json.extension }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2774a596-3271-4101-a506-c8b3584eebdb",
+      "name": "Set HD Image Filename",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2420,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Instruction at the beginning\nconst download_filename = $input.all()[0].json.name;\n\n// Extract filename without extension and extension\nconst extension = download_filename.split('.').pop(); // Get the file extension\nconst filenameWithoutExtension = download_filename.substring(0, download_filename.lastIndexOf('.')); // Get the filename without extension\n\n// Create a new object with the extracted values\nconst result = {\n  filename: filenameWithoutExtension,\n  extension: extension\n};\n\n// Return the result as an array\nreturn [result];\n"
+      },
+      "id": "db14b6d0-d856-46c0-b993-62651ea2be54",
+      "name": "Extract Filename and Extension",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2180,
+        420
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "029bdce7-a513-4d9b-a22f-fedd6447f0c6",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.ilovepdf.com/v1/start/convertimage",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('I Love IMG Token').item.json[\"token\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f127d9b3-064d-4369-b9b4-3be473908baa",
+      "name": "I Love IMG API Start Convert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2680,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{ $('I Love IMG API Start Convert').item.json[\"server\"] }}/v1/upload",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('I Love IMG Token').item.json[\"token\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "task",
+              "value": "={{ $('I Love IMG API Start Convert').item.json[\"task\"] }}"
+            },
+            {
+              "name": "cloud_file",
+              "value": "={{ $('Image To Process').item.json[\"url\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "90509dd2-b87c-429e-87d3-1948d1a754b0",
+      "name": "I Love IMG API Upload HD",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2940,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{ $('I Love IMG API Start Convert').item.json[\"server\"] }}/v1/process",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('I Love IMG Token').item.json[\"token\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "task",
+              "value": "={{ $('I Love IMG API Start Convert').item.json[\"task\"] }}"
+            },
+            {
+              "name": "tool",
+              "value": "convertimage"
+            },
+            {
+              "name": "to",
+              "value": "=jpg"
+            },
+            {
+              "name": "files",
+              "value": "={{ [$json.files] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3cb409d7-2e13-4a58-81f2-342a158f642c",
+      "name": "I Love IMG API Convert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3400,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1ab3919b-6799-4434-a311-1b6dedcba88d",
+              "name": "files.server_filename",
+              "value": "={{ $json.server_filename }}",
+              "type": "string"
+            },
+            {
+              "id": "dac5d9c7-6c6d-461f-bf0e-bbce5a0f5c97",
+              "name": "files.filename",
+              "value": "={{ $('Set HD Image Filename').item.json[\"filename\"] }}.jpg",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b61a7c15-e4ec-45f9-9d56-91817d6746ee",
+      "name": "Prepare File to be Converted",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        3160,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://{{ $('I Love IMG API Start Convert').item.json[\"server\"] }}/v1/download/{{ $('I Love IMG API Start Convert').item.json[\"task\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('I Love IMG Token').item.json[\"token\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "25466320-b82d-4c99-a1f0-f4d64edc94bf",
+      "name": "I Love IMG API Download JPG",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3640,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "path": "=/httpdocs/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/jpg/{{ $('Set HD Image Filename').item.json[\"filename\"] }}.jpg"
+      },
+      "id": "fd9ba984-e427-42a9-a7c0-97a0715427ff",
+      "name": "Upload Image JPG",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        3860,
+        420
+      ],
+      "credentials": {
+        "ftp": {
+          "id": "8JvgTckmWsJEuxvN",
+          "name": "FTP Dans La Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungles_images",
+          "mode": "list",
+          "cachedResultName": "jungles_images"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "convert_status",
+              "value": "not_converted"
+            },
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "id",
+            "image_link",
+            "image_name"
+          ]
+        }
+      },
+      "id": "a3cbcf60-09c8-4057-876a-be4df2fe3e77",
+      "name": "Get All Images to be Converted in JPG",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1180,
+        340
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungles_images",
+          "mode": "list",
+          "cachedResultName": "jungles_images"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $('Image To Process').item.json[\"image_id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "convert_status",
+              "value": "converted"
+            },
+            {
+              "column": "image_link_jpg",
+              "value": "=https://danslajungledesaffaires.blog/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/jpg/{{ $('Set HD Image Filename').item.json[\"filename\"] }}.jpg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dd8368e7-38fd-4f80-bc35-cb9d171e11b6",
+      "name": "Update Image Status",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        4100,
+        500
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "cdc87974-d072-4144-b9c3-7c340281d1fd",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bff984b6-f4f3-497b-b946-4da0a28edb50",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a45ca4c3-c841-4a98-bd29-fb31d9a66878",
+      "name": "Set Status Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2200,
+        140
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-07-03T12:43:40.577Z",
+      "updatedAt": "2024-07-03T12:43:40.577Z",
+      "id": "AyD8qxUzHoYCWjwM",
+      "name": "Image Creation"
+    },
+    {
+      "createdAt": "2024-06-30T20:11:22.552Z",
+      "updatedAt": "2024-06-30T20:11:22.552Z",
+      "id": "BOP3Tfxbss9JsXIy",
+      "name": "I Love IMG API"
+    },
+    {
+      "createdAt": "2024-06-24T21:09:18.887Z",
+      "updatedAt": "2024-06-24T21:09:18.887Z",
+      "id": "IzovHyYMj2l2t3WZ",
+      "name": "Jungle"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-06T22:32:43.000Z",
+  "versionId": "2a4241ab-4b03-44f3-971a-5e9417f29688"
+}
