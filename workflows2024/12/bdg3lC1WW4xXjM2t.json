@@ -1,0 +1,72 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-10T20:29:53.035Z",
+  "id": "bdg3lC1WW4xXjM2t",
+  "isArchived": false,
+  "meta": null,
+  "name": "Airtable Webhook Test",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        940,
+        360
+      ],
+      "id": "1abd8c1c-2dd7-41ed-bfd6-fcfbe710e695",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appdeqfYpOKVRTPop/wflPxVwpKwA6ttG3A/wtr9MWmyvvmZh3pS9",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        360
+      ],
+      "id": "3dd11f9c-f040-4469-b0aa-9e6e739c9422",
+      "name": "HTTP Request"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-10T20:30:01.598Z",
+      "updatedAt": "2024-12-10T20:30:01.598Z",
+      "id": "F771zq5Qm7kvL27R",
+      "name": "Airtable"
+    },
+    {
+      "createdAt": "2024-08-06T21:15:08.860Z",
+      "updatedAt": "2024-08-06T21:15:08.860Z",
+      "id": "fCd4LZ9ipYWyIPrk",
+      "name": "TEST"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-10T20:30:25.000Z",
+  "versionId": "cf73c9f0-113d-4b75-9cc2-6e534136b907"
+}
