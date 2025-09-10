@@ -1,0 +1,411 @@
+{
+  "active": false,
+  "connections": {
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Prepare Prompt for Q/A",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Prompts": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Prompt for Q/A": {
+      "main": [
+        [
+          {
+            "node": "Split Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Prompts": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Data": {
+      "main": [
+        [
+          {
+            "node": "Jungle | Part 1 | Create Blog Content Q/A",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jungle | Part 1 | Create Blog Content Q/A": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-06T21:21:32.340Z",
+  "id": "FFvX0Qrph9tjlH3X",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Jungle |  Create Blog Content | Q&A",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "29a5e00c-30ee-49b0-8580-52c502820580",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1600,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "interviewer",
+            "co_interviewer",
+            "guest",
+            "guest_details",
+            "language_code",
+            "full_text",
+            "co_interviewer_details",
+            "interviewer_details",
+            "co_interviewer_pitch_sales",
+            "co_interviewer_website_link",
+            "co_interviewer_linkedin_link",
+            "guest_pitch_sales",
+            "guest_website_link",
+            "guest_linkedin_link",
+            "link_jungle_site_guest",
+            "speakers_expected",
+            "guest_nickname",
+            "full_text_speakername"
+          ]
+        }
+      },
+      "id": "2c237496-31b7-4967-9ee3-e6116aa9f465",
+      "name": "Get Podcast Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -1420,
+        80
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "0646ca74-1a9f-4bab-b079-794a0a397045",
+      "name": "Podcast Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1220,
+        80
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f98c8ce4-8baf-4a42-8bc2-fcfeb5a7e153",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1800,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "system_prompt",
+        "options": {}
+      },
+      "id": "1142fbfd-4a99-49ab-9d07-0d2abe78bff5",
+      "name": "Split Prompts",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -820,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1fb2f523-0d63-499d-8f3a-1f3fb6064cd5",
+      "name": "Loop Over Prompts",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -600,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01b05bce-aad7-442c-85d1-0ee9703e417b",
+              "name": "system_prompt.a",
+              "value": "=Je vais te partager le contenu d'une entrevue podcast réalisée pour l'émission Dans la Jungle des Affaires. L'entrevue est structurée sous forme d'un dialogue, chacune des interventions commence avec le nom de la personne qui parle suivi de son contenu. \nPar exemple:\n- Réjean Gauthier: Alors, Philippe Gillet qui est avec nous. Bonjour Philippe.\n- Philippe Gillet: Bonjour\n\nVoici quelques détails essentiels pour mieux comprendre l'entrevue:\n\n- L'animateur : {{ $('Podcast Details').item.json[\"interviewer\"] }}\n{{ $('Podcast Details').item.json[\"co_interviewer\"] ? `- Co-animateur invité pour cette émission : ${$('Podcast Details').item.json[\"co_interviewer\"]}` : '- Aucun Co-Animateur' }}\n- L'invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nTâche :\nTa tâche consiste à rédiger un article basé sur le contenu du podcast, sous la forme d'une entrevue Questions et Réponses. Le sujet de l'article devra questionner l'invité sur sa passion, son travail et ses expériences professionnelles. L'article doit faire resortir les moments d'expertise de l'invité, les défis et la façon qu'il a surmonté ces défis. Il doit aussi questionner l'invité sur ses exploits ou accomplissement professionnels positifs marquants. L'article ne parlera pas des points de vue personnel de l'invité. L'article ne parlera pas de la vie privée de l'invité.\n\nLe titre de ton article sera : Inspiration avec {{ $('Podcast Details').item.json[\"guest\"] }}.\n\nSuggestions de thème de Questions à formuler pour l'invité:\n1. L'expérience marquante de l'invité:\n- Objectif: Mettre en lumière une expérience clé de l'invité.\nDétails à inclure:\n- Question sur une expérience spécifique (ex. une mission à l'étranger, un projet particulier).\n- Détails sur les défis rencontrés et les solutions mises en place.\n- Anecdotes ou moments marquants de cette expérience.\n\n2. Problématique spécifique liée à cette expérience:\n- Objectif: Explorer les défis et les solutions apportées.\nDétails à inclure:\n- Explication des problèmes rencontrés.\n- Statistiques ou données pour illustrer la problématique.\n- Approches spécifiques utilisées par l'invité pour surmonter ces défis.\n\n3. Approche pédagogique ou méthodologique:\n- Objectif: Montrer comment l'invité partage ses connaissances ou résout des problèmes.\n- Détails à inclure:\n- Exemples concrets de méthodes pédagogiques ou conceptuelles.\n- Impact de ces méthodes sur le public cible (témoignages, résultats observés).\n\n4. Projets ou collaborations spécifiques:\n- Objectif: Mettre en lumière des projets marquants de l'invité.\nDétails à inclure:\n- Description de projets spécifiques (ex. collaborations avec des institutions, entreprises).\n- Objectifs et résultats de ces projets.\n- Contributions spécifiques de l'invité et leur impact.\n\n5. Défis rencontrés dans la carrière:\n- Objectif: Identifier et explorer les principaux défis professionnels de l'invité.\nDétails à inclure:\n- Description des défis majeurs.\n- Stratégies et solutions mises en place pour les surmonter.\n- Anecdotes ou exemples de succès résultant de la résolution de ces défis.\n\n6. Vie personnelle et professionnelle de l'invité:\n- Objectif: Montrer comment l'invité équilibre sa vie personnelle et professionnelle (sans entrer dans les détails privés).\nDétails à inclure:\n- Exemples de gestion du temps, équilibre travail-vie personnelle.\n- Impact de la vie professionnelle sur la vie personnelle et vice versa.\n\n7. Projets futurs et objectifs:\n- Objectif: Discuter des plans et ambitions à venir de l'invité.\nDétails à inclure:\n- Projets en cours ou à venir.\n- Objectifs à long terme.\n- Moyens prévus pour atteindre ces objectifs.\n\n8. Contribution à la communauté ou au domaine d'expertise:\n- Objectif: Mettre en avant les contributions de l'invité à sa communauté ou domaine.\nDétails à inclure:\n- Initiatives prises pour améliorer ou développer le domaine d'expertise.\n- Résultats de ces initiatives.\n- Témoignages ou retours d’expérience de la communauté.\n\n9. Conseils pour les lecteurs:\n- Objectif: Offrir des conseils pratiques et inspirants pour les lecteurs.\nDétails à inclure:\n- Conseils basés sur l'expérience de l'invité.\n- Ressources ou outils recommandés.\n- Actions concrètes que les lecteurs peuvent entreprendre.\n\nInstructions de rédaction :\n\n1. Analyse : Lit l'entrevue Podcast au complet de façon méticuleuse et dans les moindres détails et identifie 15 segments dans l'entrevue qui pourraient servir à cérer des questions et réponses entre les animateurs et l'invité qui réponds au sujet de l'article à rédiger.\n- Inspire tes questions à aprtir des suggestions de questions à formuler énuméré précédemment.\n\n2. Langue : L'article doit être écrit en français.\n\n3. Style : La rédaction doit avoir un style professionnel, comparable à celui du New York Times, et doit cibler un large public. Bien utiliser la ponctuation.\n\n4. Rédaction de l'Introduction pour débuter:\n- Objectif: Capturer l'intérêt du lecteur dès les premières lignes.\n- Présente l'émission Dans la Jungle des Affaires et son animateur.\n- Si un co-animateur est présent, on le présente et on doit mentionner qu'il est invité pour co-animer cette entrevue.\n- Si aucun co-animateur n'est présent, on ne fait pas référence à la co-animation dans l'article.\n- Souhaite la bienvenue aux lecteurs à ce nouvel article du «Blog Magazine Dans La Jungles Des affaires» et invite les lecteurs à découvrir dans cet article un superbe invité.\n\n\n5. Présentation de l'invité:\n- Présente l'invité, en soulignant sa passion, son travail et ses accomplissements.\n- Présentation succincte de l'invité, incluant ses accomplissements majeurs.\n- Contexte de l'invité (domaine d'expertise, expériences notables).\n\n6. Ensuite, on explique aux lecteurs la Formule Questions et Réponses :\n- Présente et explique le concept de l'article qui sera sous forme de Questions et Réponses pour bien découvrir notre invité.\n- Objectif de l'article (ce que le lecteur peut s'attendre à apprendre ou découvrir).\n\n7. Ensuite, on rédige 15 questions et réponses :\n- On doit s'inspirer des suggestions de questions à formuler énuméré précédemment.\n- On ne doit pas numéroter les questions.\n- Chaque question posée par un animateur doit débuter avec le prénom de l'animateur suivi de deux points et d'un espace (par exemple, « Réjean : »).\n- Chaque réponse de l'invité doit débuter avec son prénom suivi de deux points et d'un espace (par exemple, « Karl : »).\n- Les questions doivent être claires et précises.\n- Les réponses doivent être bien structurées et détaillées et contenir un minimum de 50 mots et un maximum de 100 mots. \n\n8. Identifie deux éléments importants dans l'article qui vont servir de quote dans l'article. Un maximum de 15 mots par quote.\n\n9. Ajoutez deux idées très détaillée pour la création de deux images qui illustrerait 2 moments très alléatoires de l'article. Les deux idées doivent être complètement différentes et être très précises dans les détails pour partager avec un graphiste. \n\n10. On termine l'article avec le mot de la fin :\n- Objectif: Résumer les points clés et encourager les lecteurs à agir.\n- Récapitulatif des messages importants de l'article.\n- Appel à l'action pour les lecteurs (ex. s'impliquer dans des initiatives locales, suivre l'invité sur les réseaux sociaux).\n- Mot de clôture inspirant ou motivant.\n- Termine avec un mot de l'animateur, invitant les lecteurs à découvrir d'autres entrevues tout aussi inspirantes sur le site.\n\nDirectives Additionnelles pour la rédaction de l'Article:\n1. Structure: Assurez-vous que chaque section coule de manière fluide vers la suivante, avec des transitions claires.\n2. Clarté: Utilisez un langage clair et concis, évitez le jargon excessif.\n3. Engagement: Incluez des anecdotes et des exemples concrets pour rendre l'article vivant et engageant.\n4. Évidence: Utilisez des données, statistiques, et témoignages pour renforcer les points de vue.\n5. Originalité: Ajoutez une touche personnelle ou unique pour chaque article, reflétant le style et la personnalité de l'invité.\n6. Révision: Relisez attentivement pour corriger les fautes de grammaire, orthographe et syntaxe. Assurez-vous également que les citations et les informations factuelles sont exactes.",
+              "type": "string"
+            },
+            {
+              "id": "cfb67256-4f6d-449a-87f7-4c3774372f0d",
+              "name": "system_prompt.b",
+              "value": "=Je vais te partager le contenu d'une entrevue podcast réalisée pour l'émission Dans la Jungle des Affaires. L'entrevue est structurée sous forme d'une discussion, chacune des interventions commence avec le nom de la personne qui parle suivi de son contenu. \nPar exemple:\n- Réjean Gauthier: Alors, Philippe Gillet qui est avec nous. Bonjour Philippe.\n- Philippe Gillet: Bonjour\n\nVoici quelques détails essentiels pour mieux comprendre l'entrevue:\n\n- L'animateur : {{ $('Podcast Details').item.json[\"interviewer\"] }}\n{{ $('Podcast Details').item.json[\"co_interviewer\"] ? `- Co-animateur invité pour cette émission : ${$('Podcast Details').item.json[\"co_interviewer\"]}` : '- Aucun Co-Animateur' }}\n- L'invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nTâche :\nTa tâche consiste à rédiger un article basé sur le contenu du podcast, sous la forme d'une entrevue Questions et Réponses. Le sujet de l'article devra questionner l'invité sur les moments marquants de sa vie, le côté humain. Il devra questionner la philosophie de vie de l'invité, sa sensibilité, ses peurs, ses faiblesses mais aussi ses forces, son caractère. Le contenu ne sera pas technique. Il ne sera pas axé sur la carrière ou la vie professionnelle de l'invité. L'article doit faire resortir les émotions humaines de l'entrevue. \n\nLe titre de ton article sera : Émotions avec {{ $('Podcast Details').item.json[\"guest\"] }}.\n\nInstructions de rédaction :\n\n1. Analyse : Analyse l'entrevue Podcast entièrement et identifie 15 moments et faits marquant de l'entrevue entre les animateurs et l'invité qui réponds au sujet de l'article à rédiger. Par exemple des moments de l'entrevue qui parle de philosophie de vie de l'invité, sa sensibilité, ses peurs, ses faiblesses mais aussi ses forces, son caractère. Le contenu ne doit pas être technique. Il ne sera pas axé sur la carrière ou la vie professionnelle de l'invité. L'article doit faire resortir les émotions humaines de l'entrevue. \n\n2. Langue : L'article doit être écrit en français.\n\n3. Style : La rédaction doit avoir un style professionnel, comparable à celui du New York Times, et doit cibler un large public. Bien utiliser la ponctuation.\n\n4. Rédaction de l'Introduction pour débuter:\n- Présente l'émission Dans la Jungle des Affaires et son animateur.\n- Si un co-animateur est présent, on le présente et on doit mentionner qu'il est invité pour co-animer cette entrevue.\n- Si aucun co-animateur n'est présent, on ne fait pas référence à la co-animation dans l'article.\n- Souhaite la bienvenue aux lecteurs à ce nouvel article du «Blog Magazine Dans La Jungles Des affaires» et invite les lecteurs à découvrir dans cet article un superbe invité.\n\n5. Présentation de l'invité:\n- Présente l'invité, en soulignant sa passion, son travail et ses accomplissements.\n\n6. Ensuite, on explique aux lecteurs la Formule Questions et Réponses :\n- Présente et explique le concept de l'article qui sera sous forme de Questions et Réponses pour bien découvrir notre invité.\n\n7. Ensuite, on rédige les questions et réponses :\n- On ne doit pas numéroter les questions.\n- Chaque question posée par un animateur doit débuter avec le prénom de l'animateur suivi de deux points et d'un espace (par exemple, « Réjean : »).\n- Chaque réponse de l'invité doit débuter avec son prénom suivi de deux points et d'un espace (par exemple, « Karl : »).\n- Les questions doivent être claires et précises.\n- Les réponses doivent être bien structurées et détaillées et contenir un minimum de 50 mots et un maximum de 100 mots. \n\n8. Identifie deux éléments importants dans l'article qui vont servir de quote dans l'article. Un maximum de 15 mots par quote.\n\n9. Ajoutez deux idées très détaillée pour la création de deux images qui illustrerait 2 moments très alléatoires de l'article. Les deux idées doivent être complètement différentes et être très précises dans les détails pour partager avec un graphiste. \n\n10. On termine l'article avec le mot de la fin :\n- Conclus l'article avec un résumé positif de l'invité, en le présentant sous son meilleur jour. Inspire les lecteurs à découvrir cet invité et à s'inspirer de son parcours pour évoluer dans le monde des affaires.\n- Termine avec un mot de l'animateur, invitant les lecteurs à découvrir d'autres entrevues tout aussi inspirantes sur le site.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c01f9943-343b-4c00-8906-5f3368510a65",
+      "name": "Prepare Prompt for Q/A",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1020,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01b05bce-aad7-442c-85d1-0ee9703e417b",
+              "name": "system_prompt.a",
+              "value": "=Je vais te partager le contenu d'une entrevue podcast réalisée pour l'émission Dans la Jungle des Affaires. L'entrevue est structurée sous forme d'un dialogue, chacune des interventions commence avec le nom de la personne qui parle suivi de son contenu. \nPar exemple:\n- Réjean Gauthier: Alors, Philippe Gillet qui est avec nous. Bonjour Philippe.\n- Philippe Gillet: Bonjour\n\nVoici quelques détails essentiels pour mieux comprendre l'entrevue:\n\n- L'animateur : {{ $('Podcast Details').item.json[\"interviewer\"] }}\n{{ $('Podcast Details').item.json[\"co_interviewer\"] ? `- Co-animateur invité pour cette émission : ${$('Podcast Details').item.json[\"co_interviewer\"]}` : '- Aucun Co-Animateur' }}\n- L'invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nTâche :\nTa tâche consiste à rédiger un article basé sur le contenu du podcast, sous la forme d'une entrevue Questions et Réponses. Le sujet de l'article devra questionner l'invité sur sa passion, son travail et ses expériences professionnelles. L'article doit faire resortir les moments d'expertise de l'invité, les défis et la façon qu'il a surmonté ces défis. Il doit aussi questionner l'invité sur ses exploits ou accomplissement professionnels positifs marquants. L'article ne parlera pas des points de vue personnel de l'invité. L'article ne parlera pas de la vie privée de l'invité.\n\nLe titre de ton article sera : Inspiration avec {{ $('Podcast Details').item.json[\"guest\"] }}.\n\nInstructions de rédaction :\n\n1. Analyse : Analyse l'entrevue Podcast entièrement et identifie 15 moments et faits marquant de l'entrevue entre les animateurs et l'invité qui réponds au sujet de l'article à rédiger. \n\n2. Langue : L'article doit être écrit en français.\n\n3. Style : La rédaction doit avoir un style professionnel, comparable à celui du New York Times, et doit cibler un large public. Bien utiliser la ponctuation.\n\n4. Rédaction de l'Introduction pour débuter:\n- Présente l'émission Dans la Jungle des Affaires et son animateur.\n- Si un co-animateur est présent, on le présente et on doit mentionner qu'il est invité pour co-animer cette entrevue.\n- Si aucun co-animateur n'est présent, on ne fait pas référence à la co-animation dans l'article.\n- Souhaite la bienvenue aux lecteurs à ce nouvel article du «Blog Magazine Dans La Jungles Des affaires» et invite les lecteurs à découvrir dans cet article un superbe invité.\n\n5. Présentation de l'invité:\n- Présente l'invité, en soulignant sa passion, son travail et ses accomplissements.\n\n6. Ensuite, on explique aux lecteurs la Formule Questions et Réponses :\n- Présente et explique le concept de l'article qui sera sous forme de Questions et Réponses pour bien découvrir notre invité.\n\n7. Ensuite, on rédige les questions et réponses :\n- On ne doit pas numéroter les questions.\n- Chaque question posée par un animateur doit débuter avec le prénom de l'animateur suivi de deux points et d'un espace (par exemple, « Réjean : »).\n- Chaque réponse de l'invité doit débuter avec son prénom suivi de deux points et d'un espace (par exemple, « Karl : »).\n- Les questions doivent être claires et précises.\n- Les réponses doivent être bien structurées et détaillées et contenir un minimum de 50 mots et un maximum de 100 mots. \n\n8. Identifie deux éléments importants dans l'article qui vont servir de quote dans l'article. Un maximum de 15 mots par quote.\n\n9. Ajoutez deux idées très détaillée pour la création de deux images qui illustrerait 2 moments très alléatoires de l'article. Les deux idées doivent être complètement différentes et être très précises dans les détails pour partager avec un graphiste. \n\n10. On termine l'article avec le mot de la fin :\n- Conclus l'article avec un résumé positif de l'invité, en le présentant sous son meilleur jour. Inspire les lecteurs à découvrir cet invité et à s'inspirer de son parcours pour évoluer dans le monde des affaires.\n- Termine avec un mot de l'animateur, invitant les lecteurs à découvrir d'autres entrevues tout aussi inspirantes sur le site.\n\nContenu de l'entrevue Podcast à analyser :\n\n{{ $json[\"dialog\"] }}\n\nEn suivant ces instructions, rédige un article structuré sous forme de Questions et Réponses et engageant qui met en valeur l'invité et le concept de l'émission.\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "cfb67256-4f6d-449a-87f7-4c3774372f0d",
+              "name": "system_prompt.b",
+              "value": "=Je vais te partager le contenu d'une entrevue podcast réalisée pour l'émission Dans la Jungle des Affaires. L'entrevue est structurée sous forme d'une discussion, chacune des interventions commence avec le nom de la personne qui parle suivi de son contenu. \nPar exemple:\n- Réjean Gauthier: Alors, Philippe Gillet qui est avec nous. Bonjour Philippe.\n- Philippe Gillet: Bonjour\n\nVoici quelques détails essentiels pour mieux comprendre l'entrevue:\n\n- L'animateur : {{ $('Podcast Details').item.json[\"interviewer\"] }}\n{{ $('Podcast Details').item.json[\"co_interviewer\"] ? `- Co-animateur invité pour cette émission : ${$('Podcast Details').item.json[\"co_interviewer\"]}` : '- Aucun Co-Animateur' }}\n- L'invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nTâche :\nTa tâche consiste à rédiger un article basé sur le contenu du podcast, sous la forme d'une entrevue Questions et Réponses. Le sujet de l'article devra questionner l'invité sur les moments marquants de sa vie, le côté humain. Il devra questionner la philosophie de vie de l'invité, sa sensibilité, ses peurs, ses faiblesses mais aussi ses forces, son caractère. Le contenu ne sera pas technique. Il ne sera pas axé sur la carrière ou la vie professionnelle de l'invité. L'article doit faire resortir les émotions humaines de l'entrevue. \n\nLe titre de ton article sera : Émotions avec {{ $('Podcast Details').item.json[\"guest\"] }}.\n\nInstructions de rédaction :\n\n1. Analyse : Analyse l'entrevue Podcast entièrement et identifie 15 moments et faits marquant de l'entrevue entre les animateurs et l'invité qui réponds au sujet de l'article à rédiger. Par exemple des moments de l'entrevue qui parle de philosophie de vie de l'invité, sa sensibilité, ses peurs, ses faiblesses mais aussi ses forces, son caractère. Le contenu ne doit pas être technique. Il ne sera pas axé sur la carrière ou la vie professionnelle de l'invité. L'article doit faire resortir les émotions humaines de l'entrevue. \n\n2. Langue : L'article doit être écrit en français.\n\n3. Style : La rédaction doit avoir un style professionnel, comparable à celui du New York Times, et doit cibler un large public. Bien utiliser la ponctuation.\n\n4. Rédaction de l'Introduction pour débuter:\n- Présente l'émission Dans la Jungle des Affaires et son animateur.\n- Si un co-animateur est présent, on le présente et on doit mentionner qu'il est invité pour co-animer cette entrevue.\n- Si aucun co-animateur n'est présent, on ne fait pas référence à la co-animation dans l'article.\n- Souhaite la bienvenue aux lecteurs à ce nouvel article du «Blog Magazine Dans La Jungles Des affaires» et invite les lecteurs à découvrir dans cet article un superbe invité.\n\n5. Présentation de l'invité:\n- Présente l'invité, en soulignant sa passion, son travail et ses accomplissements.\n\n6. Ensuite, on explique aux lecteurs la Formule Questions et Réponses :\n- Présente et explique le concept de l'article qui sera sous forme de Questions et Réponses pour bien découvrir notre invité.\n\n7. Ensuite, on rédige les questions et réponses :\n- On ne doit pas numéroter les questions.\n- Chaque question posée par un animateur doit débuter avec le prénom de l'animateur suivi de deux points et d'un espace (par exemple, « Réjean : »).\n- Chaque réponse de l'invité doit débuter avec son prénom suivi de deux points et d'un espace (par exemple, « Karl : »).\n- Les questions doivent être claires et précises.\n- Les réponses doivent être bien structurées et détaillées et contenir un minimum de 50 mots et un maximum de 100 mots. \n\n8. Identifie deux éléments importants dans l'article qui vont servir de quote dans l'article. Un maximum de 15 mots par quote.\n\n9. Ajoutez deux idées très détaillée pour la création de deux images qui illustrerait 2 moments très alléatoires de l'article. Les deux idées doivent être complètement différentes et être très précises dans les détails pour partager avec un graphiste. \n\n10. On termine l'article avec le mot de la fin :\n- Conclus l'article avec un résumé positif de l'invité, en le présentant sous son meilleur jour. Inspire les lecteurs à découvrir cet invité et à s'inspirer de son parcours pour évoluer dans le monde des affaires.\n- Termine avec un mot de l'animateur, invitant les lecteurs à découvrir d'autres entrevues tout aussi inspirantes sur le site.\n\nContenu de l'entrevue Podcast à analyser :\n\n{{ $json[\"dialog\"] }}\n\nEn suivant ces instructions, rédige un article structuré sous forme de Questions et Réponses et engageant qui met en valeur l'invité et le concept de l'émission.\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5540c892-ba5e-4b3d-b438-25726315f648",
+      "name": "Prepare Prompt for Q/A1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1020,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cfb67256-4f6d-449a-87f7-4c3774372f0d",
+              "name": "system_prompt.b",
+              "value": "=Je vais te partager le contenu d'une entrevue podcast réalisée pour l'émission Dans la Jungle des Affaires. L'entrevue est structurée sous forme d'une discussion, chacune des interventions commence avec le nom de la personne qui parle suivi de son contenu. \nPar exemple:\n- Réjean Gauthier: Alors, Philippe Gillet qui est avec nous. Bonjour Philippe.\n- Philippe Gillet: Bonjour\n\nVoici quelques détails essentiels pour mieux comprendre l'entrevue:\n\n- L'animateur : {{ $('Podcast Details').item.json[\"interviewer\"] }}\n{{ $('Podcast Details').item.json[\"co_interviewer\"] ? `- Co-animateur invité pour cette émission : ${$('Podcast Details').item.json[\"co_interviewer\"]}` : '- Aucun Co-Animateur' }}\n- L'invité : {{ $('Podcast Details').item.json[\"guest_details\"] }}\n\nL'émission Dans la Jungle des Affaires :\nDerrière chaque entreprise se cache une histoire unique, faite de persévérance, de créativité et de détermination. Notre mission est de favoriser les liens entre les dirigeants d'entreprises d'ici et d'ailleurs en discutant des histoires inspirantes, des défis surmontés et des réussites vécues. Nous explorons le côté humain et aventureux du monde des affaires à travers les yeux d'entrepreneurs et gestionnaires d'entreprises.\n\nTâche :\nTa tâche consiste à rédiger un article basé sur le contenu du podcast, sous la forme d'une entrevue Questions et Réponses. Le sujet de l'article devra questionner l'invité sur les moments marquants de sa vie, le côté humain. Il devra questionner la philosophie de vie de l'invité, sa sensibilité, ses peurs, ses faiblesses mais aussi ses forces, son caractère. Le contenu ne sera pas technique. Il ne sera pas axé sur la carrière ou la vie professionnelle de l'invité. L'article doit faire resortir les émotions humaines de l'entrevue. \n\nLe titre de ton article sera : Émotions avec {{ $('Podcast Details').item.json[\"guest\"] }}.\n\nInstructions de rédaction :\n\n1. Analyse : Analyse l'entrevue Podcast entièrement et identifie 15 moments et faits marquant de l'entrevue entre les animateurs et l'invité qui réponds au sujet de l'article à rédiger. Par exemple des moments de l'entrevue qui parle de philosophie de vie de l'invité, sa sensibilité, ses peurs, ses faiblesses mais aussi ses forces, son caractère. Le contenu ne doit pas être technique. Il ne sera pas axé sur la carrière ou la vie professionnelle de l'invité. L'article doit faire resortir les émotions humaines de l'entrevue. \n\n2. Langue : L'article doit être écrit en français.\n\n3. Style : La rédaction doit avoir un style professionnel, comparable à celui du New York Times, et doit cibler un large public. Bien utiliser la ponctuation.\n\n4. Rédaction de l'Introduction pour débuter:\n- Présente l'émission Dans la Jungle des Affaires et son animateur.\n- Si un co-animateur est présent, on le présente et on doit mentionner qu'il est invité pour co-animer cette entrevue.\n- Si aucun co-animateur n'est présent, on ne fait pas référence à la co-animation dans l'article.\n- Souhaite la bienvenue aux lecteurs à ce nouvel article du «Blog Magazine Dans La Jungles Des affaires» et invite les lecteurs à découvrir dans cet article un superbe invité.\n\n5. Présentation de l'invité:\n- Présente l'invité, en soulignant sa passion, son travail et ses accomplissements.\n\n6. Ensuite, on explique aux lecteurs la Formule Questions et Réponses :\n- Présente et explique le concept de l'article qui sera sous forme de Questions et Réponses pour bien découvrir notre invité.\n\n7. Ensuite, on rédige les questions et réponses :\n- On ne doit pas numéroter les questions.\n- Chaque question posée par un animateur doit débuter avec le prénom de l'animateur suivi de deux points et d'un espace (par exemple, « Réjean : »).\n- Chaque réponse de l'invité doit débuter avec son prénom suivi de deux points et d'un espace (par exemple, « Karl : »).\n- Les questions doivent être claires et précises.\n- Les réponses doivent être bien structurées et détaillées et contenir un minimum de 50 mots et un maximum de 100 mots. \n\n8. Identifie deux éléments importants dans l'article qui vont servir de quote dans l'article. Un maximum de 15 mots par quote.\n\n9. Ajoutez deux idées très détaillée pour la création de deux images qui illustrerait 2 moments très alléatoires de l'article. Les deux idées doivent être complètement différentes et être très précises dans les détails pour partager avec un graphiste. \n\n10. On termine l'article avec le mot de la fin :\n- Conclus l'article avec un résumé positif de l'invité, en le présentant sous son meilleur jour. Inspire les lecteurs à découvrir cet invité et à s'inspirer de son parcours pour évoluer dans le monde des affaires.\n- Termine avec un mot de l'animateur, invitant les lecteurs à découvrir d'autres entrevues tout aussi inspirantes sur le site.\n\nContenu de l'entrevue Podcast à analyser :\n\n{{ $json[\"dialog\"] }}\n\nEn suivant ces instructions, rédige un article structuré sous forme de Questions et Réponses et engageant qui met en valeur l'invité et le concept de l'émission.\n\n{{ $json[\"json_instructions\"] }}\n\n{{ $json[\"json_schema\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3c7f5f7c-22a3-436b-9478-2bad9acdb143",
+      "name": "Prepare Prompt for Q/A2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1020,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "alUrw8d8gldZx8eq",
+        "options": {}
+      },
+      "id": "8d2fa0af-62fb-4b94-aa94-7aa426626e3d",
+      "name": "Jungle | Part 1 | Create Blog Content Q/A",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eceb61de-39e8-4d27-bbee-6f4abacd5747",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "9aaa66fe-314c-41e2-98dd-ef6c7e695cf4",
+      "name": "Prepare Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -380,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "ff83a12d-9b29-4d4c-a44a-dd90d4854d73",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -380,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## To DO\n**Validation\n\nIs the images are ready before creating content ?",
+        "height": 210.97507100031552,
+        "width": 522.2278321236985
+      },
+      "id": "c9a9fa5c-cf9d-4e73-9191-086119fb86d2",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1880,
+        -320
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-07-03T10:27:21.057Z",
+      "updatedAt": "2024-07-03T10:27:21.057Z",
+      "id": "kjd4NuS0MxgHxPmw",
+      "name": "Content Creation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-13T14:30:24.000Z",
+  "versionId": "3bf7c147-064f-4942-82d7-5ab15fe8339a"
+}
