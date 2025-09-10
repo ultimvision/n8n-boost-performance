@@ -1,0 +1,472 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "If recID Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If recID Exists": {
+      "main": [
+        [
+          {
+            "node": "Get Info recID",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Get Info recID": {
+      "main": [
+        [
+          {
+            "node": "If Subscription Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Subscription Exists": {
+      "main": [
+        [
+          {
+            "node": "Get Subscription Id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Subscription Id": {
+      "main": [
+        [
+          {
+            "node": "Switch Product Subscription",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Product Subscription": {
+      "main": [
+        [
+          {
+            "node": "Set tag",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set tag": {
+      "main": [
+        [
+          {
+            "node": "Create a Member in Community",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-07T21:48:24.387Z",
+  "id": "rldH3ee722O8lcDe",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sync Boost users with Hub",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sync-users-boost",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "64a0179f-977f-4246-a1d4-8d79782bca67",
+      "name": "Webhook",
+      "webhookId": "09d480b0-4acc-4be2-8164-8e2af52930d7",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "caYHeAb3wyC8mhzj",
+          "name": "Airtable Webhook Security"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://app.circle.so/api/admin/v2/community_members",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "page",
+              "value": "0"
+            },
+            {
+              "name": "per_page",
+              "value": "2"
+            },
+            {
+              "name": "status",
+              "value": "all"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b7d38ca5-ba51-48b6-90aa-2058370b6636",
+      "name": "Get Circle Members",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        -320
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://app.circle.so/api/admin/v2/community_members",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"{{ $('Get Info recID').item.json.Email }}\",\n  \"password\": \"18067311@Pat\",\n  \"skip_invitation\": true,\n  \"name\": \"{{ $('Get Info recID').item.json['First Name'] }} {{ $('Get Info recID').item.json['Last Name'] }}\",\n  \"headline\": \"Headline API\",\n  \"is_flagged\": false,\n  \"preferences\": {\n    \"messaging_enabled_by_admin\": true\n  },\n  \"member_tag_ids\": [\n    {{ $json.tag }}\n  ],\n  \"community_member_profile_fields\": {\n    \"additionalProp1\": \"string1\",\n    \"additionalProp2\": \"string2\",\n    \"additionalProp3\": \"string3\"\n  }\n}",
+        "options": {}
+      },
+      "id": "79b585fb-a8e5-436a-a261-1c803f9dbbaf",
+      "name": "Create a Member in Community",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1640,
+        -220
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "18af426a-fa4b-4c07-837f-fd111a627975",
+              "leftValue": "={{ $json.body.recId }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "81e5340c-458d-46fb-8d7a-53cb4c4f379c",
+      "name": "If recID Exists"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appdeqfYpOKVRTPop",
+          "mode": "list",
+          "cachedResultName": "Boost",
+          "cachedResultUrl": "https://airtable.com/appdeqfYpOKVRTPop"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTRxNqMjI8i3LOl",
+          "mode": "list",
+          "cachedResultName": "Contacts",
+          "cachedResultUrl": "https://airtable.com/appdeqfYpOKVRTPop/tblTRxNqMjI8i3LOl"
+        },
+        "id": "={{ $json.body.recId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        500,
+        -120
+      ],
+      "id": "6a9cd7a1-ad38-4605-9398-a294abeb4d6f",
+      "name": "Get Info recID",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json['Hub Status'] }}",
+                    "rightValue": "Active",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Active"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5c1ba7ef-0ca7-4d00-ab67-a0b1540e8af3",
+                    "leftValue": "={{ $json['Hub Status'] }}",
+                    "rightValue": "Inactive",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Inactive"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1080,
+        40
+      ],
+      "id": "a8547832-3dd0-4aa1-aa7d-333d188fc1d4",
+      "name": "Switch Hub Status"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "841d902b-a49f-4922-b858-7bc35217f497",
+              "leftValue": "={{ $json['Subscription ID'][0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        -120
+      ],
+      "id": "22ad5c2f-c593-4e8d-8899-8e89850cc6fa",
+      "name": "If Subscription Exists"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appdeqfYpOKVRTPop",
+          "mode": "list",
+          "cachedResultName": "Boost",
+          "cachedResultUrl": "https://airtable.com/appdeqfYpOKVRTPop"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblh5Vgy6jcU69yCD",
+          "mode": "list",
+          "cachedResultName": "Subscriptions",
+          "cachedResultUrl": "https://airtable.com/appdeqfYpOKVRTPop/tblh5Vgy6jcU69yCD"
+        },
+        "id": "={{ $json.Subscriptions[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        940,
+        -220
+      ],
+      "id": "d9001f24-e613-48ee-99f4-bd8b2c8fa221",
+      "name": "Get Subscription Id",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Products[0] }}",
+                    "rightValue": "reckglqtcw0MomE4E",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Propulseur"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1160,
+        -220
+      ],
+      "id": "041b49c5-df2d-4128-9188-318e540a3f25",
+      "name": "Switch Product Subscription"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe91cee2-12e0-497a-a230-0d26f22f95b3",
+              "name": "tag",
+              "value": 123492,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        -220
+      ],
+      "id": "59c6e729-c03c-4120-ad35-2a7d83c6a542",
+      "name": "Set tag"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-05T17:36:33.024Z",
+      "updatedAt": "2024-10-05T17:36:33.024Z",
+      "id": "6a2yDqPgvbIHqEKO",
+      "name": "Hub"
+    },
+    {
+      "createdAt": "2024-10-16T13:39:21.071Z",
+      "updatedAt": "2024-10-16T13:39:21.071Z",
+      "id": "E8nPTYjZtWlaLr4T",
+      "name": "Webhook"
+    },
+    {
+      "createdAt": "2024-12-10T20:30:01.598Z",
+      "updatedAt": "2024-12-10T20:30:01.598Z",
+      "id": "F771zq5Qm7kvL27R",
+      "name": "Airtable"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-02-25T15:24:42.000Z",
+  "versionId": "1b693d7e-a58d-4f99-aa68-109a581d8b91"
+}
