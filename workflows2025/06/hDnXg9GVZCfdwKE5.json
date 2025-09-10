@@ -1,0 +1,40 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-06-16T13:26:40.694Z",
+  "id": "hDnXg9GVZCfdwKE5",
+  "isArchived": false,
+  "meta": null,
+  "name": "LinkedIn Post Scraper Tests",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c96b128c-db91-43d8-b326-67a28adca24d",
+      "name": "When clicking ‘Execute workflow’"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-16T13:26:47.000Z",
+  "versionId": "94afcd5a-8517-4669-a9d5-da99dbe23c75"
+}
