@@ -1,0 +1,751 @@
+{
+  "active": false,
+  "connections": {
+    "Validate input": {
+      "main": [
+        [
+          {
+            "node": "Generate Song",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return invalid input error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate song generation response": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return song generation error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Song": {
+      "main": [
+        [
+          {
+            "node": "Is generation complete?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return fetching song error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is generation complete?": {
+      "main": [
+        [
+          {
+            "node": "Prepare successful output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "We have not timed out yet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop data": {
+      "main": [
+        [
+          {
+            "node": "Get Song",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Song": {
+      "main": [
+        [
+          {
+            "node": "Get Data Music",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return song generation error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "We have not timed out yet": {
+      "main": [
+        [
+          {
+            "node": "Get Song",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return song generation timed out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Data Music": {
+      "main": [
+        [
+          {
+            "node": "Validate song generation response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Insert Music",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-19T20:22:28.331Z",
+  "id": "0QMD2L27NZHMOjoK",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Generate Song with AI",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Invalid input",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "11a2c1ab-69c1-4961-90aa-654a58c2f00f",
+      "name": "Return invalid input error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ff2521ee-7fc0-4ef3-bc41-2f86c3f5cba8",
+              "leftValue": "={{ $json.lyrics }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "a3b72449-4e91-4862-a6e9-b38a62628a41",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c659e14c-660f-4943-ac94-a5d184827a00",
+      "name": "Validate input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        540,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "51e69118-770e-4213-b78d-a1457b9bb209",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        260,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "2ea77259-7d23-4978-8ed8-772cf126b5cd",
+              "leftValue": "={{ $json.clips }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "2ec4d282-369f-4c32-9c79-341e8336705e",
+              "leftValue": "={{ $json.clips }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "6628b8f4-96f6-43bf-b928-df09fcf7de31",
+      "name": "Validate song generation response",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1380,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Unable to generate song",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8f8a4045-ef1e-40c2-b840-13496f2e9a56",
+      "name": "Return song generation error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1420,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Unable to fetch generated song",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c4efa253-ad0f-4166-84b2-3ce47d47c13b",
+      "name": "Return fetching song error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2360,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7117d3f-a533-4e33-a48c-d30a2c212a6d",
+              "name": "success",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "4fc6e016-66d6-4178-a0c8-756f4115060c",
+              "name": "message",
+              "value": "Song generation timed out",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9041213d-83be-4540-8a1a-07ee628c37cf",
+      "name": "Return song generation timed out",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2940,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://suno-api-ei6xs.ondigitalocean.app/feed/{{ $('Validate song generation response').item.json.clips[0].id }}",
+        "options": {}
+      },
+      "id": "a9b32289-0aae-4785-a58e-b43413c17200",
+      "name": "Get Song",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2560,
+        243
+      ],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ec8e4d72-4a6e-4a22-96b8-9ea7596bf1e9",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "complete",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "4e803ba2-9f2f-4625-a833-d8c0f92b1645",
+      "name": "Is generation complete?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        243
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Error Handling",
+        "height": 302.92744373028626,
+        "width": 3008.604783969799,
+        "color": 3
+      },
+      "id": "f35e9240-f457-4ba6-9976-c3b7a0d6bb87",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        300,
+        983.2085647439072
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Loop\n\nBecause the song generation is async and the Suno API does not provide any callbacks, we loop and check to see if the song generation is completed.\n\nEdit the **Loop data** node to customize the loop params.",
+        "height": 527.1766783877288,
+        "width": 1349.4817804616275,
+        "color": 5
+      },
+      "id": "59a1dadf-1d1e-4004-b822-c5d92aef476d",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "amount": "={{ $('Loop data').item.json.wait_seconds }}"
+      },
+      "id": "2145ac5f-4e76-4393-a334-42d640134940",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3140,
+        343
+      ],
+      "webhookId": "f2115e69-1d9b-40de-9556-0ccc5cee6fd2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aecbf263-ebf9-4fe7-be36-59c2feff570d",
+              "name": "max",
+              "value": 60,
+              "type": "number"
+            },
+            {
+              "id": "cb5d8751-d57d-4399-a15a-a41729bd11cc",
+              "name": "wait_seconds",
+              "value": 5,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f86cd080-54d6-4e35-9cdd-bc7bd40e18bf",
+      "name": "Loop data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2300,
+        243
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $vars.SUNO_API_URL }}/generate",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "prompt",
+              "value": "={{ $json.lyrics }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "name": "tags",
+              "value": "={{ $json.tags || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8a97fb7f-8044-4160-8422-ad2fd8ec6868",
+      "name": "Generate Song",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        440
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b8e445aa-7ceb-43a0-ba44-5221051f3138",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "ca6e3ed5-7a01-48bd-9e91-023665db81a6",
+              "name": "message",
+              "value": "Song successfully created",
+              "type": "string"
+            },
+            {
+              "id": "ab2c45a0-8329-42a4-b578-05d084ed7bec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1660b595-48df-4988-a391-68cccbefdb0b",
+      "name": "Prepare successful output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3420,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Documentation\n\nThis workflow will accept lyrics, a song title and optional tags.\n\nIt will use the Suno API to generate a song.\n\nIt will return the full payload of the generated song, including video_url, audio_url, id, etc.\n\nThis workflow can take up to 5 minutes to run as we wait for the song to be generated before returning a response.\n\nThe response payload always has a `sucess` and `message` properties.\n\nOptionally, a `data` property if the workflow was successful.",
+        "height": 401.1322405030649,
+        "width": 525.725189089248
+      },
+      "id": "aa2fd92e-a01a-4e6e-847e-42e0453e48cf",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        260,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cd5015cf-2177-4d8c-8602-29c20c58fade",
+              "leftValue": "={{ $runIndex < $('Loop data').first().json.max }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "552a8952-0c0f-4c00-b314-775d5771b3c0",
+      "name": "We have not timed out yet",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        3360,
+        343
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "6c310e6a-ad1d-424a-979f-91bb11e17304",
+      "name": "Get Data Music",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1120,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "clips",
+        "options": {}
+      },
+      "id": "3eb656cf-7ca5-44d9-9feb-905b24172d4c",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "music",
+          "mode": "list",
+          "cachedResultName": "music"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "clip_id",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "column": "created_at",
+              "value": "={{ $json.created_at }}"
+            },
+            {
+              "column": "customer_id",
+              "value": "nannette-de-gaspe"
+            },
+            {
+              "column": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "column": "lyric",
+              "value": "={{ $json.metadata.prompt }}"
+            },
+            {
+              "column": "style",
+              "value": "={{ $json.metadata.tags }}"
+            },
+            {
+              "column": "status",
+              "value": "={{ $json.status }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "05f31067-d9e8-409a-978c-897c4bd2ced4",
+      "name": "Insert Music",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1880,
+        120
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T23:46:00.687Z",
+      "updatedAt": "2024-08-26T23:46:00.687Z",
+      "id": "0KXvsYRAyI7MffNz",
+      "name": "Music"
+    },
+    {
+      "createdAt": "2024-08-19T22:12:15.331Z",
+      "updatedAt": "2024-08-19T22:12:15.331Z",
+      "id": "ZbXwG7AJQyGR2N1C",
+      "name": "Radio"
+    },
+    {
+      "createdAt": "2024-07-03T10:27:21.057Z",
+      "updatedAt": "2024-07-03T10:27:21.057Z",
+      "id": "kjd4NuS0MxgHxPmw",
+      "name": "Content Creation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T14:09:38.000Z",
+  "versionId": "cc6b3a05-9202-402f-ba27-808278dab058"
+}
