@@ -1,0 +1,179 @@
+{
+  "active": true,
+  "connections": {
+    "Validate event": {
+      "main": [
+        [
+          {
+            "node": "Get Circle user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Circle user": {
+      "main": [
+        [
+          {
+            "node": "Update user with circle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-15T16:42:57.623Z",
+  "id": "0d016193EEwHdGXd",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Circle Tag Sync Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4636a848-f6d4-4610-b34a-0709742edafb",
+              "leftValue": "={{ $json.body.type }}",
+              "rightValue": "tagged_member_create",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "c9258677-d999-44d9-bad2-ddc1b8cd5404",
+              "leftValue": "={{ $json.body.type }}",
+              "rightValue": "tagged_member_destroy",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "3ca4c7dd-146c-4c2b-82ff-b4a9a9ac5da5",
+      "name": "Validate event",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1000,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://app.circle.so/api/admin/v2/community_members/{{ $json.body.data.community_member_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "2dde8c8e-ca25-43ae-b9d7-1e9d610dfece",
+      "name": "Get Circle user",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1280,
+        900
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "update public.users set circle_tags = ARRAY(\n    SELECT jsonb_array_elements('{{ JSON.stringify($json.member_tags) }}')\n), circle_user_id = $2 where public.users.email = $1",
+        "options": {
+          "queryReplacement": "={{ $json.email }},{{ $json.id }}"
+        }
+      },
+      "id": "d6502892-b389-407d-967b-4b35bad61c19",
+      "name": "Update user with circle",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1540,
+        900
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "circle/tag",
+        "options": {}
+      },
+      "id": "e0a82ba6-c49a-4a9d-91e6-8f0601c5cc56",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        800,
+        900
+      ],
+      "webhookId": "befd8da2-5a06-4aae-9c6a-60e6ff043024"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:39:21.071Z",
+      "updatedAt": "2024-10-16T13:39:21.071Z",
+      "id": "E8nPTYjZtWlaLr4T",
+      "name": "Webhook"
+    },
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-11-15T19:26:49.000Z",
+  "versionId": "3f5c7e2b-e3a4-44b5-87dc-9ba24b027a40"
+}
