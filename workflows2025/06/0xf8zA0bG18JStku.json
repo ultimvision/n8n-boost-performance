@@ -1,0 +1,404 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Idea Generation": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Research Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Flux Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update File": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create File": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-04T21:46:09.481Z",
+  "id": "0xf8zA0bG18JStku",
+  "isArchived": false,
+  "meta": null,
+  "name": "Writing Agent Template",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "=You are an expert in blog creation. You help the user create blog posts and consult with them about blog-related requests. Use the following guidelines and steps in your workflow. \n\nCurrent time is {{ $now }}\n\n----------------------------\n\nWORKFLOW OVERVIEW\n\n1. Discuss blog ideas: Brainstorm relevant topics for the user. Call the Idea generation tool when the user asks for ideas surrounding a specific niche / topic\n2. Draft an outline: Provide a brief, structured outline (not the full post) for confirmation.\n3. Create full post: Once the user has approved the outline, provide the user with the full blog. Adhere to teh writing style instructions below\n\n----------------------------\n\nTOOLS AVAILABLE\n\n1. Idea Generation: call on this tool when i ask for help with coming up with content ideas. I will give you some sort of topic I want to talk about, and you will then call on this tool to get me the 5 possible topic ideas. Include the citations that are generated.\n\n2. SerpAPI: call this tool if you require basic internet searches (DO NOT USE THIS IF THEY ARE ASKING FOR BLOG IDEAS, USE THE IDEA GENERATION TOOL IN THAT INSTANCE OR ASKED TO COMPLETE RESEARCH ON A SPECIFIC TOPIC)\n\n3. Create File: call this tool if I need you to create or upload a file inside google drive, ill tell you want i want as the contents of the file (it will usually be the blog post that i want created inside the drive). once created, provide the user with a link to the document\n\n4. Update File: call this tool if I need you to update a file insidie my google drive\n\n5. Reserch Tool: call this tool when asked to do research or give extra background information about a specific topic. If you call this tool, include the citations in your final output\n\n6. Image Generator: call this tool when the user wants an image generated for their blog, provide them with the image URL at the end and ask if they like the image or want to generate another one\n----------------------------\n\nWRITING STYLE\n\nBelow is an example of my own writing. When creating the full blog posts, emulate this same stlye: \n\nThe AI revolution has democratized app building. With tools like ChatGPT, Cursor, and v0, you no longer need to be a software engineer to bring your ideas to life. Even so, trying to create an application or website with AI can be daunting if you have no real experience in that arena. Luckily, the article can help serve as a guide to this process, and provide a basic framework you can use to make your next app with the help of AI.\n\nOverview of the Three Stages\nThe app building process has 3 stages: planning, execution, and fine tuning. In the planning stage, we create a detailed Product Requirements Document (PRD) with the help of an AI chatbot. The PRD will act as a set of instructions for our AI coder of choice (Cursor in this case). We will then have Cursor start writing code based on the PRD, creating the code one step at a time to ensure each piece of the puzzle correctly works before moving on. Lastly, we touch up our UI elements with tools like v0.dev so that our app looks just the way we want. Let's dive in.\n\nPhase 1: Planning\nThe ultimate goal of this stage is to have a completely fleshed out document that details exactly what we want our AI coder to build. Below is a template I've used in the past and it includes 9 different sections relevant to nearly any application, ranging from its purpose to its deployment architecture. We need to fill out this document and even add additional information if our particular projects calls for it.\n\nexplanation of the prd....\n\nSeem like a lot? It's totally ok if most of this looks completely arcane—the only thing you really need to know at this point is a general sense of what you want to build and what its functionalities look like. For everything else, we are going to use our favorite AI chatbot (I will be referencing Claude at this point, ChatGPT or Gemini works too).\n\nWe will now feed this template to Claude, explain our app idea, and begin working with Claude to complete the rest of the document. This should be a flowing conversation where you ask for explanations about pieces of the PRD you are unfamiliar with, and then ask Claude what its suggestions are for your particular app. Should we be using shadcn/ui? Should we deploy with vercel? Again, you don't need to know these answers, but you do need to be willing to engage with the AI to make these decisions, and also to understand the why behind each choice. Don't let AI blindly make every choice for you (or you will feel the pain later when things go wrong).\n\nPhase 2: Execution\nNow that we have our fleshed out PRD, its time to start coding watching AI code. Give this prompt to your AI IDE of choice (Cursor in my case) and see if it has any questions about your architecture. If there are no questions, you can then tell Cursor to start implementing the PRD one step, and one functionality, at a time.\n\nIt is very important that we do this piecemeal—if we tell Cursor to execute the entire PRD at once, it will start creating more and more errors, and we will be bogged down in the debugging process. By isolating each step, we can quickly identify when things go wrong and debug accordingly.\n\nA Note on Debugging\nA note on debugging—you will come across errors, its just the way it is. Simply describe the errors (or copy the logs from the terminal) and tell Cursor to help you troubleshoot. The debugging grind is just a part of the app creation process so mentally prepare yourself for that as you start your first project.\n\nFrom here, continue to have Cursor code from your PRD piece by piece until you've made your way through the entire PRD. Once that is complete, you should have an app with all its working functionalities.\n\nPhase 3: Fine Tuning\nNow that we know that app is actually working, now we can start working on the UI. My preferred method is to take our code for our home page (usually app/page.tsx), give it to v0.dev, and ask for UI improvements that maintain our current functionality. Tools like v0.dev will show you previews of your new home page UI and also provide the code. You can then bring that code back to cursor and tell it you want to copy that UI design across your entire app. This process lets you isolate your UI experimentation without potentially messing up your app's core functionalities.\n\nConclusion\nOnce you have the UI where you want it, congratulations, you now have a completed app! I'm sure this all went very smoothly and you had zero roadblocks whatsoever. But in all seriousness, hopefully this guide at least gets you moving in the right direction when it comes to building apps with AI. View this as an 80% solution and remember that this 3 phase process is really a cycle—you will constantly be going between Claude, Cursor, and v0 as you come up with new ideas mid process. Good luck out there.\n\n----------------------------\n\nFINAL NOTES\n\nInclude links when giving information you got from articles, etc.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        200,
+        0
+      ],
+      "id": "f45735ba-8f68-4bfb-ae49-5a661d43883a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -80,
+        240
+      ],
+      "id": "19312fd5-09aa-451e-bf22-c122dcc15d8c",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.message.chat.id }}",
+        "contextWindowLength": 8
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        60,
+        280
+      ],
+      "id": "56677fd2-bd3d-4aa6-ae9f-47b135be6dd7",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b537d411-b7af-4262-b0cc-68c30741cdcb",
+      "name": "Telegram Trigger",
+      "webhookId": "c962151c-e6b2-4809-b24f-96316c1c3a62"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        780,
+        0
+      ],
+      "id": "b1cdc8d1-7e89-4cf8-9ac9-de0ea816e554",
+      "name": "Telegram",
+      "webhookId": "f57b04a9-7842-4a48-b253-3d2bdc9ba158"
+    },
+    {
+      "parameters": {
+        "jsCode": "const aiAgentOutput = $input.all().map((item) => item.json.output)[0];\nconst chunkSize = 4096;\n\n// Escape Markdown special characters (including the pipe `|`):\n// This example is minimal—add more if you need to handle *all* Markdown chars.\nconst safeOutput = aiAgentOutput\n  .replace(/\\|/g, '\\\\|')\n  .replace(/\\*/g, '\\\\*')\n  .replace(/_/g, '\\\\_');\n// ...etc. for any other symbols that cause trouble\n\nconst chunks = [];\nfor (let i = 0; i < safeOutput.length; i += chunkSize) {\n  chunks.push(safeOutput.slice(i, i + chunkSize));\n}\n\nreturn chunks.map((chunk) => ({ json: { output: chunk } }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        0
+      ],
+      "id": "dc9877ba-9d13-4312-be12-078cc336c7a7",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "name": "ideaTool",
+        "description": "Call this tool to get potential ideas for the blog posts once a niche or topic is provided",
+        "workflowId": {
+          "__rl": true,
+          "value": "PqqEOnIhoqa5aODy",
+          "mode": "list",
+          "cachedResultName": "Idea Generation Tool"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        200,
+        320
+      ],
+      "id": "be5c9cb6-d3fc-4bd1-b69c-7b67c271c65d",
+      "name": "Idea Generation"
+    },
+    {
+      "parameters": {
+        "name": "researchTool",
+        "description": "Call this tool to do deep research on a specific topic via perplexity",
+        "workflowId": {
+          "__rl": true,
+          "value": "DzmJTznJyG2KfnWN",
+          "mode": "list",
+          "cachedResultName": "Blog Research Tool"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        340,
+        340
+      ],
+      "id": "ba977a21-77b3-4978-a7b4-b06dd303fa03",
+      "name": "Research Tool"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        480,
+        340
+      ],
+      "id": "379807a2-6a66-45fe-bdfd-41d0bf845adb",
+      "name": "SerpAPI"
+    },
+    {
+      "parameters": {
+        "name": "fluxTool",
+        "description": "Call this tool to generate an image for the blog post using Flux",
+        "workflowId": {
+          "__rl": true,
+          "value": "QalV8hFZyTRNgbMh",
+          "mode": "list",
+          "cachedResultName": "Flux Demo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        600,
+        300
+      ],
+      "id": "f57114de-8b42-411e-9c11-2285e727bb64",
+      "name": "Flux Tool"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('File_to_Update', ``, 'string') }}",
+          "mode": "id"
+        },
+        "changeFileContent": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Change_File_Content', ``, 'boolean') }}",
+        "newUpdatedFileName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('New_Updated_File_Name', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        840,
+        220
+      ],
+      "id": "91e78a60-c142-4083-b474-b59540be418c",
+      "name": "Update File"
+    },
+    {
+      "parameters": {
+        "operation": "createFromText",
+        "content": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('File_Content', ``, 'string') }}",
+        "name": "={{ $fromAI('fileName') }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {
+          "convertToGoogleDocument": true
+        }
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        720,
+        240
+      ],
+      "id": "9c556b8b-85ce-4094-9fb4-e130da60779c",
+      "name": "Create File"
+    },
+    {
+      "parameters": {
+        "content": "## I'm a note \nhttps://www.skool.com/chase-ai/classroom/e4347615?md=59323bacf87847c7a9c66f04f033d598",
+        "width": 760
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        -260
+      ],
+      "id": "91fdcccc-28b7-4339-b7c4-7ea8fab4ccad",
+      "name": "Sticky Note"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-04T21:48:11.000Z",
+  "versionId": "36d238db-9261-44bf-8b6d-25d8c2261ebe"
+}
