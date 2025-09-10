@@ -1,0 +1,72 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-16T16:18:28.372Z",
+  "id": "GKmn7CjHgr9HTnFB",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ae0cdc2a-d2fe-48c8-b64b-9e1dddbf260a",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        680,
+        320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "input": "At EBAX we are the champions",
+        "voice": "echo",
+        "options": {
+          "response_format": "mp3",
+          "speed": 1
+        }
+      },
+      "id": "5fd7b6fa-7207-443d-9348-a92b25e57803",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        900,
+        320
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-16T16:18:28.372Z",
+  "versionId": "458f0f88-b5a3-4c1f-a0dd-f40e2b743674"
+}
