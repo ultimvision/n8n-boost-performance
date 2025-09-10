@@ -1,0 +1,1283 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate image prompt",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate image prompt": {
+      "main": [
+        [
+          {
+            "node": "Set filename",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get prompt": {
+      "main": [
+        [
+          {
+            "node": "Generate image prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Generate image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAI gpt-image-1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare freepik payload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare freepik payload1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to DO": {
+      "main": [
+        [
+          {
+            "node": "Set download url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate image": {
+      "main": [
+        [
+          {
+            "node": "Upload to DO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set filename": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set download url": {
+      "main": [
+        [
+          {
+            "node": "is webp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "is webp": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Convert to webp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare freepik payload": {
+      "main": [
+        [
+          {
+            "node": "Generate image with Freepik",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate image with Freepik": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to DO1": {
+      "main": [
+        [
+          {
+            "node": "Set download url1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Upload to DO1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set download url1": {
+      "main": [
+        [
+          {
+            "node": "is webp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "Upload to DO2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to DO2": {
+      "main": [
+        [
+          {
+            "node": "Set download url2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI gpt-image-1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set download url2": {
+      "main": [
+        [
+          {
+            "node": "is webp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate image with Freepik1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare freepik payload1": {
+      "main": [
+        [
+          {
+            "node": "Generate image with Freepik1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to DO3": {
+      "main": [
+        [
+          {
+            "node": "Set download url3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set download url3": {
+      "main": [
+        [
+          {
+            "node": "is webp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get task": {
+      "main": [
+        [
+          {
+            "node": "Completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Completed": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Timeout",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Upload to DO3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Timeout": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-10T13:30:32.380Z",
+  "id": "gmEscZCrLO4GcpW2",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Generate AI Image",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "context"
+            },
+            {
+              "name": "record_id"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -360,
+        0
+      ],
+      "id": "50b79f20-8c58-4acd-9ff7-bc920d4a5cfd",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Context of the image to generate:\n{{ $('When Executed by Another Workflow').item.json.context }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.Prompt }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        420,
+        0
+      ],
+      "id": "b3c8dec6-0a9b-4b79-bed2-4ca2486972fb",
+      "name": "Generate image prompt"
+    },
+    {
+      "parameters": {
+        "model": "={{ $('Get prompt').item.json.Model }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        400,
+        200
+      ],
+      "id": "d08b1cf6-7820-45b1-b3cf-52b8da1b6be2",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "={{ $json.text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1600,
+        -440
+      ],
+      "id": "a66851e3-7b67-41b2-803f-3997330edcd1",
+      "name": "Generate image",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appY3aedb8dbqsB6a",
+          "mode": "list",
+          "cachedResultName": "Publishing",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblaQf2mThD7Qzx1T",
+          "mode": "list",
+          "cachedResultName": "Prompts",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a/tblaQf2mThD7Qzx1T"
+        },
+        "id": "={{ $json.record_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        20,
+        0
+      ],
+      "id": "3ac2645e-082e-4198-bedd-6e5dc05bb9ce",
+      "name": "Get prompt",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Get prompt').item.json[\"Image Model\"] }}",
+                    "rightValue": "dall-e-3",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "e30151c0-0c04-4b6d-8e27-7d02604ae19c"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "dall-e-3"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "aff347be-17fb-4f8f-9984-71a9d13d630e",
+                    "leftValue": "={{ $('Get prompt').item.json[\"Image Model\"] }}",
+                    "rightValue": "gpt-image-1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "gpt-image-1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e0a1397c-7ba9-43c9-ab74-e862256ae074",
+                    "leftValue": "={{ $('Get prompt').item.json[\"Image Model\"] }}",
+                    "rightValue": "freepik:classic",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "freepik:classic"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a6d34069-4aee-4e6f-9f99-79ab29b256f3",
+                    "leftValue": "={{ $('Get prompt').item.json[\"Image Model\"] }}",
+                    "rightValue": "freepik:mystic",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "freepik:mystic"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1180,
+        0
+      ],
+      "id": "1d8d45aa-c7c4-4dbb-9566-e2cdff04d7dd",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ `publishing/${$('Set filename').item.json.filename}.${$json.fileExtension}` }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        -440
+      ],
+      "id": "81f7aff0-3520-406a-bb58-91977ffddbd1",
+      "name": "Upload to DO",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ecb6f3bc-59ad-48c4-9c4a-50d2eaede73e",
+              "name": "url",
+              "value": "={{ `https://boost-data.nyc3.cdn.digitaloceanspaces.com/publishing/${$('Set filename').item.json.filename}.${$('Generate image').item.json.fileExtension}` }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2640,
+        -440
+      ],
+      "id": "8cb52746-cef4-415a-a427-08b92c3309b8",
+      "name": "Set download url"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fa2f89d8-9c45-476d-9714-878b047f7335",
+              "name": "filename",
+              "value": "={{ $now.toMillis() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        0
+      ],
+      "id": "24b5bd02-d11f-4510-8a7a-1e12f913fc8c",
+      "name": "Set filename"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9a6f547d-2a7e-4a03-bdc8-39015101a37d",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": ".webp",
+              "operator": {
+                "type": "string",
+                "operation": "endsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3440,
+        0
+      ],
+      "id": "daba0a9b-1c83-42ac-bf06-2e3a73a939da",
+      "name": "is webp"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "0lsNxVY9QFWvP5Mv",
+          "mode": "list",
+          "cachedResultName": "Boost — Compress image to webp"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "delete_original": true,
+            "image_url": "={{ $json.url }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "image_url",
+              "displayName": "image_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "delete_original",
+              "displayName": "delete_original",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        3760,
+        0
+      ],
+      "id": "27126cb2-625f-4883-97f0-f465f9e87975",
+      "name": "Convert to webp"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.freepik.com/v1/ai/text-to-image",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.toJsonString() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1860,
+        460
+      ],
+      "id": "84c220d8-b41c-424a-b6db-ab5407b3625c",
+      "name": "Generate image with Freepik",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "v7hdOm1KojnpYXBl",
+          "name": "Freepik"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const payload = JSON.parse($(\"Get prompt\").first().json['Freepik API Payload'])\npayload.prompt = $input.item.json.text\n\nreturn {json: payload}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1620,
+        460
+      ],
+      "id": "941ff1a1-768d-4f99-8521-11c21c952753",
+      "name": "Prepare freepik payload"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].base64",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2120,
+        460
+      ],
+      "id": "c52743c7-cc8d-4689-a1a8-fa4631d8f3f8",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ `publishing/${$('Set filename').item.json.filename}.${$binary.data.fileExtension}` }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        460
+      ],
+      "id": "f4c1245f-fc0d-4c4a-a789-78ec23ff60af",
+      "name": "Upload to DO1",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ecb6f3bc-59ad-48c4-9c4a-50d2eaede73e",
+              "name": "url",
+              "value": "=  {{ `https://boost-data.nyc3.cdn.digitaloceanspaces.com/publishing/${$('Set filename').item.json.filename}.${$('Convert to File').item.binary.data.fileExtension}` }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2640,
+        460
+      ],
+      "id": "3ab9bc51-57d3-4a40-8b8e-c3d8fbfece6e",
+      "name": "Set download url1"
+    },
+    {
+      "parameters": {
+        "content": "# OpenAI Dall-e-3",
+        "height": 400,
+        "width": 1320,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        -600
+      ],
+      "id": "6a180554-0621-45b3-8bd1-bcaf3c68f6ab",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# Freepik Classic Fast",
+        "height": 440,
+        "width": 1320,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        320
+      ],
+      "id": "a6758667-a1c6-4f88-82c3-039e4993bf82",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-image-1"
+            },
+            {
+              "name": "moderation",
+              "value": "low"
+            },
+            {
+              "name": "output_format",
+              "value": "webp"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "n",
+              "value": "={{ 1 }}"
+            },
+            {
+              "name": "quality",
+              "value": "high"
+            },
+            {
+              "name": "size",
+              "value": "1536x1024"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        0
+      ],
+      "id": "1d542997-bcbd-4874-bef4-7ff15a61bbd6",
+      "name": "OpenAI gpt-image-1",
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].b64_json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        0
+      ],
+      "id": "852d51a4-d48c-423a-8bd7-0c23acc3e9db",
+      "name": "Convert to File1"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ `publishing/${$('Set filename').item.json.filename}.${$binary.data.fileExtension}` }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        2300,
+        0
+      ],
+      "id": "07b08999-5ef2-4976-85f6-d72bb2868186",
+      "name": "Upload to DO2",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ecb6f3bc-59ad-48c4-9c4a-50d2eaede73e",
+              "name": "url",
+              "value": "=  {{ `https://boost-data.nyc3.cdn.digitaloceanspaces.com/publishing/${$('Set filename').item.json.filename}.${$('Convert to File1').item.binary.data.fileExtension}` }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2640,
+        0
+      ],
+      "id": "8554ee39-a4ce-4a01-8080-182cb79e6fcf",
+      "name": "Set download url2"
+    },
+    {
+      "parameters": {
+        "content": "# OpenAI gpt-image-1",
+        "height": 400,
+        "width": 1320,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        -140
+      ],
+      "id": "0ea26238-c17f-4635-9d51-9776abeeb9ae",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.freepik.com/v1/ai/mystic",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.toJsonString() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1880,
+        960
+      ],
+      "id": "928499da-36b4-48cd-8d24-f41cdd693adb",
+      "name": "Generate image with Freepik1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "v7hdOm1KojnpYXBl",
+          "name": "Freepik"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const payload = JSON.parse($(\"Get prompt\").first().json['Freepik API Payload'])\npayload.prompt = $input.item.json.text\n\nreturn {json: payload}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1620,
+        960
+      ],
+      "id": "156a0e7d-ccd0-444c-9163-1b4af571cf09",
+      "name": "Prepare freepik payload1"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ `publishing/${$('Set filename').item.json.filename}.${$binary.data.fileExtension}` }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        2440,
+        960
+      ],
+      "id": "688d5c9a-b1f9-47d6-bb4e-fe3b0ab1e34f",
+      "name": "Upload to DO3",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ecb6f3bc-59ad-48c4-9c4a-50d2eaede73e",
+              "name": "url",
+              "value": "=  {{ `https://boost-data.nyc3.cdn.digitaloceanspaces.com/publishing/${$('Set filename').first().json.filename}.${$('Download file').first().binary.data.fileExtension}` }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2640,
+        960
+      ],
+      "id": "368795dc-36ba-44d6-ab11-84066185a42c",
+      "name": "Set download url3"
+    },
+    {
+      "parameters": {
+        "content": "# Freepik Mystic",
+        "height": 640,
+        "width": 1320,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        820
+      ],
+      "id": "2ad2c245-0964-4e5c-b5ad-b111510b1af3",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1620,
+        1200
+      ],
+      "id": "ae36d494-ea6d-49e1-af70-11c0f68b655f",
+      "name": "Wait",
+      "webhookId": "1a95f8d6-144f-4554-9f98-e69f256b19b6"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.freepik.com/v1/ai/mystic/{{ $('Generate image with Freepik1').first().json.data.task_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1880,
+        1200
+      ],
+      "id": "23549101-9081-4fa6-8e86-addfd4cb505c",
+      "name": "Get task",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "v7hdOm1KojnpYXBl",
+          "name": "Freepik"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "19b64e98-9efb-4e4f-9f3c-d8e441e80ea2",
+              "leftValue": "={{ $json.data.status }}",
+              "rightValue": "COMPLETED",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "941be0be-b817-45d4-b234-7bf383c4ca9e",
+              "leftValue": "={{ $json.data.generated }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "array",
+                "operation": "lengthGt",
+                "rightType": "number"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2080,
+        1200
+      ],
+      "id": "e4fd6270-cdb4-4589-8ae6-d6d1f7c0186f",
+      "name": "Completed"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.data.generated[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2220,
+        960
+      ],
+      "id": "37686360-8686-4430-815d-9e91c8000ed6",
+      "name": "Download file"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2fb8622e-d000-4186-ac17-7d87303cc062",
+              "leftValue": "={{ $runIndex }}",
+              "rightValue": 30,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2440,
+        1200
+      ],
+      "id": "4239e75a-7d73-47e9-b100-2fc469b1a6ae",
+      "name": "Timeout"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Unable to generate image with freepik:mystic"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        2640,
+        1200
+      ],
+      "id": "0194dce2-9afd-4d12-96ce-d54973ff07a4",
+      "name": "Stop and Error"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-09T18:54:30.662Z",
+      "updatedAt": "2025-04-09T18:54:30.662Z",
+      "id": "bwORh3v4jHXqexLE",
+      "name": "Publishing"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-25T12:56:16.000Z",
+  "versionId": "e2f74c3a-6fda-4741-b97e-2587bceca8fa"
+}
