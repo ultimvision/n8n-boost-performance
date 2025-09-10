@@ -1,0 +1,791 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Podcast ID with Images": {
+      "main": [
+        [
+          {
+            "node": "Part-4 | Download and Upload Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 30 seconds": {
+      "main": [
+        [
+          {
+            "node": "Part-3 | Analyse Image Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Part-2 | Get Images from the Video": {
+      "main": [
+        [
+          {
+            "node": "Wait 30 seconds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Part-3 | Analyse Image Content": {
+      "main": [
+        [
+          {
+            "node": "Set Podcast ID with Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create the Files Structure for a Podcast | Jungle": {
+      "main": [
+        [
+          {
+            "node": "Set Podcast Table Status Not Started",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Podcast Table Status Not Started": {
+      "main": [
+        [
+          {
+            "node": "Delete Previous Transcripts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete a Podcast ID Dir and Files Jungle Des Affaires": {
+      "main": [
+        [
+          {
+            "node": "Create the Files Structure for a Podcast | Jungle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Part-1 | Select Sequences to Extract": {
+      "main": [
+        [
+          {
+            "node": "Part-2 | Get Images from the Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Part-4 | Download and Upload Images": {
+      "main": [
+        [
+          {
+            "node": "Set Podcast ID with Images1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Podcast ID with Images1": {
+      "main": [
+        [
+          {
+            "node": "Extract Images | Part-5 | Enhanced Images with AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Podcast ID with Images2": {
+      "main": [
+        [
+          {
+            "node": "Wordpress |Publish Post Content with Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2024-06-30T17:37:28.492Z",
+  "id": "2nIglfevml08hmYm",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Studio Jungle AI| Optimize Podcast Value",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "3601a823-db6d-44ba-8d3c-e0c3eaec261f",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        140,
+        -20
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb62e7fd-b5c5-4af9-8472-57e4d99c78c5",
+              "name": "podcast_id",
+              "value": 1,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "555804c4-1a32-4b09-b462-a5cf48b34249",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        400,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Image](https://boostperformance.ai/logos/amplify_ai_200.png)",
+        "height": 109.70367952023777,
+        "width": 230.21768842794626,
+        "color": 7
+      },
+      "id": "24482d9c-b432-4c87-8132-4bcd9385510e",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        900,
+        -720
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "hHPdtNJmGg1q5eaq",
+        "options": {}
+      },
+      "id": "7281432b-8826-4d9c-be50-79b02324be2c",
+      "name": "Transcribe Audio with Speaker Identification",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        -640
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e0df4d9-f3d2-4320-9f09-5ca9130d1b66",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "ff89011c-6635-4aeb-8dfb-11ed9c21cdb6",
+      "name": "Set Podcast ID with Images",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2000,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "j7buWRcVhIfsUvJg",
+        "options": {}
+      },
+      "id": "e8402893-ad70-4f78-b492-5c07b175deb3",
+      "name": "Part-1 | Select Sequences to Extract",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "c679QiAhHwX9gHzy",
+        "options": {}
+      },
+      "id": "7d1955fb-b63a-492e-a267-140ed01a6122",
+      "name": "Part-2 | Get Images from the Video",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "zqNTVftuPa1YXWBW",
+        "options": {}
+      },
+      "id": "9eb85a34-e545-459c-ace4-67f0cc7854f3",
+      "name": "Part-3 | Analyse Image Content",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1800,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "7vdFvoarsDik7DiW",
+        "options": {}
+      },
+      "id": "d4c1a47e-196a-46de-af54-4c42930fbb8a",
+      "name": "Part-4 | Download and Upload Images",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2220,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "id": "b50b0ff5-40d0-403a-9858-69d2924edb4b",
+      "name": "Wait 30 seconds",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1620,
+        -220
+      ],
+      "webhookId": "983dac3b-e8d9-4c68-87d3-8568831b2316"
+    },
+    {
+      "parameters": {
+        "content": "![Image](https://boostperformance.ai/logos/i_love_img_200.png)![Image](https://boostperformance.ai/logos/creatomate_200.png)\n",
+        "height": 458.51936495191876,
+        "width": 229.32249485913735,
+        "color": 7
+      },
+      "id": "366455a5-dbdc-465f-824d-8531e225dba8",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        900,
+        -400
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Image](https://boostperformance.ai/logos/logo_boost_performance.png)\n",
+        "height": 126.5138075838814,
+        "width": 242.73163146139782,
+        "color": 7
+      },
+      "id": "5b9dd711-8653-47e5-b000-3204bf53d1f1",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        920,
+        -1120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://danslajungledesaffaires.blog/podcasts/podcast_creator.php",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $vars.JUNGLE_PODCAST_CREATOR_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "50ebcd7e-2a9c-47db-b85e-5e7eca8e1f3d",
+      "name": "Create the Files Structure for a Podcast | Jungle",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1500,
+        -1040
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Prepare the structure for the Podcast\n",
+        "height": 313.14885474382095,
+        "width": 1002.3705644886836,
+        "color": 5
+      },
+      "id": "3752b154-301a-4792-add2-a8be8e92bfb4",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        -1137.384099441866
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status",
+              "value": "not_started"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c9b13e26-3fc2-4fd6-8170-98e6706f1738",
+      "name": "Set Podcast Table Status Not Started",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1720,
+        -1040
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteTable",
+        "table": {
+          "__rl": true,
+          "value": "jungle_transcripts",
+          "mode": "list",
+          "cachedResultName": "jungle_transcripts"
+        },
+        "deleteCommand": "delete",
+        "where": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d62a65a0-91ce-4b5e-8171-90d5a62903d8",
+      "name": "Delete Previous Transcripts",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1940,
+        -1040
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "path": "=/httpdocs/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+        "options": {
+          "folder": true,
+          "recursive": true
+        }
+      },
+      "id": "ec158b15-e332-4846-8520-11fc15c0ae5e",
+      "name": "Delete a Podcast ID Dir and Files Jungle Des Affaires",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        -1040
+      ],
+      "credentials": {
+        "ftp": {
+          "id": "8JvgTckmWsJEuxvN",
+          "name": "FTP Dans La Jungle"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "content": "# Request an Audio Transcript\n",
+        "height": 295.7647553019554,
+        "width": 1002.3705644886836,
+        "color": 5
+      },
+      "id": "02533f5a-3c8b-4d10-8416-cd757dbb09b8",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        -740
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Extract Image\n",
+        "height": 341.33429124051554,
+        "width": 1682.3855059148768,
+        "color": 5
+      },
+      "id": "a1dc245d-bf1f-4d7e-8290-5178e2b4c197",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Image](https://boostperformance.ai/logos/openai_200.png)",
+        "height": 102.07798210501109,
+        "width": 235.93696148936627,
+        "color": 7
+      },
+      "id": "7d877fea-2a56-4b39-bc4f-6837652b0d26",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        700,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e0df4d9-f3d2-4320-9f09-5ca9130d1b66",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "5a59124a-d103-4e14-8e81-6d340b155857",
+      "name": "Set Podcast ID with Images1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2440,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "C03mqiBORnDSq1Qx",
+        "options": {}
+      },
+      "id": "ee6c26ad-5902-49b7-a1b8-e9ff8c04a708",
+      "name": "Extract Images | Part-5 | Enhanced Images with AI",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2660,
+        -220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "23ccc756-0815-49ca-afa9-c118be77eeaf",
+      "name": "Webhook Call Back Audio",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        -640
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Image](https://boostperformance.ai/logos/openai_200.png)",
+        "height": 102.07798210501109,
+        "width": 235.93696148936627,
+        "color": 7
+      },
+      "id": "33e6b95c-afc0-4434-80a9-2c1d8d3486fd",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        880,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Create BLOG content from Video Content",
+        "height": 341.33429124051554,
+        "width": 2085.9543341045637,
+        "color": 5
+      },
+      "id": "223f92b5-ed65-49f0-8c4a-efd800920cc8",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "FsK0SJ8mTYIJ3zaP",
+        "options": {}
+      },
+      "id": "9090dcfc-9062-4117-8368-fc57d6a5bd9e",
+      "name": "Jungle | Generate Image Content",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e0df4d9-f3d2-4320-9f09-5ca9130d1b66",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "67f36cf9-3d61-4c18-9712-e3d02243755b",
+      "name": "Set Podcast ID with Images2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1080,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e0df4d9-f3d2-4320-9f09-5ca9130d1b66",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "14f8f031-dca1-4a33-8742-68cc4959c40e",
+      "name": "Set Podcast ID with Images3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1840,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "umMDkqmcCwxHfAJs",
+        "options": {}
+      },
+      "id": "353431b9-9ced-41ae-94ad-f76ea74d46ff",
+      "name": "Jungle | Convert HD AI Images | PNG to JPG",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e0df4d9-f3d2-4320-9f09-5ca9130d1b66",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "4213426b-2ef6-4793-9603-13967c600c8d",
+      "name": "Set Podcast ID with Images4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2280,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "0uWY2kR2Y53T33Yj",
+        "options": {}
+      },
+      "id": "c2c0f8cc-4e3b-4dd7-94c6-6ddad61778e1",
+      "name": "Wordpress |Publish Post Content with Image",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "SpU2dOJt2JhcuITS",
+        "options": {}
+      },
+      "id": "2cfe995f-a0a0-43cc-a6c9-fa8fc3b6aee5",
+      "name": "Transcribe Audio | Assign Speaker Name",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1740,
+        -640
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "oaLGGDEvK9AObCYn",
+        "options": {}
+      },
+      "id": "8dbb5813-1b79-4009-83ae-366c2056e2a2",
+      "name": "Jungle | Create Blog Content | Articles",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "FFvX0Qrph9tjlH3X",
+        "options": {}
+      },
+      "id": "e042cdb7-6194-40f9-91c0-3c5e992d8419",
+      "name": "Jungle | Create Blog Content | Q&A",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        520
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-30T17:38:20.809Z",
+      "updatedAt": "2024-06-30T17:38:20.809Z",
+      "id": "jXUNpWgxzGLl1Ca1",
+      "name": "Studio"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-03T12:49:19.000Z",
+  "versionId": "165597e0-9ff2-47a7-8221-3dd9cd9e9c26"
+}
