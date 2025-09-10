@@ -1,0 +1,147 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Insert Log in Table Database",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Log in Table Database": {
+      "main": [
+        [
+          {
+            "node": "Return Nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-02T12:21:09.473Z",
+  "id": "n6aTf9L7yrxjW418",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "LOG | Log Podcast Taks Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "16438ab6-4600-4204-93fe-19c492e8fbd1",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "4584f900-01cf-4ec9-8e12-6ee093a8440e",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        740,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "jungle_logs",
+          "mode": "list",
+          "cachedResultName": "jungle_logs"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $json.podcast_id }}"
+            },
+            {
+              "column": "workflow_name",
+              "value": "={{ $json.workflow_name }}"
+            },
+            {
+              "column": "workflow_id",
+              "value": "={{ $json.workflow_id }}"
+            },
+            {
+              "column": "status",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "column": "details",
+              "value": "={{ $json.status_message }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "74d06cc3-d7b2-46fa-b624-aa300559d1b9",
+      "name": "Insert Log in Table Database",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        940,
+        300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "a6560251-b4a9-4908-95ec-16040a8659b9",
+      "name": "Return Nothing",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1160,
+        300
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-02T12:59:20.000Z",
+  "versionId": "485a0090-99e0-4509-b207-9dbc334a0ac2"
+}
