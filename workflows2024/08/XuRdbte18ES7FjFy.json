@@ -1,0 +1,303 @@
+{
+  "active": false,
+  "connections": {
+    "Get Song": {
+      "main": [
+        [
+          {
+            "node": "Is generation complete?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Music",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is generation complete?": {
+      "main": [
+        [
+          {
+            "node": "Update Music Record",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Music",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Select Submitted Music to Analyse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Submitted Music to Analyse": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Music",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Music": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Get Song",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Music Record": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Music",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Select Submitted Music to Analyse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-27T10:44:51.260Z",
+  "id": "XuRdbte18ES7FjFy",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Music Studio Validator",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "93a1ae89-eff7-4d10-b25d-ee42b1fa932f",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        480,
+        560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "=https://suno-api-ei6xs.ondigitalocean.app/feed/{{ $json.clip_id }}",
+        "options": {}
+      },
+      "id": "4b991e7d-da60-4dee-898e-e261d41108b4",
+      "name": "Get Song",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1300,
+        460
+      ],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ec8e4d72-4a6e-4a22-96b8-9ea7596bf1e9",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "complete",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8faaed97-f3d0-4167-9895-ad31a5961e39",
+      "name": "Is generation complete?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "music",
+          "mode": "list",
+          "cachedResultName": "music"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "status",
+              "value": "submitted"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "clip_id"
+          ]
+        }
+      },
+      "id": "46fc8267-3489-4999-87fe-3f8cad9fa2d8",
+      "name": "Select Submitted Music to Analyse",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        760,
+        400
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "31831cb8-f0e2-4e8b-bbfb-10aff76d1f7e",
+      "name": "Loop Over Music",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1060,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "music",
+          "mode": "list",
+          "cachedResultName": "music"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "clip_id",
+        "valueToMatchOn": "={{ $json.id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "audio_url",
+              "value": "={{ $json.audio_url }}"
+            },
+            {
+              "column": "duration",
+              "value": "={{ $json.metadata.duration * 100 }}"
+            },
+            {
+              "column": "image_url",
+              "value": "={{ $json.image_large_url }}"
+            },
+            {
+              "column": "status",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "column": "video_url",
+              "value": "={{ $json.video_url }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "682e2f7f-3569-4e30-b77e-d4477c6cb920",
+      "name": "Update Music Record",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1900,
+        640
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {},
+      "id": "313d2ff9-85c6-4543-a736-263edb2133d8",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        480,
+        320
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T23:46:00.687Z",
+      "updatedAt": "2024-08-26T23:46:00.687Z",
+      "id": "0KXvsYRAyI7MffNz",
+      "name": "Music"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T11:02:15.000Z",
+  "versionId": "b56ceec5-5d94-4f28-ad95-00704e1ab8f1"
+}
