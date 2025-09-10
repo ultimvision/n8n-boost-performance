@@ -1,0 +1,401 @@
+{
+  "active": false,
+  "connections": {
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Interview Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4o": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Interview Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4o1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Interview Writing Instructions": {
+      "main": [
+        [
+          {
+            "node": "AI Interview Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Audio Voice Scenario": {
+      "main": [
+        [
+          {
+            "node": "Insert interview",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Elevenlabs Voices": {
+      "main": [
+        [
+          {
+            "node": "Split Voices",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Interview Agent": {
+      "main": [
+        [
+          {
+            "node": "Prepare Audio Voice Scenario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-31T13:36:13.243Z",
+  "id": "ZaVB0kgeoeg3COAt",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Create Podcast Interview",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "467cd20e-5d2f-4285-9770-7d94c22db150",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -60,
+        560
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "voices",
+        "options": {}
+      },
+      "id": "ac74bc03-d711-4d2a-a377-985095f22f57",
+      "name": "Split Voices",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        560,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"interview\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\",\n          \"description\": \"The title of the interview.\"\n        },\n        \"participants\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"owner\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"name\": {\n                  \"type\": \"string\",\n                  \"description\": \"The name of the product owner.\"\n                },\n                \"role\": {\n                  \"type\": \"string\",\n                  \"description\": \"The role of the product owner, typically 'Product Owner'.\"\n                }\n              },\n              \"required\": [\"name\", \"role\"]\n            },\n            \"interviewer\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"name\": {\n                  \"type\": \"string\",\n                  \"description\": \"The name of the interviewer.\"\n                },\n                \"role\": {\n                  \"type\": \"string\",\n                  \"description\": \"The role of the interviewer, typically 'Interviewer'.\"\n                }\n              },\n              \"required\": [\"name\", \"role\"]\n            }\n          },\n          \"required\": [\"owner\", \"interviewer\"]\n        },\n        \"introduction\": {\n          \"type\": \"string\",\n          \"description\": \"The introduction text where the interviewer welcomes the product owner and introduces the product.\"\n        },\n        \"questions_and_answers\": {\n          \"type\": \"array\",\n          \"description\": \"An array of objects representing the questions asked by the interviewer and the corresponding answers from the product owner.\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"question\": {\n                \"type\": \"string\",\n                \"description\": \"The question asked by the interviewer.\"\n              },\n              \"answer\": {\n                \"type\": \"string\",\n                \"description\": \"The answer given by the product owner.\"\n              }\n            },\n            \"required\": [\"question\", \"answer\"]\n          }\n        },\n        \"conclusion\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"interviewer_summary\": {\n              \"type\": \"string\",\n              \"description\": \"The summary of the interview provided by the interviewer.\"\n            },\n            \"owner_final_thoughts\": {\n              \"type\": \"string\",\n              \"description\": \"The final thoughts or call to action given by the product owner.\"\n            }\n          },\n          \"required\": [\"interviewer_summary\", \"owner_final_thoughts\"]\n        }\n      },\n      \"required\": [\"title\", \"participants\", \"introduction\", \"questions_and_answers\", \"conclusion\"]\n    }\n  },\n  \"required\": [\"interview\"]\n}"
+      },
+      "id": "92de1b77-6cf4-470b-9c84-6060eff78d08",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1260,
+        1000
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "161a89a0-7779-439d-92c5-bb36a69d4878",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4",
+        "options": {}
+      },
+      "id": "3929c71d-01c5-47bf-a674-3bb84afc7e72",
+      "name": "4o",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        920,
+        840
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "d5a15ad2-8853-4833-ba50-757d329d93ba",
+      "name": "4o1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        1000
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6d6ae528-97e5-4c98-8a8a-1f2195997fea",
+              "name": "instructions",
+              "value": "=Analyze the provided product content in detail, focusing on its key features, benefits, usage instructions, and overall mission. Then, generate an interview script between two women: the owner of the product (Person A) and an interviewer (Person B). The interview should be comprehensive, captivating, and educational, thoroughly covering all key aspects of the product, including its features, benefits, usage instructions, and the overarching mission, while ensuring the information is conveyed clearly and effectively.\n\nPrompt Instructions:\n\n1. Content Analysis:\n- Begin by thoroughly analyzing the product content, identifying the key features, benefits, and any unique selling points.\n- Extract the product's usage instructions, ensuring clarity and completeness.\n- Understand the overall mission or philosophy behind the product and how it aligns with the target audience's needs and desires.\n\n2. The product owner name is Sophia (Person A) working at Nannette De Gaspé Company.\n\n3. The interviewer name is Sarah (Person B).\n\n4. Interview Script Generation:\n-Introduction: Write a brief introduction where the interviewer (Person B) welcomes the product owner (Person A) and sets the stage for the discussion.\n- Discussion on Product Features and Benefits: Generate dialogue where Person B asks Person A about the product’s key features and benefits. Person A should respond with detailed explanations, emphasizing what makes the product unique and valuable.\n- Ingredients and Innovation: Add a dedicated section where Person B asks about the ingredients and innovations in the product. Person A should detail how these components contribute to the user’s well-being, emphasizing the positive impact on their life.\n- How to Use the Product: Create a segment where Person B asks about the correct usage of the product. Person A should provide step-by-step instructions, tips, and any special considerations to ensure optimal use.\n- Mission and Philosophy: Include a part of the interview where Person B inquires about the mission or philosophy behind the product. Person A should explain the inspiration, goals, and how the product aligns with empowering or benefiting the target audience.\n- Conclusion: End with a closing statement where Person B summarizes the discussion and Person A gives final thoughts, possibly including where the product can be purchased or how to get more information.\n\n5. Interview Tone:\n- The tone should be conversational, friendly, and engaging, with Person B showing genuine interest and curiosity, and Person A providing insightful and enthusiastic responses.\n\n6. Final Output:\n- The interview should be coherent and natural-sounding, offering both educational and promotional value to the listener or reader.",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "e19b549b-53f3-49ce-a880-994a39ed9e3f",
+      "name": "Interview Writing Instructions",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        640
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "081285b2-c841-4430-a6a6-b0c7612e2f1e",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f1fe13bb-6262-46c6-b9fe-85372198a9ce",
+              "name": "introduction",
+              "value": "={{ $json.output.interview.introduction }}",
+              "type": "string"
+            },
+            {
+              "id": "c700bf41-87b7-4281-9691-5e2b5f1ae208",
+              "name": "output.interview.questions_and_answers",
+              "value": "={{ $json.output.interview.questions_and_answers }}",
+              "type": "array"
+            },
+            {
+              "id": "f36115be-ceaa-4303-ae82-858a829abda2",
+              "name": "output.interview.conclusion",
+              "value": "={{ $json.output.interview.conclusion }}",
+              "type": "object"
+            },
+            {
+              "id": "30452533-a199-4d3f-af9a-7871b676bec0",
+              "name": "title",
+              "value": "={{ $json.output.interview.title }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5df0964d-9394-4906-8ac2-4c0937698dd7",
+      "name": "Prepare Audio Voice Scenario",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1320,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "audio_product_interview",
+          "mode": "list",
+          "cachedResultName": "audio_product_interview"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "customer_id",
+              "value": "nannette-de-gaspe"
+            },
+            {
+              "column": "product_name",
+              "value": "={{ $('MySQL').item.json[\"title\"] }}"
+            },
+            {
+              "column": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "column": "introduction",
+              "value": "={{ $json.introduction }}"
+            },
+            {
+              "column": "questions_answers",
+              "value": "={{ JSON.stringify($json.output.interview.questions_and_answers) }}"
+            },
+            {
+              "column": "conclusion",
+              "value": "={{ JSON.stringify($json.output.interview.conclusion) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3977cb0d-c450-4f9a-85fc-716dcf5c75d9",
+      "name": "Insert interview",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1680,
+        360
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/voices",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "sk_0b98e65244e71377e52c6652fdead3cf0873e4e5990d79cb"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fc11902e-19f7-4591-a6d9-401a455b8279",
+      "name": "Get Elevenlabs Voices",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/models",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "sk_0b98e65244e71377e52c6652fdead3cf0873e4e5990d79cb"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9f7b862b-ab66-4924-9aa6-02445cc604ba",
+      "name": "Get Elevenlabs Models",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Here's the content to analyse for creating the Interview dialog :\n{{ $json.title }}\n\n{{ JSON.stringify($json[\"content\"]) }} ",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ JSON.stringify($json.instructions) }}"
+            }
+          ]
+        }
+      },
+      "id": "b643f08d-fee0-45ee-a187-09e73d51e288",
+      "name": "AI Interview Agent",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        940,
+        640
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-31T13:43:08.000Z",
+  "versionId": "4b7df722-cbe6-4638-bb3f-144200aee2db"
+}
