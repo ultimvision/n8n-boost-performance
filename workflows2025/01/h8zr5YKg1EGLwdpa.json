@@ -1,0 +1,90 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-23T13:47:29.353Z",
+  "id": "h8zr5YKg1EGLwdpa",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 10",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "73953a7c-9cc2-4f2b-b1b1-7d4104c1fff6",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "Réunion des actionnaires de AI Smart Finance Inc. (The Trading AI)\nJeudi 23 janvier 2025\n\nOrdre du jour\n\nBienvenue et bonne année 2025\nObjectif de la rencontre : \nMise à jour\nDemande d'opinion\nDiscussions du plan d'action\nFinancenemnt de 4M$ avec la famille De Gaspé Beaubien repoussé - Mise à jour selon les discussions avec Christian Trudeau qui nous représente. Nous avons d'autres alternatives qui pourront être discutées à la fin de cette rencontre.\nConséquences du retard du financement\nMise à pied temporaire et réduction des frais technologiques\nLancement de la version officielle prévu en décembre retardé suivant les Discussions avec AMF\nRecommandé d'obtenir une lettre d'opinion légale pour IA / Automatisation\nVocabulaire à modifier et changements sur le site Web proposé\nEnquête ouverte pour faire le suivi avec nous\nSolution potentielle pour éviter le flou juridique : Obtenir notre licence de courtier en marché dispensé. Nous avons l'option d'obtenir celle de Optimisata dès maintenant. Cependant, les coûts mensuels sont de 10K et on devra former un administrateur lors des 18 prochains mois pour conserver la licence.\nDécisions technologiques prisent suite à ces discussions\nRetirer de la version finale l'algorithmie\nSe concentrer sur nos agents IA automatisation prédictifs\nDate prévue de lancement de la plateforme modifié : fin mars avec les effectifs actuels.\nAI Smart Finance a été créé pour intégrer i'IA générative avec les finances. Notre vision ambitieuse s'est avérée 100% réelle. Aujourd'hui, 2025 et 2026, l'IA va continuer d'évoluer très rapidement dans le secteur de la finance et nous avons les connaissances et les solutions pour se démarquer.\nLes défis sont la vitesse d'exécution et un financement limité. Aussi, les experts AI coûtent chers. 150K en moyenne par année.\nOn recommande fortement aujourd'hui de se positionner dans le marché financier avec des agents d'automatisation IA pour analyser les marchés pour accompagner les investisseurs. On recommande aussi d'accélérer les investissements pour le projet d'agents d'automatisations d'analyse d'entreprise et immobilier.\nLa confiance de l'équipe dans le marché et les produits est toujours à son maximum. Cependant, il faut prendre une décision sur les prochaines étapes\nSuivant cette rencontre, nous allons mettre à jour le Plan d'affaires et le roadmap.\nDéclaration de santé et travail de Patrick et Bassel\nBassel a eu une opération pour prévenir un cancer du rein cette année\nPatrick a eu une récédivite de diverticulite (il a été opéré et on a retiré 15 pouces d'instestins en 2022). La situation stressante de la sernière année a crée de nouveaux diverticules au dela de la zone enlevée. Recommandation médicale pour éviter une nouvelle opération : réduire le stress et entreprendre un programme d'entraînement et changement d'alimentation ( c'est démarré !)\n\nPériode de questions\n\nVoici mon ordre du jour. Corrige-là et ré-écris la strcuturée."
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        440,
+        0
+      ],
+      "id": "a625f58a-bcf8-478d-a293-62f2af3aa794",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        540,
+        220
+      ],
+      "id": "9228ecad-1ffa-40ed-ad13-6f3b031d0e4f",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "P0G2YpkVZIDDw99j",
+          "name": "OpenAi Boost TAI"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-23T13:47:29.353Z",
+  "versionId": "c8be06b8-c5cb-4a67-a5be-57a864d2d715"
+}
