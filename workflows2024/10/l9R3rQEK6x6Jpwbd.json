@@ -1,0 +1,296 @@
+{
+  "active": false,
+  "connections": {
+    "Prepare new chat data": {
+      "main": [
+        [
+          {
+            "node": "Get User Access Token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Prepare new chat data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error: Invalid input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User Access Token": {
+      "main": [
+        [
+          {
+            "node": "Send DM",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error: Unauthorized",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send DM": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-22T16:35:54.365Z",
+  "id": "l9R3rQEK6x6Jpwbd",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Send DM to Circle",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"chat_room\": {\n    \"rich_text_body\": {\n      \"body\": {\n        \"type\": \"doc\",\n        \"content\": [\n          {\n            \"type\": \"paragraph\",\n            \"content\": [\n              {\n                \"text\": {{ JSON.stringify($json.message) }},\n                \"type\": \"text\"\n              }\n            ]\n          }\n        ]\n      },\n    \"attachments\": {{ JSON.stringify($('Execute Workflow Trigger').first().json.attachments || []) }}\n    },\n    \"kind\": \"direct\",\n    \"community_member_ids\": [\n      \"{{ $json.user_id }}\"\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "fb7a9b86-910d-41c4-86ff-14b7ef2f410a",
+      "name": "Prepare new chat data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        860,
+        260
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "1f6fbbd5-27d8-4dac-8a95-8852c2b1160c",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "82293187-d7ac-4787-bdc8-f68b0fa37c2e",
+              "leftValue": "=  {{ $json.user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "e0bfb980-388a-4ffd-abca-ab1d1ca57118",
+              "leftValue": "={{ $json.message }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "50ee885a-b971-46ae-820e-f3d77892d48c",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        600,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/headless/auth_token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"{{ $vars.hub_content_creator_email }}\"\n}",
+        "options": {}
+      },
+      "id": "e316a2be-7226-45f7-a4bf-52ef41fe025b",
+      "name": "Get User Access Token",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        260
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CjvJCVIlAjHjU9qy",
+          "name": "Circle (hub.boostperformance.ai) Headless API"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Invalid input"
+      },
+      "id": "e9715f86-5c2a-4eb1-a021-25a3c2b1ac92",
+      "name": "Error: Invalid input",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        740,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Unable to get circle access token"
+      },
+      "id": "a64e6f50-edf5-45ac-b3e2-de4330fcc4d5",
+      "name": "Error: Unauthorized",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Unable to send Circle DM"
+      },
+      "id": "75ef3862-daa5-4c8e-a9c1-6fd6e89f71f8",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/headless/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($('Prepare new chat data').first().json) }}",
+        "options": {}
+      },
+      "id": "5eeeeb74-08cc-49c7-a8e8-d1d8287a23bf",
+      "name": "Send DM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1420,
+        260
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T19:06:31.377Z",
+      "updatedAt": "2024-10-22T19:06:31.377Z",
+      "id": "bKPfZp0igWIPyAvq",
+      "name": "Task"
+    },
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-18T18:21:39.000Z",
+  "versionId": "043c78bd-b730-4f28-a45b-dd9b73335b6f"
+}
