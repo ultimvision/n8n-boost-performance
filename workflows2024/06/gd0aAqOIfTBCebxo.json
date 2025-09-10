@@ -1,0 +1,414 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Part-1 | Select Sequences to Extract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Select Image is Success": {
+      "main": [
+        [
+          {
+            "node": "Part-2 | Get Images from the Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Extrated Images is Success": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Podcast ID with Images": {
+      "main": [
+        [
+          {
+            "node": "Part-4 | Download and Upload Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If the Image Analysis is Successful": {
+      "main": [
+        [
+          {
+            "node": "Set Podcast ID with Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Part-3 | Analyse Image Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Part-1 | Select Sequences to Extract": {
+      "main": [
+        [
+          {
+            "node": "If Select Image is Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Part-2 | Get Images from the Video": {
+      "main": [
+        [
+          {
+            "node": "If Extrated Images is Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Part-3 | Analyse Image Content": {
+      "main": [
+        [
+          {
+            "node": "If the Image Analysis is Successful",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-28T12:27:12.238Z",
+  "id": "gd0aAqOIfTBCebxo",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "NULL Extract Images | Podcasts",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "00e7c678-3ece-4d44-846c-b5636a3bdd5a",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -360,
+        320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bd0e4352-e008-4e9e-94ab-d240c8266536",
+              "name": "podcast_id",
+              "value": 3,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cb8bc59c-5e1e-4fcf-9798-f622e0acfdee",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -180,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "d5a030cd-c2ff-47d4-a675-eb115c78c4d2",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "success",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1c3a5ceb-1ddc-4143-ad9c-ef92ee11f9a4",
+      "name": "If Select Image is Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        220,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "d5a030cd-c2ff-47d4-a675-eb115c78c4d2",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "success",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b14f6509-f4a4-4e0d-9269-d6f397a371b7",
+      "name": "If Extrated Images is Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        700,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e8668871-5e7e-42b1-a637-7e64973e5e79",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        80,
+        -200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "d5a030cd-c2ff-47d4-a675-eb115c78c4d2",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "success",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d469ed57-8011-4236-8821-d0ab77e19588",
+      "name": "If the Image Analysis is Successful",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1360,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ea90de82-35fb-4d17-859d-69088c475814",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        360,
+        -200
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ef0bad50-6f87-4ee7-b68a-8c505e7c3454",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -180,
+        -200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e0df4d9-f3d2-4320-9f09-5ca9130d1b66",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "a9b5c655-d47f-4517-8263-fad1872473a1",
+      "name": "Set Podcast ID with Images",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1600,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "id": "cb612a10-7369-4075-9896-61acec466cff",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        940,
+        240
+      ],
+      "webhookId": "983dac3b-e8d9-4c68-87d3-8568831b2316"
+    },
+    {
+      "parameters": {
+        "workflowId": "j7buWRcVhIfsUvJg",
+        "options": {}
+      },
+      "id": "55d579b0-7623-4a5c-9323-a6a76e9d0ee0",
+      "name": "Part-1 | Select Sequences to Extract",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        0,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "c679QiAhHwX9gHzy",
+        "options": {}
+      },
+      "id": "9e6cc0b6-80d5-4533-ab0d-d3abc50336cd",
+      "name": "Part-2 | Get Images from the Video",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        480,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "zqNTVftuPa1YXWBW",
+        "options": {}
+      },
+      "id": "1215e20c-48bf-43b8-beb6-3f10b29aac54",
+      "name": "Part-3 | Analyse Image Content",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "7vdFvoarsDik7DiW",
+        "options": {}
+      },
+      "id": "e33ba3d6-732f-4014-beb4-6f3f304dd2e9",
+      "name": "Part-4 | Download and Upload Images",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1800,
+        240
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:14:01.125Z",
+      "updatedAt": "2024-06-29T11:14:01.125Z",
+      "id": "X4m1RhBLnumYOEJu",
+      "name": "ExtractImage"
+    },
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-06-30T20:19:36.000Z",
+  "versionId": "c2b83d63-1872-4923-8ba0-918fde442764"
+}
