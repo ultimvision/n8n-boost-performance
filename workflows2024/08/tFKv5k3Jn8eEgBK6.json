@@ -1,0 +1,1063 @@
+{
+  "active": false,
+  "connections": {
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Process",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert Channel Details": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Channel Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Links": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Links": {
+      "main": [
+        [
+          {
+            "node": "Clean Links",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Links": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Links",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Links": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Channel Details": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Upsert Channel Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Split Links",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Links",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Distinct Channel Video": {
+      "main": [
+        [
+          {
+            "node": "Upsert ChannelId",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Is Action Type is Select",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Process": {
+      "main": [
+        [
+          {
+            "node": "Return Nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Action Type is Select": {
+      "main": [
+        [
+          {
+            "node": "Loop Update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Data Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Channel To Update": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Action Type": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Channel To Update Exists": {
+      "main": [
+        [
+          {
+            "node": "Execute THIS Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Data Exists": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "If Channel To Update Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Update": {
+      "main": [
+        [
+          {
+            "node": "Select Channel To Update",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Set Action Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Distinct Channel Video1": {
+      "main": [
+        [
+          {
+            "node": "Upsert ChannelId1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get Distinct Channel Video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-24T22:02:45.754Z",
+  "id": "tFKv5k3Jn8eEgBK6",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Update Video Channel Details",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "bad2c291-9128-40af-be6f-01df3aedcd0d",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -460,
+        -780
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "81b00162-5dd3-4f7e-a08e-75a19845a2f0",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        280,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "36d79caf-f11b-4c8e-a488-aca0d25ca8aa",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1180,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "rag_youtube_channel",
+          "mode": "list",
+          "cachedResultName": "rag_youtube_channel"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "channelId",
+        "valueToMatchOn": "={{ $json.channelId }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "column": "publishedAt",
+              "value": "={{ $json.joinedDate }}"
+            },
+            {
+              "column": "country",
+              "value": "={{ $json.country }}"
+            },
+            {
+              "column": "subscriberCount",
+              "value": "={{ $json[\"subscriberCount\"] !== undefined && $json[\"subscriberCount\"] !== null ? $json[\"subscriberCount\"] : 0 }}"
+            },
+            {
+              "column": "videoCount",
+              "value": "={{ $json[\"videosCount\"] !== undefined && $json[\"videosCount\"] !== null ? $json[\"videosCount\"] : 0 }}"
+            },
+            {
+              "column": "keywords_array",
+              "value": "={{ $json[\"keywords\"] !== undefined && $json[\"keywords\"] !== null ? JSON.stringify($json[\"keywords\"]) : null }}"
+            },
+            {
+              "column": "image",
+              "value": "={{ $json.avatar[0].url }}"
+            },
+            {
+              "column": "description",
+              "value": "={{ $json[\"description\"] !== undefined && $json[\"description\"] !== null && $json[\"description\"] !== ''? $json[\"description\"] : null }}"
+            },
+            {
+              "column": "channelHandle",
+              "value": "={{ $json.channelHandle }}"
+            },
+            {
+              "column": "viewCount",
+              "value": "={{ $json[\"viewCount\"] !== undefined && $json[\"viewCount\"] !== null ? $json[\"viewCount\"] : 0 }}"
+            },
+            {
+              "column": "links",
+              "value": "={{ $json[\"links\"] !== undefined && $json[\"links\"] !== null ? JSON.stringify($json[\"links\"]) : null }}"
+            },
+            {
+              "column": "update_at",
+              "value": "={{ new Date().toISOString().slice(0, 19).replace('T', ' ') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7ff7fa0d-04eb-47ed-b396-81a31b7296e1",
+      "name": "Upsert Channel Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2940,
+        560
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://yt-api.p.rapidapi.com/channel/about",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $json.channelId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1d4e80ce-bbbd-4bd9-81dd-d245b1325203",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1540,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3a530d89-c803-4e4f-83f4-7495ef0ceae9",
+              "name": "links",
+              "value": "={{ $json.links }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4711d6bb-2d8b-4b7d-8df5-c35a4e76d0f1",
+      "name": "Extract Links",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2020,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "links",
+        "options": {}
+      },
+      "id": "7c07937e-6af1-41b8-93b7-f98145ea3bba",
+      "name": "Split Links",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7bdeb702-5682-40da-bc73-59f8e46863e4",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "3b4e71bd-c394-4cfb-a44b-053b08e8f291",
+              "name": "link",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6dd55256-a370-4421-882b-ebfe19c17caf",
+      "name": "Clean Links",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2240,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "links",
+        "options": {}
+      },
+      "id": "839de18e-4f6b-4c16-bb06-8bbbcf3e72b6",
+      "name": "Aggregate Links",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "include": "except",
+        "excludeFields": "banner, availableCountries, tabs, links",
+        "options": {}
+      },
+      "id": "0c93928b-d4e4-4c4f-9c97-3766ea729ba3",
+      "name": "Get Channel Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1740,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "090d9ff9-7e40-4cea-ba81-7ce2e36dbd91",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2780,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "f3604550-6fe7-4b69-bbfa-3fc8b37364d1",
+              "leftValue": "={{ $json.links }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "63d549b5-b340-4e3c-9878-583ef1120bec",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1740,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT DISTINCT(`channelId`),`channelTitle` FROM `rag_videos` WHERE `channelId` IS NOT NULL;",
+        "options": {}
+      },
+      "id": "b07ebd6a-1fe6-45af-b996-dc418c83c31a",
+      "name": "Get Distinct Channel Video",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -240,
+        -1020
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "rag_youtube_channel",
+          "mode": "list",
+          "cachedResultName": "rag_youtube_channel"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "channelId",
+        "valueToMatchOn": "={{ $json.channelId }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "title",
+              "value": "={{ $json.channelTitle }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7605438f-4c30-45fb-87a7-df9ab14fba67",
+      "name": "Upsert ChannelId",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        20,
+        -1020
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * \nFROM `rag_youtube_channel` \nWHERE `update_at` IS NULL \n   OR `update_at` < CURDATE() - INTERVAL 1 DAY\nLIMIT 50;",
+        "options": {}
+      },
+      "id": "dc668170-ccb2-4e1c-a521-b4599cdba668",
+      "name": "Select Channel To Update",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1240,
+        -1040
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "06b1f500-0739-4fe0-95e2-3d8c73616353",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        80,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "9f0faf9e-b852-4239-af75-ca14cb546875",
+      "name": "Aggregate Process",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "effda253-3ccf-4cf4-8093-f0e6a6e23e3c",
+      "name": "Return Nothing",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1760,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "tFKv5k3Jn8eEgBK6",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "6c64f8a8-0b45-409b-b1d2-dd657d4b3af9",
+      "name": "Execute THIS Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        -780
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "11a1f679-8c49-4b0f-b0a8-901e4104a24a",
+              "leftValue": "={{ $json.action_type }}",
+              "rightValue": "select",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "acbca495-9416-4307-ac96-b537e2f7ae2f",
+      "name": "Is Action Type is Select",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        500,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "133d671b-01ae-46ca-b50a-fa6eb57f169e",
+              "name": "action_type",
+              "value": "update",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "058c4c84-6744-490a-92b5-c7bd8241b69d",
+      "name": "Set Action Type",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1240,
+        -800
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "6ce125ed-b43f-4f9b-9699-ef8b21c4d587",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        -1040
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a529ea1a-aff2-4ed2-b779-73e41e517d9b",
+              "leftValue": "={{ $json.data[0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "62be395e-6204-49b2-8f00-6d226e303b64",
+              "leftValue": "={{ $json.data[0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0225bd67-264f-4143-8e8c-baa59862d129",
+      "name": "If Channel To Update Exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2060,
+        -940
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "35ee6da6-1606-4480-a636-ca3306229b86",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0341344e-406c-4a5c-aa1e-dec4ea2e0c9b",
+      "name": "Done",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2380,
+        -1080
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "e22b0cc2-5e15-4f53-89c2-b507f9acbaa8",
+              "leftValue": "={{ $json.data }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "8196d428-b5b4-432e-8af9-2befde348fa3",
+              "leftValue": "={{ $json.data }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fa1af3f7-2aeb-458b-b38d-0df48539ca05",
+      "name": "If Data Exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        840,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e5fee624-ae5f-478a-802b-5772f78a6806",
+      "name": "No Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        840,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "d851eb3a-b75c-43b7-bbfb-cd5eeebdec8e",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1780,
+        -940
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0e70761b-c5d7-45d4-a351-e67f36455e6c",
+      "name": "Loop Update",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        980,
+        -920
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT DISTINCT(`authorChannelId`),`authorDisplayName` FROM `rag_videos_comments` WHERE `channelId` IS NOT NULL;",
+        "options": {}
+      },
+      "id": "64234c4e-37ef-4f77-aabc-de02f5fa1b7e",
+      "name": "Get Distinct Channel Video1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -240,
+        -780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "rag_youtube_channel",
+          "mode": "list",
+          "cachedResultName": "rag_youtube_channel"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "channelId",
+        "valueToMatchOn": "={{ $json.authorChannelId }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "title",
+              "value": "={{ $json.authorDisplayName }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "61d2e794-87f4-4e46-bb0c-86d97199ca66",
+      "name": "Upsert ChannelId1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        20,
+        -780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-24T16:38:49.491Z",
+      "updatedAt": "2024-08-24T16:38:49.491Z",
+      "id": "OwqwkxPGrxiRpjaG",
+      "name": "Youtube"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-09T11:03:28.000Z",
+  "versionId": "09ec1560-0012-419f-b2a2-4fcdeb921dcb"
+}
