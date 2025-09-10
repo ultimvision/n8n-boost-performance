@@ -1,0 +1,337 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-09-09T10:59:01.528Z",
+  "id": "yN7qwkmOlrgeUuIg",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "CODE SNIPET - DEV - PATRICK",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "b3e5031d-59fc-470f-a25e-515d6dbdbadf",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        440,
+        600
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "59660246-5333-4bc5-878f-7ddd405d7c5f",
+              "name": "date",
+              "value": "={{ new Date().toISOString().slice(0, 19).replace('T', ' ') }}",
+              "type": "string"
+            },
+            {
+              "id": "ab10619f-6147-4278-96df-91529f5ecef9",
+              "name": "montreal_time",
+              "value": "={{ new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto', hour12: false }).replace(',', '') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "17d710d0-36f9-4f43-aac7-db69f54bfbdc",
+      "name": "Expression Javascript DATE",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        960,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "59660246-5333-4bc5-878f-7ddd405d7c5f",
+              "name": "value",
+              "value": "={{ $json[\"description\"] !== undefined && $json[\"description\"] !== null && $json[\"description\"] !== ''? $json[\"description\"] : null }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "041c0d5a-d7fa-47e6-916a-08888d19eb9f",
+      "name": "Validation Expression Javascript IF",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        700,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "Invalid input data to execute the workflow. Operation canceled.",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "19553308-6b5c-447c-8834-37df480b798d",
+              "name": "continue_sequence",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a60e0c3b-2a1f-47e5-8efd-b3ed4b0af6e7",
+      "name": "Invalid Input Data LOG",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        480,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "This transcript status is not completed. Operation canceled.",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            },
+            {
+              "id": "c142ed38-3dbc-48b1-bf5d-220c4dfd54f8",
+              "name": "continue_sequence",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6d0fc8f2-38f5-4e49-9547-3838604b3fca",
+      "name": "Status Incomplete",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        240,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "={{ JSON.stringify($json.message) }}",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "c4314f6c-f27c-4c2a-9fe3-db1db42e1191",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            },
+            {
+              "id": "68fae932-fd8f-41ef-8bbc-b2334311d137",
+              "name": "continue_sequence",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f3bfffbb-3690-4a54-b17e-28592db563a2",
+      "name": "Insert Mysql Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        0,
+        240
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-30T22:54:03.750Z",
+      "updatedAt": "2024-06-30T22:54:03.750Z",
+      "id": "c5NEvO9qFRDDjJfy",
+      "name": "DEV"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-17T11:44:58.000Z",
+  "versionId": "40f7a377-d0a2-4dff-b352-60d6c487ce08"
+}
