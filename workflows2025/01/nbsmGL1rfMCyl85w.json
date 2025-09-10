@@ -1,0 +1,1908 @@
+{
+  "active": false,
+  "connections": {
+    "Call the Flux API": {
+      "main": [
+        [
+          {
+            "node": "Get the Image status",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error timeout4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 5 sec": {
+      "main": [
+        [
+          {
+            "node": "Get the Image status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check the status": {
+      "main": [
+        [
+          {
+            "node": "Wait 5 sec",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cancel the job",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get image1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 5 sec",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Training is succeeded",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API payload": {
+      "main": [
+        [
+          {
+            "node": "Call the Flux API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update status": {
+      "main": [
+        [
+          {
+            "node": "Values",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error timeout5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get prompts": {
+      "main": [
+        [
+          {
+            "node": "Loop Over prompt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error timeout1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over prompt": {
+      "main": [
+        [
+          {
+            "node": "Filename and path",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Progress simulation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LoRA Inputs": {
+      "main": [
+        [
+          {
+            "node": "API payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Values": {
+      "main": [
+        [
+          {
+            "node": "If timeout",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filename and path": {
+      "main": [
+        [
+          {
+            "node": "Get image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Build generated_content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Images to save": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload image": {
+      "main": [
+        [
+          {
+            "node": "Images to save",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error timeout3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get image": {
+      "main": [
+        [
+          {
+            "node": "Upload image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error timeout2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build generated_content": {
+      "main": [
+        [
+          {
+            "node": "Update generated_content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resize Image": {
+      "main": [
+        [
+          {
+            "node": "Validate image with 4o mini",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If a good image": {
+      "main": [
+        [
+          {
+            "node": "Loop Over prompt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update generated_content": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Error timeout6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get image1": {
+      "main": [
+        [
+          {
+            "node": "Resize Image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cancel the job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the Image status": {
+      "main": [
+        [
+          {
+            "node": "Check the status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate image with 4o mini": {
+      "main": [
+        [
+          {
+            "node": "If a good image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Progress simulation": {
+      "main": [
+        [
+          {
+            "node": "Update status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Training is succeeded": {
+      "main": [
+        [
+          {
+            "node": "Get prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cancel the job": {
+      "main": [
+        [
+          {
+            "node": "Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If timeout": {
+      "main": [
+        [
+          {
+            "node": "Cancel the job1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "LoRA Inputs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cancel the job1": {
+      "main": [
+        [
+          {
+            "node": "Error timeout",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error timeout": {
+      "main": [
+        [
+          {
+            "node": "Error Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Params": {
+      "main": [
+        [
+          {
+            "node": "Report errors to slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Params1": {
+      "main": [
+        [
+          {
+            "node": "Report errors to client",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error timeout1": {
+      "main": [
+        [
+          {
+            "node": "Error Params1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error timeout2": {
+      "main": [
+        [
+          {
+            "node": "Error Params1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error timeout5": {
+      "main": [
+        [
+          {
+            "node": "Error Params1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error timeout3": {
+      "main": [
+        [
+          {
+            "node": "Error Params1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error timeout4": {
+      "main": [
+        [
+          {
+            "node": "Error Params1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error timeout6": {
+      "main": [
+        [
+          {
+            "node": "Error Params1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-08T19:56:31.507Z",
+  "id": "nbsmGL1rfMCyl85w",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Services - Generate Images with a LoRA",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.replicate.com/v1/predictions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "7f6131e3-32f8-4902-8527-67f08dccab9b",
+      "name": "Call the Flux API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1240,
+        100
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QI4vypKYZmD2NQGr",
+          "name": "Replicate Auth"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "c9224278-fb39-4e64-8253-fdf69a13e678",
+      "name": "Wait 5 sec",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2020,
+        320
+      ],
+      "webhookId": "aa32bb24-2dad-4157-8673-b5b0f7344175"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "processing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Processing"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "b9eb33fa-59a0-4917-b9be-c0e2ed750be6",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "failed",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Failed"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "7904aea3-7f50-4db0-8820-a60c965dc6fd",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "succeeded",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Succeeded"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "7886a7d7-be4f-4a6d-8e9c-3764e7b7efd7",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "starting",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Starting"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "db37128d-62ac-45a0-b9a0-133f86de8dbc",
+      "name": "Check the status",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        1680,
+        60
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1260,
+        100
+      ],
+      "id": "79a9dde3-2d84-463f-bc93-b8e20119b8d1",
+      "name": "Execute Workflow Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3b7f705c-c793-4faf-99a7-370eec249654",
+              "name": "input",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "id": "41cad75d-dedf-4c19-8acd-789704acdbc2",
+              "name": "version",
+              "value": "={{ $('Execute Workflow Trigger').item.json.version }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1040,
+        100
+      ],
+      "id": "ce78308b-d3d1-4fd4-b69e-229ce9aec983",
+      "name": "API payload"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "access_granted": true,
+            "id": "={{ $('Training is succeeded').item.json.jobId }}",
+            "progress_status": "={{ $json.status }}",
+            "progress": "={{ $json.progress }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5cda30f7-524b-453c-b087-0bf3aec32be7",
+      "name": "Update status",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        100
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appPhTLBwPKVSDEBS",
+          "mode": "list",
+          "cachedResultName": "Services AI",
+          "cachedResultUrl": "https://airtable.com/appPhTLBwPKVSDEBS"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblb8Oyu3bpeSPUvB",
+          "mode": "list",
+          "cachedResultName": "Image Generation Prompts",
+          "cachedResultUrl": "https://airtable.com/appPhTLBwPKVSDEBS/tblb8Oyu3bpeSPUvB"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -800,
+        100
+      ],
+      "id": "a73501b1-c878-429f-a91c-1295b6682218",
+      "name": "Get prompts",
+      "retryOnFail": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -480,
+        80
+      ],
+      "id": "b215ee70-b4a3-4cca-a1ee-9202250095a0",
+      "name": "Loop Over prompt"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2e315c87-ef4e-4872-ae3d-af5460b80134",
+              "name": "aspect_ratio",
+              "value": "={{ $('Get prompts').item.json.image_ratio ? $('Get prompts').item.json.image_ratio : '16:9' }}",
+              "type": "string"
+            },
+            {
+              "id": "aa16d9c3-5ed2-4bfa-9b41-50e3877ad629",
+              "name": "num_outputs",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "433d5814-4532-41f1-ba11-7974cb943444",
+              "name": "seed",
+              "value": "={{ $('Get prompts').item.json.seed === 0 ? Math.floor(Date.now() / 1000) : $('Get prompts').item.json.seed }}",
+              "type": "number"
+            },
+            {
+              "id": "92778405-ba47-47c6-84a1-ab42bb38bb6a",
+              "name": "output_format",
+              "value": "png",
+              "type": "string"
+            },
+            {
+              "id": "82e53dab-7c4b-4300-9739-8b7b98319ff9",
+              "name": "model",
+              "value": "dev",
+              "type": "string"
+            },
+            {
+              "id": "38d71073-a4ec-4209-b233-079bfcb9654d",
+              "name": "prompt",
+              "value": "={{ $json.prompt.replace(new RegExp('\\\\{\\\\{ keyword \\\\}\\\\}', 'g'), $json.trigger_word) }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6f5aa4ec-56ca-42a8-b626-a79bf3459bff",
+      "name": "LoRA Inputs",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        860,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e01c6964-7060-4cc1-8648-d8ae44ebf35a",
+              "name": "trigger_word",
+              "value": "={{ $('Training is succeeded').item.json.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "1fc1d9a9-da4c-4956-a003-43718caf5364",
+              "name": "id",
+              "value": "={{ $('Training is succeeded').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "785970f0-18bb-4d1c-9b53-257ed4c63d98",
+              "name": "prompt",
+              "value": "={{ $('Loop Over prompt').item.json.Prompt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        320,
+        80
+      ],
+      "id": "b4f50799-5534-45a3-89a2-008969ff1747",
+      "name": "Values"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "448371e3-a3d8-4c00-8970-0196380cf788",
+              "name": "filename",
+              "value": "={{ $('Loop Over prompt').item.json.id }}.png",
+              "type": "string"
+            },
+            {
+              "id": "41db6e08-a79d-4214-b3c6-fae4157b97b9",
+              "name": "path",
+              "value": "=service_ai_data/{{ $('Execute Workflow Trigger').item.json.user_id }}/{{ $('Execute Workflow Trigger').item.json.service_id }}/images/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        -180
+      ],
+      "id": "55f8f347-9d14-47be-97e1-21ae2d8195b6",
+      "name": "Filename and path"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        580,
+        -220
+      ],
+      "id": "503b5914-888f-4f10-938d-d145b0980c97",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9fee1b7c-96ad-4255-afef-179930db135e",
+              "name": "imageUrl",
+              "value": "=https://boost-data.nyc3.cdn.digitaloceanspaces.com/{{ $('Filename and path').item.json.path }}{{ $('Filename and path').item.json.filename }}",
+              "type": "string"
+            },
+            {
+              "id": "8c54e41c-8a53-4086-9706-5c33317b4506",
+              "name": "prompt",
+              "value": "={{ $('Loop Over prompt').item.json.input.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "e225ad70-0f17-45ab-9130-3c7cc8968fbd",
+              "name": "seed",
+              "value": "={{ $('Loop Over prompt').item.json.input.seed }}",
+              "type": "number"
+            },
+            {
+              "id": "ae68462f-8e59-4537-86c3-7238d3c2a853",
+              "name": "aspect_ratio",
+              "value": "={{ $('Loop Over prompt').item.json.input.aspect_ratio }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        -220
+      ],
+      "id": "1a3124d4-67f1-4c49-9e51-aa942f04c3bd",
+      "name": "Images to save"
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ $json.path }}{{ $json.filename }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        160,
+        -200
+      ],
+      "id": "2a240385-2bfe-432b-955f-19f233069308",
+      "name": "Upload image",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Get the Image status').item.json.output[0] }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -40,
+        -180
+      ],
+      "id": "5a77b689-1ed0-4bcc-9571-9656c20537c9",
+      "name": "Get image",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "status",
+              "value": "={{ $('Execute Workflow Trigger').item.json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "4cd449d2-1096-4ce8-ba17-f93289629393",
+              "name": "id",
+              "value": "={{ $('Execute Workflow Trigger').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bcd050e6-2805-4f78-8c09-4c834168e2c5",
+              "name": "keyword",
+              "value": "={{ $('Execute Workflow Trigger').item.json.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "96766582-a154-4277-a827-78a4bde9a734",
+              "name": "logs",
+              "value": "={{ $('Execute Workflow Trigger').item.json }}",
+              "type": "object"
+            },
+            {
+              "id": "e2d8592f-7b6d-4aad-a059-3e959812eb7b",
+              "name": "steps",
+              "value": "={{ $('Execute Workflow Trigger').item.json.generated_content.steps }}",
+              "type": "number"
+            },
+            {
+              "id": "e0307e1e-96cf-495e-8119-2be0561bd505",
+              "name": "zipFile",
+              "value": "={{ $('Execute Workflow Trigger').item.json.generated_content.logs.body.input.input_images }}",
+              "type": "string"
+            },
+            {
+              "id": "70e86600-18f7-42c7-af54-104aa90cb57b",
+              "name": "version",
+              "value": "={{ $('Execute Workflow Trigger').item.json.version }}",
+              "type": "string"
+            },
+            {
+              "id": "a10977df-fc88-44c2-9d37-ed80ce3484e5",
+              "name": "LoRA",
+              "value": "={{ $('Execute Workflow Trigger').item.json.generated_content.logs.body.output.weights }}",
+              "type": "string"
+            },
+            {
+              "id": "bf09771b-b45a-4ca8-99d2-dd91cf4e9fee",
+              "name": "images",
+              "value": "={{ $json.data }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        860,
+        -220
+      ],
+      "id": "9393f66c-ef65-4767-b583-43a4cbe67c38",
+      "name": "Build generated_content"
+    },
+    {
+      "parameters": {
+        "operation": "resize",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        80
+      ],
+      "id": "3d65479d-30f9-49ad-9b27-53ab13d170f4",
+      "name": "Resize Image"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e27af61f-f695-4dab-ba31-e393638dcd18",
+              "leftValue": "={{ $json.choices[0].message.content }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2660,
+        80
+      ],
+      "id": "179c353f-23db-4ba4-a9ae-893a0aad6028",
+      "name": "If a good image"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "access_granted": true,
+            "id": "={{ $('Execute Workflow Trigger').item.json.jobId }}",
+            "progress": 100,
+            "generated_content": "={{ JSON.stringify($json) }}",
+            "status": "completed"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "01a712b2-c15f-4f9c-980d-4103ec926d4e",
+      "name": "Update generated_content",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1080,
+        -220
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.output[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2020,
+        100
+      ],
+      "id": "8c2b1c06-c74c-4ed7-ba93-46a897128923",
+      "name": "Get image1",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.urls.get }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "id": "4424d95f-37e9-45b0-a6b3-0ec141044f84",
+      "name": "Get the Image status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1460,
+        80
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QI4vypKYZmD2NQGr",
+          "name": "Replicate Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "text": "Evaluate the image quality and professionalism. Ensure the image is clear, in focus, not distorted, and appears professional (no blurriness, pixelation, poor lighting, or off-center framing). Respond only with a JSON object containing a Boolean: `{\"pass\": true}` if the image passes and `{\"pass\": false}` if it fails.",
+        "inputType": "base64",
+        "simplify": false,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        2440,
+        80
+      ],
+      "id": "3ae58950-dd52-4c58-bd63-01ea14e2b537",
+      "name": "Validate image with 4o mini",
+      "credentials": {
+        "openAiApi": {
+          "id": "P0G2YpkVZIDDw99j",
+          "name": "OpenAi Boost TAI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const RUNNING_STATUS = 'Génération des images';\nconst nbPrompt = $('Get prompts').all().length;\nconst elapsedPrompts = $runIndex;\nconst START_PROGRESS = 70; // Starting at 70%\nconst PROGRESS_INCREMENT = 30 / nbPrompt;\nconst LAST_INCREMENT  = 100 - PROGRESS_INCREMENT;\nlet currentProgress = START_PROGRESS + (elapsedPrompts * PROGRESS_INCREMENT);\n\ncurrentProgress = Math.min(currentProgress, 100);\ncurrentProgress = Math.max(currentProgress, START_PROGRESS);\n\nreturn {\n  progress: currentProgress.toFixed(2),\n  status: RUNNING_STATUS\n};\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        100
+      ],
+      "id": "12db3f6b-0821-45e2-adcd-648df44068f0",
+      "name": "Progress simulation"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "succeeded",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Succeeded"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1060,
+        100
+      ],
+      "id": "4a614e1b-23de-4a46-ac0b-0f123dc50bcf",
+      "name": "Training is succeeded"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Call the Flux API').item.json.urls.cancel }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2420,
+        420
+      ],
+      "id": "5f2eec41-3d49-4044-8015-3d9f50326720",
+      "name": "Cancel the job"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d6411f19-a5cc-47f7-9b75-de3ec7fe5a0f",
+              "leftValue": "={{ $runIndex >= 120 / 5 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        560,
+        80
+      ],
+      "id": "87fb0929-625c-449e-87ed-2c8d80ac2c7c",
+      "name": "If timeout"
+    },
+    {
+      "parameters": {
+        "content": "## Report errors to client & slack\n",
+        "height": 320,
+        "width": 2980
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        1040
+      ],
+      "id": "be4c7210-9ab2-4fc5-b117-7bf34efbb1bd",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Report errors to slack\n",
+        "height": 320,
+        "width": 1380
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        620
+      ],
+      "id": "488b7a81-af9a-4d01-af91-5f1ffa876f03",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Call the Flux API').item.json.urls.cancel }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        420
+      ],
+      "id": "da3a5a2e-ffcd-442b-9ac4-fbd8c81cc2ab",
+      "name": "Cancel the job1",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e753b13e-6f6a-4b04-968e-588f00a05700",
+              "name": "msg",
+              "value": "Timeout in image generation",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1240,
+        740
+      ],
+      "id": "831660c5-8858-4980-9652-d6645dee1979",
+      "name": "Error timeout"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e753b13e-6f6a-4b04-968e-588f00a05700",
+              "name": "jobId",
+              "value": "={{ $('Execute Workflow Trigger').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "844d320e-e913-4b98-884d-83f9f9118632",
+              "name": "type",
+              "value": "slack",
+              "type": "string"
+            },
+            {
+              "id": "693108f4-ea44-43ad-9b7c-1e07fdd52459",
+              "name": "workflow.name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b953d507-6627-41a7-bc66-c0205d392c35",
+              "name": "workflow.id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "a1fa5663-88cc-4e1d-9a72-9988973be6e3",
+              "name": "execution.id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "92f60785-44cb-4d47-b6ff-148df86339bc",
+              "name": "error_message",
+              "value": "={{ $json.msg }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2060,
+        740
+      ],
+      "id": "c3f14634-0631-45a4-bd43-a2e1d460287d",
+      "name": "Error Params"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e753b13e-6f6a-4b04-968e-588f00a05700",
+              "name": "msg",
+              "value": "Error getting prompts",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -740,
+        1160
+      ],
+      "id": "71a71610-6fb6-43d1-864f-ffc1cfdb3298",
+      "name": "Error timeout1"
+    },
+    {
+      "parameters": {
+        "workflowId": "mcwdWCVbgAM3Fr0W",
+        "options": {}
+      },
+      "id": "247ee3c5-4926-4de6-bb5e-79dfaf4aa49c",
+      "name": "Report errors to client",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e753b13e-6f6a-4b04-968e-588f00a05700",
+              "name": "jobId",
+              "value": "={{ $('Execute Workflow Trigger').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "844d320e-e913-4b98-884d-83f9f9118632",
+              "name": "type",
+              "value": "both",
+              "type": "string"
+            },
+            {
+              "id": "693108f4-ea44-43ad-9b7c-1e07fdd52459",
+              "name": "workflow.name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b953d507-6627-41a7-bc66-c0205d392c35",
+              "name": "workflow.id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "a1fa5663-88cc-4e1d-9a72-9988973be6e3",
+              "name": "execution.id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "92f60785-44cb-4d47-b6ff-148df86339bc",
+              "name": "error_message",
+              "value": "={{ $json.msg }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1720,
+        1160
+      ],
+      "id": "076360b8-36f7-4ed1-9838-1c58ae6fbdc4",
+      "name": "Error Params1"
+    },
+    {
+      "parameters": {
+        "workflowId": "mcwdWCVbgAM3Fr0W",
+        "options": {}
+      },
+      "id": "230f5b2e-41ef-4046-9b7b-2d051ecab5be",
+      "name": "Report errors to slack",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e753b13e-6f6a-4b04-968e-588f00a05700",
+              "name": "msg",
+              "value": "Error getting images",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -40,
+        1160
+      ],
+      "id": "4e7e5a97-7a68-49d6-b94e-d6a335326e0f",
+      "name": "Error timeout2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e753b13e-6f6a-4b04-968e-588f00a05700",
+              "name": "msg",
+              "value": "Cannot upload images",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        300,
+        1160
+      ],
+      "id": "addbc2b6-6ed3-4353-b43c-52000cbf13ca",
+      "name": "Error timeout3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e753b13e-6f6a-4b04-968e-588f00a05700",
+              "name": "msg",
+              "value": "Error calling replicate API",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        1160
+      ],
+      "id": "c5a5fe5c-e5d2-42a7-a7b3-903b01ffb530",
+      "name": "Error timeout4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e753b13e-6f6a-4b04-968e-588f00a05700",
+              "name": "msg",
+              "value": "Cannot update status",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        120,
+        1160
+      ],
+      "id": "127156bb-0d33-42b2-ae20-9de2f7bc97c9",
+      "name": "Error timeout5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e753b13e-6f6a-4b04-968e-588f00a05700",
+              "name": "msg",
+              "value": "Cannot save job",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1320,
+        1160
+      ],
+      "id": "5c83229a-d262-44d1-88ba-29c29f310bbb",
+      "name": "Error timeout6"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {},
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T16:32:57.263Z",
+      "updatedAt": "2024-12-18T16:32:57.263Z",
+      "id": "amjVeuraiVY1rsI9",
+      "name": "Dev:Bill"
+    },
+    {
+      "createdAt": "2025-01-09T18:43:24.496Z",
+      "updatedAt": "2025-01-09T18:43:24.496Z",
+      "id": "ibTp4QS6HcCdS2fo",
+      "name": "LoRA training"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-13T21:06:40.000Z",
+  "versionId": "97ef812f-a369-408a-854f-46069a2bca16"
+}
