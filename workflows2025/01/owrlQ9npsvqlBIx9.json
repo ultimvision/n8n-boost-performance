@@ -1,0 +1,474 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Build generated_content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get job": {
+      "main": [
+        [
+          {
+            "node": "Is not completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete zip": {
+      "main": [
+        [
+          {
+            "node": "Job data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build generated_content": {
+      "main": [
+        [
+          {
+            "node": "Get job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update generated_content": {
+      "main": [
+        [
+          {
+            "node": "Delete zip",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is not completed": {
+      "main": [
+        [
+          {
+            "node": "Update generated_content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-08T19:54:12.054Z",
+  "id": "owrlQ9npsvqlBIx9",
+  "isArchived": false,
+  "meta": null,
+  "name": "Services - LoRA training is terminated",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1a7039d6-5287-4c42-97f2-df1f9a5e1955",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -820,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * \nFROM service_access_logs\nWHERE generated_content->>'id' = '{{ $json.id }}';\n",
+        "options": {}
+      },
+      "id": "52afd477-cc1d-4996-aec5-398d7db5f64a",
+      "name": "Get job",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -420,
+        0
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "bucketName": "=boost-data",
+        "fileKey": "=service_ai_data/{{ $json.user_id }}/tmp/{{ $('Get job').item.json.generated_content.zipFile.split('/').pop() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        220,
+        -20
+      ],
+      "id": "b8035637-161b-46b1-b123-f8ca76f0f7a3",
+      "name": "Delete zip",
+      "executeOnce": true,
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "status",
+              "value": "={{ $json.body.status }}",
+              "type": "string"
+            },
+            {
+              "id": "4cd449d2-1096-4ce8-ba17-f93289629393",
+              "name": "id",
+              "value": "={{ $json.body.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bcd050e6-2805-4f78-8c09-4c834168e2c5",
+              "name": "keyword",
+              "value": "={{ $json.body.input.trigger_word }}",
+              "type": "string"
+            },
+            {
+              "id": "96766582-a154-4277-a827-78a4bde9a734",
+              "name": "logs",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "id": "e2d8592f-7b6d-4aad-a059-3e959812eb7b",
+              "name": "steps",
+              "value": "={{ $json.body.input.steps }}",
+              "type": "number"
+            },
+            {
+              "id": "e0307e1e-96cf-495e-8119-2be0561bd505",
+              "name": "zipFile",
+              "value": "={{ $json.body.input.input_images }}",
+              "type": "string"
+            },
+            {
+              "id": "70e86600-18f7-42c7-af54-104aa90cb57b",
+              "name": "version",
+              "value": "={{ $json.body.output.version.split(':').pop() }}",
+              "type": "string"
+            },
+            {
+              "id": "a10977df-fc88-44c2-9d37-ed80ce3484e5",
+              "name": "LoRA",
+              "value": "={{ $json.body.output.weights }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -620,
+        0
+      ],
+      "id": "bcd70d03-3fe5-4474-ae84-a57588ec402d",
+      "name": "Build generated_content"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "status",
+              "value": "={{ $('Build generated_content').item.json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "4cd449d2-1096-4ce8-ba17-f93289629393",
+              "name": "id",
+              "value": "={{ $('Build generated_content').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bcd050e6-2805-4f78-8c09-4c834168e2c5",
+              "name": "keyword",
+              "value": "={{ $('Build generated_content').item.json.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "96766582-a154-4277-a827-78a4bde9a734",
+              "name": "generated_content",
+              "value": "={{ $('Update generated_content').item.json.generated_content }}",
+              "type": "object"
+            },
+            {
+              "id": "70e86600-18f7-42c7-af54-104aa90cb57b",
+              "name": "version",
+              "value": "={{ $('Build generated_content').item.json.version }}",
+              "type": "string"
+            },
+            {
+              "id": "a10977df-fc88-44c2-9d37-ed80ce3484e5",
+              "name": "LoRA",
+              "value": "={{ $('Build generated_content').item.json.LoRA }}",
+              "type": "string"
+            },
+            {
+              "id": "17a91200-7ce9-4327-b90b-16f3dadba528",
+              "name": "jobId",
+              "value": "={{ $('Get job').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "059f5892-13dc-450e-ba06-c4733eaa1cca",
+              "name": "user_id",
+              "value": "={{ $('Get job').item.json.user_id }}",
+              "type": "string"
+            },
+            {
+              "id": "cd4f317c-d5a6-4ed4-a7f7-5b60b5554b3d",
+              "name": "service_id",
+              "value": "={{ $('Get job').item.json.service_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        420,
+        -20
+      ],
+      "id": "66d3f38b-8b0b-4bfd-accb-e6ee915eb8de",
+      "name": "Job data"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "generated_content": "={{ JSON.stringify($('Build generated_content').item.json) }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "973de668-ff97-4c0f-a6e4-d000b051cd2e",
+      "name": "Update generated_content",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        -20
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d2f4da09-76fa-43dd-9681-700bc9e1c368",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "completed",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -220,
+        0
+      ],
+      "id": "bb3270e4-d504-472c-8194-52cb8eeb595a",
+      "name": "Is not completed"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {},
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T16:32:57.263Z",
+      "updatedAt": "2024-12-18T16:32:57.263Z",
+      "id": "amjVeuraiVY1rsI9",
+      "name": "Dev:Bill"
+    },
+    {
+      "createdAt": "2025-01-09T18:43:24.496Z",
+      "updatedAt": "2025-01-09T18:43:24.496Z",
+      "id": "ibTp4QS6HcCdS2fo",
+      "name": "LoRA training"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-09T18:43:59.000Z",
+  "versionId": "d6ee515d-8d00-4d2a-ab76-4b3ffbd38482"
+}
