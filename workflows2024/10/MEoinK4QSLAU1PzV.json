@@ -1,0 +1,47 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-10-06T00:04:54.548Z",
+  "id": "MEoinK4QSLAU1PzV",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 5",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "form-circle",
+        "formTitle": "Import Youtube",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Video URl"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8bbe7beb-5759-431c-9af6-55bea148a067",
+      "name": "n8n Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.1,
+      "position": [
+        500,
+        440
+      ],
+      "webhookId": "d9ca75c9-3c97-457a-a600-6352cf100d3d"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2024-10-06T00:05:45.000Z",
+  "versionId": "b6215229-3ae1-4831-a6e1-2625dd904c6c"
+}
