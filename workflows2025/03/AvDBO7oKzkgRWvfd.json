@@ -1,0 +1,149 @@
+{
+  "active": true,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-28T00:44:50.673Z",
+  "id": "AvDBO7oKzkgRWvfd",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Famille Guilbeault",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7907f83c-748a-4a4f-b872-830b8f69600e",
+      "name": "When clicking ‘Test workflow’",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appFj0662CkECqp9H",
+          "mode": "list",
+          "cachedResultName": "Famille Guilbeault",
+          "cachedResultUrl": "https://airtable.com/appFj0662CkECqp9H"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl3uDVgenGYTqVD9",
+          "mode": "list",
+          "cachedResultName": "Prospects Website",
+          "cachedResultUrl": "https://airtable.com/appFj0662CkECqp9H/tbl3uDVgenGYTqVD9"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.body['your-name'] }}",
+            "Téléphone": "={{ $json.body['tel-325'] }}",
+            "Email": "={{ $json.body['your-email'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        220,
+        -180
+      ],
+      "id": "14cbffb5-673c-407d-970f-dc00e46e0fa0",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "e944DY0ZNewlQH0k",
+          "name": "Famille Guilbeault"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "family",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        -180
+      ],
+      "id": "eb27ca3b-63d3-45ed-9e07-14e1546b21d2",
+      "name": "Webhook",
+      "webhookId": "c1d0611e-8982-4bb5-a6a5-7301fbf4c1fb"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-03-28T00:53:18.000Z",
+  "versionId": "9bfe4bfb-8294-4745-90e6-0441a16a1aea"
+}
