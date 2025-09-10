@@ -1,0 +1,164 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get article": {
+      "main": [
+        [
+          {
+            "node": "Prepare data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data": {
+      "main": [
+        [
+          {
+            "node": "Publish to Ayrshare",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-10T19:47:36.199Z",
+  "id": "ECir0M4f07Q50MjQ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Publish to Ayrshare",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "record_id"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "223059dc-cc66-4140-8c30-546e6c4cf740",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appY3aedb8dbqsB6a",
+          "mode": "list",
+          "cachedResultName": "Publishing",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl470iWRiQEZxTUe",
+          "mode": "list",
+          "cachedResultName": "Generated Articles",
+          "cachedResultUrl": "https://airtable.com/appY3aedb8dbqsB6a/tbl470iWRiQEZxTUe"
+        },
+        "id": "={{ $json.record_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        360,
+        0
+      ],
+      "id": "2f1f5425-64a8-4265-99ec-5ffe06949145",
+      "name": "Get article",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const payload = {post: {}, platforms: [], mediaUrls: {}}\n\nif ($input.item.json.platforms.indexOf('facebook') >= 0) {\n  payload.post['facebook'] = $input.item.json.content_facebook\n  payload.mediaUrls['facebook'] = $input.item.json.featured_image_url\n  payload.platforms.push('facebook')\n}\nif ($input.item.json.platforms.indexOf('linkedin') >= 0) {\n  payload.post['linkedin'] = $input.item.json.content_linkedin\n  payload.mediaUrls['linkedin'] = $input.item.json.featured_image_url\n  payload.platforms.push('linkedin')\n}\n\nif ($input.item.json.scheduled_date) {\n  payload['scheduledDate'] = $input.item.json.scheduled_date\n}\n\nreturn {\n  json: payload\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        0
+      ],
+      "id": "ce237e27-4a68-4f37-aca6-b82b1abf6d27",
+      "name": "Prepare data"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.ayrshare.com/api/post",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "7b1bed82-221d-44cf-aaae-596c1c02bf8d",
+      "name": "Publish to Ayrshare",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "24TZ1Fyi8uKpzAGw",
+          "name": "Ayrshare API"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-09T18:54:30.662Z",
+      "updatedAt": "2025-04-09T18:54:30.662Z",
+      "id": "bwORh3v4jHXqexLE",
+      "name": "Publishing"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-11T14:45:57.000Z",
+  "versionId": "2ff948cd-a4d9-47b0-8b1d-05aa3ce54a67"
+}
