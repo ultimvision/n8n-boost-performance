@@ -1,0 +1,414 @@
+{
+  "active": false,
+  "connections": {
+    "Set Customer User": {
+      "main": [
+        [
+          {
+            "node": "Get  Instagram Posts By User with Comments and Likers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Data - Nannette De Gaspe": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Test Data - Nannette De Gaspe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-27T11:06:29.626Z",
+  "id": "AKTGm6RRA47L8iBj",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Instagram - AI Agents Army Dashboard",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "bf9340df-517c-4184-8aa8-5a58f714e4b7",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        3880,
+        1300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Extract Posts from a list of Instagram accounts\n### Extract all posts from a list of Instagram accounts\n\nWhen you're doing marketing, it is key to know your niche. Study your competition and use their good ideas, while leaving aside what you don't like that much. This Instagram Profile Post Extractor automation will visit a list of profiles for you and extract every single post they ever posted. This includes the image/video, but also the stats (likes, etc.), hashtags, engagements, locations, comments, likers and more. Keep informed, get new ideas, filter out the stuff that didn't work and keep the good and discover the channels your competitors are focused on.",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "1f4ca4ba-c7d2-4cf0-9741-2d5fcc27108a",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "74a95758-aa1f-4d32-be3b-9b64a1b969e4",
+              "name": "username",
+              "value": "nannettedegaspe",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6c22ab97-3b1e-46d5-9323-931beec46ace",
+      "name": "Set Customer User",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2120,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "R3rTRNWWwdbJBVo3",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "c18c0bf4-0326-4518-ae6d-23c42861af7d",
+      "name": "CRM - Instagram New Contacts",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "dUcvoYwofJqHp8KL",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "61a5772b-3959-4d8d-841c-9c2f86a20d8f",
+      "name": "Instagram - Get Similar Hashtags",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3180,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "ao44YnQ2XSr8mMf3",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "6f49b39e-ab50-4102-9168-38d9faf809f6",
+      "name": "Get  Instagram Posts By Competitors Hashtags",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        4120,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "xEZe0BWRL0er0klM",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "60f6ba8f-fc0a-47f8-80d6-7bab7d873eda",
+      "name": "Instagram - Auto Commentator",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3200,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Similar Hashtags Search on Instagram\n### Identify and analyze similar hashtags related to your niche on Instagram\n\nWhen you're working on your marketing strategy, discovering and leveraging relevant hashtags can boost your visibility and engagement. This Similar Hashtag Search automation will help you identify hashtags that are closely related to your target keywords. By extracting a list of similar hashtags, you can enhance your content's reach, align with trending topics, and refine your hashtag strategy. Analyze the performance of these hashtags, including their usage frequency and engagement levels, to optimize your posts for better results. Stay ahead of your competitors by understanding which hashtags are driving traffic and engagement in your niche.",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "ef39367d-7df4-4462-b75f-b61573227bee",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "TKfi0GQ4JjurQP48",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "b6f8f999-2699-42d5-b807-c844bb9305e9",
+      "name": "Get  Instagram Posts By User with Comments and Likers",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Extract Posts from a List of Hashtags\nCollect and analyze posts associated with specific hashtags on Instagram.\n\nHashtags are a powerful tool for discovering content related to your niche. This automation allows you to extract all posts associated with a list of selected hashtags on Instagram. By gathering posts under these hashtags, you can analyze the type of content being shared, monitor trends, and identify popular topics within your industry. This includes retrieving the images, videos, captions, stats (likes, comments, etc.), engagements, and more. Use this data to understand what's resonating with audiences, refine your content strategy, and gain insights into the effectiveness of different hashtags.",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "d7bb4fd4-fc83-4961-bf32-fa5fe6e36da1",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3780,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Get Contact Information from a List of Commentators and Likers\n### Extract All Public Information of a User to Add to CRM\n\nCollect public contact details of Instagram users who engage with your posts, and add them to your CRM to enhance targeted marketing and relationship building.\n\nAutomatically gather and store publicly available data from Instagram profiles in your CRM, helping you organize leads and personalize your outreach efforts.",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "79aadf71-1e86-4aee-98aa-5655d7e1751b",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Instagram - AI Auto Commentator\n### Analyze Comments with AI and Generate a Response\n\nAutomatically generate and post responses to Instagram comments using AI, enhancing engagement with your audience.\n\nLeverage AI to analyze incoming Instagram comments and craft personalized, contextually relevant responses to improve interaction and audience connection.",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "7e3b306b-bbea-4f8d-ab8c-448bf2a5b90e",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Instagram Auto Follow\n### Auto Follow or Unfollow a List of Accounts on Instagram\n\nAutomatically follow or unfollow Instagram accounts to efficiently grow and manage your network.\n\nYour perfect audience is somewhere on Instagram. Don’t waste time following people one by one. This Instagram Auto Follower will allow you to organically grow your audience by automatically following or unfollowing a specified list of accounts. Streamline your Instagram management, build a curated and engaged audience, and focus on connecting with the right people without the manual effort.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "269122dd-5ff3-415a-b01d-cdba7b6332a2",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3780,
+        580
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f62c4571-1f3f-4a3d-83fe-3989719dfd96",
+      "name": "Instagram Auto Follow",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4140,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Instagram Follower Collector\n### Extract the Followers of an Instagram Account and Get Contact Data\n\nAutomatically extract the followers of a specified Instagram account and gather their public contact information. This tool allows you to build a comprehensive list of potential leads or collaborators by collecting usernames, bios, and available contact details. Use this data to expand your network, target your marketing efforts, and enhance your outreach strategies.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "da81eb5b-fd5e-4a2b-b449-407e51e30f53",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        1220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "595b6b6d-2d19-49bd-831d-19a479f484d7",
+      "name": "Instagram Follower Collector",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        1520
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Instagram Auto Liker\n### Auto Like a List of Posts on Instagram\n\nAutomatically like a specified list of posts on Instagram to increase engagement and visibility. This tool helps you interact with targeted content effortlessly, boosting your presence and fostering connections within your niche. Save time and enhance your engagement strategy by automating the process of liking posts that align with your marketing goals.\n",
+        "height": 514.0961339888504,
+        "width": 791.3118591101434,
+        "color": 7
+      },
+      "id": "35f82b26-5ec2-452a-9acb-22d70923dc4c",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        1220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "eab539dd-9cb4-4aeb-84fc-49d2525d20df",
+      "name": "Instagram Auto Liker",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3200,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Source example](https://boostperformance.ai/aiagent/bots_instagram_1600px.jpg)",
+        "height": 1149.2289415810385,
+        "width": 1634.4352346958026,
+        "color": 7
+      },
+      "id": "844ee932-5fbb-4eba-b568-10d56747e5e1",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        220,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3f825b9e-9af6-4128-a766-64d4248ebb6f",
+              "name": "customer_id",
+              "value": "nannette-de-gaspe",
+              "type": "string"
+            },
+            {
+              "id": "643c5ad2-90e3-4c86-aed1-f81f0812de12",
+              "name": "sitemap_url",
+              "value": "https://nannettedegaspe.com/sitemap.xml",
+              "type": "string"
+            },
+            {
+              "id": "2a367b06-e264-47ad-9e41-4e04702fac2b",
+              "name": "customer_name",
+              "value": "Nannette de Gaspe",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2955e0bc-5a07-44ba-b9b7-e7e72c1537b4",
+      "name": "Test Data - Nannette De Gaspe",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4120,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "fec1b027-7c31-43a4-86b9-4b9a3232e3d4",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4340,
+        1300
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T13:07:53.389Z",
+      "updatedAt": "2024-08-26T13:07:53.389Z",
+      "id": "gQxWtkeNcVbI6Tr5",
+      "name": "Instagram"
+    },
+    {
+      "createdAt": "2024-08-27T11:57:26.314Z",
+      "updatedAt": "2024-08-27T11:57:26.314Z",
+      "id": "rRAYPMNxSAm8ZgBM",
+      "name": "Dashboard"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T22:08:50.000Z",
+  "versionId": "534d2ae6-a9d4-4e46-99cd-03fa3cd60ea8"
+}
