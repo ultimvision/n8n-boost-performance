@@ -1,0 +1,270 @@
+{
+  "active": false,
+  "connections": {
+    "Prepare new comment data": {
+      "main": [
+        [
+          {
+            "node": "Get User Access Token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User Access Token1": {
+      "main": [
+        [
+          {
+            "node": "Create comment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate input": {
+      "main": [
+        [
+          {
+            "node": "Prepare new comment data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-29T18:06:29.937Z",
+  "id": "b7Jkcn6XM1Hpa0i5",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Circle - Create Comment",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"comment\": {\n    \"tiptap_body\": {\n      \"body\": {\n        \"type\": \"doc\",\n        \"content\": {{ JSON.stringify($json.content) }}\n      }\n    }\n  }\n}",
+        "options": {}
+      },
+      "id": "8088f5e5-1775-4138-9972-c3402ea022c4",
+      "name": "Prepare new comment data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        860,
+        2680
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/headless/auth_token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"{{ $('Execute Workflow Trigger').first().json.sender_email }}\"\n}",
+        "options": {}
+      },
+      "id": "2695ad06-98e3-4107-b6a5-a2aade45fe47",
+      "name": "Get User Access Token1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        2680
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CjvJCVIlAjHjU9qy",
+          "name": "Circle (hub.boostperformance.ai) Headless API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://app.circle.so/api/headless/v1/posts/{{ $('Execute Workflow Trigger').first().json.post_id }}/comments",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($('Prepare new comment data').first().json) }}",
+        "options": {}
+      },
+      "id": "3f214a97-7f6e-46f3-bc13-93ae1a293afa",
+      "name": "Create comment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1460,
+        2680
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Creating a comment on a post\n\nDocs: https://api-headless.circle.so/?urls.primaryName=Member%20APIs#/Comments/post_api_headless_v1_posts__post_id__comments\n\nWe use the headless API instead of the admin API since it allows for tiptap content, while the admin api only allows strings are body.\nIt is possible to follow the \"Upload a file\" flow and embed rich media into a comment too since it supports tiptap body.",
+        "height": 553.125421690152,
+        "width": 1281.528803737784,
+        "color": 5
+      },
+      "id": "229c8612-fd19-48c9-847e-8f68738e23d6",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        2400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "3a4ba67f-1ee5-4d9d-a73d-6262e7fce7a8",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        220,
+        2680
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c41e0e06-8eef-489b-81a0-2d100c6498d6",
+              "leftValue": "={{ $json.post_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "3a82a700-05df-4c33-887d-d24cc2112164",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "ede0b5f8-81cd-44ac-a12f-7627f996b2b2",
+              "leftValue": "={{ $json.sender_email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "53ea375e-8161-4071-9a64-22fa08ac0588",
+      "name": "Validate input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        560,
+        2680
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "Invalid input"
+      },
+      "id": "5cbeac3c-c8a8-4f6d-a220-eb34ad5a8995",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        660,
+        3060
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T19:06:31.377Z",
+      "updatedAt": "2024-10-22T19:06:31.377Z",
+      "id": "bKPfZp0igWIPyAvq",
+      "name": "Task"
+    },
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-29T19:35:23.000Z",
+  "versionId": "9d17db76-e090-4a9e-bd2a-27fc75b956d1"
+}
