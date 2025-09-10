@@ -1,0 +1,124 @@
+{
+  "active": false,
+  "connections": {
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Chat",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-23T19:53:00.744Z",
+  "id": "OUbmCgXx5OHLL6yq",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Chat - Nannette de Gaspe",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "b70a2317-097d-4158-b02f-c0c448d2051c",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        720,
+        620
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "id": "23a59531-7020-4767-b9a7-d029f1c6e3e4",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        1160,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_9hGqgVd5OVDf67YDdB8MxsQC",
+          "mode": "list",
+          "cachedResultName": "Nannette de Gaspe"
+        },
+        "options": {}
+      },
+      "id": "06638b48-a678-481f-8767-17e5222341e9",
+      "name": "Chat",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [
+        1160,
+        400
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Hi there! 👋\nMy name is Rebecca working with the amazing team of Nannette De Gaspe. How can I assist you today?",
+        "options": {
+          "subtitle": "Start a chat. We're here to help you 24/7.",
+          "title": "Nannette de Gaspé"
+        }
+      },
+      "id": "b89aeb98-7c99-4f49-baab-e0a08fdd610f",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        700,
+        400
+      ],
+      "webhookId": "3aa2953e-8b11-4593-9969-374f7ad6c6e4"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T22:01:28.989Z",
+      "updatedAt": "2024-08-26T22:01:28.989Z",
+      "id": "kxxK9uQIRkujnphG",
+      "name": "Assistant"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2024-11-10T11:38:17.000Z",
+  "versionId": "3ed0b650-10cd-4e99-b067-8c4197e541c0"
+}
