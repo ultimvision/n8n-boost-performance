@@ -1,0 +1,419 @@
+{
+  "active": false,
+  "connections": {
+    "Get Username To Analyse": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Likers",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Set User Type Likers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get Username To Analyse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Distinct Username": {
+      "main": [
+        [
+          {
+            "node": "Set User Type Commentators",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set User Type Commentators": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "CRM - New Contacts from Commentators",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Likers": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set User Type Likers": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "CRM - New Contacts from Likers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Get Distinct Username",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CRM - New Contacts from Likers": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CRM - New Contacts from Commentators": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Username To Analyse",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Distinct Username",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-26T14:01:40.813Z",
+  "id": "R3rTRNWWwdbJBVo3",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "CRM - Instagram New Contacts",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "7ac50490-4dec-47bb-bd70-0d5d6951c061",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -160,
+        860
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT DISTINCT(`username`)  FROM `instagram_likers` WHERE `last_analyse_username` IS NULL LIMIT 200;",
+        "options": {}
+      },
+      "id": "4474ad48-0f85-49f4-a02f-1cfb8284dd0b",
+      "name": "Get Username To Analyse",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        480,
+        360
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "id": "72808afd-e3ce-4b2c-8319-ab9839ed3a11",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1420,
+        480
+      ],
+      "webhookId": "a63f2815-5316-49f8-b09e-9693f49dd922"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT DISTINCT(`username`)  FROM `instagram_comments` WHERE `last_analyse_username` IS NULL LIMIT 200;",
+        "options": {}
+      },
+      "id": "77e0dc00-aca1-497b-bd95-dbd808462ae2",
+      "name": "Get Distinct Username",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        480,
+        840
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "30f31782-ea0c-49ca-9ed7-4570ccfd7e6c",
+              "name": "user_type",
+              "value": "likers",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "93e57496-c354-4e7e-8e06-0ab2bc92841a",
+      "name": "Set User Type Likers",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        700,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "30f31782-ea0c-49ca-9ed7-4570ccfd7e6c",
+              "name": "user_type",
+              "value": "comment",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f0500c1b-c8c3-4eda-ae04-d0e2d081d430",
+      "name": "Set User Type Commentators",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        700,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "username",
+        "options": {}
+      },
+      "id": "1fffc4d0-2822-4c1b-9e50-f47ca64ae6e8",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        700,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "efe298b4-7704-46af-a965-756db9da992f",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        980,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "username",
+        "options": {}
+      },
+      "id": "de91ad2d-f430-432a-b808-5b164e32096a",
+      "name": "Aggregate Likers",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        700,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "d048195e-8e80-4618-8888-b99b5dfc36b1",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        940,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "JSIqghdMUTotL1Eb",
+        "options": {}
+      },
+      "id": "2b4b931e-b0b6-482c-9e16-518ed8869746",
+      "name": "CRM - New Contacts from Likers",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "JSIqghdMUTotL1Eb",
+        "options": {}
+      },
+      "id": "e2c57d4a-a6ef-42ab-8a9c-95c89935293c",
+      "name": "CRM - New Contacts from Commentators",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "id": "67376885-b530-4dc9-a184-78e13d81a920",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1420,
+        960
+      ],
+      "webhookId": "a63f2815-5316-49f8-b09e-9693f49dd922"
+    },
+    {
+      "parameters": {},
+      "id": "95d010e0-d113-46db-bfe1-3deb840b14d8",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        640
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T13:07:53.389Z",
+      "updatedAt": "2024-08-26T13:07:53.389Z",
+      "id": "gQxWtkeNcVbI6Tr5",
+      "name": "Instagram"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T15:39:18.000Z",
+  "versionId": "8af3d546-8d0b-4833-bccc-62266bb15576"
+}
