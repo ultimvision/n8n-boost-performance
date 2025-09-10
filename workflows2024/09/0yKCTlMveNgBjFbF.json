@@ -1,0 +1,1925 @@
+{
+  "active": false,
+  "connections": {
+    "Prepare New Client Data": {
+      "main": [
+        [
+          {
+            "node": "Create a New Client",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a New Client": {
+      "main": [
+        [
+          {
+            "node": "New Client Success?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Client Info": {
+      "main": [
+        [
+          {
+            "node": "Create File Structure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create File Structure": {
+      "main": [
+        [
+          {
+            "node": "File Structure Success?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Set Client ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Videos with Audio Status Error or Null": {
+      "main": [
+        [
+          {
+            "node": "Set Client Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Client Details1": {
+      "main": [
+        [
+          {
+            "node": "GetClient Success?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetClient Success?1": {
+      "main": [
+        [
+          {
+            "node": "Client Details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Client Details1": {
+      "main": [
+        [
+          {
+            "node": "Import Youtube Video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Audio not Transcripted": {
+      "main": [
+        [
+          {
+            "node": "Set Client Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Client Data1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Boost - Start Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Boost - Start Transcript": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Client ID": {
+      "main": [
+        [
+          {
+            "node": "Get Client ID Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Client ID Details": {
+      "main": [
+        [
+          {
+            "node": "Data Success and Active?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Success and Active?": {
+      "main": [
+        [
+          {
+            "node": "Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Job Name": {
+      "main": [
+        [
+          {
+            "node": "Insert a New Job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert a New Job": {
+      "main": [
+        [
+          {
+            "node": "Get Job ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Data": {
+      "main": [
+        [
+          {
+            "node": "Job Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Tasks Job": {
+      "main": [
+        [
+          {
+            "node": "Prepare Job Execution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Job Execution": {
+      "main": [
+        [
+          {
+            "node": "Launch Task Manager",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Tasks": {
+      "main": [
+        [
+          {
+            "node": "Split Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Tasks": {
+      "main": [
+        [
+          {
+            "node": "n8n",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Restart Task Data": {
+      "main": [
+        [
+          {
+            "node": "Load Task Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Task Data": {
+      "main": [
+        [
+          {
+            "node": "Set Task Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Task Data": {
+      "main": [
+        [
+          {
+            "node": "Set Pending Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Pending Status": {
+      "main": [
+        [
+          {
+            "node": "Prepare Job Execution Retry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Job Execution Retry": {
+      "main": [
+        [
+          {
+            "node": "Launch Task Manager1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Tasks To Extract Images": {
+      "main": [
+        [
+          {
+            "node": "Split Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Insert Video": {
+      "main": [
+        [
+          {
+            "node": "Split Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Download Video": {
+      "main": [
+        [
+          {
+            "node": "Split Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Download Audio": {
+      "main": [
+        [
+          {
+            "node": "Split Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Transcript Audio": {
+      "main": [
+        [
+          {
+            "node": "Split Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Job ID": {
+      "main": [
+        [
+          {
+            "node": "Prepare Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n8n": {
+      "main": [
+        [
+          {
+            "node": "Get Workflow Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Workflow Name": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Insert Tasks Job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Generate Blog Content": {
+      "main": [
+        [
+          {
+            "node": "Split Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-07T11:10:06.764Z",
+  "id": "0yKCTlMveNgBjFbF",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost - SOFTWARE - DEV",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "![Image](https://boostperformance.ai/logos/logo_boost_performance.png)\n",
+        "height": 126.5138075838814,
+        "width": 242.73163146139782,
+        "color": 7
+      },
+      "id": "1c5c9bb1-1b88-47e6-9b20-fe17e6944349",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1062,
+        -140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "93843812-a86a-429d-9584-8f4938a266be",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -3040,
+        840
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "![Source example](https://boostperformance.ai/aiagent/youtube.png#full-width)",
+        "height": 205.69923487912666,
+        "width": 184.88538118864523,
+        "color": 7
+      },
+      "id": "0a71bb65-227a-458f-80a2-ff12c6a98d15",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2820,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "Zd8vEFfBbpfLfBg2",
+        "options": {}
+      },
+      "id": "8f4b9933-ce81-4ab1-b086-20286393997c",
+      "name": "Create a New Client",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        -722,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "04a6f30b-687a-47ae-ad3a-baa7cd9bb0b5",
+              "name": "client_id",
+              "value": "boost_performance",
+              "type": "string"
+            },
+            {
+              "id": "75715f8c-81b9-4a06-8344-bd61fdfcb602",
+              "name": "name",
+              "value": "Boost Performance",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f2afccc2-f656-4f58-8a7d-7fc553e4a0b1",
+      "name": "Prepare New Client Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -940,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Creation of a New Client\n",
+        "height": 285.3417069309637,
+        "width": 807.3165897041918,
+        "color": 7
+      },
+      "id": "d18dfd7d-0dd1-4bbd-bf91-424b9b75fe33",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1060,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Import Youtube Video, Audio and Transcript",
+        "height": 750.2331550775957,
+        "width": 3136.0205198797353,
+        "color": 7
+      },
+      "id": "1c7632c3-6dfb-4a0c-bcfb-2b7893517e38",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2620,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ec95d699-2d43-4346-8bc7-cbd291d7615c",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "9c9481b8-85ff-4a43-a2b6-3572f5691e30",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1ef5c89-e1e9-472b-84a5-5722c2f7d8fd",
+      "name": "New Client Success?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -502,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Creation of the clients' file structure\n",
+        "height": 285.3417069309637,
+        "width": 808.7935948612464,
+        "color": 7
+      },
+      "id": "707b9de3-6763-4342-bb41-c8d2aecb05fa",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1062,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "04a6f30b-687a-47ae-ad3a-baa7cd9bb0b5",
+              "name": "client_id",
+              "value": "boost_performance",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c8874af9-58e7-4a20-a299-c083410986c5",
+      "name": "Client Info",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -940,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "Fq1IqwBUfanQDQQH",
+        "options": {}
+      },
+      "id": "a6b141e8-b394-44e1-ab0c-8e83eda4e66b",
+      "name": "Create File Structure",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        -722,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ec95d699-2d43-4346-8bc7-cbd291d7615c",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "9c9481b8-85ff-4a43-a2b6-3572f5691e30",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c15ed069-193a-4615-ac4d-1ac4d2de75be",
+      "name": "File Structure Success?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -500,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "path": "youtube",
+        "formTitle": "Import Youtube Video",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "video_id",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "client_id",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "jungle_des_affaires"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "respondWithOptions": {
+            "values": {
+              "respondWith": "redirect",
+              "redirectUrl": "https://boostperformance.app.n8n.cloud/form/youtube"
+            }
+          }
+        }
+      },
+      "id": "30ab9e3b-1c64-4fe7-9ce1-6360de38301f",
+      "name": "Import Youtube",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.1,
+      "position": [
+        -1720,
+        2500
+      ],
+      "webhookId": "9ffc9f13-a5ee-4336-b35c-2ab92eb5e410",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "64609f28-d015-4319-b7e9-851f282c68bd",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2520,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "boost_yt_videos",
+          "mode": "list",
+          "cachedResultName": "boost_yt_videos"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "audio_status",
+              "condition": "IS NULL"
+            },
+            {
+              "column": "audio_status",
+              "value": "error"
+            },
+            {
+              "column": "video_status",
+              "condition": "IS NULL"
+            },
+            {
+              "column": "video_status",
+              "value": "error"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {
+          "outputColumns": [
+            "video_id",
+            "customer_id"
+          ]
+        }
+      },
+      "id": "452a992a-e5b2-4b49-b14c-6a3dbb0703fa",
+      "name": "Get All Videos with Audio Status Error or Null",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -1240,
+        2300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "53f7499e-7b30-43d2-a9cd-7888ec395f8d",
+              "name": "video_id",
+              "value": "={{ $json.video_id }}",
+              "type": "string"
+            },
+            {
+              "id": "bdf76fdd-6afd-471e-857c-28ac84787a42",
+              "name": "client_id",
+              "value": "={{ $json.customer_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0dfb58d8-a280-4bb7-a8e1-93f175848a27",
+      "name": "Set Client Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1020,
+        2300
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "v7rRYq9BV7yxUhfj",
+        "options": {}
+      },
+      "id": "8a4922e3-8e9e-430a-bf2a-1ddf1584d700",
+      "name": "Get Client Details1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        -460,
+        2300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "9053a77c-3169-46cd-9d63-8879f220d24f",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "ad0988da-a10a-4f99-b8ff-2abade450ca8",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "be55ef04-a2cc-4ee4-ae62-07210f58dcbd",
+      "name": "GetClient Success?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        2300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dcedb1cb-2620-4a2d-ad4c-ea26889f5f91",
+              "name": "video_id",
+              "value": "={{ $('Set Client Data').item.json[\"video_id\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "6c165eff-780e-45b4-ac86-10312a1ba12e",
+              "name": "client_details",
+              "value": "={{ $json.client_details }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "241e94a7-09fc-4f28-9dc1-f7e65a640f97",
+      "name": "Client Details1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        20,
+        2280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "WK7Rhib5VQ67Omdi",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "b5f65e66-d16d-42e9-9ad3-851d39a79262",
+      "name": "Import Youtube Video1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        240,
+        2280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "cfc3d497-78a1-447b-9a7c-737c28117151",
+      "name": "Set Client Data1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1020,
+        2580
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "boost_yt_videos",
+          "mode": "list",
+          "cachedResultName": "boost_yt_videos"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "transcript_provider_id",
+              "condition": "IS NOT NULL"
+            },
+            {
+              "column": "full_text_speakers"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "transcript_provider_id",
+            "status"
+          ]
+        }
+      },
+      "id": "7b975189-fc22-485e-a7ad-aaf03932aac2",
+      "name": "Get All Audio not Transcripted",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -1240,
+        2580
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "81dd0099-f424-4828-9ee7-be21c3b1059f",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -800,
+        2580
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://boostperformance.app.n8n.cloud/webhook/yt",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "transcript_id",
+              "value": "={{ $json.transcript_id }}"
+            },
+            {
+              "name": "status",
+              "value": "={{ $json.status }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8274216f-d288-47a1-86c2-cbef64ea2682",
+      "name": "Boost - Start Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -240,
+        2660
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "72fb5095-2942-4a88-8fc9-ad8623309cc9",
+              "name": "transcript_id",
+              "value": "={{ $json.transcript_provider_id }}",
+              "type": "string"
+            },
+            {
+              "id": "b55a08ae-d306-4884-be21-e394603c7427",
+              "name": "status",
+              "value": "completed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f672767c-8a01-4880-ad4c-4c3bd693e7d5",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -540,
+        2660
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "161f9db8-c100-4dd8-875d-7ec28db092f1",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -20,
+        2660
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a1ef210c-5aa5-4c8c-81e3-a79707e6a42e",
+              "name": "client_id",
+              "value": "boost_performance",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "3d8dfc74-b550-478d-9df2-8ff00da0439a",
+      "name": "Set Client ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2320,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "v7rRYq9BV7yxUhfj",
+        "options": {}
+      },
+      "id": "63ff842d-bef9-489e-b348-be9545d893b7",
+      "name": "Get Client ID Details",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        -2120,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "ad0988da-a10a-4f99-b8ff-2abade450ca8",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "caacdd06-dbff-4520-aa2f-28e30e2b4082",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "active",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "58367072-953b-4f15-92f6-06f7fa77c826",
+      "name": "Data Success and Active?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -1900,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d9cbb9d-2b52-4c35-bf12-1c0c31630b97",
+              "name": "job_name",
+              "value": "Import Video Youtube",
+              "type": "string"
+            },
+            {
+              "id": "21abe049-daa3-44ba-bde9-162eee759f66",
+              "name": "status",
+              "value": "queue",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dcfa5cf1-b17d-4ee2-b2a5-24634a5a8717",
+      "name": "Job Name",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1180,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "boost_jobs",
+          "mode": "list",
+          "cachedResultName": "boost_jobs"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "job_name",
+              "value": "={{ $json.job_name }}"
+            },
+            {
+              "column": "status",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "column": "client_id",
+              "value": "={{ $('Data').item.json.client_details.client_id }}"
+            },
+            {
+              "column": "job_description",
+              "value": "={{ JSON.stringify($('Aggregate Data').item.json.data[0]) }}"
+            }
+          ]
+        },
+        "options": {
+          "detailedOutput": true
+        }
+      },
+      "id": "9e2bd12a-660e-4983-b92d-1ada252e8780",
+      "name": "Insert a New Job",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -1000,
+        740
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a29ee798-2129-4134-996c-12ac36fb719d",
+              "name": "data.insertId",
+              "value": "={{ $json.data.insertId }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4d5e8082-b3aa-44a1-af5f-301a6756e4ea",
+      "name": "Get Job ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -800,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "059cdfed-7ecc-4aa3-929b-d886245603f5",
+              "name": "client_details",
+              "value": "={{ $json.client_details }}",
+              "type": "object"
+            },
+            {
+              "id": "ce2b9bd8-c589-4e17-ad41-ada3f2af8d96",
+              "name": "video_id",
+              "value": "ZhWlGqkLC_M",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "90b43b33-bf21-4d60-9b70-4c279014cb2c",
+      "name": "Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1600,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "5878ac5a-f906-4391-a28b-d1a07d64fedf",
+      "name": "Aggregate Data",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1380,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77c1e177-f94d-4578-ac27-f368909b1394",
+              "name": "task.0",
+              "value": "={\n\"task_id\": 1,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Insert New Video in DB to Process\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"WK7Rhib5VQ67Omdi\",\n\"task_action\": \"insert_video\",\n\"task_next\": 2\n}",
+              "type": "object"
+            },
+            {
+              "id": "5b018fbf-5f2f-4fc2-ad32-8c11ec03727d",
+              "name": "task.1",
+              "value": "={\n\"task_id\": 2,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Download the Audio from Youtube Video\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"C0HwjdjtSQ32W6hH\",\n\"task_action\": \"download_audio\",\n\"task_next\": 3\n}",
+              "type": "object"
+            },
+            {
+              "id": "80bc1f5d-1f74-4532-a3fb-a292e87b4cf6",
+              "name": "task.2",
+              "value": "={\n\"task_id\": 2,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Download the Video from Youtube\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"kzMSFS5hqAusnRwo\",\n\"task_action\": \"download_video\",\n\"task_next\": 0\n}",
+              "type": "object"
+            },
+            {
+              "id": "355e1dd0-dd85-4ce0-89e1-9cb835ea1a23",
+              "name": "task.3",
+              "value": "={\n\"task_id\": 3,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Transcript an Audio\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"ILagGCXnD16bm9QE\",\n\"task_action\": \"transcript_audio\",\n\"task_next\": 4\n}",
+              "type": "object"
+            },
+            {
+              "id": "718814bd-1885-4080-9e59-a059d1f85f9e",
+              "name": "task.4",
+              "value": "={\n\"task_id\": 4,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Assign Speakers to Audio\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"IDSfVVJWxhF0HpLZ\",\n\"task_action\": \"assign_speakers_name\",\n\"task_next\": 0\n}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "102ee034-e72c-430d-bba6-ebb0b9ab9c82",
+      "name": "Prepare Tasks",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -480,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "boost_tasks",
+          "mode": "list",
+          "cachedResultName": "boost_tasks"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "job_id",
+              "value": "={{ $json.task_job_id }}"
+            },
+            {
+              "column": "task_name",
+              "value": "={{ $json.task_name }}"
+            },
+            {
+              "column": "sequence_number",
+              "value": "={{ $json.task_id }}"
+            },
+            {
+              "column": "data",
+              "value": "={{ JSON.stringify($json.task_data) }}"
+            },
+            {
+              "column": "workflow_id",
+              "value": "={{ $json.task_workflow_id }}"
+            },
+            {
+              "column": "action",
+              "value": "={{ $json.task_action }}"
+            },
+            {
+              "column": "next_sequence",
+              "value": "={{ $json.task_next }}"
+            },
+            {
+              "column": "workflow_name",
+              "value": "={{ $json.workflow_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9c90aeca-4ae9-40a1-92c0-895527bd2614",
+      "name": "Insert Tasks Job",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        740,
+        780
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "task",
+        "options": {}
+      },
+      "id": "46bc2f37-af4e-4956-b40e-02211c06834f",
+      "name": "Split Tasks",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c03badc-af8e-4268-8f9f-72994732fbd3",
+              "name": "job_id",
+              "value": "={{ $('Get Job ID').item.json.data.insertId }}",
+              "type": "number"
+            },
+            {
+              "id": "3ba64ba0-bfd9-400e-b092-553892e26a43",
+              "name": "sequence_id",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "5f750ac8-4921-4032-9552-a362b3155a67",
+              "name": "type",
+              "value": "new",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a3112592-2e66-414f-bebb-5a9d5d993bae",
+      "name": "Prepare Job Execution",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "hnzntJEVcAoZejQ5",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "046ca377-a114-4e86-8d75-9e2688b8920f",
+      "name": "Launch Task Manager",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "boost_tasks",
+          "mode": "list",
+          "cachedResultName": "boost_tasks"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "task_id",
+              "value": "={{ $('Restart Task Data').item.json.task_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "415acdd4-cdc5-41b3-8f9b-be654cab5898",
+      "name": "Load Task Data",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -2320,
+        1100
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a46ff7f2-09a2-4728-9fc2-681bf454aafe",
+              "name": "task_id",
+              "value": 72,
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "7bed7670-d290-4d23-ab92-2a04a8b8f7df",
+      "name": "Restart Task Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2520,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "boost_tasks",
+          "mode": "list",
+          "cachedResultName": "boost_tasks"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "task_id",
+        "valueToMatchOn": "={{ $('Restart Task Data').item.json.task_id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status",
+              "value": "pending"
+            },
+            {
+              "column": "message"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ebfa4a14-a781-47d8-af11-14123ba029d2",
+      "name": "Set Pending Status",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        -1960,
+        1100
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": "hnzntJEVcAoZejQ5",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "1f4575ea-ad8c-4f0f-b1bf-2e7c27b38b70",
+      "name": "Launch Task Manager1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        -1500,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "76103f96-6fc4-4639-8362-a8d3b4eefb82",
+      "name": "Set Task Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2140,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"task_id\": {{ $('Set Task Data').item.json.task_id }},\n  \"job_id\": {{ $('Set Task Data').item.json.job_id }},\n  \"sequence_id\": {{ $('Set Task Data').item.json.sequence_number }},\n  \"type\": \"retry\"\n}",
+        "options": {}
+      },
+      "id": "6692ba39-68a1-484f-85ef-f5b6b109a8c7",
+      "name": "Prepare Job Execution Retry",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1740,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Extract Video Images",
+        "height": 291.1123502903118,
+        "width": 3144.9096521308475,
+        "color": 7
+      },
+      "id": "3783c21e-a602-435d-9edc-d7c0c4e81ff9",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2640,
+        2240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77c1e177-f94d-4578-ac27-f368909b1394",
+              "name": "task.0",
+              "value": "={\n\"task_id\": 1,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Extract Video Sequences\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"j7buWRcVhIfsUvJg\",\n\"task_action\": \"extract_video_sequences\",\n\"task_next\": 0\n}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a3a59b2a-b785-4ba5-b9c2-65adf514c74b",
+      "name": "Prepare Tasks To Extract Images",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -480,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77c1e177-f94d-4578-ac27-f368909b1394",
+              "name": "task.0",
+              "value": "={\n\"task_id\": 1,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Insert New Video in DB to Process\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"WK7Rhib5VQ67Omdi\",\n\"task_action\": \"insert_video\",\n\"task_next\": 2\n}",
+              "type": "object"
+            },
+            {
+              "id": "bbee3f71-91be-407a-bdfb-0599fa135247",
+              "name": "task.1",
+              "value": "={\n\"task_id\": 2,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Download the Video from Youtube\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"kzMSFS5hqAusnRwo\",\n\"task_action\": \"download_video\",\n\"task_next\": 0\n}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ba7e2d03-0852-4d67-ae70-11d84ed87749",
+      "name": "Test Insert Video",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -480,
+        1220
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77c1e177-f94d-4578-ac27-f368909b1394",
+              "name": "task.0",
+              "value": "={\n\"task_id\": 1,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Download the Video from Youtube\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"kzMSFS5hqAusnRwo\",\n\"task_action\": \"download_video\",\n\"task_next\": 0\n}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ccf35a0d-38b3-4214-b14f-2e906db7a9c4",
+      "name": "Test Download Video",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -480,
+        1440
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77c1e177-f94d-4578-ac27-f368909b1394",
+              "name": "task.0",
+              "value": "={\n\"task_id\": 1,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Download the Audio from Youtube Video\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"C0HwjdjtSQ32W6hH\",\n\"task_action\": \"download_audio\",\n\"task_next\": 0\n}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "54dadced-51f5-4ffd-8834-780323db8790",
+      "name": "Test Download Audio",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -480,
+        1680
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77c1e177-f94d-4578-ac27-f368909b1394",
+              "name": "task.0",
+              "value": "={\n\"task_id\": 1,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Transcript the Audio from Youtube Video\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"ILagGCXnD16bm9QE\",\n\"task_action\": \"transcript_audio\",\n\"task_next\": 0\n}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cb744978-3dce-4cba-a849-31572b5ff448",
+      "name": "Test Transcript Audio",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -480,
+        1880
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "workflowId": {
+          "__rl": true,
+          "value": "={{ $json.task_workflow_id }}",
+          "mode": "id"
+        },
+        "requestOptions": {}
+      },
+      "id": "8fe585e7-a3d6-4b8f-856f-d42de866537b",
+      "name": "n8n",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        140,
+        640
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "HAW0AYPLT8fzaLEv",
+          "name": "n8n account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7b81bd6a-e659-4d33-8af3-b8b0f78fd89c",
+              "name": "workflow_name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "54d0a7ce-9859-41f9-83b0-bf5fe71d940c",
+      "name": "Get Workflow Name",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        320,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "0db89a14-b896-438f-8cfe-7453ef78eca1",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        500,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77c1e177-f94d-4578-ac27-f368909b1394",
+              "name": "task.0",
+              "value": "={\n\"task_id\": 1,\n\"task_job_id\": {{ $json.data.insertId }},\n\"task_name\": \"Generate Content from a Youtube Video\",\n\"task_data\": {{ JSON.stringify($('Aggregate Data').item.json.data[0]) }},\n\"task_workflow_id\": \"yOSh73toJY5YPXYz\",\n\"task_action\": \"generate_content\",\n\"task_next\": 0\n}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b0b68580-a368-468b-96a9-947794285038",
+      "name": "Test Generate Blog Content",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -480,
+        2060
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-09-07T14:08:41.696Z",
+      "updatedAt": "2024-09-07T14:08:41.696Z",
+      "id": "3lVVSb0uiXyh7IHC",
+      "name": "Main"
+    },
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-09-07T13:08:32.695Z",
+      "updatedAt": "2024-09-07T13:08:32.695Z",
+      "id": "zvxPXyJqeprP9Nex",
+      "name": "Core"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2024-09-28T11:08:27.000Z",
+  "versionId": "d8fa835a-54db-432e-ba6c-13e8d69fa53b"
+}
