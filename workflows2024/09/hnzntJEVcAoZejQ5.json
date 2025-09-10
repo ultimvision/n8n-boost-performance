@@ -1,0 +1,1463 @@
+{
+  "active": false,
+  "connections": {
+    "Invalid Input Data Error": {
+      "main": [
+        [
+          {
+            "node": "Insert Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Log": {
+      "main": [
+        [
+          {
+            "node": "Return Error Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Input Data Complete?": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invalid Input Data Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invalid Input Data Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Switch Task Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Tasks": {
+      "main": [
+        [
+          {
+            "node": "Set Task Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Task Data": {
+      "main": [
+        [
+          {
+            "node": "Prepare Data for Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Is Input Data Complete?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Change Job Status to Running": {
+      "main": [
+        [
+          {
+            "node": "Select Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Data for Workflow": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Next Sequence?": {
+      "main": [
+        [
+          {
+            "node": "Select Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Number Tasks Not Completed1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get n8n Execution Details": {
+      "main": [
+        [
+          {
+            "node": "Update Task Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get n8n Execution Details1": {
+      "main": [
+        [
+          {
+            "node": "Update Task Status1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Task Status1": {
+      "main": [
+        [
+          {
+            "node": "Change Job Status to Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Number Tasks Not Completed1": {
+      "main": [
+        [
+          {
+            "node": "Set Qty Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Qty Tasks": {
+      "main": [
+        [
+          {
+            "node": "Get Number Tasks Not Completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Number Tasks Not Completed": {
+      "main": [
+        [
+          {
+            "node": "Set Qty Completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Qty Completed": {
+      "main": [
+        [
+          {
+            "node": "All Tasks Completed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "All Tasks Completed?": {
+      "main": [
+        [
+          {
+            "node": "Change Job Status to Completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Continue Sequence?": {
+      "main": [
+        [
+          {
+            "node": "Get n8n Execution Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get n8n Execution Details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Task Type": {
+      "main": [
+        [
+          {
+            "node": "Change Job Status to Running",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get n8n Execution Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Continue Sequence?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Change Job Status to Running1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Tasks1": {
+      "main": [
+        [
+          {
+            "node": "Set Task Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Task Data1": {
+      "main": [
+        [
+          {
+            "node": "Prepare Data for Workflow1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Data for Workflow1": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Change Job Status to Running1": {
+      "main": [
+        [
+          {
+            "node": "Select Tasks1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Task Status": {
+      "main": [
+        [
+          {
+            "node": "Next Sequence?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-14T11:55:59.628Z",
+  "id": "hnzntJEVcAoZejQ5",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost - Tasks Manager",
+  "nodes": [
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "7face510-2d91-40af-a6cf-ec65991a330b",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1020,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "={{ $json.workflow_id }}",
+          "mode": "id"
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "087a4da8-3394-4549-b14f-245737d86060",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        3860,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return Error",
+        "height": 230.76492242997267,
+        "width": 256.97891933886075,
+        "color": 3
+      },
+      "id": "cb6ebf73-3baf-4303-b4b7-7508289477ed",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1120,
+        720
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb8e0c7e-6bd8-4f88-9f30-c7f1a1f03d62",
+              "name": "success",
+              "value": false,
+              "type": "string"
+            },
+            {
+              "id": "97f44743-7de0-4549-acaa-c6d6a9b9b9fe",
+              "name": "message",
+              "value": "Invalid input data to execute the workflow. Operation canceled.",
+              "type": "string"
+            },
+            {
+              "id": "121c6841-7b0d-4584-964c-3ebf44d469d0",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b43bc800-edaf-4bd3-8ed9-7fddf370718e",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "2609d1bc-a717-497b-8868-ac87e84c21ec",
+              "name": "data",
+              "value": "={{ JSON.stringify($json) }}",
+              "type": "string"
+            },
+            {
+              "id": "b4c8fa45-da53-4082-a33d-39c11fe951f5",
+              "name": "slack",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07affdcc-131b-4ccc-9742-03f02dd43f2a",
+              "name": "execution_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "30ce8759-f90a-4b8f-9597-d89023bbf0be",
+              "name": "execution_resume_url",
+              "value": "={{ $execution.resumeUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "b6467bb9-f54a-4e83-81ca-133054971a20",
+              "name": "execution_mode",
+              "value": "={{ $execution.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "5ba31a7d-9ab2-4b96-a76c-2e09c7d01c10",
+              "name": "type",
+              "value": "Error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fc385ce8-32e9-429c-948d-eb930f28a9e1",
+      "name": "Invalid Input Data Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1200,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "jxGlO5w6gHJCOVFN",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "3f29e368-1d6d-4115-ae21-3c5fa6bf355f",
+      "name": "Insert Log",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "c9eade6c-914f-45b9-8045-f186ec95f42d",
+      "name": "Return Error Status",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1820,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return Error",
+        "height": 230.76492242997267,
+        "width": 231.41178453104197,
+        "color": 3
+      },
+      "id": "e577b235-0a37-4d1b-8b52-c9613253fb6f",
+      "name": "Sticky Note15",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1760,
+        720
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a7e6a601-e9ec-440f-94ad-2aea5b22d776",
+              "leftValue": "={{ $json.job_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "f979fd4e-f81d-419f-acac-0b2804447221",
+              "leftValue": "={{ $json.sequence_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "a5434a45-e52c-4764-b06e-f520cc4b2b6d",
+              "leftValue": "={{ $json.type }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c9551546-9df2-4015-977c-4f8ac6d58ca4",
+              "leftValue": "={{ $json.job_id }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "6ffcac10-c668-44c6-9ca1-16ac2fccb430",
+              "leftValue": "={{ $json.sequence_id }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "4384f389-1a35-4986-b1c7-5fc359fba4be",
+      "name": "Is Input Data Complete?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        740,
+        520
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT boost_tasks.*, boost_jobs.status as job_status FROM `boost_tasks` LEFT JOIN `boost_jobs` ON boost_tasks.job_id = boost_jobs.job_id WHERE (boost_tasks.job_id = {{ $('Workflow Data').item.json.job_id }} AND boost_tasks.sequence_number = {{ $('Workflow Data').item.json.sequence_id }}) AND boost_tasks.status = \"pending\" ORDER BY boost_tasks.sequence_number ASC;",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "cb976f69-72ec-428a-af6c-bad77b6646ed",
+      "name": "Select Tasks",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3240,
+        -220
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "030f1fb3-f764-4207-9736-2b481ccf4bd4",
+      "name": "Set Task Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3460,
+        -220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5337ca9e-8582-407c-9624-14e80fc56434",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "257cbe9c-3c30-4d36-9a2c-c6db68ab65ae",
+              "name": "data",
+              "value": "={{ $('Set Task Data').item.json.data }}",
+              "type": "object"
+            },
+            {
+              "id": "f337e591-cd82-46fe-89e8-4a9d01532aa5",
+              "name": "action",
+              "value": "={{ $('Set Task Data').item.json.action }}",
+              "type": "string"
+            },
+            {
+              "id": "cd462918-375e-42de-ae62-18f4f5f047f8",
+              "name": "workflow_id",
+              "value": "={{ $('Set Task Data').item.json.workflow_id }}",
+              "type": "string"
+            },
+            {
+              "id": "64f3e87f-b59d-46a6-afee-93b3c1687ba8",
+              "name": "task_id",
+              "value": "={{ $('Set Task Data').item.json.task_id }}",
+              "type": "number"
+            },
+            {
+              "id": "c768a8db-d208-48e2-8731-8fec9eb8b81a",
+              "name": "next_sequence",
+              "value": "={{ $('Set Task Data').item.json.next_sequence }}",
+              "type": "number"
+            },
+            {
+              "id": "77f64e60-b032-459a-ac09-1c1e3eef832e",
+              "name": "job_id",
+              "value": "={{ $('Set Task Data').item.json.job_id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "09b25795-9533-42d6-b71d-c108c78dfbff",
+      "name": "Prepare Data for Workflow",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3660,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "boost_jobs",
+          "mode": "list",
+          "cachedResultName": "boost_jobs"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "job_id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json.job_id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status",
+              "value": "running"
+            },
+            {
+              "column": "started_at",
+              "value": "={{ new Date().toISOString().slice(0, 19).replace('T', ' ') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4ee47430-42f6-4d93-a853-60f9867f2883",
+      "name": "Change Job Status to Running",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1940,
+        -540
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "boost_tasks",
+          "mode": "list",
+          "cachedResultName": "boost_tasks"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "task_id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json.task_id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status_execution",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "column": "completed_at",
+              "value": "={{ $json.stoppedAt }}"
+            },
+            {
+              "column": "started_at",
+              "value": "={{ $json.startedAt }}"
+            },
+            {
+              "column": "status",
+              "value": "=completed"
+            },
+            {
+              "column": "message",
+              "value": "={{ $('Workflow Data').item.json.message !== undefined && $('Workflow Data').item.json.message !== null && $('Workflow Data').item.json.message !== ''? $('Workflow Data').item.json.message : '' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e4c0d1cf-69dd-497b-9eeb-10f39d0e419f",
+      "name": "Update Task Status",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2240,
+        -300
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7a85faf3-9279-4a6d-90b9-c5a6e7b18e91",
+              "leftValue": "={{ $('Workflow Data').item.json.sequence_id }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a59c9ec0-ce05-446e-aa0e-b8c19bb888f6",
+      "name": "Next Sequence?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        2940,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "execution",
+        "operation": "get",
+        "executionId": "={{ $json.execution_id }}",
+        "options": {},
+        "requestOptions": {}
+      },
+      "id": "4a87ea1e-a710-40e5-a096-3382f82f3e0b",
+      "name": "Get n8n Execution Details",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        -300
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "HAW0AYPLT8fzaLEv",
+          "name": "n8n account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "boost_tasks",
+          "mode": "list",
+          "cachedResultName": "boost_tasks"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "task_id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json.task_id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status_execution",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "column": "completed_at",
+              "value": "={{ $json.stoppedAt }}"
+            },
+            {
+              "column": "started_at",
+              "value": "={{ $json.startedAt }}"
+            },
+            {
+              "column": "status",
+              "value": "={{ $('Workflow Data').item.json.status }}"
+            },
+            {
+              "column": "message",
+              "value": "={{ $('Workflow Data').item.json.message }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5832786a-8582-401d-b43e-ce1f7405de79",
+      "name": "Update Task Status1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2200,
+        -20
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "execution",
+        "operation": "get",
+        "executionId": "={{ $json.execution_id }}",
+        "options": {},
+        "requestOptions": {}
+      },
+      "id": "2f35ac50-9f1b-4d23-983a-249c083f5de0",
+      "name": "Get n8n Execution Details1",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        -20
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "HAW0AYPLT8fzaLEv",
+          "name": "n8n account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT count(*) as qty FROM `boost_tasks` WHERE `job_id` = {{ $('Workflow Data').item.json.job_id }} and `status` = 'completed';",
+        "options": {}
+      },
+      "id": "12a2fc4a-6f97-4131-8e84-c85359da5398",
+      "name": "Get Number Tasks Not Completed",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3660,
+        0
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "4b9a5d4d-d8bc-450b-a453-3715620dc642",
+              "leftValue": "={{ $json.qty }}",
+              "rightValue": "={{ $('Set Qty Tasks').item.json.qty }}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1cffbf1-09ad-4f8d-9032-5d1e20442cea",
+      "name": "All Tasks Completed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        4060,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT count(*) as qty FROM `boost_tasks` WHERE `job_id` = {{ $('Workflow Data').item.json.job_id }};",
+        "options": {}
+      },
+      "id": "dd39bb18-b7ed-4055-9026-5ef7520b232b",
+      "name": "Get Number Tasks Not Completed1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3240,
+        0
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8b1e410b-7f87-4cc4-a61d-39e161e2045d",
+              "name": "qty",
+              "value": "={{ $json.qty }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ad745339-5785-415c-8355-0de933ffed0f",
+      "name": "Set Qty Tasks",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3480,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "39e22549-f161-4801-8293-98890bc47d24",
+              "name": "qty",
+              "value": "={{ $json.qty }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "69e271f6-5e89-475b-937f-a8f61b00f49a",
+      "name": "Set Qty Completed",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3860,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "boost_jobs",
+          "mode": "list",
+          "cachedResultName": "boost_jobs"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "job_id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json.job_id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status",
+              "value": "error"
+            },
+            {
+              "column": "completed_at",
+              "value": "={{ new Date().toISOString().slice(0, 19).replace('T', ' ') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5445887d-d751-4e34-b919-b4a0438d5f5d",
+      "name": "Change Job Status to Error",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2400,
+        -20
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "boost_jobs",
+          "mode": "list",
+          "cachedResultName": "boost_jobs"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "job_id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json.job_id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status",
+              "value": "completed"
+            },
+            {
+              "column": "completed_at",
+              "value": "={{ new Date().toISOString().slice(0, 19).replace('T', ' ') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "304f822d-70f2-4dac-b32e-ce8aab507407",
+      "name": "Change Job Status to Completed",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        4340,
+        -100
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "5082db51-752e-44aa-8862-3eb322f88934",
+              "leftValue": "={{ $('Workflow Data').item.json.continue_sequence }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "108446ed-2301-41f9-ad84-3c48cd03a6b8",
+              "leftValue": "={{ $('Workflow Data').item.json.continue_sequence }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0d0bcb81-158e-473f-874c-bfe696543fa5",
+      "name": "Continue Sequence?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        1800,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "new",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "NEW"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "a824bb3f-b96d-4daa-8467-91894cfcca3d",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "sequence",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "SEQUENCE"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "f2a326fb-fd6b-41c7-bb27-4a3d8aff94ca",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "error",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ERROR"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "b471adac-d564-4b7e-b518-6000d7a355f1",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "retry",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "RETRY"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0ca3e088-6802-49db-b08a-1b5370541da3",
+      "name": "Switch Task Type",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.1,
+      "position": [
+        1420,
+        -20
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ce04ccb9-915f-465c-aca0-40197bc37337",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "={{ $json.workflow_id }}",
+          "mode": "id"
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "ef933c32-b14c-4392-acea-4a63d6d0008b",
+      "name": "Execute Workflow1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        3400,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT boost_tasks.*, boost_jobs.status as job_status FROM `boost_tasks` LEFT JOIN `boost_jobs` ON boost_tasks.job_id = boost_jobs.job_id WHERE (boost_tasks.job_id = {{ $('Workflow Data').item.json.job_id }} AND boost_tasks.task_id = {{ $('Workflow Data').item.json.task_id }}) AND boost_tasks.status = \"pending\" ORDER BY boost_tasks.sequence_number ASC;",
+        "options": {
+          "detailedOutput": false
+        }
+      },
+      "id": "358cbe41-3cff-40df-80bc-9e0be899037d",
+      "name": "Select Tasks1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2780,
+        320
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "0ee1b3a2-ec00-477f-8030-fc72badf7e0a",
+      "name": "Set Task Data1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3000,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "257cbe9c-3c30-4d36-9a2c-c6db68ab65ae",
+              "name": "data",
+              "value": "={{ $('Set Task Data1').item.json.data }}",
+              "type": "object"
+            },
+            {
+              "id": "f337e591-cd82-46fe-89e8-4a9d01532aa5",
+              "name": "action",
+              "value": "={{ $('Set Task Data1').item.json.action }}",
+              "type": "string"
+            },
+            {
+              "id": "cd462918-375e-42de-ae62-18f4f5f047f8",
+              "name": "workflow_id",
+              "value": "={{ $('Set Task Data1').item.json.workflow_id }}",
+              "type": "string"
+            },
+            {
+              "id": "64f3e87f-b59d-46a6-afee-93b3c1687ba8",
+              "name": "task_id",
+              "value": "={{ $('Set Task Data1').item.json.task_id }}",
+              "type": "number"
+            },
+            {
+              "id": "c768a8db-d208-48e2-8731-8fec9eb8b81a",
+              "name": "next_sequence",
+              "value": "={{ $('Set Task Data1').item.json.next_sequence }}",
+              "type": "number"
+            },
+            {
+              "id": "77f64e60-b032-459a-ac09-1c1e3eef832e",
+              "name": "job_id",
+              "value": "={{ $('Set Task Data1').item.json.job_id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f5571842-1090-4ccd-9f31-3e27f33e6314",
+      "name": "Prepare Data for Workflow1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3200,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "boost_jobs",
+          "mode": "list",
+          "cachedResultName": "boost_jobs"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "job_id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json.job_id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status",
+              "value": "running"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "817de06d-66d2-4926-8b7b-a637929bcfa1",
+      "name": "Change Job Status to Running1",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2560,
+        320
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-09-07T13:08:32.695Z",
+      "updatedAt": "2024-09-07T13:08:32.695Z",
+      "id": "zvxPXyJqeprP9Nex",
+      "name": "Core"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-17T21:33:21.000Z",
+  "versionId": "5165846c-5617-4b2c-93cc-10b0d37e3c1c"
+}
