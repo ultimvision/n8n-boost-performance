@@ -1,0 +1,405 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory Buffer": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Image Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Image Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-04T20:30:03.733Z",
+  "id": "QjEJVAs7LZgRpv9X",
+  "isArchived": false,
+  "meta": null,
+  "name": "Image Generation Orchestrator",
+  "nodes": [
+    {
+      "parameters": {
+        "model": "gpt-4.1-nano",
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "id": "d74cdf9f-a25f-4027-838c-fb559f97a79c",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        700,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Respond to Webhook').item.json.query.recordId }}"
+      },
+      "id": "decd989d-984a-4a1c-92c7-73b60c56c711",
+      "name": "Memory Buffer",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        860,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=recordID: {{ $json.query.recordId }}\nAction: {{ $json.query.action }}",
+        "options": {
+          "systemMessage": "You are an AI assistant responsible for routing image generation and editing tasks to the appropriate specialized tool.\n\n**Workflow Input:**\n\nYou will receive a trigger containing:\n- **Action:** The type of operation requested (e.g., \"Generate From Scratch\", \"Edit / Combine Photos\").\n- **Record ID:** The unique identifier for the database record containing the full details of the task.\n\n**Your Task:**\n\n1.  **Analyze the Action:** Determine the user's primary goal based *only* on the provided `Action` parameter.\n2.  **Select the Correct Tool:**\n    *   If `Action` is \"Generate From Scratch\" (or similar), select the `Create Image Tool`.\n    *   If `Action` is \"Edit / Combine Photos\" (or similar), select the `Edit Image Tool`.\n    *   If the Action isn't recognized or seems invalid, indicate an error.\n3.  **Execute the Tool:** Call the selected tool's sub-workflow. **Crucially, you MUST pass the received `Record ID` as a parameter to the tool.** You should also pass the original `Action` string.\n4.  **Tool Responsibility:** The selected tool (sub-workflow) is responsible for using the provided `Record ID` to fetch all necessary details (like the specific prompt, input images, quality, size settings) directly from the database and then executing the image task.\n5.  **Model Usage:** Assume tools will use the `gpt-image-1` model unless their internal logic dictates otherwise.\n6.  **Completion:** Await confirmation or results from the tool execution. (Your specific setup might have the tool report back or just update Airtable directly).\n\n**Important:** Your primary job is *routing* based on the 'Action' and passing the 'Record ID'. Do not attempt to guess parameters like prompt, quality, or size at this stage; the tool sub-workflow will fetch those using the Record ID."
+        }
+      },
+      "id": "4f11d9c0-0209-4c5f-8223-852b035d5b10",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        920,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Airtable Trigger\n- Begins workflow when \"START\" button pressed in Airtable",
+        "height": 380,
+        "width": 520,
+        "color": 4
+      },
+      "id": "4d42d6bc-94e2-4f68-8629-d223a6424b8a",
+      "name": "Workflow Overview",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Image Generation Orchestrator\n- Intelligently routes to 'Edit Image' Or 'Create Image' sub-workflows\n- Can easily add other content creation tools like the 'Content Machine'\n",
+        "height": 500,
+        "width": 1040,
+        "color": 5
+      },
+      "id": "31b6d9c4-1654-4756-ac05-9dbc8868da7e",
+      "name": "Image API Tools",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        580,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "name": "create_image_tool",
+        "description": "Creates an image given a prompt and other specified parameters like model, size, quality, n etc",
+        "workflowId": {
+          "__rl": true,
+          "value": "qd1pwB1Xm3db0kVE",
+          "mode": "list",
+          "cachedResultName": "Create Image Sub-Workflow"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "n": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('n', `Number of images to generate. Between 1-10. Default is 1`, 'number') }}",
+            "Prompt": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Prompt', `A text description of the desired image. Be specific and detailed for best results.`, 'string') }}",
+            "Model": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Model', `Default is 'gpt-image-1'`, 'string') }}",
+            "Size": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Size', `Size of the image. For gpt-image-1: '1024x1024', '1536x1024', '1024x1536', or 'auto'.`, 'string') }}",
+            "Quality": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Quality', `Quality of the image. For gpt-image-1: 'low', 'medium', 'high', or 'auto'.`, 'string') }}",
+            "Filename": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Filename', `add a short file name without the extension of the image using the prompt given. Just the name`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Prompt",
+              "displayName": "Prompt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "n",
+              "displayName": "n",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "Model",
+              "displayName": "Model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Size",
+              "displayName": "Size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Quality",
+              "displayName": "Quality",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Filename",
+              "displayName": "Filename",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        1020,
+        360
+      ],
+      "id": "3d4b5f98-8762-4fc3-b86a-e5e500efe133",
+      "name": "Create Image Tool"
+    },
+    {
+      "parameters": {
+        "name": "image_edit_tool",
+        "description": "Creates an edited or extended image given one or more source images and a prompt. Pass a single text with all the details needed to edit the image. The image link, the extra details and anything else",
+        "workflowId": {
+          "__rl": true,
+          "value": "WgSgdjKAdiN13aVK",
+          "mode": "list",
+          "cachedResultName": "Edit Image Sub-workflow"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Prompt": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Prompt', `Prompt for the image to be edited`, 'string') }}",
+            "Model": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Model', `the model to use for the editing. Either dall-e-2 or gpt-image-1`, 'string') }}",
+            "Image": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Image', `the image link(s)`, 'string') }}",
+            "FileName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('FileName', `add a short file name without the extension of the image using the prompt given. Just the name`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Prompt",
+              "displayName": "Prompt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Image",
+              "displayName": "Image",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Model",
+              "displayName": "Model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "FileName",
+              "displayName": "FileName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        1200,
+        360
+      ],
+      "id": "18d8cb0b-be22-474f-bb43-97c58d6618ea",
+      "name": "Edit Image Tool"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        360
+      ],
+      "id": "f73b5442-d0a6-4f16-9524-b959532f6f6e",
+      "name": "Think"
+    },
+    {
+      "parameters": {
+        "path": "ad592418-73c3-4626-83e3-3420e0621901",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        60,
+        140
+      ],
+      "id": "d0bfe4ea-d33c-40b9-8063-290f3e679efe",
+      "name": "Webhook",
+      "webhookId": "ad592418-73c3-4626-83e3-3420e0621901"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Closing...</title>\n    <script>\n        window.close();\n    </script>\n</head>\n<body>\n    <p>If this window doesn't close automatically, please close it manually.</p>\n</body>\n</html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        320,
+        140
+      ],
+      "id": "3c3a17c5-4908-49da-84aa-25314123cd49",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "content": "## I'm a note \nhttps://www.skool.com/chase-ai/classroom/e4347615?md=1fb65832cab149d0950f139b84a18cba",
+        "width": 780
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        180,
+        -200
+      ],
+      "id": "5e3e0e92-9ddf-4d15-abbf-6abafff3f8cf",
+      "name": "Sticky Note"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-04T20:33:06.000Z",
+  "versionId": "84cc69fa-9240-4f1b-9eb6-ad30279851d9"
+}
