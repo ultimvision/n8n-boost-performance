@@ -1,0 +1,482 @@
+{
+  "active": false,
+  "connections": {
+    "Is it the Interviewer in the Picture?": {
+      "main": [
+        [
+          {
+            "node": "Set Interviewer Picture Name",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Guest Picture Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop through the Images": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Image Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Split Image's Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Analysis": {
+      "main": [
+        [
+          {
+            "node": "If Image Evaluation is 9 or more",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Image's Data": {
+      "main": [
+        [
+          {
+            "node": "Loop through the Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Download": {
+      "main": [
+        [
+          {
+            "node": "Loop through the Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Image": {
+      "main": [
+        [
+          {
+            "node": "Clean Download",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Original Image": {
+      "main": [
+        [
+          {
+            "node": "Upload Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Image Evaluation is 9 or more": {
+      "main": [
+        [
+          {
+            "node": "Is it the Interviewer in the Picture?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop through the Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Interviewer Picture Name": {
+      "main": [
+        [
+          {
+            "node": "Download Original Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Guest Picture Name": {
+      "main": [
+        [
+          {
+            "node": "Download Original Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-29T15:17:25.278Z",
+  "id": "7vdFvoarsDik7DiW",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Extract Images | Part-4 | Download and Upload Images",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "872426a7-4285-472a-ad6e-8f8e3ba7010c",
+              "leftValue": "={{ $json.content.same_persons }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0ef29cbb-ee06-4b90-af28-f967b3893de5",
+      "name": "Is it the Interviewer in the Picture?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1260,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f47ba332-2e5e-47f8-a16f-a2128158ca9a",
+      "name": "Loop through the Images",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        540,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "8acd7f7b-02a5-4aef-bce6-ced42f032fac",
+      "name": "Clean Download",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2640,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "64dab130-d55e-416e-8953-357385aada52",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        600,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "a9730460-25e1-43bf-8ab3-eadceabc3fd8",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        40,
+        180
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "7fa7b9f6-c27e-4a36-85cf-bebddbd3b494",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "images_data",
+        "options": {}
+      },
+      "id": "ea202ae6-0a34-4fc2-a572-955972bce730",
+      "name": "Split Image's Data",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        220,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "62fd8cab-f67d-4a7d-94c1-eefc8b3cd204",
+      "name": "Image Analysis",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        760,
+        240
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c7d777e5-92ed-4407-a5ad-ab8057210f21",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        760,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "path": "={{ $vars.FTP_BOOST_PATH }}{{ $('Workflow Data').item.json[\"path\"] }}/images/{{ $json[\"picture_name\"] }}"
+      },
+      "id": "a8139cc5-aac7-4914-aae4-4d2ed657c8c1",
+      "name": "Upload Image",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        400
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "ftp": {
+          "id": "LBzByJyr89h6ZMrd",
+          "name": "FTP Boost Performance AI"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {}
+      },
+      "id": "0864cac1-3282-462f-878c-a326a5033613",
+      "name": "Download Original Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        360
+      ],
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "71f255e3-f3f3-42fb-a630-00c65bf9d4fe",
+              "leftValue": "={{ $json.content.evaluation }}",
+              "rightValue": 9,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "a666ae3f-f0e1-4738-adc6-2aaeda83b1a6",
+              "leftValue": "={{ $runIndex }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "6cf3d767-075c-4e5d-a4db-14c9388d9071",
+      "name": "If Image Evaluation is 9 or more",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        980,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e0b1af83-0439-46d3-b176-78088cdbad71",
+              "name": "picture_name",
+              "value": "={{ $('Workflow Data').item.json.video_id }}_image_interviewer_{{ $runIndex + 1 }}.png",
+              "type": "string"
+            },
+            {
+              "id": "39828365-69c1-4bae-93c6-a1391de56b8f",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "311291b8-651b-487b-b438-555606796d38",
+      "name": "Set Interviewer Picture Name",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1520,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e0b1af83-0439-46d3-b176-78088cdbad71",
+              "name": "picture_name",
+              "value": "={{ $('Workflow Data').item.json.video_id }}_image_guest_{{ $runIndex + 1 }}.png",
+              "type": "string"
+            },
+            {
+              "id": "14c1e09f-3dcd-4bdd-bf6a-a5e1a9d1775a",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "a949c289-9c64-4153-b5f3-40189a688a71",
+              "name": "podcast_id",
+              "value": "={{ $json.podcast_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ba271538-dd87-443e-ba2a-f3ddc1ff6f5c",
+      "name": "Set Guest Picture Name",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1520,
+        360
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:14:01.125Z",
+      "updatedAt": "2024-06-29T11:14:01.125Z",
+      "id": "X4m1RhBLnumYOEJu",
+      "name": "ExtractImage"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-16T15:11:37.000Z",
+  "versionId": "bc532106-d30d-482a-86f6-1c6ee3793d8b"
+}
