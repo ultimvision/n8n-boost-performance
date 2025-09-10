@@ -1,0 +1,313 @@
+{
+  "active": true,
+  "connections": {
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "API Get Member Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API Get Member Details": {
+      "main": [
+        [
+          {
+            "node": "User found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create JWT for cloud function": {
+      "main": [
+        [
+          {
+            "node": "Create supabase user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User found": {
+      "main": [
+        [
+          {
+            "node": "Create JWT for cloud function",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Add user to airtable",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-21T19:54:10.033Z",
+  "id": "fE4VG7Yp3N3s9hxc",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Webhook - New Member - BOOST - Circle",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "64571951-acd2-4d0f-9b22-fa2daa7cbede",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        460,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://app.circle.so/api/v1/community_members/{{ $json.body.data.community_member_id }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $json.body.data.community_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Token {{ $vars.CIRCLE_API }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "d8ac4954-7fd3-45c0-8a35-7817029045eb",
+      "name": "API Get Member Details",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        680,
+        340
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new_member",
+        "options": {}
+      },
+      "id": "5291d3e7-b5da-4bed-a7e0-ca71c6ffdde1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        220,
+        340
+      ],
+      "webhookId": "05f1ccc2-bd7c-4765-addf-a465e03270dc"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://cmzypijrhwwhgqzaiulz.supabase.co/functions/v1/circle/new",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.token }}"
+            },
+            {
+              "name": "apikey",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNtenlwaWpyaHd3aGdxemFpdWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkxNzgxNDIsImV4cCI6MjA0NDc1NDE0Mn0.nUrJWzmwm93fyxWpHjiRyRLPopuTxeh4tO99jLKThEk"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "={{ $('API Get Member Details').first().json.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7fbd3744-9a05-404f-a277-428e71da4065",
+      "name": "Create supabase user",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1620,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "useJson": true,
+        "claimsJson": "={\n  \"sub\": \"{{ $vars.mat_admin_supabase_uuid }}\",\n  \"role\": \"authenticated\"\n}\n",
+        "options": {}
+      },
+      "id": "dbaeb6fa-b23d-455f-a445-c07bf8817666",
+      "name": "Create JWT for cloud function",
+      "type": "n8n-nodes-base.jwt",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        180
+      ],
+      "credentials": {
+        "jwtAuth": {
+          "id": "pzlG0azbnAhqdblo",
+          "name": "Service Access JWT"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ac2608b2-9547-4855-a51c-1d11f0153f5b",
+              "leftValue": "={{ $json.email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "e769448e-3ced-4494-92b4-90a85ac106cf",
+              "leftValue": "={{ $json.email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1115379e-c5ba-4752-9088-fe832210f4da",
+      "name": "User found",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "User not found in circle during new member webhook"
+      },
+      "id": "23162c71-0efd-4919-822b-e051c23040c2",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "rxmQOaus2TEPWE3g",
+          "mode": "list",
+          "cachedResultName": "Sync Circle Users to Airtable"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1320,
+        -80
+      ],
+      "id": "24a17fca-7779-4f52-bee1-63816e27fedb",
+      "name": "Add user to airtable"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:39:21.071Z",
+      "updatedAt": "2024-10-16T13:39:21.071Z",
+      "id": "E8nPTYjZtWlaLr4T",
+      "name": "Webhook"
+    },
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-12-11T16:12:28.000Z",
+  "versionId": "d8e1407d-f468-4ac7-bdf0-2d6cdc1d44f7"
+}
