@@ -1,0 +1,48 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-09-09T20:49:22.279Z",
+  "id": "s9oUJoCHVNUucNsH",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost | LOGs",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "6d3b2de9-f7cb-4502-94a2-d062b0a8aac0",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        680,
+        720
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-09-07T13:08:32.695Z",
+      "updatedAt": "2024-09-07T13:08:32.695Z",
+      "id": "zvxPXyJqeprP9Nex",
+      "name": "Core"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-09T21:45:49.000Z",
+  "versionId": "cd2c7afc-cbf0-4d4d-a300-8c2f94573bd7"
+}
