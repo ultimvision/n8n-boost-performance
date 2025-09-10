@@ -1,0 +1,21 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-04-29T14:22:01.912Z",
+  "id": "2fTlkwNCuAaX0U5L",
+  "isArchived": false,
+  "meta": null,
+  "name": "Test Wix",
+  "nodes": [],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-31T18:11:39.000Z",
+  "versionId": "f65ea2dd-6dd0-454f-a0c3-718af0f9596b"
+}
