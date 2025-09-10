@@ -1,0 +1,137 @@
+{
+  "active": false,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Upload to DO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to DO": {
+      "main": [
+        [
+          {
+            "node": "Set download url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-18T18:11:39.185Z",
+  "id": "4lA46jfCgZ85wC8U",
+  "isArchived": false,
+  "meta": null,
+  "name": "Upload to Digital Ocean Demo",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "basicAuth",
+        "formTitle": "Upload file to Digital Ocean Demo",
+        "formDescription": "This is just a demo workflow to upload files to Digital Ocean Spaces.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "File",
+              "fieldType": "file",
+              "multipleFiles": false,
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "path": "file-upload-demo",
+          "ignoreBots": true
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c53cf7e5-9299-4692-a05c-aff79e0adcd3",
+      "name": "On form submission",
+      "webhookId": "157dd84f-e0f1-4022-a663-888f3fcb2cc7",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "CrczH7Lk6JrPOG9N",
+          "name": "N8N Form Basic Auth (pw: performance)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "={{ `test/${$json.File.filename}` }}",
+        "binaryPropertyName": "File",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        380,
+        0
+      ],
+      "id": "11278e59-d2e0-4067-b8c9-c4d69ed3b1e0",
+      "name": "Upload to DO",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ecb6f3bc-59ad-48c4-9c4a-50d2eaede73e",
+              "name": "url",
+              "value": "={{ `https://boost-data.nyc3.cdn.digitaloceanspaces.com/test/${$('On form submission').item.json.File.filename}` }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        0
+      ],
+      "id": "3d088c38-22dd-44d6-b9fd-583c2f01213a",
+      "name": "Set download url"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T18:23:03.769Z",
+      "updatedAt": "2024-12-18T18:23:03.769Z",
+      "id": "bKQygV5sop8ZxT9Z",
+      "name": "Demo"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2024-12-18T20:42:19.000Z",
+  "versionId": "c0b0d675-39d4-4fbe-b6ef-f5330dab19d3"
+}
