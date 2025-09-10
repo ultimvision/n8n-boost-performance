@@ -1,0 +1,714 @@
+{
+  "active": false,
+  "connections": {
+    "Loop Over E-mails": {
+      "main": [
+        [
+          {
+            "node": "Terminé",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Email Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Status": {
+      "main": [
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Email Ready to Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Email Ready to Send": {
+      "main": [
+        []
+      ]
+    },
+    "Envoyer un nouveau Message de Coach": {
+      "main": [
+        [
+          {
+            "node": "Update Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envoyé le Reply": {
+      "main": [
+        []
+      ]
+    },
+    "Clean Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over E-mails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Type": {
+      "main": [
+        [
+          {
+            "node": "Envoyer un nouveau Message de Coach",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Gmail1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-24T11:48:27.754Z",
+  "id": "zkC02i4tN38zNRTS",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Assistant Email - Send Message",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5ab65594-89ef-4c5c-b8a0-fd16a1a0d482",
+      "name": "Loop Over E-mails",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1040,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "3893f05a-f07b-4d99-b9d9-2d7d8f33877f",
+      "name": "Clean Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2520,
+        960
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "cd36e407-5602-46db-befa-08900fa19b4a",
+      "name": "Terminé",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json['Réponses'] }}",
+        "options": {}
+      },
+      "id": "4eaf9315-57c9-4b7c-bd5c-655708428f20",
+      "name": "Markdown",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $json['Message ID'] }}",
+        "message": "={{ $json['data'] }}",
+        "options": {
+          "senderName": "Coach Boost Performance"
+        }
+      },
+      "id": "5792c721-cb3d-41ce-9301-5dc91913bdff",
+      "name": "Envoyé le Reply",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1960,
+        1200
+      ],
+      "retryOnFail": true,
+      "webhookId": "1acd2acb-fdd0-41cc-bbb0-8fc52f1a0842",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8pdFj4Dm18tLICfo",
+          "name": "Gmail COACH@ultimvision.io"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Markdown').item.json.id }}",
+            "Status": "Envoyé"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "Brouillon",
+                  "value": "Brouillon"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                },
+                {
+                  "name": "À réviser avec IA",
+                  "value": "À réviser avec IA"
+                },
+                {
+                  "name": "Ne pas envoyer",
+                  "value": "Ne pas envoyer"
+                },
+                {
+                  "name": "Prêt à Envoyer",
+                  "value": "Prêt à Envoyer"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "De",
+              "displayName": "De",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "De Email",
+              "displayName": "De Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "To Email",
+              "displayName": "To Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Sujet",
+              "displayName": "Sujet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Label",
+              "displayName": "Label",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Message ID",
+              "displayName": "Message ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Thread ID",
+              "displayName": "Thread ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Catégories",
+              "displayName": "Catégories",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Réponses",
+              "displayName": "Réponses",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique ",
+              "displayName": "Historique ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes pour réviser",
+              "displayName": "Notes pour réviser",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Apprentissage",
+              "displayName": "Apprentissage",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "60c9c2d1-f622-473b-a6ed-29d45ff0c3b8",
+      "name": "Update Status",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2260,
+        680
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json['To Email'] }}",
+        "subject": "={{ $json.Sujet }}",
+        "message": "={{ $json.data }}",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "=Coach Boost Performance"
+        }
+      },
+      "id": "4d12332d-38f0-4d41-8171-3763a65b224e",
+      "name": "Envoyer un nouveau Message de Coach",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1840,
+        540
+      ],
+      "webhookId": "3a6426ed-7703-4317-9e9f-3e1d4555892d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8pdFj4Dm18tLICfo",
+          "name": "Gmail COACH@ultimvision.io"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "f977e6fc-b1da-486b-aad4-080a7340d3f1",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        300,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "filterByFormula": "{status} = \"Prêt à Envoyer\"",
+        "options": {}
+      },
+      "id": "d77be8ef-fa14-4a32-90ed-d76dab3397fb",
+      "name": "Get Email Ready to Send",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        680
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $json['Message ID'] }}",
+        "message": "={{ $json.data }}",
+        "options": {}
+      },
+      "id": "54c30036-7bc1-42ac-913c-9e501eb377f9",
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1720,
+        1180
+      ],
+      "webhookId": "9e73cbab-8483-480f-9e99-467b9bc61b74",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8pdFj4Dm18tLICfo",
+          "name": "Gmail COACH@ultimvision.io"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Type }}",
+                    "rightValue": "new",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "NEW"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7a65a2c0-1f39-4d04-9ba1-3f7f7b217cb7",
+                    "leftValue": "={{ $json.Type }}",
+                    "rightValue": "reply",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "REPLY"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d127d321-16c5-48f7-ad5d-0618a75e32bf",
+      "name": "Email Type",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1560,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "189b41dc-7770-49f6-a847-7b0769e72c04",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1820,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "=193766fa02252b1c"
+      },
+      "id": "f653477c-cbb9-4126-a649-b1aba70d3970",
+      "name": "Gmail1",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2040,
+        900
+      ],
+      "webhookId": "d965e370-3ea7-4789-874f-ccfcf7bc55f9",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "kpnxnYexcEJL3t5C",
+          "name": "Gmail Patrick.Aube"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "193766fa02252b1c"
+      },
+      "id": "c2eec941-bdde-45dc-9502-64841583b883",
+      "name": "Gmail2",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        560,
+        480
+      ],
+      "webhookId": "d022d653-30f7-4120-b9de-08de8abef22d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8pdFj4Dm18tLICfo",
+          "name": "Gmail COACH@ultimvision.io"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    },
+    {
+      "createdAt": "2024-11-24T11:52:16.029Z",
+      "updatedAt": "2024-11-24T11:52:16.029Z",
+      "id": "z83lDGhHiboDx9vk",
+      "name": "Assistant Email"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-18T16:37:09.000Z",
+  "versionId": "c81ed806-68aa-4213-9a62-0cac8523fbe5"
+}
