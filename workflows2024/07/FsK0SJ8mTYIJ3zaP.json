@@ -1,0 +1,341 @@
+{
+  "active": false,
+  "connections": {
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Articles to Generate Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Articles to Generate Images": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Image Creation Task": {
+      "main": [
+        [
+          {
+            "node": "Jungle | Part-1 | Generate Content Image",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update Status Image in Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jungle | Part-1 | Generate Content Image": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Articles": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Image Creation Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Set Status Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-03T10:47:02.751Z",
+  "id": "FsK0SJ8mTYIJ3zaP",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Jungle | Generate Image Content",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "1a623f2a-8f56-4798-bed5-ba780d696af7",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        500,
+        360
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f349b23d-730c-4fe2-bdbf-eb84c91e7583",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        300,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            },
+            {
+              "column": "status_image",
+              "value": "not_created"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "id"
+          ]
+        }
+      },
+      "id": "2206b887-8b11-49ae-bc09-7b6e634cc30e",
+      "name": "Get Articles to Generate Images",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        680,
+        360
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": "GHTRKQ9vsc0md71l",
+        "options": {}
+      },
+      "id": "f5580b8e-bf42-4d44-95a9-24cc644ef19c",
+      "name": "Jungle | Part-1 | Generate Content Image",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "83483289-3cf6-41fc-91c0-d44612113a45",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "20aff6bf-3673-4894-b11f-c683409bd954",
+              "name": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a2ee5290-7f9a-4029-8e7e-50c3d168e9b5",
+      "name": "Prepare Image Creation Task",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1140,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "cc095bdc-e43b-4907-842f-10e409c026b7",
+      "name": "Loop Over Articles",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        900,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "id",
+        "valueToMatchOn": "={{ $json[\"id\"] }}\n",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status_image",
+              "value": "created"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "342bb6d4-f996-4f9a-a4b0-ad581ade6a20",
+      "name": "Update Status Image in Table",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1320,
+        280
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "30c09828-6238-4d2f-ae70-c264d5497424",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bff984b6-f4f3-497b-b946-4da0a28edb50",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "662e8306-12aa-493f-aeb8-ccff809903e2",
+      "name": "Set Status Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1260,
+        60
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-07-03T12:43:40.577Z",
+      "updatedAt": "2024-07-03T12:43:40.577Z",
+      "id": "AyD8qxUzHoYCWjwM",
+      "name": "Image Creation"
+    },
+    {
+      "createdAt": "2024-06-24T21:09:18.887Z",
+      "updatedAt": "2024-06-24T21:09:18.887Z",
+      "id": "IzovHyYMj2l2t3WZ",
+      "name": "Jungle"
+    },
+    {
+      "createdAt": "2024-07-03T10:27:21.057Z",
+      "updatedAt": "2024-07-03T10:27:21.057Z",
+      "id": "kjd4NuS0MxgHxPmw",
+      "name": "Content Creation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-06T22:32:12.000Z",
+  "versionId": "04674bb1-dc1c-45da-93ba-b72d645075e5"
+}
