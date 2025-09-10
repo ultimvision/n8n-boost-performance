@@ -1,0 +1,2047 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Existing URLs": {
+      "main": [
+        [
+          {
+            "node": "Build Existing Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Existing Set": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tavilysearch": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait5": {
+      "main": [
+        [
+          {
+            "node": "get-apify-linkedin-profile-scraper-data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Apify-linkedin-profile-scraper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items7": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify-linkedin-profile-scraper": {
+      "main": [
+        [
+          {
+            "node": "Wait5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get-apify-linkedin-profile-scraper-data": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets4": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain3": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets7",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Count Existing Query Rows",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Existing URLs",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Count Existing Query Rows": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-04T18:25:37.573Z",
+  "id": "NeFZaqivYef0WeD3",
+  "isArchived": false,
+  "meta": null,
+  "name": "LinkedIn Scraper 2.0 + Cold Outreach Machine",
+  "nodes": [
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Parse the query you are given and output the follow parameters seperately...parse the industry from the title and keywords if needed: \n\njobTitle\ncompanyIndustry\nlocation\nprofilesToScrape",
+              "role": "system"
+            },
+            {
+              "content": "=Job Title + Keywords: {{ $json['Keywords / Job Titles'] }}\nLocation: {{ $json.Location }}\nNew Profiles to Scrape: {{ $json['Number of NEW Profiles to Find'] }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        700,
+        300
+      ],
+      "id": "ae972de9-f6e2-4c67-bb63-4e62d1a926e3",
+      "name": "OpenAI"
+    },
+    {
+      "parameters": {
+        "url": "https://customsearch.googleapis.com/customsearch/v1",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key"
+            },
+            {
+              "name": "=cx"
+            },
+            {
+              "name": "q",
+              "value": "=site:linkedin.com/in  {{ $json.jobTitle }} {{ $json.industry }} {{ $json.location }}"
+            }
+          ]
+        },
+        "options": {
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "start",
+                    "value": "={{ $json.startIndex + ($pageCount * 10) }}\n"
+                  }
+                ]
+              },
+              "limitPagesFetched": true,
+              "maxRequests": "={{ $json.pagesToFetch }}"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        380
+      ],
+      "id": "9be24a9a-0dec-4fca-b1b9-1744ee0febea",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "// \"Filter Data\" Code Node\n// 1) Get *all* items from the Merge node\nconst allItems = $input.all();\n\n// 2) Find the one item that holds `existingSet`\nlet existingSetArray = [];\nconst existingSetItem = allItems.find(item => Array.isArray(item.json.existingSet));\nif (existingSetItem) {\n  existingSetArray = existingSetItem.json.existingSet;\n}\nconst existingSet = new Set(existingSetArray);\n\n// 3) Prepare a set to track duplicates in this run and an output array\nconst seenLinksDuringThisRun = new Set();\nconst filteredOutput = [];\n\n// 4) Loop through any items that have the Google search results\n//    (they typically have `kind === 'customsearch#search'` in item.json)\nfor (const item of allItems) {\n  if (item.json.kind === 'customsearch#search') {\n    const searchResults = item.json.items || [];\n    for (const result of searchResults) {\n      const url = result.link?.trim().toLowerCase();\n      if (!url) continue;\n\n      // Skip if we've already seen it this run or it's in existingSet\n      if (!seenLinksDuringThisRun.has(url) && !existingSet.has(url)) {\n        seenLinksDuringThisRun.add(url);\n        filteredOutput.push({\n          json: {\n            name: result.title,\n            url: result.link,\n          },\n        });\n      }\n    }\n  }\n}\n\n// 5) Return newly-found unique profiles\nreturn filteredOutput;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        260
+      ],
+      "id": "3fe9e352-fcc8-4272-8614-b5a7cfd50f75",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "jsCode": "// --- Get Data from Merged Input & Trigger ---\n\n// Access the single merged item (contains OpenAI results & Count)\nconst mergedInput = $input.item.json;\nconsole.log(\"Code Node Input (Merged):\", JSON.stringify(mergedInput, null, 2)); // Log for debugging\n\n// Access OpenAI results (VERIFY PATH from Merge1 output)\nconst openAIData = mergedInput.message?.content;\nconst jobTitle = openAIData?.jobTitle;\nconst location = openAIData?.location;\nconst industry = openAIData?.companyIndustry;\n\n// Access the count (VERIFY PATH from Merge1 output)\nconst existingCount = mergedInput.existingCount;\n\n// Access data DIRECTLY from the form trigger node\n// !! REPLACE 'On form submission' with YOUR ACTUAL TRIGGER NODE NAME !!\nconst formTriggerNodeName = 'On form submission';\nconst formTriggerNode = $(formTriggerNodeName).first();\n\n// Check if trigger node reference worked\nif (!formTriggerNode || !formTriggerNode.json) {\n  throw new Error(`Could not find valid data structure from trigger node named '${formTriggerNodeName}'. Check node name.`);\n}\nconst formTriggerJson = formTriggerNode.json;\n\n// Access specific fields using bracket notation for names with spaces/slashes\n// !! VERIFY THESE FIELD NAMES EXACTLY from Form Trigger output !!\nconst profilesToFetchFieldName = 'Number of NEW Profiles to Find'; // <-- VERIFY THIS NAME\nconst queryIdentifierFieldName = 'Campaign Name / Identifier';   // <-- As provided by user\n\nconst profilesToFetch = formTriggerJson[profilesToFetchFieldName] || 50; // Default to 50\nconst queryIdentifier = formTriggerJson[queryIdentifierFieldName];\n\n// --- Validate Inputs ---\nif (existingCount === undefined) {\n  throw new Error(\"`existingCount` is missing from merged input. Check Merge1 output/connections.\");\n}\n// Check if data was successfully retrieved from the trigger\nif (profilesToFetch === undefined || queryIdentifier === undefined) {\n    throw new Error(`Form trigger data ('${profilesToFetchFieldName}' or '${queryIdentifierFieldName}') could not be accessed from node '${formTriggerNodeName}'. Check field names and trigger output.`);\n}\nif (!openAIData || !jobTitle || !location ) {\n   throw new Error(\"OpenAI data (`message.content`, `jobTitle`, or `location`) is missing from merged input. Check Merge1 output/connections.\");\n}\n\n// --- Calculations ---\nconst startIndex = Math.floor(existingCount / 10) * 10 + 1;\nconst pagesToFetch = Math.ceil(profilesToFetch / 10);\n\n// --- Prepare Output ---\nconst outputData = {\n  json: {\n     startIndex: startIndex,\n     pagesToFetch: pagesToFetch,\n     jobTitle: jobTitle,\n     location: location,\n     industry: industry,\n     queryIdentifier: queryIdentifier,\n     _debug_existingCount: existingCount,\n     _debug_profilesToFetch: profilesToFetch\n   }\n};\n\n// Return the single item containing all parameters\nreturn [outputData];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        380
+      ],
+      "id": "3fd86aaf-00cb-4aeb-948f-5c432b2b63ae",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Scrapers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $json.name }}",
+            "url": "={{ $json.url }}",
+            "Campaign Name": "={{ $('On form submission').first().json[\"Campaign Name / Identifier\"] }}",
+            "scrape complete?": "No"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "linkedin summary",
+              "displayName": "linkedin summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "company",
+              "displayName": "company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "linkedin outreach",
+              "displayName": "linkedin outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "company overview",
+              "displayName": "company overview",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "company email",
+              "displayName": "company email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "scrape complete?",
+              "displayName": "scrape complete?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email Outreach",
+              "displayName": "Email Outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Campaign Name",
+              "displayName": "Campaign Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1940,
+        260
+      ],
+      "id": "dbc5a9d4-9614-42ca-8409-f159e06f9ef7",
+      "name": "Google Sheets"
+    },
+    {
+      "parameters": {
+        "content": "# | LinkedIn URL Scraper\n## - Custom Google Search Engine ($0)\n## - 1000 profiles / day\n## - URL + Name\n",
+        "height": 660,
+        "width": 2120,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "2b7c62d1-1366-447a-a720-a2f8844e950a",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "# | LinkedIn Profile Scraper\n## - $0.01 / profile\n## - runs on Apify ($39/m)\n## - profile info + posts\n## - email",
+        "height": 560,
+        "width": 1500,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        660
+      ],
+      "id": "5f5cd6fd-97bd-48de-9c11-f0826e1f32b8",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Scrapers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        700,
+        140
+      ],
+      "id": "e7a82d3e-20b4-4b09-a06c-378f1b893632",
+      "name": "Get Existing URLs"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Node: \"Build Existing Set\"\nconst allItems = $input.all(); // Get all input items (n8n structure)\nconst existingURLs = new Set(); // Initialize a Set for unique URLs\n\n// Loop through each input item\nfor (const item of allItems) {\n  // Access the JSON data within the item using item.json\n  // Use the CORRECT key 'url' (lowercase)\n  // Also, good practice to check if it's actually a string before trimming\n  if (item.json.url && typeof item.json.url === 'string') {\n    // Add the trimmed, lowercase URL to the Set\n    existingURLs.add(item.json.url.trim().toLowerCase());\n  } else {\n    // Optional: Log if a URL is missing or not a string, for debugging\n    // console.log(`Skipping item at row_number ${item.json.row_number}: URL missing or not a string.`);\n  }\n}\n\n// Return a single item containing an array of the unique URLs\n// Convert the Set back to an Array for the final JSON output\nreturn [{\n  json: {\n    existingSet: Array.from(existingURLs), // Convert Set to Array\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        140
+      ],
+      "id": "83fab8a4-82df-4868-83e7-c75505e9603e",
+      "name": "Build Existing Set"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1620,
+        260
+      ],
+      "id": "1cf7170d-b516-4b59-b474-500801a9dbbe",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Your final output MUST be a single JSON object containing exactly three top-level keys: \"linkedinSummary\", \"outreachMessage\", and \"company\". Do not include the key names (like 'linkedinSummary:') within the string values themselves.\n\nParse the provided LinkedIn profile data based on the following analysis focus:\n\n## ANALYSIS FOCUS\n1. Extract core professional data:\n   - Name, current role, and company\n   - Specific technical skills or areas of expertise that indicate decision-making responsibilities or interests relevant to AI consulting.\n2. Identify actionable sales angles:\n   - Look for recent skill acquisitions, certifications, or specific technology affiliations.\n   - Note projects, achievements, or priorities mentioned that AI could potentially enhance.\n3. Determine relationship leverage points:\n   - Find unusual or distinctive aspects of their background, specific achievements, or interests mentioned in the profile.\n\n## CONTENT for the \"linkedinSummary\" key:\nProvide a **single string** value for this key. Within this string, include the following information formatted clearly (e.g., using bullet points or concise paragraphs):\n- PROFESSIONAL SNAPSHOT (2-3 points): Current role/company, key technical/business specializations relevant to potential AI adoption, career insights suggesting priorities.\n- OUTREACH ANGLES (2-3 points): Specific technologies used, notable projects/achievements, certifications, or stated goals where AI might apply.\n- UNIQUE CONNECTOR (1 point): One distinctive detail (hobby, unique experience, specific achievement) mentioned in the profile.\n\n## CONTENT for the \"outreachMessage\" key:\nProvide a **single string** value for this key. This string should contain a brief 2-3 sentence LinkedIn message that:\n- Mentions our company (ChaseAI) and our offering (AI consulting).\n- Connects the offering to their specific role, company, or details identified in the analysis (from the linkedinSummary content).\n- Includes a brief call to action or expresses interest in connecting further.\n\n## CONTENT for the \"company\" key:\nProvide a **single string** value for this key containing only the name of their current company as identified in the profile data.\n\nIMPORTANT: Don't make assumptions or add information not present in the data. If information for a specific point is unavailable, omit that point or note its absence concisely within the relevant string value. Ensure the final output is only the JSON object with the three specified keys and their string values."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1000,
+        920
+      ],
+      "id": "912990fa-e2c6-48cf-a273-d62215043c27",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        820,
+        920
+      ],
+      "id": "479e3ef4-6cd7-4552-b0b9-79ba657c1bb2",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Tavily Search provides real-time web search capabilities. This tool searches the internet for current information beyond your training data.\n\nUSAGE:\n- POST to https://api.tavily.com/search\n- Authentication: Bearer token required\n\nKEY PARAMETERS:\n- query: [Required] Your search query in natural language\n- search_depth: \"basic\" (faster) or \"advanced\" (comprehensive)\n- include_domains/exclude_domains: Control which sites to search\n- max_results: Number of results (default: 5)\n- include_answer: Boolean for AI-generated summary\n- include_raw_content: Boolean for full text\n\nRESPONSE:\nReturns JSON with search results containing URLs, titles, snippets, and relevance scoring.\n\nUse placeholders for dynamic searching based on context. Essential for retrieving factual, up-to-date information on leads and companies.",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "Authorization",
+              "valueProvider": "fieldValue",
+              "value": "Bearer "
+            }
+          ]
+        },
+        "sendBody": true,
+        "parametersBody": {
+          "values": [
+            {
+              "name": "query"
+            },
+            {
+              "name": "search_depth",
+              "valueProvider": "fieldValue",
+              "value": "advanced"
+            },
+            {
+              "name": "max_results",
+              "valueProvider": "fieldValue",
+              "value": "5"
+            },
+            {
+              "name": "time_range",
+              "valueProvider": "fieldValue",
+              "value": "year"
+            },
+            {
+              "name": "include_images",
+              "valueProvider": "fieldValue",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        920,
+        1500
+      ],
+      "id": "67cebd7c-dbd8-41c5-9149-461cc15883c3",
+      "name": "tavilysearch"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=company: {{ $json.company }}\n\nLinkedin summary: {{ $json[\"linkedin summary\"] }}\n\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are a Company Information Synthesizer. Your primary goal is to extract key information about a target company by leveraging the `tavilysearch` tool, prioritizing content likely originating from the company's official website. Your secondary goals are finding a general company contact email and checking third-party sources for customer sentiment. You will be given the company name, as well as a summary about someone within the company.\n\n**CORE DIRECTIVES:**\n1.  **TOOL USAGE:** You MUST ONLY use the `tavilysearch` tool for information gathering.\n2.  **PRIMARY SOURCE FOCUS (Website):** Prioritize finding and summarizing information directly presented on the company's official website (e.g., About Us, News/Blog/Press sections, Product/Service pages, Contact Us page). Use Tavily to locate these pages or relevant summaries.\n3.  **SECONDARY SOURCE (Sentiment ONLY):** Use Tavily to search third-party review sites (G2, Capterra, etc.) or forums (Reddit) ONLY for customer sentiment.\n4.  **EXCLUSION:** Do NOT include information from LinkedIn pages.\n5.  **RECENCY:** For news and highlights, focus on information from the last 12-18 months.\n6.  **CONCISENESS:** Keep summaries brief and factual.\n7.  **ACCURACY:** Do not invent information.\n\n**RESEARCH FOCUS (Guide for using Tavily):**\n*   **Core Business:** Search for \"[Company Name] About Us\", \"[Company Name] Mission\", or what the company does, aiming for results likely linking to or summarizing their main website content.\n*   **Recent Website News:** Search for \"[Company Name] news\", \"[Company Name] press release\", \"[Company Name] blog\", looking for recent announcements likely hosted on their domain.\n*   **Products/Services:** Search for \"[Company Name] products\", \"[Company Name] services\", aiming for results describing their core offerings, likely from their website.\n*   **Company Contact Email:** Search for \"[Company Name] contact email\", \"[Company Name] contact us\", \"[Company Name] sales email\", aiming for results showing a general contact address (e.g., info@, sales@, contact@) likely from their contact page.\n*   **Third-Party Sentiment:** Search `\"[Company Name] review site:g2.com\"`, `\"[Company Name] reddit discussion\"`, etc.\n\n**OUTPUT FORMAT:**\nYour final response MUST be a single JSON object containing the following keys. Provide concise, bulleted string values where appropriate:\n\n{\n  \"companyOverview\": \"- [1-2 sentence description of what the company does, its mission, or value proposition, based on information likely found on their website.] (Source: Primarily Company Website via Tavily Search Results)\",\n  \"recentWebsiteNews\": \"- [Bullet point about a specific recent announcement, update, or blog post likely found on the company's website.] (Source: Link to specific page/article if found by Tavily, otherwise 'Company Website News/Blog')\\n- [Optional second bullet point.] (Source: Link or 'Company Website News/Blog')\",\n  \"keyOfferings\": \"- [Bullet point listing a key product or service.] (Source: Company Website via Tavily Search Results)\\n- [Optional second bullet point listing another offering.] (Source: Company Website via Tavily Search Results)\",\n  \"companyContactEmail\": \"[ONLY the general company contact email address found (e.g., info@company.com), OR the exact string 'No general company contact email found via Tavily search.']\", // <-- MODIFIED: Removed source instruction here\n  \"thirdPartySentiment\": \"- [Bullet point summarizing specific praise/criticism from a third-party review site/forum. Quote if concise.] (Source: [Specific URL/Site Name])\\n- [Optional second bullet point.] (Source: [Specific URL/Site Name])\"\n}\n\n**HANDLING NO RESULTS:**\nIf `tavilysearch` finds no relevant information for a specific key *other than email*, the value MUST be a string stating: \"No relevant [Category Name, e.g., recent website news] found via Tavily search.\" Source citation for website content (overview, news, offerings) can be general ('Company Website via Tavily') unless a specific article/page URL is readily available in the search results. Source citation for `thirdPartySentiment` MUST be specific. If no general contact email is found, the value for `companyContactEmail` MUST be exactly \"No general company contact email found via Tavily search.\" Do not add source citations to the `companyContactEmail` field."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        860,
+        1300
+      ],
+      "id": "95cff5ea-9f22-48b0-9443-fa7364bf7d6f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1040,
+        700
+      ],
+      "id": "9d9de469-1915-4bc3-ba88-98165d0f1a9b",
+      "name": "Wait5",
+      "webhookId": "ef603be9-0551-46d3-ac54-72248e1ea2ed"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        500,
+        680
+      ],
+      "id": "bfb6f278-8e93-494d-b194-6ff709206212",
+      "name": "Loop Over Items2",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        500,
+        1280
+      ],
+      "id": "31ab7ae6-354f-4030-be2c-6572ccea7dd8",
+      "name": "Loop Over Items7",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/2SyF0bVxmgGr8IVCZ/runs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer "
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"profileUrls\": [\n        \"{{ $json.url }}\"\n    ]\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        820,
+        700
+      ],
+      "id": "3ef5968e-8437-4759-8fee-8f72e1e2af62",
+      "name": "Apify-linkedin-profile-scraper"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/datasets/{{ $json.data.defaultDatasetId }}/items",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1260,
+        700
+      ],
+      "id": "b2992e17-cf94-40d4-a824-9ab35105fc94",
+      "name": "get-apify-linkedin-profile-scraper-data",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        740,
+        1500
+      ],
+      "id": "8ff0142d-b6d7-4e92-9311-755dce897370",
+      "name": "OpenAI Chat Model2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        820
+      ],
+      "id": "ab175797-a492-4373-8102-a1250e0857a9",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Scrapers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "scrape complete?",
+              "lookupValue": "No"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1960,
+        480
+      ],
+      "id": "ad9692c3-c0f9-4e86-aa03-dbe2a5a9ce2e",
+      "name": "Google Sheets1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Scrapers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $('get-apify-linkedin-profile-scraper-data').item.json.email }}",
+            "linkedin summary": "={{ $json.output.linkedinSummary }}",
+            "url": "={{ $('Aggregate').item.json.data[0].linkedinUrl }}",
+            "company": "={{ $json.output.company }}",
+            "linkedin outreach": "={{ $json.output.outreachMessage }}"
+          },
+          "matchingColumns": [
+            "url"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "linkedin summary",
+              "displayName": "linkedin summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company",
+              "displayName": "company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "linkedin outreach",
+              "displayName": "linkedin outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "company overview",
+              "displayName": "company overview",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "company email",
+              "displayName": "company email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "scrape complete?",
+              "displayName": "scrape complete?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email Outreach",
+              "displayName": "Email Outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1340,
+        920
+      ],
+      "id": "f30e39d4-4975-4a1a-b068-78c6879b8487",
+      "name": "Google Sheets2"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"linkedinSummary\": \"A string containing the professional snapshot, outreach angles, and unique connector.\",\n  \"outreachMessage\": \"A string containing the 2-3 sentence personalized outreach message.\",\n  \"company\": \"A string containing only the company name.\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        520,
+        960
+      ],
+      "id": "de528935-9fb4-4656-9730-abcbc2b65e2b",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"companyOverview\": \"String: 1-2 sentence description from website. (Source: ...)\",\n  \"recentWebsiteNews\": \"String: Bullet points of recent website news/blog posts. (Source: ...)\",\n  \"keyOfferings\": \"String: Bullet points of key products/services. (Source: ...)\",\n  \"companyContactEmail\": \"info@example.com\",\n  \"thirdPartySentiment\": \"String: Bullet points of third-party sentiment or 'Not found'. (Source: ...)\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1060,
+        1500
+      ],
+      "id": "24231363-d146-4ddb-98b8-28bbfc46bf14",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Scrapers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "company": "={{ $('Loop Over Items7').item.json.company }}",
+            "company overview": "={{ $json.output.companyOverview }}\n{{ $json.output.recentWebsiteNews }}\n{{ $json.output.keyOfferings }}\n{{ $json.output.thirdPartySentiment }}",
+            "company email": "={{ $json.output.companyContactEmail }}"
+          },
+          "matchingColumns": [
+            "company"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "linkedin summary",
+              "displayName": "linkedin summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company",
+              "displayName": "company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "linkedin outreach",
+              "displayName": "linkedin outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company overview",
+              "displayName": "company overview",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company email",
+              "displayName": "company email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "scrape complete?",
+              "displayName": "scrape complete?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email Outreach",
+              "displayName": "Email Outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1240,
+        1520
+      ],
+      "id": "088bfb80-35f6-40c7-85c0-73f8a14572c1",
+      "name": "Google Sheets3",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all items passed from the previous node\nconst items = $input.all();\n// Define the exact string the LLM outputs when it doesn't find the email\nconst notFoundString = \"No general company contact email found via Tavily search.\";\n\n// Loop through each item (though likely just one in this case)\nfor (const item of items) {\n  // Check if the json property and the email field exist and match the string\n  if (item.json && item.json.companyContactEmail === notFoundString) {\n    // If it matches, set the field to an empty string\n    item.json.companyContactEmail = \"\";\n  }\n}\n\n// Return the modified items\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1180,
+        1300
+      ],
+      "id": "a13ee7d0-0cb8-48ac-9619-0499982563fe",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "content": "# | Company Research\n## - $0*\n## - runs on Tavily\n## - email\n## - Message Creation",
+        "height": 500,
+        "width": 1500,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        1200
+      ],
+      "id": "bb327f21-64cd-46ea-8fec-61ba3d981623",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        1080
+      ],
+      "id": "468c9e20-cacf-40eb-a256-0a748508f736",
+      "name": "Aggregate1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c7aa4369-bf4c-4d12-8d8c-fe6a93d3c4f7",
+              "leftValue": "={{ $json.email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "2e85e4eb-ef54-4d33-bfb2-e39f8ac036ae",
+              "leftValue": "={{ $json[\"company email\"] }}",
+              "rightValue": "No general company contact email found via Tavily search.",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2100,
+        1080
+      ],
+      "id": "ccaec726-b93c-4d02-85c3-f8f0bd6b77c9",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Scrapers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "scrape complete?",
+              "lookupValue": "No"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": false
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1920,
+        1080
+      ],
+      "id": "4283ef80-cfeb-4d86-be59-95517ff92cfb",
+      "name": "Google Sheets4"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Scrapers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $('If').item.json.name }}",
+            "Email Outreach": "no email found",
+            "email": "=no email found",
+            "scrape complete?": "Yes",
+            "company email": "no email found"
+          },
+          "matchingColumns": [
+            "name"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "linkedin summary",
+              "displayName": "linkedin summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company",
+              "displayName": "company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "linkedin outreach",
+              "displayName": "linkedin outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company overview",
+              "displayName": "company overview",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company email",
+              "displayName": "company email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "scrape complete?",
+              "displayName": "scrape complete?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email Outreach",
+              "displayName": "Email Outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1740,
+        1320
+      ],
+      "id": "65775536-63fc-421d-8b2d-b6c69e5a8e6a",
+      "name": "Google Sheets6"
+    },
+    {
+      "parameters": {
+        "resource": "draft",
+        "subject": "=Hi ",
+        "message": "={{ $json.text }} ",
+        "options": {
+          "sendTo": "={{ $('Edit Fields').item.json.email || $('Edit Fields').item.json['company email'] }}"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2840,
+        1160
+      ],
+      "id": "24e14a55-36d7-4d21-ac53-e97d7b5f2c85",
+      "name": "Gmail",
+      "webhookId": "83fca641-b997-4dfd-b104-2bbc3d291081"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=name:  {{ $json.name }}\n\nLinkedin Summary: {{ $json[\"linkedin summary\"] }}\n\ncompany: {{ $json.company }}\n\ncompany background: {{ $json[\"company overview\"] }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are an Expert B2B Cold Outreach Email Drafter. Your objective is to compose a concise, professional, and highly personalized email body (target 100-150 words) to introduce ChaseAI's AI consulting services to a business prospect.\n\n**Your Company:** ChaseAI\n**Your Offering:** AI consulting focused on helping businesses leverage AI for benefits like operational efficiency, enhanced customer engagement, data-driven decision making, and strategic growth.\n\n**Input Data Provided:**\nYou will receive the following information about the prospect and their company:\n*   `name`: The prospect's name, potentially including their title or company (extract the actual name for use).\n*   `linkedinSummary`: A structured summary derived from their LinkedIn profile, containing sections like Professional Snapshot, Outreach Angles, and Unique Connector.\n*   `company`: The name of the prospect's company.\n*   `company background`: A structured summary containing Company Overview, Recent Website News, Key Offerings, and Third-Party Sentiment about the company.\n\n**Drafting Instructions:**\n\n1.  **Identify the Strongest Hook:**\n    *   Carefully analyze BOTH the `linkedinSummary` and the `company background` inputs.\n    *   Look for the *single most compelling and relevant piece of information* to use as a personalized opening. Prioritize items like:\n        *   Specific achievements, projects, or unique connectors mentioned in the `linkedinSummary`.\n        *   Recent, significant company news (funding, major launch, partnership) from `company background`.\n        *   A key offering or aspect of the `companyOverview` that strongly aligns with potential AI applications.\n        *   A specific technical specialization or outreach angle from the `linkedinSummary`.\n    *   Choose the hook that allows the most natural and logical transition to the value of AI consulting for *this specific prospect* in *their specific company*.\n\n2.  **Structure & Content:**\n    *   **Opening (Personalized Hook):** Start by briefly acknowledging the prospect (using their name extracted from the `name` field) and referencing the specific hook you selected (1 sentence). Make it clear you've done some research.\n    *   **Introduction:** Briefly introduce ChaseAI and that you offer AI consulting (1 sentence).\n    *   **Value Proposition (Connecting the Dots):** Explain *why* AI consulting might be relevant *specifically* to them, given the hook point, their likely role (inferred from `linkedinSummary` or `name` field), and their `company`. Focus on potential benefits like efficiency, growth, tackling challenges related to their recent news, etc. (1-2 sentences).\n    *   **Call to Action (Soft):** Suggest a brief, low-pressure next step (e.g., \"Would exploring how AI could apply to [Specific Area Mentioned] be valuable?\", \"Open to a quick chat sometime next week?\").\n\n3.  **Tone:** Professional, concise, respectful, knowledgeable (demonstrated by the hook), and focused on potential value. Avoid jargon where possible.\n\n4.  **Constraints:**\n    *   Strict word count: Aim for 100-150 words for the email body.\n    *   Use only the information provided in the input fields. Do not invent details.\n    *   If both `linkedinSummary` and `company background` lack strong, specific hooks, create the most relevant message possible focusing on their likely role (inferred from `name`/`linkedinSummary`) and the `companyOverview`, connecting AI's general benefits.\n\n**Output Format:**\nReturn ONLY the drafted email body as a single string. Do not include a subject line, greeting (\"Hi [Name],\"), or sign-off (\"Best,\")."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        2460,
+        1060
+      ],
+      "id": "b1a6440b-7b1e-4ea5-9a30-5b7ce75958f7",
+      "name": "Basic LLM Chain3"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2440,
+        1260
+      ],
+      "id": "2fd0a2d2-c252-45b6-b271-acbab4f019ba",
+      "name": "OpenAI Chat Model4"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Scrapers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email Outreach": "={{ $json.text }}",
+            "url": "={{ $('Edit Fields').item.json.url }}",
+            "scrape complete?": "Yes"
+          },
+          "matchingColumns": [
+            "url"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "linkedin summary",
+              "displayName": "linkedin summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company",
+              "displayName": "company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "linkedin outreach",
+              "displayName": "linkedin outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company overview",
+              "displayName": "company overview",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "company email",
+              "displayName": "company email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "scrape complete?",
+              "displayName": "scrape complete?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email Outreach",
+              "displayName": "Email Outreach",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2840,
+        940
+      ],
+      "id": "46ab2020-9e65-4aff-a409-f9bf478ba4e6",
+      "name": "Google Sheets7"
+    },
+    {
+      "parameters": {
+        "content": "# | Email Generation\n## - LinkedIn info + Company Info + Your Offer => Custom Email\n## - If no email, generates LinkedIn message",
+        "height": 840,
+        "width": 1640,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        660
+      ],
+      "id": "e41d4d3a-f388-44f3-b455-0799bb162d06",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "703dd5b3-1e35-4306-8529-7ee73da5baae",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "22ca7517-5e3c-478c-9dfa-d881eedf5932",
+              "name": "linkedin summary",
+              "value": "={{ $json[\"linkedin summary\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "00757de6-779b-40a0-a4db-76d9aee0b4ce",
+              "name": "company",
+              "value": "={{ $json.company }}",
+              "type": "string"
+            },
+            {
+              "id": "184df806-7ae5-4c9e-9781-bd0d70ddec71",
+              "name": "company overview",
+              "value": "={{ $json[\"company overview\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "73adfe2a-6a69-427b-80a1-854b5518237b",
+              "name": "email",
+              "value": "={{ $json.email }}",
+              "type": "string"
+            },
+            {
+              "id": "f761df92-6b6e-4614-8792-50a645fe6588",
+              "name": "company email",
+              "value": "={{ $json[\"company email\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "0cd14305-6e0e-4055-ba9a-0407f265154e",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2280,
+        1060
+      ],
+      "id": "aefb11d3-d2b7-455a-97f7-b21a646508cd",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "formTitle": "Lead Gen Form",
+        "formDescription": "Always Be Closing",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Campaign Name / Identifier",
+              "placeholder": "Enter a unique name for this search batch (e.g., HVAC_Owners_Dallas_Run1)",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Keywords / Job Titles",
+              "placeholder": "Enter primary keywords or job titles (e.g., software company founder)",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Location",
+              "placeholder": "Location",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Number of NEW Profiles to Find",
+              "placeholder": "10",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        460,
+        300
+      ],
+      "id": "8f0a5f00-e599-4b16-965f-8bcf947bbd28",
+      "name": "On form submission",
+      "webhookId": "5335954a-61c6-4d17-89fc-e142c0699905"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Scrapers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vHqXo3jbjZwPurHfeV4HbbX0h4ArzTA-VrmiOX67BV0/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Campaign Name",
+              "lookupValue": "={{ $json[\"Campaign Name / Identifier\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        680,
+        460
+      ],
+      "id": "ddb672f9-5758-410f-be38-1920ee4449c2",
+      "name": "Count Existing Query Rows",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all items passed from the previous node\n// $input.all() ensures we get the array of all input items\nconst incomingItems = $input.all();\n\n// Get the total number of items\nconst count = incomingItems.length;\n\n// Create the output data structure: a single object containing the count\n// The output needs to be wrapped in an array as n8n expects item(s)\nconst outputData = [{\n  json: {\n    existingCount: count\n  }\n}];\n\n// Return the single item array\nreturn outputData;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        900,
+        460
+      ],
+      "id": "24c5e16e-d4e8-4d30-8c3d-9e05caad15c4",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        1120,
+        380
+      ],
+      "id": "2e0b744a-cb9f-433c-8c89-be7da1c939be",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "content": "# | LinkedIn Scraper + Enhanced Outreach Workflow\n\n# How It Works\n\n## 1) Fill out form with search criteria\n## 2) Scrape LinkedIn URLs with Google CSE\n## 3) Feed LI URLs to Apify\n## 4) Apify scrapes LI profile information\n## 5) GPT synthesizes LI profile information\n## 6) Company research via Tavily, GPT synthesis\n## 7) LI info + company information + your individual offer is fed to GPT to create customized outreach messaging  \n\n# APIs Needed\n\n## 1) Google Custom Search Engine ($0)\n## 2) AI API of choice (variable, pennies per run)\n## 3) Apify ($39 / month)\n## 4) Tavily ($0 for first 1000 credits)\n\n\n# Other Features\n\n## 1) Duplication Protection\n## 2) Smart Pagination\n## 3) ~20s / lead total run time\n\n\nhttps://www.skool.com/chase-ai/classroom/2acd8173?md=66697745be4c4904bc09007608817802",
+        "height": 1620,
+        "width": 660,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -700,
+        20
+      ],
+      "id": "d5e57982-f0d7-409b-a7ea-26b3a7a404bc",
+      "name": "Sticky Note1"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-04T18:26:16.000Z",
+  "versionId": "12db1edc-8c0c-4907-931e-b35a980ed629"
+}
