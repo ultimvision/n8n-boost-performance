@@ -1,0 +1,437 @@
+{
+  "active": false,
+  "connections": {
+    "Get Client Details": {
+      "main": [
+        [
+          {
+            "node": "Client Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Client Exists?": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Client does not exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Client Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Input Data Complete?": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Invalid input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Is Input Data Complete?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Return Client Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-07T13:25:11.286Z",
+  "id": "v7rRYq9BV7yxUhfj",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boost - Core - Get Client Details",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "boost_client",
+          "mode": "list",
+          "cachedResultName": "boost_client"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "client_id",
+              "value": "={{ $json.client_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "eecb5c55-4a25-4f6e-bd77-734586283fda",
+      "name": "Get Client Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1900,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fac9f470-c1a8-4364-b0ff-33d9782b04ca",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "cb2774d7-ad77-4090-a1cb-ffb4581424a8",
+      "name": "Client Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2080,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "3825ed30-e4fd-478a-90c9-9765a729a95b",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1580,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return Error",
+        "height": 230.76492242997267,
+        "width": 260.4107095012927,
+        "color": 3
+      },
+      "id": "4ea97b06-f845-477f-8c5e-e715ae4a3855",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1520,
+        700
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"success\": false,\n  \"message\": \"Invalid input\"\n}\n",
+        "options": {}
+      },
+      "id": "08288d53-442e-43f9-94cf-d3bc83f30592",
+      "name": "Invalid input",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1600,
+        760
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a7e6a601-e9ec-440f-94ad-2aea5b22d776",
+              "leftValue": "={{ $json.client_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "891ca9b5-65d5-4735-b425-b762de831fbc",
+              "leftValue": "={{ $json.client_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8b95802f-af94-4e91-ae72-34e8acd213cc",
+      "name": "Is Input Data Complete?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return Client Details",
+        "height": 246.66737994304273,
+        "width": 259.8413697164873,
+        "color": 4
+      },
+      "id": "acb505c9-64ed-4b54-a14f-8ad51c0779f3",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2520,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Return : The client does not exist.",
+        "height": 254.38477565856303,
+        "width": 277.04950565333775,
+        "color": 3
+      },
+      "id": "28b781ff-d3e8-4e47-8467-2288d24f4a12",
+      "name": "Sticky Note11",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2400,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"success\": false,\n  \"message\": \"The client does not exist.\"\n}\n",
+        "options": {}
+      },
+      "id": "340b74e7-bc5b-4be4-b51c-f3e80a8c6a9f",
+      "name": "Client does not exist",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2480,
+        720
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "content": "# Validate Input Data before processing the Workflow.",
+        "height": 877.8177931928908,
+        "width": 659.8519477830155,
+        "color": 7
+      },
+      "id": "fc301899-9760-4607-ab8d-1cd4a3143040",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "content": "![Image](https://boostperformance.ai/logos/logo_boost_performance.png)\n",
+        "height": 126.5138075838814,
+        "width": 242.73163146139782,
+        "color": 7
+      },
+      "id": "ca319c57-fc37-43c2-b224-fa3b81d8e4c4",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        900,
+        160
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5e29898d-f9fa-4f4b-8351-d332c593f56c",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        920,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Get Client Details",
+        "height": 877.8177931928908,
+        "width": 1177.253819620645,
+        "color": 7
+      },
+      "id": "c49c19fe-e2c8-4d5d-a709-08a7b3a7d5d6",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "client_details",
+        "options": {}
+      },
+      "id": "33786cb0-67b4-41fd-bc72-66e3db7cb66e",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a6708055-37f7-4032-a630-87ccb1c28d07",
+              "name": "client_details",
+              "value": "={{ $json.client_details[0] }}",
+              "type": "object"
+            },
+            {
+              "id": "6048e876-1cc5-42a3-8cd0-d73dafb7eec2",
+              "name": "status",
+              "value": "={{ $json.client_details[0].status }}",
+              "type": "string"
+            },
+            {
+              "id": "52c03a32-c218-4e31-b1dc-21f34696c4a2",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "69a13344-a931-44a6-8b04-506fc48e49f4",
+      "name": "Return Client Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2600,
+        340
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:11:50.060Z",
+      "updatedAt": "2024-06-29T11:11:50.060Z",
+      "id": "ZKbx7utkuoZitBUT",
+      "name": "Boost"
+    },
+    {
+      "createdAt": "2024-09-07T13:08:32.695Z",
+      "updatedAt": "2024-09-07T13:08:32.695Z",
+      "id": "zvxPXyJqeprP9Nex",
+      "name": "Core"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-13T12:40:51.000Z",
+  "versionId": "37a45280-dc36-4957-9ddc-e7178f832fe9"
+}
