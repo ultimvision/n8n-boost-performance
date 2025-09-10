@@ -1,0 +1,453 @@
+{
+  "active": false,
+  "connections": {
+    "Urls List": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Sitemap": {
+      "main": [
+        [
+          {
+            "node": "Urls List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Url": {
+      "main": [
+        [
+          {
+            "node": "Verify URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Url Already Processed": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Urls",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify URL": {
+      "main": [
+        [
+          {
+            "node": "Url Already Processed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert HMTL to Markdown": {
+      "main": [
+        [
+          {
+            "node": "Data exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set url": {
+      "main": [
+        [
+          {
+            "node": "Convert HMTL to Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data exists": {
+      "main": [
+        [
+          {
+            "node": "AI Agent - Web Page Summarizer",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Web Page Summarizer": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Urls": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Sitemap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-23T17:04:24.452Z",
+  "id": "RcG2FRrsWq0zspz4",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AI Agent - Extract Website Content",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "c445d4d5-e54b-4915-82db-d6aec36669a1",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        460,
+        600
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "id": "f1401253-e823-4ab5-9e3a-5f04e2f8a2ef",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        460,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6d2f11ee-6851-4732-ade3-5f96dc5ab594",
+              "name": "urls",
+              "value": "={{ $json.loc }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff126164-416b-4723-98c4-d91e985540df",
+      "name": "Urls List",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1240,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "dITge9eyYuOxVmnZ",
+        "options": {}
+      },
+      "id": "8001889f-39cc-4c1e-b9ca-3abd35ba2f31",
+      "name": "AI Agent Sitemap",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        980,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dc28d6de-1070-42a8-aacf-60cf8ba56602",
+              "name": "url",
+              "value": "={{ $json.urls }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9e431572-3eb7-4313-af2a-d04118a44a29",
+      "name": "Url",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1820,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "602b882f-df56-4ab3-bc91-f22a89c681a0",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "13434c42-8bec-4472-81af-f5f8c3d5acdc",
+      "name": "Url Already Processed",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2280,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "url_content",
+          "mode": "list",
+          "cachedResultName": "url_content"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "url",
+              "value": "={{ $json.url }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "81db9ff4-d2e5-49db-a66d-9621ac61ef15",
+      "name": "Verify URL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        2060,
+        460
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": "FY2z8wLN6T4TE4Dp",
+        "options": {}
+      },
+      "id": "44eb52b9-4e05-4112-8141-e18249e13b4f",
+      "name": "Convert HMTL to Markdown",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2800,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "41711387-bd26-40c1-b963-d0ea384a7756",
+              "name": "url",
+              "value": "={{ $('Url').item.json[\"url\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "60b4e268-d286-4fe0-9a79-f94591c5665c",
+              "name": "customer_id",
+              "value": "={{ $('Workflow Data').all()[0].json.customer_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b83f71a0-b683-4b00-9c4c-d515c54e2566",
+      "name": "Set url",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2540,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "527fbf45-c145-40c1-bafd-6d181d23db10",
+              "leftValue": "={{ $json.data }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8d3efa4d-6c85-4396-bd01-0feb6b74681a",
+      "name": "Data exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        3060,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "WfuhMl4rmgCCACgl",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "0bdcd8c4-88f0-4409-8759-11d350d4576f",
+      "name": "AI Agent - Web Page Summarizer",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3400,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "bf1b22f6-3e5f-432d-979a-3a55075c787b",
+      "name": "Loop Over Urls",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1560,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "9970f7e6-fca0-4d18-b769-61e978494b4b",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        360
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-26T22:01:28.989Z",
+      "updatedAt": "2024-08-26T22:01:28.989Z",
+      "id": "kxxK9uQIRkujnphG",
+      "name": "Assistant"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-27T12:52:05.000Z",
+  "versionId": "1e21fec2-7919-403b-94fa-9e2e0802de0c"
+}
