@@ -1,0 +1,947 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Prépare la FAQ",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Prépare la FAQ",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Réponses à fine-tuner": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Réponse FAQ": {
+      "main": [
+        [
+          {
+            "node": "Prépare la FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FAQ Final": {
+      "main": [
+        [
+          {
+            "node": "Ajouter la FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ajouter la FAQ": {
+      "main": [
+        [
+          {
+            "node": "Mettre à jour l'apprentissage à complété",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prépare la FAQ": {
+      "main": [
+        [
+          {
+            "node": "FAQ Final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Réponse FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FAQ avec Status Actif": {
+      "main": [
+        [
+          {
+            "node": "Questions et Réponses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Questions et Réponses": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Envoie Fichier à Assistant IA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envoie Fichier à Assistant IA": {
+      "main": [
+        [
+          {
+            "node": "Déplace le fichier dans le vector de l'Assistant IA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "FAQ avec Status Actif",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-18T12:49:03.953Z",
+  "id": "q5RTbO50NG4i4xc1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Fine-tuning FAQ",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "7bd04c47-41c8-4326-884d-1d74c3246fd3",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        460,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "filterByFormula": "AND({Apprentissage} = TRUE(), {Apprentissage complété} = FALSE())",
+        "options": {}
+      },
+      "id": "2c1eb143-881e-481f-bbff-8d644cfa999b",
+      "name": "Réponses à fine-tuner",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1060,
+        240
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "id": "a705e2ea-f221-4188-8e99-5c64100217d4",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        460
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "b13064bb-2534-4f06-a3e0-379de7c59782",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        2180,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "id": "999c3a68-f96f-465e-b8e8-f40922da4100",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2180,
+        680
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"title\": \"FAQEntry\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"Le titre résumant le sujet traité.\"\n    },\n    \"question\": {\n      \"type\": \"string\",\n      \"description\": \"La question réécrite de manière générique.\"\n    },\n    \"answer\": {\n      \"type\": \"string\",\n      \"description\": \"La réponse réécrite, claire et précise.\"\n    }\n  },\n  \"required\": [\"title\", \"question\", \"answer\"],\n  \"additionalProperties\": false\n}"
+      },
+      "id": "8ad761d2-8d5c-4161-a000-f07e77a2ac6d",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        2380,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5e4f835a-7829-48cc-95a7-44b877f064fa",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fdf41d76-08c9-43f3-9140-12ea9afdd672",
+      "name": "Réponse FAQ",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1740,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f567bf8e-ebfb-4a05-8068-2b8f629f2311",
+      "name": "FAQ Final",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2400,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblOHjnRL7yTJ9Od4",
+          "mode": "list",
+          "cachedResultName": "FAQ",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblOHjnRL7yTJ9Od4"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Question": "={{ $json.output.question }}",
+            "Reponse": "={{ $json.output.answer }}",
+            "Status": "À Réviser",
+            "Name": "={{ $json.output.title }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Question",
+              "displayName": "Question",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Reponse",
+              "displayName": "Reponse",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Actif",
+                  "value": "Actif"
+                },
+                {
+                  "name": "À Réviser",
+                  "value": "À Réviser"
+                },
+                {
+                  "name": "Inactif",
+                  "value": "Inactif"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "88f3603f-aee6-4031-b4b1-0bccd2ad3861",
+      "name": "Ajouter la FAQ",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2620,
+        240
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblLFS3dDFNZ2HCIm",
+          "mode": "list",
+          "cachedResultName": "Emails",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblLFS3dDFNZ2HCIm"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Apprentissage complété": true,
+            "id": "={{ $('Réponses à fine-tuner').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "Brouillon",
+                  "value": "Brouillon"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                },
+                {
+                  "name": "À réviser avec IA",
+                  "value": "À réviser avec IA"
+                },
+                {
+                  "name": "Ne pas envoyer",
+                  "value": "Ne pas envoyer"
+                },
+                {
+                  "name": "Prêt à Envoyer",
+                  "value": "Prêt à Envoyer"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "De",
+              "displayName": "De",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "De Email",
+              "displayName": "De Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "To",
+              "displayName": "To",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "To Email",
+              "displayName": "To Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Sujet",
+              "displayName": "Sujet",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Label",
+              "displayName": "Label",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Message ID",
+              "displayName": "Message ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Thread ID",
+              "displayName": "Thread ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Catégories",
+              "displayName": "Catégories",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Réponses",
+              "displayName": "Réponses",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Historique ",
+              "displayName": "Historique ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes pour réviser",
+              "displayName": "Notes pour réviser",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Apprentissage",
+              "displayName": "Apprentissage",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Apprentissage complété",
+              "displayName": "Apprentissage complété",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3173023d-ffd9-429e-bf30-7521a00c0ff9",
+      "name": "Mettre à jour l'apprentissage à complété",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2860,
+        240
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Voici le texte à séparer :\n\n{{ $json.output }}\n",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Tu es un expert en séparation de section de contenu.\n\nTa mission :\nSéparer le contenu fourni selon le schéma JSON spécifié, sans effectuer de modifications sur le texte.\n\nDirectives importantes :\n1. Respect strict du texte :\n- Conserve tout le texte intégralement, tel qu'il a été écrit.\n- Ne réécris pas et ne modifies pas le contenu, même en cas d'erreurs ou de fautes.\n\n2. Utilise le format Markdown pour s'assurer d'une belle visibilité. Inclus des sauts de lignes pour bien séparé le contenu.\n"
+            }
+          ]
+        }
+      },
+      "id": "b51ece46-17cd-40fe-b494-96e0726c7db4",
+      "name": "Prépare la FAQ",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        1980,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_8zqwyPq4BOjha00AxEnqN0Cf",
+          "mode": "list",
+          "cachedResultName": "Assistant email"
+        },
+        "prompt": "define",
+        "text": "=Tu es un expert en création de FAQ pour une entreprise. Ta mission est de transformer les interactions entre les clients et le service à la clientèle en contenu structuré pour une base de connaissances.\n\nDirectives pour cette tâche :\n\n1. Analyse : Examine de façon minitieuse la question du client et la réponse fournie par le service à la clientèle.\n\n2. Identifie, étape par étape, TOUS les éléments importants de la question du client. Le nom des services, abonnements, produits, quantités, horaire, liens url sont tous des éléments importants à ré-utiliser dans ta ré-écriture.\n\n3. Réécriture : \n- En suivant les étapes identifiées, Réécris la question avec beaucoup de détails et la réponse de manière claire, concise et bien structurée en français.\n- Crée aussi un titre résumant le sujet traité.\n\n4. Anonymisation : Retire tous les noms de personnes, d’entreprises, ainsi que toute information personnelle ou transactionnelle. Aucun détail permettant d’identifier un client ou une interaction spécifique ne doit apparaître.\n\n5. Conservation des informations de l’entreprise : Maintiens uniquement les informations propres à l’entreprise qui répond dans le contenu.\n\n6. Utilise les documents pour bonifier et améliorer ta réponse. Il est très important d'ajouter des informations complémentaires ou clarification. Tu ne peux pas inventer ou ajouter des éléments à ta réponse qui ne sont pas dans les documents.\n\nFormat attendu :\nPour chaque élément de la FAQ, le résultat doit comporter :\n\n- Un titre (résumé du sujet en quelques mots).\n- La question réécrite (formulée de manière générique).\n- La réponse réécrite (claire, précise, et fidèle aux informations transmises).\n\nL’objectif est de produire des articles de FAQ utilisables dans une base de connaissances interne ou publique. Assure-toi que le contenu est adapté à un public large et facilement compréhensible.\n\nVoici la question du client:\n{{ $json.Message }}\n\nVoici la réponse du service à la clientèle:\n{{ $json['Réponses'] }}",
+        "options": {}
+      },
+      "id": "d287c6d3-c494-4bf2-ac6f-595303324432",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        1360,
+        240
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblOHjnRL7yTJ9Od4",
+          "mode": "list",
+          "cachedResultName": "FAQ",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblOHjnRL7yTJ9Od4"
+        },
+        "filterByFormula": "{Status} = \"Actif\"",
+        "options": {}
+      },
+      "id": "5aea44ca-fa8b-422f-9f0e-a6110b9e6e10",
+      "name": "FAQ avec Status Actif",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        680
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "07775814-6ab1-4842-aa43-8570e98b0343",
+              "name": "Name",
+              "value": "={{ $json.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "ab367e59-7ec2-44bd-a605-56c7535c51c9",
+              "name": "Question",
+              "value": "={{ $json.Question }}",
+              "type": "string"
+            },
+            {
+              "id": "9c683918-7778-4924-9d4e-60e3b6aa9d51",
+              "name": "Reponse",
+              "value": "={{ $json.Reponse }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6de05ba3-63f2-4740-96b6-8e7d9da5b7f5",
+      "name": "Questions et Réponses",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "options": {
+          "fileName": "faq.json"
+        }
+      },
+      "id": "2a4eb3ea-0e4a-4b00-8120-af76374d2b5e",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1160,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "list",
+        "options": {}
+      },
+      "id": "9b3e4730-1ce5-4bf6-a60a-4fa5d0aeef02",
+      "name": "OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        720,
+        940
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "options": {
+          "purpose": "assistants"
+        }
+      },
+      "id": "e745f919-9608-4877-88f9-e5c311e941f7",
+      "name": "Envoie Fichier à Assistant IA",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        1400,
+        680
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.openai.com/v1/vector_stores/vs_8NT444SfOVuZg1NpvTFzNXPb/files",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "OpenAI-Beta",
+              "value": "assistants=v2"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "file_id",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ba9af8a5-f13e-48ca-9ee7-6ad0bb4ef3fa",
+      "name": "Déplace le fichier dans le vector de l'Assistant IA",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1660,
+        680
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "JfkFEyOU1IjUwnPl",
+          "name": "OpenAi Boost / UV"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-18T16:17:09.000Z",
+  "versionId": "7d28f4d2-23e2-44df-b88f-3a8d80e5b98f"
+}
