@@ -1,0 +1,443 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Image": {
+      "main": [
+        [
+          {
+            "node": "Convert to base64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process answer": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Try to fix the json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Try to fix the json": {
+      "main": [
+        [
+          {
+            "node": "Check if fixed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check if fixed": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to base64": {
+      "main": [
+        [
+          {
+            "node": "Ask GPT4o",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ask GPT4o": {
+      "main": [
+        [
+          {
+            "node": "Process answer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-17T19:45:05.497Z",
+  "id": "VUvIjZ5bwLYCtovm",
+  "isArchived": false,
+  "meta": null,
+  "name": "Test JSON Parse",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "cfe5039b-3719-4cb0-b147-24ba1c0c1fe6",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "422a5f6a-089f-460b-8c91-fb92d6627237",
+              "name": "data",
+              "value": "={\"my_field_1\":\"value\",\"my_field_2\":1, \"result\": true, \"message\": \"test message\"}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        0
+      ],
+      "id": "c61e5785-d5bb-4864-92a1-68b5b3e4f1b7",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2516e8cd-48b7-4bdd-93de-856d8526487c",
+              "name": "parsed_answer",
+              "value": "={{ JSON.parse($json.data) || null }}",
+              "type": "object"
+            },
+            {
+              "id": "b59efdd2-4e11-4953-bb3b-169f948b3f2a",
+              "name": "original_answer",
+              "value": "={{ $json.data }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        540,
+        0
+      ],
+      "id": "f0bc0a1a-8347-478e-8598-ea2766320770",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/images/validateImageForTraining",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        20,
+        720
+      ],
+      "id": "7aa6369b-d5ca-484b-a66f-2f0561af519b",
+      "name": "Webhook",
+      "webhookId": "f67e29d9-b63f-41c6-b394-80c08f90c668",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1860,
+        700
+      ],
+      "id": "250efd3c-2fda-4ba6-a359-218d05a0afa8",
+      "name": "Respond to Webhook",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "resize",
+        "dataPropertyName": "file",
+        "width": 768,
+        "height": 768,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        220,
+        720
+      ],
+      "id": "86b322e7-2f00-4069-85d1-dc454ed3bffd",
+      "name": "Edit Image",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "try {\n  const answer = $json.choices[0].message.content;\n\n  const parsedJson = JSON.parse(answer);\n\n  return {\n    isValidJson: true,\n    result: parsedJson.result ?? false,\n    message: parsedJson.message ?? \"No message provided.\",\n  };\n} catch (error) {\n  return {\n    isValidJson: false,\n    error: error.message,\n    answer: $json[\"content\"] \n  };\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        720
+      ],
+      "id": "4b86a268-a521-4b62-8a96-47f99669046a",
+      "name": "Process answer",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ea0f5f35-d430-4a56-81e7-e3c8df6b2bce",
+              "leftValue": "={{ $json.isValidJson }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        980,
+        720
+      ],
+      "id": "da72256c-3504-4e11-9384-a56787c5ca61",
+      "name": "If",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "GPT-3.5-TURBO"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Can you fix and return the corrected JSON.\n\nJSON input: {{ $json.answer }}",
+              "role": "assistant"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        1280,
+        900
+      ],
+      "id": "baa07590-a2cf-4ca6-b377-c95a9e166fc7",
+      "name": "Try to fix the json",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "try {\n  const answer = $json[0]?.message?.content;\n\n  const cleanedAnswer = answer\n  .replace(/```json\\n?/g, '')\n  .replace(/\\n/g, '')\n  .replace(/```$/, '');\n\n  const parsedJson = JSON.parse(cleanedAnswer);\n\n  return {\n    isValidJson: true,\n    result: parsedJson.result ?? false,\n    message: parsedJson.message ?? \"No message provided.\",\n  };\n} catch (error) {\n  return {\n    isValidJson: false,              \n    result: false,\n    message: \"Error processing, please try again\",\n  };\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1620,
+        900
+      ],
+      "id": "f8518981-2525-407d-b22f-f2d897ab2f58",
+      "name": "Check if fixed",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "binaryPropertyName": "file",
+        "destinationKey": "file",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        420,
+        720
+      ],
+      "id": "3663dea3-0b40-41bf-b0f2-83a6c6f4d9ce",
+      "name": "Convert to base64",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"I need you to validate an image. Check the following criteria and return `true` if all conditions are met; otherwise, return `false` with a clear explanation of why the image does not meet the requirements:\\n\\n1. The image must contain only one person.\\n2. The person should be the primary focus of the image.\\n3. Images must not contain clear or readable text.\\n\\nAnalyze the image carefully and provide your decision in a JSON string in the following format:\\n\\nExample:\\n\\nIf the image meets all criteria:\\n{\\n  \\\"result\\\": true,\\n  \\\"message\\\": \\\"The image meets all the criteria for training.\\\"\\n}\\n\\nIf the image fails any criteria:\\n{\\n  \\\"result\\\": false,\\n  \\\"message\\\": \\\"The image does not meet the criteria because both eyes are not open and there is text on the image.\\\"\\n}\\n\\nEnsure that the response is valid JSON without any additional formatting or markdown.\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": {\n            \"url\": \"data:image/png;base64,{{$json.file}}\"\n          }\n        }\n      ]\n    }\n  ],\n  \"max_tokens\": 500\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        620,
+        720
+      ],
+      "id": "76aadf1f-f347-4476-ac65-0df9d44ddb27",
+      "name": "Ask GPT4o",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "725cd838-0fd0-4911-9295-924e33c1a35f",
+              "name": "isValidJson",
+              "value": "={{ $json.parsed_answer !== null }}",
+              "type": "boolean"
+            },
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "result",
+              "value": "={{ $json.parsed_answer.result || false }}",
+              "type": "boolean"
+            },
+            {
+              "id": "4cd449d2-1096-4ce8-ba17-f93289629393",
+              "name": "message",
+              "value": "={{ $json.parsed_answer.message || $json.original_answer }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        0
+      ],
+      "id": "d5ac4105-539c-43d2-82c1-16196227ffcc",
+      "name": "Edit Fields2"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-06T21:15:08.860Z",
+      "updatedAt": "2024-08-06T21:15:08.860Z",
+      "id": "fCd4LZ9ipYWyIPrk",
+      "name": "TEST"
+    },
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-17T20:04:46.000Z",
+  "versionId": "621aa0c9-2465-4d01-a18c-4c6b827cc579"
+}
