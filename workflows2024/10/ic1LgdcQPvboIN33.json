@@ -1,0 +1,74 @@
+{
+  "active": false,
+  "connections": {
+    "Typeform Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-12T18:48:25.855Z",
+  "id": "ic1LgdcQPvboIN33",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Typeform Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "formId": "Z8AUphJu",
+        "simplifyAnswers": false,
+        "onlyAnswers": false
+      },
+      "id": "165405b2-60aa-423e-9b40-cb062deeed19",
+      "name": "Typeform Trigger",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        320,
+        320
+      ],
+      "webhookId": "c4e52f09-0e59-42eb-be3e-10760f069273",
+      "credentials": {
+        "typeformApi": {
+          "id": "X73pNmUkBEn5CjvB",
+          "name": "Typeform account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "6a05fb63-a8c9-4b47-b06c-7d7b31166313",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        580,
+        320
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Typeform Trigger": {}
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-10-12T18:51:29.000Z",
+  "versionId": "455649e5-cf22-4fb0-8cd6-d1cfdfee7057"
+}
