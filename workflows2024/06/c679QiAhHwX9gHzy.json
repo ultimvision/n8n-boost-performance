@@ -1,0 +1,326 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Set Podcast's Sequences",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop through the Sequences": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Sequence's Images Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract the Sequence's Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Podcast's Sequences": {
+      "main": [
+        [
+          {
+            "node": "Split Podcast's Sequences",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract the Sequence's Image": {
+      "main": [
+        [
+          {
+            "node": "Loop through the Sequences",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Podcast's Sequences": {
+      "main": [
+        [
+          {
+            "node": "Loop through the Sequences",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Sequence's Images Data": {
+      "main": [
+        [
+          {
+            "node": "Return Extracted Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-29T11:32:46.187Z",
+  "id": "c679QiAhHwX9gHzy",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Extract Images | Part-2 | Get Images from the Video",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "8f8b6206-53da-40de-971f-eeb450a3acdf",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        900,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9731343a-af20-4e57-8abc-2c1606b24046",
+              "name": "podcast_id",
+              "value": "={{ $json.podcast_id }}",
+              "type": "number"
+            },
+            {
+              "id": "1cd1c802-e8a2-40be-866c-2be55e4d9758",
+              "name": "sequence",
+              "value": "={{ $json.sequence }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "633efbf1-d685-422b-9997-045bb7cc3814",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1080,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "879d0a9b-8f87-4897-9610-0c97e4240a91",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d27d4905-682d-4cdc-b1b1-e5c416df3021",
+      "name": "Return Extracted Images",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2400,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c9298164-70f6-4361-abbf-916fb0cbd036",
+      "name": "Get Podcast Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1260,
+        340
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "images_data",
+        "options": {}
+      },
+      "id": "0db043e2-ca63-4197-8a7a-15939458d507",
+      "name": "Aggregate Sequence's Images Data",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2140,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1277ac52-55a3-439f-a226-ebf73c723a0d",
+      "name": "Loop through the Sequences",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1860,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ae85b9cb-801a-431e-8758-11029852cafd",
+              "name": "sequences",
+              "value": "={{ $('Workflow Data').item.json[\"sequence\"] }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "769b4f13-427b-4986-8de6-42c7eac16867",
+      "name": "Set Podcast's Sequences",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1440,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "sequences",
+        "options": {
+          "destinationFieldName": "sequence"
+        }
+      },
+      "id": "a4557a25-7778-42d3-8df3-3d0a055b435a",
+      "name": "Split Podcast's Sequences",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.creatomate.com/v1/renders",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $vars.CREATOMATE_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"source\": {\n    \"output_format\": \"png\",\n    \"snapshot_time\": {{ $json[\"sequence\"][\"timestamp\"] }},\n    \"elements\": [\n      {\n        \"type\": \"video\",\n        \"source\": \"{{ $('Get Podcast Details').item.json[\"url_video\"] }}\"\n      }\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "c9d24374-6413-4991-a17c-18af5fc23825",
+      "name": "Extract the Sequence's Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2140,
+        400
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-29T11:14:01.125Z",
+      "updatedAt": "2024-06-29T11:14:01.125Z",
+      "id": "X4m1RhBLnumYOEJu",
+      "name": "ExtractImage"
+    },
+    {
+      "createdAt": "2024-06-29T11:15:03.101Z",
+      "updatedAt": "2024-06-30T20:11:00.375Z",
+      "id": "tmPqZ6OxnVeXd0u4",
+      "name": "Creatomate API"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-06-30T20:21:20.000Z",
+  "versionId": "9ee7611a-d7c0-4f52-a966-4e8f5624cba9"
+}
