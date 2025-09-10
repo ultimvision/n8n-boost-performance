@@ -1,0 +1,82 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "List Videos Youtube to Process",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-28T11:32:07.683Z",
+  "id": "727m4KY4zB2ppBl9",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Analyse structure de formation",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "f8b7a0c8-4a7f-4f19-bc99-73a758d842de",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        620,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appgImeMFX3andsiA",
+          "mode": "list",
+          "cachedResultName": "Formations",
+          "cachedResultUrl": "https://airtable.com/appgImeMFX3andsiA"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblXI2F4geHBi6DgA",
+          "mode": "list",
+          "cachedResultName": "Ressources",
+          "cachedResultUrl": "https://airtable.com/appgImeMFX3andsiA/tblXI2F4geHBi6DgA"
+        },
+        "filterByFormula": "({Status} = 'Todo')",
+        "options": {}
+      },
+      "id": "dd84d517-453f-4dca-921c-b7be6840c691",
+      "name": "List Videos Youtube to Process",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        820,
+        480
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-28T16:31:29.000Z",
+  "versionId": "3fd2e83f-0aeb-492a-ae2b-65843e50189e"
+}
