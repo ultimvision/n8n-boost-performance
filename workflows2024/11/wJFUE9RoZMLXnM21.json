@@ -1,0 +1,737 @@
+{
+  "active": false,
+  "connections": {
+    "Get record": {
+      "main": [
+        [
+          {
+            "node": "User found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User found": {
+      "main": [
+        [
+          {
+            "node": "Respond with user",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond 404",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET: search": {
+      "main": [
+        [
+          {
+            "node": "Validate search payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "POST: insert": {
+      "main": [
+        [
+          {
+            "node": "Validate payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate payload": {
+      "main": [
+        [
+          {
+            "node": "Insert prospect",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond 400: invalid payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert prospect": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond with 500",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate search payload": {
+      "main": [
+        [
+          {
+            "node": "Get record",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond 400: invalid payload1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-19T19:32:50.907Z",
+  "id": "wJFUE9RoZMLXnM21",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Assistant CRM GPT",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTU9cN3BNs0KNrc",
+          "mode": "list",
+          "cachedResultName": "Prospect",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblTU9cN3BNs0KNrc"
+        },
+        "filterByFormula": "=SEARCH(LOWER(\"{{ $json.query.name }}\"), LOWER({Name}))",
+        "returnAll": false,
+        "limit": 1,
+        "options": {
+          "fields": [
+            "Name",
+            "Courriel",
+            "Nom compagnie",
+            "Téléphone",
+            "Adresse",
+            "Site Web"
+          ]
+        }
+      },
+      "id": "e06ed8c0-fa97-42f1-9c7e-938b8743d656",
+      "name": "Get record",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1800,
+        680
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "217d785a-d662-4142-84c2-85c3f7298a5f",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c96562fb-43a6-4f2d-94fd-f39241b88fad",
+      "name": "User found",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2060,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"success\": \"false\",\n  \"message\": \"User not found\"\n}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "a7407b33-8fc8-40ba-920c-6c1749579a4b",
+      "name": "Respond 404",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        2340,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "04e2948a-0251-457f-8b5c-ba0d186915bb",
+      "name": "Respond with user",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        2340,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "path": "assistant_crm",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "55ecb3f9-0b90-49a9-895e-894f91d67a21",
+      "name": "GET: search",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        1240,
+        680
+      ],
+      "webhookId": "a603b3bb-b06c-4d90-bfc7-709a604be479"
+    },
+    {
+      "parameters": {
+        "respondWith": "noData",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "dc4e3576-117e-4252-8b66-6b6f93e81212",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        2220,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "assistant_crm",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "6a74dfc0-5c0c-4c2d-adc5-e410e9712e61",
+      "name": "POST: insert",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        1260,
+        200
+      ],
+      "webhookId": "c235eb49-6678-4da8-87bd-eacece8168cd"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c9d4f217-d8c3-44f3-881a-f927955b8b31",
+              "leftValue": "={{ $json.body }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ed5b46f6-03ac-4b78-a735-3f6f0396c885",
+      "name": "Validate payload",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1500,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"success\": \"false\",\n  \"message\": \"Invalid payload\"\n}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "9f7dfee9-f8ab-4501-840e-0844f4548fdb",
+      "name": "Respond 400: invalid payload",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1800,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": \"false\",\n  \"message\": {{ $json.error || 'An error occured while creating the contact in the CRM' }}\n}",
+        "options": {
+          "responseCode": 500
+        }
+      },
+      "id": "d9ede7d0-2604-413b-bef6-44286ba3f384",
+      "name": "Respond with 500",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        2220,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appuUc33nMbHBMhoX",
+          "mode": "list",
+          "cachedResultName": "Assistant Email",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTU9cN3BNs0KNrc",
+          "mode": "list",
+          "cachedResultName": "Prospect",
+          "cachedResultUrl": "https://airtable.com/appuUc33nMbHBMhoX/tblTU9cN3BNs0KNrc"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Status": "À Réviser",
+            "Name": "={{ $json.body.first_name || '' }} {{ $json.body.last_name || ''}}",
+            "Courriel": "={{ $json.body.email || '' }}",
+            "Nom compagnie": "={{ $json.body.company || '' }}",
+            "Notes Provenance": "AI Generated by custom GPT",
+            "Téléphone": "={{ $json.body.phone || '' }}",
+            "Adresse": "={{ $json.body.address || '' }}",
+            "Site Web": "={{ $json.body.website || '' }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Assignee",
+              "displayName": "Assignee",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Créer un email IA",
+                  "value": "Créer un email IA"
+                },
+                {
+                  "name": "À Réviser",
+                  "value": "À Réviser"
+                },
+                {
+                  "name": "Envoyé",
+                  "value": "Envoyé"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Provenance",
+              "displayName": "Provenance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Événement",
+                  "value": "Événement"
+                },
+                {
+                  "name": "Lead Internet",
+                  "value": "Lead Internet"
+                },
+                {
+                  "name": "Référence contact",
+                  "value": "Référence contact"
+                },
+                {
+                  "name": "Gen AI",
+                  "value": "Gen AI"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Produits",
+              "displayName": "Produits",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "options": [
+                {
+                  "name": "SoloPreneur IA",
+                  "value": "SoloPreneur IA"
+                },
+                {
+                  "name": "Accélérateur IA",
+                  "value": "Accélérateur IA"
+                },
+                {
+                  "name": "Propulseur IA",
+                  "value": "Propulseur IA"
+                },
+                {
+                  "name": "Membre additionnel au Hub",
+                  "value": "Membre additionnel au Hub"
+                },
+                {
+                  "name": "Bootcamp IA",
+                  "value": "Bootcamp IA"
+                },
+                {
+                  "name": "Masterclass IA",
+                  "value": "Masterclass IA"
+                },
+                {
+                  "name": "Formation en ligne",
+                  "value": "Formation en ligne"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nom produit",
+              "displayName": "Nom produit",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Courriel",
+              "displayName": "Courriel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nom compagnie",
+              "displayName": "Nom compagnie",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes Provenance",
+              "displayName": "Notes Provenance",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Coach",
+              "displayName": "Coach",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Name (from Coach)",
+              "displayName": "Name (from Coach)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Courriel (from Coach)",
+              "displayName": "Courriel (from Coach)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Téléphone (from Coach)",
+              "displayName": "Téléphone (from Coach)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Poste (from Coach)",
+              "displayName": "Poste (from Coach)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Téléphone",
+              "displayName": "Téléphone",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Adresse",
+              "displayName": "Adresse",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Site Web",
+              "displayName": "Site Web",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "72b80bfe-3c65-47d3-8a3d-66ebe32ad9fc",
+      "name": "Insert prospect",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1800,
+        20
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ad8dfc9b-b240-49a7-b613-e454c3e6603a",
+              "leftValue": "={{ $json.query.name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "ef8a0689-dcbd-48a8-9c47-98569fd51958",
+              "leftValue": "={{ $json.query.name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1cb7428-5bca-4968-9e80-c45589704569",
+      "name": "Validate search payload",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"success\": \"false\",\n  \"message\": \"Invalid payload\"\n}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "fe8393ed-a35b-417d-b3b4-969e40f1ecdc",
+      "name": "Respond 400: invalid payload1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1780,
+        980
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-11-20T16:31:26.268Z",
+      "updatedAt": "2024-11-20T16:31:26.268Z",
+      "id": "OZpiTm5cRzQVM8wE",
+      "name": "GPT"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2024-11-21T18:29:31.000Z",
+  "versionId": "69dc16d6-8886-4fc8-871d-50b739fe082f"
+}
