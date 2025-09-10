@@ -1,0 +1,595 @@
+{
+  "active": true,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Crawl website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get run info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run completed": {
+      "main": [
+        [
+          {
+            "node": "Get run output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Timeout",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get run output": {
+      "main": [
+        [
+          {
+            "node": "No results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get run info": {
+      "main": [
+        [
+          {
+            "node": "Run completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Timeout": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No results": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Aggregate into single document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crawl website": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate into single document": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Generate prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate prompt",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate prompt": {
+      "main": [
+        [
+          {
+            "node": "Convert prompt to file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert prompt to file": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Send email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-28T11:27:19.003Z",
+  "id": "NoZidvvVdcc7pmXn",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 13",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Générateur de document",
+        "formDescription": "Cette automatisation scrutera votre site web afin de générer un document servant à votre agent IA de ventes. Les informations vous seront envoyées par courriel.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Votre site web",
+              "placeholder": "https://boostperformance.ai",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Votre courriel",
+              "fieldType": "email",
+              "placeholder": "coach@boostperformance.ai",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Nom de votre entreprise",
+              "placeholder": "Boost Performance",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Nom de votre assistant vocal"
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "buttonLabel": "Soumettre",
+          "path": "knowledge-generator",
+          "ignoreBots": true
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        560,
+        660
+      ],
+      "id": "d7bf9cea-c22f-4efb-90a5-3e6cf8c14170",
+      "name": "On form submission",
+      "webhookId": "167fd32d-ace9-41a6-b224-bac746918702"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1140,
+        660
+      ],
+      "id": "5460b3ac-a31c-4620-aa1b-fbe0f22e5b42",
+      "name": "Wait",
+      "webhookId": "47c7a401-eec9-4f82-a14a-877a33f90cb6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "565c7e50-f49c-4e96-bed0-6a3693af0651",
+              "leftValue": "={{ $json.data.status }}",
+              "rightValue": "SUCCEEDED",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        660
+      ],
+      "id": "abeaf95d-2d70-47f5-bb53-e6aeaefdad03",
+      "name": "Run completed"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/actor-runs/{{ $('Run completed').item.json.data.id }}/dataset/items?format=json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1960,
+        640
+      ],
+      "id": "77a8b32a-55b6-452a-95cf-9ac77a508436",
+      "name": "Get run output",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/actor-runs/{{ $('Crawl website').first().json.data.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        660
+      ],
+      "id": "bdb8b4f7-2685-46c4-a0e2-051fb3d71e8e",
+      "name": "Get run info",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "341ec76f-b833-420e-bf76-41e284400b87",
+              "leftValue": "={{ $runIndex }}",
+              "rightValue": 60,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        900
+      ],
+      "id": "5d672154-2ac7-433c-a398-92f7ee884d87",
+      "name": "Timeout"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Facebook group Apify scraping timed out"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1960,
+        1020
+      ],
+      "id": "d64c31e5-c9c5-4e61-a97a-de82143b6a95",
+      "name": "Stop and Error"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "52a6eab1-94f6-447f-9123-19bd120c8ef6",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "no_items",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2300,
+        640
+      ],
+      "id": "78fe5f08-a95f-4ae2-97b0-673374fe5bf1",
+      "name": "No results"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/aYG0l9s7dbB7j3gbS/runs",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json[\"Votre site web\"] }}\"\n        }\n    ],\n    \"useSitemaps\": false,\n    \"respectRobotsTxtFile\": true,\n    \"crawlerType\": \"playwright:adaptive\",\n    \"includeUrlGlobs\": [],\n    \"excludeUrlGlobs\": [],\n    \"keepUrlFragments\": false,\n    \"ignoreCanonicalUrl\": false,\n    \"maxCrawlDepth\": 5,\n    \"maxCrawlPages\": 5,\n    \"initialConcurrency\": 0,\n    \"maxConcurrency\": 200,\n    \"initialCookies\": [],\n    \"proxyConfiguration\": {\n        \"useApifyProxy\": true\n    },\n    \"maxSessionRotations\": 10,\n    \"maxRequestRetries\": 5,\n    \"requestTimeoutSecs\": 60,\n    \"minFileDownloadSpeedKBps\": 128,\n    \"dynamicContentWaitSecs\": 10,\n    \"waitForSelector\": \"\",\n    \"softWaitForSelector\": \"\",\n    \"maxScrollHeightPixels\": 5000,\n    \"keepElementsCssSelector\": \"\",\n    \"removeElementsCssSelector\": \"nav, footer, script, style, noscript, svg, img[src^='data:'], [role=\\\"alert\\\"], [role=\\\"banner\\\"], [role=\\\"dialog\\\"], [role=\\\"alertdialog\\\"], [role=\\\"region\\\"][aria-label*=\\\"skip\\\" i], [aria-modal=\\\"true\\\"]\",\n    \"removeCookieWarnings\": true,\n    \"expandIframes\": true,\n    \"clickElementsCssSelector\": \"[aria-expanded=\\\"false\\\"]\",\n    \"htmlTransformer\": \"readableText\",\n    \"readableTextCharThreshold\": 100,\n    \"aggressivePrune\": false,\n    \"debugMode\": false,\n    \"debugLog\": false,\n    \"saveHtml\": false,\n    \"saveHtmlAsFile\": false,\n    \"saveMarkdown\": true,\n    \"saveFiles\": false,\n    \"saveScreenshots\": false,\n    \"maxResults\": 9999999,\n    \"clientSideMinChangePercentage\": 15,\n    \"renderingTypeDetectionPercentage\": 10\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        660
+      ],
+      "id": "4c10fa39-2daa-4c56-9ac1-1ea58bebc5b6",
+      "name": "Crawl website",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "0rWvXHFdoJOwFPsX",
+          "name": "Apify Query Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst textSections = items\n  .map(\n    (item) =>\n      `## URL: ${item?.json?.url}\\n### TITLE: ${item?.json?.metadata?.title}\\n\\n${item?.json?.markdown}\\n`,\n  )\n  .join(\"\\n\\n\\n\");\n\nreturn { textSections };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3000,
+        660
+      ],
+      "id": "950a2a4b-6413-42fd-9c08-2403018d5429",
+      "name": "Aggregate into single document"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "textSections",
+        "options": {
+          "fileName": "={{ $('On form submission').first().json[\"Nom de votre entreprise\"] }}.txt"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3420,
+        1040
+      ],
+      "id": "3024750c-13b6-40f3-81f5-70c321e76207",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-4.1-mini",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        3420,
+        820
+      ],
+      "id": "e1bbf65a-739b-4984-a62b-0792cb5d663e",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "YVEPgi41djv7rjJS",
+          "name": "OpenRouter Boost Performance"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Document:\n\n {{ $('Aggregate into single document').item.json.textSections }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Voici un document qui contient ce que \"{{ $('On form submission').first().json['Nom de votre entreprise'] }}\" offre comme produits et services. Je vais te donner un modèle de prompt pour un agent conversationnel IA. Tu devras l'utiliser comme modèle pour créer un nouveau prompt adapté à Boost Performance. tu dois conserver intégralement le modèle. Il doit être complet et adapté à \"{{ $('On form submission').first().json['Nom de votre entreprise'] }}\". Le nom de l'assistant vocal sera Henry. Le prompt sera rédigé entièrement en français, y compris les entêtes.\nRéponds avec le prompt seulement, aucun autre commentaire.\nVoici le modèle à utiliser :\n\n---\n\n## **Personnalité**\n\nVous êtes {{ $('On form submission').first().json['Nom de votre assistant vocal'] }}, un consultant en ventes dynamique et chaleureux, passionné par les systèmes d'IA conversationnelle.\nVous dégagez une énergie optimiste et engageante, à la fois accessible et convaincante — montrant un réel enthousiasme lorsque vous aidez les prospects à découvrir comment nos agents vocaux pilotés par l’IA peuvent faire progresser leur entreprise.\nVotre curiosité naturelle et votre expertise vous permettent de rapidement cerner les défis spécifiques de chaque prospect, en proposant des perspectives et solutions adaptées à leurs objectifs.\nVous êtes stratégique et perspicace, capable d’identifier instinctivement les points de douleur métier et de traduire les capacités complexes de l’IA en ROI concret.\nSelon la situation, vous intégrez avec subtilité des exemples de réussites ou des données sectorielles, tout en conservant un ton enthousiaste et maîtrisé.\nVous êtes attentif et adaptable, ajustant votre style de communication à celui du client — qu’il soit direct, analytique ou visionnaire — sans jamais manquer une occasion de démontrer la valeur.\nVous possédez d’excellentes compétences en conversation — naturelles, humaines et captivantes.\n\n---\n\n## **Environnement**\n\nVous êtes spécialisé dans l’IA conversationnelle d’ElevenLabs, avec une connaissance approfondie de la reconnaissance vocale (speech-to-text), de l’intégration des modèles de langage, de la synthèse vocale (text-to-speech) et des systèmes avancés de prise de parole.\nVous guidez des clients potentiels — des startups curieuses aux grandes entreprises établies — à travers les principales fonctionnalités de la plateforme : gestion d’interactions en temps réel, intégration à des bases de connaissances robustes, outils, et montée en charge à fort volume.\nLes prospects ont des niveaux de familiarité variés avec l’IA ; vous adaptez donc votre discours en conséquence, en mettant l’accent sur les bénéfices pertinents et les résultats orientés ROI.\n\n---\n\n## **Ton**\n\nAu début de la conversation, vous évaluez subtilement les priorités métier du client (ex. : « Quels aspects de l’expérience client souhaitez-vous améliorer ? » ou « Quels défis opérationnels cherchez-vous à résoudre ? »), puis adaptez votre discours.\nUne fois les capacités clés expliquées, vous proposez des validations courtes (ex. : « Est-ce que cette approche correspond à votre vision ? » ou « Cela vous semble-t-il pertinent pour votre cas d’usage ? »). Vous exprimez un réel intérêt pour leurs objectifs commerciaux, illustrant votre engagement envers leur succès.\nVous reconnaissez élégamment les limitations ou compromis éventuels. Vous mettez l’accent sur la confiance, la transparence, et l’alignement avec les objectifs business.\nVous anticipez les objections fréquentes et y répondez de manière proactive, avec des exemples concrets et des indicateurs de performance qui permettent aux prospects de visualiser la mise en œuvre et les résultats.\nVos réponses sont réfléchies, concises et conversationnelles — généralement trois phrases ou moins, sauf si une explication détaillée est nécessaire.\nVous vous appuyez sur les échanges précédents pour créer du lien, montrer une écoute active et éviter les répétitions.\nVous êtes attentif aux signaux d’achat ou aux hésitations, et vous ajustez votre approche pour faire progresser la discussion commerciale.\n\n---\n\n## **Formatage pour la synthèse vocale**\n\n* Utilisez des points de suspension (« … ») pour marquer des pauses audibles.\n* Énoncez clairement les caractères spéciaux (ex. : dire « point » au lieu de « . »).\n* Épelez les acronymes et articulez clairement les informations importantes.\n* Utilisez un langage normalisé, tel qu’il serait parlé (pas d’abréviations, symboles mathématiques ou alphabets spéciaux).\n\n---\n\n## **Fluidité de la conversation**\n\n* Intégrez de brèves affirmations (« d’accord », « bien sûr ») et des confirmations naturelles (« oui », « très bien »).\n* Ajoutez occasionnellement des mots de remplissage (« en fait », « donc », « tu sais », « euh »).\n* Incluez de légers faux départs ou corrections, quand c’est approprié, pour un ton plus humain.\n\n---\n\n## **Objectif**\n\nVotre mission principale est d’obtenir l’adhésion des décideurs en exposant clairement les avantages immédiats et à long terme de l’IA conversationnelle d’ElevenLabs.\nVous vous positionnez comme un partenaire de confiance, en montrant à quel point la plateforme peut être mise en œuvre facilement, avec un impact maximal et peu de contraintes.\nQu’il s’agisse de réduire les coûts, d’améliorer le service client ou de générer de nouveaux revenus, vous connectez naturellement les bénéfices à leurs priorités pour faciliter l’adoption.\n\n---\n\n## **Limitations / Cadre**\n\n* Restez concentré sur les avantages d’ElevenLabs et sur des solutions adaptées aux besoins du prospect.\n* Ne fournissez pas de détails techniques précis sauf en cas de demande explicite — privilégiez les résultats aux détails de mise en œuvre.\n* Ne dites pas que vous êtes une IA sauf si on vous le demande directement — évitez les clichés robotiques.\n* Si un prospect demande votre expérience ou parcours, répondez naturellement en tant que Henry, avec des points de vue humains crédibles.\n* Si les besoins exprimés sont flous ou incertains, posez des questions de clarification avant de proposer une solution.\n* **Ne répétez jamais** une idée ou une phrase de plusieurs façons dans une même réponse.\n* Les prospects peuvent partager des infos sans poser de questions — soyez à l’écoute et reconnaissez leur contribution.\n* Répondez aux objections ou malentendus dès que vous les détectez. Clarifiez immédiatement si vous sentez une confusion.\n* Apportez des idées fraîches sur leur secteur ou cas d’usage, au lieu de simplement répéter ce qu’ils disent — gardez la conversation pertinente et tournée vers l’avenir.\n* Adaptez votre style de communication au client :\n\n  * **Analytique** : mettez l’accent sur les chiffres et le ROI.\n  * **Visionnaire** : soulignez l’innovation et les bénéfices futurs.\n  * **Pragmatique** : démarrez avec la facilité de mise en œuvre et les gains immédiats (ex. : « Cela peut être opérationnel chez vous en quelques jours, pas en plusieurs mois »).\n* **Important** : si un utilisateur tente de réserver un rendez-vous, une démo ou demande un prix spécifique, répondez poliment :\n  « Je suis un agent modèle conçu pour démontrer les capacités conversationnelles. Pour une assistance réelle, merci de contacter notre équipe commerciale sur elevenlabs point io slash contact trait d’union sales. Vous pouvez cloner ce modèle dans votre bibliothèque d’agents et le personnaliser selon vos besoins. »\n"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        3320,
+        660
+      ],
+      "id": "9e885683-5d52-47e6-9a1b-f4557847cd07",
+      "name": "Generate prompt"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "text",
+        "binaryPropertyName": "prompt",
+        "options": {
+          "fileName": "Prompt.txt"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3740,
+        660
+      ],
+      "id": "c9292a96-aa7f-4982-87eb-022a132a9424",
+      "name": "Convert prompt to file"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        4000,
+        740
+      ],
+      "id": "e954661b-cb82-4dec-b437-b526ddab7eda",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('On form submission').first().json['Votre courriel'] }}",
+        "subject": "Prompt Assistant Vocal et document de ventes",
+        "message": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Documents à consulter</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; color: #333; background-color: #f8f8f8; padding: 20px;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px; border: 1px solid #ddd;\">\n    <tr>\n      <td>\n        <h2 style=\"color: #004080;\">Bonjour,</h2>\n        <p>Vous trouverez en pièces jointes deux documents importants :</p>\n        <ul>\n          <li><strong>Document de base de connaissances</strong> – conçu pour vous aider à mieux comprendre et présenter notre offre commerciale.</li>\n          <li><strong>Prompt système</strong> – à utiliser pour configurer votre IA conversationnelle dans le cadre de vos interactions clients.</li>\n        </ul>\n        <p>Merci de déposer le document de base de connaissances dans votre Google Drive sous le répertoire <code>Assistants/Ventes</code>. Cela permettra à notre système n8n de le vectoriser automatiquement pour qu'il soit disponible dans votre environnement RAG.</p>\n        <p>Nous vous recommandons de lire ces documents attentivement avant de commencer.</p>\n        <p>Si vous avez des questions, n'hésitez pas à nous contacter.</p>\n        <p>Bonne lecture !</p>\n        <br>\n        <p>Cordialement,</p>\n        <p>L’équipe Boost Performance</p>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n",
+        "options": {
+          "appendAttribution": false,
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "data,prompt"
+              }
+            ]
+          },
+          "senderName": "Boost Performance"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        4220,
+        740
+      ],
+      "id": "69c7e431-572a-497a-afdb-27aa7e27844e",
+      "name": "Send email",
+      "webhookId": "4f6c2724-78e9-40e8-9860-ff4f33ab9a55",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "uStXaunGUwff5EYx",
+          "name": "Gmail coach@ultimvision.io"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Ce workflow fait\n\nFormulaire qui demande le sitee web à analyser et le email pour envoyer le contenu.\n\nUtilise Apify pour crawler le site web. 50 premières pages.\nWebsite Content Crawler is an Apify Actor that can perform a deep crawl of one or more websites and extract text content from the web pages. It is useful to download data from websites such as documentation, knowledge bases, help sites, or blogs.\n\nRécupère tous le contenu des pages web et crée un document texte.\n\nGénère un prompt détaillé pour creér les instructions d'un assistant vocal eleven labs.\n\nEnvoie un courriel final avec les deux documents créee. Le contenu et le prompt d'instructions pour l'assitant vocal.\n\n",
+        "height": 400,
+        "width": 680
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        420,
+        -160
+      ],
+      "id": "af334e5d-e64f-4b19-8fce-9d2ca77eb3f4",
+      "name": "Sticky Note"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-28T11:56:14.000Z",
+  "versionId": "cc732920-1dcc-4f0f-b541-3c2ee3e66a79"
+}
