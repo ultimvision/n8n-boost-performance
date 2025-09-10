@@ -1,0 +1,765 @@
+{
+  "active": false,
+  "connections": {
+    "Training params": {
+      "main": [
+        [
+          {
+            "node": "Prepare data for training",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call the training API": {
+      "main": [
+        [
+          {
+            "node": "Build generated_content",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare data for training": {
+      "main": [
+        [
+          {
+            "node": "Call the training API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get filenames": {
+      "main": [
+        [
+          {
+            "node": "Compression",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compression": {
+      "main": [
+        [
+          {
+            "node": "Upload to DO",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get filenames",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to DO": {
+      "main": [
+        [
+          {
+            "node": "Get Vars",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build generated_content": {
+      "main": [
+        [
+          {
+            "node": "Create job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Vars": {
+      "main": [
+        [
+          {
+            "node": "Training params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create job": {
+      "main": [
+        [
+          {
+            "node": "Answer the client",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing3": {
+      "main": [
+        [
+          {
+            "node": "Answer the client with error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-18T16:37:16.597Z",
+  "id": "u2jZQV60Tcl88gEU",
+  "isArchived": false,
+  "meta": null,
+  "name": "Services - Create a LoRA training",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "087925c0-98ea-4db8-aaf1-71e85f5886f1",
+              "name": "steps",
+              "value": 3000,
+              "type": "number"
+            },
+            {
+              "id": "e2e689dd-f4b6-4d67-90e5-f9132321b022",
+              "name": "lora_rank",
+              "value": 16,
+              "type": "number"
+            },
+            {
+              "id": "1f73f3d5-cd50-441d-9a04-f88c69552f70",
+              "name": "optimizer",
+              "value": "adamw8bit",
+              "type": "string"
+            },
+            {
+              "id": "fe88deac-36fb-43a7-8eb6-cad96b673aa6",
+              "name": "batch_size",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "27c3e0eb-b86b-4a3a-b4b3-b2346922b406",
+              "name": "resolution",
+              "value": "512,768,1024",
+              "type": "string"
+            },
+            {
+              "id": "9e26d7c0-53ad-4f9e-970a-76f540ecb315",
+              "name": "autocaption",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "20795ec0-2d2a-4fdf-b7a9-e2809a5b0b42",
+              "name": "input_images",
+              "value": "=https://boost-data.nyc3.cdn.digitaloceanspaces.com/service_ai_data/{{ $('Get filenames').first().json.uuid }}/tmp/{{ $('Get filenames').first().json.trainingName }}",
+              "type": "string"
+            },
+            {
+              "id": "1fd8f25a-3c7e-4b05-b9b0-3494f531fde3",
+              "name": "trigger_word",
+              "value": "={{ $('Execute Workflow Trigger').first().json.body.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "dbf9cf35-d866-4311-9839-684f77f34871",
+              "name": "learning_rate",
+              "value": 0.0004,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -660,
+        200
+      ],
+      "id": "e1c2bafd-1988-4264-a315-70f6dd55bdbb",
+      "name": "Training params"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.replicate.com/v1/models/ostris/flux-dev-lora-trainer/versions/e440909d3512c31646ee2e0c7d6f6f4923224863a6a10c494606e79fb5844497/trainings",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "cb9f078b-9ff7-4bca-9b1f-ece30443ed14",
+      "name": "Call the training API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -220,
+        200
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QI4vypKYZmD2NQGr",
+          "name": "Replicate Auth"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2e689dd-f4b6-4d67-90e5-f9132321b022",
+              "name": "input",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "id": "e3cbbdfd-6bec-43fe-8f55-036894ffe39c",
+              "name": "destination",
+              "value": "boost-performance/lora",
+              "type": "string"
+            },
+            {
+              "id": "552be2c7-0350-4fac-9609-b9799539d847",
+              "name": "webhook",
+              "value": "https://boostperformance.app.n8n.cloud/webhook/loraTraining/progress",
+              "type": "string"
+            },
+            {
+              "id": "af327bbe-b1a3-45f4-928f-1451447b8478",
+              "name": "webhook_events_filter",
+              "value": "[\"completed\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "includeOtherFields": "=",
+        "include": "selected",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -460,
+        200
+      ],
+      "id": "27567088-86a1-4b10-9347-cbe0f121070e",
+      "name": "Prepare data for training"
+    },
+    {
+      "parameters": {
+        "jsCode": "const binaryFields = Object.keys($input.first().binary || {});\nconst timestamp = Math.floor(Date.now() / 1000);\nconst uuid = $input.first().json.jwtPayload.sub;\nconst trainingName = `loratraining_${timestamp}.zip`;\n\nreturn [\n  {\n    json: {\n      fileNames: binaryFields.join(\",\"),\n      trainingName: trainingName,\n      uuid: uuid,\n    },\n    binary: $input.first().binary,\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1480,
+        240
+      ],
+      "id": "f0c2f50f-4160-4db5-95bf-ddc928097def",
+      "name": "Get filenames"
+    },
+    {
+      "parameters": {
+        "operation": "compress",
+        "binaryPropertyName": "={{ $('Get filenames').item.json.fileNames }}",
+        "fileName": "=training"
+      },
+      "type": "n8n-nodes-base.compression",
+      "typeVersion": 1.1,
+      "position": [
+        -1280,
+        240
+      ],
+      "id": "543930a3-7d48-49ad-b2b9-13f17313a181",
+      "name": "Compression",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "2283c7b9-fb2c-4b59-946a-cf92879ad54c",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1680,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "boost-data",
+        "fileName": "=service_ai_data/{{ $('Get filenames').first().json.uuid }}/tmp/{{ $('Get filenames').first().json.trainingName }}",
+        "additionalFields": {
+          "acl": "publicRead"
+        }
+      },
+      "type": "n8n-nodes-base.s3",
+      "typeVersion": 1,
+      "position": [
+        -1080,
+        220
+      ],
+      "id": "362b667d-0746-4b75-ad57-345bc374654e",
+      "name": "Upload to DO",
+      "credentials": {
+        "s3": {
+          "id": "BZ5XEM3lrlDQnmwG",
+          "name": "S3 DigitalOcean boost-data"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "W0nVujWqNTIXt9NW",
+          "mode": "list",
+          "cachedResultName": "Vars"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        -860,
+        200
+      ],
+      "id": "0c9fdf4e-f583-4f5c-8320-53d586b58337",
+      "name": "Get Vars"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "4cd449d2-1096-4ce8-ba17-f93289629393",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bcd050e6-2805-4f78-8c09-4c834168e2c5",
+              "name": "keyword",
+              "value": "={{ $json.input.trigger_word }}",
+              "type": "string"
+            },
+            {
+              "id": "96766582-a154-4277-a827-78a4bde9a734",
+              "name": "logs",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "id": "e2d8592f-7b6d-4aad-a059-3e959812eb7b",
+              "name": "steps",
+              "value": "={{ $json.input.steps }}",
+              "type": "number"
+            },
+            {
+              "id": "e0307e1e-96cf-495e-8119-2be0561bd505",
+              "name": "zipFile",
+              "value": "={{ $json.input.input_images }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        180
+      ],
+      "id": "186a6dc7-06b4-4163-a753-d2d0787278b0",
+      "name": "Build generated_content"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "4cd449d2-1096-4ce8-ba17-f93289629393",
+              "name": "jobId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bcd050e6-2805-4f78-8c09-4c834168e2c5",
+              "name": "keyword",
+              "value": "={{ $json.generated_content.logs.input.trigger_word }}",
+              "type": "string"
+            },
+            {
+              "id": "6a8d06e4-46b5-4e33-ac64-8a3b32a21e0a",
+              "name": "uuid",
+              "value": "={{ $('Get filenames').item.json.uuid }}",
+              "type": "string"
+            },
+            {
+              "id": "201fd6f6-2b72-4cee-a86b-055654e28a31",
+              "name": "step",
+              "value": "={{ $json.generated_content.logs.input.steps }}",
+              "type": "string"
+            },
+            {
+              "id": "f84bd917-caee-4a79-9829-989d4c621690",
+              "name": "trainingId",
+              "value": "={{ $('Call the training API').item.json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        160
+      ],
+      "id": "3a27192d-a1f0-4c36-ba07-5130e3d4721b",
+      "name": "Answer the client"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "service_access_logs",
+          "mode": "list",
+          "cachedResultName": "service_access_logs"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "access_granted": true,
+            "progress": 1,
+            "user_id": "={{ $('Get filenames').item.json.uuid }}",
+            "status": "running",
+            "progress_status": "En entraînement",
+            "service_id": "={{ $('Get Vars').item.json.lora_training_service_id }}",
+            "generated_content": "={{ JSON.stringify($json) }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "service_id",
+              "displayName": "service_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "access_granted",
+              "displayName": "access_granted",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "access_timestamp",
+              "displayName": "access_timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "progress",
+              "displayName": "progress",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "progress_status",
+              "displayName": "progress_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "generated_content",
+              "displayName": "generated_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cdbc995b-6362-4306-aba5-ca8040770e39",
+      "name": "Create job",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        220,
+        180
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "pHTFnAMLpsVnMU56",
+          "name": "Postgres Supabase"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "0db20753-3588-4c6c-aac8-ae5192b1bc39",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1160,
+        540
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "26de2335-90d2-48a7-ab51-0224ee8afc98",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        540
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "593aad32-091e-4e66-ae39-fa6cc3bca319",
+      "name": "No Operation, do nothing2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        540
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5099d4c5-c192-4736-854d-fba9849eaf9f",
+      "name": "No Operation, do nothing3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        340,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d24667e2-7d32-4e8b-9a31-b012c34552c8",
+              "name": "status",
+              "value": "=error",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        600,
+        540
+      ],
+      "id": "9c8ada3c-26fa-4192-97e9-43afdb059077",
+      "name": "Answer the client with error"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-12-18T16:32:57.263Z",
+      "updatedAt": "2024-12-18T16:32:57.263Z",
+      "id": "amjVeuraiVY1rsI9",
+      "name": "Dev:Bill"
+    },
+    {
+      "createdAt": "2025-01-09T18:43:24.496Z",
+      "updatedAt": "2025-01-09T18:43:24.496Z",
+      "id": "ibTp4QS6HcCdS2fo",
+      "name": "LoRA training"
+    },
+    {
+      "createdAt": "2024-11-24T11:47:58.184Z",
+      "updatedAt": "2024-11-24T11:47:58.184Z",
+      "id": "kAt38IsZqtjXnjCy",
+      "name": "Sub"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-10T19:10:49.000Z",
+  "versionId": "1cba10b0-571b-4d03-b96a-f7405e803eec"
+}
