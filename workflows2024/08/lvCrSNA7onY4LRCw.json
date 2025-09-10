@@ -1,0 +1,807 @@
+{
+  "active": false,
+  "connections": {
+    "Search Youtube Videos": {
+      "main": [
+        [
+          {
+            "node": "Split Out video results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Search Youtube Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter by substantial comments": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split out comments": {
+      "main": [
+        [
+          {
+            "node": "Filter by substantial comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get video comments": {
+      "main": [
+        [
+          {
+            "node": "Split out comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over videos": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Get video comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Comment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Comment": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out video results": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Videos": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Video Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Video Details": {
+      "main": [
+        [
+          {
+            "node": "Video Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Exists": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Videos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call AI Agent Youtube Analyser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call AI Agent Youtube Analyser": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Data": {
+      "main": [
+        [
+          {
+            "node": "Get Video Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-08-23T20:11:06.479Z",
+  "id": "lvCrSNA7onY4LRCw",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Search New Youtube Videos to Analyse",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ab8d11da-388c-4707-add9-72c0029a5b2d",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        460,
+        680
+      ],
+      "typeVersion": 1,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "url": "=https://youtube.googleapis.com/youtube/v3/search",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "youTubeOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "part",
+              "value": "snippet"
+            },
+            {
+              "name": "maxResults",
+              "value": "20"
+            },
+            {
+              "name": "q",
+              "value": "={{ $('Workflow Data').first().json.search }}"
+            },
+            {
+              "name": "order",
+              "value": "date"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "58fa76ac-cc8e-48c9-a2f1-4ad381ff6a33",
+      "name": "Search Youtube Videos",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        680,
+        -20
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "yGs2NtyIuhfKjk0w",
+          "name": "YouTube account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ec4e5de6-a4ce-403f-b54f-0c63b7e946e0",
+              "name": "search",
+              "type": "string",
+              "value": "={{ $json.customer_name }}"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "e17524d0-ab52-443b-9628-be527ff4442b",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        460,
+        -20
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "id": "7a1f5659-b738-43fd-8de2-2fb63b1f86a2",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "position": [
+        3140,
+        860
+      ],
+      "webhookId": "64a9d407-3a2f-4c47-8d73-bbe5b7d276ca",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "47042900-b6ee-4d9b-904b-a8fc75024b22",
+              "operator": {
+                "type": "array",
+                "operation": "lengthGt",
+                "rightType": "number"
+              },
+              "leftValue": "={{ $json.textDisplay.split('') }}",
+              "rightValue": 100
+            },
+            {
+              "id": "4c61199d-35ba-45cf-9557-d5c9f3f2132b",
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              },
+              "leftValue": "={{ parseInt($json.likesCount) || 0 }}",
+              "rightValue": 5
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3b70186b-a6f8-4c83-9e68-0f2e44f82e36",
+      "name": "Filter by substantial comments",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        2520,
+        860
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "606bf9f3-83a8-42a4-aba4-df05390cbab4",
+      "name": "Split out comments",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        2260,
+        860
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://yt-api.p.rapidapi.com/comments",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $json.id.videoId }}"
+            },
+            {
+              "name": "geo",
+              "value": "CA"
+            },
+            {
+              "name": "sort_by",
+              "value": "newest"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e8f78e78-cddb-415a-996c-fd7752a300bd",
+      "name": "Get video comments",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1980,
+        860
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "id": "b6a0c972-b391-4a19-85f1-b1be73446560",
+      "name": "Split Out video results",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        920,
+        -20
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e5d8ab3c-a0b8-4efe-8b32-05a319aaed0d",
+      "name": "Loop Over videos",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        1680,
+        860
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-2024-08-06",
+          "cachedResultName": "GPT-4O-2024-08-06"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a subtle marketing expert.\nYou are able to craft inviting messages so that users want to try your products.\n\nGiven the provided YouTube comment by \"{{ $json.authorText }}\", generate a reply that could incite the user to want to try a new AI trading platform called \"The Trading AI\".\n\nUser comment: \n\"{{ $json.textDisplay }}\"\n\nYouTube video description:\n{{ $('Loop Over videos').first().json.snippet.description }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b6bf6509-618b-4cf0-a923-bf20e28577fe",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        2760,
+        860
+      ],
+      "typeVersion": 1.4,
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "6fe12d5f-0348-436d-a9ed-488e91c5dc04",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        220,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1af64230-a258-40f2-8ab3-ef0840ab28ed",
+      "name": "Video Summary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2860,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "id": "724d697b-25a6-49eb-8af0-e1ea258d64f4",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        -200
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "2e721148-d6cf-4239-9f5d-6a5efdf847d8",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1580,
+        -460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "17878ac7-4aaf-4970-9a2e-8da930673975",
+              "name": "analyse",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "5a82a937-4ef7-4b6d-8231-d5f572e21c9b",
+              "name": "comment",
+              "value": "={{ $('Comment').item.json[\"textDisplay\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "dff922a6-4659-4cf8-9409-801fa7d7d133",
+              "name": "author",
+              "value": "={{ $('Comment').item.json[\"authorText\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "777d1320-021b-46dd-9435-4fdca3c12202",
+              "name": "likes",
+              "value": "={{ $('Comment').item.json[\"likesCount\"] }}{{ 0 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f127a119-49c2-4f6c-8397-c64bd302c52b",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2500,
+        -440
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c4cf2a3a-496b-4472-a17a-30f783857528",
+              "name": "textDisplay",
+              "value": "={{ $json.textDisplay }}",
+              "type": "string"
+            },
+            {
+              "id": "1378c698-f06b-499c-b7ab-3d773be89c50",
+              "name": "authorText",
+              "value": "={{ $json.authorText }}",
+              "type": "string"
+            },
+            {
+              "id": "92290571-c30c-47e8-9d58-1b4adc1760b0",
+              "name": "authorChannelId",
+              "value": "={{ $json.authorChannelId }}",
+              "type": "string"
+            },
+            {
+              "id": "f3e4c812-b083-4200-a6a0-b4d67c0b3139",
+              "name": "likesCount",
+              "value": "={{ $json.likesCount }}",
+              "type": "string"
+            },
+            {
+              "id": "b16aff9f-5fe9-4c5c-bc7b-1d9847a326a3",
+              "name": "authorThumbnail[0].url",
+              "value": "={{ $json.authorThumbnail[0].url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fb510d60-64eb-4dde-8198-bd17008931c7",
+      "name": "Comment",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1800,
+        -460
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.textDisplay }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You're an expert to analyse comments posted by user for a youtube video. \nThe video is an review analyse of a product created by my company Nannette de Gaspe.\n\nYour task is to understand the content of the video and analyse the comment of the user associated with this video and report a small report and write an answer to the comment. \n\nYour goal is to bring the customer to discuss with me.\n\nInstructions to create the small report and to create the answer:\n\n1. Explain what is the intention of the user with this comment.\n2. Analyse the sentiment of the comment and determine if is positive, negative or neutral.\n3. Write an answer to this comment with the goal in mind.\n \n\nHere's the comment to analyse and answering :\n\n"
+            }
+          ]
+        }
+      },
+      "id": "451b7b40-8c4d-4a01-9aeb-28ed7d75aad9",
+      "name": "Basic LLM Chain1",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        2020,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "a4ebd73c-cd04-4f1c-869e-20a66c8b82c7",
+      "name": "Loop Over Videos",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1140,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d3209c04-5933-4f35-aba3-e02a5b10d41d",
+      "name": "Video Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.thetai.dev/webhook/grabyt",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $('Video Data').item.json[\"id\"][\"videoId\"] }}"
+            },
+            {
+              "name": "customer_id",
+              "value": "={{ $('Workflow Data').item.json[\"customer_id\"] }}"
+            },
+            {
+              "name": "customer_name",
+              "value": "={{ $('Workflow Data').item.json[\"customer_name\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0e77d10c-1999-44b5-926d-768eb683bdd5",
+      "name": "Call AI Agent Youtube Analyser",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2120,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "51dae279-14c3-4039-92f1-ea356ff87014",
+              "leftValue": "={{ $json.provider_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "06fec976-56a8-4ec9-84bc-070f73291196",
+      "name": "Video Exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "rag_videos",
+          "mode": "list",
+          "cachedResultName": "rag_videos"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "provider_id",
+              "value": "={{ $json.id.videoId }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "provider_id"
+          ]
+        }
+      },
+      "id": "2600f890-e395-4ced-9558-3902d888d7a2",
+      "name": "Get Video Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1600,
+        100
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "mySql": {
+          "id": "WUcEYlRNRXS6P3Ni",
+          "name": "MySQL Boost RAG"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-08-24T16:38:49.491Z",
+      "updatedAt": "2024-08-24T16:38:49.491Z",
+      "id": "OwqwkxPGrxiRpjaG",
+      "name": "Youtube"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-08-26T19:05:29.000Z",
+  "versionId": "ee96be37-b833-46b6-a630-1cfdbfd9dcd3"
+}
