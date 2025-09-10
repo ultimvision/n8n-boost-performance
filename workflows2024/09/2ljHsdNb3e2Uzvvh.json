@@ -1,0 +1,229 @@
+{
+  "active": false,
+  "connections": {
+    "Search Youtube Videos": {
+      "main": [
+        [
+          {
+            "node": "Split Out video results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Get video Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-07T10:35:30.603Z",
+  "id": "2ljHsdNb3e2Uzvvh",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e94caf65-a51e-4d94-a50e-7281f5bed4cd",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        460,
+        700
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "=https://youtube.googleapis.com/youtube/v3/search",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "youTubeOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "part",
+              "value": "snippet"
+            },
+            {
+              "name": "maxResults",
+              "value": "20"
+            },
+            {
+              "name": "q",
+              "value": "={{ $('Workflow Data').first().json.search }}"
+            },
+            {
+              "name": "order",
+              "value": "date"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "74132792-3056-4bf7-8379-2633a1d896c8",
+      "name": "Search Youtube Videos",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1280,
+        620
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "yGs2NtyIuhfKjk0w",
+          "name": "YouTube account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ec4e5de6-a4ce-403f-b54f-0c63b7e946e0",
+              "name": "search",
+              "type": "string",
+              "value": "={{ $json.customer_name }}"
+            },
+            {
+              "id": "3ccfb518-cd33-4042-a922-78c7b712e140",
+              "name": "youtube_id",
+              "value": "Z9AjovOmFRM",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d5c8db7c-aaad-40b8-b93b-d638ae3db106",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        560,
+        460
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "id": "9795f866-de9b-4676-a11a-40d752f5be36",
+      "name": "Split Out video results",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        1520,
+        620
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "346a8066-f917-4962-ae44-96c695a47410",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        360,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://yt-api.p.rapidapi.com/video/info",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $json.youtube_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d1bbc48d-38d0-43f7-927a-319a35f1449b",
+      "name": "Get video Details",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        820,
+        240
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://yt-api.p.rapidapi.com/subtitles",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $json.youtube_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d0b103f9-ede9-4437-bf68-57495249d43a",
+      "name": "Get video Details1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        820,
+        460
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mXubOREOSYfIze3c",
+          "name": "RapidAPI - UltimVision"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-07T10:48:26.000Z",
+  "versionId": "e18cc09c-bd31-4234-a259-05aeb68c970f"
+}
