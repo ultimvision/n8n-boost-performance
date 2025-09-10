@@ -1,0 +1,687 @@
+{
+  "active": true,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Set HTML Enveloppe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set HTML Enveloppe": {
+      "main": [
+        [
+          {
+            "node": "Get Template Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Template Email": {
+      "main": [
+        [
+          {
+            "node": "Set Template header",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Template header": {
+      "main": [
+        [
+          {
+            "node": "Get All Message Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Get Template Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Workflow": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Set HTML Enveloppe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set HTML Enveloppe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Tasks to Send": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Message Content": {
+      "main": [
+        [
+          {
+            "node": "Aggregate all messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate all messages": {
+      "main": [
+        [
+          {
+            "node": "Get Tasks to Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Template Message": {
+      "main": [
+        [
+          {
+            "node": "Data Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Clean Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-09T12:30:51.266Z",
+  "id": "kFdSBoWlBlbpEt0g",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Send Email Automation for Leads in Boost 2025 CRM",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1504,
+        -656
+      ],
+      "id": "1cbf1a57-af22-4f10-94ff-8265e28ef742",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "efb0579d-4021-4a8d-be59-9cf2b9ca6af4",
+              "name": "html_enveloppe",
+              "value": "=<!DOCTYPE html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <title>Email Boost Performance</title>\n  </head>\n  <body style=\"margin: 0; padding: 0; background-color: #f5f5f5;\">\n    <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n      <tr>\n        <td align=\"center\" style=\"padding: 40px 10px;\">\n          <table\n            align=\"center\"\n            border=\"0\"\n            cellpadding=\"0\"\n            cellspacing=\"0\"\n            width=\"600\"\n            style=\"background-color: #ffffff; border: 1px solid #e0e0e0;\"\n          >\n\n            [[header]]\n\n            [[content]]\n\n            [[footer]]\n\n          </table>\n        </td>\n      </tr>\n    </table>\n  </body>\n</html>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1280,
+        -656
+      ],
+      "id": "8221acee-c77b-44f5-b95f-3fcf7d7197bc",
+      "name": "Set HTML Enveloppe"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblMqm4g1cu2qlSAQ",
+          "mode": "list",
+          "cachedResultName": "Configuration",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblMqm4g1cu2qlSAQ"
+        },
+        "filterByFormula": "{Clé} = \"template_email_boost\"",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -1056,
+        -656
+      ],
+      "id": "e7686d06-8772-4fe8-8c47-043fcb02df79",
+      "name": "Get Template Email",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3e0f190e-cc5f-423b-a289-192452094a0a",
+              "name": "Valeur",
+              "value": "={{ $json.Valeur }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -832,
+        -656
+      ],
+      "id": "809dc883-42ef-48a2-8cba-bdff507cf38e",
+      "name": "Set Template header"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        64,
+        -656
+      ],
+      "id": "ca7c94ad-c2ee-4ceb-b640-af72637e5b06",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "9czbESAQFGfWH8WF",
+          "mode": "id"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        736,
+        -728
+      ],
+      "id": "c4206d00-4dd7-43af-9625-846b1452040f",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7d1e55ba-25da-4267-aad3-f66aa3e71ecc",
+              "name": "Contact Email",
+              "value": "={{ $('Loop Over Items').item.json[\"Contact Email\"][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "47d4ae92-c1f7-48d0-aa95-a70e4ac56b56",
+              "name": "Task ID",
+              "value": "={{ $('Loop Over Items').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "002c0304-386e-4630-bbc0-6c2d015cb6ba",
+              "name": "Prochaine Séquence",
+              "value": "={{ $('Loop Over Items').item.json[\"Prochaine Séquence\"] }}",
+              "type": "number"
+            },
+            {
+              "id": "8b34e2c1-ecf1-4f6a-a21b-6762a0078f98",
+              "name": "Sujet",
+              "value": "={{ $json.message[0].Sujet }}",
+              "type": "string"
+            },
+            {
+              "id": "0221ffd9-2bae-443b-acef-aea58c89086f",
+              "name": "Contenu",
+              "value": "={{ $json.message[0].Contenu }}",
+              "type": "string"
+            },
+            {
+              "id": "2c1db6ee-a601-46e7-8f7e-4e4716dd809e",
+              "name": "De",
+              "value": "={{ $json.message[0].De }}",
+              "type": "string"
+            },
+            {
+              "id": "55d09095-73e0-4a76-8b9f-d7a6519bfa2b",
+              "name": "Lien redirection",
+              "value": "={{ $json.message[0][\"Lien redirection\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "45c6cab7-5e3f-4864-9c6d-82e230f264d3",
+              "name": "Template Header",
+              "value": "={{ $('Set Template header').first().json.Valeur.header }}",
+              "type": "string"
+            },
+            {
+              "id": "f8684e40-4d15-477f-bd97-aee250b9f208",
+              "name": "Template Footer",
+              "value": "={{ $('Set Template header').first().json.Valeur.footer }}",
+              "type": "string"
+            },
+            {
+              "id": "582c5f92-208c-4ff3-8a26-75ba04595395",
+              "name": "Template Content",
+              "value": "={{ $('Set Template header').first().json.Valeur.content }}",
+              "type": "string"
+            },
+            {
+              "id": "a68133d3-d553-4913-b5dc-5533dd58cb55",
+              "name": "Prénom",
+              "value": "={{ $('Loop Over Items').item.json[\"Prénom\"][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "1aabc78f-2dda-45ba-887a-86836312cf88",
+              "name": "html_enveloppe",
+              "value": "={{ $('Set HTML Enveloppe').item.json.html_enveloppe }}",
+              "type": "string"
+            },
+            {
+              "id": "259ee079-ac1e-4bd3-a537-a743aa319b12",
+              "name": "Automatisation ID",
+              "value": "={{ $('Get Tasks to Send').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "0ba00ad0-df54-497a-9b6d-57d8de60a1e3",
+              "name": "Groupe Automatisation",
+              "value": "={{ $json.message[0][\"Groupe Automatisation\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "20cb91b7-76cd-4ce8-a064-5f0a4614a778",
+              "name": "Date Création",
+              "value": "={{ $('Loop Over Items').item.json[\"Date Création\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "216b9981-f440-4cb6-946f-6d57efeec4f9",
+              "name": "Message Automatisation ID",
+              "value": "={{ $json.message[0].id }}",
+              "type": "string"
+            },
+            {
+              "id": "1ad010ab-0640-4960-827a-2cbfc2b432b5",
+              "name": "Événement ID",
+              "value": "={{ $('Loop Over Items').item.json[\"Événement ID\"][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "75c59053-f207-44ec-b3b0-b973ef29e710",
+              "name": "Type",
+              "value": "={{ $json.message[0].Type }}",
+              "type": "string"
+            },
+            {
+              "id": "af4a9c06-43aa-4be8-83c5-7c4de5877816",
+              "name": "Mobile",
+              "value": "={{ $('Loop Over Items').item.json.Mobile[0] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        512,
+        -728
+      ],
+      "id": "4d19d557-c932-4ac0-90f8-422815981311",
+      "name": "Data Workflow"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1408,
+        -656
+      ],
+      "id": "aa38691e-876b-4573-b72b-a40a6759dc25",
+      "name": "Clean Data"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1504,
+        -848
+      ],
+      "id": "0e7dfaaf-d321-4df8-8a08-d81708d709e3",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1504,
+        -464
+      ],
+      "id": "ff6b0d03-747b-412a-b1bb-4ed6d77a1975",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbNb6O4nv6Ye2F8",
+          "mode": "list",
+          "cachedResultName": "Tâches Automatisations",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblbNb6O4nv6Ye2F8"
+        },
+        "filterByFormula": "=AND(\n  {Status} = 'Active',\n  {Date Prochaine Action} <= DATEADD(NOW(), 5, 'minute'),\n  {Suivi Automatique Email} = TRUE()\n)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -160,
+        -656
+      ],
+      "id": "65773cbd-1dcd-446b-874a-3ab4151e1696",
+      "name": "Get Tasks to Send",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apprCreGpn1y29ohG",
+          "mode": "list",
+          "cachedResultName": "Boost 2025",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbjJYeI54LhHzoS",
+          "mode": "list",
+          "cachedResultName": "Message Automatisation",
+          "cachedResultUrl": "https://airtable.com/apprCreGpn1y29ohG/tblbjJYeI54LhHzoS"
+        },
+        "filterByFormula": "=",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -608,
+        -656
+      ],
+      "id": "70b3ee0b-4faf-4580-a6ff-0699646e96e4",
+      "name": "Get All Message Content",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -384,
+        -656
+      ],
+      "id": "e894f96a-3672-4027-ad2d-e40871e851cc",
+      "name": "Aggregate all messages"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d07c1bf6-2f0b-416e-b2da-6fd217065c11",
+              "name": "message",
+              "value": "={{ $('Aggregate all messages').item.json.data.filter(item => item.Type === $json.Type && item.Séquence === $json['Prochaine Séquence'] && item['Groupe Automatisation'] === $json['Groupe Automatisation']) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        288,
+        -728
+      ],
+      "id": "8ef69f2e-c0f3-40cc-bada-6aafebd33ee5",
+      "name": "Get Template Message"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a3453ff8-b823-4077-a22d-b38425de9f12",
+              "leftValue": "={{ ($runIndex) % 5 }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        960,
+        -728
+      ],
+      "id": "09108767-bfd6-4a41-8a69-1b89755cf8b6",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1184,
+        -800
+      ],
+      "id": "789fd35d-7142-4641-a9d0-4c9c5b10fcfe",
+      "name": "Wait",
+      "webhookId": "89ebb749-e780-4f65-97bd-74006a551d06"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2024-11-21T18:21:53.875Z",
+      "updatedAt": "2024-11-21T18:21:53.875Z",
+      "id": "mIoSmAytRJWHrSkp",
+      "name": "Dev:Pat"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-01T19:50:06.000Z",
+  "versionId": "bc0319b2-9ecf-4fdf-85e0-5e0209030704"
+}
