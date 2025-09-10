@@ -1,0 +1,1149 @@
+{
+  "active": false,
+  "connections": {
+    "Prepare new post data": {
+      "main": [
+        [
+          {
+            "node": "Create Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download test file": {
+      "main": [
+        [
+          {
+            "node": "Get file size",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Generate UUID",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Generate MD5 Hash",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate MD5 Hash": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get file size": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Generate UUID": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Get User Access Token",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get User Access Token": {
+      "main": [
+        [
+          {
+            "node": "Generate Upload URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Upload URL": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "node": "Prepare post creation data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare new comment data": {
+      "main": [
+        [
+          {
+            "node": "Get User Access Token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User Access Token1": {
+      "main": [
+        [
+          {
+            "node": "Create comment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User Access Token2": {
+      "main": [
+        [
+          {
+            "node": "Send DM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare new chat data": {
+      "main": [
+        [
+          {
+            "node": "Get User Access Token2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User Access Token3": {
+      "main": [
+        [
+          {
+            "node": "Send rich DM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare new chat rich data": {
+      "main": [
+        [
+          {
+            "node": "Get User Access Token3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Set new member data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Spaces": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set new member data": {
+      "main": [
+        [
+          {
+            "node": "Create member",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-16T13:31:12.664Z",
+  "id": "SCLONux36ZhqoZXi",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Circle Playground",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "6ec2f6bd-7400-407c-99f3-af791625184c",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -80,
+        4220
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/admin/v2/community_members",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5d2557e6-1fd0-4e50-8ad7-9616cb775c58",
+      "name": "List Members",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        820,
+        5380
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/admin/v2/posts/15617825",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4242b895-5522-4908-875d-97f744f32eb4",
+      "name": "Get Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        820,
+        5620
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/admin/v2/posts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "ab0a3f0e-afef-47fa-9599-8178b69ec9f9",
+      "name": "Create Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1020,
+        700
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"space_id\": 1489296,\n  \"status\": \"published\",\n  \"name\": \"API-created TipTap post\",\n  \"slug\": \"api-created-tip-tap-post\",\n  \"tiptap_body\": {\n    \"body\": {\n      \"type\": \"doc\",\n      \"content\": [\n        {\n          \"type\": \"paragraph\",\n          \"content\": [{\n            \"type\": \"text\",\n            \"text\": \"This is a test for a paragraph block\",\n            \"circle_ios_fallback_text\": \"This is a test for a paragraph block\"\n          }]\n        }\n      ]\n    }\n  },\n  \"cover_image\": null,\n  \"internal_custom_html\": null,\n  \"is_truncation_disabled\": false,\n  \"is_comments_closed\": false,\n  \"is_comments_enabled\": true,\n  \"is_liking_enabled\": true,\n  \"hide_meta_info\": true,\n  \"hide_from_featured_areas\": true,\n  \"meta_title\": null,\n  \"meta_description\": null,\n  \"opengraph_title\": null,\n  \"opengraph_description\": null,\n  \"published_at\": \"{{ DateTime.utc().toISO() }}\",\n  \"created_at\": \"{{ DateTime.utc().toISO() }}\",\n  \"topics\": [],\n  \"skip_notifications\": false,\n  \"is_pinned\": false\n}",
+        "options": {}
+      },
+      "id": "840f0fea-95ac-4141-b8c0-93e80126cfd3",
+      "name": "Prepare new post data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://tai-assets.nyc3.digitaloceanspaces.com/file_example_MP4_480_1_5MG.mp4",
+        "options": {}
+      },
+      "id": "ed3885df-72a1-4c0b-80b9-f638ecf14517",
+      "name": "Download test file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "binaryData": true,
+        "dataPropertyName": "hash",
+        "encoding": "base64"
+      },
+      "id": "cb3dd454-5705-4b07-b983-09c2bb4a4bcd",
+      "name": "Generate MD5 Hash",
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "let binaryDataBufferItem = await this.helpers.getBinaryDataBuffer(0, 'data');\nconst bytes = Buffer.byteLength(binaryDataBufferItem)\n\nreturn {\n  json: {\n    bytes,\n  }\n}"
+      },
+      "id": "c2b76852-0bcb-40af-9f3b-04c546c01923",
+      "name": "Get file size",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        2040
+      ]
+    },
+    {
+      "parameters": {
+        "action": "generate",
+        "dataPropertyName": "uuid"
+      },
+      "id": "c8270da5-89f7-4e17-8062-1764f245441c",
+      "name": "Generate UUID",
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        1560
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {}
+      },
+      "id": "488dbdee-d5b6-470a-9e75-59501fb54960",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1720,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/headless/auth_token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"mat@thetrading.ai\"\n}",
+        "options": {}
+      },
+      "id": "2a703c04-2285-4377-a8c4-87c3c2e0252a",
+      "name": "Get User Access Token",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1980,
+        1620
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CjvJCVIlAjHjU9qy",
+          "name": "Circle (hub.boostperformance.ai) Headless API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/headless/v1/direct_uploads",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"blob\": {\n    \"key\": \"{{ $('Merge').first().json.uuid }}\",\n    \"filename\": \"{{ $('Download test file').first().binary.data.fileName }}\",\n    \"content_type\": \"{{ $('Download test file').first().binary.data.mimeType }}\",\n    \"byte_size\": {{ $('Merge').first().json.bytes }},\n    \"checksum\": \"{{ $('Merge').first().json.hash }}\"\n  }\n}",
+        "options": {}
+      },
+      "id": "03976c7f-7fa6-40bc-9a1c-98470c6955ea",
+      "name": "Generate Upload URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2280,
+        1620
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $json.direct_upload.url }}",
+        "sendHeaders": true,
+        "specifyHeaders": "json",
+        "jsonHeaders": "={{ JSON.stringify($json.direct_upload.headers) }}",
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "id": "a889d4c6-9eed-4738-b48c-919671931634",
+      "name": "Upload file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2800,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "id": "1d67f24b-b8ca-49ce-aacd-9810a52d2ba5",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2560,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"block_data\": {\n      \"type\": \"file\",\n      \"attrs\": {\n        \"signed_id\": \"{{ $('Merge1').first().json.signed_id }}\"\n      }\n  },\n  \"inline_attachment\": {\n    \"filename\": \"{{ $('Download test file').first().binary.data.fileName }}\",\n    \"content_type\": \"{{ $('Download test file').first().binary.data.mimeType }}\",\n    \"byte_size\": {{ $('Get file size').first().json.bytes }},\n    \"type\": \"file\",\n    \"url\": \"{{ $('Merge1').first().json.url }}\",\n    \"signed_id\": \"{{ $('Merge1').first().json.signed_id }}\"\n  }\n}\n",
+        "options": {}
+      },
+      "id": "c3f39ee6-3c72-46fe-950d-b740656a6990",
+      "name": "Prepare post creation data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3080,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Uploading a file to Circle\n\nDocs: https://api.circle.so/get-started/concepts/file-uploads\n\nProcess:\n1. From a binary file, extract the filename, file size (in bytes [int]), mime type a an binary 64 string of the MD5 hash of the file\n2. Get an access token for a user (can't upload with simply an API key... has to go through an existing member) using the Headless Auth API (https://api.circle.so/apis/headless/quick-start)\n3. Send a POST request to the Headless Member API to generate a pre-signed URL to upload the file to (we are not uploading the file yet)\n4. Upload the binary file to the pre-signed URL\n5. prepare some data if we want to insert this uploaded file into a post (as an inline-attachment)",
+        "height": 1336.5219428735263,
+        "width": 2951.685776687066,
+        "color": 5
+      },
+      "id": "0614e8fd-93af-4004-9624-f4fa55657379",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 1. Extract data from file",
+        "height": 869.0397674910549,
+        "width": 693.4737853624097,
+        "color": 7
+      },
+      "id": "f314f370-255a-45de-9239-8201ed08295e",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 2. Generate user access token",
+        "height": 869.0397674910561,
+        "width": 249.34997495592603,
+        "color": 7
+      },
+      "id": "e708f3f9-4664-43b5-ba11-6dc1ea656939",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 3. Generate Pre-signed upload URL",
+        "height": 869.0397674910561,
+        "width": 249.34997495592603,
+        "color": 7
+      },
+      "id": "9fd40ef7-b6ed-47ca-b201-a3289780d777",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 4. Upload file",
+        "height": 869.0397674910561,
+        "width": 249.34997495592603,
+        "color": 7
+      },
+      "id": "9982dd7c-6ff8-4830-89ec-dfed6be1655b",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2720,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 5. Prepare data for post",
+        "height": 869.0397674910561,
+        "width": 249.34997495592603,
+        "color": 7
+      },
+      "id": "a37feb5b-30fc-40b9-a8cd-38beea5dd69e",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3020,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Create a new post\n\nPoor docs: https://api-headless.circle.so/?urls.primaryName=Admin%20API%20V2#/Posts/post_api_admin_v2_posts\n\nBecause of such a lack of documentation, it has been helpful to GET a post and look at the payload, trying to derive what each field were like.",
+        "height": 478.1284976588295,
+        "width": 2920.2125028849055,
+        "color": 5
+      },
+      "id": "cec2dc31-88ed-4a57-aed9-94a9fb780f56",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"chat_room\": {\n    \"rich_text_body\": {\n      \"body\": {\n        \"type\": \"string\",\n        \"content\": [\n          {\n            \"type\": \"string\",\n            \"content\": [\n              {\n                \"text\": \"string\",\n                \"type\": \"string\",\n                \"circle_ios_fallback_text\": \"string\",\n                \"attrs\": {\n                  \"sgid\": \"string\",\n                  \"href\": \"string\",\n                  \"target\": \"string\"\n                },\n                \"marks\": [\n                  {\n                    \"type\": \"string\",\n                    \"attrs\": {\n                      \"href\": \"string\",\n                      \"target\": \"string\"\n                    }\n                  }\n                ]\n              }\n            ]\n          }\n        ]\n      },\n      \"circle_ios_fallback_text\": \"string\",\n      \"attachments\": [\n        \"string\"\n      ],\n      \"inline_attachments\": [\n        \"string\"\n      ],\n      \"sgids_to_object_map\": {},\n      \"format\": \"string\",\n      \"community_members\": [\n        \"string\"\n      ],\n      \"entities\": [\n        \"string\"\n      ],\n      \"group_mentions\": [\n        \"string\"\n      ],\n      \"polls\": [\n        \"string\"\n      ]\n    },\n    \"kind\": \"string\",\n    \"community_member_ids\": [\n      \"string\"\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "68737915-34e0-4c8d-be9d-9560922a3088",
+      "name": "Prepare new comment data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        780,
+        2680
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/headless/auth_token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"mat@thetrading.ai\"\n}",
+        "options": {}
+      },
+      "id": "942dab39-7bc1-414e-8a9d-d720f0848e82",
+      "name": "Get User Access Token1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        2680
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CjvJCVIlAjHjU9qy",
+          "name": "Circle (hub.boostperformance.ai) Headless API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/headless/v1/posts/15619632/comments",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($('Prepare new comment data').first().json) }}",
+        "options": {}
+      },
+      "id": "f8001167-bfdf-4c7b-ba9c-22d49bbff4eb",
+      "name": "Create comment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1380,
+        2680
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Creating a comment on a post\n\nDocs: https://api-headless.circle.so/?urls.primaryName=Member%20APIs#/Comments/post_api_headless_v1_posts__post_id__comments\n\nWe use the headless API instead of the admin API since it allows for tiptap content, while the admin api only allows strings are body.\nIt is possible to follow the \"Upload a file\" flow and embed rich media into a comment too since it supports tiptap body.",
+        "height": 553.125421690152,
+        "width": 2946.528803737784,
+        "color": 5
+      },
+      "id": "20370c60-b22a-4b68-8a07-b045d3b6d7ac",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        2400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/headless/auth_token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"mat@thetrading.ai\"\n}",
+        "options": {}
+      },
+      "id": "595a7c95-8573-44ea-ab03-49b4c26fe76d",
+      "name": "Get User Access Token2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        3260
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CjvJCVIlAjHjU9qy",
+          "name": "Circle (hub.boostperformance.ai) Headless API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Creating DM chat message with a user\n\nDocs: https://api-headless.circle.so/?urls.primaryName=Member%20APIs#/Chat%20Room/post_api_headless_v1_messages\n\nWhile it seems counter-intuitive, \"creating\" a chat room of type \"direct\" will actually DM a user.\nEven if it's not the first message, \"re-creating\" the chat room just adds a message to an existing DM conversation with a user.",
+        "height": 479.3284325802846,
+        "width": 2943.320238993878,
+        "color": 5
+      },
+      "id": "ef1e5b7c-cd81-41fe-8af7-5a46654f8e08",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        3020
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"chat_room\": {\n    \"rich_text_body\": {\n      \"body\": {\n        \"type\": \"doc\",\n        \"content\": [\n          {\n            \"type\": \"paragraph\",\n            \"content\": [\n              {\n                \"text\": \"allo from n8n\",\n                \"type\": \"text\",\n              }\n            ]\n          }\n        ]\n      },\n    },\n    \"kind\": \"direct\",\n    \"community_member_ids\": [\n      \"28019677\"\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "aebf137f-07b4-4fa4-a380-74a3aff42214",
+      "name": "Prepare new chat data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        3260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/headless/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($('Prepare new chat data').first().json) }}",
+        "options": {}
+      },
+      "id": "628fe786-d301-41fc-832a-9c362a721010",
+      "name": "Send DM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        3260
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Tests",
+        "height": 998.9421376678913,
+        "width": 1034.7653316632077,
+        "color": 7
+      },
+      "id": "1d89b0e5-2d4d-40c7-b718-35a167c26c7c",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        360,
+        5300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/v1/headless/auth_token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"mat@thetrading.ai\"\n}",
+        "options": {}
+      },
+      "id": "f1bd8a8b-a905-473d-b24d-e600b9261a43",
+      "name": "Get User Access Token3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        3800
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CjvJCVIlAjHjU9qy",
+          "name": "Circle (hub.boostperformance.ai) Headless API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Creating DM chat message with rich content\n\nDocs: https://api-headless.circle.so/?urls.primaryName=Member%20APIs#/Chat%20Room/post_api_headless_v1_messages\n\nThe process is fairly simple: just add as many \"signed_id\" to the \"attachments\" array, all the files will be attached to the message.\nThese signed_ids are generated from the uploaded file flow.\n\nPS: the DM chat does not support inline attachments where the receiving user could watch a video live from within the chat interface: it only allows images to be inlined.\nAll files are still supported and downloadable.",
+        "height": 479.3284325802846,
+        "width": 2943.320238993878,
+        "color": 5
+      },
+      "id": "d68ea5ef-1305-4827-8182-47dbbcc97b67",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        3560
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/headless/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($('Prepare new chat rich data').first().json) }}",
+        "options": {}
+      },
+      "id": "0242d7da-41ae-4c1a-b87e-3c048ce2f66d",
+      "name": "Send rich DM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        3800
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"chat_room\": {\n    \"rich_text_body\": {\n      \"body\": {\n        \"type\": \"doc\",\n        \"content\": [\n          {\n            \"type\": \"paragraph\",\n            \"content\": [\n              {\n                \"text\": \"Here is your video!\",\n                \"type\": \"text\",\n              }\n            ]\n          }\n        ]\n      },\n      \"attachments\": [ \"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCTksvbGdNPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--a06c50b7c0af2df9c17760c5adf6f11d3bc82e65\"],\n    },\n    \"kind\": \"direct\",\n    \"community_member_ids\": [\n      \"28019677\"\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "7a743158-4129-4ba2-818d-54d55de26b02",
+      "name": "Prepare new chat rich data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        3800
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/admin/v2/spaces",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "304dd191-42b0-46af-828c-2a266889ee3e",
+      "name": "List Spaces",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        700,
+        5940
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "records",
+        "options": {}
+      },
+      "id": "f4ca2cac-bda7-4bb3-b8d3-4b67424b0add",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        920,
+        5940
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://app.circle.so/api/admin/v2/community_members/30634346",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "community_id",
+              "value": "={{ $vars.circle_community_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4b7b530c-2677-4844-8926-a8383cea6de1",
+      "name": "Get user",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        5640
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "94a4cfd8-820e-4b98-a2e4-5a9cab205fc6",
+              "name": "email",
+              "value": "bourgeois.mat@gmail.com",
+              "type": "string"
+            },
+            {
+              "id": "d017e0e4-b86c-4a16-9df7-bbefc8a6330f",
+              "name": "skip_invitation",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "dfb9e3fb-a960-4ac8-94f6-b2df6e04a576",
+              "name": "name",
+              "value": "Mat Test",
+              "type": "string"
+            },
+            {
+              "id": "d91ca61d-d615-4a38-add8-770146d3d9e0",
+              "name": "community_member_profile_fields.Objectifs",
+              "value": "Test objectif",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4acc28ca-c194-4cbb-9a85-a2cc689f76ad",
+      "name": "Set new member data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        780,
+        4280
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.circle.so/api/admin/v2/community_members",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "1e447cf1-f789-46d5-9959-55dbcf525302",
+      "name": "Create member",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        4280
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cxKhTeEyJFl8bMG8",
+          "name": "Circle (hub.boostperformance.ai) Admin API v2"
+        }
+      }
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:31:28.832Z",
+      "updatedAt": "2024-10-16T13:31:28.832Z",
+      "id": "zCOWWz4gcTjWLF69",
+      "name": "Circle"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-24T19:02:32.000Z",
+  "versionId": "65fe6230-0840-458e-a6c6-7386ab83e1a0"
+}
