@@ -1,0 +1,665 @@
+{
+  "active": true,
+  "connections": {
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Sentences": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API AssemblyAI | Full": {
+      "main": [
+        [
+          {
+            "node": "Get Audio Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "If Status is completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Audio Details": {
+      "main": [
+        [
+          {
+            "node": "Update Podcasts Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Status is completed": {
+      "main": [
+        [
+          {
+            "node": "Get Podcast ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Podcast ID": {
+      "main": [
+        [
+          {
+            "node": "Delete Previous Transcripts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "API AssemblyAI | Full",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "API AssemblyAI | Sentences",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Set Log Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Insert Full Transcript With Speakers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Log Success": {
+      "main": [
+        [
+          {
+            "node": "Save Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-06-29T21:28:03.307Z",
+  "id": "gU4GskC6yTY2nIVf",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Transcribe Audio | Webhook | Assembly AI",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dd3c4fbe-32d0-48c2-ae6f-4d7dacc0f6eb",
+              "name": "status",
+              "value": "={{ $json.body.status }}",
+              "type": "string"
+            },
+            {
+              "id": "05380424-b818-4ed8-9b92-6daefc5eecbe",
+              "name": "transcript_id",
+              "value": "={{ $json.body.transcript_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "37c67343-8bc9-4d1c-8eaf-405c44802d1c",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        580,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eff59631-715c-4c16-bd6a-ae34c348ad62",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "d910b3d8-97e6-4676-b2de-699a0da01efd",
+              "name": "start",
+              "value": "={{ $json.start }}",
+              "type": "number"
+            },
+            {
+              "id": "f5e13d05-72fb-4150-95dd-5f3904c14165",
+              "name": "end",
+              "value": "={{ $json.end }}",
+              "type": "number"
+            },
+            {
+              "id": "24d3836c-efd8-4311-bd77-40df00e6282a",
+              "name": "confidence",
+              "value": "={{ $json.confidence }}",
+              "type": "number"
+            },
+            {
+              "id": "05345e9e-6cb5-4b7b-b6fe-746d86ab808d",
+              "name": "speaker",
+              "value": "={{ $json.speaker }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "910b92a2-9770-4579-9ab8-8e321b1bd430",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1740,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "sentences",
+        "options": {}
+      },
+      "id": "5c1c0a95-f17c-4b3e-b251-9ae6c1a18a1b",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/{{ $('Workflow Data').item.json[\"transcript_id\"] }}/sentences",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $vars.ASSEMBLYAI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ba1f74bd-e141-465f-bb7f-d111791897d5",
+      "name": "API AssemblyAI | Sentences",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1340,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/{{ $('Workflow Data').item.json[\"transcript_id\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $vars.ASSEMBLYAI_API_KEY }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "95e40616-8db8-4177-875d-3681ba218e13",
+      "name": "API AssemblyAI | Full",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1340,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4926247f-a2f1-4f72-a163-afc8bd84448e",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "3f27b030-5c05-4f2c-90a3-ac0050f7e0f8",
+              "name": "language_code",
+              "value": "={{ $json.language_code }}",
+              "type": "string"
+            },
+            {
+              "id": "f29af1b3-b6aa-4bb4-a7f8-f32888cd5976",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "4fdb2888-d9c1-44e5-80fe-6c5e77ffa765",
+              "name": "audio_url",
+              "value": "={{ $json.audio_url }}",
+              "type": "string"
+            },
+            {
+              "id": "6be53c56-bd4d-48e7-ae35-2894147faffd",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "8c776283-a335-47f6-8194-b415a90b3318",
+              "name": "audio_duration",
+              "value": "={{ $json.audio_duration }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d3efe604-f5d6-4c2e-89ab-624a5f824a9d",
+      "name": "Get Audio Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1540,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "16964fa5-7a5c-41ba-9607-8306e75961e1",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "completed",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "115a89ac-0dc6-45a9-8c09-fdb296b0585a",
+      "name": "If Status is completed",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        760,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "assembly_ai_transcript_id",
+        "valueToMatchOn": "={{ $json.id }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "audio_duration",
+              "value": "={{ $json.audio_duration }}"
+            },
+            {
+              "column": "full_text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "column": "status",
+              "value": "transcript_completed"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4cc36e7b-d8d9-440f-aa19-5fca5f8e62f0",
+      "name": "Update Podcasts Table",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1740,
+        240
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "assembly_ai_transcript_id",
+              "value": "={{ $json.transcript_id }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "id",
+            "interviewer",
+            "co_interviewer",
+            "guest"
+          ]
+        }
+      },
+      "id": "3b4b51c6-0dde-413e-997c-170c88d1ec7b",
+      "name": "Get Podcast ID",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1000,
+        180
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteTable",
+        "table": {
+          "__rl": true,
+          "value": "jungle_transcripts",
+          "mode": "list",
+          "cachedResultName": "jungle_transcripts"
+        },
+        "deleteCommand": "delete",
+        "where": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b3a1e04f-da3a-4be4-9134-9e65a1d9694c",
+      "name": "Delete Previous Transcripts",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1340,
+        40
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "jungle_transcripts",
+          "mode": "list",
+          "cachedResultName": "jungle_transcripts"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Get Podcast ID').item.json[\"id\"] }}"
+            },
+            {
+              "column": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "column": "start",
+              "value": "={{ $json.start }}"
+            },
+            {
+              "column": "end",
+              "value": "={{ $json.end }}"
+            },
+            {
+              "column": "confidence",
+              "value": "={{ $json.confidence }}"
+            },
+            {
+              "column": "speaker",
+              "value": "={{ $json.speaker }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a56b3aee-ec73-4623-962f-2616add3d247",
+      "name": "Insert Full Transcript With Speakers",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1940,
+        440
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "### Speech to Text\n![Image](https://boostperformance.ai/logos/logo_amplify_ai.png)\n\n[Connect to Assembly AI](https://www.assemblyai.com/app)\n\n",
+        "height": 282,
+        "width": 253,
+        "color": 7
+      },
+      "id": "e9e883be-893a-4388-8ca9-85a3f3ca6b16",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        760,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "assemblyai",
+        "options": {}
+      },
+      "id": "c9f4f968-85c4-4a75-ab89-355e73c23d61",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        400,
+        280
+      ],
+      "webhookId": "990c0c67-7d59-45ff-90ad-913aa5131d8f"
+    },
+    {
+      "parameters": {
+        "workflowId": "n6aTf9L7yrxjW418",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "id": "6e9c5629-2f61-41f6-9cfc-19404a0cd2bc",
+      "name": "Save Log",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d8f32c58-460d-41e5-bcd1-b75d7c2dc1c0",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "id": "4e9bce30-61e4-4f31-8d03-93c2ab1f4c4f",
+              "name": "status_message",
+              "value": "=Audio transcription completed with success.",
+              "type": "string"
+            },
+            {
+              "id": "c2b675fb-4192-4e22-b288-0dd9f63589be",
+              "name": "workflow_name",
+              "value": "={{ $workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "936e39c2-49e7-4724-9bfe-7af3d21e7ac6",
+              "name": "workflow_id",
+              "value": "={{ $workflow.id }}",
+              "type": "string"
+            },
+            {
+              "id": "5c9cc70c-70e3-4332-9e30-910ef8a2a996",
+              "name": "podcast_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "39a12a43-f8ea-439e-a004-0a6f6497e3b3",
+      "name": "Set Log Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1340,
+        680
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-06-30T20:05:18.275Z",
+      "updatedAt": "2024-06-30T20:05:18.275Z",
+      "id": "jJFrFpoe6jftwcE3",
+      "name": "Transcribe Audio"
+    },
+    {
+      "createdAt": "2024-06-30T18:43:25.919Z",
+      "updatedAt": "2024-06-30T20:11:06.644Z",
+      "id": "wETg74dXNmj5dlPh",
+      "name": "Assembly AI API"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-07-02T12:46:24.000Z",
+  "versionId": "69652d97-4708-4321-a4f9-91261eb07aac"
+}
