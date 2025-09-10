@@ -1,0 +1,290 @@
+{
+  "active": false,
+  "connections": {
+    "Respond to Webhook": {
+      "main": [
+        []
+      ]
+    },
+    "Scrape Facebook": {
+      "main": [
+        [
+          {
+            "node": "Scrape facebook group",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get all facebook groups",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get all facebook groups": {
+      "main": [
+        [
+          {
+            "node": "Scrape facebook group1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Facebook1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-25T17:32:20.999Z",
+  "id": "UAHfMxKs9Hwe9MTl",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Lead Generator Webhooks",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "redirect",
+        "redirectURL": "=https://n8n-status.boostperformance.ai?id={{ $execution.id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        -60
+      ],
+      "id": "022cf66b-4e89-4077-ba41-d939aef4a302",
+      "name": "Respond to Webhook",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "path": "lead-generator/facebook",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        -260
+      ],
+      "id": "cacd2b36-de92-4ee4-a3c0-7368c8532e39",
+      "name": "Scrape Facebook",
+      "webhookId": "78b2e6fb-2fad-4301-97db-9d891e9b4c75",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        -520
+      ],
+      "id": "ba225ce4-1a7c-4ca7-815e-b00117fd7712",
+      "name": "Schedule Trigger",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appQ5UhHEZN9tXrgg",
+          "mode": "list",
+          "cachedResultName": "Lead Generator",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNOytrQi4CM2kO2",
+          "mode": "list",
+          "cachedResultName": "Facebook Groups",
+          "cachedResultUrl": "https://airtable.com/appQ5UhHEZN9tXrgg/tblNOytrQi4CM2kO2"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        260,
+        -520
+      ],
+      "id": "5b008ccd-19c8-414c-a1d9-2d0b247afc30",
+      "name": "Get all facebook groups",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "1prPZf1FTg4yZ1Ch",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "FqdnWBAiSnd4SzCh",
+          "mode": "list",
+          "cachedResultName": "Boost — Scrape Facebook Groups for Leads"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "record_id": "={{ $json.query.record_id }}"
+          },
+          "matchingColumns": [
+            "record_id"
+          ],
+          "schema": [
+            {
+              "id": "record_id",
+              "displayName": "record_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        280,
+        -260
+      ],
+      "id": "7b22ebaf-5e99-44c5-b049-3594ca36816d",
+      "name": "Scrape facebook group"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "FqdnWBAiSnd4SzCh",
+          "mode": "list",
+          "cachedResultName": "Boost — Scrape Facebook Groups for Leads"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "record_id": "={{ $json.id }}"
+          },
+          "matchingColumns": [
+            "record_id"
+          ],
+          "schema": [
+            {
+              "id": "record_id",
+              "displayName": "record_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        540,
+        -520
+      ],
+      "id": "34b5951d-39b3-4499-9a63-346ffec22e15",
+      "name": "Scrape facebook group1"
+    },
+    {
+      "parameters": {
+        "path": "lead-generator/facebook",
+        "authentication": "basicAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        -60
+      ],
+      "id": "f356269f-6285-4f06-b698-d29a6246f5cc",
+      "name": "Scrape Facebook1",
+      "webhookId": "78b2e6fb-2fad-4301-97db-9d891e9b4c75",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "vWv0jOl3dsDFS86m",
+          "name": "Airtable Publishing"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        -300
+      ],
+      "id": "1a404338-034c-4888-80b5-085c5f61ebb8",
+      "name": "When clicking ‘Test workflow’"
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "S0qWUDOmweuNpnn1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2025-04-25T17:32:25.846Z",
+      "updatedAt": "2025-04-25T17:32:25.846Z",
+      "id": "GLJ1Lw5LTDnzGFAu",
+      "name": "Lead Generator"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-06-01T18:11:42.000Z",
+  "versionId": "36e9db58-2b0e-4906-80a9-6ae1cb1b30ae"
+}
