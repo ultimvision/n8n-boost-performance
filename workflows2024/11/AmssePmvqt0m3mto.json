@@ -1,0 +1,1416 @@
+{
+  "active": false,
+  "connections": {
+    "Parse URLs": {
+      "main": [
+        [
+          {
+            "node": "Validate input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate input": {
+      "main": [
+        [
+          {
+            "node": "Create JWT",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare LLM input": {
+      "main": [
+        [
+          {
+            "node": "Summarize HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Article",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Generate Article",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Summarize HTML",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare final LLM generation": {
+      "main": [
+        [
+          {
+            "node": "Generate Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate images prompts",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Generate images prompts",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set header url": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set content url": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set conclusion url": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Rebuild working data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Should generate images": {
+      "main": [
+        [
+          {
+            "node": "Generate images prompts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Rebuild working data": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Switch on output format",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch on output format": {
+      "main": [
+        [
+          {
+            "node": "Prepare text output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare HTML output",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare JSON output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Parse URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare text output": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare HTML output": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Prepare JSON output": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Split Out URLs": {
+      "main": [
+        [
+          {
+            "node": "Get web content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate summarised web pages": {
+      "main": [
+        [
+          {
+            "node": "Prepare final LLM generation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate header": {
+      "main": [
+        [
+          {
+            "node": "Set header url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate content image1": {
+      "main": [
+        [
+          {
+            "node": "Set content url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate conclusion image1": {
+      "main": [
+        [
+          {
+            "node": "Set conclusion url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate images prompts": {
+      "main": [
+        [
+          {
+            "node": "Generate header",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Generate content image1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Generate conclusion image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Article": {
+      "main": [
+        [
+          {
+            "node": "Should generate images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarize HTML": {
+      "main": [
+        [
+          {
+            "node": "Aggregate summarised web pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create JWT": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get web content": {
+      "main": [
+        [
+          {
+            "node": "Prepare LLM input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "Split Out URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-04T15:11:01.383Z",
+  "id": "AmssePmvqt0m3mto",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "News Generation",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// the max amount of urls in the payload\nconst maxUrlCount = 5\nconst urlRegex = /^(https?:\\/\\/)?(www\\.)?([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?$/;\n\n\nconst data = $input.item.json;\ndata.urls = []\nfor (let i = 1; i <= maxUrlCount; i++) {\n  const key = 'url' + i\n  if (key in data.data) {\n    if (urlRegex.test(data.data[key])) {\n      data.urls.push(data.data[key])\n    }\n  }\n}\n\nreturn {json: data}"
+      },
+      "id": "d59c11b2-2a1b-45da-a8d0-8485ec77ec38",
+      "name": "Parse URLs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "5a515293-51da-4b06-bf71-ba1a9a4f33cd",
+              "leftValue": "={{ $json.urls }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "6de97d77-2a21-463a-8d69-4e72164be890",
+              "leftValue": "={{ $json.data.output_format }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "24aea991-8cf1-4fe2-b07f-6fb59ca2e672",
+              "leftValue": "={{ $json.data.generate_images }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5beac5b7-c7ec-49d3-bdc7-13b2153e1a1d",
+      "name": "Validate input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        860,
+        700
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ed9f4565-64b9-4228-806b-2386e78e28fd",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f208f286-ffa7-4211-a3d6-3a3fc830d900",
+              "name": "web_content",
+              "value": "={{ $json.browserHtml\n  // Remove specified HTML elements\n  .replace(/<\\s*(svg|symbol|img|script|style|head)[^>]*>([\\s\\S]*?)<\\/\\s*\\1\\s*>|<\\s*(svg|symbol|i|img)[^>]*\\/?>/gi, '')\n  // Remove all attributes within HTML tags, including data-* attributes\n  .replace(/\\s+\\S+=\"[^\"]*\"/g, '')\n  // Remove newline characters\n  .replace(/[\\n\\r]/g, '')\n  // Remove HTML comments\n  .replace(/<!--[\\s\\S]*?-->/g, '')\n}}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a2164f93-5f41-4e43-87f9-a06f41241bb1",
+      "name": "Prepare LLM input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2160,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-2024-08-06",
+        "options": {
+          "responseFormat": "json_object"
+        }
+      },
+      "id": "e8a52ffa-4200-423c-8b76-3f87a5df954e",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3400,
+        920
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "63910ddd-0423-4666-a52a-0838b38ab869",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        3600,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "responseFormat": "json_object"
+        }
+      },
+      "id": "d745f181-42e1-4c01-9710-cfd0a87abd7b",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        3560,
+        1100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"title\": \"News Article Response Schema\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"The title of the generated news article. It should be compelling, informative, and reflect the main topic of the content.\"\n    },\n    \"intro\": {\n      \"type\": \"string\",\n      \"description\": \"The introductory paragraph of the news article. This paragraph should succinctly introduce the topic and capture the reader's attention.\"\n    },\n    \"content\": {\n      \"type\": \"array\",\n      \"description\": \"An array containing the main content paragraphs of the article. Each element in the array represents one paragraph.\",\n      \"items\": {\n        \"type\": \"string\",\n        \"description\": \"A paragraph of the main content that provides detailed information and context about the topic.\"\n      },\n      \"minItems\": 2,\n      \"maxItems\": 4\n    },\n    \"conclusion\": {\n      \"type\": \"string\",\n      \"description\": \"A concluding paragraph that summarizes the article and provides a takeaway or call to action for the reader.\"\n    }\n  },\n  \"required\": [\"title\", \"intro\", \"content\", \"conclusion\"],\n  \"additionalProperties\": false\n}"
+      },
+      "id": "330a5c6d-1bb5-4de4-8f20-07f731926503",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        3720,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4-turbo",
+        "options": {}
+      },
+      "id": "70e3e198-f67f-4698-b8af-d8893745101e",
+      "name": "OpenAI Chat Model2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        920
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3305a924-42c3-4cd9-a056-575b94d2fae6",
+              "name": "web_content",
+              "value": "={{ $json.summarized_web_content.map((i, idx) => `Source ${idx + 1}:\\n\\n${i}`).join('\\n\\n\\n\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "fee84ab2-160d-4e08-9ef9-3f5690644802",
+              "name": "language",
+              "value": "={{ $('Execute Workflow Trigger').first().json.data.language }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "62563213-caee-4618-8ae9-06afbc4d61eb",
+      "name": "Prepare final LLM generation",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3140,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {
+          "responseFormat": "text"
+        }
+      },
+      "id": "72442c9e-90dc-4c82-8f88-5c88d864d398",
+      "name": "OpenAI Chat Model3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        4480,
+        240
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "39b8e923-31e2-459e-a49f-f1f821ab07cd",
+      "name": "Auto-fixing Output Parser1",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        4660,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "id": "1c613642-88de-4911-aec7-fc8a259ee638",
+      "name": "OpenAI Chat Model4",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        4620,
+        420
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"header\": {\n      \"type\": \"string\",\n      \"description\": \"This is the prompt to generate the header image.\"\n    },\n    \"content\": {\n      \"type\": \"string\",\n      \"description\": \"This is the prompt to generate an inline image that visually augments the article's main content.\"\n    },\n    \"conclusion\": {\n      \"type\": \"string\",\n      \"description\": \"This is the prompt to generate a final image that will show up underneath the text of the article. This image captures the tone of the conclusion.\"\n    }\n  },\n  \"required\": [\"header\", \"content\", \"conclusion\"]\n}\n"
+      },
+      "id": "67cf5d9f-4d06-4090-9fe3-c49dc81300d5",
+      "name": "Structured Output Parser1",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        4780,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f251fc84-1624-47bb-873c-077dbd9f8172",
+              "name": "header_url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8953c3ee-1b1a-44b6-8bff-ed2ffa5c567d",
+      "name": "Set header url",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5240,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "62d80666-05d1-4919-8394-daf3c768461d",
+              "name": "content_url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "56188730-6e1e-4a0e-a04b-018064a7b694",
+      "name": "Set content url",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5240,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "62d80666-05d1-4919-8394-daf3c768461d",
+              "name": "conclusion_url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6974921c-ddd3-4533-944f-15bda7981568",
+      "name": "Set conclusion url",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5240,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {}
+      },
+      "id": "2cb5e544-7c77-46f8-bdcd-3f13b50cb296",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        5560,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "efd02b8e-e6d2-45a5-866c-e632636c3907",
+              "leftValue": "={{ $('Execute Workflow Trigger').item.json.data.generate_images }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "27c6b567-8dd3-48fa-a2a9-21d9db855b4c",
+      "name": "Should generate images",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3820,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8d10ef31-05fd-4fdc-8b2c-a2c802f1ee93",
+              "name": "output",
+              "value": "={{ $('Generate Article').item.json.output }}",
+              "type": "object"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "ba621ebf-5ed1-4ac7-8c0f-375b8bd20894",
+      "name": "Rebuild working data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5780,
+        -140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "55572983-c578-4ee7-90b9-c49a7b14d453",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        6160,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c5935577-7f76-41ff-a21d-5ed36bfbb5ac",
+              "name": "article",
+              "value": "={{ $json.output.title }}\\n\\n\\n\\n{{ $json.output.intro }}\\n\\n\\n{{ $json.output.content.join('\\n\\n') }}\\n\\n\\n{{ $json.output.conclusion }}",
+              "type": "string"
+            },
+            {
+              "id": "29f1687f-7337-424f-aaad-5e7e75991f97",
+              "name": "header_image_url",
+              "value": "={{ $json.header_url }}",
+              "type": "string"
+            },
+            {
+              "id": "089cf332-667b-4b81-9efb-28bba1b95863",
+              "name": "content_image_url",
+              "value": "={{ $json.content_url }}",
+              "type": "string"
+            },
+            {
+              "id": "90db32b0-251b-42c5-880a-dae78bdb6e18",
+              "name": "conclusion_image_url",
+              "value": "={{ $json.conclusion_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dafacaaa-051f-47eb-83e5-b71a182505e0",
+      "name": "Prepare text output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6720,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Execute Workflow Trigger').first().json.data.output_format }}",
+                    "rightValue": "Text",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1b2d151f-b0f6-42ca-958a-6443d1c5ab24",
+                    "leftValue": "={{ $('Execute Workflow Trigger').first().json.data.output_format }}",
+                    "rightValue": "HTML",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "html"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b273902d-e0d0-49c2-8963-95be7e3d92e8",
+                    "leftValue": "={{ $('Execute Workflow Trigger').first().json.data.output_format }}",
+                    "rightValue": "JSON",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "62b9c704-7134-4cbb-bb14-4aff6bd908c7",
+      "name": "Switch on output format",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        6380,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c5935577-7f76-41ff-a21d-5ed36bfbb5ac",
+              "name": "article",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "29f1687f-7337-424f-aaad-5e7e75991f97",
+              "name": "header_image_url",
+              "value": "={{ $json.header_url }}",
+              "type": "string"
+            },
+            {
+              "id": "089cf332-667b-4b81-9efb-28bba1b95863",
+              "name": "content_image_url",
+              "value": "={{ $json.content_url }}",
+              "type": "string"
+            },
+            {
+              "id": "90db32b0-251b-42c5-880a-dae78bdb6e18",
+              "name": "conclusion_image_url",
+              "value": "={{ $json.conclusion_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0f30cc15-0f3a-4bc9-b99c-f9c987097567",
+      "name": "Prepare JSON output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6700,
+        1000
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f1a0d9e1-1850-4bca-b025-e6b8c38aad7b",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        420,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c5935577-7f76-41ff-a21d-5ed36bfbb5ac",
+              "name": "article",
+              "value": "=<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>{{ $json.output.title }}</title>\n    <link rel=\"stylesheet\" href=\"styles.css\"> <!-- Optional stylesheet link -->\n</head>\n<body>\n    <article>\n        <header>\n            <h1>{{ $json.output.title }}</h1>\n        </header>\n\n        <section class=\"intro\">\n            <p>{{ $json.output.intro }}</p>\n        </section>\n\n        <section class=\"content\">\n            {{ $json.output.content.map(i => `<p>${i}</p>`).join('') }}\n        </section>\n\n        <footer class=\"conclusion\">\n            <p>{{ $json.output.conclusion }}</p>\n        </footer>\n    </article>\n</body>\n</html>",
+              "type": "string"
+            },
+            {
+              "id": "29f1687f-7337-424f-aaad-5e7e75991f97",
+              "name": "header_image_url",
+              "value": "={{ $json.header_url }}",
+              "type": "string"
+            },
+            {
+              "id": "089cf332-667b-4b81-9efb-28bba1b95863",
+              "name": "content_image_url",
+              "value": "={{ $json.content_url }}",
+              "type": "string"
+            },
+            {
+              "id": "90db32b0-251b-42c5-880a-dae78bdb6e18",
+              "name": "conclusion_image_url",
+              "value": "={{ $json.conclusion_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "437508a7-8d9b-489f-8d91-2748872c35e3",
+      "name": "Prepare HTML output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6700,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "id": "c0629762-d09b-4cea-baee-e1c2756973c6",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        7160,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Work In Progress",
+        "height": 80,
+        "width": 358.2330900654478
+      },
+      "id": "c29a9261-e471-468c-93f6-4dc0ff2f4b7c",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "urls",
+        "include": "allOtherFields",
+        "options": {
+          "destinationFieldName": "url"
+        }
+      },
+      "id": "adf05a56-19e8-4bc7-85de-25448523fa97",
+      "name": "Split Out URLs",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "output",
+              "renameField": true,
+              "outputFieldName": "summarized_web_content"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e763f3c6-2005-4a83-ad76-1383f21fe2de",
+      "name": "Aggregate summarised web pages",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2840,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "={{ $json.output.output.header }}",
+        "options": {
+          "returnImageUrls": true
+        }
+      },
+      "id": "626b7061-b03b-4b2a-9216-cf1670257217",
+      "name": "Generate header",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        5020,
+        -320
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "={{ $json.output.output.content }}",
+        "options": {
+          "returnImageUrls": true
+        }
+      },
+      "id": "171a94bd-a491-44ce-9dd9-675565f76e78",
+      "name": "Generate content image1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        5020,
+        -140
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "={{ $json.output.output.conclusion }}",
+        "options": {
+          "returnImageUrls": true
+        }
+      },
+      "id": "40dd482d-d34f-4016-a275-23373f35c701",
+      "name": "Generate conclusion image1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        5020,
+        60
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "zkWuczC3vhG0IipF",
+          "name": "OpenAI - Account - Jungle"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert AI engineer and a master of prompting image models to generate images. You also excel at synthesizing text to core keywords and general key ideas and concepts.\n\nGiven the provided blog article content, generate 3 prompts to generate a blog article images for the mentionned article.\n\nArticle content:\n{{ JSON.stringify($json.output, null, 4) }}\n\nYou should respond in JSON format like so:\n{\n  \"header\": \"<this is the prompt to generate the header image>\",\n  \"content\": \"<this is the prompt to generate an inline image that visually augments the article's main content>\",\n  \"conclusion\": \"<this is the prompt to generate a final image that will show up underneath the text of the article. this image captures the tone of the conclusion.>\"  \n}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "b69c645e-675f-4c08-a1ea-6b905515e09f",
+      "name": "Generate images prompts",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        4480,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Please create a news article based on the provided sources summaries. The article should be written in {{ $json.language || 'English' }}. Use the structure and format defined in the system prompt and respond in JSON format. Here is the summarized text content from the website sources:\n\n{{ $json.web_content }}\n\nAnalyze and synthesize the information from the provided content to generate the news article.\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Based on the summarized text content provided from up to 5 different websites, generate a cohesive and engaging news article for a professional blog. Make sure to read through all of the summarized sources provided by the user and try to include content from all sources. If you find overlapping content between sources, put more emphasis on those topics in the generated news article.\n\nThe article should be structured as follows:\n\nTitle: Create a compelling and informative title that captures the essence of the news.\nIntroductory Paragraph: Write a concise paragraph that introduces the topic and grabs the reader's attention.\nMain Content: Develop two to four paragraphs of content that provide in-depth information and context about the topic, synthesizing the key points from the provided website sources.\nConclusion: Conclude with a small paragraph summarizing the article and providing a takeaway or call to action for the reader.\nEnsure the tone is professional, clear, and aligns with news publication standards. Avoid direct copying of content and rephrase ideas to maintain originality. Highlight the most critical and newsworthy elements from all sources of material provided.\n\nRespond with the content in the following JSON format:\n\n{\n  \"title\": \"Generated Title Here\",\n  \"intro\": \"Generated introductory paragraph here.\",\n  \"content\": [\n    \"First content paragraph here.\",\n    \"Second content paragraph here.\"\n  ],\n  \"conclusion\": \"Generated conclusion paragraph here.\"\n}\n"
+        }
+      },
+      "id": "8a63a956-2222-490f-976a-8e2edaaf7894",
+      "name": "Generate Article",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        3440,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "=Given the following raw HTML, generate a concise summary that captures the main ideas and key points. The summary should be structured into two well-written paragraphs that convey the most important information in a clear and coherent manner. The tone should be neutral and informative, suitable for readers looking for an overview of the content.\n\nHere is the extracted text:\n\n{{ $json.web_content }}\n\nPlease ensure the response is concise, capturing the essence of the provided text without omitting significant details.",
+        "options": {}
+      },
+      "id": "a5d5988c-6669-4f7b-a5a5-7ec0de5e0089",
+      "name": "Summarize HTML",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        2460,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "claims": {
+          "expiresIn": 3600
+        },
+        "options": {}
+      },
+      "id": "fb484392-c40a-426f-9d77-3ba045b38bf7",
+      "name": "Create JWT",
+      "type": "n8n-nodes-base.jwt",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        520
+      ],
+      "credentials": {
+        "jwtAuth": {
+          "id": "0ODBsZYcfRqwvQH6",
+          "name": "JWT DigitalOcean Web Scraper"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.zyte.com/v1/extract",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "url",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "name": "browserHtml",
+              "value": "={{ true }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "09877825-3c4e-48e4-9661-54ff3ba1b3a8",
+      "name": "Get web content",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1860,
+        700
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "EBzsIXCXewO1j1gS",
+          "name": "Rapid API - Mat"
+        },
+        "httpBasicAuth": {
+          "id": "VYXBtDyWVPliJzB9",
+          "name": "Zyte - Mat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "includeUnpaired": true
+        }
+      },
+      "id": "08fd5701-a8f5-43c4-b1a4-a0144fc7ef18",
+      "name": "Merge3",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1340,
+        700
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-10-22T23:32:58.852Z",
+      "updatedAt": "2024-10-22T23:32:58.852Z",
+      "id": "G3jdJVXc1hCwJbIu",
+      "name": "Routine System"
+    },
+    {
+      "createdAt": "2024-10-22T13:57:05.753Z",
+      "updatedAt": "2024-10-22T13:57:05.753Z",
+      "id": "Q3qpTHNcg1K6uHlR",
+      "name": "Routine"
+    },
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-05T23:45:07.000Z",
+  "versionId": "48e9304c-f3a6-4182-b59c-7e9c9f05695b"
+}
