@@ -1,0 +1,308 @@
+{
+  "active": false,
+  "connections": {
+    "Verify Signature": {
+      "main": [
+        [
+          {
+            "node": "Is from Stripe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is from Stripe": {
+      "main": [
+        [
+          {
+            "node": "Webhook Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Verify Signature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Payload": {
+      "main": [
+        [
+          {
+            "node": "Essential Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Essential Data": {
+      "main": [
+        [
+          {
+            "node": "Is paid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-13T21:20:11.079Z",
+  "id": "i72KzKmV8uXxfJ9Q",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Webhook - Stripe - Test Mode",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const crypto = require('crypto');\n\nconst verifySignature = (body, header) => {\n  // Parse the header values\n  const parsedHeader = header.split(',').reduce((accum, x) => { \n    const [k, v] = x.split('=');\n    return { ...accum, [k]: v };\n  }, {});\n\n  // Stripe signing secret\n  const signingSecret = $vars.stripe_webhook_secret_test_mode;\n\n  // Create the payload string\n  const payload = Buffer.concat([\n    Buffer.from(parsedHeader.t + '.', 'utf8'),\n    Buffer.from(body, 'base64')\n  ]);\n\n  // Compute HMAC SHA-256 signature\n  const computedSignature = crypto\n    .createHmac('sha256', signingSecret)\n    .update(payload)\n    .digest('hex');\n\n  \n\n  // Compare the computed signature with the header's v1 signature\n  return computedSignature === parsedHeader.v1;\n}; \n\n// Call the function and return the result\nreturn {\n  verified: verifySignature($('Webhook').first().binary.data.data, $input.item.json.headers['stripe-signature'])\n};"
+      },
+      "id": "45b6bb66-841a-4de1-85a6-e9aef6ecc7cc",
+      "name": "Verify Signature",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "253c9eef-d611-4178-8197-3fc42b85a993",
+              "leftValue": "={{ $json.verified }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "395cbe8e-342c-462e-92d7-377ab7f12021",
+      "name": "Is from Stripe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1220,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Security\n\nAdd payload signature verification to make sure this call comes from Stripe.",
+        "height": 409.33266549136084,
+        "width": 603.0906941217922,
+        "color": 5
+      },
+      "id": "c0da24f1-f13f-4f4f-baa1-819a05d8fc22",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        860,
+        309.8665330982713
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f5edd433-e4b4-4fe3-8fc4-516b2a8b4b36",
+              "name": "payload",
+              "value": "={{ $('Webhook').item.json.body }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d653f9ba-e3c6-41b1-98f6-18741c45129a",
+      "name": "Webhook Payload",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1560,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "stripe-test-mode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "e555158e-f536-49e6-99e5-3214093ec33e",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        620,
+        520
+      ],
+      "webhookId": "bb5c777c-036c-46c9-b060-b259e6b59ef0"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "80d01489-18c2-4ac5-9d0f-5bd4f99727c7",
+              "name": "stripe_customer_id",
+              "value": "={{ $json.payload.data.object.customer }}",
+              "type": "string"
+            },
+            {
+              "id": "fbd67894-0ff5-4d35-b28c-a0f427a3a608",
+              "name": "stripe_customer_email",
+              "value": "={{ $json.payload.data.object.customer_email }}",
+              "type": "string"
+            },
+            {
+              "id": "e367a690-d306-4019-9290-07619421106c",
+              "name": "product_id",
+              "value": "={{ $json.payload.data.object.lines.data[0].plan.product }}",
+              "type": "string"
+            },
+            {
+              "id": "8ae8f850-4797-4012-a6d4-60fde03522c9",
+              "name": "paid",
+              "value": "={{ $json.payload.data.object.paid }}",
+              "type": "boolean"
+            },
+            {
+              "id": "236a09da-f4be-40e4-adb3-94886bdfdc49",
+              "name": "expires",
+              "value": "={{ DateTime.fromSeconds($json.payload.data.object.lines.data[0].period.end).toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e219a8f6-adeb-4c4a-b2f3-c6a00eb081b7",
+      "name": "Essential Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1800,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d2e23629-ca2d-4730-84e0-2696a5ceff78",
+              "leftValue": "={{ $json.paid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fa195d5f-532a-487d-8750-73286736b13b",
+      "name": "Is paid",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2020,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Steps:\n\n- check if we have a user in postgres (_users.stripe_customer_id_)\n-- if not, let's try to find a user by the stripe email instead\n-- -- if not, we need to create a new user in Circle and Supabase\n-- -- if yes, let's map the stripe customer id to this user \n- let's update the user products (expiration, product id, etc)\n- let's adjust the Circle tags if needed\n- let's create a private Circle space if needed\n- let's adjust the user's role in Supabase (_users.roles: string[]_) if needed",
+        "height": 612,
+        "width": 608
+      },
+      "id": "6dd45ce3-c78d-4827-a436-f166abe536a1",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        160
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Stripe Trigger": {}
+  },
+  "tags": [
+    {
+      "createdAt": "2024-10-16T13:39:21.071Z",
+      "updatedAt": "2024-10-16T13:39:21.071Z",
+      "id": "E8nPTYjZtWlaLr4T",
+      "name": "Webhook"
+    },
+    {
+      "createdAt": "2024-11-12T19:50:40.502Z",
+      "updatedAt": "2024-11-12T19:50:40.502Z",
+      "id": "LA4RAcOfqWJQKMdI",
+      "name": "Stripe"
+    },
+    {
+      "createdAt": "2024-08-06T21:15:08.860Z",
+      "updatedAt": "2024-08-06T21:15:08.860Z",
+      "id": "fCd4LZ9ipYWyIPrk",
+      "name": "TEST"
+    },
+    {
+      "createdAt": "2024-08-19T20:58:50.029Z",
+      "updatedAt": "2024-08-19T20:58:50.029Z",
+      "id": "hOqecdj1cCosBMqL",
+      "name": "Dev:Mat"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-11-15T14:09:05.000Z",
+  "versionId": "fadaf611-f9c8-4f08-a1a3-1dd34597887c"
+}
