@@ -1,0 +1,704 @@
+{
+  "active": false,
+  "connections": {
+    "Workflow Data": {
+      "main": [
+        [
+          {
+            "node": "Select Podcast Content to Publish",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Podcast Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Podcast Content to Publish": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Podcast Details": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a POST": {
+      "main": [
+        [
+          {
+            "node": "Article Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Article Data": {
+      "main": [
+        [
+          {
+            "node": "Download HD AI Image 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download HD AI Image 1": {
+      "main": [
+        [
+          {
+            "node": "Upload Image to Wordpress",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Image to Wordpress": {
+      "main": [
+        [
+          {
+            "node": "Image Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Featured Image English": {
+      "main": [
+        [
+          {
+            "node": "Set Status to Published",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare metadata1": {
+      "main": [
+        [
+          {
+            "node": "Set Meta MathRank",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get SEO Fields": {
+      "main": [
+        [
+          {
+            "node": "Prepare metadata1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Data": {
+      "main": [
+        [
+          {
+            "node": "Set Featured Image English",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Workflow Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Content To Publish",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content To Publish": {
+      "main": [
+        [
+          {
+            "node": "Create a POST",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Status to Published": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-02T20:44:42.476Z",
+  "id": "0uWY2kR2Y53T33Yj",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Wordpress |Publish Post Content with Image",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "3d93b079-bee2-4711-82da-7690c3754178",
+      "name": "Workflow Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        540,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "podcast_id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            },
+            {
+              "column": "status",
+              "value": "not_published"
+            }
+          ]
+        },
+        "sort": {
+          "values": [
+            {
+              "column": "id",
+              "direction": "DESC"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "40f5584e-ec13-4676-add9-6d234208a688",
+      "name": "Select Podcast Content to Publish",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        780,
+        260
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://danslajungledesaffaires.blog/wp-json/wp/v2/posts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "status",
+              "value": "publish"
+            },
+            {
+              "name": "content",
+              "value": "={{ $json.html_content }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "name": "categories",
+              "value": "14"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2b34c753-0ca1-4398-af9a-9096a24b6193",
+      "name": "Create a POST",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1640,
+        500
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "AEYaquraPwgEuM4S",
+          "name": "Wordpress Jungle Blog"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "jungle_podcasts",
+          "mode": "list",
+          "cachedResultName": "jungle_podcasts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "outputColumns": [
+            "guest",
+            "guest_details",
+            "url_video"
+          ]
+        }
+      },
+      "id": "9769b36a-69da-471e-802e-73ecd189d683",
+      "name": "Get Podcast Details",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        780,
+        500
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "5c1ea55a-534e-4fb9-abf5-010bbd9f26b1",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        1020,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "62aa042f-7913-4ab1-a04c-84d317fcc8d8",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "ed594d0e-2e2d-4325-97a2-4ae252bd2bfb",
+              "name": "link",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "ccdb2479-d274-4e70-ad3a-c582ab146868",
+              "name": "author",
+              "value": "={{ $json.author }}",
+              "type": "number"
+            },
+            {
+              "id": "1b053d62-7911-4f59-a9e7-a1ee91d15274",
+              "name": "featured_media",
+              "value": "={{ $json.featured_media }}",
+              "type": "number"
+            },
+            {
+              "id": "4cd7bc2b-8a50-4ac3-864f-dae1621858e6",
+              "name": "comment_status",
+              "value": "={{ $json.comment_status }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4c04d625-4590-448e-beb4-05f165b37502",
+      "name": "Article Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1900,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://danslajungledesaffaires.blog/podcasts/{{ $('Workflow Data').item.json[\"podcast_id\"] }}/images/hd/ai/jpg/{{ $('Content To Publish').item.json[\"content_id\"] }}_ai_image_1.jpg",
+        "options": {}
+      },
+      "id": "064ce7dc-d754-41b5-8689-792f05830c36",
+      "name": "Download HD AI Image 1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2100,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://danslajungledesaffaires.blog/wp-json/wp/v2/media",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "={{ $json.mimeType }}"
+            },
+            {
+              "name": "content-disposition",
+              "value": "=attachment; filename={{ $binary.data.fileName }}.{{ $binary.data.fileExtension }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "id": "003aa7db-4dd2-424e-9c61-927d1c01c176",
+      "name": "Upload Image to Wordpress",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2340,
+        440
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "AEYaquraPwgEuM4S",
+          "name": "Wordpress Jungle Blog"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://danslajungledesaffaires.blog/wp-json/wp/v2/posts/{{ $('Article Data').item.json[\"id\"] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "featured_media",
+              "value": "={{ $json.id }}\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4392a4f6-9dc0-4d75-9634-8b70388b2b3d",
+      "name": "Set Featured Image English",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2820,
+        420
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "AEYaquraPwgEuM4S",
+          "name": "Wordpress Jungle Blog"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const title = $input.all()[0].json.title;\n//const keywords = $input.all()[0].json.keywords;\nconst meta_description = $input.all()[0].json.meta_description;\n\n// Construct the meta object with the required fields\nconst meta = {\n    rank_math_title: title,\n    rank_math_description: meta_description,\n    //rank_math_focus_keyword: keywords\n};\n\n// Return the meta object wrapped in an array to match n8n's expected output format\nreturn [{mathrank: {meta}}];\n\n"
+      },
+      "id": "beac9784-b267-4b33-9423-0798cfcf62a1",
+      "name": "Prepare metadata1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2960,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "55160fe0-e419-4b25-b2e6-dbad9a6e5961",
+              "name": "title",
+              "value": "={{ $('HTML Content').item.json[\"title_fr\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "301f2aa6-fea1-405f-b6f7-f1cc2867695c",
+              "name": "meta_description",
+              "value": "={{ $('HTML Content').item.json[\"meta_description_fr\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d0221742-4736-436e-93ad-ed92b0613a20",
+      "name": "Get SEO Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2740,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://www.boostperformance.ai/wp-json/wp/v2/posts/{{ $('Post Data').item.json[\"id\"] }}\n",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "meta",
+              "value": "={{ $json.mathrank.meta }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3a41d78c-5d01-455b-9d3a-24f4c1d0ebc6",
+      "name": "Set Meta MathRank",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        3200,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b5404bdc-3039-479e-a4f8-1cc6580cd8ae",
+              "name": "link",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "05788a6f-a6de-4e7f-9ec5-23e450ce4f10",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f59426f4-812b-4ce5-b0cf-272207f2853c",
+      "name": "Image Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        2600,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": {
+          "__rl": true,
+          "value": "jungle_content",
+          "mode": "list",
+          "cachedResultName": "jungle_content"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "podcast_id",
+        "valueToMatchOn": "={{ $('Workflow Data').item.json[\"podcast_id\"] }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "status",
+              "value": "published"
+            },
+            {
+              "column": "article_id",
+              "value": "={{ $('Article Data').item.json[\"id\"] }}"
+            },
+            {
+              "column": "article_link",
+              "value": "={{ $('Article Data').item.json[\"link\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2ed75650-6f78-41e7-bab7-591ae943d25d",
+      "name": "Set Status to Published",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        3080,
+        540
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "HEAIqSJ64wOb7Ads",
+          "name": "MySQL Jungle des Affaires"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "53502e55-ea43-4ba2-9140-2024fac02728",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        340,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5c848559-88ea-497f-bb2a-bc49aa77db77",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1220,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a2011836-8832-4f2c-8d78-d2b45c27e673",
+              "name": "content_id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "b08899e1-4fae-4428-be0d-5ff059d4265d",
+      "name": "Content To Publish",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        1460,
+        500
+      ]
+    }
+  ],
+  "repo_name": "n8n-boost-performance",
+  "repo_owner": "ultimvision",
+  "repo_path": "workflows",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-07-03T10:27:21.057Z",
+      "updatedAt": "2024-07-03T10:27:21.057Z",
+      "id": "kjd4NuS0MxgHxPmw",
+      "name": "Content Creation"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2024-07-06T16:51:02.000Z",
+  "versionId": "a1f1f6e4-ae9a-480f-980a-1376697882d8"
+}
